@@ -7,6 +7,14 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+
+        <p>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ path('fos_user_security_logout') }}">Logga ut</a>
+            {% else %}
+                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}">Logga in</a>
+            {% endif %}
+        </p>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

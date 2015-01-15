@@ -33,7 +33,7 @@ class FOSUBUserProvider extends BaseClass
         //we connect current user
         $user->$setter_id($username);
         $user->$setter_token($response->getAccessToken());
-        $user->setEmail($response->getEmail());
+        $user->setEmail($response->getEmail() ?: $username);
         $user->setName($response->getRealName());
         $user->setProfilePicture($response->getProfilePicture());
 
@@ -60,7 +60,7 @@ class FOSUBUserProvider extends BaseClass
             //I have set all requested data with the user's username
             //modify here with relevant data
             $user->setUsername($username);
-            $user->setEmail($response->getEmail());
+            $user->setEmail($response->getEmail() ?: $username);
             $user->setPassword($username);
             $user->setEnabled(true);
             $user->setName($response->getRealName());
