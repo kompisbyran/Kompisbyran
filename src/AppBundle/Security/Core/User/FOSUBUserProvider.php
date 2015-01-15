@@ -34,6 +34,8 @@ class FOSUBUserProvider extends BaseClass
         $user->$setter_id($username);
         $user->$setter_token($response->getAccessToken());
         $user->setEmail($response->getEmail());
+        $user->setName($response->getRealName());
+        $user->setProfilePicture($response->getProfilePicture());
 
         $this->userManager->updateUser($user);
     }
@@ -61,6 +63,8 @@ class FOSUBUserProvider extends BaseClass
             $user->setEmail($response->getEmail());
             $user->setPassword($username);
             $user->setEnabled(true);
+            $user->setName($response->getRealName());
+            $user->setProfilePicture($response->getProfilePicture());
             $this->userManager->updateUser($user);
             return $user;
         }

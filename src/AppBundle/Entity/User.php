@@ -19,17 +19,35 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(type="string")
      */
     protected $facebookId;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(type="string")
      */
     protected $facebookAccessToken;
 
     /**
-     * @param mixed $facebookAccessToken
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $profilePicture;
+
+    /**
+     * @param string $facebookAccessToken
      */
     public function setFacebookAccessToken($facebookAccessToken)
     {
@@ -37,7 +55,7 @@ class User extends BaseUser
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getFacebookAccessToken()
     {
@@ -45,7 +63,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param mixed $facebookId
+     * @param string $facebookId
      */
     public function setFacebookId($facebookId)
     {
@@ -53,7 +71,7 @@ class User extends BaseUser
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getFacebookId()
     {
@@ -61,10 +79,42 @@ class User extends BaseUser
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $profilePicture
+     */
+    public function setProfilePicture($profilePicture)
+    {
+        $this->profilePicture = $profilePicture;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProfilePicture()
+    {
+        return $this->profilePicture;
     }
 }
