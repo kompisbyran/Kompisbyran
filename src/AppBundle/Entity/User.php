@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -45,6 +46,26 @@ class User extends BaseUser
      * @ORM\Column(type="string", nullable=true)
      */
     protected $profilePicture;
+
+    /**
+     * @var Connection[]
+     *
+     * @ORM\OneToMany(targetEntity="Connection", mappedBy="fluentSpeaker")
+     */
+    protected $fluentSpeakerConnections;
+
+    /**
+     * @var Connection[]
+     *
+     * @ORM\OneToMany(targetEntity="Connection", mappedBy="learner")
+     */
+    protected $learnerConnections;
+
+    public function __construct()
+    {
+        $this->fluentSpeakerConnections = new ArrayCollection();
+        $this->learnerConnections = new ArrayCollection();
+    }
 
     /**
      * @param string $facebookAccessToken
@@ -117,4 +138,38 @@ class User extends BaseUser
     {
         return $this->profilePicture;
     }
+
+    /**
+     * @param mixed $fluentSpeakerConnections
+     */
+    public function setFluentSpeakerConnections($fluentSpeakerConnections)
+    {
+        $this->fluentSpeakerConnections = $fluentSpeakerConnections;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFluentSpeakerConnections()
+    {
+        return $this->fluentSpeakerConnections;
+    }
+
+    /**
+     * @param \AppBundle\Entity\Connection[] $learnerConnections
+     */
+    public function setLearnerConnections($learnerConnections)
+    {
+        $this->learnerConnections = $learnerConnections;
+    }
+
+    /**
+     * @return \AppBundle\Entity\Connection[]
+     */
+    public function getLearnerConnections()
+    {
+        return $this->learnerConnections;
+    }
+
+
 }

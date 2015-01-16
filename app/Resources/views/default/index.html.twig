@@ -1,5 +1,27 @@
 {% extends 'base.html.twig' %}
 
+{% import _self as macro %}
+
+{% macro connectionRow(connection) %}
+    {{ connection.createdAt|date('Y-m-d H:i') }}
+{% endmacro %}
+
 {% block body %}
     Kompisbyrån
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% if app.user.fluentSpeakerConnections|length > 0 %}
+            <h2>FluentSpeaker</h2>
+            {% for connection in app.user.fluentSpeakerConnections %}
+                {{ macro.connectionRow(connection) }}
+            {% endfor %}
+        {% endif %}
+
+        {% if app.user.learnerConnections|length > 0 %}
+            <h2>Learner</h2>
+            {% for connection in app.user.learnerConnections %}
+                {{ macro.connectionRow(connection) }}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
 {% endblock %}
