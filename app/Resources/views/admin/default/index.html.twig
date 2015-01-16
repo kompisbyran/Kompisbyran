@@ -11,7 +11,10 @@
             {% if isChecked %}checked="checked"{% endif %}
         >
 
-        {{ connectionRequest.user.name }}, {{ connectionRequest.city.name }}
+        {{ connectionRequest.user.name }}, {{ connectionRequest.city.name }}<br>
+        {% for category in connectionRequest.user.categories %}
+            {{ category.name }}{% if not loop.last %}, {% endif %}
+        {% endfor %}
         {% if connectionRequest.comment %}
             <br><em>{{ connectionRequest.comment|nl2br }}</em>
         {% endif %}
