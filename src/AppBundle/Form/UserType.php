@@ -39,6 +39,9 @@ class UserType extends AbstractType
                     'F' => 'Kvinna',
                 ]
             ])
+            ->add('about', 'textarea')
+            ->add('from', 'text')
+            ->add('languages', 'text')
         ;
     }
 

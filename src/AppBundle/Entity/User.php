@@ -102,6 +102,33 @@ class User extends BaseUser
      */
     protected $gender;
 
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank
+     *
+     * @ORM\Column(type="string", name="from_country", nullable=true)
+     */
+    protected $from;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $languages;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $about;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -295,4 +322,54 @@ class User extends BaseUser
     {
         return $this->gender;
     }
+
+    /**
+     * @param string $about
+     */
+    public function setAbout($about)
+    {
+        $this->about = $about;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAbout()
+    {
+        return $this->about;
+    }
+
+    /**
+     * @param string $from
+     */
+    public function setFrom($from)
+    {
+        $this->from = $from;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
+     * @param string $languages
+     */
+    public function setLanguages($languages)
+    {
+        $this->languages = $languages;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+
 }
