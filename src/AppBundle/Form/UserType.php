@@ -31,6 +31,14 @@ class UserType extends AbstractType
                 ]
             )
             ->add('age', 'number')
+            ->add('gender', 'choice', [
+                'expanded' => true,
+                'label' => 'Kön',
+                'choices' => [
+                    'M' => 'Man',
+                    'F' => 'Kvinna',
+                ]
+            ])
         ;
     }
 

@@ -93,6 +93,15 @@ class User extends BaseUser
      */
     protected $age;
 
+    /**
+     * @var string
+     *
+     * @Assert\NotNull
+     *
+     * @ORM\Column(type="string", length=1, nullable=true)
+     */
+    protected $gender;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -269,5 +278,21 @@ class User extends BaseUser
     public function getAge()
     {
         return $this->age;
+    }
+
+    /**
+     * @param string $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
     }
 }
