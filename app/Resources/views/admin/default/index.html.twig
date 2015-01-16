@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+ {% import _self as macro %}
+
+{% macro connectionRequestRow(connectionRequest) %}
+    {{ connectionRequest.user.name }}, {{ connectionRequest.city.name }}
+    {% if connectionRequest.comment %}
+        <br><em>{{ connectionRequest.comment|nl2br }}</em>
+    {% endif %}
+{% endmacro %}
+
+{% block body %}
+    <form method="POST" action="">
+        <h2>Vill förbättra svenskan</h2>
+        <ul>
+        {% for connectionRequest in learners %}
+            <li>
+                <input name="learner" value="{{ connectionRequest.id }}" type="radio"
+                   {% if loop.first %}checked="checked"{% endif %}
+                >
+                {{ macro.connectionRequestRow(connectionRequest) }}
+            </li>
+        {% endfor %}
+        </ul>
+
+        <h2>Vill hjälpa någon att förbättra svenskan</h2>
+        <ul>
+            {% for connectionRequest in fluentSpeakers %}
+                <li>
+                    <input name="fluentSpeaker" value="{{ connectionRequest.id }}" type="radio"
+                       {% if loop.first %}checked="checked"{% endif %}
+                    >
+                    {{ macro.connectionRequestRow(connectionRequest) }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <input type="submit">
+
+    </form>
+{% endblock %}
