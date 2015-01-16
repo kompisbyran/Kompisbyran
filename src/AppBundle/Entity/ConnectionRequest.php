@@ -28,7 +28,7 @@ class ConnectionRequest
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="user")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $user;
@@ -36,7 +36,7 @@ class ConnectionRequest
     /**
      * @var City
      *
-     * @ORM\ManyToOne(targetEntity="City", inversedBy="city")
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $city;

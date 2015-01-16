@@ -64,9 +64,9 @@ class User extends BaseUser
     /**
      * @var ConnectionRequest[]
      *
-     * @ORM\OneToMany(targetEntity="Connection", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="ConnectionRequest", mappedBy="user")
      */
-    protected $connetionRequests;
+    protected $connectionRequests;
 
     /**
      * @var bool
@@ -79,7 +79,7 @@ class User extends BaseUser
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
         $this->learnerConnections = new ArrayCollection();
-        $this->connetionRequests = new ArrayCollection();
+        $this->connectionRequests = new ArrayCollection();
 
         parent::__construct();
     }
@@ -189,19 +189,19 @@ class User extends BaseUser
     }
 
     /**
-     * @param \AppBundle\Entity\ConnectionRequest[] $connetionRequests
+     * @param \AppBundle\Entity\ConnectionRequest[] $connectionRequests
      */
-    public function setConnetionRequests($connetionRequests)
+    public function setConnectionRequests($connectionRequests)
     {
-        $this->connetionRequests = $connetionRequests;
+        $this->connectionRequests = $connectionRequests;
     }
 
     /**
      * @return \AppBundle\Entity\ConnectionRequest[]
      */
-    public function getConnetionRequests()
+    public function getConnectionRequests()
     {
-        return $this->connetionRequests;
+        return $this->connectionRequests;
     }
 
     /**

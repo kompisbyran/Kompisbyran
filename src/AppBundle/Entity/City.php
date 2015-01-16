@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,8 +31,12 @@ class City
      *
      * @ORM\OneToMany(targetEntity="Connection", mappedBy="city")
      */
-    protected $connetionRequests;
+    protected $connectionRequests;
 
+    public function __construct()
+    {
+        $this->connectionRequests = new ArrayCollection();
+    }
     /**
      * @return int
      */
@@ -54,5 +59,21 @@ class City
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param \AppBundle\Entity\ConnectionRequest[] $connectionRequests
+     */
+    public function setConnectionRequests($connectionRequests)
+    {
+        $this->connectionRequests = $connectionRequests;
+    }
+
+    /**
+     * @return \AppBundle\Entity\ConnectionRequest[]
+     */
+    public function getConnectionRequests()
+    {
+        return $this->connectionRequests;
     }
 }

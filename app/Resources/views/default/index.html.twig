@@ -24,6 +24,25 @@
             {% endfor %}
         {% endif %}
 
+        <h2>Connection requests</h2>
+        {% if app.user.connectionRequests|length %}
+            <ul>
+                {% for connectionRequest in app.user.connectionRequests %}
+                    <li>
+                        {{ connectionRequest.createdAt|date('Y-m-d H:i') }}, {{ connectionRequest.city.name }}
+                        {% if connectionRequest.wantToLearn %}
+                            Du vill förbättra din svenska
+                        {% else %}
+                            Du vill hjälpa någon att förbättra sin svenska
+                        {% endif %}
+                        {% if connectionRequest.comment %}
+                            <br>{{ connectionRequest.comment }}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
         {{ form_start(form) }}
         {{ form_widget(form) }}
 
