@@ -1,0 +1,142 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ */
+class ConnectionRequest
+{
+    /**
+     * @var int
+     *
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $createdAt;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="user")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $user;
+
+    /**
+     * @var City
+     *
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="city")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $city;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $wantToLearn = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $comment;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param \AppBundle\Entity\City $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return \AppBundle\Entity\City
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param \AppBundle\Entity\User $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param boolean $wantToLearn
+     */
+    public function setWantToLearn($wantToLearn)
+    {
+        $this->wantToLearn = $wantToLearn;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getWantToLearn()
+    {
+        return $this->wantToLearn;
+    }
+
+    /**
+     * @param string $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+}

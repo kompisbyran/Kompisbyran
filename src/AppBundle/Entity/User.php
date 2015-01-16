@@ -61,10 +61,27 @@ class User extends BaseUser
      */
     protected $learnerConnections;
 
+    /**
+     * @var ConnectionRequest[]
+     *
+     * @ORM\OneToMany(targetEntity="Connection", mappedBy="user")
+     */
+    protected $connetionRequests;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $wantToLearn = false;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
         $this->learnerConnections = new ArrayCollection();
+        $this->connetionRequests = new ArrayCollection();
+
+        parent::__construct();
     }
 
     /**
@@ -171,5 +188,35 @@ class User extends BaseUser
         return $this->learnerConnections;
     }
 
+    /**
+     * @param \AppBundle\Entity\ConnectionRequest[] $connetionRequests
+     */
+    public function setConnetionRequests($connetionRequests)
+    {
+        $this->connetionRequests = $connetionRequests;
+    }
 
+    /**
+     * @return \AppBundle\Entity\ConnectionRequest[]
+     */
+    public function getConnetionRequests()
+    {
+        return $this->connetionRequests;
+    }
+
+    /**
+     * @param boolean $wantToLearn
+     */
+    public function setWantToLearn($wantToLearn)
+    {
+        $this->wantToLearn = $wantToLearn;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getWantToLearn()
+    {
+        return $this->wantToLearn;
+    }
 }
