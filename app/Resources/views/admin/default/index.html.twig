@@ -2,11 +2,20 @@
 
  {% import _self as macro %}
 
-{% macro connectionRequestRow(connectionRequest) %}
-    {{ connectionRequest.user.name }}, {{ connectionRequest.city.name }}
-    {% if connectionRequest.comment %}
-        <br><em>{{ connectionRequest.comment|nl2br }}</em>
-    {% endif %}
+{% macro connectionRequestRow(connectionRequest, inputName, isChecked) %}
+    <li>
+        {% if connectionRequest.user.profilePicture %}
+            <img src="{{ connectionRequest.user.profilePicture }}" style="float:left">
+        {% endif %}
+        <input name="{{ inputName }}" value="{{ connectionRequest.id }}" type="radio"
+            {% if isChecked %}checked="checked"{% endif %}
+        >
+
+        {{ connectionRequest.user.name }}, {{ connectionRequest.city.name }}
+        {% if connectionRequest.comment %}
+            <br><em>{{ connectionRequest.comment|nl2br }}</em>
+        {% endif %}
+    </li>
 {% endmacro %}
 
 {% block body %}
@@ -14,24 +23,14 @@
         <h2>Vill förbättra svenskan</h2>
         <ul>
         {% for connectionRequest in learners %}
-            <li>
-                <input name="learner" value="{{ connectionRequest.id }}" type="radio"
-                   {% if loop.first %}checked="checked"{% endif %}
-                >
-                {{ macro.connectionRequestRow(connectionRequest) }}
-            </li>
+            {{ macro.connectionRequestRow(connectionRequest, 'learner', loop.first) }}
         {% endfor %}
         </ul>
 
         <h2>Vill hjälpa någon att förbättra svenskan</h2>
         <ul>
             {% for connectionRequest in fluentSpeakers %}
-                <li>
-                    <input name="fluentSpeaker" value="{{ connectionRequest.id }}" type="radio"
-                       {% if loop.first %}checked="checked"{% endif %}
-                    >
-                    {{ macro.connectionRequestRow(connectionRequest) }}
-                </li>
+                {{ macro.connectionRequestRow(connectionRequest, 'fluentSpeaker', loop.first) }}
             {% endfor %}
         </ul>
 
