@@ -16,6 +16,10 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            if (false === $this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER')) {
+                return $this->redirect($this->generateUrl('settings'));
+            }
+
             /** @var \AppBundle\Entity\User $user */
             $user = $this->getUser();
             $connectionRequest = new ConnectionRequest();
