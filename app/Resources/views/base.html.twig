@@ -12,6 +12,9 @@
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <a href="{{ path('settings') }}">Inställningar</a> |
                 <a href="{{ path('fos_user_security_logout') }}">Logga ut</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    | <a href="{{ path('admin_start') }}">Admin</a>
+                {% endif %}
             {% else %}
                 <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}">Logga in</a>
             {% endif %}
