@@ -29,13 +29,21 @@ class City
     /**
      * @var ConnectionRequest[]
      *
-     * @ORM\OneToMany(targetEntity="Connection", mappedBy="city")
+     * @ORM\OneToMany(targetEntity="ConnectionRequest", mappedBy="city")
      */
     protected $connectionRequests;
+
+    /**
+     * @var Connection[]
+     *
+     * @ORM\OneToMany(targetEntity="Connection", mappedBy="city")
+     */
+    protected $connections;
 
     public function __construct()
     {
         $this->connectionRequests = new ArrayCollection();
+        $this->connections = new ArrayCollection();
     }
     /**
      * @return int

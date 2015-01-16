@@ -3,7 +3,9 @@
 {% import _self as macro %}
 
 {% macro connectionRow(connection) %}
-    {{ connection.createdAt|date('Y-m-d H:i') }}
+    <li>
+        {{ connection.createdAt|date('Y-m-d H:i') }}, {{ connection.city.name }}
+    </li>
 {% endmacro %}
 
 {% block body %}
@@ -12,16 +14,20 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         {% if app.user.fluentSpeakerConnections|length > 0 %}
             <h2>FluentSpeaker</h2>
-            {% for connection in app.user.fluentSpeakerConnections %}
-                {{ macro.connectionRow(connection) }}
-            {% endfor %}
+            <ul>
+                {% for connection in app.user.fluentSpeakerConnections %}
+                    {{ macro.connectionRow(connection) }}
+                {% endfor %}
+            </ul>
         {% endif %}
 
         {% if app.user.learnerConnections|length > 0 %}
             <h2>Learner</h2>
-            {% for connection in app.user.learnerConnections %}
-                {{ macro.connectionRow(connection) }}
-            {% endfor %}
+            <ul>
+                {% for connection in app.user.learnerConnections %}
+                    {{ macro.connectionRow(connection) }}
+                {% endfor %}
+            </ul>
         {% endif %}
 
         <h2>Connection requests</h2>
