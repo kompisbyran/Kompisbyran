@@ -3,9 +3,9 @@
 {% import _self as macro %}
 
 {% macro connectionRequestRow(connectionRequest, inputName, isChecked) %}
-    <li>
+    <li style="clear:both">
         {% if connectionRequest.user.profilePicture %}
-            <img src="{{ connectionRequest.user.profilePicture }}" style="float:left">
+            <img src="{{ connectionRequest.user.profilePicture }}" style="float:left; padding: 0 10px 10px 0">
         {% endif %}
         <input name="{{ inputName }}" value="{{ connectionRequest.id }}" type="radio"
             {% if isChecked %}checked="checked"{% endif %}
@@ -27,14 +27,17 @@
         {% endfor %}
         </ul>
 
-        <h2>Vill hjälpa någon att förbättra svenskan</h2>
+        <h2 style="clear:both">Vill hjälpa någon att förbättra svenskan</h2>
         <ul>
             {% for connectionRequest in fluentSpeakers %}
                 {{ macro.connectionRequestRow(connectionRequest, 'fluentSpeaker', loop.first) }}
             {% endfor %}
         </ul>
 
-        <input type="submit">
+        <p style="clear:both">
+            <input type="submit">
+        </p>
+
 
     </form>
 {% endblock %}
