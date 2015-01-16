@@ -75,11 +75,20 @@ class User extends BaseUser
      */
     protected $wantToLearn = false;
 
+    /**
+     * @var Category[]
+     *
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="users")
+     * @ORM\JoinTable(name="users_categories")
+     */
+    protected $categories;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
         $this->learnerConnections = new ArrayCollection();
         $this->connectionRequests = new ArrayCollection();
+        $this->categories = new ArrayCollection();
 
         parent::__construct();
     }
@@ -218,5 +227,21 @@ class User extends BaseUser
     public function getWantToLearn()
     {
         return $this->wantToLearn;
+    }
+
+    /**
+     * @param mixed $categories
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

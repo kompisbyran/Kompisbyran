@@ -20,6 +20,16 @@ class UserType extends AbstractType
                     false => 'Hjälpa någon att förbättra sin svenska',
                 ]
             ])
+            ->add('categories', 'entity', [
+                    'class' => 'AppBundle:Category',
+                    'multiple' => true,
+                    'expanded' => true,
+                    'query_builder' => function(EntityRepository $er) {
+                            return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
+                        },
+                    'property' => 'name',
+                ]
+            )
         ;
     }
 
