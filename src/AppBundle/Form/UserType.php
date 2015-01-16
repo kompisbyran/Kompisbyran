@@ -30,6 +30,7 @@ class UserType extends AbstractType
                     'property' => 'name',
                 ]
             )
+            ->add('age', 'number')
         ;
     }
 

@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
 * @ORM\Entity
@@ -82,6 +83,15 @@ class User extends BaseUser
      * @ORM\JoinTable(name="users_categories")
      */
     protected $categories;
+
+    /**
+     * @var int
+     *
+     * @Assert\Range(min=18, max=100, minMessage="Du måste vara minst 18 år")
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $age;
 
     public function __construct()
     {
@@ -230,7 +240,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param mixed $categories
+     * @param Category[] $categories
      */
     public function setCategories($categories)
     {
@@ -238,10 +248,26 @@ class User extends BaseUser
     }
 
     /**
-     * @return mixed
+     * @return Category[]
      */
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * @param int $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAge()
+    {
+        return $this->age;
     }
 }
