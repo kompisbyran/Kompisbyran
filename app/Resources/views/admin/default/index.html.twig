@@ -22,6 +22,17 @@
 {% endmacro %}
 
 {% block body %}
+
+    <ul>
+        {% for loopedCity in cities %}
+            {% if loopedCity == city %}
+                {{ loopedCity.name }}
+            {% else %}
+                <li><a href="{{ path('admin_start', {'id': loopedCity.id}) }}">{{ loopedCity.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
     <form method="POST" action="">
         <h2>Vill förbättra svenskan</h2>
         <ul>
@@ -38,7 +49,7 @@
         </ul>
 
         <p style="clear:both">
-            <input type="submit">
+            <input type="submit" {% if learners|length == 0 or fluentSpeakers|length == 0 %}disabled="disabled"{% endif %}>
         </p>
 
 

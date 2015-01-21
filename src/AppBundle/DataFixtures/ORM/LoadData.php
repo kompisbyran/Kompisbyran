@@ -4,6 +4,7 @@ namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Category;
 use AppBundle\Entity\City;
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -33,6 +34,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $this->loadCategories($manager);
         $this->loadCities($manager);
         $this->loadUsers($manager);
+        $this->loadConnectionRequests($manager);
 
         $manager->flush();
     }
@@ -65,10 +67,11 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
             'Stockholm',
             'Göteborg',
         ];
-        foreach ($cities as $cityName) {
+        foreach ($cities as $i => $cityName) {
             $city = new City();
             $city->setName($cityName);
             $manager->persist($city);
+            $this->addReference(sprintf('city-%s', $i), $city);
         }
     }
 
@@ -93,6 +96,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
+        $this->addReference('user-learner', $user);
 
         $user = new User();
         $user->setUsername('fluentspeaker');
@@ -107,10 +111,51 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setFrom('Umeå');
         $user->setGender('M');
         $user->setLanguages('Svenska, engelska och franska');
-
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
-
         $manager->persist($user);
+        $this->addReference('user-fluentspeaker', $user);
+
+        $user = new User();
+        $user->setUsername('glenn');
+        $user->setEmail('glenn@example.com');
+        $user->setName('Glenn');
+        $user->setEnabled(true);
+        $user->setRoles(['ROLE_COMPLETE_USER']);
+        $user->setWantToLearn(false);
+        $user->setAge(20);
+        $user->setAbout('Göteborgare');
+        $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
+        $user->setFrom('Göteborg');
+        $user->setGender('M');
+        $user->setLanguages('Svenska och engelska');
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
+        $this->addReference('user-glenn', $user);
+    }
+
+    /**
+     * @param ObjectManager $manager
+     */
+    protected function loadConnectionRequests(ObjectManager $manager)
+    {
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setWantToLearn(true);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-learner'));
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-fluentspeaker'));
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setCity($this->getReference('city-2'));
+        $connectionRequest->setUser($this->getReference('user-glenn'));
+        $manager->persist($connectionRequest);
     }
 }

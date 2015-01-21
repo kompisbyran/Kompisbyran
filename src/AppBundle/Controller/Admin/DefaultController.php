@@ -3,14 +3,12 @@
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\DomainEvents;
+use AppBundle\Entity\City;
 use AppBundle\Entity\Connection;
-use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Event\ConnectionCreatedEvent;
-use AppBundle\Form\ConnectionRequestType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * @Route("admin")
@@ -18,9 +16,9 @@ use Symfony\Component\VarDumper\VarDumper;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="admin_start")
+     * @Route("/{id}", name="admin_start", defaults={"id": null})
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, City $city = null)
     {
         $manager = $this->getDoctrine()->getManager();
 
@@ -46,12 +44,18 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('admin_start'));
         }
 
-        $learners = $this->getConnectionRequestRepository()->findBy(['wantToLearn' => true]);
-        $fluentSpeakers = $this->getConnectionRequestRepository()->findBy(['wantToLearn' => false]);
+        if (!$city) {
+            $city = $this->getCityRepository()->findAll()[0];
+        }
+        $learners = $this->getConnectionRequestRepository()->findBy(['wantToLearn' => true, 'city' => $city]);
+        $fluentSpeakers = $this->getConnectionRequestRepository()->findBy(['wantToLearn' => false, 'city' => $city]);
+        $cities = $this->getCityRepository()->findAll();
 
         $parameters = [
             'learners' => $learners,
             'fluentSpeakers' => $fluentSpeakers,
+            'cities' => $cities,
+            'city' => $city,
         ];
 
         return $this->render('admin/default/index.html.twig', $parameters);
@@ -62,4 +66,8 @@ class DefaultController extends Controller
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:ConnectionRequest');
     }
 
+    protected function getCityRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:City');
+    }
 }
