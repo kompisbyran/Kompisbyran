@@ -17,7 +17,8 @@
                 {% endif %}
                 <a href="{{ path('fos_user_security_logout') }}">Logga ut</a>
             {% else %}
-                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}">Logga in</a>
+                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}">Logga in med facebook</a>
+                <a href="{{ path('fos_user_security_login') }}">Logga in med skapat konto</a>
             {% endif %}
         </p>
         {% block body %}{% endblock %}

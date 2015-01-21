@@ -23,14 +23,14 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $facebookId;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $facebookAccessToken;
 
@@ -370,6 +370,4 @@ class User extends BaseUser
     {
         return $this->languages;
     }
-
-
 }
