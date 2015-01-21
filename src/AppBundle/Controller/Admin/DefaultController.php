@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\DomainEvents;
 use AppBundle\Entity\Connection;
 use AppBundle\Entity\ConnectionRequest;
+use AppBundle\Event\ConnectionCreatedEvent;
 use AppBundle\Form\ConnectionRequestType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -35,6 +37,11 @@ class DefaultController extends Controller
             $manager->remove($learnerConnectionRequest);
             $manager->remove($fluentSpeakerConnectionRequest);
             $manager->flush();
+
+            $this->get('event_dispatcher')->dispatch(
+                DomainEvents::CONNECTION_CREATED,
+                new ConnectionCreatedEvent($connection)
+            );
 
             return $this->redirect($this->generateUrl('admin_start'));
         }

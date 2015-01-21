@@ -9,3 +9,16 @@ services:
         arguments:
             - @fos_user.user_manager
             - {facebook: facebookId}
+
+    email_sender:
+        class: AppBundle\Service\EmailSender
+        arguments:
+            - @mailer
+            - @templating
+
+    event_listener.send_connection_created_email:
+        class: AppBundle\EventListener\SendConnectionCreatedEmailListener
+        arguments:
+            - @email_sender
+        tags:
+            - { name: kernel.event_listener, event: connection.created, method: whenConnectionCreated }
