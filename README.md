@@ -7,6 +7,10 @@ Kompisbyrån finns på [www.kompisbyran.se](http://www.kompisbyran.se). Den här
 
 How to install
 --------------
+Clone this repo
+
+Install submodule `git submodule update`
+
 Install Ansible if you haven't  
 `brew update`  
 `brew install ansible`
