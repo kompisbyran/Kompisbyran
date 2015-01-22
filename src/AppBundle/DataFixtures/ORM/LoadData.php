@@ -4,6 +4,7 @@ namespace AppBundle\DataFixtures\ORM;
 
 use AppBundle\Entity\Category;
 use AppBundle\Entity\City;
+use AppBundle\Entity\Connection;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -35,6 +36,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $this->loadCities($manager);
         $this->loadUsers($manager);
         $this->loadConnectionRequests($manager);
+        $this->loadConnections($manager);
 
         $manager->flush();
     }
@@ -157,5 +159,19 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setCity($this->getReference('city-2'));
         $connectionRequest->setUser($this->getReference('user-glenn'));
         $manager->persist($connectionRequest);
+    }
+
+    /**
+     * @param ObjectManager $manager
+     */
+    protected function loadConnections(ObjectManager $manager)
+    {
+        foreach (range(1,25) as $i) {
+            $connection = new Connection();
+            $connection->setCity($this->getReference('city-1'));
+            $connection->setFluentSpeaker($this->getReference('user-fluentspeaker'));
+            $connection->setLearner($this->getReference('user-learner'));
+            $manager->persist($connection);
+        }
     }
 }

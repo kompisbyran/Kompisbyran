@@ -13,7 +13,8 @@
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <a href="{{ path('settings') }}">Inställningar</a> |
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('admin_start') }}">Admin</a> |
+                    <a href="{{ path('admin_start') }}">Personer att koppla ihop</a> |
+                    <a href="{{ path('admin_connections') }}">Tidigare kopplingar</a> |
                 {% endif %}
                 <a href="{{ path('fos_user_security_logout') }}">Logga ut</a>
             {% else %}

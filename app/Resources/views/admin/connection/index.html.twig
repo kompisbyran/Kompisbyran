@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <table border="1">
+        {% for connection in pagination %}
+            <tr>
+                <td>{{ connection.createdAt|date('Y-m-d H:i') }}</td>
+                <td>{{ connection.fluentSpeaker.name }}</td>
+                <td>{{ connection.learner.name }}</td>
+                <td>{{ connection.city.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {{ knp_pagination_render(pagination) }}
+{% endblock %}
