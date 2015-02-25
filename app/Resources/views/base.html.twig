@@ -1,28 +1,168 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+<head>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
 
-        <p>
-            <a href="{{ path('homepage') }}">Start</a> |
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <a href="{{ path('settings') }}">Inställningar</a> |
-                {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('admin_start') }}">Personer att koppla ihop</a> |
-                    <a href="{{ path('admin_connections') }}">Tidigare kopplingar</a> |
-                {% endif %}
-                <a href="{{ path('fos_user_security_logout') }}">Logga ut</a>
-            {% else %}
-                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}">Logga in med facebook</a>
-                <a href="{{ path('fos_user_security_login') }}">Logga in med skapat konto</a>
-            {% endif %}
-        </p>
-        {% block body %}{% endblock %}
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/animate.min.css" rel="stylesheet">
+    <link href="/css/rs-settings.css" rel="stylesheet">
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="/css/rs-settings-ie8.css">
+    <![endif]-->
+    <link href="/css/jquery.countdown.css" rel="stylesheet">
+    <link href="/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <!--[if IE]>
+    <link rel="stylesheet" href="/css/ie-style.css">
+    <![endif]-->
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <style type="text/css">
+        .inner-page {
+            padding-top: 100px;
+        }
+    </style>
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+
+
+
+<!-- Head Start -->
+<div class="nav-head">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <!-- Logo and Head Text -->
+                    <div class="logo">
+                        <!-- Logo Icon and Heading -->
+                        {#<img src="/images/logo.png" class="img-responsive" alt="" />#}<span>Kompisbyrån</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ path('homepage') }}">Start</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ path('settings') }}">Inställningar</a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('admin_start') }}">Personer att koppla ihop</a></li>
+                            <li><a href="{{ path('admin_connections') }}">Tidigare kopplingar</a></li>
+                        {% endif %}
+                        <li><a href="{{ path('fos_user_security_logout') }}">Logga ut</a></li>
+                    {% else %}
+                        {# <li><a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}">Logga in med facebook</a></li> #}
+                        <li><a href="{{ path('fos_user_security_login') }}">Logga in</a></li>
+                    {% endif %}
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+</div>
+<!-- Menu Bar End -->
+
+{% block body %}{% endblock %}
+
+<!-- Footer Start -->
+
+<div class="footer">
+    <div class="footer-inner">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-5">
+                    <div class="footer-widget">
+                        <h4><i class="fa fa-user"></i> &nbsp; About Us</h4>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blandit entium voluptatum deleniti atque corrupti quos dolores et quas molestias excate non provident.</p>
+                        <div class="social">
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5">
+                    <div class="footer-widget">
+                        <h4><i class="fa fa-comments"></i> &nbsp; Recent Post</h4>
+                        <div class="footer-rp">
+                            <a href="#"><img src="img/user-xs.jpg" class="img-responsive img-circle" /></a>
+                            <div class="item">
+                                <h3><a href="#">Hicht tes randae sint oipthe truth, the master-builde aican aut perfere.</a></h3>
+                            </div>
+                        </div>
+                        <div class="footer-rp">
+                            <a href="#"><img src="img/user-xs.jpg" class="img-responsive img-circle" /></a>
+                            <div class="item">
+                                <h3><a href="#">Phtssimu is voluptas assumrocure him some great pleasure endamnis dorfere.</a></h3>
+                            </div>
+                        </div>
+                        <div class="footer-rp">
+                            <a href="#"><img src="img/user-xs.jpg" class="img-responsive img-circle" /></a>
+                            <div class="item">
+                                <h3><a href="#">Kssimus voluptas assumenda esnis dorte orer of the truthe mast.</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5">
+                    <div class="footer-widget">
+                        <h4><i class="fa fa-phone"></i> &nbsp; Contact Us</h4>
+                        <span>Finbus Bonum Ltd.</span>
+                        <p>#91/127 Piciatis unde Kolaman <br />omnis unde omnis <br /> Bangalore - 458745<p>
+                        <p><span class="mute">E-mail</span> : <a href="#">abc-xyz@example.com</a><br /> <span class="mute">Phone no.</span> : +91 123 - 456 - 7899</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Footer End -->
+
+
+<script src="/js/jquery.js"></script>
+<!-- Bootstrap JS -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- jQuery REVOLUTION Slider  -->
+<script type="text/javascript" src="/js/jquery.themepunch.plugins.min.js"></script>
+<script type="text/javascript" src="/js/jquery.themepunch.revolution.min.js"></script>
+<!-- jQuery way points -->
+<script src="/js/waypoints.min.js"></script>
+<!-- Jquery for Countdown Watch -->
+<script type="text/javascript" src="/js/jquery.plugin.min.js"></script>
+<script type="text/javascript" src="/js/jquery.countdown.min.js"></script>
+<!-- Portfolio JS -->
+<!-- Pretty Photo, Filter And Isotope JS -->
+<script type="text/javascript" src="/js/filter.js"></script>
+<script type="text/javascript" src="/js/isotope.js"></script>
+<script type="text/javascript" src="/js/jquery.prettyPhoto.js"></script>
+<!-- Respond JS for IE8 -->
+<script type="text/javascript" src="/js/respond.min.js"></script>
+<!-- HTML5 Support for IE -->
+<script type="text/javascript" src="/js/html5shiv.js"></script>
+<!-- Custom JS -->
+<script type="text/javascript" src="/js/custom.js"></script>
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

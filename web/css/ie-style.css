@@ -1,0 +1,15 @@
+/* CSS for Internet Explorer */
+
+.banner-container .banner h2.caption{
+	margin-top: 60px;
+}
+
+.inner-page.product .pr-content .carousel .carousel-control{
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.pr-content .carousel .carousel-control .icon-prev,
+.pr-content .carousel .carousel-control .icon-next{
+	line-height: 40px !important;
+}
+

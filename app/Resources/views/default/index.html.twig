@@ -9,7 +9,6 @@
 {% endmacro %}
 
 {% block body %}
-    Kompisbyrån
 
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         {% if app.user.fluentSpeakerConnections|length > 0 %}
@@ -54,6 +53,7 @@
 
         <input type="submit">
         {{ form_end(form) }}
-
+    {% else %}
+        {{ include('default/notLoggedIn.html.twig') }}
     {% endif %}
 {% endblock %}
