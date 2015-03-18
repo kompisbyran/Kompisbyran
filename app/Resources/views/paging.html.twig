@@ -1,0 +1,46 @@
+
+{% if pageCount > 1 %}
+    <div class="paging">
+
+        {% if previous is defined %}
+                <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'Previous'|trans }}</a>
+        {% else %}
+                <span>&laquo;&nbsp;{{ 'Previous'|trans }}</span>
+        {% endif %}
+
+        {% if startPage > 1 %}
+                <a href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
+            {% if startPage == 3 %}
+                    <a href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
+            {% elseif startPage != 2 %}
+                    <span>&hellip;</span>
+            {% endif %}
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+            {% else %}
+                <span class="current">{{ page }}</span>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if pageCount > endPage %}
+            {% if pageCount > (endPage + 1) %}
+                {% if pageCount > (endPage + 2) %}
+                        <span>&hellip;</span>
+                {% else %}
+                        <a href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
+                {% endif %}
+            {% endif %}
+                <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
+        {% endif %}
+
+        {% if next is defined %}
+                <a href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'Next'|trans }}&nbsp;&raquo;</a>
+        {% else %}
+                <span>{{ 'Next'|trans }}&nbsp;&raquo;</span>
+        {% endif %}
+    </div>
+{% endif %}

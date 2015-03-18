@@ -1,17 +1,41 @@
 {% extends 'base.html.twig' %}
 
+{% import 'macros.html.twig' as macros %}
+
 {% block body %}
 
-    <table border="1">
-        {% for connection in pagination %}
-            <tr>
-                <td>{{ connection.createdAt|date('Y-m-d H:i') }}</td>
-                <td>{{ connection.fluentSpeaker.name }}</td>
-                <td>{{ connection.learner.name }}</td>
-                <td>{{ connection.city.name }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    <div class="inner-page">
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Skapad</th>
+                        <th>Lärare</th>
+                        <th>Elev</th>
+                        <th>Ort</th>
+                    </tr>
+                </thead>
+                {% for connection in pagination %}
+                    <tbody>
+                        <tr>
+                            <td>{{ connection.createdAt|date('Y-m-d H:i') }}</td>
+                            <td>
+                                <strong>{{ connection.fluentSpeaker.name }}</strong><br>
+                                <em>{{ connection.fluentSpeakerComment }}</em>
+                            </td>
+                            <td>
+                                <strong>{{ connection.learner.name }}</strong><br>
+                                <em>{{ connection.learnerComment }}</em>
+                            </td>
+                            <td>{{ connection.city.name }}</td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
 
-    {{ knp_pagination_render(pagination) }}
+
+            {{ macros.paging(pagination) }}
+        </div>
+    </div>
+
 {% endblock %}

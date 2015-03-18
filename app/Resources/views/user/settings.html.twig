@@ -2,10 +2,15 @@
 
 {% block body %}
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
+    <div class="inner-page">
+        <div class="container">
 
-    <input type="submit">
-    {{ form_end(form) }}
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+
+            <input type="submit" value="Spara">
+            {{ form_end(form) }}
+        </div>
+    </div>
 
 {% endblock %}

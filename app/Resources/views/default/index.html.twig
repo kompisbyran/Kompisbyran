@@ -4,55 +4,70 @@
 
 {% macro connectionRow(connection) %}
     <li>
-        {{ connection.createdAt|date('Y-m-d H:i') }}, {{ connection.city.name }}
+        <strong>{{ connection.createdAt|date('Y-m-d H:i') }}, {{ connection.city.name }}</strong><br>
+        Lärare: {{ connection.learner.name }}
+        Elev: {{ connection.fluentSpeaker.name }}
     </li>
 {% endmacro %}
 
 {% block body %}
-
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {% if app.user.fluentSpeakerConnections|length > 0 %}
-            <h2>FluentSpeaker</h2>
-            <ul>
-                {% for connection in app.user.fluentSpeakerConnections %}
-                    {{ macro.connectionRow(connection) }}
-                {% endfor %}
-            </ul>
-        {% endif %}
+        <div class="inner-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <p>Text</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
 
-        {% if app.user.learnerConnections|length > 0 %}
-            <h2>Learner</h2>
-            <ul>
-                {% for connection in app.user.learnerConnections %}
-                    {{ macro.connectionRow(connection) }}
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-        <h2>Connection requests</h2>
-        {% if app.user.connectionRequests|length %}
-            <ul>
-                {% for connectionRequest in app.user.connectionRequests %}
-                    <li>
-                        {{ connectionRequest.createdAt|date('Y-m-d H:i') }}, {{ connectionRequest.city.name }}
-                        {% if connectionRequest.wantToLearn %}
-                            Du vill förbättra din svenska
-                        {% else %}
-                            Du vill hjälpa någon att förbättra sin svenska
+                        {% if app.user.fluentSpeakerConnections|length > 0 %}
+                            <h2>FluentSpeaker</h2>
+                            <ul>
+                                {% for connection in app.user.fluentSpeakerConnections %}
+                                    {{ macro.connectionRow(connection) }}
+                                {% endfor %}
+                            </ul>
                         {% endif %}
-                        {% if connectionRequest.comment %}
-                            <br>{{ connectionRequest.comment }}
+
+                        {% if app.user.learnerConnections|length > 0 %}
+                            <h2>Learner</h2>
+                            <ul>
+                                {% for connection in app.user.learnerConnections %}
+                                    {{ macro.connectionRow(connection) }}
+                                {% endfor %}
+                            </ul>
                         {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
+                        <h2>Connection requests</h2>
+                        {% if app.user.connectionRequests|length %}
+                            <ul>
+                                {% for connectionRequest in app.user.connectionRequests %}
+                                    <li>
+                                        {{ connectionRequest.createdAt|date('Y-m-d H:i') }}, {{ connectionRequest.city.name }}
+                                        {% if connectionRequest.wantToLearn %}
+                                            Du vill förbättra din svenska
+                                        {% else %}
+                                            Du vill hjälpa någon att förbättra sin svenska
+                                        {% endif %}
+                                        {% if connectionRequest.comment %}
+                                            <br>{{ connectionRequest.comment }}
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <h2>Anmäl intresse</h2>
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
 
-        <input type="submit">
-        {{ form_end(form) }}
+                        <input type="submit" value="Skicka">
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
     {% else %}
         {{ include('default/notLoggedIn.html.twig') }}
     {% endif %}

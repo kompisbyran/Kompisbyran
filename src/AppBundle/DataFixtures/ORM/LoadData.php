@@ -125,7 +125,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setEmail('glenn@example.com');
         $user->setName('Glenn');
         $user->setEnabled(true);
-        $user->setRoles(['ROLE_COMPLETE_USER']);
+        $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN']);
         $user->setWantToLearn(false);
         $user->setAge(20);
         $user->setAbout('Göteborgare');
@@ -149,18 +149,21 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(true);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-learner'));
+        $connectionRequest->setComment('Jag vill fika');
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-fluentspeaker'));
+        $connectionRequest->setComment('Jag vill dricka kaffe');
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-2'));
         $connectionRequest->setUser($this->getReference('user-glenn'));
+        $connectionRequest->setComment('Jag vill träffas ute');
         $manager->persist($connectionRequest);
     }
 

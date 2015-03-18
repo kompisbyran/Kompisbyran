@@ -49,6 +49,20 @@ class Connection
      */
     protected $city;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $learnerComment;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $fluentSpeakerComment;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -116,5 +130,37 @@ class Connection
     public function getLearner()
     {
         return $this->learner;
+    }
+
+    /**
+     * @param string $fluentSpeakerComment
+     */
+    public function setFluentSpeakerComment($fluentSpeakerComment)
+    {
+        $this->fluentSpeakerComment = $fluentSpeakerComment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFluentSpeakerComment()
+    {
+        return $this->fluentSpeakerComment;
+    }
+
+    /**
+     * @param string $learnerComment
+     */
+    public function setLearnerComment($learnerComment)
+    {
+        $this->learnerComment = $learnerComment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLearnerComment()
+    {
+        return $this->learnerComment;
     }
 }

@@ -30,6 +30,8 @@ class DefaultController extends Controller
             $connection->setLearner($learnerConnectionRequest->getUser());
             $connection->setFluentSpeaker($fluentSpeakerConnectionRequest->getUser());
             $connection->setCity($learnerConnectionRequest->getCity());
+            $connection->setFluentSpeakerComment($fluentSpeakerConnectionRequest->getComment());
+            $connection->setLearnerComment($learnerConnectionRequest->getComment());
 
             $manager->persist($connection);
             $manager->remove($learnerConnectionRequest);

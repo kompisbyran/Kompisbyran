@@ -23,35 +23,42 @@
 
 {% block body %}
 
-    <ul>
-        {% for loopedCity in cities %}
-            {% if loopedCity == city %}
-                {{ loopedCity.name }}
-            {% else %}
-                <li><a href="{{ path('admin_start', {'id': loopedCity.id}) }}">{{ loopedCity.name }}</a></li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+    <div class="inner-page">
+        <div class="container">
 
-    <form method="POST" action="">
-        <h2>Vill förbättra svenskan</h2>
-        <ul>
-        {% for connectionRequest in learners %}
-            {{ macro.connectionRequestRow(connectionRequest, 'learner', loop.first) }}
-        {% endfor %}
-        </ul>
-
-        <h2 style="clear:both">Vill hjälpa någon att förbättra svenskan</h2>
-        <ul>
-            {% for connectionRequest in fluentSpeakers %}
-                {{ macro.connectionRequestRow(connectionRequest, 'fluentSpeaker', loop.first) }}
-            {% endfor %}
-        </ul>
-
-        <p style="clear:both">
-            <input type="submit" {% if learners|length == 0 or fluentSpeakers|length == 0 %}disabled="disabled"{% endif %}>
-        </p>
+            <div class="inner-tab">
+                <ul class="nav nav-tabs">
+                    {% for loopedCity in cities %}
+                        <li{% if loopedCity == city %} class="active"{% endif %}>
+                            <a href="{{ path('admin_start', {'id': loopedCity.id}) }}">{{ loopedCity.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
 
 
-    </form>
+            <form method="POST" action="">
+                <h2>Vill förbättra svenskan</h2>
+                <ul>
+                {% for connectionRequest in learners %}
+                    {{ macro.connectionRequestRow(connectionRequest, 'learner', loop.first) }}
+                {% endfor %}
+                </ul>
+
+                <h2 style="clear:both">Vill hjälpa någon att förbättra svenskan</h2>
+                <ul>
+                    {% for connectionRequest in fluentSpeakers %}
+                        {{ macro.connectionRequestRow(connectionRequest, 'fluentSpeaker', loop.first) }}
+                    {% endfor %}
+                </ul>
+
+                <p style="clear:both">
+                    <input type="submit" {% if learners|length == 0 or fluentSpeakers|length == 0 %}disabled="disabled"{% endif %}>
+                </p>
+
+
+            </form>
+        </div>
+    </div>
+
 {% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="inner-page">
+        <div class="container">
+
+            {% for type, messages in app.session.flashBag.all %}
+                {% for message in messages %}
+                    <div class="{{ type }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+    </div>
+{% endblock %}
