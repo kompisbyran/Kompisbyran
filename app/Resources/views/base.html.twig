@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Kompisbyrån!{% endblock %}</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ path('homepage') }}">
                     <!-- Logo and Head Text -->
                     <div class="logo">
                         <!-- Logo Icon and Heading -->
@@ -87,47 +87,27 @@
         <div class="container">
             <div class="row">
 
+                <div class="col-md-8 col-sm-10">
+                    <div class="footer-widget">
+                        <h4><i class="fa fa-users"></i> &nbsp; Om oss</h4>
+                        <p>
+                            Emma Hammar och Cecilia Holmgren startade Kompisbyrån i januari 2014. Idag består byråns nätverk av över 1000 personer som både vill öva och lära ut svenska.
+                            Kompisbyrån finns för att fler ska bli integrerade i samhället med hjälp av språket. Målet med Kompisbyrån är att fler människor ska bli bättre på svenska och på så vis lättare komma in i samhället. Därför länkar vi samman personer som vill öva sin svenska med personer som vill hjälpa någon att förbättra sin svenska. En kompisfika är ett kulturellt utbyte mellan personer med olika bakgrund, erfarenheter, intressen och åldrar.
+
+                        </p>
+                    </div>
+                </div>
                 <div class="col-md-4 col-sm-5">
                     <div class="footer-widget">
-                        <h4><i class="fa fa-user"></i> &nbsp; About Us</h4>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blandit entium voluptatum deleniti atque corrupti quos dolores et quas molestias excate non provident.</p>
+                        <h4><i class="fa fa-phone"></i> &nbsp; Kontakta oss</h4>
+                        <p>
+                            <span class="mute">E-mail</span> : <a href="mailto:kompisbyran@gmail.com">kompisbyran@gmail.com</a><br />
+                        </p>
                         <div class="social">
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/kompisbyran" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/Kompisbyran" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/kompisbyran" class="facebook"><i class="fa fa-instagram"></i></a>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-5">
-                    <div class="footer-widget">
-                        <h4><i class="fa fa-comments"></i> &nbsp; Recent Post</h4>
-                        <div class="footer-rp">
-                            <a href="#"><img src="img/user-xs.jpg" class="img-responsive img-circle" /></a>
-                            <div class="item">
-                                <h3><a href="#">Hicht tes randae sint oipthe truth, the master-builde aican aut perfere.</a></h3>
-                            </div>
-                        </div>
-                        <div class="footer-rp">
-                            <a href="#"><img src="img/user-xs.jpg" class="img-responsive img-circle" /></a>
-                            <div class="item">
-                                <h3><a href="#">Phtssimu is voluptas assumrocure him some great pleasure endamnis dorfere.</a></h3>
-                            </div>
-                        </div>
-                        <div class="footer-rp">
-                            <a href="#"><img src="img/user-xs.jpg" class="img-responsive img-circle" /></a>
-                            <div class="item">
-                                <h3><a href="#">Kssimus voluptas assumenda esnis dorte orer of the truthe mast.</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-5">
-                    <div class="footer-widget">
-                        <h4><i class="fa fa-phone"></i> &nbsp; Contact Us</h4>
-                        <span>Finbus Bonum Ltd.</span>
-                        <p>#91/127 Piciatis unde Kolaman <br />omnis unde omnis <br /> Bangalore - 458745<p>
-                        <p><span class="mute">E-mail</span> : <a href="#">abc-xyz@example.com</a><br /> <span class="mute">Phone no.</span> : +91 123 - 456 - 7899</p>
                     </div>
                 </div>
 
