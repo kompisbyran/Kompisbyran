@@ -18,7 +18,10 @@ class UserType extends AbstractType
                 'choices' => [
                     true => 'Förbättra din svenska',
                     false => 'Hjälpa någon att förbättra sin svenska',
-                ]
+                ],
+                'choice_value' => function ($currentChoiceKey) {
+                    return $currentChoiceKey ? 'true' : 'false';
+                }
             ])
             ->add('categories', 'entity', [
                     'class' => 'AppBundle:Category',
@@ -28,9 +31,10 @@ class UserType extends AbstractType
                             return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
                         },
                     'property' => 'name',
+                    'label' => 'Kategorier',
                 ]
             )
-            ->add('age', 'number')
+            ->add('age', 'number', ['label' => 'Ålder'])
             ->add('gender', 'choice', [
                 'expanded' => true,
                 'label' => 'Kön',
@@ -39,9 +43,9 @@ class UserType extends AbstractType
                     'F' => 'Kvinna',
                 ]
             ])
-            ->add('about', 'textarea')
-            ->add('from', 'text')
-            ->add('languages', 'text')
+            ->add('about', 'textarea', ['label' => 'Om dig'])
+            ->add('from', 'text', ['label' => 'Från'])
+            ->add('languages', 'text', ['label' => 'Språk'])
         ;
     }
 
