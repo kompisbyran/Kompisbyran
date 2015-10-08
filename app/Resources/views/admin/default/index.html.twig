@@ -15,9 +15,9 @@
                         {%- endif %}"
                     alt=""
                     class="img-responsive img-circle"
-                 />{{ connectionRequest.user.name }}, <span>{{ connectionRequest.user.age }} år</span>
+                 /><a href="{{ path('admin_user', {'id': connectionRequest.user.id}) }}">{{ connectionRequest.user.name }}, <span>{{ connectionRequest.user.age }} år</span></a>
             </h4>
-            <blockquote class="br-orange">
+            <blockquote class="{% if connectionRequest.user.internalComment %}br-orange{% else %}br-green{% endif %}">
                 <p>
                     <input name="{{ inputName }}" value="{{ connectionRequest.id }}" type="radio"
                         {% if isChecked %}checked="checked"{% endif %}
@@ -28,6 +28,10 @@
                     <br>
                     "<em>{{ connectionRequest.comment|nl2br }}</em>"
                 </p>
+                {% if connectionRequest.user.internalComment %}
+                    <p>{{ connectionRequest.user.internalComment }}</p>
+                {% endif %}
+
             </blockquote>
         </div>
     </div>

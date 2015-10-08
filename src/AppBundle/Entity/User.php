@@ -125,9 +125,16 @@ class User extends BaseUser
      *
      * @Assert\NotBlank
      *
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $about;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $internalComment;
 
     public function __construct()
     {
@@ -369,5 +376,21 @@ class User extends BaseUser
     public function getLanguages()
     {
         return $this->languages;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInternalComment()
+    {
+        return $this->internalComment;
+    }
+
+    /**
+     * @param string $internalComment
+     */
+    public function setInternalComment($internalComment)
+    {
+        $this->internalComment = $internalComment;
     }
 }
