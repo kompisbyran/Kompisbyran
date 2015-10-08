@@ -3,28 +3,41 @@
 {% import _self as macro %}
 
 {% macro connectionRequestRow(connectionRequest, inputName, isChecked) %}
-    <li style="clear:both">
-        {% if connectionRequest.user.profilePicture %}
-            <img src="{{ connectionRequest.user.profilePicture }}" style="float:left; padding: 0 10px 10px 0">
-        {% endif %}
-        <input name="{{ inputName }}" value="{{ connectionRequest.id }}" type="radio"
-            {% if isChecked %}checked="checked"{% endif %}
-        >
-
-        {{ connectionRequest.user.name }}, {{ connectionRequest.city.name }}<br>
-        {% for category in connectionRequest.user.categories %}
-            {{ category.name }}{% if not loop.last %}, {% endif %}
-        {% endfor %}
-        {% if connectionRequest.comment %}
-            <br><em>{{ connectionRequest.comment|nl2br }}</em>
-        {% endif %}
-    </li>
+    <div class="col-md-3 col-sm-3">
+        <div class="testimonial-content t-one">
+            <h4>
+                <img
+                    style="width:50px"
+                    src="{% if connectionRequest.user.profilePicture -%}
+                        {{ connectionRequest.user.profilePicture }}
+                        {%- else -%}
+                        /images/testimonials/dorry-mahlin.jpg
+                        {%- endif %}"
+                    alt=""
+                    class="img-responsive img-circle"
+                 />{{ connectionRequest.user.name }}, <span>{{ connectionRequest.user.age }} år</span>
+            </h4>
+            <blockquote class="br-orange">
+                <p>
+                    <input name="{{ inputName }}" value="{{ connectionRequest.id }}" type="radio"
+                        {% if isChecked %}checked="checked"{% endif %}
+                    >
+                    {% for category in connectionRequest.user.categories %}
+                        {{ category.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                    <br>
+                    "<em>{{ connectionRequest.comment|nl2br }}</em>"
+                </p>
+            </blockquote>
+        </div>
+    </div>
 {% endmacro %}
 
 {% block body %}
 
-    <div class="inner-page">
-        <div class="container">
+
+<div class="inner-page testimonial">
+    <div class="container">
 
             <div class="inner-tab">
                 <ul class="nav nav-tabs">
@@ -36,29 +49,33 @@
                 </ul>
             </div>
 
+        <div class="inner-testimonial">
+
 
             <form method="POST" action="">
                 <h2>Vill förbättra svenskan</h2>
-                <ul>
-                {% for connectionRequest in learners %}
-                    {{ macro.connectionRequestRow(connectionRequest, 'learner', loop.first) }}
-                {% endfor %}
-                </ul>
-
+                <div class="row">
+                    {% for connectionRequest in learners %}
+                        {{ macro.connectionRequestRow(connectionRequest, 'learner', loop.first) }}
+                    {% endfor %}
+                </div>
                 <h2 style="clear:both">Vill hjälpa någon att förbättra svenskan</h2>
-                <ul>
+                <div class="row">
                     {% for connectionRequest in fluentSpeakers %}
                         {{ macro.connectionRequestRow(connectionRequest, 'fluentSpeaker', loop.first) }}
                     {% endfor %}
-                </ul>
+                </div>
 
                 <p style="clear:both">
-                    <input type="submit" {% if learners|length == 0 or fluentSpeakers|length == 0 %}disabled="disabled"{% endif %}>
+                    <input type="submit"
+                        {% if learners|length == 0 or fluentSpeakers|length == 0 %}disabled="disabled"{% endif %}
+                        class="btn btn-default"
+                    >
                 </p>
-
 
             </form>
         </div>
     </div>
+</div>
 
 {% endblock %}
