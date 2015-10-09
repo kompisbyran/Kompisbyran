@@ -23,16 +23,6 @@ security:
                 csrf_provider: form.csrf_provider
                 login_path: /login
                 check_path: /login_check
-            oauth:
-                resource_owners:
-                    facebook:           "/login/check-facebook"
-                login_path:        /login
-                failure_path:      /login
- 
-                oauth_user_provider:
-                    #this is my custom user provider, created from FOSUBUserProvider - will manage the
-                    #automatic user registration on your site, with data from the provider (facebook. google, etc.)
-                    service: my_user_provider
             logout:       true
             anonymous:    true
  

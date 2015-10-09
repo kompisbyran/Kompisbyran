@@ -76,25 +76,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-hwi_oauth:
-    connect:
-        account_connector: my_user_provider
-    firewall_name: main
-    fosub:
-        username_iterations: 30
-        properties:
-            facebook: facebookId
-    resource_owners:
-        facebook:
-            type:                facebook
-            client_id:           "%facebook.client_id%"
-            client_secret:       "%facebook.client_secret%"
-            scope:               "email"
-            infos_url:           "https://graph.facebook.com/me?fields=id,name,email,picture.type(square)"
-            paths:
-                email:          email
-                profilepicture: picture.data.url
-
 fos_user:
     db_driver: orm
     firewall_name: secure_area
