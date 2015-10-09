@@ -25,20 +25,6 @@ class User extends BaseUser
      *
      * @ORM\Column(type="string", nullable=true)
      */
-    protected $facebookId;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $facebookAccessToken;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
     protected $name;
 
     /**
@@ -96,7 +82,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @Assert\NotNull
+     * @Assert\NotNull(groups={"settings"})
      *
      * @ORM\Column(type="string", length=1, nullable=true)
      */
@@ -105,7 +91,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @Assert\NotBlank
+     * @Assert\NotBlank(groups={"settings"})
      *
      * @ORM\Column(type="string", name="from_country", nullable=true)
      */
@@ -114,7 +100,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @Assert\NotBlank
+     * @Assert\NotBlank(groups={"settings"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -123,7 +109,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @Assert\NotBlank
+     * @Assert\NotBlank(groups={"settings"})
      *
      * @ORM\Column(type="text", nullable=true)
      */
@@ -146,37 +132,6 @@ class User extends BaseUser
         parent::__construct();
     }
 
-    /**
-     * @param string $facebookAccessToken
-     */
-    public function setFacebookAccessToken($facebookAccessToken)
-    {
-        $this->facebookAccessToken = $facebookAccessToken;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFacebookAccessToken()
-    {
-        return $this->facebookAccessToken;
-    }
-
-    /**
-     * @param string $facebookId
-     */
-    public function setFacebookId($facebookId)
-    {
-        $this->facebookId = $facebookId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFacebookId()
-    {
-        return $this->facebookId;
-    }
 
     /**
      * @return int

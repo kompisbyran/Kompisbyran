@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         /** @var \AppBundle\Entity\User $user */
         $user = $this->getUser();
-        $form = $this->createForm(new UserType(), $user);
+        $form = $this->createForm(new UserType(), $user, ['validation_groups' => ['settings']]);
 
         $form->handleRequest($request);
 
