@@ -23,6 +23,8 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @Assert\NotBlank(groups={"settings"})
+     *
      * @ORM\Column(type="string", nullable=true)
      */
     protected $name;
@@ -73,7 +75,8 @@ class User extends BaseUser
     /**
      * @var int
      *
-     * @Assert\Range(min=18, max=100, minMessage="Du måste vara minst 18 år")
+     * @Assert\Range(min=18, max=100, minMessage="Du måste vara minst 18 år", groups={"settings"})
+     * @Assert\NotBlank(groups={"settings"})
      *
      * @ORM\Column(type="integer", nullable=true)
      */
