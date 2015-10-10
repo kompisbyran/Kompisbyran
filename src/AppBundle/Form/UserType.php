@@ -46,6 +46,7 @@ class UserType extends AbstractType
             ->add('about', 'textarea', ['label' => 'Om dig'])
             ->add('from', 'text', ['label' => 'Från'])
             ->add('languages', 'text', ['label' => 'Språk'])
+            ->add('profilePicture', 'hidden')
         ;
     }
 
