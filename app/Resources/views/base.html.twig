@@ -62,6 +62,7 @@
                     <li><a href="{{ path('how_it_works') }}">Såhär går det till</a></li>
                     <li><a href="">Villkor</a></li>
                     <li><a href="">Samarbeta med oss</a></li>
+                    <li><a href="{{ path('about') }}">Om oss</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li><a href="{{ path('settings') }}">Inställningar</a></li>
                         {% if is_granted('ROLE_ADMIN') %}

@@ -26,3 +26,9 @@ how_it_works:
     defaults:
         _controller: FrameworkBundle:Template:template
         template:    static/howItWorks.html.twig
+
+about:
+    path: /about
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    static/about.html.twig
