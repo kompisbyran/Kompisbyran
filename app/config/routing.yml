@@ -21,3 +21,8 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
 
+how_it_works:
+    path: /how-it-works
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    static/howItWorks.html.twig

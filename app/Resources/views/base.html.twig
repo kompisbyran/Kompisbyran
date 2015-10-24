@@ -59,6 +59,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ path('homepage') }}">Start</a></li>
+                    <li><a href="{{ path('how_it_works') }}">Såhär går det till</a></li>
+                    <li><a href="">Villkor</a></li>
+                    <li><a href="">Samarbeta med oss</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li><a href="{{ path('settings') }}">Inställningar</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
@@ -91,9 +94,12 @@
                     <div class="footer-widget">
                         <h4><i class="fa fa-users"></i> &nbsp; Om oss</h4>
                         <p>
-                            Emma Hammar och Cecilia Holmgren startade Kompisbyrån i januari 2014. Idag består byråns nätverk av över 1000 personer som både vill öva och lära ut svenska.
-                            Kompisbyrån finns för att fler ska bli integrerade i samhället med hjälp av språket. Målet med Kompisbyrån är att fler människor ska bli bättre på svenska och på så vis lättare komma in i samhället. Därför länkar vi samman personer som vill öva sin svenska med personer som vill hjälpa någon att förbättra sin svenska. En kompisfika är ett kulturellt utbyte mellan personer med olika bakgrund, erfarenheter, intressen och åldrar.
-
+                            Emma Hammar och Cecilia Holmgren startade Kompisbyrån i januari 2014. Idag har tusentals
+                            människor från 63 länder länkats samman över kompisfikor - där en person som vill öva
+                            svenska träffar en person som vill lära ut svenska på ett offentligt kafé i ca 1 timme.
+                            Kompisbyrån vill göra det enkelt för fler att bidra i sin vardag. En kompisfika är ett
+                            kulturellt utbyte mellan personer med olika bakgrund och erfarenheter men med liknande
+                            intressen.
                         </p>
                     </div>
                 </div>
@@ -101,7 +107,8 @@
                     <div class="footer-widget">
                         <h4><i class="fa fa-phone"></i> &nbsp; Kontakta oss</h4>
                         <p>
-                            <span class="mute">E-mail</span> : <a href="mailto:kompisbyran@gmail.com">kompisbyran@gmail.com</a><br />
+                            <span class="mute">E-mail</span>:
+                            <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a><br />
                         </p>
                         <div class="social">
                             <a href="https://www.facebook.com/kompisbyran" class="facebook"><i class="fa fa-facebook"></i></a>
