@@ -351,4 +351,22 @@ class User extends BaseUser
     {
         $this->internalComment = $internalComment;
     }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        $this->username = $email;
+    }
+
+    /**
+     * @param string $emailCanonical
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $this->emailCanonical = $emailCanonical;
+        $this->usernameCanonical = $emailCanonical;
+    }
 }

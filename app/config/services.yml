@@ -11,3 +11,8 @@ services:
             - @email_sender
         tags:
             - { name: kernel.event_listener, event: connection.created, method: whenConnectionCreated }
+
+    registration.form.type:
+        class: AppBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
