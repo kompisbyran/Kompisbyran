@@ -1,0 +1,57 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block body %}
+    <div class="inner-page sign">
+        <div class="container">
+            <div class="sign-content">
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <!-- Sign In Area -->
+                        <div class="sign-in">
+                            <h3><i class="fa fa-user red"></i> &nbsp;Skapa ett konto</h3>
+
+                            <p>
+                                För att kompisfika måste du först registrera dig genom att fylla i din e-mailadress och
+                                valfritt lösenord.
+                            </p>
+                            <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+                                {{ form_widget(form) }}
+                                <input type="submit" value="Skapa konto" class="btn btn-info" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+
+                        <h4>
+                            Stegen till att lära känna en ny kompis – vare sig du vill förbättra din svenska eller
+                            hjälpa någon med att förbättra den – är enkla.
+                        </h4>
+                        <ol>
+                            <li>
+                                Registrera dig genom att skapa ett användarkonto och tryck “Skapa konto”. Läs igenom
+                                Kompisbyråns <a href="{{ path('terms') }}">villkor</a> innan du anmäler dig.
+                            </li>
+                            <li>
+                                <em>Text saknas</em>
+                            </li>
+                            <li>
+                                Du slussas nu vidare till ett formulär. Fyll i formuläret där du berättar lite om dig
+                                själv.
+                            </li>
+                        </ol>
+                        <p>
+                            Nu har du anmält dig till att kompisfika! Vi kommer att hör av oss så fort vi har hittat en
+                            ny matchning. Du får då mailadressen till din nya fikakompis och ni hör av er till varandra
+                            inom en vecka från att matchning har gjorts. Ni bestämmer var och när ni ska ses, men vi
+                            vill att ni träffas på ett offentligt café i ca 1 timme. Det är gratis att vara med och
+                            länkas ihop av Kompisbyrån.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
