@@ -32,10 +32,13 @@ class UserType extends AbstractType
                             return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
                         },
                     'property' => 'name',
-                    'label' => 'Kategorier',
+                    'label' => 'Vilka är dina intressen?',
                 ]
             )
-            ->add('age', 'number', ['label' => 'Ålder'])
+            ->add('age', 'choice', [
+                'label' => 'Ålder',
+                'choices' => range(18, 100),
+            ])
             ->add('gender', 'choice', [
                 'expanded' => true,
                 'label' => 'Kön',
@@ -44,9 +47,9 @@ class UserType extends AbstractType
                     'F' => 'Kvinna',
                 ]
             ])
-            ->add('about', 'textarea', ['label' => 'Om dig'])
-            ->add('from', 'text', ['label' => 'Från'])
-            ->add('languages', 'text', ['label' => 'Språk'])
+            ->add('about', 'textarea', ['label' => 'Berätta om dig själv'])
+            ->add('from', 'text', ['label' => 'Vilket land kommer du ifrån?'])
+            ->add('languages', 'text', ['label' => 'Vilka språk talar du?'])
             ->add('profilePicture', 'hidden')
         ;
     }
