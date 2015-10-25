@@ -60,7 +60,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ path('homepage') }}">Start</a></li>
                     <li><a href="{{ path('how_it_works') }}">Såhär går det till</a></li>
-                    <li><a href="">Villkor</a></li>
+                    <li><a href="{{ path('terms') }}">Villkor</a></li>
                     <li><a href="">Samarbeta med oss</a></li>
                     <li><a href="{{ path('about') }}">Om oss</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -113,8 +113,6 @@
                         </p>
                         <div class="social">
                             <a href="https://www.facebook.com/kompisbyran" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="https://twitter.com/Kompisbyran" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/kompisbyran" class="facebook"><i class="fa fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>

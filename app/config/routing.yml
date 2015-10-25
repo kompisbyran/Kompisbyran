@@ -32,3 +32,9 @@ about:
     defaults:
         _controller: FrameworkBundle:Template:template
         template:    static/about.html.twig
+
+terms:
+    path: /terms
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    static/terms.html.twig
