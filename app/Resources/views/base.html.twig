@@ -59,12 +59,12 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ path('homepage') }}">Start</a></li>
-                    <li><a href="{{ path('how_it_works') }}">Såhär går det till</a></li>
+                    <li><a href="{{ path('how_it_works') }}">Så här går det till</a></li>
                     <li><a href="{{ path('terms') }}">Villkor</a></li>
                     <li><a href="">Samarbeta med oss</a></li>
                     <li><a href="{{ path('about') }}">Om oss</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li><a href="{{ path('settings') }}">Inställningar</a></li>
+                        <li><a href="{{ path('settings') }}">Min profil</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
                             <li><a href="{{ path('admin_start') }}">Personer att koppla ihop</a></li>
                             <li><a href="{{ path('admin_connections') }}">Tidigare kopplingar</a></li>
