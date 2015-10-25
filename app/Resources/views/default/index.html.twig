@@ -5,8 +5,11 @@
 {% macro connectionRow(connection) %}
     <li>
         <strong>{{ connection.createdAt|date('Y-m-d H:i') }}, {{ connection.city.name }}</strong><br>
-        Lärare: {{ connection.learner.name }}
-        Elev: {{ connection.fluentSpeaker.name }}
+        Kompis: {% if connection.learner != app.user %}
+            {{ connection.learner.name }}
+        {% else %}
+            {{ connection.fluentSpeaker.name }}
+        {% endif %}
     </li>
 {% endmacro %}
 
@@ -16,7 +19,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
-                        <h2>Så här går det till</h2>
+
+                        <h2>Kul att du vill kompisfika</h2>
+                        <p>
+                            Här hittar du alla dina tidigare fikor och kan även anmäla dig
+                            för att kompisfika. Vill du ändra uppgifter i din ansökan gör du det enkelt själv genom att
+                            trycka på “Min ansökan” i menyraden.
+                        </p>
+
+
+                        <h4>Så här går det till</h4>
                         <ol>
                             <li>
                                 Vi matchar ihop dig med en ny kompis ur vårt nätverk. Vi kan också komma att lägga upp
@@ -48,8 +60,8 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
 
+                        <h2>Tidigare kompisfikor</h2>
                         {% if app.user.fluentSpeakerConnections|length > 0 %}
-                            <h2>FluentSpeaker</h2>
                             <ul>
                                 {% for connection in app.user.fluentSpeakerConnections %}
                                     {{ macro.connectionRow(connection) }}
@@ -58,7 +70,6 @@
                         {% endif %}
 
                         {% if app.user.learnerConnections|length > 0 %}
-                            <h2>Learner</h2>
                             <ul>
                                 {% for connection in app.user.learnerConnections %}
                                     {{ macro.connectionRow(connection) }}
@@ -66,12 +77,13 @@
                             </ul>
                         {% endif %}
 
-                        <h2>Connection requests</h2>
+                        <h2>Intresseanmälningar</h2>
                         {% if app.user.connectionRequests|length %}
                             <ul>
                                 {% for connectionRequest in app.user.connectionRequests %}
                                     <li>
-                                        {{ connectionRequest.createdAt|date('Y-m-d H:i') }}, {{ connectionRequest.city.name }}
+                                        {{ connectionRequest.createdAt|date('Y-m-d H:i') }},
+                                        {{ connectionRequest.city.name }}<br>
                                         {% if connectionRequest.wantToLearn %}
                                             Du vill förbättra din svenska
                                         {% else %}
@@ -86,11 +98,16 @@
                         {% endif %}
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <h2>Anmäl intresse</h2>
+                        <h2>Jag vill kompisfika igen</h2>
+                        <p>
+                            Här anmäler du dig om du vill kompisfika igen. Fyll i stad och tryck på “Kompisfika” så har
+                            du anmält dig på nytt. Du får då ett bekräftelsemail till din e-mailadress du har
+                            registrerat. Om du vill ändra din ansökan trycker du på “Min profil” i menyn.
+                        </p>
                         {{ form_start(form) }}
                         {{ form_widget(form) }}
 
-                        <input type="submit" value="Skicka">
+                        <input type="submit" value="Kompisfika" class="btn btn-default">
                         {{ form_end(form) }}
                     </div>
                 </div>

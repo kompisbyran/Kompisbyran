@@ -83,7 +83,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
     protected function loadUsers(ObjectManager $manager)
     {
         $user = new User();
-        $user->setUsername('learner');
         $user->setEmail('learner@example.com');
         $user->setName('Learner');
         $user->setEnabled(true);
@@ -102,7 +101,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $this->addReference('user-learner', $user);
 
         $user = new User();
-        $user->setUsername('fluentspeaker');
         $user->setEmail('fluentspeaker@example.com');
         $user->setName('Fluent speaker');
         $user->setEnabled(true);
@@ -121,7 +119,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $this->addReference('user-fluentspeaker', $user);
 
         $user = new User();
-        $user->setUsername('glenn');
         $user->setEmail('glenn@example.com');
         $user->setName('Glenn');
         $user->setEnabled(true);
