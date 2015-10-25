@@ -28,16 +28,16 @@ class UserType extends AbstractType
                     'class' => 'AppBundle:Category',
                     'multiple' => true,
                     'expanded' => true,
-                    'query_builder' => function(EntityRepository $er) {
-                            return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
-                        },
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
+                    },
                     'property' => 'name',
                     'label' => 'Vilka är dina intressen?',
                 ]
             )
             ->add('age', 'choice', [
                 'label' => 'Ålder',
-                'choices' => range(18, 100),
+                'choices' => array_combine(range(18, 100), range(18, 100)),
             ])
             ->add('gender', 'choice', [
                 'expanded' => true,
@@ -50,8 +50,7 @@ class UserType extends AbstractType
             ->add('about', 'textarea', ['label' => 'Berätta om dig själv'])
             ->add('from', 'text', ['label' => 'Vilket land kommer du ifrån?'])
             ->add('languages', 'text', ['label' => 'Vilka språk talar du?'])
-            ->add('profilePicture', 'hidden')
-        ;
+            ->add('profilePicture', 'hidden');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

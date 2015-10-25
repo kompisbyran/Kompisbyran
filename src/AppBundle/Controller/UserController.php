@@ -6,6 +6,7 @@ use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\VarDumper\VarDumper;
 
 /**
@@ -30,7 +31,8 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
-            $this->get('security.context')->getToken()->setAuthenticated(false);
+            $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
+            $this->getSecurityContext()->setToken($token);
 
             return $this->redirect($this->generateUrl('homepage'));
         }
@@ -40,5 +42,13 @@ class UserController extends Controller
         ];
 
         return $this->render('user/settings.html.twig', $parameters);
+    }
+
+    /**
+     * @return \Symfony\Component\Security\Core\SecurityContext
+     */
+    protected function getSecurityContext()
+    {
+        return $this->get('security.context');
     }
 }
