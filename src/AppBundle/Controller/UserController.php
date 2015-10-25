@@ -27,12 +27,18 @@ class UserController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $user->addRole('ROLE_COMPLETE_USER');
+            if (false === $this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER')) {
+                $user->addRole('ROLE_COMPLETE_USER');
+                $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
+                $this->getSecurityContext()->setToken($token);
+                $this->addFlash(
+                    'info',
+                    'Nu har vi registrerat dina uppgifter, och kommer att höra av oss så fort vi har hittat en ny
+                    matchning.'
+                );
+            }
             $em->persist($user);
             $em->flush();
-
-            $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
-            $this->getSecurityContext()->setToken($token);
 
             return $this->redirect($this->generateUrl('homepage'));
         }

@@ -82,6 +82,16 @@
 </div>
 <!-- Menu Bar End -->
 
+{% if app.session.flashbag.has('info') %}
+    <div class="inner-page">
+        <div class="container">
+            {% for flashMessage in app.session.flashbag.get('info') %}
+                <div class="alert alert-info" role="alert">{{ flashMessage }}</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
 {% block body %}{% endblock %}
 
 <!-- Footer Start -->
