@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use AppBundle\Enum\Countries;
 
 class UserType extends AbstractType
 {
@@ -48,7 +49,10 @@ class UserType extends AbstractType
                 ]
             ])
             ->add('about', 'textarea', ['label' => 'Berätta om dig själv'])
-            ->add('from', 'text', ['label' => 'Vilket land kommer du ifrån?'])
+            ->add('from', 'choice', [
+                'label' => 'Vilket land kommer du ifrån?',
+                'choices' => Countries::getList(),
+            ])
             ->add('languages', 'text', ['label' => 'Vilka språk talar du?'])
             ->add('profilePicture', 'hidden');
     }

@@ -91,7 +91,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setAge(35);
         $user->setAbout('Sportintresserad man med 3 barn');
         $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
-        $user->setFrom('Kurdistan');
+        $user->setFrom('SY');
         $user->setGender('M');
         $user->setLanguages('Svenska, Kurdiska och lite engelska');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/1.jpg');
@@ -109,7 +109,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setAge(40);
         $user->setAbout('Sportintresserad lärare');
         $user->setCategories([$this->getReference('category-0'), $this->getReference('category-1')]);
-        $user->setFrom('Umeå');
+        $user->setFrom('SE');
         $user->setGender('M');
         $user->setLanguages('Svenska, engelska och franska');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/2.jpg');
@@ -120,7 +120,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
 
         $user = new User();
         $user->setEmail('glenn@example.com');
-        $user->setName('Glenn');
+        $user->setName('SE');
         $user->setEnabled(true);
         $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN']);
         $user->setWantToLearn(false);

@@ -131,6 +131,7 @@ class User extends BaseUser
         $this->learnerConnections = new ArrayCollection();
         $this->connectionRequests = new ArrayCollection();
         $this->categories = new ArrayCollection();
+        $this->from = 'SE';
 
         parent::__construct();
     }
