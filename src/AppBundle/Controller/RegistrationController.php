@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class RegistrationController extends Controller
@@ -13,5 +14,14 @@ class RegistrationController extends Controller
     public function confirmedAction()
     {
         return $this->redirectToRoute('settings');
+    }
+
+    /**
+     * @Route("/login", name="login")
+     * @Method("GET")
+     */
+    public function loginAction()
+    {
+        return $this->render('security/login.html.twig');
     }
 }

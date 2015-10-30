@@ -1,0 +1,30 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block body %}
+    <div class="inner-page sign">
+        <div class="container">
+            <div class="sign-content">
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <!-- Sign In Area -->
+                        <div class="sign-in">
+                            <h3><i class="fa fa-user red"></i> &nbsp;Logga in</h3>
+                            <!-- Sign in Form Start -->
+                            {{ render(controller('FOSUserBundle:Security:login')) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <p>
+                            Om du redan har skapat ett användarkonto, loggar du in här genom att fylla i din e-mailadress
+                            och lösenord. Är det första gången du vill fika, trycker du
+                            <a href="{{ path('fos_user_registration_register') }}">här</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
