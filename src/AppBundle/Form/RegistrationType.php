@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\IsTrue;
 
 class RegistrationType extends AbstractType
 {
@@ -13,7 +14,13 @@ class RegistrationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->remove('username');
+        $builder
+            ->remove('username')
+            ->add('termsAccepted', 'checkbox', [
+                'mapped' => false,
+                'constraints' => new IsTrue(),
+            ])
+        ;
     }
 
     /**

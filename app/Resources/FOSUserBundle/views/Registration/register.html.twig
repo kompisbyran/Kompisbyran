@@ -1,4 +1,12 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
+{% form_theme form _self %}
+
+{% block _fos_user_registration_form_termsAccepted_widget %}
+    <label>
+        <input type="checkbox" {{ block('widget_attributes') }} />
+        Jag godkänner <a href="{{ path('terms') }}">villkoren</a>
+    </label>
+{% endblock %}
 
 {% block body %}
     <div class="inner-page sign">
@@ -19,11 +27,12 @@
                             <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal">
 
                                 <div class="form-group">
-                                    <label for="email" class="col-lg-3 control-label">{{ 'form.username'|trans({}, 'FOSUserBundle') }}</label>
+                                    <label for="email" class="col-lg-3 control-label">E-postadress</label>
 
                                     <div class="col-lg-9">
                                         {{ form_widget(form.email) }}
                                     </div>
+                                    {{ form_errors(form.email) }}
                                 </div>
 
                                 <div class="form-group">
@@ -32,6 +41,7 @@
                                     <div class="col-lg-9">
                                         {{ form_widget(form.plainPassword.first) }}
                                     </div>
+                                    {{ form_errors(form.plainPassword.first) }}
                                 </div>
 
                                 <div class="form-group">
@@ -40,8 +50,17 @@
                                     <div class="col-lg-9">
                                         {{ form_widget(form.plainPassword.second) }}
                                     </div>
+                                    {{ form_errors(form.plainPassword.second) }}
                                 </div>
 
+                                <div class="form-group">
+                                    <div class="col-lg-offset-3 col-lg-9">
+                                        {{ form_widget(form.termsAccepted) }}
+                                    </div>
+                                    {{ form_errors(form.termsAccepted) }}
+                                </div>
+
+                                {{ form_rest(form) }}
 
                                 <div class="form-group">
                                     <div class="col-lg-offset-3 col-lg-9">
