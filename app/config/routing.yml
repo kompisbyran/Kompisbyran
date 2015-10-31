@@ -38,3 +38,9 @@ terms:
     defaults:
         _controller: FrameworkBundle:Template:template
         template:    static/terms.html.twig
+
+work_with_us:
+    path: /work-with-us
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    static/workWithUs.html.twig
