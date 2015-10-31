@@ -1,0 +1,3 @@
+.page a:not(.btn) {
+    text-decoration: underline;
+}

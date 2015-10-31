@@ -20,6 +20,7 @@
     <!--[if IE]>
     <link rel="stylesheet" href="/css/ie-style.css">
     <![endif]-->
+    <link href="/css/custom.css" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <style type="text/css">
@@ -107,9 +108,9 @@
         </div>
     </div>
 {% endif %}
-
-{% block body %}{% endblock %}
-
+<div class="page">
+    {% block body %}{% endblock %}
+</div>
 <!-- Footer Start -->
 
 <div class="footer">
