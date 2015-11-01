@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Enum\Languages;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -53,7 +54,12 @@ class UserType extends AbstractType
                 'label' => 'Vilket land kommer du ifrån?',
                 'choices' => Countries::getList(),
             ])
-            ->add('languages', 'text', ['label' => 'Vilka språk talar du?'])
+            ->add('languages', 'choice', [
+                'label' => 'Vilka språk talar du?',
+                'choices' => Languages::getList(),
+                'expanded' => true,
+                'multiple' => true,
+            ])
             ->add('profilePicture', 'hidden')
         ;
         $user = $builder->getData();

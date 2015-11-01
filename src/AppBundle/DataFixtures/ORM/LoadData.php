@@ -93,7 +93,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
         $user->setFrom('SY');
         $user->setGender('M');
-        $user->setLanguages('Svenska, Kurdiska och lite engelska');
+        $user->setLanguages(['ar', 'en']);
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/1.jpg');
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
@@ -111,7 +111,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setCategories([$this->getReference('category-0'), $this->getReference('category-1')]);
         $user->setFrom('SE');
         $user->setGender('M');
-        $user->setLanguages('Svenska, engelska och franska');
+        $user->setLanguages(['sv', 'en']);
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/2.jpg');
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
@@ -129,7 +129,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
         $user->setFrom('Göteborg');
         $user->setGender('M');
-        $user->setLanguages('Svenska och engelska');
+        $user->setLanguages(['sv', 'en']);
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/3.jpg');
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));

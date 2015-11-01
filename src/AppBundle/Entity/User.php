@@ -105,7 +105,7 @@ class User extends BaseUser
      *
      * @Assert\NotBlank(groups={"settings"})
      *
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="array")
      */
     protected $languages;
 
