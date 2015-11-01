@@ -14,11 +14,14 @@ class RegistrationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $constraint = new IsTrue();
+        $constraint->message = 'Du måste godkänna Kompisbyråns villkor.';
+
         $builder
             ->remove('username')
             ->add('termsAccepted', 'checkbox', [
                 'mapped' => false,
-                'constraints' => new IsTrue(),
+                'constraints' => $constraint,
             ])
         ;
     }
