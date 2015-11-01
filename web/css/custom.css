@@ -1,3 +1,6 @@
 .page a:not(.btn) {
     text-decoration: underline;
 }
+.help-block {
+    color: red;
+}
