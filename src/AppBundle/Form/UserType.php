@@ -54,7 +54,21 @@ class UserType extends AbstractType
                 'choices' => Countries::getList(),
             ])
             ->add('languages', 'text', ['label' => 'Vilka språk talar du?'])
-            ->add('profilePicture', 'hidden');
+            ->add('profilePicture', 'hidden')
+        ;
+        $user = $builder->getData();
+        if (!$user->hasRole('ROLE_COMPLETE_USER')) {
+            $builder->add('city', 'entity', [
+                'label' => 'Här vill jag fika',
+                'class' => 'AppBundle:City',
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
+                },
+                'property' => 'name',
+                'mapped' => false,
+            ]);
+        }
+
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

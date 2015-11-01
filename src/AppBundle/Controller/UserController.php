@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -36,6 +37,11 @@ class UserController extends Controller
                     'Nu har vi registrerat dina uppgifter, och kommer att höra av oss så fort vi har hittat en ny
                     matchning.'
                 );
+                $connectionRequest = new ConnectionRequest();
+                $connectionRequest->setUser($user);
+                $connectionRequest->setCity($form->get('city')->getData());
+                $connectionRequest->setWantToLearn($user->getWantToLearn());
+                $em->persist($connectionRequest);
             }
             $em->persist($user);
             $em->flush();
