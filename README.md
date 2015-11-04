@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jongotlin/Kompisbyran.svg)](https://travis-ci.org/jongotlin/Kompisbyran)
+
 Kompisbyrån
 ========================
 
