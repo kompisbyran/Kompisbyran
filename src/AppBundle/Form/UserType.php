@@ -56,7 +56,7 @@ class UserType extends AbstractType
             ])
             ->add('languages', 'choice', [
                 'label' => 'Vilka språk talar du?',
-                'choices' => Languages::getList(),
+                'choices' => Languages::getActiveList(),
                 'expanded' => true,
                 'multiple' => true,
             ])

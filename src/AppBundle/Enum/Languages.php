@@ -159,4 +159,18 @@ class Languages
     {
         return static::$languages;
     }
+
+    /**
+     * @return string[]
+     */
+    public static function getActiveList()
+    {
+        $languages = array_intersect_key(
+            static::$languages,
+            array_flip(['sv', 'en', 'ar', 'de', 'es', 'fa', 'ku'])
+        );
+        sort($languages);
+
+        return $languages;
+    }
 }

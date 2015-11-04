@@ -7,11 +7,11 @@
     <div class="row">
         {% for key, value in form.vars.choices %}
             {% set closed = false %}
-            {% if loop.index0 is divisible by(36) %}
+            {% if loop.index0 is divisible by(2) %}
                 <div class="col-md-3">
             {% endif %}
             {{ form_widget(form.offsetGet(key)) }}
-            {% if loop.index is divisible by(36) %}
+            {% if loop.index is divisible by(2) %}
                 </div>
                 {% set closed = true %}
             {% endif %}
