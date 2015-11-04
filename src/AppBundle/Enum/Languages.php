@@ -165,12 +165,14 @@ class Languages
      */
     public static function getActiveList()
     {
-        $languages = array_intersect_key(
-            static::$languages,
-            array_flip(['sv', 'en', 'ar', 'de', 'es', 'fa', 'ku'])
-        );
-        sort($languages);
+        $allowed  = ['sv', 'en', 'ar', 'de', 'es', 'fa', 'ku'];
 
-        return $languages;
+        return array_filter(
+            static::$languages,
+            function ($key) use ($allowed) {
+                return in_array($key, $allowed);
+            },
+            ARRAY_FILTER_USE_KEY
+        );
     }
 }

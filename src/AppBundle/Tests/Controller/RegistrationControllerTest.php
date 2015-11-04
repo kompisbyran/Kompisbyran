@@ -65,7 +65,7 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[name]' => 'John Doe',
             'user[age]' => '35',
             'user[gender]' => 'M',
-            'user[languages][114]' => 'sv',
+            'user[languages][6]' => 'sv',
             'user[about]' => 'About me',
         ]);
 
