@@ -26,6 +26,7 @@
                         {{ category.name }}{% if not loop.last %}, {% endif %}
                     {% endfor %}
                     <br>
+                    {{ connectionRequest.user.languages|join(', ') }}<br>
                     "<em>{{ connectionRequest.comment|nl2br }}</em>"
                 </p>
                 {% if connectionRequest.user.internalComment %}
