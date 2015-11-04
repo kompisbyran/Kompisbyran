@@ -20,11 +20,17 @@
                         <tr>
                             <td>{{ connection.createdAt|date('Y-m-d H:i') }}</td>
                             <td>
-                                <strong>{{ connection.fluentSpeaker.name }}</strong><br>
+                                <strong><a
+                                    href="{{ path('admin_user', {'id': connection.fluentSpeaker.id}) }}"
+                                >{{ connection.fluentSpeaker.name }}</a></strong>
+                                - {{ connection.fluentSpeaker.email }}<br>
                                 <em>{{ connection.fluentSpeakerComment }}</em>
                             </td>
                             <td>
-                                <strong>{{ connection.learner.name }}</strong><br>
+                                <strong><a
+                                    href="{{ path('admin_user', {'id': connection.learner.id}) }}"
+                                >{{ connection.learner.name }}</a></strong>
+                                - {{ connection.learner.email }}<br>
                                 <em>{{ connection.learnerComment }}</em>
                             </td>
                             <td>{{ connection.city.name }}</td>
