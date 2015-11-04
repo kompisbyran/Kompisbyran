@@ -14,3 +14,12 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+doctrine:
+    dbal:
+        connections:
+            default:
+                wrapper_class: %doctrine.dbal.connection.wrapper_class%
+
+parameters:
+    doctrine.dbal.connection.wrapper_class: "AppBundle\\Doctrine\\DBAL\\PersistedConnection"

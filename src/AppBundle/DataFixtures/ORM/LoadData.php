@@ -120,14 +120,14 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
 
         $user = new User();
         $user->setEmail('glenn@example.com');
-        $user->setName('SE');
+        $user->setName('Glenn');
         $user->setEnabled(true);
         $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN']);
         $user->setWantToLearn(false);
         $user->setAge(20);
         $user->setAbout('Göteborgare');
         $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
-        $user->setFrom('Göteborg');
+        $user->setFrom('SE');
         $user->setGender('M');
         $user->setLanguages(['sv', 'en']);
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/3.jpg');
@@ -135,6 +135,12 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
         $this->addReference('user-glenn', $user);
+
+        $user = new User();
+        $user->setEmail('incomplete@example.com');
+        $user->setEnabled(true);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
     }
 
     /**
