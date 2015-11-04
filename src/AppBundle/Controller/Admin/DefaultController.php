@@ -26,22 +26,38 @@ class DefaultController extends Controller
             $learnerConnectionRequest = $this->getConnectionRequestRepository()->find($request->request->getInt('learner'));
             $fluentSpeakerConnectionRequest = $this->getConnectionRequestRepository()->find($request->request->getInt('fluentSpeaker'));
 
-            $connection = new Connection();
-            $connection->setLearner($learnerConnectionRequest->getUser());
-            $connection->setFluentSpeaker($fluentSpeakerConnectionRequest->getUser());
-            $connection->setCity($learnerConnectionRequest->getCity());
-            $connection->setFluentSpeakerComment($fluentSpeakerConnectionRequest->getComment());
-            $connection->setLearnerComment($learnerConnectionRequest->getComment());
+            if ($this->getConnectionRepository()->findForUsers(
+                $learnerConnectionRequest->getUser(), $fluentSpeakerConnectionRequest->getUser()
+            )) {
+                $this->addFlash('error', sprintf(
+                    'Personerna %s och %s har redan kopplats ihop tidigare',
+                    $learnerConnectionRequest->getUser()->getName(),
+                    $fluentSpeakerConnectionRequest->getUser()->getName()
+                ));
+            } else {
+                $connection = new Connection();
+                $connection->setLearner($learnerConnectionRequest->getUser());
+                $connection->setFluentSpeaker($fluentSpeakerConnectionRequest->getUser());
+                $connection->setCity($learnerConnectionRequest->getCity());
+                $connection->setFluentSpeakerComment($fluentSpeakerConnectionRequest->getComment());
+                $connection->setLearnerComment($learnerConnectionRequest->getComment());
 
-            $manager->persist($connection);
-            $manager->remove($learnerConnectionRequest);
-            $manager->remove($fluentSpeakerConnectionRequest);
-            $manager->flush();
+                $manager->persist($connection);
+                $manager->remove($learnerConnectionRequest);
+                $manager->remove($fluentSpeakerConnectionRequest);
+                $manager->flush();
 
-            $this->get('event_dispatcher')->dispatch(
-                DomainEvents::CONNECTION_CREATED,
-                new ConnectionCreatedEvent($connection)
-            );
+                $this->get('event_dispatcher')->dispatch(
+                    DomainEvents::CONNECTION_CREATED,
+                    new ConnectionCreatedEvent($connection)
+                );
+
+                $this->addFlash('info', sprintf(
+                    'En koppling skapades melland %s och %s',
+                    $learnerConnectionRequest->getUser()->getName(),
+                    $fluentSpeakerConnectionRequest->getUser()->getName()
+                ));
+            }
 
             return $this->redirect($this->generateUrl('admin_start'));
         }
@@ -71,5 +87,13 @@ class DefaultController extends Controller
     protected function getCityRepository()
     {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:City');
+    }
+
+    /**
+     * @return \AppBundle\Entity\ConnectionRepository
+     */
+    protected function getConnectionRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Connection');
     }
 }

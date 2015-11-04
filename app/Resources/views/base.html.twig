@@ -108,6 +108,17 @@
         </div>
     </div>
 {% endif %}
+
+{% if app.session.flashbag.has('error') %}
+    <div class="inner-page">
+        <div class="container">
+            {% for flashMessage in app.session.flashbag.get('error') %}
+                <div class="alert alert-danger" role="alert">{{ flashMessage }}</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
 <div class="page">
     {% block body %}{% endblock %}
 </div>
