@@ -188,5 +188,10 @@
 <script type="text/javascript" src="/js/custom.js"></script>
 
         {% block javascripts %}{% endblock %}
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
     </body>
 </html>

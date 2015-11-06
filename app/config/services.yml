@@ -21,3 +21,8 @@ services:
         class: AppBundle\Security\SuccessHandler
         arguments:
             - @router
+
+    twig.app_extension:
+        class: AppBundle\Twig\AppExtension
+        tags:
+            - { name: twig.extension }

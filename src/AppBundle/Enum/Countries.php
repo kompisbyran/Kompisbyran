@@ -261,4 +261,18 @@ class Countries
     {
         return static::$countries;
     }
+
+    /**
+     * @param $code
+     *
+     * @return string
+     */
+    public static function getName($code)
+    {
+        if (!isset(static::$countries[$code])) {
+            throw new \LogicException(sprintf('Country for code %s was not found.', $code));
+        }
+
+        return static::$countries[$code];
+    }
 }

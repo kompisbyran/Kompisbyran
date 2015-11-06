@@ -9,13 +9,25 @@
                 <img
                     style="width:50px"
                     src="{% if connectionRequest.user.profilePicture -%}
-                        {{ connectionRequest.user.profilePicture }}
+                            {{ connectionRequest.user.profilePicture }}
                         {%- else -%}
-                        /images/testimonials/dorry-mahlin.jpg
+                            {{ asset('/images/user.png') }}
                         {%- endif %}"
                     alt=""
                     class="img-responsive img-circle"
-                 /><a href="{{ path('admin_user', {'id': connectionRequest.user.id}) }}">{{ connectionRequest.user.name }}, <span>{{ connectionRequest.user.age }} år</span></a>
+                    data-toggle="popover"
+                    data-trigger="hover"
+                    title="{{ connectionRequest.user.name }}"
+                    data-html="true"
+                    data-content="<strong>Från:</strong> {{ connectionRequest.user.from|country_name }}<br>
+                    <strong>Språk:</strong> {{ connectionRequest.user.languages|language_names|join(', ') }}<br>
+                    <strong>Antal kopplingar:</strong> {{ connectionRequest.user.connections|length }}<br>
+                    <strong>Om:</strong> {{ connectionRequest.user.about }}"
+                    data-placement="top"
+                /><a
+                    href="{{ path('admin_user', {'id': connectionRequest.user.id}) }}"
+                >{{ connectionRequest.user.name }}</a>
+                <span>{{ connectionRequest.user.gender }}, {{ connectionRequest.user.age }} år</span>
             </h4>
             <blockquote class="{% if connectionRequest.user.internalComment %}br-orange{% else %}br-green{% endif %}">
                 <p>
@@ -26,7 +38,7 @@
                         {{ category.name }}{% if not loop.last %}, {% endif %}
                     {% endfor %}
                     <br>
-                    {{ connectionRequest.user.languages|join(', ') }}<br>
+                    {{ connectionRequest.createdAt|date('Y-m-d') }}<br>
                     "<em>{{ connectionRequest.comment|nl2br }}</em>"
                 </p>
                 {% if connectionRequest.user.internalComment %}

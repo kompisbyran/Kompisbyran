@@ -175,4 +175,18 @@ class Languages
             ARRAY_FILTER_USE_KEY
         );
     }
+
+    /**
+     * @param $code
+     *
+     * @return string
+     */
+    public static function getName($code)
+    {
+        if (!isset(static::$languages[$code])) {
+            throw new \LogicException(sprintf('Language for code %s was not found.', $code));
+        }
+
+        return static::$languages[$code];
+    }
 }

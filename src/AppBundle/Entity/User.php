@@ -136,6 +136,16 @@ class User extends BaseUser
         parent::__construct();
     }
 
+    /**
+     * @return Connection[]|ArrayCollection
+     */
+    public function getConnections()
+    {
+        return new ArrayCollection(array_merge(
+            $this->fluentSpeakerConnections->toArray(),
+            $this->learnerConnections->toArray()
+        ));
+    }
 
     /**
      * @return int
