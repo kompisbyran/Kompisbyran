@@ -5,7 +5,7 @@
 
     <p>Vad kul att du vill vara med och fika!</p>
 
-    <p>Vi har nu hittat en matchning till dig. Han heter {{ partner.name }} och gillar
+    <p>Vi har nu hittat en matchning till dig. Hen heter {{ partner.name }} och gillar
         {% for category in recipient.categories -%}
             {{ category.name|lower }}{% if loop.revindex == 2 %} och {% elseif not loop.last %}, {% endif %}
         {%- endfor %}.</p>
