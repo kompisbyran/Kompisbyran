@@ -1337,16 +1337,17 @@ div.ppt {
     pointer-events: none;
 }
 
-.testimonial .testimonial-content blockquote:after {
-    border-color: rgba(75, 170, 211, 0);
-    border-width: 12px;
-    left: 8%;
-    margin-left: -15px;
-}
-
 .testimonial .testimonial-content blockquote.br-orange {
     background: #fff;
-    border: 2px #f76753 solid;
+    border: 1px #f76753 solid;
+    border-radius: 30px;
+}
+
+.testimonial .testimonial-content blockquote:after {
+    border-color: rgba(75, 170, 211, 0);
+    border-width: 8px;
+    left: 15%;
+    margin-left: -15px;
 }
 
 .testimonial .testimonial-content blockquote.br-orange:after {
