@@ -27,12 +27,14 @@ Set default or specify values for connection string (later found in app/config/p
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: 8889
-    database_name: symfony
+    database_name: kompisbyran
     database_user: root
     database_password: root
 ```
 
-Create empty database <name> (ex. 'symfony')
+Create empty database with `php app/console doctrine:database:create`
+Create database schema with `php app/console doctrine:schema:create`
+Fill with fixture data with `php app/console doctrine:fixtures:load -n`
 
 ### Usage
 
