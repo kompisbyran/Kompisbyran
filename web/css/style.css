@@ -1320,7 +1320,6 @@ div.ppt {
 }
 
 .testimonial .testimonial-content blockquote{
-    border: 0;
     position: relative;
 }
 
@@ -1339,6 +1338,11 @@ div.ppt {
     border-width: 12px;
     left: 8%;
     margin-left: -15px;
+}
+
+.testimonial .testimonial-content blockquote.br-orange {
+    background: #fff;
+    border: 2px #f76753 solid;
 }
 
 .testimonial .testimonial-content blockquote.br-orange:after {
@@ -1366,7 +1370,7 @@ div.ppt {
 }
 
 .testimonial .testimonial-content blockquote p{
-    color: #fff;
+    color: #000;
     font-size: 15px;
     line-height: 25px;
     padding: 10px;
