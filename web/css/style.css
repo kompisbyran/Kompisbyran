@@ -181,6 +181,11 @@ fotm textarea{
     color: #444;
 }
 
+/* Block border Color */
+.border-orange{
+    border: 1px #F76753 solid;
+}
+
 /* Basic CSS ends */
 
 .container{
