@@ -343,7 +343,6 @@ fotm textarea{
     top: 5px;
 }
 
-
 /* Head Social Links CSS */
 
 .head .social{
@@ -1570,7 +1569,7 @@ div.ppt {
 }
 
 .inner-page.about-us img{
-    padding: 25px;
+    padding: 25px 40px;
 }
 
 .inner-page .team{
@@ -2620,58 +2619,53 @@ div.ppt {
 
 /* Responsive CSS */
 
-/* Mobile phones */
-@media (max-width: 350px){
-    .banner-container .banner .cbtn a{
-        display: block !important;
+/* Desktop */
+@media (max-width: 1100px){
+
+    .nav-head .navbar-default .logo img{
+        width: 65px;
+    }
+
+    .nav-head .navbar-default .logo span{
+        display: inline-block;
+        font-size: 28px;
+    }
+
+    .nav-head .navbar-default .navbar-nav > li a{
+        padding: 12px 8px;
+    }
+
+    .banner .caption-lb,
+    .banner .caption-rb{
+        display: none;
     }
 }
 
-@media (max-width: 480px){
-    .head{
-        background: rgba(0, 0, 0, 0.5) !important;
+/* Desktop */
+@media (max-width: 991px){
+
+    .nav-head .navbar-default .logo img{
+        width: 65px;
     }
 
-    .banner-container ,
-    .banner{
-        height: 500px !important;
-    }
-
-    .banner-container .banner .slideone-h h2,
-    .banner-container .banner .slidetwo-h h2{
-        margin-top: 75px !important;
-    }
-
-    .banner-container .banner .slideone-p p{
-        display: none !important;
-    }
-
-    .banner-container .banner .slidetwo-cbtn a{
+    .nav-head .navbar-default .logo span{
         display: none;
     }
 
-    .banner-container .banner .cbtn{
-        margin-top: -70px;
-    }
-
-    /* Countdown CSS */
-    .countdown{
-        width:250px;
-    }
-
-    .countdown_amount {
-        font-size:20px;
-    }
-
-    .countdown_section{
-        font-size:10px;
-    }
-
 }
-
 
 /* Tablets */
 @media (max-width: 767px){
+
+    .nav-head .navbar-default .logo img{
+        width: 65px;
+    }
+
+    .nav-head .navbar-default .logo span{
+        display: inline-block;
+        font-size: 38px;
+    }
+
     .block{
         max-width: 450px !important;
         margin: 0 auto !important;
@@ -2878,10 +2872,58 @@ div.ppt {
     }
 }
 
-/* Desktop */
-@media (max-width: 991px){
-    .banner .caption-lb,
-    .banner .caption-rb{
+/* Mobile phones */
+@media (max-width: 350px){
+    .banner-container .banner .cbtn a{
+        display: block !important;
+    }
+}
+
+@media (max-width: 480px){
+    .head{
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .nav-head .navbar-default .logo img{
+        width: 45px;
+    }
+
+    .nav-head .navbar-default .logo span{
+        font-size: 28px;
+    }
+
+    .banner-container ,
+    .banner{
+        height: 500px !important;
+    }
+
+    .banner-container .banner .slideone-h h2,
+    .banner-container .banner .slidetwo-h h2{
+        margin-top: 75px !important;
+    }
+
+    .banner-container .banner .slideone-p p{
+        display: none !important;
+    }
+
+    .banner-container .banner .slidetwo-cbtn a{
         display: none;
+    }
+
+    .banner-container .banner .cbtn{
+        margin-top: -70px;
+    }
+
+    /* Countdown CSS */
+    .countdown{
+        width:250px;
+    }
+
+    .countdown_amount {
+        font-size:20px;
+    }
+
+    .countdown_section{
+        font-size:10px;
     }
 }
