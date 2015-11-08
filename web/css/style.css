@@ -411,7 +411,6 @@ fotm textarea{
 /* Navbar Header */
 
 .nav-head{
-    background: rgba(0, 0, 0, 0.5);
     border-top: 3px solid #F76753;
     width: 100%;
     position: absolute;
@@ -426,12 +425,13 @@ fotm textarea{
 }
 
 .nav-head .navbar-default .logo img{
+    width: 65px;
     display: inline;
-    margin: 0;
+    margin: 0 10px 0 0;
 }
 
 .nav-head .navbar-default .logo span{
-    color: #fff;
+    color: #f76753;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 38px;
     font-weight: 700;
@@ -455,7 +455,7 @@ fotm textarea{
     line-height: 25px;
     letter-spacing: 0.025em;
     padding: 12px 20px;
-    color: #fff;
+    color: #777;
     font-weight: bold;
     text-transform: uppercase;
 }
