@@ -1313,7 +1313,7 @@ div.ppt {
 
 .testimonial .testimonial-content h4 img{
     display: inline;
-    margin-right: 15px;
+    margin: 0 15px;
     box-shadow: 0 0 3px #999;
 }
 
@@ -1556,6 +1556,10 @@ div.ppt {
 
 .inner-page h2 strong{
     font-size: 33px;
+}
+
+.inner-page.about-us img{
+    padding: 25px;
 }
 
 .inner-page .team{
