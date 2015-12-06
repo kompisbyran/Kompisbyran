@@ -43,6 +43,9 @@
                     {% endfor %}
                     <br>
                     {{ connectionRequest.createdAt|date('Y-m-d') }}<br>
+                    {% if connectionRequest.user.district %}
+                        {{ connectionRequest.user.district }}<br>
+                    {% endif %}
                     {% if connectionRequest.comment %}
                         "<em>{{ connectionRequest.comment|nl2br }}</em>"<br>
                     {% endif %}

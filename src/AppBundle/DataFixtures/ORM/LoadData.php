@@ -111,6 +111,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setFrom('SY');
         $user->setGender('M');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/1.jpg');
+        $user->setDistrict('Södermalm');
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -129,6 +130,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setFrom('SE');
         $user->setGender('M');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/2.jpg');
+        $user->setDistrict('Årsta');
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
