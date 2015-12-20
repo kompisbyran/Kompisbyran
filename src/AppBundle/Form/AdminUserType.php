@@ -16,6 +16,7 @@ class AdminUserType extends UserType
                 'label' => 'Intern kommentar',
                 'required' => false,
             ])
+            ->add('email', 'email')
         ;
     }
 
