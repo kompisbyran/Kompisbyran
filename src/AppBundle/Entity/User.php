@@ -6,11 +6,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
-* @ORM\Entity
-* @ORM\Table(name="fos_user")
-*/
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ * @UniqueEntity(fields="email", message="Epostadressen är redan registrerad")
+ **/
 class User extends BaseUser
 {
     /**
@@ -161,6 +163,12 @@ class User extends BaseUser
      * @ORM\Column(type="boolean")
      */
     protected $hasChildren = false;
+
+    /**
+     * @var string
+     * @Assert\Email
+     */
+    protected $email;
 
     public function __construct()
     {
