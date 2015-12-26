@@ -65,8 +65,14 @@ class DefaultController extends Controller
         if (!$city) {
             $city = $this->getCityRepository()->findAll()[0];
         }
-        $learners = $this->getConnectionRequestRepository()->findBy(['wantToLearn' => true, 'city' => $city]);
-        $fluentSpeakers = $this->getConnectionRequestRepository()->findBy(['wantToLearn' => false, 'city' => $city]);
+        $learners = $this->getConnectionRequestRepository()->findBy(
+            ['wantToLearn' => true, 'city' => $city],
+            ['sortOrder' => 'DESC', 'createdAt' => 'DESC']
+        );
+        $fluentSpeakers = $this->getConnectionRequestRepository()->findBy(
+            ['wantToLearn' => false, 'city' => $city],
+            ['sortOrder' => 'DESC', 'createdAt' => 'DESC']
+        );
         $cities = $this->getCityRepository()->findAll();
 
         $parameters = [

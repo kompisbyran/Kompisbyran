@@ -55,9 +55,17 @@ class ConnectionRequest
      */
     protected $comment;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $sortOrder;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->sortOrder = 0;
     }
 
     /**
@@ -138,5 +146,21 @@ class ConnectionRequest
     public function getComment()
     {
         return $this->comment;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSortOrder()
+    {
+        return $this->sortOrder;
+    }
+
+    /**
+     * @param int $sortOrder
+     */
+    public function setSortOrder($sortOrder)
+    {
+        $this->sortOrder = $sortOrder;
     }
 }

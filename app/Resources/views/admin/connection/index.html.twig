@@ -79,7 +79,8 @@
                             userId: $(this).data('user-id'),
                             comment: $(this).data('comment'),
                             wantToLearn: $(this).data('want-to-learn'),
-                            cityId: $(this).data('city-id')
+                            cityId: $(this).data('city-id'),
+                            sortOrder: 1
                         },
                         success: function () {
                             location.href='{{ path('admin_start') }}';
