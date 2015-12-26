@@ -68,6 +68,7 @@ class ConnectionRequestController extends Controller
         $connectionRequest->setWantToLearn($request->request->getInt('wantToLearn'));
         $connectionRequest->setComment($request->request->get('comment'));
         $connectionRequest->setCity($city);
+        $connectionRequest->setSortOrder($request->request->getInt('sortOrder'));
 
         $this->getDoctrine()->getEntityManager()->persist($connectionRequest);
         $this->getDoctrine()->getEntityManager()->flush();
