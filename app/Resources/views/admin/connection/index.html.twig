@@ -45,7 +45,27 @@
                 {% for connection in pagination %}
                     <tbody>
                         <tr>
-                            <td>{{ connection.createdAt|date('Y-m-d H:i') }}</td>
+                            <td>
+                                {{ connection.createdAt|date('Y-m-d H:i') }}
+
+                                    <a href="#"
+                                        class="add-comment"
+                                        data-connection-id="{{ connection.id }}"
+                                        {% if connection.comments|length %}
+                                            data-toggle="popover"
+                                            data-trigger="hover"
+                                            title="Kommentarer"
+                                            data-html="true"
+                                            data-content="{% for comment in connection.comments -%}
+                                                <strong>{{ comment.createdAt|date('Y-m-d H:i') }}</strong><br>
+                                                {{ comment.user.name }}<br>
+                                                <em>{{ comment.comment }}</em><br>
+                                            {%- endfor %}"
+                                            data-placement="bottom"
+                                        {% endif %}
+                                    ><i class="fa fa-comment{% if connection.comments|length == 0 %}-o{% endif %}"></i></a>
+
+                            </td>
                             <td>
                                 {{ macro.userCell(connection, false) }}
                             </td>
@@ -84,6 +104,23 @@
                         },
                         success: function () {
                             location.href='{{ path('admin_start') }}';
+                        }
+                    });
+                }
+            });
+            $('.add-comment').click(function (e) {
+                e.preventDefault();
+                var comment = prompt('Skriv en kommentar');
+                if (comment != null) {
+                    $.ajax({
+                        url: '{{ path('admin_add_connection_comment') }}',
+                        type: 'POST',
+                        data: {
+                            comment: comment,
+                            connectionId: $(this).data('connection-id')
+                        },
+                        success: function () {
+                            location.href = location.href;
                         }
                     });
                 }

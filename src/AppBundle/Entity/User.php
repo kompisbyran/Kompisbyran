@@ -170,6 +170,13 @@ class User extends BaseUser
      */
     protected $email;
 
+    /**
+     * @var ConnectionComment[]
+     *
+     * @ORM\OneToMany(targetEntity="ConnectionComment", mappedBy="connection")
+     */
+    protected $comments;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -179,6 +186,7 @@ class User extends BaseUser
         $this->categories = new ArrayCollection();
         $this->from = 'SE';
         $this->createdAt = new \DateTime();
+        $this->comments = new ArrayCollection();
 
         parent::__construct();
     }
