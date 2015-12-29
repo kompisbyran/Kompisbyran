@@ -13,10 +13,12 @@ class ConnectionRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('c')
-            ->select('c, f, l, cb')
+            ->select('c, f, l, cb, c2, u')
             ->innerJoin('c.fluentSpeaker', 'f')
             ->innerJoin('c.learner', 'l')
             ->innerJoin('c.createdBy', 'cb')
+            ->leftJoin('c.comments', 'c2')
+            ->leftJoin('c2.user', 'u')
             ->orderBy('c.id', 'desc')
             ->getQuery()
         ;

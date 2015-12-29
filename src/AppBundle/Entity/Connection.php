@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -71,10 +72,19 @@ class Connection
      */
     protected $createdBy;
 
+    /**
+     * @var ConnectionComment[]
+     *
+     * @ORM\OneToMany(targetEntity="ConnectionComment", mappedBy="connection")
+     * @ORM\OrderBy({"createdAt" = "DESC"})
+     */
+    protected $comments;
+
     public function __construct(User $user)
     {
         $this->createdAt = new \DateTime();
         $this->createdBy = $user;
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -179,5 +189,13 @@ class Connection
     public function getCreatedBy()
     {
         return $this->createdBy;
+    }
+
+    /**
+     * @return ConnectionComment[]
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }
