@@ -8,10 +8,6 @@ php:
 
 sudo: false
 
-matrix:
-  allow-failures:
-    - php: 7
-
 before_script:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - composer self-update
