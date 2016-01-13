@@ -67,11 +67,11 @@ class DefaultController extends Controller
         }
         $learners = $this->getConnectionRequestRepository()->findBy(
             ['wantToLearn' => true, 'city' => $city],
-            ['sortOrder' => 'DESC', 'createdAt' => 'DESC']
+            ['sortOrder' => 'DESC', 'createdAt' => 'ASC']
         );
         $fluentSpeakers = $this->getConnectionRequestRepository()->findBy(
             ['wantToLearn' => false, 'city' => $city],
-            ['sortOrder' => 'DESC', 'createdAt' => 'DESC']
+            ['sortOrder' => 'DESC', 'createdAt' => 'ASC']
         );
         $cities = $this->getCityRepository()->findAll();
 
