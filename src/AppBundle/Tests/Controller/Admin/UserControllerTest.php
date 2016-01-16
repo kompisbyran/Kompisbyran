@@ -25,4 +25,18 @@ class UserControllerTest extends DatabaseTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
+    public function testShouldLoadIndexPage()
+    {
+        $this->authenticateUser(
+            $this->getUserRepository()->findOneBy(['email' => 'learner@example.com']),
+            ['ROLE_ADMIN']
+        );
+
+        $client = static::$client;
+        $crawler = $client->request('GET', '/admin/users/');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertTrue($crawler->filter('html:contains("Epost")')->count() > 0);
+    }
+
 }

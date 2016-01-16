@@ -14,6 +14,22 @@ use Symfony\Component\HttpFoundation\Request;
 class UserController extends Controller
 {
     /**
+     * @Route("/", name="admin_users")
+     */
+    public function indexAction()
+    {
+        $users = $this->getUserRepository()->findAllWithCategoryJoinAssoc();
+        $categories = $this->getCategoryRepository()->findAll();
+
+        $parameters = [
+            'users' => $users,
+            'categories' => $categories,
+        ];
+
+        return $this->render('admin/user/index.html.twig', $parameters);
+    }
+
+    /**
      * @Route("/{id}", name="admin_user", defaults={"id": null})
      */
     public function viewAction(Request $request, User $user)
@@ -42,5 +58,15 @@ class UserController extends Controller
         ];
 
         return $this->render('admin/user/view.html.twig', $parameters);
+    }
+
+    protected function getUserRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:User');
+    }
+
+    protected function getCategoryRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Category');
     }
 }

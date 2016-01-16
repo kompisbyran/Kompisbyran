@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="inner-page">
+        <div class="container">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Namn</th>
+                        <th>Epost</th>
+                        <th>Övare</th>
+                        <th>Kön</th>
+                        <th>Ålder</th>
+                        <th>Från</th>
+                        {% for category in categories %}
+                            <th>{{ category.name }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.first_name ~ ' ' ~ user.last_name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{% if user.want_to_learn %}x{% endif %}</td>
+                            <td>{{ user.gender }}</td>
+                            <td>{{ user.age }}</td>
+                            <td>{{ user.from_country|country_name }}</td>
+                            {% for category in categories %}
+                                <td>
+                                    {% for categoryId in user.category_ids|split(',') %}
+                                        {% if categoryId == category.id %}
+                                            x
+                                        {% endif %}
+                                    {% endfor %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
