@@ -204,6 +204,7 @@
             <trans-unit id="index.intro">
                 <source>index.intro</source>
                 <target>Här ser du dina tidigare kompisfikor, intresseanmälningar till nya fikor och kan anmäla dig igen för att träffa nya fikakompisar.
+                    För tillfället kan vi endast länka samman fikakompisar i Stockholm.
 
                     Vill du ändra dina uppgifter trycker du på "Min profil" och sedan "inställningar" i menyn.</target>
             </trans-unit>
