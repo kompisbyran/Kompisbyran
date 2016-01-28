@@ -9,9 +9,9 @@ class ConnectionRepository extends EntityRepository
     /**
      * @return \Doctrine\ORM\Query
      */
-    public function getFindAllQuery()
+    public function getFindAllQuery($searchString)
     {
-        return $this
+        $qb = $this
             ->createQueryBuilder('c')
             ->select('c, f, l, cb, c2, u')
             ->innerJoin('c.fluentSpeaker', 'f')
@@ -19,6 +19,19 @@ class ConnectionRepository extends EntityRepository
             ->innerJoin('c.createdBy', 'cb')
             ->leftJoin('c.comments', 'c2')
             ->leftJoin('c2.user', 'u')
+        ;
+
+        if ($searchString) {
+            $qb
+                ->where('f.email LIKE :searchString')
+                ->orWhere('l.email LIKE :searchString')
+                ->orWhere("CONCAT(CONCAT(f.firstName, ' '), f.lastName) LIKE :searchString")
+                ->orWhere("CONCAT(CONCAT(l.firstName, ' '), l.lastName) LIKE :searchString")
+                ->setParameter('searchString', '%'.trim($searchString).'%')
+            ;
+        }
+
+        return $qb
             ->orderBy('c.id', 'desc')
             ->getQuery()
         ;

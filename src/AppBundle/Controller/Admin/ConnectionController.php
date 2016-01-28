@@ -16,7 +16,9 @@ class ConnectionController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $query = $this->getConnectionRepository()->getFindAllQuery();
+        $searchString = $request->query->get('q');
+
+        $query = $this->getConnectionRepository()->getFindAllQuery($searchString);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
