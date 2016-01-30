@@ -2888,6 +2888,17 @@ div.ppt {
         background: rgba(0, 0, 0, 0.5) !important;
     }
 
+    .navbar-nav {
+         position: relative;
+        background-color: #fff;
+    }
+
+    .nav-head .navbar-default .navbar-nav > li a{
+        border-bottom: 1px solid;
+        padding-top: 10px;
+        text-align: center;
+    }
+
     .nav-head .navbar-default .logo img{
         width: 45px;
     }
