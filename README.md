@@ -8,8 +8,36 @@ Kompisbyrån
 Kompisbyrån finns på [www.kompisbyran.se](http://www.kompisbyran.se).
 
 
-Setup (PHP >= 5.6)
+Setup
 ------------
+
+### Installation
+
+Install MySQL [OSX El capitan guide](http://wpguru.co.uk/2015/11/how-to-install-mysql-on-mac-os-x-el-capitan/)
+
+Nice graphical admin tool for Mac [Sequelpro](http://sequelpro.com/)
+
+Install PHP (requires PHP >= 5.6) [OSX using homebrew](http://blog.shameerc.com/2015/12/installing-php-7-on-mac-using-homebrew)
+
+```bash
+brew update
+```
+```bash
+brew install homebrew/php/php70
+```
+```bash
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+```
+
+Install Composer [guide](https://getcomposer.org/doc/00-intro.md)
+
+```bash
+$ curl -sS https://getcomposer.org/installer | php
+```
+```bash
+$ mv composer.phar /usr/local/bin/composer
+```
+
 
 ### Setup 
 
@@ -22,6 +50,7 @@ $ php composer.phar install
 ### Config
 
 Set default or specify values for connection string (later found in app/config/parameters.yml)
+There can be more than the ones specified below but they are not mandatory to setup locally.
 
 ```php
     database_driver: pdo_mysql
