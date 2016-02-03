@@ -6,6 +6,7 @@ use AppBundle\Entity\City;
 use AppBundle\Entity\Connection;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\GeneralCategory;
+use AppBundle\Entity\MusicCategory;
 use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -33,6 +34,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
     public function load(ObjectManager $manager)
     {
         $this->loadCategories($manager);
+        $this->loadMusicCategories($manager);
         $this->loadCities($manager);
         $this->loadUsers($manager);
         $this->loadConnectionRequests($manager);
@@ -72,6 +74,31 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
 
             $manager->persist($category);
             $this->addReference(sprintf('category-%s', $i++), $category);
+        }
+    }
+
+    /**
+     * @param ObjectManager $manager
+     */
+    protected function loadMusicCategories(ObjectManager $manager)
+    {
+        $categories = [
+            'Jazz' => ['en' => 'Jazz'],
+            'Hip hop' => ['en' => 'Hip hop'],
+            'Hårdrock' => ['en' => 'Hard rock'],
+        ];
+        $i = 0;
+        $repository = $manager->getRepository('Gedmo\\Translatable\\Entity\\Translation');
+        foreach ($categories as $categoryName => $translations) {
+            $category = new MusicCategory();
+            $category->setName($categoryName);
+
+            foreach ($translations as $locale => $translation) {
+                $repository->translate($category, 'name', $locale, $translation);
+            }
+
+            $manager->persist($category);
+            $this->addReference(sprintf('music-category-%s', $i++), $category);
         }
     }
 
