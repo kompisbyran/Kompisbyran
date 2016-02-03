@@ -23,7 +23,15 @@ class UserType extends AbstractType
         );
         $query->setHint(\Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE, $options['locale']);
 
-        $categories = $query->getResult();
+        $categories = [];
+        $musicCategories = [];
+        foreach ($query->getResult() as $category) {
+            if (get_class($category) == 'AppBundle\Entity\GeneralCategory') {
+                $categories[] = $category;
+            } elseif (get_class($category) == 'AppBundle\Entity\MusicCategory') {
+                $musicCategories[] = $category;
+            }
+        };
 
         $builder
             ->add('firstName', 'text', ['label' => 'user.form.first_name'])
@@ -40,12 +48,20 @@ class UserType extends AbstractType
                 }
             ])
             ->add('categories', 'entity', [
-                    'class' => 'AppBundle:Category',
+                    'class' => 'AppBundle:GeneralCategory',
                     'multiple' => true,
                     'expanded' => true,
                     'choice_list' => new ArrayChoiceList($categories),
                     'property' => 'name',
                     'label' => 'user.form.categories',
+                ]
+            )
+            ->add('musicCategories', 'entity', [
+                    'class' => 'AppBundle:MusicCategory',
+                    'multiple' => true,
+                    'expanded' => true,
+                    'choice_list' => new ArrayChoiceList($musicCategories),
+                    'property' => 'name',
                 ]
             )
             ->add('age', 'choice', [
@@ -81,6 +97,10 @@ class UserType extends AbstractType
                 }
             ])
             ->add('profilePicture', 'hidden')
+            ->add('musicFriend', 'checkbox', [
+                'required' => false,
+            ])
+
         ;
         $user = $builder->getData();
         if (!$user->hasRole('ROLE_COMPLETE_USER')) {

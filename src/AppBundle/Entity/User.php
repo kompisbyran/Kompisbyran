@@ -83,7 +83,7 @@ class User extends BaseUser
     protected $wantToLearn = false;
 
     /**
-     * @var Category[]
+     * @var GeneralCategory[]
      *
      * @Assert\Count(
      *     min=1,
@@ -92,10 +92,28 @@ class User extends BaseUser
      *     maxMessage="Du kan inte välja fler än 5 intressen",
      *     groups={"settings"}
      * )
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="users")
-     * @ORM\JoinTable(name="users_categories")
+     * @ORM\ManyToMany(targetEntity="GeneralCategory", inversedBy="users")
+     * @ORM\JoinTable(
+     *     name="users_categories",
+     *     inverseJoinColumns={
+     *         @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     *     }
+     * )
      */
     protected $categories;
+
+    /**
+     * @var MusicCategory[]
+     *
+     * @ORM\ManyToMany(targetEntity="MusicCategory", inversedBy="users")
+     * @ORM\JoinTable(
+     *     name="users_music_categories",
+     *     inverseJoinColumns={
+     *         @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     *     }
+     * )
+     */
+    protected $musicCategories;
 
     /**
      * @var int
@@ -176,6 +194,13 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="ConnectionComment", mappedBy="connection")
      */
     protected $comments;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $musicFriend = false;
 
     public function __construct()
     {
@@ -478,5 +503,37 @@ class User extends BaseUser
     public function setHasChildren($hasChildren)
     {
         $this->hasChildren = $hasChildren;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isMusicFriend()
+    {
+        return $this->musicFriend;
+    }
+
+    /**
+     * @param boolean $musicFriend
+     */
+    public function setMusicFriend($musicFriend)
+    {
+        $this->musicFriend = $musicFriend;
+    }
+
+    /**
+     * @return MusicCategory[]
+     */
+    public function getMusicCategories()
+    {
+        return $this->musicCategories;
+    }
+
+    /**
+     * @param MusicCategory[] $musicCategories
+     */
+    public function setMusicCategories($musicCategories)
+    {
+        $this->musicCategories = $musicCategories;
     }
 }
