@@ -2,10 +2,10 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use AppBundle\Entity\Category;
 use AppBundle\Entity\City;
 use AppBundle\Entity\Connection;
 use AppBundle\Entity\ConnectionRequest;
+use AppBundle\Entity\GeneralCategory;
 use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -63,7 +63,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $i = 0;
         $repository = $manager->getRepository('Gedmo\\Translatable\\Entity\\Translation');
         foreach ($categories as $categoryName => $translations) {
-            $category = new Category();
+            $category = new GeneralCategory();
             $category->setName($categoryName);
 
             foreach ($translations as $locale => $translation) {
