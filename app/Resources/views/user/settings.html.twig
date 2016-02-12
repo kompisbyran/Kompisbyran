@@ -43,10 +43,22 @@
                         </div>
 
                         <div class="form-group">
+                            {{ form_label(form.musicFriend) }}
+                            <div class="col-sm-10 col-lg-offset-2" style="border: dotted 2px red">
+                                {{ form_widget(form.musicFriend) }}
+                                Moar text here!
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             {{ form_label(form.categories) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-5">
                                 {{ form_widget(form.categories) }}
                                 {{ form_errors(form.categories) }}
+                            </div>
+                            <div class="col-sm-5" style="border: dotted 2px red">
+                                {{ form_widget(form.musicCategories) }}
+                                {{ form_errors(form.musicCategories) }}
                             </div>
                         </div>
 
@@ -83,10 +95,10 @@
                         </div>
 
                         <div class="form-group">
-                            {{ form_label(form.district) }}
+                            {{ form_label(form.municipality) }}
                             <div class="col-sm-10">
-                                {{ form_widget(form.district) }}
-                                {{ form_errors(form.district) }}
+                                {{ form_widget(form.municipality) }}
+                                {{ form_errors(form.municipality) }}
                             </div>
                         </div>
 
@@ -97,10 +109,6 @@
                                 {{ form_errors(form.hasChildren) }}
                             </div>
                         </div>
-
-
-
-
 
 
 

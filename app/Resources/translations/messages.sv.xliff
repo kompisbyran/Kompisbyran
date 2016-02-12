@@ -170,6 +170,10 @@
                 <source>user.form.city</source>
                 <target>Jag vill fika i (stad):</target>
             </trans-unit>
+            <trans-unit id="user.form.municipality">
+                <source>user.form.municipality</source>
+                <target>Jag bor i (kommun):</target>
+            </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
                 <target>Jag bor i (stadsdel):</target>

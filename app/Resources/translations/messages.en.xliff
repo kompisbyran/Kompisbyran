@@ -166,6 +166,10 @@
                 <source>user.form.city</source>
                 <target>I want to "fika" in (city)</target>
             </trans-unit>
+            <trans-unit id="user.form.municipality">
+                <source>user.form.municipality</source>
+                <target>I live in (municipality):</target>
+            </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
                 <target>District</target>
