@@ -162,7 +162,8 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @Assert\NotBlank(groups={"settings"})
+     * Might be removed after music friend campaign
+     * //Assert\NotBlank(groups={"settings"})
      *
      * @ORM\Column(type="string", nullable=true)
      */
@@ -201,6 +202,14 @@ class User extends BaseUser
      * @ORM\Column(type="boolean")
      */
     protected $musicFriend = false;
+
+    /**
+     * @var Municipality
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     * @ORM\ManyToOne(targetEntity="Municipality", inversedBy="users")
+     */
+    protected $municipality;
 
     public function __construct()
     {
@@ -535,5 +544,21 @@ class User extends BaseUser
     public function setMusicCategories($musicCategories)
     {
         $this->musicCategories = $musicCategories;
+    }
+
+    /**
+     * @return Municipality
+     */
+    public function getMunicipality()
+    {
+        return $this->municipality;
+    }
+
+    /**
+     * @param Municipality $municipality
+     */
+    public function setMunicipality($municipality)
+    {
+        $this->municipality = $municipality;
     }
 }

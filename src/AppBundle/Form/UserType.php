@@ -84,7 +84,8 @@ class UserType extends AbstractType
                 'label' => 'user.form.from',
                 'choices' => Countries::getList(),
             ])
-            ->add('district', 'text', ['label' => 'user.form.district'])
+            // Might be removed after music friend campaign
+            // ->add('district', 'text', ['label' => 'user.form.district'])
             ->add('hasChildren', 'choice', [
                 'expanded' => true,
                 'label' => 'user.form.has_children',
@@ -100,6 +101,13 @@ class UserType extends AbstractType
             ->add('musicFriend', 'checkbox', [
                 'required' => false,
             ])
+            ->add('municipality', 'entity', [
+                    'class' => 'AppBundle:Municipality',
+                    'property' => 'name',
+                    'empty_data'  => null,
+                    'required' => false,
+                ]
+            )
 
         ;
         $user = $builder->getData();
