@@ -70,7 +70,7 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[age]' => '35',
             'user[gender]' => 'M',
             'user[about]' => 'About me',
-            'user[district]' => 'Södermalm',
+            'user[municipality]' => $this->getMunicipalityRepository()->findAll()[0]->getId(),
         ]);
 
         $crawler = $client->submit($form);
