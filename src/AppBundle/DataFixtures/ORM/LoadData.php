@@ -6,6 +6,7 @@ use AppBundle\Entity\City;
 use AppBundle\Entity\Connection;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\GeneralCategory;
+use AppBundle\Entity\Municipality;
 use AppBundle\Entity\MusicCategory;
 use AppBundle\Entity\User;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -125,6 +126,11 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
      */
     protected function loadUsers(ObjectManager $manager)
     {
+        $municipality = new Municipality();
+        $municipality->setName('Stockholms kommun');
+        $manager->persist($municipality);
+        $this->addReference('municipality-1', $municipality);
+
         $user = new User();
         $user->setEmail('learner@example.com');
         $user->setFirstName('Kalle');
@@ -139,6 +145,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('M');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/1.jpg');
         $user->setDistrict('Södermalm');
+        $user->setMunicipality($this->getReference('municipality-1'));
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -158,6 +165,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('M');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/2.jpg');
         $user->setDistrict('Årsta');
+        $user->setMunicipality($this->getReference('municipality-1'));
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -176,6 +184,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setFrom('SE');
         $user->setGender('M');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/3.jpg');
+        $user->setMunicipality($this->getReference('municipality-1'));
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
