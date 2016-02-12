@@ -106,6 +106,7 @@ class UserType extends AbstractType
                     'property' => 'name',
                     'empty_data'  => null,
                     'required' => false,
+                    'label' => 'user.form.municipality',
                 ]
             )
 
