@@ -65,22 +65,9 @@
                     <![CDATA[
                         <ol>
                             <li>
-                                Gå med i Kompisbyrån. Det är gratis att anmäla sig. Skriv din e-post, ett lösenord som du bestämmer själv 
-                                och klicka på "Gå med". Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
-                            </li>
-                            <li>
-                                Berätta om dig själv. Skriv ditt namn, ålder, intressen och svara på några fler frågor.
-                            </li>
-                            <li>
-                                Matchning. Vi hittar en fikakompis till dig och mailar dig personens e-postadress.
-                            </li>
-                            <li>
-                                Du mailar din fikakompis och bestämmer vilken dag, tid och plats ni ska träffas. 
-                                Vi rekommenderar att ni träffas i ungefär 1 timme på ett kafé i centrala delen av staden 
-                                (om ni inte kommer överens om annat). 
-                                
-                                En kompisfika sker en gång. Gillar ni varandra får ni gärna träffas igen själva. 
-                                Vill du träffa fler kompisar, loggar du in och anmäler dig igen. 
+                                Gå med i Kompisbyrån genom att registrera dig. Skriv din e-post, 
+                                ett lösenord som du bestämmer själv och klicka på "Gå med". Det är gratis att anmäla sig. 
+                                Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
                             </li>
                         </ol>
                     ]]>
@@ -120,19 +107,19 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
-                <target>Jag vill:</target>
+                <target>Jag:</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Bli bättre på att prata svenska</target>
+                <target>Jag är ny i Sverige</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Hjälpa någon att öva svenska</target>
+                <target>Jag har bott i Sverige länge</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
-                <target>Jag tycker om (intressen):</target>
+                <target>Jag gillar (intressen):</target>
             </trans-unit>
             <trans-unit id="user.form.age">
                 <source>user.form.age</source>
@@ -160,7 +147,8 @@
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige.</target>
+                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige. 
+                Musikkompis, skriv gärna om du spelar något instrument och vilken musikgenre du gillar.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
@@ -168,7 +156,7 @@
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
-                <target>Jag vill fika i (stad):</target>
+                <target>Jag kan träffas i (stad):</target>
             </trans-unit>
             <trans-unit id="user.form.municipality">
                 <source>user.form.municipality</source>
@@ -197,8 +185,8 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Vad roligt att du vill kompisfika! Här svarar du på några frågor om dig själv så att vi ska
-                    kunna hitta en fikakompis till dig. Trevlig fika!
+                    Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor 
+                    om dig själv så att vi ska kunna hitta en Fikakompis eller en Musikkompis till dig.
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
@@ -207,10 +195,10 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här ser du dina tidigare kompisfikor, intresseanmälningar till nya fikor och kan anmäla dig igen för att träffa nya fikakompisar.
-                    För tillfället kan vi endast länka samman fikakompisar i Stockholm.
+                <target>Här kan du anmäla dig igen för att träffa nya Fikakompisar eller Musikkompisar. 
+                Du ser även dina tidigare kompisfikor och intresseanmälningar till att träffa nya kompisar. 
 
-                    Vill du ändra dina uppgifter trycker du på "Min profil" och sedan "inställningar" i menyn.</target>
+                    Vill du ändra din ansökan trycker du först på "Min profil" och sedan på "Inställningar" i menyn.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
@@ -230,17 +218,17 @@
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
-                <target>Jag vill kompisfika igen</target>
+                <target>Jag vill träffa ny kompis</target>
             </trans-unit>
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Om du vill träffa en ny fikakompis, väljer du stad och trycker på knappen "Kompisfika".
+                    Om du vill träffa en ny Fika- eller Musikkompis, väljer du stad och trycker på knappen "Kompisfika".
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
                 <source>connection_request.form.city</source>
-                <target>Stad</target>
+                <target>Jag kan träffas i (stad):</target>
             </trans-unit>
             <trans-unit id="connection_request.form.comment">
                 <source>connection_request.form.comment</source>
