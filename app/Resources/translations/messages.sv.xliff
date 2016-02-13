@@ -10,18 +10,45 @@
                 <source>no</source>
                 <target>Nej</target>
             </trans-unit>
+            <trans-unit id="homepage.cta.header">
+                <source>homepage.cta.header</source>
+                <target>I Kompisbyrån övar vi svenska och fikar.</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.header.strong">
+                <source>homepage.cta.header.strong</source>
+                <target>Vill du vara med?</target>
+            </trans-unit>
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
                     Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt mellan dig som är ny 
                     i Sverige och dig som har bott här länge. Ni träffas, fikar och övar svenska! 
                     Tillsammans kan vi öka gemenskapen i samhället. Bli en fikakompis idag!
-                    
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.button">
                 <source>homepage.cta.button</source>
                 <target>Bli fikakompis</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.header">
+                <source>homepage.cta.musicfriend.header</source>
+                <target>I Kompisbyrån övar vi svenska och fikar.</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.header.strong">
+                <source>homepage.cta.musicfriend.header.strong</source>
+                <target>Vill du vara med?</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message">
+                <source>homepage.cta.musicfriend.message</source>
+                <target>
+                    Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
+                    mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik
+                    tillsammans, lyssna eller prata musik över en fika.
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.button">
+                <source>homepage.cta.musicfriend.button</source>
+                <target>Bli musikkompis</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>

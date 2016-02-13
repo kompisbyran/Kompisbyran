@@ -49,5 +49,11 @@ work_with_us:
         _controller: FrameworkBundle:Template:template
         template:    static/workWithUs.html.twig
 
+musicfriend:
+    path: /musikompis
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    static/musicfriend.html.twig
+
 fos_user_profile_show:
     path: /

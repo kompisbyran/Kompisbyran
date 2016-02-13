@@ -6,14 +6,25 @@
                 <div class="col-md-6 col-sm-6">
                     <img src="/images/Kompis3.JPG" class="img-responsive" alt="Emma och Cecilia" />
                 </div>
-                <div class="col-md-6 col-sm-6">
-                    <h2>I Kompisbyrån övar vi svenska och fikar. <br /><strong>Vill du vara med?</strong></h2>
+                <div class="col-md-3 col-sm-3">
+                    <h2>{{ 'homepage.cta.header'|trans }}<br /><strong>{{ 'homepage.cta.header.strong'|trans }}</strong></h2>
                     <p>
                         {{ 'homepage.cta.message'|trans }}
                     </p>
                     <div class="caption">
                         <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg br-orange">
                             <i class="fa fa-users"></i> {{ 'homepage.cta.button'|trans }}
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <h2>{{ 'homepage.cta.musicfriend.header'|trans }}<br /><strong>{{ 'homepage.cta.musicfriend.header.strong'|trans }}</strong></h2>
+                    <p>
+                        {{ 'homepage.cta.musicfriend.message'|trans }}
+                    </p>
+                    <div class="caption">
+                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg br-orange">
+                            <i class="fa fa-users"></i> {{ 'homepage.cta.musicfriend.button'|trans }}
                         </a>
                     </div>
                 </div>
