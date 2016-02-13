@@ -2,13 +2,13 @@ Hej {{ recipient.firstName }}!
 
 Vad kul att du vill vara med i Kompisbyrån!
 
-Vi har hittat en fikakompis till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och gillar {% for category in partner.categories -%}
+Vi har nu hittat en Fikakompis/ Musikkompis till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och gillar {% for category in partner.categories -%}
     {{ category.name|lower }}{% if loop.revindex == 2 %} och {% elseif not loop.last %}, {% endif %}
 {%- endfor %}.
 
-Du får här e-postadressen: {{ partner.email }} och din nya fikakompis har även fått din e-postadress.
-
-Maila nu din fikakompis och bestäm var och när ni ska träffas, skicka mailet inom en vecka. Vi rekommenderar att ni ses på ett kafé i ungefär en timme.
+Maila din Fikakompis/ Musikkompis som har e-mail: {{ partner.email }}. Bestäm var och när ni ska träffas, 
+skicka mailet inom en vecka. Vi rekommenderar att ni ses på ett kafé i ungefär en timme. Vi har också 
+skickat din e-mail till din Fikakompis/ Musikkompis. 
 
 Skicka gärna ett foto från er fika och berätta om hur du tyckte att det var. Vi vill gärna dela det för att uppmuntra fler till att vara med
 och få information om Kompisbyrån.
