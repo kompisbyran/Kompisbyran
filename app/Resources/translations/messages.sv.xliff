@@ -32,11 +32,11 @@
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.header">
                 <source>homepage.cta.musicfriend.header</source>
-                <target>I Kompisbyrån övar vi svenska och fikar.</target>
+                <target>Vill du bli Musikkompis?</target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.header.strong">
                 <source>homepage.cta.musicfriend.header.strong</source>
-                <target>Vill du vara med?</target>
+                <target></target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.message">
                 <source>homepage.cta.musicfriend.message</source>
@@ -48,7 +48,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.button">
                 <source>homepage.cta.musicfriend.button</source>
-                <target>Bli musikkompis</target>
+                <target>Bli Musikkompis</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -213,7 +213,7 @@
                 <source>user.settings.intro</source>
                 <target>
                     Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor 
-                    om dig själv så att vi ska kunna hitta en Fikakompis eller en Musikkompis till dig.
+                    om dig själv så att vi ska kunna hitta en Fikakompis eller Musikkompis till dig.
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
@@ -250,7 +250,7 @@
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Om du vill träffa en ny Fika- eller Musikkompis, väljer du stad och trycker på knappen "Kompisfika".
+                    Om du vill träffa en ny Fikakompis eller Musikkompis, väljer du stad och trycker på knappen "Kompisfika".
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
