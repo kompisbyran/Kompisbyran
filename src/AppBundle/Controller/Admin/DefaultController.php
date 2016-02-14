@@ -65,22 +65,28 @@ class DefaultController extends Controller
         if (!$city) {
             $city = $this->getCityRepository()->findAll()[0];
         }
-        $learners = $this->getConnectionRequestRepository()->findBy(
-            ['wantToLearn' => true, 'city' => $city],
-            ['sortOrder' => 'DESC', 'createdAt' => 'ASC']
-        );
-        $fluentSpeakers = $this->getConnectionRequestRepository()->findBy(
-            ['wantToLearn' => false, 'city' => $city],
-            ['sortOrder' => 'DESC', 'createdAt' => 'ASC']
-        );
+
+        $type = $request->query->get('type');
+
+        $learners = $this->getConnectionRequestRepository()->findForCity($city, true, $type == 'musicfriend');
+        $fluentSpeakers = $this->getConnectionRequestRepository()->findForCity($city, false, $type == 'musicfriend');
+
         $cities = $this->getCityRepository()->findAll();
 
+        if ($type == 'musicfriend') {
+            $categories = $this->getMusicCategoryRepository()->findAll();
+        } else {
+            $categories = $this->getGeneralCategoryRepository()->findAll();
+        }
+
+
         $parameters = [
-            'categories' => $this->getCategoryRepository()->findAll(),
+            'categories' => $categories,
             'learners' => $learners,
             'fluentSpeakers' => $fluentSpeakers,
             'cities' => $cities,
             'city' => $city,
+            'type' => $type,
         ];
 
         return $this->render('admin/default/index.html.twig', $parameters);
@@ -107,5 +113,15 @@ class DefaultController extends Controller
     protected function getCategoryRepository()
     {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Category');
+    }
+
+    protected function getMusicCategoryRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:MusicCategory');
+    }
+
+    protected function getGeneralCategoryRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:GeneralCategory');
     }
 }
