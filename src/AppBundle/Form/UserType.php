@@ -100,6 +100,7 @@ class UserType extends AbstractType
             ->add('profilePicture', 'hidden')
             ->add('musicFriend', 'checkbox', [
                 'required' => false,
+                'label' => 'user.form.musicfriend',
             ])
             ->add('municipality', 'entity', [
                     'class' => 'AppBundle:Municipality',

@@ -197,6 +197,10 @@
                 <source>user.form.has_children</source>
                 <target>Jag har barn:</target>
             </trans-unit>
+            <trans-unit id="user.form.musicfriend">
+                <source>user.form.musicfriend</source>
+                <target>Bli musikkompis</target>
+            </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
                 <target>Hämta din profilbild från Facebook</target>
