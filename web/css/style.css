@@ -905,12 +905,65 @@ fotm textarea{
     font-weight: bold;
     border-radius: 3px;
     color: #fff;
+    transition: all 0.3s;
 }
 
 .cta a i{
     display: inline-block;
     margin-right: 5px;
 }
+
+/* Musikkompis CTA */
+
+.cta--music {
+    background-image: linear-gradient(to right, #f18d2d, #ec7575);
+    background-repeat: repeat-x;
+    color: #fff;
+    padding: 60px 0;
+    margin: 40px 0;
+}
+
+.cta--music .cta--music__item h2{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.cta--music .cta--music__item p{
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 14px;
+}
+
+.cta--music a.btn {
+    width: 185px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
+    padding: 15px 30px;
+    line-height: 1.3rem;
+    border: 2px solid #fff;
+    background-color: transparent;
+    box-sizing: border-box;
+    height: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.cta--music a.btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+
 
 /* Recent Post */
 
