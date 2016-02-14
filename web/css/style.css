@@ -904,9 +904,16 @@ fotm textarea{
     font-size: 14px;
     font-weight: bold;
     border-radius: 3px;
+    border: solid 1px #F76753;
     color: #fff;
     transition: all 0.3s;
 }
+
+.cta a.btn:hover {
+    background-color: #fff;
+    color: #F76753;
+}
+
 
 .cta a i{
     display: inline-block;
