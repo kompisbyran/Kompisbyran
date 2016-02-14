@@ -964,12 +964,45 @@ fotm textarea{
     color: #fff;
 }
 
-.cta--music a.btn:hover {
+.cta--musik a.btn:hover {
     background-color: #fff;
     color: #000;
 }
 
+/* Musikkompis */
 
+.musikkompis .container {
+    width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.musikkompis .container img {
+    width: 100%;
+    max-width: 500px;
+}
+
+.musikkompis .container .lead {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.musikkompis a.btn{
+    margin-top: 25px;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: solid 2px #F7931D;
+    border-radius: 0;
+    background-color: #F7931D;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.musikkompis a.btn:hover {
+    background-color: #fff;
+    color: #F7931D;
+}
 
 /* Recent Post */
 
@@ -2680,6 +2713,33 @@ div.ppt {
     border-top: 1px solid #222;
 }
 
+
+/* Footer musikkompis */
+
+.footer--music .footer-inner {
+    padding: 40px 0;
+    margin: 80px 0;
+}
+
+.footer--music .footer-inner .container {
+    background-color: #eee;
+}
+
+.footer--music .footer-widget {
+    float: right;
+    margin: 20px 0;
+}
+
+.footer--music .footer-logos {
+    margin-left: 60px;
+}
+
+.footer--music img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
 /* Responsive CSS */
 
 /* Desktop */
@@ -2999,4 +3059,11 @@ div.ppt {
     .countdown_section{
         font-size:10px;
     }
+
+    /* Footer musikkompis */
+
+    .footer--music .footer-widget {
+        float: none;
+    }
+
 }
