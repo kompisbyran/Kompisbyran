@@ -2723,15 +2723,12 @@ div.ppt {
 
 .footer--music .footer-inner .container {
     background-color: #eee;
+    max-width: none;
 }
 
 .footer--music .footer-widget {
     float: right;
     margin: 20px 0;
-}
-
-.footer--music .footer-logos {
-    margin-left: 60px;
 }
 
 .footer--music img {
@@ -2773,6 +2770,11 @@ div.ppt {
 
     .nav-head .navbar-default .logo span{
         display: none;
+    }
+
+    .footer--music .footer-widget {
+        float: left;
+        margin: 20px 0;
     }
 
 }
@@ -2999,6 +3001,14 @@ div.ppt {
         width: 100% !important;
         float: none !important;
     }
+
+    /* Footer musikkompis */
+
+    .footer--music .footer-widget {
+        float: none;
+        margin: 40px auto;
+        text-align: center;
+    }
 }
 
 /* Mobile phones */
@@ -3058,12 +3068,6 @@ div.ppt {
 
     .countdown_section{
         font-size:10px;
-    }
-
-    /* Footer musikkompis */
-
-    .footer--music .footer-widget {
-        float: none;
     }
 
 }
