@@ -199,7 +199,7 @@
             </trans-unit>
             <trans-unit id="user.form.musicfriend">
                 <source>user.form.musicfriend</source>
-                <target>Bli musikkompis</target>
+                <target>Jag vill bli Musikkompis</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
