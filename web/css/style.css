@@ -914,7 +914,6 @@ fotm textarea{
     color: #F76753;
 }
 
-
 .cta a i{
     display: inline-block;
     margin-right: 5px;
@@ -922,7 +921,7 @@ fotm textarea{
 
 /* Musikkompis CTA */
 
-.cta--music {
+.cta--musik {
     background-image: linear-gradient(to right, #f18d2d, #ec7575);
     background-repeat: repeat-x;
     color: #fff;
@@ -930,7 +929,7 @@ fotm textarea{
     margin: 40px 0;
 }
 
-.cta--music .cta--music__item h2{
+.cta--musik .cta--musik__item h2{
     display: block;
     margin: 0 auto;
     width: 80%;
@@ -939,7 +938,7 @@ fotm textarea{
     font-weight: bold;
 }
 
-.cta--music .cta--music__item p{
+.cta--musik .cta--musik__item p{
     display: block;
     width: 80%;
     margin: 20px auto;
@@ -947,7 +946,7 @@ fotm textarea{
     font-size: 14px;
 }
 
-.cta--music a.btn {
+.cta--musik a.btn {
     width: 185px;
     margin: 0 auto;
     margin-top: 40px;
