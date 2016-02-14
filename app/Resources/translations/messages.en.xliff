@@ -38,6 +38,12 @@
                 <source>homepage.cta.musicfriend.header.strong</source>
                 <target></target>
             </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message.strong">
+                <source>homepage.cta.musicfriend.message.strong</source>
+                <target>
+                    Psst.. Nu kan du bli Musikkompis!
+                </target>
+            </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.message">
                 <source>homepage.cta.musicfriend.message</source>
                 <target>

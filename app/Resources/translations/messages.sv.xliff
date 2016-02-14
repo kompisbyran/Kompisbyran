@@ -32,11 +32,17 @@
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.header">
                 <source>homepage.cta.musicfriend.header</source>
-                <target>Vill du bli Musikkompis?</target>
+                <target>Musikkompis</target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.header.strong">
                 <source>homepage.cta.musicfriend.header.strong</source>
                 <target></target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message.strong">
+                <source>homepage.cta.musicfriend.message.strong</source>
+                <target>
+                    Psst.. Nu kan du bli Musikkompis!
+                </target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.message">
                 <source>homepage.cta.musicfriend.message</source>
