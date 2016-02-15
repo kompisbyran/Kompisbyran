@@ -980,11 +980,13 @@ fotm textarea{
 .musikkompis .container img {
     width: 100%;
     max-width: 500px;
+    margin-bottom: 10px;
 }
 
 .musikkompis .container .lead {
-    padding-bottom: 20px;
     border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
 }
 
 .musikkompis a.btn{
