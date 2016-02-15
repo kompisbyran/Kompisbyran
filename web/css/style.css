@@ -2665,6 +2665,11 @@ div.ppt {
     color: #aaa;
 }
 
+.footer .footer-widget p a {
+    font-weight: bold;
+    color: #fff;
+}
+
 .footer .footer-widget ul li a:hover,
 .footer .footer-widget p a:hover,
 .footer .footer-widget .footer-rp .item h3 a:hover,
@@ -3010,7 +3015,7 @@ div.ppt {
 
     /* Footer musikkompis */
 
-    .footer--music .footer-widget {
+    .footer .footer-widget {
         float: none;
         margin: 40px auto;
         text-align: center;
