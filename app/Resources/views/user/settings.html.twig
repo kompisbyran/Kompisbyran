@@ -44,41 +44,26 @@
 
                         <div class="form-group">
                             {{ form_label(form.musicFriend) }}
-                            <div class="col-sm-10 col-lg-offset-2">
+                            <div class="col-sm-4 col-md-offset-4">
                                 {{ form_widget(form.musicFriend) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                             {{ form_label(form.categories) }}
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.categories) }}
                                 {{ form_errors(form.categories) }}
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.musicCategories) }}
                                 {{ form_errors(form.musicCategories) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {{ form_label(form.age) }}
-                            <div class="col-sm-10">
-                                {{ form_widget(form.age) }}
-                                {{ form_errors(form.age) }}
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            {{ form_label(form.gender) }}
-                            <div class="col-sm-10">
-                                {{ form_widget(form.gender) }}
-                                {{ form_errors(form.gender) }}
-                            </div>
-                        </div>
-                        <div class="form-group">
                             {{ form_label(form.about) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-8">
                                 {{ form_widget(form.about) }}
                                 {{ form_errors(form.about) }}
                                 <span class="help-block">{{ 'user.form.about.help'|trans }}</span>
@@ -86,8 +71,24 @@
                         </div>
 
                         <div class="form-group">
+                            {{ form_label(form.age) }}
+                            <div class="col-sm-2">
+                                {{ form_widget(form.age) }}
+                                {{ form_errors(form.age) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.gender) }}
+                            <div class="col-sm-2">
+                                {{ form_widget(form.gender) }}
+                                {{ form_errors(form.gender) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             {{ form_label(form.from) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.from) }}
                                 {{ form_errors(form.from) }}
                             </div>
