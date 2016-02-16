@@ -8,19 +8,19 @@
             <h2><strong>{{ 'user.settings.header'|trans }}</strong></h2>
 
             <div class="row">
-                <div class="col-sm-6 col-sm-push-6">
+                <div class="col-md-4 col-md-push-8 col-sm-6 col-sm-push-6">
                     <div class="well br-white border-orange black">
                         {{ 'user.settings.intro'|trans }}
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-sm-pull-6">
+                <div class="col-md-8 col-md-pull-4 col-sm-6 col-sm-pull-6">
                     <div class="row">
                         {{ form_start(form) }}
 
                         <div class="form-group">
                             {{ form_label(form.firstName) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.firstName) }}
                                 {{ form_errors(form.firstName) }}
                             </div>
@@ -28,7 +28,7 @@
 
                         <div class="form-group">
                             {{ form_label(form.lastName) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.lastName) }}
                                 {{ form_errors(form.lastName) }}
                             </div>
@@ -36,7 +36,7 @@
 
                         <div class="form-group">
                             {{ form_label(form.wantToLearn) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.wantToLearn) }}
                                 {{ form_errors(form.wantToLearn) }}
                             </div>
@@ -95,7 +95,7 @@
 
                         <div class="form-group">
                             {{ form_label(form.municipality) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.municipality) }}
                                 {{ form_errors(form.municipality) }}
                             </div>
@@ -130,7 +130,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
+                            <div class="col-sm-offset-4 col-sm-4">
                                 <button type="submit" class="btn btn-default">{{ 'user.form.button'|trans }}</button>
                             </div>
                         </div>
