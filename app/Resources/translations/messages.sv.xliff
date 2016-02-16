@@ -191,7 +191,7 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Berätta om dig själv</target>
+                <target>Berätta om dig själv och ditt musikintresse:</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
