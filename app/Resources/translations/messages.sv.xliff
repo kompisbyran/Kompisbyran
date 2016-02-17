@@ -41,7 +41,7 @@
             <trans-unit id="homepage.cta.musicfriend.message.strong">
                 <source>homepage.cta.musicfriend.message.strong</source>
                 <target>
-                    Psst.. Nu kan du bli Musikkompis!
+                    Dela ditt musikintresse med människor från olika kulturer.
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.message">
