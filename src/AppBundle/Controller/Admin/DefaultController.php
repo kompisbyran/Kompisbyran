@@ -29,7 +29,7 @@ class DefaultController extends Controller
             /** @var ConnectionRequest $fluentSpeakerConnectionRequest */
             $fluentSpeakerConnectionRequest = $this->getConnectionRequestRepository()->find($request->request->getInt('fluentSpeaker'));
 
-            if (false && $this->getConnectionRepository()->findForUsers(
+            if ($this->getConnectionRepository()->findForUsers(
                 $learnerConnectionRequest->getUser(), $fluentSpeakerConnectionRequest->getUser()
             )) {
                 $this->addFlash('error', sprintf(
