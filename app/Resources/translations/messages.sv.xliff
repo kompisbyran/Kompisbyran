@@ -262,11 +262,11 @@
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
-                <target>Du vill förbättra din svenska</target>
+                <target>Du väntar på en matchning</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.teach">
                 <source>index.connection_request.want_to_learn.teach</source>
-                <target>Du vill hjälpa någon att förbättra sin svenska</target>
+                <target>Du väntar på en matchning</target>
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
