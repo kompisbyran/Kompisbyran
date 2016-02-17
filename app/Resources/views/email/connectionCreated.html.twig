@@ -5,15 +5,20 @@
 
     <p>Vad kul att du vill vara med i Kompisbyrån!</p>
 
-    <p>Vi har nu hittat en Fikakompis/ Musikkompis till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och
+    <p>Vi har nu hittat en {{ connection.musicFriend ? 'Musikkompis' : 'Fikakompis' }} till dig. {{ partner.gender|pronoun|capitalize }} heter {{ partner.name }} och
         gillar
-        {% for category in partner.categories -%}
+        {% if connection.musicFriend %}
+            {% set categories = partner.musicCategories %}
+        {% else %}
+            {% set categories = partner.categories %}
+        {% endif %}
+        {% for category in categories -%}
             {{ category.name|lower }}{% if loop.revindex == 2 %} och {% elseif not loop.last %}, {% endif %}
         {%- endfor %}.</p>
 
-    <p>Maila din Fikakompis/ Musikkompis som har e-mail: {{ partner.email }}. Bestäm var och när ni ska träffas, 
+    <p>Maila din {{ connection.musicFriend ? 'Musikkompis' : 'Fikakompis' }} som har e-mail: {{ partner.email }}. Bestäm var och när ni ska träffas,
     skicka mailet inom en vecka. Vi rekommenderar att ni ses på ett kafé i ungefär en timme. Vi har också skickat 
-    din e-mail till din Fikakompis/ Musikkompis.</p>
+    din e-mail till din {{ connection.musicFriend ? 'Musikkompis' : 'Fikakompis' }}.</p>
 
     <p>
         Skicka gärna ett foto från er fika och berätta om hur du tycker att det var. Vi vill gärna dela med oss av det för att
