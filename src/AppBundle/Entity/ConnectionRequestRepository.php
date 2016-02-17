@@ -16,10 +16,9 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('cr')
-            ->innerJoin('cr.user', 'u')
             ->where('cr.wantToLearn = :wantToLearn')
             ->andWhere('cr.city = :city')
-            ->andWhere('u.musicFriend = :musicFriend')
+            ->andWhere('cr.musicFriend = :musicFriend')
             ->setParameters([
                 'wantToLearn' => $wantToLearn,
                 'city' => $city,
