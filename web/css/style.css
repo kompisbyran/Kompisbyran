@@ -2738,10 +2738,19 @@ div.ppt {
     margin: 20px 0;
 }
 
+.footer--music .footer-logos {
+    display: block;
+    margin-left: 20%;
+}
+
 .footer--music img {
     width: 150px;
-    display: block;
-    margin: 0 auto;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.footer--music .kb-logo {
+    width: 100px;
 }
 
 /* Responsive CSS */
@@ -2779,11 +2788,23 @@ div.ppt {
         display: none;
     }
 
-    .footer--music .footer-widget {
-        float: left;
-        margin: 20px 0;
+    .footer--music .footer-logos {
+        width: auto;
+        margin: 20px 0 20px 20%;
     }
 
+    .footer--music .footer-widget {
+        float: none;
+        margin: 20px;
+    }
+
+    .footer--music .footer-logos img {
+        width: 100px;
+    }
+
+    .footer--music img.kb-logo {
+        width: 75px;
+    }
 }
 
 /* Tablets */
@@ -3015,10 +3036,16 @@ div.ppt {
 
     /* Footer musikkompis */
 
-    .footer .footer-widget {
+    .footer--music .footer-widget {
         float: none;
-        margin: 40px auto;
+        margin: 20px 40px;
         text-align: center;
+    }
+
+    .footer--music .footer-logos {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 300px;
     }
 }
 
