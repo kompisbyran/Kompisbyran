@@ -48,6 +48,7 @@ class UserController extends Controller
                 $connectionRequest->setUser($user);
                 $connectionRequest->setCity($form->get('city')->getData());
                 $connectionRequest->setWantToLearn($user->getWantToLearn());
+                $connectionRequest->setMusicFriend($user->isMusicFriend());
                 $em->persist($connectionRequest);
             }
             $em->persist($user);
