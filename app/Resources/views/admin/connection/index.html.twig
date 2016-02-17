@@ -48,6 +48,7 @@
                         <th>Lärare</th>
                         <th>Övare</th>
                         <th>Ort</th>
+                        <th>Musikompis</th>
                         <th>Skapad av</th>
                     </tr>
                 </thead>
@@ -82,6 +83,7 @@
                                 {{ macro.userCell(connection, true) }}
                             </td>
                             <td>{{ connection.city.name }}</td>
+                            <td>{% if connection.musicFriend %}&cross;{% endif %}</td>
                             <td>{{ connection.createdBy.name }}</td>
                         </tr>
                     </tbody>

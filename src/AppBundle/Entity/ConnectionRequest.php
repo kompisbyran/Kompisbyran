@@ -62,6 +62,13 @@ class ConnectionRequest
      */
     protected $sortOrder;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $musicFriend = false;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -162,5 +169,21 @@ class ConnectionRequest
     public function setSortOrder($sortOrder)
     {
         $this->sortOrder = $sortOrder;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isMusicFriend()
+    {
+        return $this->musicFriend;
+    }
+
+    /**
+     * @param boolean $musicFriend
+     */
+    public function setMusicFriend($musicFriend)
+    {
+        $this->musicFriend = $musicFriend;
     }
 }
