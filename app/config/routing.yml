@@ -50,7 +50,7 @@ work_with_us:
         template:    static/workWithUs.html.twig
 
 musicfriend:
-    path: /musikompis
+    path: /musikkompis
     defaults:
         _controller: FrameworkBundle:Template:template
         template:    static/musicfriend.html.twig
