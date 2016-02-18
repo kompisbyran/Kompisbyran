@@ -3110,4 +3110,11 @@ div.ppt {
         font-size:10px;
     }
 
+    .musikkompis .container h1 {
+        font-size: 22px;
+    }
+
+    .musikkompis .container a.btn {
+        width: 100%;
+    }
 }
