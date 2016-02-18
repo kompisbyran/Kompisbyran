@@ -3,11 +3,13 @@
 {% block body %}
 
     <div class="inner-page musikkompis">
-        <div class="container">
+        <div class="container musikkompis">
             <img src="{{ asset('images/musikkompis.png') }}" alt="Musikkompis" class="img-responsive center-block">
-
+            <h1 class="subheader text-center">
+                {{ 'register.musicfriend.subheader'|trans }}
+            </h1>
             <p class="lead text-center">
-                {{ 'register.musicfriend.intro'|trans }}
+                {{ 'register.musicfriend.ingress'|trans }}
             </p>
             <p>
                 {{ 'register.musicfriend.text'|trans }}
