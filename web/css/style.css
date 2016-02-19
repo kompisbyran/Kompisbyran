@@ -975,8 +975,9 @@ fotm textarea{
 
 .musikkompis .container {
     width: 80%;
+    max-width: 800px;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .musikkompis .container img {
@@ -2727,7 +2728,6 @@ div.ppt {
 
 .footer--music .footer-inner {
     padding: 40px 0;
-    margin: 80px 0;
 }
 
 .footer--music .footer-inner .container {
@@ -3110,4 +3110,11 @@ div.ppt {
         font-size:10px;
     }
 
+    .musikkompis .container h1 {
+        font-size: 22px;
+    }
+
+    .musikkompis .container a.btn {
+        width: 100%;
+    }
 }

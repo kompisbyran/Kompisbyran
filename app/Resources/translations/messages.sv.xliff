@@ -86,20 +86,17 @@
                 <source>register.form.button</source>
                 <target>Gå med</target>
             </trans-unit>
-            <trans-unit id="register.musicfriend.intro">
-                <source>register.musicfriend.intro</source>
-                <target>Dela ditt musikintresse med människor från olika kulturer. Vi vet att musik är en stark förenande kraft.
-                Därför startar vi nu Musikkompis, tillsammans med mobiloperatören 3, för alla som vill mötas genom musik.
-                Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
+            <trans-unit id="register.musicfriend.subheader">
+                <source>register.musicfriend.subheader</source>
+                <target>Dela ditt musikintresse med människor från olika kulturer.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.ingress">
+                <source>register.musicfriend.ingress</source>
+                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.text">
                 <source>register.musicfriend.text</source>
-                <target>Musik är en förenande kraft. Genom att dela musikupplevelser med varandra kan vi skapa många stunder av gemenskap och samhörighet oavsett var du kommer ifrån eller tror på. Stunder som i slutändan bidrar till
-                större tolerans och ökad förståelse i samhället. Därför har vi startat projektet Musikkompis – ett ideellt
-                samarbete mellan 3 och Kompisbyrån som syftar till att med musikens hjälp stärka integrationen och gemenskapen
-                i samhället. Vi vill ge fler möjlighet att utöva musik tillsammans, människor som på olika nivåer sysslar med
-                musik: artister, källarband, DJ:s, klassiska musiker, konsertbesökare och andra musikintresserade.
-                Bli Musikkompis du också!</target>
+                <target>Genom att dela musikupplevelser med varandra kan vi skapa många stunder av gemenskap och samhörighet oavsett var du kommer ifrån eller tror på. Stunder som i slutändan bidrar till större tolerans och ökad förståelse i samhället. Därför har vi startat projektet Musikkompis – ett ideellt samarbete mellan 3 och Kompisbyrån som syftar till att med musikens hjälp stärka integrationen och gemenskapen i samhället. Vi vill ge fler möjlighet att utöva musik tillsammans, människor som på olika nivåer sysslar med musik: artister, källarband, DJ:s, klassiska musiker, konsertbesökare och andra musikintresserade. Bli Musikkompis du också.</target>
             </trans-unit>
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
