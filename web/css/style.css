@@ -980,6 +980,10 @@ fotm textarea{
     margin-bottom: 20px;
 }
 
+.musikkompis .container a:not(.btn){
+    text-decoration: none;
+}
+
 .musikkompis .container img {
     width: 100%;
     max-width: 500px;

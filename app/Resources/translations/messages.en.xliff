@@ -92,7 +92,8 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.ingress">
                 <source>register.musicfriend.ingress</source>
-                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
+                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med 
+                    <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.text">
                 <source>register.musicfriend.text</source>
