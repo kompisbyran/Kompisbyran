@@ -9,7 +9,7 @@
                 <div class="col-md-6 col-sm-6">
                     <h2>{{ 'homepage.cta.header'|trans }}<br /><strong>{{ 'homepage.cta.header.strong'|trans }}</strong></h2>
                     <p>
-                        {{ 'homepage.cta.message'|trans }}
+                        {{ 'homepage.cta.message'|trans | raw}}
                     </p>
                     <div class="caption">
                         <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg br-orange">
