@@ -10,6 +10,52 @@
                 <source>no</source>
                 <target>Nej</target>
             </trans-unit>
+            <trans-unit id="menu.home">
+                <source>menu.home</source>
+                <target>Hem</target>
+            </trans-unit>
+            <trans-unit id="menu.fikafriend">
+                <source>menu.fikafriend</source>
+                <target>Bli fikakompis</target>
+            </trans-unit>
+            <trans-unit id="menu.musicfriend">
+                <source>menu.musicfriend</source>
+                <target>Bli Musikkompis</target>
+            </trans-unit>
+            <trans-unit id="menu.support">
+                <source>menu.support</source>
+                <target>Stöd oss</target>
+            </trans-unit>
+            <trans-unit id="menu.about">
+                <source>menu.about</source>
+                <target>Om oss</target>
+            </trans-unit>
+            <trans-unit id="menu.signin">
+                <source>menu.signin</source>
+                <target>Logga in</target>
+            </trans-unit>
+            <trans-unit id="menu.signin.fb">
+                <source>menu.signin.fb</source>
+                <target>Logga in med Facebook</target>
+            </trans-unit>
+            <trans-unit id="menu.signout">
+                <source>menu.signout</source>
+                <target>Logga ut</target>
+            </trans-unit>
+            <trans-unit id="menu.profile">
+                <source>menu.profile</source>
+                <target>Min Profil</target>
+            </trans-unit>
+            <trans-unit id="menu.settings">
+                <source>menu.settings</source>
+                <target>Inställningar</target>
+            </trans-unit>
+            
+            <trans-unit id="footer.contact">
+                <source>footer.contact</source>
+                <target>Kontakta oss</target>
+            </trans-unit>
+
             <trans-unit id="homepage.cta.header">
                 <source>homepage.cta.header</source>
                 <target>I Kompisbyrån övar vi svenska och fikar.</target>
@@ -24,7 +70,7 @@
                     <![CDATA[
                     Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt 
                     mellan dig som är ny i Sverige och dig som har bott i Sverige länge. Du kan bli Fikakompis eller 
-                    Musikkompis.<br> 
+                    Musikkompis.<br><br>
                     Som Fikakompis blir du matchad med en person med liknande intressen som du har. Ni träffas, fikar 
                     och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en Fikakompis idag!
                     ]]>
@@ -96,7 +142,8 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.ingress">
                 <source>register.musicfriend.ingress</source>
-                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
+                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med 
+                    <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.text">
                 <source>register.musicfriend.text</source>

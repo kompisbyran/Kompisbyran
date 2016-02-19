@@ -887,6 +887,10 @@ fotm textarea{
     margin: 0 auto;
 }
 
+.cta .cta-item h2{
+        margin-top: 0;
+}
+
 .cta .cta-item h3{
     margin: 0;
     margin-top: 5px;
@@ -978,6 +982,10 @@ fotm textarea{
     max-width: 800px;
     margin-top: 50px;
     margin-bottom: 20px;
+}
+
+.musikkompis .container a:not(.btn){
+    text-decoration: none;
 }
 
 .musikkompis .container img {
@@ -2970,6 +2978,10 @@ div.ppt {
 
     .cta .cta-item{
         text-align: center;
+    }
+
+    .cta .cta-item h2{
+        margin-top: 30px;
     }
 
     .cta .cta-item h3{
