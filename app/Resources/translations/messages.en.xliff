@@ -116,7 +116,7 @@
             </trans-unit>
             <trans-unit id="register.form.password">
                 <source>register.form.password</source>
-                <target>Pasword</target>
+                <target>Password</target>
             </trans-unit>
             <trans-unit id="register.form.password_confirmation">
                 <source>register.form.password_confirmation</source>
