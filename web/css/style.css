@@ -887,6 +887,10 @@ fotm textarea{
     margin: 0 auto;
 }
 
+.cta .cta-item h2{
+        margin-top: 0;
+}
+
 .cta .cta-item h3{
     margin: 0;
     margin-top: 5px;
@@ -904,12 +908,113 @@ fotm textarea{
     font-size: 14px;
     font-weight: bold;
     border-radius: 3px;
+    border: solid 1px #F76753;
     color: #fff;
+    transition: all 0.3s;
+}
+
+.cta a.btn:hover {
+    background-color: #fff;
+    color: #F76753;
 }
 
 .cta a i{
     display: inline-block;
     margin-right: 5px;
+}
+
+/* Musikkompis CTA */
+
+.cta--musik {
+    background-image: linear-gradient(to right, #f18d2d, #ec7575);
+    background-repeat: repeat-x;
+    color: #fff;
+    padding: 60px 0;
+    margin: 40px 0;
+}
+
+.cta--musik .cta--musik__item h2{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    min-width: 375px;
+    text-align: center;
+    font-size: 54px;
+    font-weight: bold;
+}
+
+.cta--musik .cta--musik__item p{
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 14px;
+}
+
+.cta--musik a.btn {
+    width: 185px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
+    padding: 15px 30px;
+    line-height: 1.3rem;
+    border: 2px solid #fff;
+    background-color: transparent;
+    box-sizing: border-box;
+    height: auto;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.cta--musik a.btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Musikkompis */
+
+.musikkompis .container {
+    width: 80%;
+    max-width: 800px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.musikkompis .container a:not(.btn){
+    text-decoration: none;
+}
+
+.musikkompis .container img {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+
+.musikkompis .container .lead {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+}
+
+.musikkompis a.btn{
+    margin-top: 25px;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: solid 2px #F7931D;
+    border-radius: 0;
+    background-color: #F7931D;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.musikkompis a.btn:hover {
+    background-color: #fff;
+    color: #F7931D;
 }
 
 /* Recent Post */
@@ -1543,12 +1648,12 @@ div.ppt {
 /* Inner page About Us CSS */
 
 .inner-page .partner-wrapper{
-    margin: 20px 10px;
+    margin-top: 80px;
 }
 
 .inner-page .partner-logo{
     width: 80px;
-    margin-right: 30px;
+    margin: 30px;
 }
 
 /* Inner page About Us CSS */
@@ -2571,6 +2676,11 @@ div.ppt {
     color: #aaa;
 }
 
+.footer .footer-widget p a {
+    font-weight: bold;
+    color: #fff;
+}
+
 .footer .footer-widget ul li a:hover,
 .footer .footer-widget p a:hover,
 .footer .footer-widget .footer-rp .item h3 a:hover,
@@ -2621,6 +2731,38 @@ div.ppt {
     border-top: 1px solid #222;
 }
 
+
+/* Footer musikkompis */
+
+.footer--music .footer-inner {
+    padding: 40px 0;
+}
+
+.footer--music .footer-inner .container {
+    background-color: #eee;
+    max-width: none;
+}
+
+.footer--music .footer-widget {
+    float: right;
+    margin: 20px 0;
+}
+
+.footer--music .footer-logos {
+    display: block;
+    margin-left: 20%;
+}
+
+.footer--music img {
+    width: 150px;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.footer--music .kb-logo {
+    width: 100px;
+}
+
 /* Responsive CSS */
 
 /* Desktop */
@@ -2656,6 +2798,23 @@ div.ppt {
         display: none;
     }
 
+    .footer--music .footer-logos {
+        width: auto;
+        margin: 20px 0 20px 20%;
+    }
+
+    .footer--music .footer-widget {
+        float: none;
+        margin: 20px;
+    }
+
+    .footer--music .footer-logos img {
+        width: 100px;
+    }
+
+    .footer--music img.kb-logo {
+        width: 75px;
+    }
 }
 
 /* Tablets */
@@ -2821,6 +2980,10 @@ div.ppt {
         text-align: center;
     }
 
+    .cta .cta-item h2{
+        margin-top: 30px;
+    }
+
     .cta .cta-item h3{
         margin-top: 20px !important;
     }
@@ -2865,6 +3028,10 @@ div.ppt {
         font-size:30px;
     }
 
+    .inner-page .partner-wrapper{
+        margin-top: 20px;
+    }
+
     /* Footer Responsive CSS */
 
     .footer .footer-inner{
@@ -2879,6 +3046,20 @@ div.ppt {
     .footer .footer-head .item li{
         width: 100% !important;
         float: none !important;
+    }
+
+    /* Footer musikkompis */
+
+    .footer--music .footer-widget {
+        float: none;
+        margin: 20px 40px;
+        text-align: center;
+    }
+
+    .footer--music .footer-logos {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 300px;
     }
 }
 
@@ -2939,5 +3120,13 @@ div.ppt {
 
     .countdown_section{
         font-size:10px;
+    }
+
+    .musikkompis .container h1 {
+        font-size: 22px;
+    }
+
+    .musikkompis .container a.btn {
+        width: 100%;
     }
 }

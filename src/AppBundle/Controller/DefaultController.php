@@ -25,6 +25,7 @@ class DefaultController extends Controller
             $connectionRequest = new ConnectionRequest();
             $connectionRequest->setUser($user);
             $connectionRequest->setWantToLearn($user->getWantToLearn());
+            $connectionRequest->setMusicFriend($user->isMusicFriend());
             $form = $this->createForm(new ConnectionRequestType(), $connectionRequest);
 
             $form->handleRequest($request);

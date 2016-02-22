@@ -10,6 +10,58 @@
                 <source>no</source>
                 <target>No</target>
             </trans-unit>
+            <trans-unit id="menu.home">
+                <source>menu.home</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="menu.fikafriend">
+                <source>menu.fikafriend</source>
+                <target>Fika Friend</target>
+            </trans-unit>
+            <trans-unit id="menu.musicfriend">
+                <source>menu.musicfriend</source>
+                <target>Music Friend</target>
+            </trans-unit>
+            <trans-unit id="menu.support">
+                <source>menu.support</source>
+                <target>Support us</target>
+            </trans-unit>
+            <trans-unit id="menu.about">
+                <source>menu.about</source>
+                <target>About us</target>
+            </trans-unit>
+            <trans-unit id="menu.signin">
+                <source>menu.signin</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="menu.signin.fb">
+                <source>menu.signin.fb</source>
+                <target>Sign in with Facebook</target>
+            </trans-unit>
+            <trans-unit id="menu.signout">
+                <source>menu.signout</source>
+                <target>Sign out</target>
+            </trans-unit>
+            <trans-unit id="menu.profile">
+                <source>menu.profile</source>
+                <target>My Profile</target>
+            </trans-unit>
+            <trans-unit id="menu.settings">
+                <source>menu.settings</source>
+                <target>Settings</target>
+            </trans-unit>
+            <trans-unit id="footer.contact">
+                <source>footer.contact</source>
+                <target>Contact us</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.header">
+                <source>homepage.cta.header</source>
+                <target>In Kompisbyrån we practise swedish and eat "fika".</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.header.strong">
+                <source>homepage.cta.header.strong</source>
+                <target>Do you want to join?</target>
+            </trans-unit>
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
@@ -21,6 +73,32 @@
             <trans-unit id="homepage.cta.button">
                 <source>homepage.cta.button</source>
                 <target>Sign up</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.header">
+                <source>homepage.cta.musicfriend.header</source>
+                <target>Musikkompis.</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.header.strong">
+                <source>homepage.cta.musicfriend.header.strong</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message.strong">
+                <source>homepage.cta.musicfriend.message.strong</source>
+                <target>
+                    Dela ditt musikintresse med människor från olika kulturer.
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message">
+                <source>homepage.cta.musicfriend.message</source>
+                <target>
+                    Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
+                    mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik
+                    tillsammans, lyssna eller prata musik över en fika.
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.button">
+                <source>homepage.cta.musicfriend.button</source>
+                <target>Bli musikkompis</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -51,6 +129,19 @@
             <trans-unit id="register.form.button">
                 <source>register.form.button</source>
                 <target>Sign up</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.subheader">
+                <source>register.musicfriend.subheader</source>
+                <target>Dela ditt musikintresse med människor från olika kulturer.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.ingress">
+                <source>register.musicfriend.ingress</source>
+                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med 
+                    <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.text">
+                <source>register.musicfriend.text</source>
+                <target>Genom att dela musikupplevelser med varandra kan vi skapa många stunder av gemenskap och samhörighet oavsett var du kommer ifrån eller tror på. Stunder som i slutändan bidrar till större tolerans och ökad förståelse i samhället. Därför har vi startat projektet Musikkompis – ett ideellt samarbete mellan 3 och Kompisbyrån som syftar till att med musikens hjälp stärka integrationen och gemenskapen i samhället. Vi vill ge fler möjlighet att utöva musik tillsammans, människor som på olika nivåer sysslar med musik: artister, källarband, DJ:s, klassiska musiker, konsertbesökare och andra musikintresserade. Bli Musikkompis du också.</target>
             </trans-unit>
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
@@ -166,6 +257,10 @@
                 <source>user.form.city</source>
                 <target>I want to "fika" in (city)</target>
             </trans-unit>
+            <trans-unit id="user.form.municipality">
+                <source>user.form.municipality</source>
+                <target>I live in (municipality):</target>
+            </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
                 <target>District</target>
@@ -173,6 +268,10 @@
             <trans-unit id="user.form.has_children">
                 <source>user.form.has_children</source>
                 <target>I have children:</target>
+            </trans-unit>
+            <trans-unit id="user.form.musicfriend">
+                <source>user.form.musicfriend</source>
+                <target>Music friend</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>

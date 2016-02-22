@@ -23,7 +23,15 @@ class UserType extends AbstractType
         );
         $query->setHint(\Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE, $options['locale']);
 
-        $categories = $query->getResult();
+        $categories = [];
+        $musicCategories = [];
+        foreach ($query->getResult() as $category) {
+            if (get_class($category) == 'AppBundle\Entity\GeneralCategory') {
+                $categories[] = $category;
+            } elseif (get_class($category) == 'AppBundle\Entity\MusicCategory') {
+                $musicCategories[] = $category;
+            }
+        };
 
         $builder
             ->add('firstName', 'text', ['label' => 'user.form.first_name'])
@@ -40,12 +48,20 @@ class UserType extends AbstractType
                 }
             ])
             ->add('categories', 'entity', [
-                    'class' => 'AppBundle:Category',
+                    'class' => 'AppBundle:GeneralCategory',
                     'multiple' => true,
                     'expanded' => true,
                     'choice_list' => new ArrayChoiceList($categories),
                     'property' => 'name',
                     'label' => 'user.form.categories',
+                ]
+            )
+            ->add('musicCategories', 'entity', [
+                    'class' => 'AppBundle:MusicCategory',
+                    'multiple' => true,
+                    'expanded' => true,
+                    'choice_list' => new ArrayChoiceList($musicCategories),
+                    'property' => 'name',
                 ]
             )
             ->add('age', 'choice', [
@@ -68,7 +84,8 @@ class UserType extends AbstractType
                 'label' => 'user.form.from',
                 'choices' => Countries::getList(),
             ])
-            ->add('district', 'text', ['label' => 'user.form.district'])
+            // Might be removed after music friend campaign
+            // ->add('district', 'text', ['label' => 'user.form.district'])
             ->add('hasChildren', 'choice', [
                 'expanded' => true,
                 'label' => 'user.form.has_children',
@@ -81,6 +98,19 @@ class UserType extends AbstractType
                 }
             ])
             ->add('profilePicture', 'hidden')
+            ->add('musicFriend', 'checkbox', [
+                'required' => false,
+                'label' => 'user.form.musicfriend',
+            ])
+            ->add('municipality', 'entity', [
+                    'class' => 'AppBundle:Municipality',
+                    'property' => 'name',
+                    'empty_data'  => null,
+                    'required' => false,
+                    'label' => 'user.form.municipality',
+                ]
+            )
+
         ;
         $user = $builder->getData();
         if (!$user->hasRole('ROLE_COMPLETE_USER')) {

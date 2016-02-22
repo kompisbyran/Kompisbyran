@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ConnectionRequestRepository")
  */
 class ConnectionRequest
 {
@@ -61,6 +61,13 @@ class ConnectionRequest
      * @ORM\Column(type="integer")
      */
     protected $sortOrder;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $musicFriend = false;
 
     public function __construct()
     {
@@ -162,5 +169,21 @@ class ConnectionRequest
     public function setSortOrder($sortOrder)
     {
         $this->sortOrder = $sortOrder;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isMusicFriend()
+    {
+        return $this->musicFriend;
+    }
+
+    /**
+     * @param boolean $musicFriend
+     */
+    public function setMusicFriend($musicFriend)
+    {
+        $this->musicFriend = $musicFriend;
     }
 }

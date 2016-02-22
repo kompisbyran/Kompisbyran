@@ -55,19 +55,19 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ path('homepage') }}">Hem</a></li>
-                    <li><a href="{{ path('how_it_works') }}">Bli fikakompis</a></li>
-                    <li><a href="{{ path('terms') }}">Villkor</a></li>
-                    <li><a href="{{ path('work_with_us') }}">Stöd oss</a></li>
-                    <li><a href="{{ path('about') }}">Om oss</a></li>
+                    <li><a href="{{ path('homepage') }}">{{'menu.home'|trans}}</a></li>
+                    <li><a href="{{ path('how_it_works') }}">{{'menu.fikafriend'|trans}}</a></li>
+                    <li><a href="{{ path('musicfriend') }}">{{'menu.musicfriend'|trans}}</a></li>
+                    <li><a href="{{ path('work_with_us') }}">{{'menu.support'|trans}}</a></li>
+                    <li><a href="{{ path('about') }}">{{'menu.about'|trans}}</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Min profil<span class="fa fa-angle-down"></span>
+                                {{'menu.profile'|trans}}<span class="fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ path('settings') }}">Inställningar</a></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}">Logga ut</a></li>
+                                <li><a href="{{ path('settings') }}">{{'menu.settings'|trans}}</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">{{'menu.signout'|trans}}</a></li>
                             </ul>
                         <li>
 
@@ -78,15 +78,16 @@
                                     Admin<span class="fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ path('admin_start') }}">Personer att koppla ihop</a></li>
+                                    <li><a href="{{ path('admin_start') }}">Fikakompisar att matcha</a></li>
+                                    <li><a href="{{ path('admin_start', {'type': 'musicfriend'}) }}">Musikkompisar att matcha</a></li>
                                     <li><a href="{{ path('admin_connections') }}">Matchade fikakompisar</a></li>
                                     <li><a href="{{ path('admin_users') }}">Användare</a></li>
                                 </ul>
                             <li>
                         {% endif %}
                     {% else %}
-                        {# <li><a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}">Logga in med facebook</a></li> #}
-                        <li><a href="{{ path('fos_user_security_login') }}">Logga in</a></li>
+                        {# <li><a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook'}) }}">{{'menu.signin.fb'|trans}}</a></li> #}
+                        <li><a href="{{ path('fos_user_security_login') }}">{{'menu.signin'|trans}}</a></li>
                     {% endif %}
 
                 </ul>
@@ -124,8 +125,9 @@
 <div class="page">
     {% block body %}{% endblock %}
 </div>
-<!-- Footer Start -->
 
+<!-- Footer Start -->
+{% block footer %}
 <div class="footer">
     <div class="footer-inner">
         <div class="container">
@@ -133,17 +135,18 @@
 
                 <div class="col-md-8 col-sm-10">
                     <div class="footer-widget">
-                        <h4><i class="fa fa-users"></i> &nbsp; Om oss</h4>
-                        <p>Emma Hammar och Cecilia Holmgren startade Kompisbyrån i januari 2014. Kompisbyrån är en ideell 
+                        <h4><i class="fa fa-users"></i> &nbsp; {{'menu.about'|trans}}</h4>
+                        <p>Emma Hammar och Cecilia Holmgren startade Kompisbyrån 2014. Kompisbyrån är en ideell 
                             förening som vill göra det lätt för människor att träffas i vardagen. Genom att kompisfika  
                             skapas kontakt mellan personer som vill träna på att prata svenska och personer som har bott i  
                             Sverige länge. Hittills har tusentals människor från 79 länder träffats genom Kompisbyrån.
-                        </p>
+                            </p>
+                            <p>Läs igenom våra <a href="{{ path('terms') }}">villkor</a> innan du anmäler dig till en fika.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-5">
                     <div class="footer-widget">
-                        <h4><i class="fa fa-envelope"></i> &nbsp; Kontakta oss</h4>
+                        <h4><i class="fa fa-envelope"></i> &nbsp; {{'footer.contact'|trans}}</h4>
                         <p>
                             <span class="mute">E-mail</span>:
                             <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a><br />
@@ -161,7 +164,7 @@
         </div>
     </div>
 </div>
-
+{% endblock %}
 <!-- Footer End -->
 
 

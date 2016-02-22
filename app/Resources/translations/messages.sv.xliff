@@ -10,17 +10,101 @@
                 <source>no</source>
                 <target>Nej</target>
             </trans-unit>
+            <trans-unit id="menu.home">
+                <source>menu.home</source>
+                <target>Hem</target>
+            </trans-unit>
+            <trans-unit id="menu.fikafriend">
+                <source>menu.fikafriend</source>
+                <target>Bli fikakompis</target>
+            </trans-unit>
+            <trans-unit id="menu.musicfriend">
+                <source>menu.musicfriend</source>
+                <target>Bli Musikkompis</target>
+            </trans-unit>
+            <trans-unit id="menu.support">
+                <source>menu.support</source>
+                <target>Stöd oss</target>
+            </trans-unit>
+            <trans-unit id="menu.about">
+                <source>menu.about</source>
+                <target>Om oss</target>
+            </trans-unit>
+            <trans-unit id="menu.signin">
+                <source>menu.signin</source>
+                <target>Logga in</target>
+            </trans-unit>
+            <trans-unit id="menu.signin.fb">
+                <source>menu.signin.fb</source>
+                <target>Logga in med Facebook</target>
+            </trans-unit>
+            <trans-unit id="menu.signout">
+                <source>menu.signout</source>
+                <target>Logga ut</target>
+            </trans-unit>
+            <trans-unit id="menu.profile">
+                <source>menu.profile</source>
+                <target>Min Profil</target>
+            </trans-unit>
+            <trans-unit id="menu.settings">
+                <source>menu.settings</source>
+                <target>Inställningar</target>
+            </trans-unit>
+            
+            <trans-unit id="footer.contact">
+                <source>footer.contact</source>
+                <target>Kontakta oss</target>
+            </trans-unit>
+
+            <trans-unit id="homepage.cta.header">
+                <source>homepage.cta.header</source>
+                <target>I Kompisbyrån övar vi svenska och fikar.</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.header.strong">
+                <source>homepage.cta.header.strong</source>
+                <target>Vill du vara med?</target>
+            </trans-unit>
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
-                    Kompisbyrån hjälper människor att träffa nya kompisar med gemensamma intressen. Vi skapar 
-                    kontakt mellan dig som är ny i Sverige och dig som har bott i Sverige länge. Ni träffas, 
-                    fikar och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en fikakompis idag!
+                    <![CDATA[
+                    Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt 
+                    mellan dig som är ny i Sverige och dig som har bott i Sverige länge. Du kan bli Fikakompis eller 
+                    Musikkompis.<br><br>
+                    Som Fikakompis blir du matchad med en person med liknande intressen som du har. Ni träffas, fikar 
+                    och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en Fikakompis idag!
+                    ]]>
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.button">
                 <source>homepage.cta.button</source>
-                <target>Bli fikakompis</target>
+                <target>Bli Fikakompis</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.header">
+                <source>homepage.cta.musicfriend.header</source>
+                <target>Musikkompis.</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.header.strong">
+                <source>homepage.cta.musicfriend.header.strong</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message.strong">
+                <source>homepage.cta.musicfriend.message.strong</source>
+                <target>
+                    Dela ditt musikintresse med människor från olika kulturer.
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message">
+                <source>homepage.cta.musicfriend.message</source>
+                <target>
+                    Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
+                    mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik
+                    tillsammans, lyssna eller prata musik över en fika.
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.button">
+                <source>homepage.cta.musicfriend.button</source>
+                <target>Bli Musikkompis</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -52,6 +136,19 @@
                 <source>register.form.button</source>
                 <target>Gå med</target>
             </trans-unit>
+            <trans-unit id="register.musicfriend.subheader">
+                <source>register.musicfriend.subheader</source>
+                <target>Dela ditt musikintresse med människor från olika kulturer.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.ingress">
+                <source>register.musicfriend.ingress</source>
+                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med 
+                    <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.text">
+                <source>register.musicfriend.text</source>
+                <target>Genom att dela musikupplevelser med varandra kan vi skapa många stunder av gemenskap och samhörighet oavsett var du kommer ifrån eller tror på. Stunder som i slutändan bidrar till större tolerans och ökad förståelse i samhället. Därför har vi startat projektet Musikkompis – ett ideellt samarbete mellan 3 och Kompisbyrån som syftar till att med musikens hjälp stärka integrationen och gemenskapen i samhället. Vi vill ge fler möjlighet att utöva musik tillsammans, människor som på olika nivåer sysslar med musik: artister, källarband, DJ:s, klassiska musiker, konsertbesökare och andra musikintresserade. Bli Musikkompis du också.</target>
+            </trans-unit>
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
                 <target>
@@ -64,22 +161,9 @@
                     <![CDATA[
                         <ol>
                             <li>
-                                Gå med i Kompisbyrån. Det är gratis att anmäla sig. Skriv din e-post, ett lösenord som du bestämmer själv 
-                                och klicka på "Gå med". Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
-                            </li>
-                            <li>
-                                Berätta om dig själv. Skriv ditt namn, ålder, intressen och svara på några fler frågor.
-                            </li>
-                            <li>
-                                Matchning. Vi hittar en fikakompis till dig och mailar dig personens e-postadress.
-                            </li>
-                            <li>
-                                Du mailar din fikakompis och bestämmer vilken dag, tid och plats ni ska träffas. 
-                                Vi rekommenderar att ni träffas i ungefär 1 timme på ett kafé i centrala delen av staden 
-                                (om ni inte kommer överens om annat). 
-                                
-                                En kompisfika sker en gång. Gillar ni varandra får ni gärna träffas igen själva. 
-                                Vill du träffa fler kompisar, loggar du in och anmäler dig igen. 
+                                Gå med i Kompisbyrån genom att registrera dig. Skriv din e-post, 
+                                ett lösenord som du bestämmer själv och klicka på "Gå med". Det är gratis att anmäla sig. 
+                                Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
                             </li>
                         </ol>
                     ]]>
@@ -119,19 +203,19 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
-                <target>Jag vill:</target>
+                <target>Jag:</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Bli bättre på att prata svenska</target>
+                <target>Jag är ny i Sverige</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Hjälpa någon att öva svenska</target>
+                <target>Jag har bott i Sverige länge</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
-                <target>Jag tycker om (intressen):</target>
+                <target>Jag gillar (intressen):</target>
             </trans-unit>
             <trans-unit id="user.form.age">
                 <source>user.form.age</source>
@@ -155,11 +239,12 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Berätta om dig själv</target>
+                <target>Berätta om dig själv och ditt musikintresse:</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige.</target>
+                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige. 
+                Musikkompis, skriv gärna om du spelar något instrument och vilken musikgenre du gillar.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
@@ -167,7 +252,11 @@
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
-                <target>Jag vill fika i (stad):</target>
+                <target>Jag kan träffas i (stad):</target>
+            </trans-unit>
+            <trans-unit id="user.form.municipality">
+                <source>user.form.municipality</source>
+                <target>Jag bor i (kommun):</target>
             </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
@@ -176,6 +265,10 @@
             <trans-unit id="user.form.has_children">
                 <source>user.form.has_children</source>
                 <target>Jag har barn:</target>
+            </trans-unit>
+            <trans-unit id="user.form.musicfriend">
+                <source>user.form.musicfriend</source>
+                <target>Jag vill bli Musikkompis</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
@@ -192,8 +285,8 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Vad roligt att du vill kompisfika! Här svarar du på några frågor om dig själv så att vi ska
-                    kunna hitta en fikakompis till dig. Trevlig fika!
+                    Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor 
+                    om dig själv så att vi ska kunna hitta en Fikakompis eller Musikkompis till dig.
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
@@ -202,10 +295,10 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här ser du dina tidigare kompisfikor, intresseanmälningar till nya fikor och kan anmäla dig igen för att träffa nya fikakompisar.
-                    För tillfället kan vi endast länka samman fikakompisar i Stockholm.
+                <target>Här kan du anmäla dig igen för att träffa nya Fikakompisar eller Musikkompisar. 
+                Du ser även dina tidigare kompisfikor och intresseanmälningar till att träffa nya kompisar. 
 
-                    Vill du ändra dina uppgifter trycker du på "Min profil" och sedan "inställningar" i menyn.</target>
+                    Vill du ändra din ansökan trycker du först på "Min profil" och sedan på "Inställningar" i menyn.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
@@ -217,25 +310,25 @@
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
-                <target>Du vill förbättra din svenska</target>
+                <target>Du väntar på en matchning</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.teach">
                 <source>index.connection_request.want_to_learn.teach</source>
-                <target>Du vill hjälpa någon att förbättra sin svenska</target>
+                <target>Du väntar på en matchning</target>
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
-                <target>Jag vill kompisfika igen</target>
+                <target>Jag vill träffa ny kompis</target>
             </trans-unit>
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Om du vill träffa en ny fikakompis, väljer du stad och trycker på knappen "Kompisfika".
+                    Om du vill träffa en ny Fikakompis eller Musikkompis, väljer du stad och trycker på knappen "Kompisfika".
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
                 <source>connection_request.form.city</source>
-                <target>Stad</target>
+                <target>Jag kan träffas i (stad):</target>
             </trans-unit>
             <trans-unit id="connection_request.form.comment">
                 <source>connection_request.form.comment</source>

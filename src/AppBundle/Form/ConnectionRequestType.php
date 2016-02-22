@@ -25,6 +25,10 @@ class ConnectionRequestType extends AbstractType
                 'required' => false,
                 'label' => 'connection_request.form.comment',
             ])
+            ->add('musicFriend', 'checkbox', [
+                'required' => false,
+                'label' => 'Musikkompis',
+            ])
         ;
     }
 

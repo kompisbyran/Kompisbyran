@@ -51,7 +51,7 @@ class EmailSender
                 'partner' => $data['partner'],
             ];
             $message = \Swift_Message::newInstance()
-                ->setSubject('Fikakompis från Kompisbyrån')
+                ->setSubject('Fikakompis/ Musikkompis från Kompisbyrån')
                 ->setFrom('info@kompisbyran.se')
                 ->setReplyTo('matchning@kompisbyran.se')
                 ->setTo($data['recipient']->getEmail(), $data['recipient']->getName())

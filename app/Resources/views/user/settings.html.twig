@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
 
 {% block body %}
 
@@ -8,19 +8,19 @@
             <h2><strong>{{ 'user.settings.header'|trans }}</strong></h2>
 
             <div class="row">
-                <div class="col-sm-6 col-sm-push-6">
+                <div class="col-md-4 col-md-push-8 col-sm-6 col-sm-push-6">
                     <div class="well br-white border-orange black">
                         {{ 'user.settings.intro'|trans }}
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-sm-pull-6">
+                <div class="col-md-8 col-md-pull-4 col-sm-6 col-sm-pull-6">
                     <div class="row">
                         {{ form_start(form) }}
 
                         <div class="form-group">
                             {{ form_label(form.firstName) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.firstName) }}
                                 {{ form_errors(form.firstName) }}
                             </div>
@@ -28,7 +28,7 @@
 
                         <div class="form-group">
                             {{ form_label(form.lastName) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.lastName) }}
                                 {{ form_errors(form.lastName) }}
                             </div>
@@ -36,38 +36,34 @@
 
                         <div class="form-group">
                             {{ form_label(form.wantToLearn) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.wantToLearn) }}
                                 {{ form_errors(form.wantToLearn) }}
                             </div>
                         </div>
 
                         <div class="form-group">
+                            {{ form_label(form.musicFriend) }}
+                            <div class="col-sm-4 col-md-offset-4">
+                                {{ form_widget(form.musicFriend) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             {{ form_label(form.categories) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.categories) }}
                                 {{ form_errors(form.categories) }}
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            {{ form_label(form.age) }}
-                            <div class="col-sm-10">
-                                {{ form_widget(form.age) }}
-                                {{ form_errors(form.age) }}
+                            <div class="col-sm-4">
+                                {{ form_widget(form.musicCategories) }}
+                                {{ form_errors(form.musicCategories) }}
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            {{ form_label(form.gender) }}
-                            <div class="col-sm-10">
-                                {{ form_widget(form.gender) }}
-                                {{ form_errors(form.gender) }}
-                            </div>
-                        </div>
                         <div class="form-group">
                             {{ form_label(form.about) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-8">
                                 {{ form_widget(form.about) }}
                                 {{ form_errors(form.about) }}
                                 <span class="help-block">{{ 'user.form.about.help'|trans }}</span>
@@ -75,39 +71,49 @@
                         </div>
 
                         <div class="form-group">
+                            {{ form_label(form.age) }}
+                            <div class="col-sm-2">
+                                {{ form_widget(form.age) }}
+                                {{ form_errors(form.age) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.gender) }}
+                            <div class="col-sm-2">
+                                {{ form_widget(form.gender) }}
+                                {{ form_errors(form.gender) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             {{ form_label(form.from) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.from) }}
                                 {{ form_errors(form.from) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {{ form_label(form.district) }}
-                            <div class="col-sm-10">
-                                {{ form_widget(form.district) }}
-                                {{ form_errors(form.district) }}
+                            {{ form_label(form.municipality) }}
+                            <div class="col-sm-4">
+                                {{ form_widget(form.municipality) }}
+                                {{ form_errors(form.municipality) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                             {{ form_label(form.hasChildren) }}
-                            <div class="col-sm-10">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.hasChildren) }}
                                 {{ form_errors(form.hasChildren) }}
                             </div>
                         </div>
 
-
-
-
-
-
-
                         {{ form_widget(form) }}
 
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
+                            <div class="col-sm-offset-4 col-sm-4">
 
                                 <img
                                         src="{% if form.profilePicture.vars.value %}{{ form.profilePicture.vars.value }}{% else %}/images/user.png{% endif %}"
@@ -123,7 +129,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
+                            <div class="col-sm-offset-4 col-sm-4">
                                 <button type="submit" class="btn btn-default">{{ 'user.form.button'|trans }}</button>
                             </div>
                         </div>

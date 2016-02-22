@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\ConnectionRequest;
+use AppBundle\Entity\User;
 use AppBundle\Form\EditConnectionRequestType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -58,6 +59,7 @@ class ConnectionRequestController extends Controller
      */
     public function createAction(Request $request)
     {
+        /** @var User $user */
         $user = $this->getDoctrine()->getManager()->getRepository('AppBundle:User')
             ->find($request->request->getInt('userId'));
         $city = $this->getDoctrine()->getManager()->getRepository('AppBundle:City')
@@ -69,6 +71,7 @@ class ConnectionRequestController extends Controller
         $connectionRequest->setComment($request->request->get('comment'));
         $connectionRequest->setCity($city);
         $connectionRequest->setSortOrder($request->request->getInt('sortOrder'));
+        $connectionRequest->setMusicFriend($user->isMusicFriend());
 
         $this->getDoctrine()->getEntityManager()->persist($connectionRequest);
         $this->getDoctrine()->getEntityManager()->flush();

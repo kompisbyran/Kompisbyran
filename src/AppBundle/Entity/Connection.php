@@ -80,6 +80,13 @@ class Connection
      */
     protected $comments;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $musicFriend = false;
+
     public function __construct(User $user)
     {
         $this->createdAt = new \DateTime();
@@ -197,5 +204,21 @@ class Connection
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isMusicFriend()
+    {
+        return $this->musicFriend;
+    }
+
+    /**
+     * @param boolean $musicFriend
+     */
+    public function setMusicFriend($musicFriend)
+    {
+        $this->musicFriend = $musicFriend;
     }
 }

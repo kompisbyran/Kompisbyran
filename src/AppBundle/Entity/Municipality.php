@@ -2,17 +2,13 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Translatable\Translatable;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
- * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"general" = "GeneralCategory", "music" = "MusicCategory"})
  */
-abstract class Category implements Translatable
+class Municipality
 {
     /**
      * @var int
@@ -26,15 +22,21 @@ abstract class Category implements Translatable
     /**
      * @var string
      *
-     * @Gedmo\Translatable
      * @ORM\Column(type="string")
      */
     protected $name;
 
     /**
-     * @Gedmo\Locale
+     * @var User[]
+     *
+     * @ORM\OneToMany(targetEntity="User", mappedBy="municipality")
      */
-    protected $locale;
+    protected $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -61,10 +63,18 @@ abstract class Category implements Translatable
     }
 
     /**
-     * @param $locale
+     * @return User[]
      */
-    public function setTranslatableLocale($locale)
+    public function getUsers()
     {
-        $this->locale = $locale;
+        return $this->users;
+    }
+
+    /**
+     * @param User[] $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
     }
 }

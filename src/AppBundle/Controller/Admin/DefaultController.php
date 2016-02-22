@@ -5,6 +5,7 @@ namespace AppBundle\Controller\Admin;
 use AppBundle\DomainEvents;
 use AppBundle\Entity\City;
 use AppBundle\Entity\Connection;
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Event\ConnectionCreatedEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,7 +24,9 @@ class DefaultController extends Controller
         $manager = $this->getDoctrine()->getManager();
 
         if ($request->isMethod('POST')) {
+            /** @var ConnectionRequest $learnerConnectionRequest */
             $learnerConnectionRequest = $this->getConnectionRequestRepository()->find($request->request->getInt('learner'));
+            /** @var ConnectionRequest $fluentSpeakerConnectionRequest */
             $fluentSpeakerConnectionRequest = $this->getConnectionRequestRepository()->find($request->request->getInt('fluentSpeaker'));
 
             if ($this->getConnectionRepository()->findForUsers(
@@ -41,6 +44,7 @@ class DefaultController extends Controller
                 $connection->setCity($learnerConnectionRequest->getCity());
                 $connection->setFluentSpeakerComment($fluentSpeakerConnectionRequest->getComment());
                 $connection->setLearnerComment($learnerConnectionRequest->getComment());
+                $connection->setMusicFriend($learnerConnectionRequest->isMusicFriend());
 
                 $manager->persist($connection);
                 $manager->remove($learnerConnectionRequest);
@@ -65,22 +69,28 @@ class DefaultController extends Controller
         if (!$city) {
             $city = $this->getCityRepository()->findAll()[0];
         }
-        $learners = $this->getConnectionRequestRepository()->findBy(
-            ['wantToLearn' => true, 'city' => $city],
-            ['sortOrder' => 'DESC', 'createdAt' => 'ASC']
-        );
-        $fluentSpeakers = $this->getConnectionRequestRepository()->findBy(
-            ['wantToLearn' => false, 'city' => $city],
-            ['sortOrder' => 'DESC', 'createdAt' => 'ASC']
-        );
+
+        $type = $request->query->get('type');
+
+        $learners = $this->getConnectionRequestRepository()->findForCity($city, true, $type == 'musicfriend');
+        $fluentSpeakers = $this->getConnectionRequestRepository()->findForCity($city, false, $type == 'musicfriend');
+
         $cities = $this->getCityRepository()->findAll();
 
+        if ($type == 'musicfriend') {
+            $categories = $this->getMusicCategoryRepository()->findAll();
+        } else {
+            $categories = $this->getGeneralCategoryRepository()->findAll();
+        }
+
+
         $parameters = [
-            'categories' => $this->getCategoryRepository()->findAll(),
+            'categories' => $categories,
             'learners' => $learners,
             'fluentSpeakers' => $fluentSpeakers,
             'cities' => $cities,
             'city' => $city,
+            'type' => $type,
         ];
 
         return $this->render('admin/default/index.html.twig', $parameters);
@@ -107,5 +117,15 @@ class DefaultController extends Controller
     protected function getCategoryRepository()
     {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Category');
+    }
+
+    protected function getMusicCategoryRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:MusicCategory');
+    }
+
+    protected function getGeneralCategoryRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:GeneralCategory');
     }
 }

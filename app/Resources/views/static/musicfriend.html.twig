@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="inner-page musikkompis">
+        <div class="container musikkompis">
+            <img src="{{ asset('images/musikkompis.png') }}" alt="Musikkompis" class="img-responsive center-block">
+            <h1 class="subheader text-center">
+                {{ 'register.musicfriend.subheader'|trans }}
+            </h1>
+            <p class="lead text-center">
+                {{ 'register.musicfriend.ingress'|trans | raw }}
+            </p>
+            <p>
+                {{ 'register.musicfriend.text'|trans }}
+            </p>
+            <div class="text-center">
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg br-orange">
+                    {{ 'homepage.cta.musicfriend.button'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+<!-- Footer Start -->
+<div class="footer--music">
+    <div class="footer-inner">
+        <div class="container">
+            <div class="row">
+            
+            <div class="col-sm-6 col-xs-12">
+                <div class="footer-widget">
+                    <h4>Kontakta oss</h4>
+                    <p>
+                        <span class="mute">E-mail</span>:
+                        <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a><br />
+                    </p>
+                    <div class="social">
+                        <a href="https://www.facebook.com/kompisbyran" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/kompisbyran" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/kompisbyran" class="instagram"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xs-12">
+                <div class="footer-logos">
+                    <img src="/images/KB-logo.gif" class="img-responsive kb-logo" alt="" />
+                    <a href="//tre.se/musikkompis"><img src="/images/neverstopsharing.png" class="img-responsive" alt="" /></a>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+{% endblock %}

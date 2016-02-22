@@ -2,9 +2,17 @@
 
 {% import _self as macro %}
 
-{% macro connectionRequestItem(connectionRequest, inputName, isChecked) %}
+{% macro connectionRequestItem(connectionRequest, inputName, isChecked, type) %}
+
+    {% if type == 'musicfriend' %}
+        {% set categories = connectionRequest.user.musicCategories %}
+    {% else %}
+        {% set categories = connectionRequest.user.categories %}
+    {% endif %}
+
+
     <div class="col-md-6 col-sm-6 connection-request-item" data-categories="
-        {%- for category in connectionRequest.user.categories -%}
+        {%- for category in categories -%}
             {{ category.id }}{% if not loop.last %},{% endif %}
         {%- endfor -%}
     ">
@@ -38,14 +46,12 @@
                         {% if isChecked %}checked="checked"{% endif %}
                         data-name="{{ connectionRequest.user.name }} ({{ connectionRequest.user.gender }}, {{ connectionRequest.user.age }} år)"
                     >
-                    {% for category in connectionRequest.user.categories %}
+                    {% for category in categories %}
                         {{ category.name }}{% if not loop.last %}, {% endif %}
                     {% endfor %}
                     <br>
                     {{ connectionRequest.createdAt|date('Y-m-d') }}<br>
-                    {% if connectionRequest.user.district %}
-                        {{ connectionRequest.user.district }}<br>
-                    {% endif %}
+                    {{ connectionRequest.user.municipality.name }}<br>
                     {% if connectionRequest.comment %}
                         "<em>{{ connectionRequest.comment|nl2br }}</em>"<br>
                     {% endif %}
@@ -73,7 +79,7 @@
                 <ul class="nav nav-tabs">
                     {% for loopedCity in cities %}
                         <li{% if loopedCity == city %} class="active"{% endif %}>
-                            <a href="{{ path('admin_start', {'id': loopedCity.id}) }}">{{ loopedCity.name }}</a>
+                            <a href="{{ path('admin_start', {'id': loopedCity.id, 'type': type}) }}">{{ loopedCity.name }}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -95,7 +101,7 @@
                     <h2>Övare</h2>
                     <div class="row">
                         {% for connectionRequest in learners %}
-                            {{ macro.connectionRequestItem(connectionRequest, 'learner', loop.first) }}
+                            {{ macro.connectionRequestItem(connectionRequest, 'learner', loop.first, type) }}
                         {% endfor %}
                     </div>
                 </div>
@@ -103,7 +109,7 @@
                     <h2 style="clear:both">Lärare</h2>
                     <div class="row">
                         {% for connectionRequest in fluentSpeakers %}
-                            {{ macro.connectionRequestItem(connectionRequest, 'fluentSpeaker', loop.first) }}
+                            {{ macro.connectionRequestItem(connectionRequest, 'fluentSpeaker', loop.first, type) }}
                         {% endfor %}
                     </div>
                 </div>
