@@ -113,7 +113,7 @@
             <trans-unit id="register.create.intro">
                 <source>register.create.intro</source>
                 <target>
-                    För att kompisfika fyller du i din e-post och ett lösenord som du bestämmer själv. 
+                    För att kompisfika eller bli Musikkompis fyller du i din e-post och ett lösenord som du bestämmer själv. 
                 </target>
             </trans-unit>
             <trans-unit id="register.form.email">
