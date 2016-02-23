@@ -296,13 +296,13 @@
             <trans-unit id="index.intro">
                 <source>index.intro</source>
                 <target>Här kan du anmäla dig igen för att träffa nya Fikakompisar eller Musikkompisar. 
-                Du ser även dina tidigare kompisfikor och intresseanmälningar till att träffa nya kompisar. 
+                Du ser även dina tidigare kompismöten och intresseanmälningar till att träffa nya kompisar. 
 
                     Vill du ändra din ansökan trycker du först på "Min profil" och sedan på "Inställningar" i menyn.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
-                <target>Tidigare kompisfikor</target>
+                <target>Tidigare kompismöten</target>
             </trans-unit>
             <trans-unit id="index.connection_request.header">
                 <source>index.connection_request.header</source>
