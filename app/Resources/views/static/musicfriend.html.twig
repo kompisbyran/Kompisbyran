@@ -1,5 +1,16 @@
 {% extends 'base.html.twig' %}
 
+
+{% block metatags %}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Musikkompis." />
+    <meta property="og:url" content="http://www.kompisbyran.se/musikkompis"/>
+    <meta property="og:image" content="http://www.kompisbyran.se/images/kompisbyran3.png" />
+    <meta property="og:description" content="Dela ditt musikintresse med människor från olika kulturer.
+Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med mobiloperatören 3 , för alla som vill mötas genom musik." />
+{% endblock %}
+
+
 {% block body %}
 
     <div class="inner-page musikkompis">
