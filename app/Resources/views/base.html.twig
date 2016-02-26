@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
 
+    {% block metatags %}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kompisbyrån!" />
+    <meta property="og:url" content="http://www.kompisbyran.se"/>
+    <meta property="og:image" content="http://www.kompisbyran.se/images/Kompis3.JPG" />
+    <meta property="og:description" content="Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt mellan dig som är ny i Sverige och dig som har bott i Sverige länge." />
+    {% endblock %}
+
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/animate.min.css" rel="stylesheet">
     <link href="/css/rs-settings.css" rel="stylesheet">
