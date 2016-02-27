@@ -22,14 +22,31 @@ Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkomp
             <p class="lead text-center">
                 {{ 'register.musicfriend.ingress'|trans | raw }}
             </p>
-            <p>
-                {{ 'register.musicfriend.text'|trans }}
-            </p>
             <div class="text-center">
                 <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg br-orange">
                     {{ 'homepage.cta.musicfriend.button'|trans }}
                 </a>
             </div>
+
+            <div class="video row">
+                <div class="video__box col-sm-12 col-md-6">
+                    <div class="video__box--media">
+                        <iframe src="https://www.youtube.com/embed/XkjXZu2jdWo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="video__box--text">
+                        {{ 'register.musicfriend.video1'|trans }}
+                    </p>
+                </div>
+                <div class="video__box col-sm-12 col-md-6">
+                    <div class="video__box--media">
+                        <iframe src="https://www.youtube.com/embed/HX9fMo8crg4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p class="video__box--text">
+                        {{ 'register.musicfriend.video2'|trans }}
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 {% endblock %}
