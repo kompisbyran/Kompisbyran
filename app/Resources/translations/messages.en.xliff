@@ -139,9 +139,29 @@
                 <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med 
                     <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
             </trans-unit>
-            <trans-unit id="register.musicfriend.text">
-                <source>register.musicfriend.text</source>
+            <trans-unit id="register.musicfriend.footer.header">
+                <source>register.musicfriend.footer.header</source>
+                <target>Musikkompis är ett initiativ av 3 och Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.footer.text">
+                <source>register.musicfriend.footer.text</source>
                 <target>Genom att dela musikupplevelser med varandra kan vi skapa många stunder av gemenskap och samhörighet oavsett var du kommer ifrån eller tror på. Stunder som i slutändan bidrar till större tolerans och ökad förståelse i samhället. Därför har vi startat projektet Musikkompis – ett ideellt samarbete mellan 3 och Kompisbyrån som syftar till att med musikens hjälp stärka integrationen och gemenskapen i samhället. Vi vill ge fler möjlighet att utöva musik tillsammans, människor som på olika nivåer sysslar med musik: artister, källarband, DJ:s, klassiska musiker, konsertbesökare och andra musikintresserade. Bli Musikkompis du också.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.videoheader">
+                <source>register.musicfriend.videoheader</source>
+                <target>Här kan du se andra musikkompisar och deras musikmöten</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.video1">
+                <source>register.musicfriend.video1</source>
+                <target>Filipe Minhava är en 19-årig gitarrist från Portugal och bor sedan tre månader hemma hos en kompis i Högdalen. Filipe och Little Jinder möttes på Södermalm i Stockholm och lärde känna varandra under en dag där de besökte en loppmarknad, kollade på LP-skivor och åt på restaurang, innan de rundade av sitt möte med att tillsammans sjunga La Bamba på en karaokebar.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.video2">
+                <source>register.musicfriend.video2</source>
+                <target>Naim Kassis, 45-årig pianist från Aleppo i Syrien, kom till Sverige för ett drygt år sedan och hamnade på ett asylboende i norra Sverige, där han under året har gett ett flertal konserter. En kall vinterdag träffades han och Sabina Ddumba, och tillsammans spelade de en version av Sabinas ”Not too young”, vilket lockade hela förläggningen att ta del av mötet.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.video3">
+                <source>register.musicfriend.video3</source>
+                <target>Bacon ipsum dolor amet tri-tip meatball pork chop bacon spare ribs shank short ribs tail kevin pork loin. Ball tip beef picanha, pork venison fatback spare ribs biltong boudin pork chop kevin bacon hamburger. Shoulder ball tip sirloin sausage kielbasa. Kevin short loin tail ribeye frankfurter pig. Sirloin tongue prosciutto flank short loin leberkas meatloaf pastrami ground round swine ham hock pancetta shank.</target>
             </trans-unit>
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
