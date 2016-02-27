@@ -2786,13 +2786,12 @@ div.ppt {
 
 .footer--music .footer-logos {
     display: block;
-    margin-left: 20%;
+    margin: 30px 20px;
 }
 
 .footer--music img {
     width: 150px;
     display: inline-block;
-    margin: 0 20px;
 }
 
 .footer--music .kb-logo {
@@ -2840,7 +2839,7 @@ div.ppt {
 
     .footer--music .footer-logos {
         width: auto;
-        margin: 20px 0 20px 20%;
+        margin: 25% 0 0 0;
     }
 
     .footer--music .footer-widget {
@@ -2849,11 +2848,11 @@ div.ppt {
     }
 
     .footer--music .footer-logos img {
-        width: 100px;
+        width: 125px;
     }
 
     .footer--music img.kb-logo {
-        width: 75px;
+        width: 100px;
     }
 }
 
@@ -3101,9 +3100,9 @@ div.ppt {
     }
 
     .footer--music .footer-logos {
+        width: 250px;
         margin: 0 auto;
         margin-bottom: 20px;
-        width: 300px;
     }
 }
 
