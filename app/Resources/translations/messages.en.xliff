@@ -363,6 +363,60 @@
                 <source>connection_request.form.button</source>
                 <target>Friend request</target>
             </trans-unit>
+                        <trans-unit id="terms.header">
+                <source>terms.header</source>
+                <target>Terms</target>
+            </trans-unit>
+            <trans-unit id="terms.ingress">
+                <source>terms.ingress</source>
+                <target>Kompisbyrån creates contact between people who are new in Sweden and people who have lived in Sweden for a long time.</target>
+            </trans-unit>
+            <trans-unit id="terms.list">
+                <source>terms.list</source>
+                <target><![CDATA[ 
+                    <ul>
+                        <li>
+                            Kompisbyrån creates contact between new friends based on similar interests. Kompisbyrån is only responsible for linking together people who have lived in Sweden for a short time with people who have lived in Sweden for a long time.
+                        </li>
+                        <li>
+                            Everyone over 18 years (of age) can participate.
+                        </li>
+                        <li>
+                            You only have to pay for your own "fika", the registration is for free.
+                        </li>
+                        <li>
+                            Kompisbyrån recommends that you meet your new friend for about 1 hour at a public place in the central part of the city.
+                        </li>
+                        <li>
+                            When you have registered your application, you warrant that your information is correct and agree that the information: may be treated according to PUL and is saved in Kompisbyrån's register so that we can find new friends for you, that your information and e-mail is sent to your new friend, and that we will invite you to Kompisbyrån's activities or offerings. If you want to adjust your submitted information that is registered, please log in with your e-mail and password and update your profile.
+                        </li>    
+                        <li>
+                            Our ambition is to find a new friend for you within 14 days, but it may take both shorter and longer time depending on your profile and the number of people who also want to meet new friends. That means that you may have to wait.
+                        </li>
+                        <li>
+                            We confirm that we have received your application, by sending an e-mail to you, often within 48 hours.
+                        </li>
+                        <li>
+                            You should send an e-mail to your new friend and decide when and where to meet within 7 days.
+                        </li>
+                        <li>
+                            A meeting with your Fika or Music friend takes place once. If you like each other, you are welcome to meet again by your own. If you want to meet a new Fika or Music friend, please log in and make a new friend request.
+                        </li>
+                        <li>    
+                            If you want to delete your account, please send an e-mail to kontakt@kompisbyran.se.
+                        </li>
+                        <li>
+                            Kompisbyrån cannot guarantee that we will find a new friend for you, but we will always do our best.
+                        </li>
+                        <li>
+                            We wish to constantly improve our work. Therefore, we will send you a follow-up e-mail after your meeting with your new friend.
+                        </li>
+                    </ul>]]></target>
+            </trans-unit>
+            <trans-unit id="terms.outro">
+                <source>terms.outro</source>
+                <target>Thank you for accepting Kompisbyrån's terms!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
