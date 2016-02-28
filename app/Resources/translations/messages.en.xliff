@@ -56,7 +56,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.header">
                 <source>homepage.cta.header</source>
-                <target>In Kompisbyrån we practise swedish and eat "fika".</target>
+                <target>In Kompisbyrån we practise Swedish over a "fika".</target>
             </trans-unit>
             <trans-unit id="homepage.cta.header.strong">
                 <source>homepage.cta.header.strong</source>
@@ -98,7 +98,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.button">
                 <source>homepage.cta.musicfriend.button</source>
-                <target>Bli musikkompis</target>
+                <target>Bli Musikkompis</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -208,7 +208,7 @@
             <trans-unit id="login.form.password">
                 <source>login.form.password</source>
                 <target>Password</target>
-            </trans-unit>
+v            </trans-unit>
             <trans-unit id="login.form.button">
                 <source>login.form.button</source>
                 <target>Log in</target>
@@ -227,15 +227,15 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
-                <target>I want to</target>
+                <target>I</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Improve my Swedish</target>
+                <target>Am new in Sweden</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Help someone to improve their Swedish</target>
+                <target>Have lived in Sweden for a long time</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -263,11 +263,12 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Tell us about yourself</target>
+                <target>Tell us about yourself and your music interest</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>I.e education, work and for how long you've been in Sweden.</target>
+                <target>I.e education, work and for how long you've been in Sweden. 
+                Music friend, please write if you play an instrument and which genre of music you like.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
@@ -275,7 +276,7 @@
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
-                <target>I want to "fika" in (city)</target>
+                <target>I want to meet in (city)</target>
             </trans-unit>
             <trans-unit id="user.form.municipality">
                 <source>user.form.municipality</source>
@@ -318,32 +319,32 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>On this page, you can find your previous fika friends and you can meet new friends by doing a fika friend request.
+                <target>On this page, you can find your previous Fika or Music friends and you can meet new friends by doing a friend request.
 
-                    You meet your new friend one time. If you like each other, you can meet again by yourself. If you want to meet new friends, you select the city you live in and then press the button "Fika friend request". 
-                    For the moment, we can only connect fika friends in Stockholm. 
+                    You meet your new friend one time. If you like each other, you can meet again by yourself. If you want to meet new friends, you select the city you can meet up in and then press the button "Fika friend request". 
+                    
 
-                    If you want to change your application, you can update the form in the menu above: press on "Min profil" (My profile) and then "Inställningar" (Settings).</target>
+                    If you want to change your application, you can update the form in the menu above: press "Min profil" (My profile) and then "Inställningar" (Settings).</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
-                <target>Previous fika friends</target>
+                <target>Previous Fika or Music friends</target>
             </trans-unit>
             <trans-unit id="index.connection_request.header">
                 <source>index.connection_request.header</source>
-                <target>Fika friend requests</target>
+                <target>Friend requests</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
-                <target>You want to improve your Swedish</target>
+                <target>You are waiting for a new Fika or Music friend</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.teach">
                 <source>index.connection_request.want_to_learn.teach</source>
-                <target>You want to help someone to improve their Swedish</target>
+                <target>You are waiting for a new Fika or Music friend</target>
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
-                <target>I want to meet a new fika friend</target>
+                <target>I want to meet a new Fika or Music friend</target>
             </trans-unit>
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
@@ -360,7 +361,7 @@
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
-                <target>Fika friend request</target>
+                <target>Friend request</target>
             </trans-unit>
         </body>
     </file>
