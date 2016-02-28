@@ -208,7 +208,7 @@
             <trans-unit id="login.form.password">
                 <source>login.form.password</source>
                 <target>Password</target>
-v            </trans-unit>
+            </trans-unit>
             <trans-unit id="login.form.button">
                 <source>login.form.button</source>
                 <target>Log in</target>
@@ -231,7 +231,7 @@ v            </trans-unit>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Am new in Sweden</target>
+                <target>I'am new in Sweden</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
