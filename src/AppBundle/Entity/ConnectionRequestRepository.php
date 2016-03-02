@@ -25,7 +25,7 @@ class ConnectionRequestRepository extends EntityRepository
                 'musicFriend' => $musicFriend,
             ])
             ->orderBy('cr.sortOrder', 'DESC')
-            ->orderBy('cr.createdAt', 'ASC')
+            ->addOrderBy('cr.createdAt', 'ASC')
             ->getQuery()
             ->execute()
             ;
