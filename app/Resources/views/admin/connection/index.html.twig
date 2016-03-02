@@ -23,6 +23,7 @@
         data-user-id="{{ user.id }}"
         data-comment="{{ comment }}"
         data-want-to-learn="{{ wantToLearn ? 1 : 0 }}"
+        data-music-friend="{{ connection.musicFriend ? 1 : 0 }}"
         data-city-id="{{ connection.city.id }}"
     >Kompisfika igen</a>
 
@@ -111,7 +112,8 @@
                             comment: $(this).data('comment'),
                             wantToLearn: $(this).data('want-to-learn'),
                             cityId: $(this).data('city-id'),
-                            sortOrder: 1
+                            sortOrder: 1,
+                            musicFriend: $(this).data('music-friend')
                         },
                         success: function () {
                             location.href='{{ path('admin_start') }}';
