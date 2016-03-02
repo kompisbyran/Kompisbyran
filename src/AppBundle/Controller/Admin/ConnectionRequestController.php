@@ -67,11 +67,11 @@ class ConnectionRequestController extends Controller
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setUser($user);
-        $connectionRequest->setWantToLearn($request->request->getInt('wantToLearn'));
+        $connectionRequest->setWantToLearn($request->request->getBoolean('wantToLearn'));
         $connectionRequest->setComment($request->request->get('comment'));
         $connectionRequest->setCity($city);
         $connectionRequest->setSortOrder($request->request->getInt('sortOrder'));
-        $connectionRequest->setMusicFriend($user->isMusicFriend());
+        $connectionRequest->setMusicFriend($request->request->getBoolean('musicFriend'));
 
         $this->getDoctrine()->getEntityManager()->persist($connectionRequest);
         $this->getDoctrine()->getEntityManager()->flush();
