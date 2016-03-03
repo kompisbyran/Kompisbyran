@@ -2779,6 +2779,10 @@ div.ppt {
     max-width: none;
 }
 
+.footer-text-wrapper {
+    padding: 0 0 0 30px;
+}
+
 .footer--music .footer-widget {
     float: right;
     margin: 20px 0;
