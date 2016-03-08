@@ -65,9 +65,13 @@
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
-                    We create meetings between those who want to improve their Swedish and those who have lived in
-                    Sweden for a long time. Meet new friends, speak Swedish and learn new things over a "fika". Sign up
-                    for new fika friends today!
+                    We create meetings between new friends with similar interests. We create contact between those who are 
+                    new in Sweden and those who have lived in Sweden for a long time. You can sign up as a Fika friend 
+                    (Fikakompis) or Music friend (Musikkompis).
+                    
+                    As a Fika friend we will match you with a person with similar interests that you have. You meet over 
+                    a ”fika” and practice Swedish! Together we can increase the spirit of community in the everyday life. 
+                    Sign up as a Fika friend today!
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.button">
@@ -91,9 +95,9 @@
             <trans-unit id="homepage.cta.musicfriend.message">
                 <source>homepage.cta.musicfriend.message</source>
                 <target>
-                    Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
-                    mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik
-                    tillsammans, lyssna eller prata musik över en fika.
+                    We believe that music unites. That’s why we now start Musikkompis together with the mobile company 3. 
+                    With Musikkompis, we give people a chance to meet through music. Play instruments together, go to 
+                    concerts or talk music over a cup of coffee.
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.button">
@@ -136,8 +140,12 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.ingress">
                 <source>register.musicfriend.ingress</source>
-                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med 
-                    <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
+                <target>We believe that music unites. That’s why we now start Musikkompis together with 
+                    <![CDATA[ <a href="//tre.se/musikkompis">the mobile company 3</a> ]]>. 
+                    With Musikkompis, we give people a chance to meet through music. Play instruments together, 
+                    go to concerts or talk music over a cup of coffee. It doesn't matter if you are a professional 
+                    or an amateur - we want to make it easier for all people who likes music, to meet other music 
+                    enthusiasts with different background, experiences and cultures.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.footer.header">
                 <source>register.musicfriend.footer.header</source>
@@ -153,15 +161,23 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.video1">
                 <source>register.musicfriend.video1</source>
-                <target>Filipe Minhava är en 19-årig gitarrist från Portugal och bor sedan tre månader hemma hos en kompis i Högdalen. Filipe och Little Jinder möttes på Södermalm i Stockholm och lärde känna varandra under en dag där de besökte en loppmarknad, kollade på LP-skivor och åt på restaurang, innan de rundade av sitt möte med att tillsammans sjunga La Bamba på en karaokebar.</target>
+                <target>Filipe Minhava is a 19-year-old guitarist from Portugal who has lived in Sweden for three months at a friends place 
+                in Högdalen. Filipe and Little Jinder met in Stockholm and got to know each other during a day where they visited a flea market, 
+                checked on LPs and ate at a restaurant, before they rounded off with the classic hit ”La Bamba” at a karaoke bar.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video2">
                 <source>register.musicfriend.video2</source>
-                <target>Naim Kassis, 45-årig pianist från Aleppo i Syrien, kom till Sverige för ett drygt år sedan och hamnade på ett asylboende i norra Sverige, där han under året har gett ett flertal konserter. En kall vinterdag träffades han och Sabina Ddumba, och tillsammans spelade de en version av Sabinas ”Not too young”, vilket lockade hela förläggningen att ta del av mötet.</target>
+                <target>Naim Kassis, a 45-year-old pianist from Aleppo in Syria, came to Sweden a year ago and ended up in an asylum 
+                accommodation in northern Sweden, where he has given numerous concerts. On a cold winter day, he met Sabina Ddumba, 
+                and together they played a version of Sabina's hit single "Not too young", which attracted the whole accommodation to 
+                take part in the meeting.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video3">
                 <source>register.musicfriend.video3</source>
-                <target>Bahar Hasko, en 25-årig, kurdisk engelskalärare, föddes i Kamishlo i Syrien. I dag bor och studerar hon i Sverige. Bahar och Eva Dahlgren träffades en dag och pratade om musik som språköverskridande. I slutet av dagen överraskades Eva av Bahar, som hade anordnat att en barnorkester spelade Evas klassiska ”Vem tänder stjärnorna”</target>
+                <target>Bahar Hasko, a Kurdish English teacher, was born in Kamishlo in Syria. Today, she lives and studies 
+                in Sweden. Bahar and Eva Dahlgren met one day and talked about music as a way to communicate and learn 
+                languages. At the end of the day, Bahar surprised Eva with a children's orchestra who played Eva's classic 
+                "Vem tänder stjärnorna".</target>
             </trans-unit>
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
@@ -173,21 +189,8 @@
                     <![CDATA[
                         <ol>
                             <li>
-                                Join Kompisbyrån (it is free). Enter your e-mail and a password of your choice.
-                            </li>
-                            <li>
-                                Enter your name, age, and interests and answer a few more questions.
-                            </li>
-                            <li>
-                                Match. We find you a new fika friend and mail you the person's e-mail.
-                            </li>
-                            <li>
-                                You mail your new friend and decide which day, time and where you will meet. We
-                                recommend that you meet for about 1 hour in a cafe in central Stockholm.
-                            </li>
-                            <li>
-                                You meet your new friend one time. If you like each other, you can meet again by
-                                yourself. If you want to meet new friends, you log in and make a new fika friend request.
+                                Join Kompisbyrån. Write your e-mail, a password of your choice and push the ”Sign up” button. 
+                                It is free to register. Please, read more about Kompisbyrån’s terms before you sign up. 
                             </li>
                         </ol>
                     ]]>
@@ -231,7 +234,7 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>I'am new in Sweden</target>
+                <target>I am new in Sweden</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
@@ -263,12 +266,12 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Tell us about yourself and your music interest</target>
+                <target>Tell us about yourself, and if you want to be a Musikkompis, please also write about your music interest</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
                 <target>I.e education, work and for how long you've been in Sweden. 
-                Music friend, please write if you play an instrument and which genre of music you like.</target>
+                Musikkompis, please write if you play an instrument and which genre of music you like.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
