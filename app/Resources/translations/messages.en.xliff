@@ -187,12 +187,10 @@
                 <source>register.how_it_works.text</source>
                 <target>
                     <![CDATA[
-                        <ol>
                             <li>
                                 Join Kompisbyrån. Write your e-mail, a password of your choice and push the ”Sign up” button. 
                                 It is free to register. Please, read more about Kompisbyrån’s terms before you sign up. 
                             </li>
-                        </ol>
                     ]]>
                 </target>
             </trans-unit>
@@ -234,11 +232,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>I am new in Sweden</target>
+                <target>I want to meet a Swede who has lived in Sweden for a long time</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Have lived in Sweden for a long time</target>
+                <target>I speak Swedish fluently and am established in Sweden</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -312,8 +310,18 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Welcome to Kompisbyrån! Please, answer some questions about yourself, so that we can help you to
-                    meet new friends!
+                    Thank you for signing up at Kompisbyrån! Please, answer some questions about yourself. We believe 
+                    that it’s the personal meeting that unites people, and want to create the best conditions for a 
+                    successful meeting. Therefore, we match together new friends, mostly based on common or complementary 
+                    interests. 
+                    
+                    You can choose and sign up as a Fika friend (Fikakompis) or Music friend (Musikkompis): 
+                    
+                    Fikakompis - You will be matched with a person who has similar interests as you. You meet and 
+                    practice Swedish at a café in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
+                    
+                    Musikkompis - You will be matched with a person who also likes music. You meet and exchange music experiences in 
+                    a public place in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
