@@ -225,11 +225,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Jag är ny i Sverige</target>
+                <target>Jag vill träffa en svensk som har bott i Sverige länge</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Jag har bott i Sverige länge</target>
+                <target>Jag pratar flytande svenska och är etablerad i Sverige</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -257,7 +257,7 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Berätta om dig själv och ditt musikintresse:</target>
+                <target>Berätta om dig själv. Om du vill bli Musikkompis, berätta också om ditt musikintresse:</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
