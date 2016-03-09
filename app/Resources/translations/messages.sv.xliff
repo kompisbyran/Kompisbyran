@@ -177,13 +177,11 @@
                 <source>register.how_it_works.text</source>
                 <target>
                     <![CDATA[
-                        <ol>
                             <li>
                                 Gå med i Kompisbyrån genom att registrera dig. Skriv din e-post, 
                                 ett lösenord som du bestämmer själv och klicka på "Gå med". Det är gratis att anmäla sig. 
                                 Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
                             </li>
-                        </ol>
                     ]]>
                 </target>
             </trans-unit>
@@ -303,8 +301,23 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor 
-                    om dig själv så att vi ska kunna hitta en Fikakompis eller Musikkompis till dig.
+                    <li>
+                    Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor om dig själv. 
+                    Vi tror att det är det personliga mötet som förenar människor och vill skapa så bra förutsättningar 
+                    för ett lyckat möte. Därför matchar vi ihop nya kompisar, främst utifrån gemensamma eller 
+                    kompletterande intressen. 
+                    </li>
+                    <li>
+                       Du kan bli Fikakompis eller Musikkompis: 
+                    </li>
+                    <li>
+                    Fikakompis - Du blir matchad med en person som har liknande intressen som du har. Ni träffas och övar 
+                    svenska på ett kafé i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
+                    </li>
+                    <li>
+                    Musikkompis - Du blir matchad med en person som också gillar musik. Ni träffas och utbyter musikerfarenheter 
+                    på en offentlig plats i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
+                    </li>
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
