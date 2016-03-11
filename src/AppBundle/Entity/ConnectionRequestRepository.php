@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\User;
 
 class ConnectionRequestRepository extends EntityRepository
 {
@@ -29,5 +30,23 @@ class ConnectionRequestRepository extends EntityRepository
             ->getQuery()
             ->execute()
             ;
+    }
+
+    /**
+     * @param User $user
+     * @return null|object
+     */
+    public function findOneByUser(User $user)
+    {
+        return $this->findOneBy(array('user' => $user));
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function hasActiveRequest(User $user)
+    {
+        return $this->findOneByUser($user) instanceof ConnectionRequest? true: false;
     }
 }

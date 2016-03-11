@@ -19,6 +19,7 @@ class ConnectionRequestType extends AbstractType
                         return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
                     },
                     'property' => 'name',
+                    'empty_value' => ''
                 ]
             )
             ->add('comment', 'textarea', [
