@@ -65,6 +65,12 @@
                     <div class="col-md-4 col-sm-4">
                         <h2>{{ 'index.again.header'|trans }}</h2>
                         <p>{{ 'index.again.intro'|trans }}</p>
+                        {% if activeRequest %}
+                            <div class="alert alert-danger fade in" role="alert">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <strong>Error!</strong> You still have an active request.
+                            </div>
+                        {% endif %}
                         {{ form_start(form) }}
                         {{ form_widget(form) }}
 
