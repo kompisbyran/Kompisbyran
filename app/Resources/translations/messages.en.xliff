@@ -232,11 +232,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>I want to meet a Swede who has lived in Sweden for a long time</target>
+                <target>Swedish is not my mother tounge</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>I speak Swedish fluently and am established in Sweden</target>
+                <target>Swedish is my mother tounge (also pick if you are a fluent Swedish speaker)</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
