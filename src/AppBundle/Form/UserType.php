@@ -40,12 +40,27 @@ class UserType extends AbstractType
                 'expanded' => true,
                 'label' => 'user.form.want_to_learn',
                 'choices' => [
-                    true => 'user.form.want_to_learn.choice.learn',
-                    false => 'user.form.want_to_learn.choice.teach',
+                    'user.form.want_to_learn.choice.learn'  => true,
+                    'user.form.want_to_learn.choice.teach'  => false,
                 ],
+                'choices_as_values' => true,
                 'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                }
+                    if (null === $currentChoiceKey) {
+                        return null;
+                    }
+
+                    $stringChoiceKey = (string) $currentChoiceKey;
+
+                    if ('1' === $stringChoiceKey) {
+                        return 'true';
+                    }
+
+                    if ('' === $stringChoiceKey) {
+                        return 'false';
+                    }
+
+                    throw new \Exception('Unexpected choice key: ' . $currentChoiceKey);
+                },
             ])
             ->add('categories', 'entity', [
                     'class' => 'AppBundle:GeneralCategory',
