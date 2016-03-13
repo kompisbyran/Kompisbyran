@@ -34,6 +34,16 @@
                             </div>
                         </div>
 
+                        {% if not is_granted('ROLE_COMPLETE_USER') %}
+                            <div class="form-group">
+                                {{ form_label(form.city) }}
+                                <div class="col-sm-4">
+                                    {{ form_widget(form.city) }}
+                                    {{ form_errors(form.city) }}
+                                </div>
+                            </div>
+                        {% endif %}
+
                         <div class="form-group">
                             {{ form_label(form.wantToLearn) }}
                             <div class="col-sm-4">
