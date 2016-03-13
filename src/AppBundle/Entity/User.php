@@ -218,7 +218,6 @@ class User extends BaseUser
         $this->connectionRequests = new ArrayCollection();
         $this->createdConnections = new ArrayCollection();
         $this->categories = new ArrayCollection();
-        $this->from = 'SE';
         $this->createdAt = new \DateTime();
         $this->comments = new ArrayCollection();
 

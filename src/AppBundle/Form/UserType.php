@@ -98,6 +98,8 @@ class UserType extends AbstractType
             ->add('from', 'choice', [
                 'label' => 'user.form.from',
                 'choices' => Countries::getList(),
+                'empty_data' => null,
+                'empty_value' => ''
             ])
             // Might be removed after music friend campaign
             // ->add('district', 'text', ['label' => 'user.form.district'])
@@ -137,6 +139,7 @@ class UserType extends AbstractType
                 },
                 'property' => 'name',
                 'mapped' => false,
+                'empty_value' => ''
             ]);
         }
 
