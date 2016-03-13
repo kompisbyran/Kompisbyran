@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="ConnectionRequestRepository")
@@ -35,6 +36,8 @@ class ConnectionRequest
 
     /**
      * @var City
+     *
+     * @Assert\NotBlank
      *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=false)
