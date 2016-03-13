@@ -71,6 +71,7 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[gender]' => 'M',
             'user[about]' => 'About me',
             'user[municipality]' => $this->getMunicipalityRepository()->findAll()[0]->getId(),
+            'user[wantToLearn]' => true
         ]);
 
         $crawler = $client->submit($form);
