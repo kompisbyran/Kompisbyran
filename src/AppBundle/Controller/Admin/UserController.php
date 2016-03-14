@@ -40,7 +40,7 @@ class UserController extends Controller
             [
                 'manager'       => $this->getDoctrine()->getManager(),
                 'locale'        => $request->getLocale(),
-                'wantToLearn'   => (int)$user->getWantToLearn()
+                'wantToLearn'   => ($user->getWantToLearn()? 1: 0)
             ]
         );
 

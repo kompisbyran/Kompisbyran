@@ -28,7 +28,7 @@ class UserController extends Controller
                 'validation_groups' => ['settings'],
                 'manager'           => $this->getDoctrine()->getManager(),
                 'locale'            => $request->getLocale(),
-                'wantToLearn'       => ($this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER') === false? null: (int)$user->getWantToLearn())
+                'wantToLearn'       => ($this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER') === false? null: ($user->getWantToLearn()? 1: 0))
             ]
         );
 
