@@ -432,6 +432,62 @@
                 <source>register.form.email_confirmation</source>
                 <target>Re-enter e-mail</target>
             </trans-unit>
+            <trans-unit id="user.welcome.message.subject">
+                <source>user.welcome.message.subject</source>
+                <target>Welcome to Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="user.welcome.message.body">
+                <source>user.welcome.message.body</source>
+                <target><![CDATA[
+                    <p>Thank you for making a Fika friend request through Kompisbyrån!</p>
+                    <p>
+                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.<br /><br />
+                        If you have any questions, please send us an e-mail :)
+                    </p>
+                    <p>
+                        Best regards,<br />
+                        Kompisbyrån
+                    </p>]]></target>
+            </trans-unit>
+            <trans-unit id="user.welcome.message.body.txt">
+                <source>user.welcome.message.body.txt</source>
+                <target>
+                    Thank you for making a Fika friend request through Kompisbyrån!
+                    We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.
+
+                    If you have any questions, please send us an e-mail :)
+
+                    Best regards,
+                    Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.subject">
+                <source>user.friend.welcome.message.subject</source>
+                <target>Welcome to Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.body">
+                <source>user.friend.welcome.message.body</source>
+                <target><![CDATA[
+                    <p>Thank you for making a Music friend request through Kompisbyrån!</p>
+                    <p>
+                       We will send you an e-mail as soon as we have found a Music friend for you. Our ambition is to find a friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends.<br /><br />
+                       If you have any questions, please send us an e-mail :)
+                    </p>
+                    <p>
+                        Best regards,<br />
+                        Kompisbyrån
+                    </p>]]></target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.body.txt">
+                <source>user.friend.welcome.message.body.txt</source>
+                <target>
+                    Thank you for making a Music friend request through Kompisbyrån!
+                    We will send you an e-mail as soon as we have found a Music friend for you. Our ambition is to find a friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends.
+
+                    If you have any questions, please send us an e-mail :)
+
+                    Best regards,
+                    Kompisbyrån</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

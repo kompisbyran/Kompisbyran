@@ -65,16 +65,16 @@ class RegistrationControllerTest extends DatabaseTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $form = $crawler->filter('form[name=user]')->form([
-            'user[firstName]' => 'John',
-            'user[lastName]' => 'Doe',
-            'user[categories]' => [0],
-            'user[age]' => '35',
-            'user[gender]' => 'M',
-            'user[about]' => 'About me',
-            'user[municipality]' => $this->getMunicipalityRepository()->findAll()[0]->getId(),
-            'user[wantToLearn]' => 'true',
-            'user[from]'    => 'SE',
-            'user[city]'    => $this->getCityRepository()->findAll()[0]->getId(),
+            'user[firstName]'       => 'John',
+            'user[lastName]'        => 'Doe',
+            'user[categories]'      => [0],
+            'user[age]'             => '35',
+            'user[gender]'          => 'M',
+            'user[about]'           => 'About me',
+            'user[municipality]'    => $this->getMunicipalityRepository()->findAll()[0]->getId(),
+            'user[wantToLearn]'     => 1,
+            'user[from]'            => 'SE',
+            'user[city]'            => $this->getCityRepository()->findAll()[0]->getId(),
         ]);
 
         $crawler = $client->submit($form);

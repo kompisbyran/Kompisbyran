@@ -40,27 +40,10 @@ class UserType extends AbstractType
                 'expanded' => true,
                 'label' => 'user.form.want_to_learn',
                 'choices' => [
-                    'user.form.want_to_learn.choice.learn'  => true,
-                    'user.form.want_to_learn.choice.teach'  => false,
+                    true => 'user.form.want_to_learn.choice.learn',
+                    false =>'user.form.want_to_learn.choice.teach',
                 ],
-                'choices_as_values' => true,
-                'choice_value' => function ($currentChoiceKey) {
-                    if (null === $currentChoiceKey) {
-                        return null;
-                    }
-
-                    $stringChoiceKey = (string) $currentChoiceKey;
-
-                    if ('1' === $stringChoiceKey) {
-                        return 'true';
-                    }
-
-                    if ('' === $stringChoiceKey) {
-                        return 'false';
-                    }
-
-                    throw new \Exception('Unexpected choice key: ' . $currentChoiceKey);
-                },
+                'data'  => $options['wantToLearn']
             ])
             ->add('categories', 'entity', [
                     'class' => 'AppBundle:GeneralCategory',
@@ -148,11 +131,12 @@ class UserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\User',
+            'data_class'    => 'AppBundle\Entity\User'
         ]);
         $resolver->setRequired([
             'manager',
             'locale',
+            'wantToLearn'
         ]);
     }
 

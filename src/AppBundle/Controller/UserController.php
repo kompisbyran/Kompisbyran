@@ -26,8 +26,9 @@ class UserController extends Controller
             $user,
             [
                 'validation_groups' => ['settings'],
-                'manager' => $this->getDoctrine()->getManager(),
-                'locale' => $request->getLocale(),
+                'manager'           => $this->getDoctrine()->getManager(),
+                'locale'            => $request->getLocale(),
+                'wantToLearn'       => ($this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER') === false? null: (int)$user->getWantToLearn())
             ]
         );
 
@@ -50,6 +51,8 @@ class UserController extends Controller
                 $connectionRequest->setWantToLearn($user->getWantToLearn());
                 $connectionRequest->setMusicFriend($user->isMusicFriend());
                 $em->persist($connectionRequest);
+
+                $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
             }
             $em->persist($user);
             $em->flush();

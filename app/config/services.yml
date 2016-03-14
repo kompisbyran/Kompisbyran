@@ -42,3 +42,10 @@ services:
             - [ setDefaultLocale, [ %locale% ] ]
             - [ setTranslationFallback, [ true ] ]
 
+    app.user_mailer:
+        class: AppBundle\Mailer\UserMailer
+        arguments:
+            - @mailer
+            - @router
+            - @templating
+            - @translator

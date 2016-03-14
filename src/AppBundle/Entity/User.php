@@ -78,9 +78,9 @@ class User extends BaseUser
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
-    protected $wantToLearn;
+    protected $wantToLearn = false;
 
     /**
      * @var GeneralCategory[]
