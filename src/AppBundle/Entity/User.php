@@ -80,7 +80,7 @@ class User extends BaseUser
      *
      * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $wantToLearn = null;
+    protected $wantToLearn;
 
     /**
      * @var GeneralCategory[]

@@ -428,6 +428,10 @@
                 <source>terms.outro</source>
                 <target>Thank you for accepting Kompisbyrån's terms!</target>
             </trans-unit>
+            <trans-unit id="register.form.email_confirmation">
+                <source>register.form.email_confirmation</source>
+                <target>Re-enter e-mail</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

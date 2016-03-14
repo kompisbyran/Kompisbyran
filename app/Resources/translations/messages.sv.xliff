@@ -426,6 +426,10 @@
                 <source>terms.outro</source>
                 <target>Tack för att du accepterar Kompisbyråns villkor!</target>
             </trans-unit>
+            <trans-unit id="register.form.email_confirmation">
+                <source>register.form.email_confirmation</source>
+                <target>Ange e-post igen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

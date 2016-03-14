@@ -29,9 +29,18 @@
                                     <label for="email" class="col-lg-3 control-label">{{ 'register.form.email'|trans }}</label>
 
                                     <div class="col-lg-9">
-                                        {{ form_widget(form.email) }}
+                                        {{ form_widget(form.email.first) }}
                                     </div>
-                                    {{ form_errors(form.email) }}
+                                    {{ form_errors(form.email.first) }}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="col-lg-3 control-label">{{ 'register.form.email_confirmation'|trans }}</label>
+
+                                    <div class="col-lg-9">
+                                        {{ form_widget(form.email.second) }}
+                                    </div>
+                                    {{ form_errors(form.email.second) }}
                                 </div>
 
                                 <div class="form-group">

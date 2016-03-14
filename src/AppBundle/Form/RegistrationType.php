@@ -19,6 +19,14 @@ class RegistrationType extends AbstractType
 
         $builder
             ->remove('username')
+            ->remove('email')
+            ->add('email', 'repeated', array(
+                'type' => 'text',
+                'options' => array('translation_domain' => 'FOSUserBundle'),
+                'first_options' => array('label' => 'register.form.email'),
+                'second_options' => array('label' => 'register.form.email_confirmation'),
+                'invalid_message' => 'fos_user.email.mismatch',
+            ))
             ->add('termsAccepted', 'checkbox', [
                 'mapped' => false,
                 'constraints' => $constraint,
