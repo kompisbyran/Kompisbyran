@@ -21,14 +21,14 @@ class UserController extends Controller
     {
         /** @var \AppBundle\Entity\User $user */
         $user = $this->getUser();
+        //$user->setWantToLearn(null);
         $form = $this->createForm(
             new UserType(),
             $user,
             [
                 'validation_groups' => ['settings'],
                 'manager'           => $this->getDoctrine()->getManager(),
-                'locale'            => $request->getLocale(),
-                'wantToLearn'       => ($this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER') === false? null: ($user->getWantToLearn()? 1: 0))
+                'locale'            => $request->getLocale()
             ]
         );
 
