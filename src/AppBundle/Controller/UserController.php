@@ -21,13 +21,14 @@ class UserController extends Controller
     {
         /** @var \AppBundle\Entity\User $user */
         $user = $this->getUser();
+        //$user->setWantToLearn(null);
         $form = $this->createForm(
             new UserType(),
             $user,
             [
                 'validation_groups' => ['settings'],
-                'manager' => $this->getDoctrine()->getManager(),
-                'locale' => $request->getLocale(),
+                'manager'           => $this->getDoctrine()->getManager(),
+                'locale'            => $request->getLocale()
             ]
         );
 
@@ -50,6 +51,8 @@ class UserController extends Controller
                 $connectionRequest->setWantToLearn($user->getWantToLearn());
                 $connectionRequest->setMusicFriend($user->isMusicFriend());
                 $em->persist($connectionRequest);
+
+                $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
             }
             $em->persist($user);
             $em->flush();

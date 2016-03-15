@@ -33,7 +33,8 @@ class RegistrationControllerTest extends DatabaseTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $form = $crawler->filter('.fos_user_registration_register')->form([
-            'fos_user_registration_form[email]' => 'test@example.com',
+            'fos_user_registration_form[email][first]' => 'test@example.com',
+            'fos_user_registration_form[email][second]' => 'test@example.com',
             'fos_user_registration_form[plainPassword][first]' => 'foobar',
             'fos_user_registration_form[plainPassword][second]' => 'foobar',
             'fos_user_registration_form[termsAccepted]' => true,
@@ -64,13 +65,16 @@ class RegistrationControllerTest extends DatabaseTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $form = $crawler->filter('form[name=user]')->form([
-            'user[firstName]' => 'John',
-            'user[lastName]' => 'Doe',
-            'user[categories]' => [0],
-            'user[age]' => '35',
-            'user[gender]' => 'M',
-            'user[about]' => 'About me',
-            'user[municipality]' => $this->getMunicipalityRepository()->findAll()[0]->getId(),
+            'user[firstName]'       => 'John',
+            'user[lastName]'        => 'Doe',
+            'user[categories]'      => [0],
+            'user[age]'             => '35',
+            'user[gender]'          => 'M',
+            'user[about]'           => 'About me',
+            'user[municipality]'    => $this->getMunicipalityRepository()->findAll()[0]->getId(),
+            'user[wantToLearn]'     => 0,
+            'user[from]'            => 'SE',
+            'user[city]'            => $this->getCityRepository()->findAll()[0]->getId(),
         ]);
 
         $crawler = $client->submit($form);

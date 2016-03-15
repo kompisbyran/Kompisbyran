@@ -33,19 +33,20 @@ class UserType extends AbstractType
             }
         };
 
+        $user = $builder->getData();
+
         $builder
             ->add('firstName', 'text', ['label' => 'user.form.first_name'])
             ->add('lastName', 'text', ['label' => 'user.form.last_name'])
-            ->add('wantToLearn', 'choice', [
+            ->add('wantToLearn', 'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.want_to_learn',
                 'choices' => [
-                    true => 'user.form.want_to_learn.choice.learn',
-                    false => 'user.form.want_to_learn.choice.teach',
+                    'user.form.want_to_learn.choice.learn'  => '1',
+                    'user.form.want_to_learn.choice.teach'  => '0'
                 ],
-                'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                }
+                'choices_as_values' => true,
+                'data'              => (!$user->hasRole('ROLE_COMPLETE_USER')? null: $user->getWantToLearn())
             ])
             ->add('categories', 'entity', [
                     'class' => 'AppBundle:GeneralCategory',
@@ -83,6 +84,8 @@ class UserType extends AbstractType
             ->add('from', 'choice', [
                 'label' => 'user.form.from',
                 'choices' => Countries::getList(),
+                'empty_data' => null,
+                'empty_value' => ''
             ])
             // Might be removed after music friend campaign
             // ->add('district', 'text', ['label' => 'user.form.district'])
@@ -122,6 +125,7 @@ class UserType extends AbstractType
                 },
                 'property' => 'name',
                 'mapped' => false,
+                'empty_value' => ''
             ]);
         }
 
@@ -130,11 +134,11 @@ class UserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\User',
+            'data_class'    => 'AppBundle\Entity\User'
         ]);
         $resolver->setRequired([
             'manager',
-            'locale',
+            'locale'
         ]);
     }
 

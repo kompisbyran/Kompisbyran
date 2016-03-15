@@ -223,11 +223,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Jag vill träffa en svensk som har bott i Sverige länge</target>
+                <target>Jag har inte svenska som modersmål / Swedish is not my mother tounge</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Jag pratar flytande svenska och är etablerad i Sverige</target>
+                <target>Jag har svenska som modersmål / Swedish is my mother tounge (eller pratar flytande svenska)</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -425,6 +425,68 @@
             <trans-unit id="terms.outro">
                 <source>terms.outro</source>
                 <target>Tack för att du accepterar Kompisbyråns villkor!</target>
+            </trans-unit>
+            <trans-unit id="register.form.email_confirmation">
+                <source>register.form.email_confirmation</source>
+                <target>Ange e-post igen</target>
+            </trans-unit>
+
+            <trans-unit id="user.welcome.message.subject">
+                <source>user.welcome.message.subject</source>
+                <target>Välkommen till Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="user.welcome.message.body">
+                <source>user.welcome.message.body</source>
+                <target><![CDATA[
+                    <p>Hej!<br /></p>
+                    <p>
+                        Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.<br /><br />
+                        Om du har några frågor, vänligen skicka ett e-mail till oss :)
+                    </p>
+                    <p>
+                        Bästa hälsningar<br />
+                        Alla på Kompisbyrån
+                    </p>]]></target>
+            </trans-unit>
+            <trans-unit id="user.welcome.message.body.txt">
+                <source>user.welcome.message.body.txt</source>
+                <target>
+                    Hej!
+
+                    Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.
+
+                    Om du har några frågor, vänligen skicka ett e-mail till oss :)
+
+                    Bästa hälsningar
+                    Alla på Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.subject">
+                <source>user.friend.welcome.message.subject</source>
+                <target>Tack för att du blivit Musikkompis hos Kompisbyrån!</target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.body">
+                <source>user.friend.welcome.message.body</source>
+                <target><![CDATA[
+                    <p>Hej!<br /></p>
+                    <p>
+                       Tack för att du har anmält dig till Musikkompis! Vi mailar dig när vi har hittat en Musikkompis som passar just dig. Vår ambition är att hitta en Musikkompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Musikkompisar.<br /><br />
+                       Om du har några frågor, vänligen skicka ett e-mail till oss :)
+                    </p>
+                    <p>
+                        Bästa hälsningar<br />
+                        Alla på Kompisbyrån
+                    </p>]]></target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.body.txt">
+                <source>user.friend.welcome.message.body.txt</source>
+                <target>
+                    Thank you for making a Music friend request through Kompisbyrån!
+                    We will send you an e-mail as soon as we have found a Music friend for you. Our ambition is to find a friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends.
+
+                    If you have any questions, please send us an e-mail :)
+
+                    Best regards,
+                    Kompisbyrån</target>
             </trans-unit>
         </body>
     </file>

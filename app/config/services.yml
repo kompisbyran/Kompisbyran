@@ -42,3 +42,15 @@ services:
             - [ setDefaultLocale, [ %locale% ] ]
             - [ setTranslationFallback, [ true ] ]
 
+    app.user_mailer:
+        class: AppBundle\Mailer\UserMailer
+        arguments:
+            - @mailer
+            - @router
+            - @templating
+            - @translator
+
+    app.form.boolean_choice:
+        class: AppBundle\Form\ChoiceTypeBoolean
+        tags:
+            - { name: form.type, alias: boolean_choice }

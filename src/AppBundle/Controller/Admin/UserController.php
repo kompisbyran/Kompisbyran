@@ -38,8 +38,8 @@ class UserController extends Controller
             new AdminUserType(),
             $user,
             [
-                'manager' => $this->getDoctrine()->getManager(),
-                'locale' => $request->getLocale(),
+                'manager'       => $this->getDoctrine()->getManager(),
+                'locale'        => $request->getLocale()
             ]
         );
 
