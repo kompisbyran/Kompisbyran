@@ -6,6 +6,50 @@ use Doctrine\ORM\EntityRepository;
 
 class ConnectionRepository extends EntityRepository
 {
+
+    /**
+     * @param String $city
+     * @param String $year
+     * @param String $type
+     * @return array
+     */
+    public function getMatches($city, $year, $type)
+    {
+        // set up query for city_id
+        $cityQuery = (isset($city)) ? "AND c.city_id = trim({$city})" : "";
+
+        // set up query for type (music_friend)
+        $typeQuery = (isset($type) && $type !== "") ? "AND c.music_friend = trim({$type})" : "";
+
+        $query = "
+            SELECT c.created_at
+            FROM connection c
+            WHERE YEAR(c.created_at) = trim($year)
+            $cityQuery
+            $typeQuery
+            ORDER BY c.created_at ASC";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @return array
+     */
+    public function getAllConnections()
+    {
+        $query = "
+            SELECT c.created_at
+            FROM connection c
+            WHERE c.id > 0
+            ORDER BY c.created_at ASC";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     /**
      * @return \Doctrine\ORM\Query
      */
