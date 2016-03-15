@@ -53,8 +53,8 @@ class Mailer
             ->setFrom($fromEmail)
             ->setReplyTo($replyEmail)
             ->setTo($toEmail)
-            ->setBody($htmlRenderedTemplate     , 'text/html')
-            ->addPart("$txtRenderedTemplate"    , 'text/plain')
+            ->setBody($htmlRenderedTemplate , 'text/html')
+            ->addPart($txtRenderedTemplate  , 'text/plain')
         ;
 
         $this->mailer->send($message);
