@@ -56,7 +56,6 @@ class UserMailer extends Mailer
             'body'  => $txtBody
         ]);
 
-        //$this->sendEmailMessage($html, $txt, $subject, $user->getEmail());
-        $this->sendEmailMessage($html, $txt, $subject, 'angela14201482@gmail.com');
+        $this->sendEmailMessage($html, $txt, $subject, $user->getEmail());
     }
 }
