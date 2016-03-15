@@ -29,7 +29,8 @@ class BooleanModelTransformer implements DataTransformerInterface
      */
     public function reverseTransform($textVal)
     {
-        if (empty($textVal)) {
+        if (is_null($textVal)) {
+
             return null;
         }
 
