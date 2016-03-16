@@ -223,11 +223,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Jag har inte svenska som modersmål / Swedish is not my mother tounge</target>
+                <target>Jag vill träffa en svensk som har bott i Sverige länge</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Jag har svenska som modersmål / Swedish is my mother tounge (eller pratar flytande svenska)</target>
+                <target>Jag pratar flytande svenska och är etablerad i Sverige</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
