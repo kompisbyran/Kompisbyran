@@ -41,6 +41,8 @@ class DefaultController extends Controller
                     $em->persist($connectionRequest);
                     $em->flush();
 
+                    $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
+
                     return $this->redirect($this->generateUrl('homepage'));
                 }
             }
