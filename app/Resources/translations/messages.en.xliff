@@ -89,7 +89,7 @@
             <trans-unit id="homepage.cta.musicfriend.message.strong">
                 <source>homepage.cta.musicfriend.message.strong</source>
                 <target>
-                    Dela ditt musikintresse med människor från olika kulturer.
+                    Share your music interest with new friends from various cultures. 
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.message">
@@ -102,7 +102,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.button">
                 <source>homepage.cta.musicfriend.button</source>
-                <target>Bli Musikkompis</target>
+                <target>Sign up as Musikkompis</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -136,7 +136,7 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.subheader">
                 <source>register.musicfriend.subheader</source>
-                <target>Dela ditt musikintresse med människor från olika kulturer.</target>
+                <target>Share your music interest with new friends from various cultures.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.ingress">
                 <source>register.musicfriend.ingress</source>
@@ -149,15 +149,21 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.footer.header">
                 <source>register.musicfriend.footer.header</source>
-                <target>Musikkompis är ett initiativ av 3 och Kompisbyrån</target>
+                <target>Musikkompis is an initiative by 3 and Kompisbyrån</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.footer.text">
                 <source>register.musicfriend.footer.text</source>
-                <target>Genom att dela musikupplevelser med varandra kan vi skapa många stunder av gemenskap och samhörighet oavsett var du kommer ifrån eller tror på. Stunder som i slutändan bidrar till större tolerans och ökad förståelse i samhället. Därför har vi startat projektet Musikkompis – ett ideellt samarbete mellan 3 och Kompisbyrån som syftar till att med musikens hjälp stärka integrationen och gemenskapen i samhället. Vi vill ge fler möjlighet att utöva musik tillsammans, människor som på olika nivåer sysslar med musik: artister, källarband, DJ:s, klassiska musiker, konsertbesökare och andra musikintresserade. Bli Musikkompis du också.</target>
+                <target>Let’s share your music experiences with new friends. Together, we can create many moments of 
+                togetherness regardless of where we come from. In the end, this contributes to greater tolerance and 
+                understanding in the society.  This is why we start the project Musikkompis - a voluntary collaboration 
+                between 3 and Kompisbyrån, we wish to strengthen the integration and the feeling of togetherness in the 
+                society through music. We want to give more people the opportunity to share their music interests together 
+                with new friends: artists, underground bands, DJs, classical musicians and music fans. Sign up as a 
+                Musikkompis.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.videoheader">
                 <source>register.musicfriend.videoheader</source>
-                <target>Här kan du se andra musikkompisar och deras musikmöten</target>
+                <target>Here you can see some music friends and their music meetings</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video1">
                 <source>register.musicfriend.video1</source>
