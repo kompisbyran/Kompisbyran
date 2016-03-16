@@ -259,6 +259,8 @@ class Countries
      */
     public static function getList()
     {
+        asort(static::$countries);
+        
         return static::$countries;
     }
 
