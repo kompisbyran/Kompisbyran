@@ -31,14 +31,14 @@ class StatisticsController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $city = $request->query->get("city", 2);
+        $cities = $this->getCityRepository()->findAll();
+
+        $city = $request->query->get("city", $cities[0]->getId());
         $year = $request->query->get("year", date("Y"));
         $type = $request->query->get("type", "");
 
         $matches = $this->getConnectionRepository()->getMatches($city, $year, $type);
         $matches = $this->structuredMatches($matches);
-
-        $cities = $this->getCityRepository()->findAll();
 
         $allConnections = $this->getConnectionRepository()->getAllConnections();
         $years = $this->getYearSpan($allConnections);

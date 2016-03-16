@@ -15,17 +15,15 @@ class ConnectionRepository extends EntityRepository
      */
     public function getMatches($city, $year, $type)
     {
-        // set up query for city_id
-        $cityQuery = (isset($city)) ? "AND c.city_id = trim({$city})" : "";
 
         // set up query for type (music_friend)
-        $typeQuery = (isset($type) && $type !== "") ? "AND c.music_friend = trim({$type})" : "";
+        $typeQuery = (!empty($type)) ? "AND c.music_friend = trim({$type})" : "";
 
         $query = "
             SELECT c.created_at
             FROM connection c
             WHERE YEAR(c.created_at) = trim($year)
-            $cityQuery
+            AND c.city_id = trim({$city})
             $typeQuery
             ORDER BY c.created_at ASC";
         $stmt = $this->getEntityManager()->getConnection()->prepare($query);
