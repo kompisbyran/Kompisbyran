@@ -65,13 +65,14 @@
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
+                    <![CDATA[
                     We create meetings between new friends with similar interests. We create contact between those who are 
                     new in Sweden and those who have lived in Sweden for a long time. You can sign up as a Fika friend 
-                    (Fikakompis) or Music friend (Musikkompis).
-                    
+                    (Fikakompis) or Music friend (Musikkompis).<br><br>
                     As a Fika friend we will match you with a person with similar interests that you have. You meet over 
                     a ”fika” and practice Swedish! Together we can increase the spirit of community in the everyday life. 
                     Sign up as a Fika friend today!
+                    ]]>
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.button">
