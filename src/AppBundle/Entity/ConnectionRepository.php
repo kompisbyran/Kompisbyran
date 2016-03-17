@@ -35,17 +35,17 @@ class ConnectionRepository extends EntityRepository
     /**
      * @return array
      */
-    public function getAllConnections()
+    public function getYearSpan()
     {
+        // get the years in a unique list
         $query = "
-            SELECT c.created_at
+            SELECT DISTINCT(SUBSTRING(c.created_at, 1, 4)) as year
             FROM connection c
-            WHERE c.id > 0
-            ORDER BY c.created_at ASC";
+            ORDER BY year";
         $stmt = $this->getEntityManager()->getConnection()->prepare($query);
         $stmt->execute();
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return array_column($stmt->fetchAll(\PDO::FETCH_ASSOC), 'year');
     }
 
     /**

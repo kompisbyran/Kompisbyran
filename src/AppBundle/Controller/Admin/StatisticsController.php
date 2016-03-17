@@ -12,15 +12,15 @@ use Symfony\Component\HttpFoundation\Request;
 class StatisticsController extends Controller
 {
     private $months = [
-        "01" => "Januari",
-        "02" => "Februari",
-        "03" => "Mars",
-        "04" => "April",
-        "05" => "Maj",
-        "06" => "Juni",
-        "07" => "Juli",
-        "08" => "Augusti",
-        "09" => "September",
+        "1" => "Januari",
+        "2" => "Februari",
+        "3" => "Mars",
+        "4" => "April",
+        "5" => "Maj",
+        "6" => "Juni",
+        "7" => "Juli",
+        "8" => "Augusti",
+        "9" => "September",
         "10" => "Oktober",
         "11" => "November",
         "12" => "December"
@@ -40,8 +40,7 @@ class StatisticsController extends Controller
         $matches = $this->getConnectionRepository()->getMatches($city, $year, $type);
         $matches = $this->structuredMatches($matches);
 
-        $allConnections = $this->getConnectionRepository()->getAllConnections();
-        $years = $this->getYearSpan($allConnections);
+        $years = $this->getConnectionRepository()->getYearSpan();
 
         $parameters = [
             "matches" => $matches,
@@ -57,23 +56,11 @@ class StatisticsController extends Controller
         return $this->render('admin/statistics/index.html.twig', $parameters);
     }
 
-    protected function getYearSpan($connections)
-    {
-        $years = [];
-        foreach ($connections as $connection) {
-            $year = date("Y", strtotime($connection["created_at"]));
-            if (!in_array($year, $years)) {
-                $years[] = $year;
-            }
-        }
-        return $years;
-    }
-
     protected function structuredMatches($matches)
     {
         $structuredMatches = [];
         foreach ($matches as $match) {
-            $month = date("m", strtotime($match["created_at"]));
+            $month = date("n", strtotime($match["created_at"]));
             $structuredMatches[$this->months[strval($month)]][] = $match["created_at"];
         }
 
