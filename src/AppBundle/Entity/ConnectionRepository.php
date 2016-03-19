@@ -42,7 +42,7 @@ class ConnectionRepository extends EntityRepository
      */
     public function getYearSpan()
     {
-        // get the years in a unique libxml_set_streams_context
+        // get the years in a unique list
         $query = "
             SELECT DISTINCT(SUBSTRING(c.created_at, 1, 4)) as year
             FROM connection c
