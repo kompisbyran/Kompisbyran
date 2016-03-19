@@ -15,19 +15,24 @@ class ConnectionRepository extends EntityRepository
      */
     public function getMatches($city, $year, $type)
     {
-
-        // set up query for type (music_friend)
-        $typeQuery = (!empty($type)) ? "AND c.music_friend = trim({$type})" : "";
-
         $query = "
             SELECT c.created_at
             FROM connection c
-            WHERE YEAR(c.created_at) = trim($year)
-            AND c.city_id = trim({$city})
-            $typeQuery
-            ORDER BY c.created_at ASC";
+            WHERE YEAR(c.created_at) = :year
+            AND c.city_id = :city";
+
+        $params['city'] = $city;
+        $params['year'] = $year;
+
+        if ($type !== "") {
+            $query .= " AND c.music_friend = :type";
+            $params['type'] = $type;
+        }
+
+        $query .= " ORDER BY c.created_at ASC";
+
         $stmt = $this->getEntityManager()->getConnection()->prepare($query);
-        $stmt->execute();
+        $stmt->execute($params);
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
@@ -37,7 +42,7 @@ class ConnectionRepository extends EntityRepository
      */
     public function getYearSpan()
     {
-        // get the years in a unique list
+        // get the years in a unique libxml_set_streams_context
         $query = "
             SELECT DISTINCT(SUBSTRING(c.created_at, 1, 4)) as year
             FROM connection c

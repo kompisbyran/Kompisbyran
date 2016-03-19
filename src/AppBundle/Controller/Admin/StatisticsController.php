@@ -65,11 +65,12 @@ class StatisticsController extends Controller
         }
 
         $matches = [];
+        $totalCount = 0;
         foreach ($structuredMatches as $key => $structuredMatch) {
             $matches[$key] = COUNT($structuredMatch);
+            $totalCount += $matches[$key];
         }
-
-        $matches["Totalt"] = COUNT($matches);
+        $matches["Totalt"] = $totalCount;
 
         return $matches;
     }
