@@ -433,19 +433,30 @@
 
             <trans-unit id="user.welcome.message.subject">
                 <source>user.welcome.message.subject</source>
-                <target>Välkommen till Kompisbyrån</target>
+                <target>Välkommen till Kompisbyrån - Welcome to Kompisbyrån</target>
             </trans-unit>
             <trans-unit id="user.welcome.message.body">
                 <source>user.welcome.message.body</source>
                 <target><![CDATA[
+                    <p>(This message will follow in English)<br /><br /></p>
                     <p>Hej!<br /></p>
                     <p>
                         Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.<br /><br />
                         Om du har några frågor, vänligen skicka ett e-mail till oss :)
                     </p>
                     <p>
-                        Bästa hälsningar<br />
+                        Bästa hälsningar,<br />
                         Alla på Kompisbyrån
+                        
+                    <p>----------------------<br /></p>
+                    <p>
+                        Thank you for making a Fika friend request through Kompisbyrån!<br /><br />
+                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends. <br /><br />
+                    </p>
+                    <p>
+                        Best regards,<br />
+                        Kompisbyrån
+                        
                     </p>]]></target>
             </trans-unit>
             <trans-unit id="user.welcome.message.body.txt">
