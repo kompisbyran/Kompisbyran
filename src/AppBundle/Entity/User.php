@@ -7,6 +7,7 @@ use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use AppBundle\Enum\Countries;
 
 /**
  * @ORM\Entity(repositoryClass="UserRepository")
@@ -605,5 +606,41 @@ class User extends BaseUser
         }
 
         return $categories;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryName()
+    {
+        return Countries::getName($this->from);
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->wantToLearn? 'New': 'Established';
+    }
+
+    /**
+     * @return string
+     */
+    public function getMusicFriendType()
+    {
+        return $this->musicFriend? 'filter.form.music_buddy': 'filter.form.fika_buddy';
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstConnectionRequestComment()
+    {
+        if ($this->connectionRequests->count()) {
+            return $this->connectionRequests->first()->getComment();
+        }
+
+        return '';
     }
 }

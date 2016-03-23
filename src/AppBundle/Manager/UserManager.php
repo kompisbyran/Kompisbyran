@@ -11,6 +11,7 @@ use AppBundle\Entity\User;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\ArrayAdapter;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Service("user_manager")
@@ -33,17 +34,24 @@ class UserManager implements UserManagerInterface
     private $router;
 
     /**
+     * @var Symfony\Component\Translation\TranslatorInterface
+     */
+    private $translator;
+
+    /**
      * @InjectParams({
      *     "paginator" = @Inject("knp_paginator"),
-     *     "router" = @Inject("router")
+     *     "router" = @Inject("router"),
+     *     "translator" = @Inject("translator")
      * })
      * @param UserRepository $userRepository
      */
-    public function __construct(UserRepository $userRepository, Paginator $paginator, RouterInterface $router)
+    public function __construct(UserRepository $userRepository, Paginator $paginator, RouterInterface $router, TranslatorInterface $translator)
     {
         $this->userRepository   = $userRepository;
         $this->paginator        = $paginator;
         $this->router           = $router;
+        $this->translator       = $translator;
     }
 
     /**
@@ -101,33 +109,53 @@ class UserManager implements UserManagerInterface
 
         return [
             'success'   => true,
-            'results'   => $this->getMatchResultsdByPager($pagerfanta),
+            'results'   => $this->getMatchResultsdByPager($pagerfanta, $user),
             'next'      => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
         ];
     }
 
     /**
      * @param Pagerfanta $pagerfanta
+     * @param User $user
      * @return array
      */
-    private function getMatchResultsdByPager(Pagerfanta $pagerfanta)
+    private function getMatchResultsdByPager(Pagerfanta $pagerfanta, User $user)
     {
         $datas  = [];
         $users  = $pagerfanta->getCurrentPageResults();
 
-        foreach ($users as $user) {
-            $currentUser    = $this->getFind($user['id']);
+        foreach ($users as $auser) {
+            $matches        = [];
+            $currentUser    = $this->getFind($auser['id']);
 
             $datas[] = [
-                'user_id'           => $user['id'],
-                'score'             => $user['score'],
+                'user_id'           => $auser['id'],
+                'score'             => $auser['score'],
                 'interests'         => $currentUser->getNameArrayOfCategories(),
                 'user_info'         => $currentUser->getFullName(),
-                'edit_profile_link' => $this->router->generate('admin_ajax_edit', ['id' => $user['id']]),
-                'about'             => $currentUser->getAbout()
+                'edit_profile_link' => $this->router->generate('admin_ajax_edit', ['id' => $auser['id']]),
+                'about'             => $currentUser->getAbout(),
+                'matches'           => $this->getExactMatchByUser($user, $currentUser),
+                'ele'               => 'ele'.$auser['id']
             ];
         }
 
         return $datas;
+    }
+
+    /**
+     * @param User $user
+     * @param User $currentUser
+     * @return array
+     */
+    private function getExactMatchByUser(User $user, User $currentUser)
+    {
+        $matches    = [];
+        $matches[]  =  ($currentUser->getAge() && $user->getAge() == $currentUser->getAge()? '<span class="matches">'.$currentUser->getAge().'</span>': $currentUser->getAge()) .' '. $this->translator->trans('years');
+        $matches[]  =  ($currentUser->getFrom() && $user->getFrom() == $currentUser->getFrom()? '<span class="matches">'.$currentUser->getCountryName().'</span>': $currentUser->getCountryName());
+        $matches[]  =  ($currentUser->getMunicipality()->getId() && $user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId()? '<span class="matches">'.$currentUser->getMunicipality()->getName().'</span>': $currentUser->getMunicipality()->getName());
+        $matches[]  =  ($currentUser->hasChildren() && $user->hasChildren() == $currentUser->hasChildren()? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
+
+        return $matches;
     }
 }

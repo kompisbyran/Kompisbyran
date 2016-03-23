@@ -18,98 +18,81 @@
                 <form class="form-horizontal current-profile-form">
                     <div class="col-md-5">
                         <div class="form-group">
-                            <label for="matchProfile_firstName" class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">I look like an input</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="matchProfile_firstName" class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
-                            <div class="col-sm-10">
-                                <div class="form-control textarea">I look like an input</div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                {# <form class="form-horizontal current-profile-form">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label for="matchProfile_firstName" class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
-                            <div class="col-sm-10">
-                                {{ form_widget(profileForm.fullName,{'attr':{'readonly':'readonly'}}) }}
+                                <div class="form-control">{{ user.fullName }}</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="matchProfile_email" class="col-sm-2 control-label">{{ 'Email'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Email'|trans }}</label>
                             <div class="col-sm-10">
-                                {{ form_widget(profileForm.email,{'attr':{'readonly':'readonly'}}) }}
+                                <div class="form-control">{{ user.email }}</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="matchProfile_age" class="col-sm-2 control-label">{{ 'Age'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Age'|trans }}</label>
                             <div class="col-sm-10">
-                                {{ form_widget(profileForm.age,{'attr':{'readonly':'readonly'}}) }}
+                                <div class="form-control">{{ user.age }}</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">{{ 'Category'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Category'|trans }}</label>
                             <div class="col-sm-10">
-                                {{ form_widget(profileForm.wantToLearn,{'attr':{'readonly':'readonly'}}) }}
+                                <div class="form-control">{{ user.type }}</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="matchProfile_from" class="col-sm-2 control-label">{{ 'Country'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Country'|trans }}</label>
                             <div class="col-sm-10">
-                                {{ form_widget(profileForm.from,{'attr':{'readonly':'readonly'}}) }}
+                                <div class="form-control">{{ user.countryName }}</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="matchProfile_district" class="col-sm-2 control-label">{{ 'Area'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Area'|trans }}</label>
                             <div class="col-sm-10">
-                                {{ form_widget(profileForm.municipality,{'attr':{'readonly':'readonly'}}) }}
+                                <div class="form-control">{{ user.municipality.name }}</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="matchProfile_hasChildren" class="col-sm-2 control-label">{{ 'Children'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Children'|trans }}</label>
                             <div class="col-sm-10">
-                                {{ form_widget(profileForm.hasChildren,{'attr':{'readonly':'readonly'}}) }}
+                                <div class="form-control">{% if user.hasChildren %}Yes{% else %}No{% endif %}</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="matchProfile_wantToLearn" class="col-sm-2 control-label">{{ 'Type'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Type'|trans }}</label>
                             <div class="col-sm-10">
-                                {{ form_widget(profileForm.musicFriend,{'attr':{'readonly':'readonly'}}) }}
+                                <div class="form-control">{{ user.musicFriendType }}</div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">{{ 'Interests'|trans }}</label>
+                            <label class="col-sm-2 control-label">{{ 'Interests'|trans }}</label>
                             <div class="col-sm-10">
-                                <ul>
-                                    {% for it in profileForm.categories.children %}
-                                        <li>{{ it.vars.label }}</li>
-                                    {% endfor %}
-                                </ul>
+                                <div class="form-control">{{ user.musicFriendType }}</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-7">
                         <div class="form-group">
-                            <label for="matchProfile_about">{{ 'Description'|trans }}</label>
-                            {{ form_widget(profileForm.about,{'attr':{'readonly':'readonly','rows':3}}) }}
-                        </div>
-
-                        <div class="form-group">
-                            <label for="matchProfile_comment">{{ 'Match Request'|trans }}</label>
-                            {{ form_widget(profileForm.comment,{'attr':{'readonly':'readonly','rows':3}}) }}
+                            <label class="col-sm-12">{{ 'Description'|trans }}</label>
+                            <div class="col-sm-12">
+                                <div class="form-control textarea">{{ user.about|raw }}</div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="matchProfile_internalComment">{{ 'Internal note'|trans }}</label>
-                            {{ form_widget(profileForm.internalComment,{'attr':{'readonly':'readonly','rows':3}}) }}
+                            <label class="col-sm-12">{{ 'Match Request'|trans }}</label>
+                            <div class="col-sm-12">
+                                <div class="form-control textarea">{{ user.firstConnectionRequestComment|raw }}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12">{{ 'Internal Comments'|trans }}</label>
+                            <div class="col-sm-12">
+                                <div class="form-control textarea">{{ user.internalComment|raw }}</div>
+                            </div>
                         </div>
                     </div>
-                </form>#}
+                </form>
             </div>
             <div class="row" style="margin-top: 20px;">
                 <h2>{{ '2.2 Filter if necessary'|trans }}</h2>
@@ -186,7 +169,7 @@
                     </div>
                 </div>
                 <div class="col-md-12" style="margin-top: 15px;">
-                    <a href="#" class="btn btn-lg btn-default btn-search" data-current-user="{{ user.id }}">Search</a>
+                    <a href="" class="btn btn-lg btn-default btn-search" data-current-user="{{ user.id }}">Search</a>
                 </div>
             </div>
             {{ form_rest(form) }}
@@ -233,10 +216,11 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script src="{{ asset('js/jquery.blockUI.js') }}"></script>
     <script src="{{ asset('js/jquery.loadTemplate-1.5.6.js') }}"></script>
 
     <script type="text/html" id="template">
-        <div class="row candidate">
+        <div class="row candidate" data-id="ele">
             <div class="col-md-1">
                 <p class="score" data-content="score"></p>
             </div>
@@ -244,8 +228,8 @@
                 <div class="pull-right">
                     <a data-href="edit_profile_link" class="btn btn-orange">Edit Profile</a>
                 </div>
-                <h4 data-content="user_info"></h4>
-                <p class="interests" data-content="interests"></p>
+                <h4><span data-content="user_info"></span> (<span data-content="matches" data-format="SpanDelimiter"></span>)</h4>
+                <p class="interests">Matching interests: <span data-content="interests" data-format="SpanMatches"></span></p>
                 <p data-content="about"></p>
             </div>
             <div class="col-md-2 choice">
@@ -256,7 +240,34 @@
     </script>
 
     <script>
+        var firstItem = 0;
+
+        $(document).ajaxStart(function(){
+            $('body').block({
+                message: '<strong>Loading...</strong>'
+            });
+        });
+
+        $(document).ajaxStop(function(){
+            $('body').unblock();
+        });
+
         $(document).ready(function(){
+            $.addTemplateFormatter({
+                SpanMatches : function(value, template) {
+                    var values  = [];
+
+                    $.each(value, function(k, match) {
+                        values.push('<span class="matches">'+match+'</span>');
+                    });
+
+                    return values.join(', ');
+                },
+                SpanDelimiter : function(value, template) {
+                    return value.join(', ');
+                }
+            });
+
             $('.btn-search').click(function(e){
                 e.preventDefault();
 
@@ -276,6 +287,8 @@
             {
                 $.post(Routing.generate('admin_match_results', {id: id, page: page}), data, function(resp){
                     if (resp.success) {
+                        firstItem = 0;
+
                         if (resp.next) {
                             $('.btn-show-more').data('next-page', resp.next);
                             $('.btn-show-more').removeClass('disabled');
@@ -284,8 +297,16 @@
                         }
 
                         $.each(resp.results, function(k, item) {
-                            $(".match-results-container").loadTemplate($("#template"), item);
+                            if (firstItem == 0) {
+                                firstItem = item.ele;
+                            }
+
+                            $(".match-results-container").loadTemplate($("#template"), item, {append: true});
                         });
+console.log(firstItem);
+                        $('html, body').animate({
+                            scrollTop: $('#'+firstItem).offset().top
+                        }, 1000);
                     }
                 });
             }

@@ -88,7 +88,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="admin_ajax_edit", options={"expose"=true})
+     * @Route("/edit/{id}", name="admin_ajax_edit", options={"expose"=true})
      */
     public function ajaxEditAction(Request $request, User $user)
     {
