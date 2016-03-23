@@ -87,7 +87,7 @@ class Connection
      */
     protected $musicFriend = false;
 
-    public function __construct(User $user)
+    public function __construct(User $user = null)
     {
         $this->createdAt = new \DateTime();
         $this->createdBy = $user;

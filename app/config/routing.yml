@@ -57,3 +57,6 @@ musicfriend:
 
 fos_user_profile_show:
     path: /
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

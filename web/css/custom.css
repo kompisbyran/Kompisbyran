@@ -24,3 +24,90 @@
     background: #F76753;
     text-decoration: none !important;
 }
+
+.btn-orange{
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+    border: solid 1px #F76753;
+    color: #fff;
+    transition: all 0.3s;
+    background: #F76753;
+}
+
+.candidate {
+    background-color:#efeded;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 15px 0;
+}
+
+.candidate .score {
+    font-size: 42px;
+    font-size: bold;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #F76753;
+}
+
+.candidate .interests {
+    font-weight: bold;
+}
+
+.candidate .matches {
+    color: #F76753;
+}
+
+.candidate .presentation {
+    border-right: 1px dashed #ccc;
+}
+
+.candidate .choice {
+    font-size: 22px;
+    text-align: center;
+}
+
+.candidate .choice input {
+    margin-top: 40px;
+    display: inline;
+}
+
+.more-candidates {
+    text-align: center;
+}
+
+div.textarea {
+    min-height: 10px !important;
+    height: auto;
+}
+
+.input-box {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    background-color: white;
+    background-color: -moz-field;
+    border: 1px solid darkgray;
+    box-shadow: 1px 1px 1px 0 lightgray inset;
+    font: -moz-field;
+    font: -webkit-small-control;
+    margin-top: 5px;
+    padding: 6px 12px;
+
+    height: 32px;
+    color: #555;
+    border-radius: 2px
+}
+
+.textarea-box {
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 1px solid gray;
+    font: medium -moz-fixed;
+    font: -webkit-small-control;
+    height: 28px;
+    overflow: auto;
+    padding: 2px;
+    resize: both;
+    width: 400px;
+}

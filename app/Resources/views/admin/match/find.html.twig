@@ -1,0 +1,371 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="inner-page testimonial">
+        <div class="container">
+            <div class="row" style="margin-top: 40px;">
+                <h1>{{ '2. Find a match for'|trans }} {{ user.fullName }}</h1>
+                <h2>{{ '2.1 Read through the profile'|trans }}</h2>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-md-12">
+                    <div class="pull-right">
+                        <a href="" data-remote="" data-toggle="modal" data-target="#userEditModal" class="btn btn-orange edit-current-profile" data-ro-mode="yes">{{ 'Edit profile'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <form class="form-horizontal current-profile-form">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="matchProfile_firstName" class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
+                            <div class="col-sm-10">
+                                <div class="form-control">I look like an input</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="matchProfile_firstName" class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
+                            <div class="col-sm-10">
+                                <div class="form-control textarea">I look like an input</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                {# <form class="form-horizontal current-profile-form">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="matchProfile_firstName" class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(profileForm.fullName,{'attr':{'readonly':'readonly'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="matchProfile_email" class="col-sm-2 control-label">{{ 'Email'|trans }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(profileForm.email,{'attr':{'readonly':'readonly'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="matchProfile_age" class="col-sm-2 control-label">{{ 'Age'|trans }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(profileForm.age,{'attr':{'readonly':'readonly'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">{{ 'Category'|trans }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(profileForm.wantToLearn,{'attr':{'readonly':'readonly'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="matchProfile_from" class="col-sm-2 control-label">{{ 'Country'|trans }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(profileForm.from,{'attr':{'readonly':'readonly'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="matchProfile_district" class="col-sm-2 control-label">{{ 'Area'|trans }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(profileForm.municipality,{'attr':{'readonly':'readonly'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="matchProfile_hasChildren" class="col-sm-2 control-label">{{ 'Children'|trans }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(profileForm.hasChildren,{'attr':{'readonly':'readonly'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="matchProfile_wantToLearn" class="col-sm-2 control-label">{{ 'Type'|trans }}</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(profileForm.musicFriend,{'attr':{'readonly':'readonly'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">{{ 'Interests'|trans }}</label>
+                            <div class="col-sm-10">
+                                <ul>
+                                    {% for it in profileForm.categories.children %}
+                                        <li>{{ it.vars.label }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label for="matchProfile_about">{{ 'Description'|trans }}</label>
+                            {{ form_widget(profileForm.about,{'attr':{'readonly':'readonly','rows':3}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="matchProfile_comment">{{ 'Match Request'|trans }}</label>
+                            {{ form_widget(profileForm.comment,{'attr':{'readonly':'readonly','rows':3}}) }}
+                        </div>
+                        <div class="form-group">
+                            <label for="matchProfile_internalComment">{{ 'Internal note'|trans }}</label>
+                            {{ form_widget(profileForm.internalComment,{'attr':{'readonly':'readonly','rows':3}}) }}
+                        </div>
+                    </div>
+                </form>#}
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <h2>{{ '2.2 Filter if necessary'|trans }}</h2>
+            </div>
+            <form class="form-horizontal" id="filter-form" action="{{ path('admin_match_results', {id: user.id}) }}" novalidate="novalidate" method="post">
+            <div class="row match-filter-container" data-filters="">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            {{ form_label(form.category) }}
+                        </div>
+                        <div class="col-sm-9">
+                            {{ form_widget(form.category) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            {{ form_label(form.ageFrom) }}
+                        </div>
+                        <div class="col-sm-4">
+                            {{ form_widget(form.ageFrom) }}
+                        </div>
+                        <div class="col-sm-1">
+                            <strong>-</strong>
+                        </div>
+                        <div class="col-sm-4">
+                            {{ form_widget(form.ageTo) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            {{ form_label(form.gender) }}
+                        </div>
+                        <div class="col-sm-9">
+                            {{ form_widget(form.gender) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            {{ form_label(form.hasChildren) }}
+                        </div>
+                        <div class="col-sm-9">
+                            {{ form_widget(form.hasChildren) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            {{ form_label(form.from) }}
+                        </div>
+                        <div class="col-sm-9">
+
+                            {{ form_widget(form.from) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            {{ form_label(form.municipality) }}
+                        </div>
+                        <div class="col-sm-9">
+                            {{ form_widget(form.municipality) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            {{ form_label(form.musicFriend) }}
+                        </div>
+                        <div class="col-sm-9">
+                            {{ form_widget(form.musicFriend) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin-top: 15px;">
+                    <a href="#" class="btn btn-lg btn-default btn-search" data-current-user="{{ user.id }}">Search</a>
+                </div>
+            </div>
+            {{ form_rest(form) }}
+            </form>
+            <div class="row" style="margin-top: 20px;">
+                <h2>{{ '2.3 Choose a person to match '~ user.fullName ~' with'|trans }}</h2>
+                <p>{{ '"Match"-score is a measurement on how good match the system could find. These candidates has the best matching score:'|trans }}</p>
+                <div class="match-results-container"></div>
+                <div class="row">
+                    <div class="col-md-12 more-candidates">
+                        <a href="#" class="btn btn-lg btn-default btn-show-more disabled" data-current-user="{{ user.id }}" data-next-page="1">{{ 'Show 5 more candidates'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <h2>{{ '2.4 Review the emails that will be sent'|trans }}</h2>
+            </div>
+
+            <div class="row">
+                <form id="requests-email">
+                    <div class="col-md-6">
+                        <h4>{{ 'Email to '|trans }} {{ user.fullName }}</h4>
+                        <textarea class="form-control" rows="12">Hello!&#13;&#10;&#13;&#10;One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.&#13;&#10;&#13;&#10;He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.&#13;&#10;&#13;&#10;The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human</textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>{{ 'Email to match'|trans }}</h4>
+                        <textarea class="form-control" rows="12">Hello!&#13;&#10;&#13;&#10;One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.&#13;&#10;&#13;&#10;He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.&#13;&#10;&#13;&#10;The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human</textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <h2>{{ '2.5 Approve the match'|trans }}</h2>
+                <p>{{ 'Does the match feel good? Then it\'s time to approve it and send out emails.'|trans }}</p>
+                <a class="btn btn-large btn-orange">{{ 'Approve & send emails'|trans }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel">
+        <div class="modal-dialog" role="document" style="width:1000px;">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.loadTemplate-1.5.6.js') }}"></script>
+
+    <script type="text/html" id="template">
+        <div class="row candidate">
+            <div class="col-md-1">
+                <p class="score" data-content="score"></p>
+            </div>
+            <div class="col-md-9 presentation">
+                <div class="pull-right">
+                    <a data-href="edit_profile_link" class="btn btn-orange">Edit Profile</a>
+                </div>
+                <h4 data-content="user_info"></h4>
+                <p class="interests" data-content="interests"></p>
+                <p data-content="about"></p>
+            </div>
+            <div class="col-md-2 choice">
+                <p><strong>Choose candidate</strong></p>
+                <input type="radio" name="id" data-value="user_id" />
+            </div>
+        </div>
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('.btn-search').click(function(e){
+                e.preventDefault();
+
+                $(".match-results-container").empty();
+                $('.btn-show-more').addClass('disabled', 'disabled');
+
+                showMoreResults($(this).data('current-user'), $(this).closest('form').serialize(), 1);
+            });
+
+            $('.btn-show-more').click(function(e){
+                e.preventDefault();
+
+                showMoreResults($(this).data('current-user'), $('#filter-form').serialize(), $(this).data('next-page'));
+            });
+
+            var showMoreResults = function(id, data, page)
+            {
+                $.post(Routing.generate('admin_match_results', {id: id, page: page}), data, function(resp){
+                    if (resp.success) {
+                        if (resp.next) {
+                            $('.btn-show-more').data('next-page', resp.next);
+                            $('.btn-show-more').removeClass('disabled');
+                        } else {
+                            $('.btn-show-more').addClass('disabled', 'disabled');
+                        }
+
+                        $.each(resp.results, function(k, item) {
+                            $(".match-results-container").loadTemplate($("#template"), item);
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+{% endblock %}
+
+ {#   <script>
+        jQuery(document).ready(function($){
+            $('#userEditModal').on('loaded.bs.modal',function(e){
+                var self=this;
+                $(self).find('button.ajax-submit').on('click',function(e){
+                    $.ajax({
+                        url:$(self).find('form').attr('action'),
+                        type:'post',
+                        dataType:'json',
+                        data:$(self).find('form').serialize(),
+                        success:function(resp){
+                            $.each(resp,function(k,v){
+                                var id='#matchProfile_'+k;
+                                if($(id).length>0){
+                                    if($.isArray(v)){
+                                        var html='<ul>';
+                                        $.each(v,function(_k,_v){
+                                            html+='<li>'+_v+'</li>';
+                                        });
+                                        html+='</ul>';
+                                        $(id).html(html);
+                                    }else{
+                                        $(id).val(v);
+                                    }
+                                }
+                            });
+                            $('#userEditModal').modal('hide');
+                            updateResults();
+                        }
+                    });
+                });
+            });
+            var updateResults=function(){
+                var limit=parseInt($('.more-candidates a').data('limit'));
+                var offset=parseInt($('.more-candidates a').data('offset'));
+                var filters=[];
+                $.each($('.match-filter-container select'),function(){
+                    if($(this).val()){
+                        var _key=$(this).attr('id').replace('matchFilter_','').toString();
+                        var _value=/^age/g.test(_key)?$(this).find('option[value="'+$(this).val()+'"]').text():$(this).val();
+                        filters.push($.parseJSON('{"'+_key+'":"'+_value+'"}'));
+                    }
+                });
+                $.ajax({
+                    url:'{{ path('ajax_get_match_results') }}',
+                    type:'post',
+                    dataType:'json',
+                    data:{user_id:'{{ user.id }}',filters:filters,limit:limit,offset:offset},
+                    success:function(resp){
+                        if(resp.status=='ok'){
+                            $('.match-results-container').html('');
+                            $.each(resp.users,function(k,user){
+                                $('.match-results-container').append(user);
+                            });
+                        }else if(resp.status=='fail'){
+                            $('.match-results-container').html('<div class="row candidate"><div class="col-md-12 presentation">Matched not found</div></div>');
+                        }
+                    }
+                });
+            };
+            $('.match-filter-container select').on('change',function(){
+                updateResults();
+            });
+            $('.more-candidates a').click(function(e){
+                e.preventDefault();
+                var shift=5;
+                var limit=parseInt($('.more-candidates a').data('limit'))+shift;
+                var offset=parseInt($('.more-candidates a').data('offset'))+shift;
+                $('.more-candidates a').data('limit',limit);
+                $('.more-candidates a').data('offset',offset);
+                updateResults();
+            });
+            updateResults();
+        });
+    </script>
+{% endblock %#}
