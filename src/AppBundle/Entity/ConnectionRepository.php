@@ -6,6 +6,53 @@ use Doctrine\ORM\EntityRepository;
 
 class ConnectionRepository extends EntityRepository
 {
+
+    /**
+     * @param String $city
+     * @param String $year
+     * @param String $type
+     * @return array
+     */
+    public function getMatches($city, $year, $type)
+    {
+        $query = "
+            SELECT c.created_at
+            FROM connection c
+            WHERE YEAR(c.created_at) = :year
+            AND c.city_id = :city";
+
+        $params['city'] = $city;
+        $params['year'] = $year;
+
+        if ($type !== "") {
+            $query .= " AND c.music_friend = :type";
+            $params['type'] = $type;
+        }
+
+        $query .= " ORDER BY c.created_at ASC";
+
+        $stmt = $this->getEntityManager()->getConnection()->prepare($query);
+        $stmt->execute($params);
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * @return array
+     */
+    public function getYearSpan()
+    {
+        // get the years in a unique list
+        $query = "
+            SELECT DISTINCT(SUBSTRING(c.created_at, 1, 4)) as year
+            FROM connection c
+            ORDER BY year";
+        $stmt = $this->getEntityManager()->getConnection()->prepare($query);
+        $stmt->execute();
+
+        return array_column($stmt->fetchAll(\PDO::FETCH_ASSOC), 'year');
+    }
+
     /**
      * @return \Doctrine\ORM\Query
      */
