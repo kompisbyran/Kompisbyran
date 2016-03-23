@@ -15,6 +15,12 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  **/
 class User extends BaseUser
 {
+    const GENDER_MALE   = 'M';
+
+    const GENDER_FEMALE = 'F';
+
+    const GENDER_X      = 'X';
+
     /**
     * @ORM\Id
     * @ORM\Column(type="integer")
@@ -559,5 +565,39 @@ class User extends BaseUser
     public function setMunicipality($municipality)
     {
         $this->municipality = $municipality;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->firstName .' '. $this->lastName;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getGenders()
+    {
+        return [
+            self::GENDER_MALE   => 'user.form.gender.m',
+            self::GENDER_FEMALE => 'user.form.gender.f',
+            self::GENDER_X      => 'user.form.gender.x'
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getNameArrayOfCategories()
+    {
+        $categories = [];
+
+        foreach($this->getCategories() as $category) {
+            $categories[] = $category->getName();
+        }
+
+        return $categories;
     }
 }

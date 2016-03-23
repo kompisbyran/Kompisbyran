@@ -2,14 +2,21 @@
 
 namespace AppBundle\Controller\Admin;
 
-use AppBundle\DomainEvents;
+use AppBundle\Manager\ConnectionRequestManager;
+use AppBundle\Manager\CityManager;
+use JMS\DiExtraBundle\Annotation\Inject;
+use JMS\DiExtraBundle\Annotation\InjectParams;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\City;
+
+use AppBundle\DomainEvents;
 use AppBundle\Entity\Connection;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Event\ConnectionCreatedEvent;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("admin")
@@ -17,16 +24,38 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
+     * @var ConnectionRequestManager
+     */
+    private $connectionRequestManager;
+
+    /**
+     * @var CityManager
+     */
+    private $cityManager;
+
+    /**
+     * @InjectParams({
+     *     "connectionRequestManager"   = @Inject("connection_request_manager"),
+     *     "cityManager"                = @Inject("city_manager")
+     * })
+     */
+    public function __construct(ConnectionRequestManager $connectionRequestManager, CityManager $cityManager)
+    {
+        $this->connectionRequestManager = $connectionRequestManager;
+        $this->cityManager              = $cityManager;
+    }
+
+    /**
      * @Route("/{id}", name="admin_start", defaults={"id": null})
+     * @Method("GET")
+     * @Template("admin/default/index.html.twig")
      */
     public function indexAction(Request $request, City $city = null)
     {
-        $manager = $this->getDoctrine()->getManager();
+        /*$manager = $this->getDoctrine()->getManager();
 
         if ($request->isMethod('POST')) {
-            /** @var ConnectionRequest $learnerConnectionRequest */
             $learnerConnectionRequest = $this->getConnectionRequestRepository()->find($request->request->getInt('learner'));
-            /** @var ConnectionRequest $fluentSpeakerConnectionRequest */
             $fluentSpeakerConnectionRequest = $this->getConnectionRequestRepository()->find($request->request->getInt('fluentSpeaker'));
 
             if ($this->getConnectionRepository()->findForUsers(
@@ -81,51 +110,19 @@ class DefaultController extends Controller
             $categories = $this->getMusicCategoryRepository()->findAll();
         } else {
             $categories = $this->getGeneralCategoryRepository()->findAll();
+        }*/
+
+        $cities     = $this->cityManager->getFindAll();
+
+        if (!$city instanceof City) {
+            $city   = $cities[0];
         }
 
-
-        $parameters = [
-            'categories' => $categories,
-            'learners' => $learners,
-            'fluentSpeakers' => $fluentSpeakers,
-            'cities' => $cities,
-            'city' => $city,
-            'type' => $type,
+        return [
+            'newUsers'          => $this->connectionRequestManager->getFindNewWithinCity($city),
+            'establishedUsers'  => $this->connectionRequestManager->getFindEstablishedWithinCity($city),
+            'cities'            => $cities,
+            'city'              => $city
         ];
-
-        return $this->render('admin/default/index.html.twig', $parameters);
-    }
-
-    protected function getConnectionRequestRepository()
-    {
-        return $this->getDoctrine()->getManager()->getRepository('AppBundle:ConnectionRequest');
-    }
-
-    protected function getCityRepository()
-    {
-        return $this->getDoctrine()->getManager()->getRepository('AppBundle:City');
-    }
-
-    /**
-     * @return \AppBundle\Entity\ConnectionRepository
-     */
-    protected function getConnectionRepository()
-    {
-        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Connection');
-    }
-
-    protected function getCategoryRepository()
-    {
-        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Category');
-    }
-
-    protected function getMusicCategoryRepository()
-    {
-        return $this->getDoctrine()->getManager()->getRepository('AppBundle:MusicCategory');
-    }
-
-    protected function getGeneralCategoryRepository()
-    {
-        return $this->getDoctrine()->getManager()->getRepository('AppBundle:GeneralCategory');
     }
 }

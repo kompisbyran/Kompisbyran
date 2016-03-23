@@ -1,0 +1,35 @@
+services:
+    connection_repository:
+        class: AppBundle\Entity\ConnectionRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:Connection
+
+    connection_request_repository:
+        class: AppBundle\Entity\ConnectionRequestRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:ConnectionRequest
+
+    user_repository:
+        class: AppBundle\Entity\UserRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:User
+
+    category_repository:
+        class: AppBundle\Entity\CategoryRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:Category
+
+    city_repository:
+        class: AppBundle\Entity\CityRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:City

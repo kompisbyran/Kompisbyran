@@ -1,0 +1,109 @@
+<?php
+
+namespace AppBundle\Form;
+
+use JMS\DiExtraBundle\Annotation\FormType;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\AbstractType;
+use AppBundle\Enum\Countries;
+USE AppBundle\Entity\User;
+
+/**
+ * @FormType
+ */
+class MatchFilterType extends AbstractType
+{
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $age = range(18, 100);
+
+        $builder
+            ->add('category', 'entity', [
+                'class'         => 'AppBundle:Category',
+                'property'      => 'name',
+                'label'         => 'filter.form.interests',
+                'empty_data'    => '',
+                'empty_value'   => 'All',
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->findAllQueryBuilder();
+                }
+            ])
+            ->add('ageFrom', 'choice', [
+                'label'         => 'filter.form.age_from',
+                'data'          => 18,
+                'choices'       => array_combine($age, $age)
+            ])
+            ->add('ageTo', 'choice', [
+                'label'         => 'filter.form.age_to',
+                'data'          => 100,
+                'choices'       => array_combine($age, $age)
+            ])
+            ->add('gender', 'choice', [
+                'label'         => 'filter.form.gender',
+                'choices'       => User::getGenders(),
+                'empty_data'    => '',
+                'empty_value'   => 'All'
+            ])
+            ->add('hasChildren', 'boolean_choice', [
+                'label'             => 'filter.form.has_children',
+                'choices_as_values' => true,
+                'empty_data'        => '',
+                'empty_value'       => 'Doesn\'t matter',
+                'choices'           => [
+                    'yes'           => '1',
+                    'no'            => '0'
+                ]
+            ])
+            ->add('from', 'choice', [
+                'label'         => 'filter.form.from',
+                'choices'       => Countries::getList(),
+                'empty_data'    => '',
+                'empty_value'   => 'All'
+            ])
+            ->add('municipality', 'entity', [
+                'class'         => 'AppBundle:Municipality',
+                'property'      => 'name',
+                'label'         => 'filter.form.municipality',
+                'empty_data'    => '',
+                'empty_value'   => 'All'
+            ])
+            ->add('musicFriend', 'boolean_choice', [
+                'label'             => 'filter.form.type',
+                'choices_as_values' => true,
+                'data'              => ($options['music_friend']? '1': '0'),
+                'choices'           => [
+                    'filter.form.music_buddy'   => '1',
+                    'filter.form.fika_buddy'    => '0'
+                ]
+            ])
+        ;
+    }
+
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'mapped' => false
+        ]);
+
+        $resolver->setRequired([
+            'music_friend'
+        ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'match_filter';
+    }
+}
