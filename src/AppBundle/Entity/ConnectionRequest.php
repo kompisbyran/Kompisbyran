@@ -189,4 +189,12 @@ class ConnectionRequest
     {
         $this->musicFriend = $musicFriend;
     }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->wantToLearn? 'New': 'Established';
+    }
 }

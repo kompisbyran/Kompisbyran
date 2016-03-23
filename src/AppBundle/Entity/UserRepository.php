@@ -26,4 +26,64 @@ class UserRepository extends EntityRepository
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    /**
+     * @param User $user
+     * @param array $criterias
+     * @return array
+     */
+    public function findMatchArray(User $user, array $criterias)
+    {
+        $userParams = [
+            'user_municipality' => $user->getMunicipality(),
+            'user_gender'       => $user->getGender(),
+            'user_age'          => $user->getAge(),
+            'user_children'     => $user->hasChildren(),
+            'want_to_learn'     => ($user->getWantToLearn()? false: true),
+            'user'              => $user->getId()
+        ];
+
+        $qb = $this->createQueryBuilder('u');
+
+        $qb
+            ->select('u.id, ((CASE WHEN(u.municipality=:user_municipality) THEN 2 ELSE 0 END)+ (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END)+ (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END)+ (CASE WHEN(u.hasChildren=:user_children) THEN 2 ELSE 0 END)) AS score')
+            ->where($qb->expr()->neq('u.id'             , ':user'))
+            ->andWhere($qb->expr()->neq('u.wantToLearn' , ':want_to_learn'))
+        ;
+
+        $this->prepareMatchCriterias($qb, $criterias);
+
+        $qb
+            ->setParameters(array_merge($criterias, $userParams))
+            ->groupBy('u.id')
+            ->orderBy('score', 'DESC')
+        ;
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    /**
+     * @param $qb
+     * @param array $criterias
+     */
+    private function prepareMatchCriterias($qb, array $criterias)
+    {
+        $fields = array_keys($criterias);
+
+        foreach($fields as $field) {
+            if ($field === 'ageFrom' || $field === 'ageTo') {
+                continue;
+            }
+
+            $qb->andWhere('u.'.$field .' = :'.$field);
+        }
+
+        if (isset($criterias['ageFrom']) && isset($criterias['ageTo'])) {
+            $qb->andWhere($qb->expr()->between(
+                'u.age',
+                ':ageFrom',
+                ':ageTo'
+            ));
+        }
+    }
 }

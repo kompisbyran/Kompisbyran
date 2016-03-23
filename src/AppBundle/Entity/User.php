@@ -7,6 +7,7 @@ use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use AppBundle\Enum\Countries;
 
 /**
  * @ORM\Entity(repositoryClass="UserRepository")
@@ -15,6 +16,12 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  **/
 class User extends BaseUser
 {
+    const GENDER_MALE   = 'M';
+
+    const GENDER_FEMALE = 'F';
+
+    const GENDER_X      = 'X';
+
     /**
     * @ORM\Id
     * @ORM\Column(type="integer")
@@ -559,5 +566,75 @@ class User extends BaseUser
     public function setMunicipality($municipality)
     {
         $this->municipality = $municipality;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->firstName .' '. $this->lastName;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getGenders()
+    {
+        return [
+            self::GENDER_MALE   => 'user.form.gender.m',
+            self::GENDER_FEMALE => 'user.form.gender.f',
+            self::GENDER_X      => 'user.form.gender.x'
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getNameArrayOfCategories()
+    {
+        $categories = [];
+
+        foreach($this->getCategories() as $category) {
+            $categories[] = $category->getName();
+        }
+
+        return $categories;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryName()
+    {
+        return Countries::getName($this->from);
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->wantToLearn? 'New': 'Established';
+    }
+
+    /**
+     * @return string
+     */
+    public function getMusicFriendType()
+    {
+        return $this->musicFriend? 'filter.form.music_buddy': 'filter.form.fika_buddy';
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstConnectionRequestComment()
+    {
+        if ($this->connectionRequests->count()) {
+            return $this->connectionRequests->first()->getComment();
+        }
+
+        return '';
     }
 }
