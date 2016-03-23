@@ -78,36 +78,10 @@
 }
 
 div.textarea {
-    min-height: 10px !important;
+    min-height: 90px !important;
     height: auto;
 }
 
-.input-box {
-    -moz-appearance: textfield;
-    -webkit-appearance: textfield;
-    background-color: white;
-    background-color: -moz-field;
-    border: 1px solid darkgray;
-    box-shadow: 1px 1px 1px 0 lightgray inset;
-    font: -moz-field;
-    font: -webkit-small-control;
-    margin-top: 5px;
-    padding: 6px 12px;
-
-    height: 32px;
-    color: #555;
-    border-radius: 2px
-}
-
-.textarea-box {
-    -moz-appearance: textfield-multiline;
-    -webkit-appearance: textarea;
-    border: 1px solid gray;
-    font: medium -moz-fixed;
-    font: -webkit-small-control;
-    height: 28px;
-    overflow: auto;
-    padding: 2px;
-    resize: both;
-    width: 400px;
+div.form-control {
+    background-color: #efeded !important;
 }
