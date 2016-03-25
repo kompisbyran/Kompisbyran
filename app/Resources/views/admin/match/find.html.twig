@@ -10,7 +10,7 @@
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-md-12">
                     <div class="pull-right">
-                        <a href="" data-remote="" data-toggle="modal" data-target="#userEditModal" class="btn btn-orange edit-current-profile" data-ro-mode="yes">{{ 'Edit profile'|trans }}</a>
+                        <a href="{{ path('admin_ajax_edit', {id: user.id}) }}" class="btn btn-orange edit-current-profile current">{{ 'Edit profile'|trans }}</a>
                     </div>
                 </div>
             </div>
@@ -20,55 +20,55 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{{ user.fullName }}</div>
+                                <div class="form-control" id="fullName">{{ user.fullName }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Email'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{{ user.email }}</div>
+                                <div class="form-control" id="email">{{ user.email }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Age'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{{ user.age }}</div>
+                                <div class="form-control" id="age">{{ user.age }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Category'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{{ user.type }}</div>
+                                <div class="form-control" id="type">{{ user.type }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Country'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{{ user.countryName }}</div>
+                                <div class="form-control" id="countryName">{{ user.countryName }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Area'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{{ user.municipality.name }}</div>
+                                <div class="form-control" id="area">{{ user.municipality.name }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Children'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{% if user.hasChildren %}Yes{% else %}No{% endif %}</div>
+                                <div class="form-control" id="hasChildren">{% if user.hasChildren %}Yes{% else %}No{% endif %}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Type'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{{ user.musicFriendType }}</div>
+                                <div class="form-control" id="musicFriendType">{{ user.musicFriendType }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">{{ 'Interests'|trans }}</label>
                             <div class="col-sm-10">
-                                <div class="form-control">{{ user.musicFriendType }}</div>
+                                <div class="form-control textarea" id="interests">{{ user.categoryNameString }}</div>
                             </div>
                         </div>
                     </div>
@@ -76,19 +76,19 @@
                         <div class="form-group">
                             <label class="col-sm-12">{{ 'Description'|trans }}</label>
                             <div class="col-sm-12">
-                                <div class="form-control textarea">{{ user.about|raw }}</div>
+                                <div class="form-control textarea" id="about">{{ user.about|raw }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-12">{{ 'Match Request'|trans }}</label>
                             <div class="col-sm-12">
-                                <div class="form-control textarea">{{ user.firstConnectionRequestComment|raw }}</div>
+                                <div class="form-control textarea" id="firstConnectionRequestComment">{{ user.firstConnectionRequestComment|raw }}</div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-12">{{ 'Internal Comments'|trans }}</label>
                             <div class="col-sm-12">
-                                <div class="form-control textarea">{{ user.internalComment|raw }}</div>
+                                <div class="form-control textarea" id="internalComment">{{ user.internalComment|raw }}</div>
                             </div>
                         </div>
                     </div>
@@ -208,7 +208,7 @@
         </div>
     </div>
     <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel">
-        <div class="modal-dialog" role="document" style="width:1000px;">
+        <div class="modal-dialog" role="document" style="width:800px;">
             <div class="modal-content">
             </div>
         </div>
@@ -226,10 +226,10 @@
             </div>
             <div class="col-md-9 presentation">
                 <div class="pull-right">
-                    <a data-href="edit_profile_link" class="btn btn-orange">Edit Profile</a>
+                    <a data-href="edit_profile_link" class="btn btn-orange edit-current-profile">Edit Profile</a>
                 </div>
                 <h4><span data-content="user_info"></span> (<span data-content="matches" data-format="SpanDelimiter"></span>)</h4>
-                <p class="interests">Matching interests: <span data-content="interests" data-format="SpanMatches"></span></p>
+                <p class="interests">Matching interests: <span data-content="interests" data-format="SpanDelimiter"></span></p>
                 <p data-content="about"></p>
             </div>
             <div class="col-md-2 choice">
@@ -283,6 +283,41 @@
                 showMoreResults($(this).data('current-user'), $('#filter-form').serialize(), $(this).data('next-page'));
             });
 
+            $('body').on('click', '.edit-current-profile', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                $('#userEditModal').removeClass('current');
+
+                $.get($this.attr('href'), function (html){
+                    if ($this.hasClass('current')) {
+                        $('#userEditModal').addClass('current');
+                    }
+
+                    $('#userEditModal .modal-content').html(html);
+                    $('#userEditModal').modal('show');
+                });
+
+            });
+
+            $('body').on('click', '.btn-save-profile', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                var $form = $this.closest('form');
+
+                $.post($form.attr('action'), $form.serialize(), function (resp){
+                    if (resp.success) {
+                        $('#userEditModal').modal('hide');
+                        if ($('#userEditModal').hasClass('current')) {
+                            for (var prop in resp.user) {
+                                $('#'+prop).html(resp.user[prop]);
+                            }
+                        } else {
+                            $('.btn-search').trigger('click');
+                        }
+                    }
+                });
+            });
+
             var showMoreResults = function(id, data, page)
             {
                 $.post(Routing.generate('admin_match_results', {id: id, page: page}), data, function(resp){
@@ -303,13 +338,17 @@
 
                             $(".match-results-container").loadTemplate($("#template"), item, {append: true});
                         });
-console.log(firstItem);
-                        $('html, body').animate({
-                            scrollTop: $('#'+firstItem).offset().top
-                        }, 1000);
+
+                        if (firstItem != 0) {
+                            $('html, body').animate({
+                                scrollTop: $('#'+firstItem).offset().top
+                            }, 1000);
+                        }
                     }
                 });
             }
+
+            $('.btn-search').trigger('click');
         });
     </script>
 {% endblock %}

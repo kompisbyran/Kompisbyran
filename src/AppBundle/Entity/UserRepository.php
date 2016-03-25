@@ -3,9 +3,22 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\User;
 
 class UserRepository extends EntityRepository
 {
+    /**
+     * @param User $user
+     * @return User
+     */
+    public function save(User $user)
+    {
+        $this->getEntityManager()->persist($user);
+        $this->getEntityManager()->flush();
+
+        return $user;
+    }
+
     /**
      * @return array
      */
@@ -39,15 +52,18 @@ class UserRepository extends EntityRepository
             'user_age'          => $user->getAge(),
             'user_children'     => $user->hasChildren(),
             'want_to_learn'     => ($user->getWantToLearn()? false: true),
-            'user'              => $user->getId()
+            'user'              => $user->getId(),
+            'user_categories'   => array_values($user->getCategoryIds())
         ];
 
         $qb = $this->createQueryBuilder('u');
 
         $qb
-            ->select('u.id, ((CASE WHEN(u.municipality=:user_municipality) THEN 2 ELSE 0 END)+ (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END)+ (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END)+ (CASE WHEN(u.hasChildren=:user_children) THEN 2 ELSE 0 END)) AS score')
+            ->select('u.id, ((COUNT(c)*3) + (CASE WHEN(u.municipality=:user_municipality) THEN 2 ELSE 0 END)+ (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END)+ (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END)+ (CASE WHEN(u.hasChildren=:user_children) THEN 2 ELSE 0 END)) AS score')
             ->where($qb->expr()->neq('u.id'             , ':user'))
             ->andWhere($qb->expr()->neq('u.wantToLearn' , ':want_to_learn'))
+            ->andWhere('c.id IN (:user_categories)')
+            ->leftJoin('u.categories', 'c')
         ;
 
         $this->prepareMatchCriterias($qb, $criterias);

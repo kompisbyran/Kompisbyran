@@ -63,6 +63,15 @@ class UserManager implements UserManagerInterface
     }
 
     /**
+     * @param User $user
+     * @return mixed
+     */
+    public function save(User $user)
+    {
+        return $this->userRepository->save($user);
+    }
+
+    /**
      * @param $id
      * @return null|object
      */
@@ -131,7 +140,7 @@ class UserManager implements UserManagerInterface
             $datas[] = [
                 'user_id'           => $auser['id'],
                 'score'             => $auser['score'],
-                'interests'         => $currentUser->getNameArrayOfCategories(),
+                'interests'         => $this->getCategoriesExactMatchByUser($user, $currentUser),
                 'user_info'         => $currentUser->getFullName(),
                 'edit_profile_link' => $this->router->generate('admin_ajax_edit', ['id' => $auser['id']]),
                 'about'             => $currentUser->getAbout(),
@@ -155,6 +164,30 @@ class UserManager implements UserManagerInterface
         $matches[]  =  ($currentUser->getFrom() && $user->getFrom() == $currentUser->getFrom()? '<span class="matches">'.$currentUser->getCountryName().'</span>': $currentUser->getCountryName());
         $matches[]  =  ($currentUser->getMunicipality()->getId() && $user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId()? '<span class="matches">'.$currentUser->getMunicipality()->getName().'</span>': $currentUser->getMunicipality()->getName());
         $matches[]  =  ($currentUser->hasChildren() && $user->hasChildren() == $currentUser->hasChildren()? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
+
+        return $matches;
+    }
+
+    /**
+     * @param User $user
+     * @param User $currentUser
+     * @return array
+     */
+    private function getCategoriesExactMatchByUser(User $user, User $currentUser)
+    {
+        $matches    = [];
+
+        foreach($currentUser->getCategoryNames() as $currentUserCategory) {
+            $found = false;
+            foreach($user->getCategoryNames() as $userCategory) {
+                if ($currentUserCategory === $userCategory) {
+                    $found = true;
+                    break;
+                }
+            }
+
+            $matches[]  = ($found? '<span class="matches">'.$currentUserCategory.'</span>': $currentUserCategory);
+        }
 
         return $matches;
     }
