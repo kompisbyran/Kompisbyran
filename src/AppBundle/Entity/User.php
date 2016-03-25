@@ -597,7 +597,7 @@ class User extends BaseUser
     /**
      * @return array
      */
-    public function getNameArrayOfCategories()
+    public function getCategoryNames()
     {
         $categories = [];
 
@@ -642,5 +642,27 @@ class User extends BaseUser
         }
 
         return '';
+    }
+
+    /**
+     * @return array
+     */
+    public function getCategoryIds()
+    {
+        $ids = [];
+
+        foreach ($this->categories as $category) {
+            $ids[] = $category->getId();
+        }
+
+        return $ids;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategoryNameString()
+    {
+        return implode(', ', $this->getCategoryNames());
     }
 }
