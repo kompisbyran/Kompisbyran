@@ -657,6 +657,9 @@ class User extends BaseUser
      */
     public function getCategoryNameString()
     {
-        return implode(', ', $this->getCategoryNames());
+        $categoryNames  = $this->getCategoryNames();
+        $lastCategory   = array_pop($categoryNames);
+
+        return implode(', ', $categoryNames) .' and '.$lastCategory;
     }
 }

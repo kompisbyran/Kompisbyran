@@ -72,6 +72,20 @@ class ConnectionRequest
      */
     protected $musicFriend = false;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $disqualified = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $disqualifiedComment;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -196,5 +210,77 @@ class ConnectionRequest
     public function getType()
     {
         return $this->wantToLearn? 'New': 'Established';
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return ConnectionRequest
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get musicFriend
+     *
+     * @return boolean
+     */
+    public function getMusicFriend()
+    {
+        return $this->musicFriend;
+    }
+
+    /**
+     * Set disqualified
+     *
+     * @param boolean $disqualified
+     *
+     * @return ConnectionRequest
+     */
+    public function setDisqualified($disqualified)
+    {
+        $this->disqualified = $disqualified;
+
+        return $this;
+    }
+
+    /**
+     * Get disqualified
+     *
+     * @return boolean
+     */
+    public function getDisqualified()
+    {
+        return $this->disqualified;
+    }
+
+    /**
+     * Set disqualifiedComment
+     *
+     * @param string $disqualifiedComment
+     *
+     * @return ConnectionRequest
+     */
+    public function setDisqualifiedComment($disqualifiedComment)
+    {
+        $this->disqualifiedComment = $disqualifiedComment;
+
+        return $this;
+    }
+
+    /**
+     * Get disqualifiedComment
+     *
+     * @return string
+     */
+    public function getDisqualifiedComment()
+    {
+        return $this->disqualifiedComment;
     }
 }

@@ -63,6 +63,7 @@ class UserRepository extends EntityRepository
             ->where($qb->expr()->neq('u.id'             , ':user'))
             ->andWhere($qb->expr()->neq('u.wantToLearn' , ':want_to_learn'))
             ->andWhere('c.id IN (:user_categories)')
+            ->andWhere('cr.disqualified = false')
             ->join('u.connectionRequests', 'cr')
             ->leftJoin('u.categories', 'c')
         ;
