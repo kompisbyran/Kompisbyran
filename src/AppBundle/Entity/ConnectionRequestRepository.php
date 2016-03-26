@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\User;
 use AppBundle\Entity\City;
+use AppBundle\Entity\ConnectionRequest;
 use Doctrine\ORM\NoResultException;
 
 /**
@@ -13,6 +14,15 @@ use Doctrine\ORM\NoResultException;
  */
 class ConnectionRequestRepository extends EntityRepository
 {
+    /**
+     * @param ConnectionRequest $connectionRequest
+     */
+    public function remove(ConnectionRequest $connectionRequest)
+    {
+        $this->getEntityManager()->remove($connectionRequest);
+        $this->getEntityManager()->flush();
+    }
+
     /**
      * @param City $city
      * @param bool $wantToLearn
@@ -84,11 +94,11 @@ class ConnectionRequestRepository extends EntityRepository
             ->createQueryBuilder('cr')
             ->where('cr.wantToLearn     = :wantToLearn')
             ->andWhere('cr.city         = :city')
-            ->andWhere('cr.musicFriend  = :musicFriend')
+            //->andWhere('cr.musicFriend  = :musicFriend')
             ->setParameters([
                 'city'          => $city,
                 'wantToLearn'   => $wantToLearn,
-                'musicFriend'   => $musicFriend,
+                //'musicFriend'   => $musicFriend,
             ])
             ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')
@@ -146,7 +156,7 @@ class ConnectionRequestRepository extends EntityRepository
         ;
 
         try{
-            return $qb->getSingleScalarResult();
+            return $qb->getQuery()->getSingleScalarResult();
         }
         catch(NoResultException $e) {
             return 0;

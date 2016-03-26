@@ -107,14 +107,8 @@
             <div class="row" style="margin-top: 40px;">
                 <h1>1. Choose a person to find a match for</h1>
                 <p>The people that have been waiting longest are displayed on top. "Match"-percentage tells you how good of a match the system could find.</p>
-                <table id="example" class="table table-bordered" cellspacing="0" width="100%">
+                <table id="match-users" class="table table-bordered" cellspacing="0" width="100%">
                     <thead>
-                    {#<tr>
-                        <th data-sort="createdAt" class="sortable-row"><span class="fa fa-angle-down"></span>{{ 'Date for request'|trans }}</th>
-                        <th data-sort="firstName" class="sortable-row"><span class="fa fa-angle-down"></span> {{ 'Name'|trans }}</th>
-                        <th data-sort="wantToLearn" class="sortable-row"><span class="fa fa-angle-down"></span> {{ 'Category'|trans }}</th>
-                        <th>{{ 'Action'|trans }}</th>
-                    </tr>#}
                     <tr>
                         <th id="request_date">{{ 'Date for request'|trans }}</th>
                         <th id="name">{{ 'Name'|trans }}</th>
@@ -140,18 +134,18 @@
 
     <script>
         $(document).ajaxStart(function(){
-            $('#example').block({
+            $('#match-users').block({
                 message: '<strong>Loading...</strong>'
             });
         });
 
         $(document).ajaxStop(function(){
-            $('#example').unblock();
+            $('#match-users').unblock();
         });
 
         $(document).ready(function() {
 
-            var table = $('#example').DataTable({
+            var table = $('#match-users').DataTable({
                 "paging": false,
                 "bInfo": false,
                 //"bFilter": false,
@@ -185,6 +179,8 @@
                 $.get(Routing.generate('ajax_by_city', {id: id, page: page}), function (resp) {
 
                     if (resp.success) {
+                        $('.learners-num').html(resp.newUsers+' new');
+                        $('.established-num').html(resp.establishedUsers+' established');
                         if (resp.next) {
                             $('.show-more-btn').data('next-page', resp.next);
                             $('.show-more-btn').removeClass('disabled');

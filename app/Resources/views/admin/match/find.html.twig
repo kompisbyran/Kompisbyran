@@ -189,21 +189,24 @@
             </div>
 
             <div class="row">
-                <form id="requests-email">
+                <form id="requests-email" method="post" action="{{ path('admin_match_approve') }}">
                     <div class="col-md-6">
                         <h4>{{ 'Email to '|trans }} {{ user.fullName }}</h4>
-                        <textarea class="form-control" rows="12">Hello!&#13;&#10;&#13;&#10;One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.&#13;&#10;&#13;&#10;He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.&#13;&#10;&#13;&#10;The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human</textarea>
+                        {{ form_widget(matchForm.email_to_user) }}
+                        {#<textarea class="form-control" rows="12">{{ 'match.email.user'|trans }}</textarea>#}
                     </div>
                     <div class="col-md-6">
                         <h4>{{ 'Email to match'|trans }}</h4>
-                        <textarea class="form-control" rows="12">Hello!&#13;&#10;&#13;&#10;One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.&#13;&#10;&#13;&#10;He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.&#13;&#10;&#13;&#10;The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human</textarea>
+                        {{ form_widget(matchForm.email_to_match_user) }}
+                        {#<textarea class="form-control" rows="12">{{ 'match.email.match.user'|trans }}</textarea>#}
                     </div>
+                    {{ form_rest(matchForm) }}
                 </form>
             </div>
             <div class="row" style="margin-top: 20px;">
                 <h2>{{ '2.5 Approve the match'|trans }}</h2>
                 <p>{{ 'Does the match feel good? Then it\'s time to approve it and send out emails.'|trans }}</p>
-                <a class="btn btn-large btn-orange">{{ 'Approve & send emails'|trans }}</a>
+                <a href="#" class="btn btn-large btn-orange disabled" id="btn-approve-send-emails">{{ 'Approve & send emails'|trans }}</a>
             </div>
         </div>
     </div>
@@ -234,7 +237,7 @@
             </div>
             <div class="col-md-2 choice">
                 <p><strong>Choose candidate</strong></p>
-                <input type="radio" name="id" data-value="user_id" />
+                <input type="radio" name="id" class="matched-users" data-value="user_id" />
             </div>
         </div>
     </script>
@@ -273,6 +276,7 @@
 
                 $(".match-results-container").empty();
                 $('.btn-show-more').addClass('disabled', 'disabled');
+                $('#btn-approve-send-emails').addClass('disabled', 'disabled');
 
                 showMoreResults($(this).data('current-user'), $(this).closest('form').serialize(), 1);
             });
@@ -316,6 +320,16 @@
                         }
                     }
                 });
+            });
+
+            $('.match-results-container').on('click', '.matched-users', function(){
+                $('#match_match_user_id').val($(this).val());
+                $('#btn-approve-send-emails').removeClass('disabled');
+            });
+
+            $('#btn-approve-send-emails').click(function(e){
+                e.preventDefault();
+                $('#requests-email').submit();
             });
 
             var showMoreResults = function(id, data, page)
