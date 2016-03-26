@@ -160,7 +160,7 @@ class UserManager implements UserManagerInterface
     private function getExactMatchByUser(User $user, User $currentUser)
     {
         $matches    = [];
-        $matches[]  =  ($currentUser->getAge() && $user->getAge() == $currentUser->getAge()? '<span class="matches">'.$currentUser->getAge().'</span>': $currentUser->getAge()) .' '. $this->translator->trans('years');
+        $matches[]  =  ($currentUser->getAge() && ($currentUser->getAge()-$user->getAge()) < 5? '<span class="matches">'.$currentUser->getAge().' '.$this->translator->trans('years').'</span>': $currentUser->getAge().' '.$this->translator->trans('years'));
         $matches[]  =  ($currentUser->getFrom() && $user->getFrom() == $currentUser->getFrom()? '<span class="matches">'.$currentUser->getCountryName().'</span>': $currentUser->getCountryName());
         $matches[]  =  ($currentUser->getMunicipality()->getId() && $user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId()? '<span class="matches">'.$currentUser->getMunicipality()->getName().'</span>': $currentUser->getMunicipality()->getName());
         $matches[]  =  ($currentUser->hasChildren() && $user->hasChildren() == $currentUser->hasChildren()? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
@@ -189,6 +189,13 @@ class UserManager implements UserManagerInterface
             $matches[]  = ($found? '<span class="matches">'.$currentUserCategory.'</span>': $currentUserCategory);
         }
 
-        return $matches;
+        if (count($matches) > 1) {
+            $lastMatch          = array_pop($matches);
+            $categoryMatches    = implode(', ', $matches) .' and '.$lastMatch;
+        } else {
+            $categoryMatches    = implode(', ', $matches);
+        }
+
+        return $categoryMatches;
     }
 }

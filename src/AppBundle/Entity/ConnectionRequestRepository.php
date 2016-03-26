@@ -16,6 +16,18 @@ class ConnectionRequestRepository extends EntityRepository
 {
     /**
      * @param ConnectionRequest $connectionRequest
+     * @return ConnectionRequest
+     */
+    public function save(ConnectionRequest $connectionRequest)
+    {
+        $this->getEntityManager()->persist($connectionRequest);
+        $this->getEntityManager()->flush();
+
+        return $connectionRequest;
+    }
+
+    /**
+     * @param ConnectionRequest $connectionRequest
      */
     public function remove(ConnectionRequest $connectionRequest)
     {
@@ -55,7 +67,7 @@ class ConnectionRequestRepository extends EntityRepository
      */
     public function findOneByUser(User $user)
     {
-        return $this->findOneBy(array('user' => $user));
+        return $this->findOneBy(array('user' => $user, 'disqualified' => false));
     }
 
     /**
@@ -76,6 +88,7 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('cr')
+            ->where('cr.disqualified     = false')
             ->orderBy('cr.createdAt', 'DESC')
             ->getQuery()
             ->getResult()
@@ -92,8 +105,9 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('cr')
-            ->where('cr.wantToLearn     = :wantToLearn')
-            ->andWhere('cr.city         = :city')
+            ->where('cr.wantToLearn         = :wantToLearn')
+            ->andWhere('cr.city             = :city')
+            ->andWhere('cr.disqualified     = false')
             //->andWhere('cr.musicFriend  = :musicFriend')
             ->setParameters([
                 'city'          => $city,
@@ -152,6 +166,7 @@ class ConnectionRequestRepository extends EntityRepository
         $qb
             ->select('COUNT(cr.id)')
             ->where('cr.user = :user')
+            ->andWhere('cr.disqualified = false')
             ->setParameter('user', $user)
         ;
 
@@ -185,6 +200,7 @@ class ConnectionRequestRepository extends EntityRepository
         return $this
             ->createQueryBuilder('cr')
             ->where('cr.city        = :city')
+            ->andWhere('cr.disqualified = false')
             ->setParameter('city'   , $city)
         ;
     }

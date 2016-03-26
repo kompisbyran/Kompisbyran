@@ -65,7 +65,12 @@ class MatchController extends Controller
      */
     public function findAction(Request $request)
     {
-        $user       = $this->userManager->getFind($request->get('id'));
+        $user = $this->userManager->getFind($request->get('id'));
+
+        if (!$user instanceof User || !$this->connectionRequestManager->getFindOneByUser($user) instanceof ConnectionRequest) {
+            throw $this->createNotFoundException();
+        }
+
         $form       = $this->formFactory->create('match_filter', null, [
             'music_friend' => $user->isMusicFriend()
         ]);
