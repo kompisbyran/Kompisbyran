@@ -18,11 +18,14 @@ class ConnectionRepository extends EntityRepository
         $query = "
             SELECT c.created_at
             FROM connection c
-            WHERE YEAR(c.created_at) = :year
-            AND c.city_id = :city";
+            WHERE YEAR(c.created_at) = :year";
 
-        $params['city'] = $city;
         $params['year'] = $year;
+
+        if ($city !== "") {
+            $query .= " AND c.city_id = :city";
+            $params['city'] = $city;
+        }
 
         if ($type !== "") {
             $query .= " AND c.music_friend = :type";
