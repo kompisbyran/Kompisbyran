@@ -12,6 +12,8 @@ use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\ArrayAdapter;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
+use AppBundle\Manager\CategoryManager;
 
 /**
  * @Service("user_manager")
@@ -24,34 +26,48 @@ class UserManager implements UserManagerInterface
     private $userRepository;
 
     /**
-     * @var \Knp\Component\Pager\Paginator
+     * @var CategoryManager
+     */
+    private $categoryManager;
+
+    /**
+     * @var Paginator
      */
     private $paginator;
 
     /**
-     * @var Symfony\Component\Routing\RouterInterface
+     * @var RouterInterface
      */
     private $router;
 
     /**
-     * @var Symfony\Component\Translation\TranslatorInterface
+     * @var TranslatorInterface
      */
     private $translator;
+
+    /**
+     * @var RequestStack
+     */
+    private $requestStack;
 
     /**
      * @InjectParams({
      *     "paginator" = @Inject("knp_paginator"),
      *     "router" = @Inject("router"),
-     *     "translator" = @Inject("translator")
+     *     "translator" = @Inject("translator"),
+     *     "requestStack" = @Inject("request_stack")
      * })
      * @param UserRepository $userRepository
+     * @param CategoryManager $categoryManager
      */
-    public function __construct(UserRepository $userRepository, Paginator $paginator, RouterInterface $router, TranslatorInterface $translator)
+    public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, Paginator $paginator, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
     {
         $this->userRepository   = $userRepository;
+        $this->categoryManager  = $categoryManager;
         $this->paginator        = $paginator;
         $this->router           = $router;
         $this->translator       = $translator;
+        $this->requestStack     = $requestStack;
     }
 
     /**
@@ -134,10 +150,8 @@ class UserManager implements UserManagerInterface
         $users  = $pagerfanta->getCurrentPageResults();
 
         foreach ($users as $auser) {
-            $matches        = [];
             $currentUser    = $this->getFind($auser['id']);
-
-            $datas[] = [
+            $datas[]        = [
                 'user_id'           => $auser['id'],
                 'score'             => $auser['score'],
                 'interests'         => $this->getCategoriesExactMatchByUser($user, $currentUser),
@@ -171,31 +185,31 @@ class UserManager implements UserManagerInterface
     /**
      * @param User $user
      * @param User $currentUser
-     * @return array
+     * @return string
      */
     private function getCategoriesExactMatchByUser(User $user, User $currentUser)
     {
-        $matches    = [];
+        $categories             = [];
+        $locale                 = $this->requestStack->getCurrentRequest()->getLocale();
+        $currentUserCategories  = $this->categoryManager->getFindByIdsAndLocale(array_keys($currentUser->getCategoryNames()), $locale);
+        $userCategories         = $user->getCategoryNames();
 
-        foreach($currentUser->getCategoryNames() as $currentUserCategory) {
-            $found = false;
-            foreach($user->getCategoryNames() as $userCategory) {
-                if ($currentUserCategory === $userCategory) {
-                    $found = true;
-                    break;
-                }
+        foreach($currentUserCategories as $currentUserCategory) {
+
+            if (isset($userCategories[$currentUserCategory->getId()])) {
+                $categories[]   = '<span class="matches">'.$currentUserCategory->getName().'</span>';
+            } else {
+                $categories[]   = $currentUserCategory->getName();
             }
-
-            $matches[]  = ($found? '<span class="matches">'.$currentUserCategory.'</span>': $currentUserCategory);
         }
 
-        if (count($matches) > 1) {
-            $lastMatch          = array_pop($matches);
-            $categoryMatches    = implode(', ', $matches) .' and '.$lastMatch;
+        if (count($categories) > 1) {
+            $lastCategory   = array_pop($categories);
+            $categories     = implode(', ', $categories) .' and '.$lastCategory;
         } else {
-            $categoryMatches    = implode(', ', $matches);
+            $categories     = implode(', ', $categories);
         }
 
-        return $categoryMatches;
+        return $categories;
     }
 }

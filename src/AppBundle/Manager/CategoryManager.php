@@ -25,34 +25,61 @@ class CategoryManager implements CategoryInterface
     private $paginator;
 
     /**
+     * @InjectParams({
+     *      "paginator" = @Inject("knp_paginator")
+     * })
      * @param CategoryRepository $categoryRepository
      */
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(CategoryRepository $categoryRepository, Paginator $paginator)
     {
-        $this->categoryRepository = $categoryRepository;
+        $this->categoryRepository   = $categoryRepository;
+        $this->paginator            = $paginator;
     }
 
     /**
+     * @param string $locale
      * @return array
      */
-    public function getFindAllMusic()
+    public function getFindAllMusicByLocale($locale)
     {
-        return $this->categoryRepository->findAllMusic();
+        return $this->categoryRepository->findAllMusicByLocale($locale);
     }
 
     /**
+     * @param $locale
      * @return array
      */
-    public function getFindAllGeneral()
+    public function getFindAllGeneralByLocale($locale)
     {
-        return $this->categoryRepository->findAllGeneral();
+        return $this->categoryRepository->findAllGeneralByLocale($locale);
     }
 
     /**
-     * @return \Doctrine\ORM\QueryBuilder
+     * @param $locale
+     * @return array
      */
-    public function getFindAllQueryBuilder()
+    public function getFindAllByLocale($locale)
     {
-        return $this->categoryRepository->findAllQueryBuilder();
+        return $this->categoryRepository->findAllByLocale($locale);
+    }
+
+    /**
+     * @param $id
+     * @param $locale
+     * @return mixed
+     */
+    public function getFindOneByIdAndLocale($id, $locale)
+    {
+        return $this->categoryRepository->findOneByIdAndLocale($id, $locale);
+    }
+
+    /**
+     * @param array $ids
+     * @param $locale
+     * @return array
+     */
+    public function getFindByIdsAndLocale(array $ids, $locale)
+    {
+        return $this->categoryRepository->findByIdsAndLocale($ids, $locale);
     }
 }

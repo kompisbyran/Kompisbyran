@@ -602,8 +602,14 @@ class User extends BaseUser
         $categories = [];
 
         foreach($this->getCategories() as $category) {
-            $categories[] = $category->getName();
+            $categories[$category->getId()] = $category->getName();
         }
+
+        foreach($this->getMusicCategories() as $category) {
+            $categories[$category->getId()] = $category->getName();
+        }
+
+        asort($categories);
 
         return $categories;
     }
@@ -663,7 +669,7 @@ class User extends BaseUser
      */
     public function getCategoryNameString()
     {
-        $categoryNames  = $this->getCategoryNames();
+        $categoryNames  = array_values($this->getCategoryNames());
         $lastCategory   = array_pop($categoryNames);
 
         return implode(', ', $categoryNames) .' and '.$lastCategory;
