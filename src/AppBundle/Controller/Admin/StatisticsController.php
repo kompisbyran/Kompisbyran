@@ -33,7 +33,7 @@ class StatisticsController extends Controller
     {
         $cities = $this->getCityRepository()->findAll();
 
-        $city = $request->query->get("city", $cities[0]->getId());
+        $city = $request->query->get("city", "");
         $year = $request->query->get("year", date("Y"));
         $type = $request->query->get("type", "");
 

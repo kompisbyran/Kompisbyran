@@ -9,6 +9,7 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <select class="form-control" name="city">
+                                <option value="">Alla städer</option>
                                 {% for city in cities %}
                                     <option value="{{ city.id }}" {{ city.id == params.city ? ' selected ' : '' }}>{{ city.name }}</option>
                                 {% endfor %}
