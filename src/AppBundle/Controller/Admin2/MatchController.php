@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller\Admin2;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -19,7 +19,7 @@ use AppBundle\Entity\User;
 use AppBundle\Entity\ConnectionRequest;
 
 /**
- * @Route("admin/matches")
+ * @Route("admin2/matches")
  */
 class MatchController extends Controller
 {
@@ -79,7 +79,7 @@ class MatchController extends Controller
             'user' => $user
         ]);
 
-        return $this->render('admin/match/find.html.twig', [
+        return $this->render('admin2/match/find.html.twig', [
             'user'      => $user,
             'form'      => $form->createView(),
             'matchForm' => $matchForm->createView()
@@ -136,9 +136,9 @@ class MatchController extends Controller
                 }
             }
 
-            return $this->redirect($this->generateUrl('admin_start'));
+            return $this->redirect($this->generateUrl('admin_start2'));
         }
 
-        return $this->createNotFoundException();
+        throw $this->createNotFoundException();
     }
 }
