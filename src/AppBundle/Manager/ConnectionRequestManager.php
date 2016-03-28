@@ -49,6 +49,14 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
+     * @param ConnectionRequest $connectionRequest
+     */
+    public function remove(ConnectionRequest $connectionRequest)
+    {
+        $this->connectionRequestRepository->remove($connectionRequest);
+    }
+
+    /**
      * @param City $city
      * @return array
      */
@@ -124,9 +132,11 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
         $pagerfanta->setCurrentPage($page);
 
         return [
-            'success'   => true,
-            'results'   => $this->getCityResultsdByPagination($pagerfanta),
-            'next'      => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
+            'success'           => true,
+            'newUsers'          => count($this->getFindNewWithinCity($city)),
+            'establishedUsers'  => count($this->getFindEstablishedWithinCity($city)),
+            'results'           => $this->getCityResultsdByPagination($pagerfanta),
+            'next'              => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
         ];
     }
 

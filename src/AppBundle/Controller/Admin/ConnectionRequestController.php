@@ -106,24 +106,4 @@ class ConnectionRequestController extends Controller
 
         return new Response();
     }
-
-    /**
-     * @Route("/ajax-by-city/{id}", name="ajax_by_city", options={"expose"=true})
-     * @Method({"GET"})
-     */
-    public function ajaxByCityAction(Request $request)
-    {
-        $city   = $this->cityManager->getFind($request->get('id'));
-
-        if ($city instanceof City) {
-            $results = $this->connectionRequestManager->getFindPaginatedByCityResults($city, $request->get('page', 1));
-        } else {
-            $results = [
-                'success'   => false,
-                'message'   => 'City not found!'
-            ];
-        }
-
-        return new JsonResponse($results);
-    }
 }

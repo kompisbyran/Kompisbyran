@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\User;
 use AppBundle\Entity\City;
+use AppBundle\Entity\ConnectionRequest;
 use Doctrine\ORM\NoResultException;
 
 /**
@@ -13,6 +14,27 @@ use Doctrine\ORM\NoResultException;
  */
 class ConnectionRequestRepository extends EntityRepository
 {
+    /**
+     * @param ConnectionRequest $connectionRequest
+     * @return ConnectionRequest
+     */
+    public function save(ConnectionRequest $connectionRequest)
+    {
+        $this->getEntityManager()->persist($connectionRequest);
+        $this->getEntityManager()->flush();
+
+        return $connectionRequest;
+    }
+
+    /**
+     * @param ConnectionRequest $connectionRequest
+     */
+    public function remove(ConnectionRequest $connectionRequest)
+    {
+        $this->getEntityManager()->remove($connectionRequest);
+        $this->getEntityManager()->flush();
+    }
+
     /**
      * @param City $city
      * @param bool $wantToLearn
@@ -45,7 +67,7 @@ class ConnectionRequestRepository extends EntityRepository
      */
     public function findOneByUser(User $user)
     {
-        return $this->findOneBy(array('user' => $user));
+        return $this->findOneBy(array('user' => $user, 'disqualified' => false));
     }
 
     /**
@@ -66,6 +88,7 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('cr')
+            ->where('cr.disqualified     = false')
             ->orderBy('cr.createdAt', 'DESC')
             ->getQuery()
             ->getResult()
@@ -82,13 +105,14 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('cr')
-            ->where('cr.wantToLearn     = :wantToLearn')
-            ->andWhere('cr.city         = :city')
-            ->andWhere('cr.musicFriend  = :musicFriend')
+            ->where('cr.wantToLearn         = :wantToLearn')
+            ->andWhere('cr.city             = :city')
+            ->andWhere('cr.disqualified     = false')
+            //->andWhere('cr.musicFriend  = :musicFriend')
             ->setParameters([
                 'city'          => $city,
                 'wantToLearn'   => $wantToLearn,
-                'musicFriend'   => $musicFriend,
+                //'musicFriend'   => $musicFriend,
             ])
             ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')
@@ -142,11 +166,12 @@ class ConnectionRequestRepository extends EntityRepository
         $qb
             ->select('COUNT(cr.id)')
             ->where('cr.user = :user')
+            ->andWhere('cr.disqualified = false')
             ->setParameter('user', $user)
         ;
 
         try{
-            return $qb->getSingleScalarResult();
+            return $qb->getQuery()->getSingleScalarResult();
         }
         catch(NoResultException $e) {
             return 0;
@@ -175,6 +200,7 @@ class ConnectionRequestRepository extends EntityRepository
         return $this
             ->createQueryBuilder('cr')
             ->where('cr.city        = :city')
+            ->andWhere('cr.disqualified = false')
             ->setParameter('city'   , $city)
         ;
     }

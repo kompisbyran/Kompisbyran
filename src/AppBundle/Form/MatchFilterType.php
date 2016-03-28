@@ -4,17 +4,43 @@ namespace AppBundle\Form;
 
 use JMS\DiExtraBundle\Annotation\FormType;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\AbstractType;
 use AppBundle\Enum\Countries;
-USE AppBundle\Entity\User;
+use AppBundle\Entity\User;
+use AppBundle\Manager\CategoryManager;
+use JMS\DiExtraBundle\Annotation\Inject;
+use JMS\DiExtraBundle\Annotation\InjectParams;
 
 /**
  * @FormType
  */
 class MatchFilterType extends AbstractType
 {
+    /**
+     * @var CategoryManager
+     */
+    private $categoryManager;
+
+    /**
+     * @var RequestStack
+     */
+    private $requestStack;
+
+    /**
+     * @InjectParams({
+     *     "categoryManager" = @Inject("category_manager"),
+     *     "requestStack" = @Inject("request_stack")
+     * })
+     */
+    public function __construct(CategoryManager $categoryManager, RequestStack $requestStack)
+    {
+        $this->categoryManager  = $categoryManager;
+        $this->requestStack     = $requestStack;
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -30,9 +56,7 @@ class MatchFilterType extends AbstractType
                 'label'         => 'filter.form.interests',
                 'empty_data'    => '',
                 'empty_value'   => 'All',
-                'query_builder' => function(EntityRepository $er) {
-                    return $er->findAllQueryBuilder();
-                }
+                'choices'       => $this->categoryManager->getFindAllByLocale($this->requestStack->getCurrentRequest()->getLocale())
             ])
             ->add('ageFrom', 'choice', [
                 'label'         => 'filter.form.age_from',

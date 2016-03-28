@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\NonUniqueResultException;
 
 /**
  * Class CategoryRepository
@@ -11,9 +13,10 @@ use Doctrine\ORM\EntityRepository;
 class CategoryRepository extends EntityRepository
 {
     /**
+     * @param $locale
      * @return array
      */
-    public function findAllMusic()
+    public function findAllMusicByLocale($locale)
     {
         $qb = $this->createQueryBuilder('c');
         $qb
@@ -21,13 +24,18 @@ class CategoryRepository extends EntityRepository
             ->orderBy('c.name', 'ASC')
         ;
 
-        return $qb->getQuery()->getResult();
+        $query = $qb->getQuery();
+
+        $this->setTranslationWalker($query, $locale);
+
+        return $query->getResult();
     }
 
     /**
+     * @param $locale
      * @return array
      */
-    public function findAllGeneral()
+    public function findAllGeneralByLocale($locale)
     {
         $qb = $this->createQueryBuilder('c');
         $qb
@@ -35,17 +43,84 @@ class CategoryRepository extends EntityRepository
             ->orderBy('c.name', 'ASC')
         ;
 
-        return $qb->getQuery()->getResult();
+        $query = $qb->getQuery();
+
+        $this->setTranslationWalker($query, $locale);
+
+        return $query->getResult();
     }
 
     /**
-     * @return \Doctrine\ORM\QueryBuilder
+     * @param $locale
+     * @return array
      */
-    public function findAllQueryBuilder()
+    public function findAllByLocale($locale)
     {
         $qb = $this->createQueryBuilder('c');
         $qb->orderBy('c.name', 'ASC');
 
-        return $qb;
+        $query = $qb->getQuery();
+
+        $this->setTranslationWalker($query, $locale);
+
+        return $query->getResult();
+    }
+
+    /**
+     * @param $id
+     * @param $locale
+     * @return mixed|null
+     */
+    public function findOneByIdAndLocale($id, $locale)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb
+            ->where('c.id = :id')
+            ->setParameter('id', $id)
+        ;
+
+        $query = $qb->getQuery();
+
+        $this->setTranslationWalker($query, $locale);
+
+        try {
+            return $query->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
+    /**
+     * @param array $ids
+     * @param $locale
+     * @return array
+     */
+    public function findByIdsAndLocale(array $ids, $locale)
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb
+            ->where('c.id IN (:ids)')
+            ->orderBy('c.name')
+            ->setParameter('ids', $ids)
+        ;
+
+        $query = $qb->getQuery();
+
+        $this->setTranslationWalker($query, $locale);
+
+        return $query->getResult();
+    }
+
+    /**
+     * @param Query $query
+     * @param $locale
+     */
+    public function setTranslationWalker(Query $query, $locale)
+    {
+        $query->setHint(
+            \Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER,
+            'Gedmo\\Translatable\\Query\\TreeWalker\\TranslationWalker'
+        );
+        $query->setHint(\Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE, $locale);
     }
 }
