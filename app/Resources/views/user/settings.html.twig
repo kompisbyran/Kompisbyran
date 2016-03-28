@@ -54,8 +54,9 @@
 
                         <div class="form-group">
                             {{ form_label(form.musicFriend) }}
-                            <div class="col-sm-4 col-md-offset-4">
+                            <div class="col-sm-4">
                                 {{ form_widget(form.musicFriend) }}
+                                {{ form_errors(form.musicFriend) }}
                             </div>
                         </div>
 

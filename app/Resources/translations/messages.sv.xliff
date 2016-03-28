@@ -2,6 +2,14 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="error">
+                <source>error</source>
+                <target>Hoppsan nu vart det fel!</target>
+            </trans-unit>
+            <trans-unit id="error.active_request">
+                <source>error.active_request</source>
+                <target>Du har redan en pågående fikamatchning</target>
+            </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
                 <target>Ja</target>
@@ -223,11 +231,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Jag vill träffa en svensk som har bott i Sverige länge</target>
+                <target>Vill träffa en svensk som har bott i Sverige länge</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Jag pratar flytande svenska och är etablerad i Sverige</target>
+                <target>Pratar flytande svenska och är etablerad i Sverige</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -282,9 +290,17 @@
                 <source>user.form.has_children</source>
                 <target>Jag har barn:</target>
             </trans-unit>
-            <trans-unit id="user.form.musicfriend">
-                <source>user.form.musicfriend</source>
-                <target>Jag vill bli Musikkompis</target>
+            <trans-unit id="user.form.fikatype">
+                <source>user.form.fikatype</source>
+                <target>Jag vill bli:</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.fikafriend">
+                <source>user.form.fikatype.fikafriend</source>
+                <target>Fikakompis</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.musicfriend">
+                <source>user.form.fikatype.musicfriend</source>
+                <target>Musikkompis</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>

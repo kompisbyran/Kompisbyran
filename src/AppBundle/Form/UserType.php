@@ -101,9 +101,15 @@ class UserType extends AbstractType
                 }
             ])
             ->add('profilePicture', 'hidden')
-            ->add('musicFriend', 'checkbox', [
-                'required' => false,
-                'label' => 'user.form.musicfriend',
+            ->add('musicFriend', 'boolean_choice', [
+                'expanded' => true,
+                'label' => 'user.form.fikatype',
+                'choices' => [
+                    'user.form.fikatype.fikafriend'  => '0',
+                    'user.form.fikatype.musicfriend'  => '1'
+                ],
+                'choices_as_values' => true,
+                'data'              => (!$user->hasRole('ROLE_COMPLETE_USER')? null: $user->isMusicFriend())
             ])
             ->add('municipality', 'entity', [
                     'class' => 'AppBundle:Municipality',

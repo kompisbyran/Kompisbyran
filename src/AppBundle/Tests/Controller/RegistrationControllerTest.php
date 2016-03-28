@@ -73,6 +73,7 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[about]'           => 'About me',
             'user[municipality]'    => $this->getMunicipalityRepository()->findAll()[0]->getId(),
             'user[wantToLearn]'     => 0,
+            'user[musicFriend]'     => 0,
             'user[from]'            => 'SE',
             'user[city]'            => $this->getCityRepository()->findAll()[0]->getId(),
         ]);
