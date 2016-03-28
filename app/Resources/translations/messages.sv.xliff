@@ -2,6 +2,14 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="error">
+                <source>error</source>
+                <target>Hoppsan nu vart det fel!</target>
+            </trans-unit>
+            <trans-unit id="error.active_request">
+                <source>error.active_request</source>
+                <target>Du har redan en pågående fikamatchning</target>
+            </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
                 <target>Ja</target>
