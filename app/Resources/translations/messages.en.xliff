@@ -298,8 +298,16 @@
                 <source>user.form.has_children</source>
                 <target>I have children:</target>
             </trans-unit>
-            <trans-unit id="user.form.musicfriend">
-                <source>user.form.musicfriend</source>
+            <trans-unit id="user.form.fikatype">
+                <source>user.form.fikatype</source>
+                <target>Type of fika:</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.fikafriend">
+                <source>user.form.fikatype.fikafriend</source>
+                <target>Fika friend</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.musicfriend">
+                <source>user.form.fikatype.musicfriend</source>
                 <target>Music friend</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">

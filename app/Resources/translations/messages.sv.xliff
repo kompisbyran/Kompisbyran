@@ -282,8 +282,16 @@
                 <source>user.form.has_children</source>
                 <target>Jag har barn:</target>
             </trans-unit>
-            <trans-unit id="user.form.musicfriend">
-                <source>user.form.musicfriend</source>
+            <trans-unit id="user.form.fikatype">
+                <source>user.form.fikatype</source>
+                <target>Typ av fika:</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.fikafriend">
+                <source>user.form.fikatype.fikafriend</source>
+                <target>Jag vill bli Fikakompis</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.musicfriend">
+                <source>user.form.fikatype.musicfriend</source>
                 <target>Jag vill bli Musikkompis</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
