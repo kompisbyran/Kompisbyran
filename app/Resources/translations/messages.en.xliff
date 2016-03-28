@@ -247,11 +247,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>I want to meet a Swede who has lived in Sweden for a long time</target>
+                <target>Want to meet a Swede who has lived in Sweden for a long time</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>I speak Swedish fluently and am established in Sweden</target>
+                <target>Speak Swedish fluently and am established in Sweden</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -308,7 +308,7 @@
             </trans-unit>
             <trans-unit id="user.form.fikatype">
                 <source>user.form.fikatype</source>
-                <target>Type of fika:</target>
+                <target>I want to be:</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.fikafriend">
                 <source>user.form.fikatype.fikafriend</source>

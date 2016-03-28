@@ -231,11 +231,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Jag vill träffa en svensk som har bott i Sverige länge</target>
+                <target>Vill träffa en svensk som har bott i Sverige länge</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Jag pratar flytande svenska och är etablerad i Sverige</target>
+                <target>Pratar flytande svenska och är etablerad i Sverige</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -292,15 +292,15 @@
             </trans-unit>
             <trans-unit id="user.form.fikatype">
                 <source>user.form.fikatype</source>
-                <target>Typ av fika:</target>
+                <target>Jag vill bli:</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.fikafriend">
                 <source>user.form.fikatype.fikafriend</source>
-                <target>Jag vill bli Fikakompis</target>
+                <target>Fikakompis</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.musicfriend">
                 <source>user.form.fikatype.musicfriend</source>
-                <target>Jag vill bli Musikkompis</target>
+                <target>Musikkompis</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
