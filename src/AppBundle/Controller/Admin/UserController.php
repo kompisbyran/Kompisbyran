@@ -7,6 +7,7 @@ use AppBundle\Form\AdminUserType;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -85,21 +86,6 @@ class UserController extends Controller
         ];
 
         return $this->render('admin/user/view.html.twig', $parameters);
-    }
-
-    /**
-     * @Route("/edit/{id}", name="admin_ajax_edit", options={"expose"=true})
-     */
-    public function ajaxEditAction(Request $request, User $user)
-    {
-        $form   = $this->formFactory->create('admin_user', $user, [
-            'manager'   => $this->getDoctrine()->getManager(),
-            'locale'    => $request->getLocale()
-        ]);
-
-        return $this->render('admin/user/form.html.twig', [
-            'form' => $form->createView()
-        ]);
     }
 
     protected function getUserRepository()

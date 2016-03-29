@@ -191,6 +191,17 @@ class Connection
     }
 
     /**
+     * @param User $user
+     * @return $this
+     */
+    public function setCreatedBy(User $user)
+    {
+        $this->createdBy = $user;
+
+        return $this;
+    }
+
+    /**
      * @return User
      */
     public function getCreatedBy()

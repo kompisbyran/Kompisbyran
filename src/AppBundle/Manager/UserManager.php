@@ -12,6 +12,8 @@ use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\ArrayAdapter;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
+use AppBundle\Manager\CategoryManager;
 
 /**
  * @Service("user_manager")
@@ -24,34 +26,48 @@ class UserManager implements UserManagerInterface
     private $userRepository;
 
     /**
-     * @var \Knp\Component\Pager\Paginator
+     * @var CategoryManager
+     */
+    private $categoryManager;
+
+    /**
+     * @var Paginator
      */
     private $paginator;
 
     /**
-     * @var Symfony\Component\Routing\RouterInterface
+     * @var RouterInterface
      */
     private $router;
 
     /**
-     * @var Symfony\Component\Translation\TranslatorInterface
+     * @var TranslatorInterface
      */
     private $translator;
+
+    /**
+     * @var RequestStack
+     */
+    private $requestStack;
 
     /**
      * @InjectParams({
      *     "paginator" = @Inject("knp_paginator"),
      *     "router" = @Inject("router"),
-     *     "translator" = @Inject("translator")
+     *     "translator" = @Inject("translator"),
+     *     "requestStack" = @Inject("request_stack")
      * })
      * @param UserRepository $userRepository
+     * @param CategoryManager $categoryManager
      */
-    public function __construct(UserRepository $userRepository, Paginator $paginator, RouterInterface $router, TranslatorInterface $translator)
+    public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, Paginator $paginator, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
     {
         $this->userRepository   = $userRepository;
+        $this->categoryManager  = $categoryManager;
         $this->paginator        = $paginator;
         $this->router           = $router;
         $this->translator       = $translator;
+        $this->requestStack     = $requestStack;
     }
 
     /**
@@ -60,6 +76,15 @@ class UserManager implements UserManagerInterface
     public function createNew()
     {
         return new User();
+    }
+
+    /**
+     * @param User $user
+     * @return mixed
+     */
+    public function save(User $user)
+    {
+        return $this->userRepository->save($user);
     }
 
     /**
@@ -125,13 +150,11 @@ class UserManager implements UserManagerInterface
         $users  = $pagerfanta->getCurrentPageResults();
 
         foreach ($users as $auser) {
-            $matches        = [];
             $currentUser    = $this->getFind($auser['id']);
-
-            $datas[] = [
+            $datas[]        = [
                 'user_id'           => $auser['id'],
                 'score'             => $auser['score'],
-                'interests'         => $currentUser->getNameArrayOfCategories(),
+                'interests'         => $this->getCategoriesExactMatchByUser($user, $currentUser),
                 'user_info'         => $currentUser->getFullName(),
                 'edit_profile_link' => $this->router->generate('admin_ajax_edit', ['id' => $auser['id']]),
                 'about'             => $currentUser->getAbout(),
@@ -151,11 +174,42 @@ class UserManager implements UserManagerInterface
     private function getExactMatchByUser(User $user, User $currentUser)
     {
         $matches    = [];
-        $matches[]  =  ($currentUser->getAge() && $user->getAge() == $currentUser->getAge()? '<span class="matches">'.$currentUser->getAge().'</span>': $currentUser->getAge()) .' '. $this->translator->trans('years');
+        $matches[]  =  ($currentUser->getAge() && ($currentUser->getAge()-$user->getAge()) < 5? '<span class="matches">'.$currentUser->getAge().' '.$this->translator->trans('years').'</span>': $currentUser->getAge().' '.$this->translator->trans('years'));
         $matches[]  =  ($currentUser->getFrom() && $user->getFrom() == $currentUser->getFrom()? '<span class="matches">'.$currentUser->getCountryName().'</span>': $currentUser->getCountryName());
         $matches[]  =  ($currentUser->getMunicipality()->getId() && $user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId()? '<span class="matches">'.$currentUser->getMunicipality()->getName().'</span>': $currentUser->getMunicipality()->getName());
         $matches[]  =  ($currentUser->hasChildren() && $user->hasChildren() == $currentUser->hasChildren()? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
 
         return $matches;
+    }
+
+    /**
+     * @param User $user
+     * @param User $currentUser
+     * @return string
+     */
+    private function getCategoriesExactMatchByUser(User $user, User $currentUser)
+    {
+        $categories             = [];
+        $locale                 = $this->requestStack->getCurrentRequest()->getLocale();
+        $currentUserCategories  = $this->categoryManager->getFindByIdsAndLocale(array_keys($currentUser->getCategoryNames()), $locale);
+        $userCategories         = $user->getCategoryNames();
+
+        foreach($currentUserCategories as $currentUserCategory) {
+
+            if (isset($userCategories[$currentUserCategory->getId()])) {
+                $categories[]   = '<span class="matches">'.$currentUserCategory->getName().'</span>';
+            } else {
+                $categories[]   = $currentUserCategory->getName();
+            }
+        }
+
+        if (count($categories) > 1) {
+            $lastCategory   = array_pop($categories);
+            $categories     = implode(', ', $categories) .' and '.$lastCategory;
+        } else {
+            $categories     = implode(', ', $categories);
+        }
+
+        return $categories;
     }
 }
