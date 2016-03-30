@@ -58,60 +58,6 @@ class UserRepository extends EntityRepository
             'user_music_categories' => array_values($user->getMusicCategoryIds())
         ];
 
-        $qb = $this->createQueryBuilder('u');
-
-        /*$qb
-            //->select('u.id, (CASE WHEN(u.municipality=:user_municipality) THEN 2 ELSE 0 END) AS area_score, (CASE WHEN(u.hasChildren=:user_children) THEN 2 ELSE 0 END) AS children_score, (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END) AS gender_score, (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END) AS age_score, (COUNT(c.id)*3) cat_score, (COUNT(mc.id)) cat_score2, ((COUNT(c)*3) + (COUNT(mc.id)*3) + (CASE WHEN(u.municipality=:user_municipality) THEN 2 ELSE 0 END)+ (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END)+ (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END)+ (CASE WHEN(u.hasChildren=:user_children) THEN 2 ELSE 0 END)) AS score')
-            ->select('u.id, (CASE WHEN(u.municipality=:user_municipality) THEN 2 ELSE 0 END) AS area_score, (CASE WHEN(u.hasChildren=:user_children) THEN 2 ELSE 0 END) AS children_score, (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END) AS gender_score, (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END) AS age_score, (SELECT COUNT(c.id) FROM u.categories c WHERE c.id IN (:user_categories)) cat_score')
-            ->where($qb->expr()->neq('u.id'             , ':user'))
-            ->andWhere($qb->expr()->neq('u.wantToLearn' , ':want_to_learn'))
-            //->andWhere('c.id IN (:user_categories) OR mc.id IN (:user_music_categories)')
-            //->andWhere('mc.id IN (:user_music_categories)')
-            ->andWhere('cr.disqualified = false')
-            ->join('u.connectionRequests', 'cr')
-            //->leftJoin('u.categories', 'c')
-            //->leftJoin('u.musicCategories', 'mc')
-        ;*/
-
-        $where  = $this->prepareMatchCriterias($criterias);
-        $rsm    = new \Doctrine\ORM\Query\ResultSetMapping();
-        /*$sql    = "SELECT * FROM (
-              SELECT u.id, 0 AS cat_score2, (CASE WHEN(u.municipality_id=:user_municipality) THEN 2 ELSE 0 END) AS area_score, (CASE WHEN(u.has_children=:user_children) THEN 2 ELSE 0 END) AS children_score, (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END) AS gender_score, (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END) AS age_score, (COUNT(c.category_id)*3) cat_score, ((COUNT(c.category_id)*3) + (CASE WHEN(u.municipality_id=:user_municipality) THEN 2 ELSE 0 END)+ (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END)+ (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END)+ (CASE WHEN(u.has_children=:user_children) THEN 2 ELSE 0 END)) AS score
-              FROM fos_user u
-              JOIN connection_request cr
-              ON cr.user_id = u.id
-              LEFT JOIN users_categories c
-              ON c.user_id = u.id
-              WHERE u.id != :user
-              AND u.want_to_learn != :want_to_learn
-              AND c.category_id IN (:user_categories)
-              AND $where
-              UNION ALL
-              SELECT u.id, 0 AS cat_score, (CASE WHEN(u.municipality_id=:user_municipality) THEN 2 ELSE 0 END) AS area_score, (CASE WHEN(u.has_children=:user_children) THEN 2 ELSE 0 END) AS children_score, (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END) AS gender_score, (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END) AS age_score, (COUNT(mc.category_id)*3) cat_score2, ((COUNT(mc.category_id)*3) + (CASE WHEN(u.municipality_id=:user_municipality) THEN 2 ELSE 0 END)+ (CASE WHEN((u.age-:user_age)<5) THEN 2 ELSE 0 END)+ (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END)+ (CASE WHEN(u.has_children=:user_children) THEN 2 ELSE 0 END)) AS score
-              FROM fos_user u
-              JOIN connection_request cr
-              ON cr.user_id = u.id
-              LEFT JOIN users_music_categories mc
-              ON mc.user_id = u.id
-              WHERE u.id != :user
-              AND u.want_to_learn != :want_to_learn
-              AND mc.category_id IN (:user_music_categories)
-              AND $where
-        ) temp
-        ORDER BY temp.score DESC
-        ";*/
-
-        $userParams = [
-            'user_municipality'     => $user->getMunicipality()->getId(),
-            'user_gender'           => $user->getGender(),
-            'user_age'              => $user->getAge(),
-            'user_children'         => $user->hasChildren(),
-            'want_to_learn'         => ($user->getWantToLearn()? false: true),
-            'user'                  => $user->getId(),
-            'user_categories'       => array_values($user->getCategoryIds()),
-            'user_music_categories' => array_values($user->getMusicCategoryIds())
-        ];
-
         $where  = $this->prepareMatchCriterias($criterias);
         $rsm    = new \Doctrine\ORM\Query\ResultSetMapping();
         $sql    = "SELECT *, (COALESCE(SUM(cat_score),0) + SUM(age_score) + SUM(area_score) + SUM(children_score) + SUM(gender_score) + COALESCE(SUM(music_cat_score),0)) AS score
