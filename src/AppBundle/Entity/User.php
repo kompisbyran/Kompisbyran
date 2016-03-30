@@ -659,6 +659,20 @@ class User extends BaseUser
     }
 
     /**
+     * @return array
+     */
+    public function getMusicCategoryIds()
+    {
+        $ids = [];
+
+        foreach ($this->musicCategories as $category) {
+            $ids[] = $category->getId();
+        }
+
+        return $ids;
+    }
+
+    /**
      * @return string
      */
     public function getCategoryNameString()
