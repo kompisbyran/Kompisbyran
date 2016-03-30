@@ -128,7 +128,7 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
         $qb         = $this->connectionRequestRepository->findByCityQueryBuilder($city);
         $adapter    = new DoctrineORMAdapter($qb);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(2);
+        $pagerfanta->setMaxPerPage(25);
         $pagerfanta->setCurrentPage($page);
 
         return [
@@ -153,6 +153,7 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
             $datas[] = [
                 'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
                 'name'          => $connectionRequest->getUser()->getFullName(),
+                'email'         => $connectionRequest->getUser()->getEmail(),
                 'category'      => $connectionRequest->getType(),
                 'action'        => $connectionRequest->getUser()->getId()
             ];
