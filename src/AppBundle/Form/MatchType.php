@@ -39,14 +39,12 @@ class MatchType extends AbstractType
         $builder
             ->add('email_to_user', 'textarea', [
                 'label' => 'match.email.to',
-                'data'  => $this->translator->trans('match.email.user'),
                 'attr'  => [
                     'rows' => 12
                 ]
             ])
             ->add('email_to_match_user', 'textarea', [
                 'label' => 'match.email.to',
-                'data'  => $this->translator->trans('match.email.match.user'),
                 'attr'  => [
                     'rows' => 12
                 ]

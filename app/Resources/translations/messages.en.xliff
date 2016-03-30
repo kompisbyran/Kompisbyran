@@ -516,11 +516,28 @@
             </trans-unit>
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>
-                <target>Hello!&#13;&#10;&#13;&#10;One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.&#13;&#10;&#13;&#10;He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.&#13;&#10;&#13;&#10;The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human</target>
+                <target>Hello %user_name%!
+
+Great that you want to be part of Kompisbyrån!
+
+We have found a %match_music_friend% for you. %match_his_her% name is %match_name% and both of you like %match_categories%.
+
+%match_name% is %match_age% years old, lives in %match_area% and is from %match_from%. %match_gender% would like to meet you in %match_city%.
+
+The email adress to your %match_music_friend% is:  %match_email%. We have also sent your email adress to your %match_music_friend%.
+
+Your next step is to email your %match_music_friend% and decide on when and where to meet. Send the email within one week. We recommend that you meet at a %match_fika_buddies% for about one hour.
+
+We would love to if you could send a photo from %match_your_fika% and tell us about it! We want to share your story to encourage more to be part of Kompisbyrån.
+
+If you have any questions, please contact us! We wish you a %match_fika_buddy%.
+
+Best regards,
+Your friends at Kompisbyrån</target>
             </trans-unit>
-            <trans-unit id="match.email.match.user">
-                <source>match.email.match.user</source>
-                <target>Hello!&#13;&#10;&#13;&#10;One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.&#13;&#10;&#13;&#10;He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.&#13;&#10;&#13;&#10;The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me? " he thought. It wasn't a dream. His room, a proper human</target>
+            <trans-unit id=match.email.user.subject">
+                <source>match.email.user.subject</source>
+                <target> %match_music_friend% from Kompisbyrån for you %user_name%</target>
             </trans-unit>
         </body>
     </file>
