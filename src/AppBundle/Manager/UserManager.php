@@ -115,7 +115,7 @@ class UserManager implements UserManagerInterface
         }
 
         if (strlen(trim($criterias['has_children'])) == 0) {
-            unset($criterias['hasChildren']);
+            unset($criterias['has_children']);
         }
 
         if (strlen(trim($criterias['from'])) == 0) {

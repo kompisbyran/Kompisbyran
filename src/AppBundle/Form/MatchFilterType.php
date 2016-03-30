@@ -48,7 +48,6 @@ class MatchFilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $age = range(18, 100);
-
         $builder
             ->add('category_id', 'entity', [
                 'class'         => 'AppBundle:Category',
@@ -100,11 +99,14 @@ class MatchFilterType extends AbstractType
             ->add('music_friend', 'boolean_choice', [
                 'label'             => 'filter.form.type',
                 'choices_as_values' => true,
-                'data'              => ($options['music_friend']? '1': '0'),
+                'data'              => $options['music_friend'],
                 'choices'           => [
-                    'filter.form.music_buddy'   => '1',
-                    'filter.form.fika_buddy'    => '0'
+                    'filter.form.fika_buddy'    => '0',
+                    'filter.form.music_buddy'   => '1'
                 ]
+            ])
+            ->add('city_id', 'hidden', [
+                'data' => $options['city_id']
             ])
         ;
     }
@@ -119,7 +121,8 @@ class MatchFilterType extends AbstractType
         ]);
 
         $resolver->setRequired([
-            'music_friend'
+            'music_friend',
+            'city_id',
         ]);
     }
 

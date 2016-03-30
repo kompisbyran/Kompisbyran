@@ -52,7 +52,7 @@ class UserRepository extends EntityRepository
             'user_gender'           => $user->getGender(),
             'user_age'              => $user->getAge(),
             'user_children'         => $user->hasChildren(),
-            'want_to_learn'         => ($user->getWantToLearn()? false: true),
+            'want_to_learn'         => $user->getWantToLearn(),
             'user'                  => $user->getId(),
             'user_categories'       => array_values($user->getCategoryIds()),
             'user_music_categories' => array_values($user->getMusicCategoryIds())
@@ -104,7 +104,7 @@ class UserRepository extends EntityRepository
         $fields = array_keys($criterias);
 
         foreach($fields as $field) {
-            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id') {
+            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'music_friend') {
                 continue;
             }
 
@@ -117,6 +117,15 @@ class UserRepository extends EntityRepository
 
         if (isset($criterias['category_id'])) {
             $where[] = '(c.category_id = :category_id OR mc.category_id = :category_id)';
+        }
+
+        if (isset($criterias['city_id'])) {
+            $where[] = 'cr.city_id = :city_id';
+        }
+
+        if (isset($criterias['music_friend'])) {
+            $criterias['music_friend'] = $criterias['music_friend'] == 1? true: false;
+            $where[] = 'u.music_friend = :music_friend';
         }
 
         return implode(' AND ', $where);
