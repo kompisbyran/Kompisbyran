@@ -46,16 +46,26 @@ class Mailer
      * @param string $fromEmail
      * @param string $replyEmail
      */
-    protected function sendEmailMessage($htmlRenderedTemplate, $txtRenderedTemplate, $subject, $toEmail, $fromEmail = 'info@kompisbyran.se', $replyEmail = 'matchning@kompisbyran.se')
+    protected function sendEmailMessage($htmlRenderedTemplate = null, $txtRenderedTemplate, $subject, $toEmail, $fromEmail = 'info@kompisbyran.se', $replyEmail = 'matchning@kompisbyran.se')
     {
-        $message = \Swift_Message::newInstance()
-            ->setSubject($subject)
-            ->setFrom($fromEmail)
-            ->setReplyTo($replyEmail)
-            ->setTo($toEmail)
-            ->setBody($htmlRenderedTemplate , 'text/html')
-            ->addPart($txtRenderedTemplate  , 'text/plain')
-        ;
+        if (is_null($htmlRenderedTemplate)) {
+            $message = \Swift_Message::newInstance()
+                ->setSubject($subject)
+                ->setFrom($fromEmail)
+                ->setReplyTo($replyEmail)
+                ->setTo($toEmail)
+                ->setBody($txtRenderedTemplate  , 'text/plain')
+            ;
+        } else {
+            $message = \Swift_Message::newInstance()
+                ->setSubject($subject)
+                ->setFrom($fromEmail)
+                ->setReplyTo($replyEmail)
+                ->setTo($toEmail)
+                ->setBody($htmlRenderedTemplate , 'text/html')
+                ->addPart($txtRenderedTemplate  , 'text/plain')
+            ;
+        }
 
         $this->mailer->send($message);
     }
