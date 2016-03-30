@@ -50,7 +50,7 @@ class MatchFilterType extends AbstractType
         $age = range(18, 100);
 
         $builder
-            ->add('category', 'entity', [
+            ->add('category_id', 'entity', [
                 'class'         => 'AppBundle:Category',
                 'property'      => 'name',
                 'label'         => 'filter.form.interests',
@@ -74,7 +74,7 @@ class MatchFilterType extends AbstractType
                 'empty_data'    => '',
                 'empty_value'   => 'All'
             ])
-            ->add('hasChildren', 'boolean_choice', [
+            ->add('has_children', 'boolean_choice', [
                 'label'             => 'filter.form.has_children',
                 'choices_as_values' => true,
                 'empty_data'        => '',
@@ -90,14 +90,14 @@ class MatchFilterType extends AbstractType
                 'empty_data'    => '',
                 'empty_value'   => 'All'
             ])
-            ->add('municipality', 'entity', [
+            ->add('municipality_id', 'entity', [
                 'class'         => 'AppBundle:Municipality',
                 'property'      => 'name',
                 'label'         => 'filter.form.municipality',
                 'empty_data'    => '',
                 'empty_value'   => 'All'
             ])
-            ->add('musicFriend', 'boolean_choice', [
+            ->add('music_friend', 'boolean_choice', [
                 'label'             => 'filter.form.type',
                 'choices_as_values' => true,
                 'data'              => ($options['music_friend']? '1': '0'),
