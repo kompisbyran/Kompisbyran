@@ -17,6 +17,8 @@ use AppBundle\Manager\ConnectionManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use AppBundle\Entity\User;
 use AppBundle\Entity\ConnectionRequest;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use AppBundle\Mailer\UserMailer;
 
 /**
  * @Route("admin2/matches")
@@ -44,19 +46,33 @@ class MatchController extends Controller
     private $formFactory;
 
     /**
+     * @var EngineInterface
+     */
+    private $templating;
+
+    /**
+     * @var UserMailer
+     */
+    private $userMailer;
+
+    /**
      * @InjectParams({
-     *     "formFactory" = @Inject("form.factory")
+     *     "formFactory" = @Inject("form.factory"),
+     *     "templating" = @Inject("templating"),
+     *     "userMailer" = @Inject("app.user_mailer")
      * })
      * @param UserManager $userManager
      * @param ConnectionManager $connectionManager
      * @param ConnectionRequestManager $connectionRequestManager
      */
-    public function __construct(UserManager $userManager, ConnectionManager $connectionManager, ConnectionRequestManager $connectionRequestManager, FormFactoryInterface $formFactory)
+    public function __construct(UserManager $userManager, ConnectionManager $connectionManager, ConnectionRequestManager $connectionRequestManager, FormFactoryInterface $formFactory, EngineInterface $templating, UserMailer $userMailer)
     {
         $this->userManager              = $userManager;
         $this->connectionManager        = $connectionManager;
         $this->connectionRequestManager = $connectionRequestManager;
         $this->formFactory              = $formFactory;
+        $this->templating               = $templating;
+        $this->userMailer               = $userMailer;
     }
 
     /**
@@ -128,6 +144,9 @@ class MatchController extends Controller
                     $this->connectionRequestManager->remove($userRequest);
                     $this->connectionRequestManager->remove($matchUserRequest);
 
+                    $this->userMailer->sendMatchEmailMessage($user, $matchUser, $match['email_to_user']);
+                    $this->userMailer->sendMatchEmailMessage($matchUser, $user, $match['email_to_match_user']);
+
                     $this->addFlash('info', sprintf(
                         'En koppling skapades melland %s och %s',
                         $userRequest->getUser()->getName(),
@@ -140,5 +159,28 @@ class MatchController extends Controller
         }
 
         throw $this->createNotFoundException();
+    }
+
+    /**
+     * @Route("/ajax/email-message/{id}/{match_user_id}", name="admin_ajax_email_message", options={"expose"=true})
+     * @Method({"GET"})
+     */
+    public function ajaxEmailMessageAction(Request $request, User $user)
+    {
+        $matchUser          = $this->userManager->getFind($request->get('match_user_id'));
+        $userRequest        = $this->connectionRequestManager->getFindOneByUser($user);
+        $matchUserRequest   = $this->connectionRequestManager->getFindOneByUser($matchUser);
+
+        return new JsonResponse([
+            'success'               => true,
+            'user_message'          => $this->templating->render('email/match_email.html.twig', [
+                'user'      => $user,
+                'matchUser' => $matchUser,
+                'request'   => $matchUserRequest]),
+            'match_user_message'    => $this->templating->render('email/match_email.html.twig', [
+                'user'      => $matchUser,
+                'matchUser' => $user,
+                'request'   => $userRequest])
+        ]);
     }
 }

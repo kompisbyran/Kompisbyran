@@ -659,6 +659,20 @@ class User extends BaseUser
     }
 
     /**
+     * @return array
+     */
+    public function getMusicCategoryIds()
+    {
+        $ids = [];
+
+        foreach ($this->musicCategories as $category) {
+            $ids[] = $category->getId();
+        }
+
+        return $ids;
+    }
+
+    /**
      * @return string
      */
     public function getCategoryNameString()
@@ -667,5 +681,27 @@ class User extends BaseUser
         $lastCategory   = array_pop($categoryNames);
 
         return implode(', ', $categoryNames) .' and '.$lastCategory;
+    }
+
+    /**
+     * @param User $user
+     * @return string
+     */
+    public function getMatchedCategories(User $user)
+    {
+        $matches = [];
+
+        foreach ($this->getCategoryNames() as $id => $name) {
+            foreach ($user->getCategoryNames() as $userCatId => $userCatName) {
+                if ($id == $userCatId) {
+                    $matches[] = $userCatName;
+                    break;
+                }
+            }
+        }
+
+        $lastCategory   = array_pop($matches);
+
+        return implode(', ', $matches) .' and '.$lastCategory;
     }
 }

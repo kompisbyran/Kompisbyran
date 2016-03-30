@@ -102,10 +102,10 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <div class="col-sm-3">
-                            {{ form_label(form.category) }}
+                            {{ form_label(form.category_id) }}
                         </div>
                         <div class="col-sm-9">
-                            {{ form_widget(form.category) }}
+                            {{ form_widget(form.category_id) }}
                         </div>
                     </div>
                     <div class="form-group">
@@ -134,10 +134,10 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <div class="col-sm-3">
-                            {{ form_label(form.hasChildren) }}
+                            {{ form_label(form.has_children) }}
                         </div>
                         <div class="col-sm-9">
-                            {{ form_widget(form.hasChildren) }}
+                            {{ form_widget(form.has_children) }}
                         </div>
                     </div>
                     <div class="form-group">
@@ -151,20 +151,20 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-3">
-                            {{ form_label(form.municipality) }}
+                            {{ form_label(form.municipality_id) }}
                         </div>
                         <div class="col-sm-9">
-                            {{ form_widget(form.municipality) }}
+                            {{ form_widget(form.municipality_id) }}
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <div class="col-sm-3">
-                            {{ form_label(form.musicFriend) }}
+                            {{ form_label(form.music_friend) }}
                         </div>
                         <div class="col-sm-9">
-                            {{ form_widget(form.musicFriend) }}
+                            {{ form_widget(form.music_friend) }}
                         </div>
                     </div>
                 </div>
@@ -244,7 +244,8 @@
     </script>
 
     <script>
-        var firstItem = 0;
+        var user_id     = {{ user.id }};
+        var firstItem   = 0;
 
         $(document).ajaxStart(function(){
             $('body').block({
@@ -301,7 +302,6 @@
                     $('#userEditModal .modal-content').html(html);
                     $('#userEditModal').modal('show');
                 });
-
             });
 
             $('body').on('click', '.btn-save-profile', function(e){
@@ -324,8 +324,16 @@
             });
 
             $('.match-results-container').on('click', '.matched-users', function(){
-                $('#match_match_user_id').val($(this).val());
-                $('#btn-approve-send-emails').removeClass('disabled');
+                var match_user_id = $(this).val();
+
+                $.get(Routing.generate('admin_ajax_email_message', {id: user_id, match_user_id: match_user_id}), function (resp){
+
+                    $('#match_email_to_user').html(resp.user_message);
+                    $('#match_email_to_match_user').html(resp.match_user_message);
+
+                    $('#match_match_user_id').val(match_user_id);
+                    $('#btn-approve-send-emails').removeClass('disabled');
+                });
             });
 
             $('#btn-approve-send-emails').click(function(e){

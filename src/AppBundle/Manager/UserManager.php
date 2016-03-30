@@ -106,15 +106,15 @@ class UserManager implements UserManagerInterface
     {
         unset($criterias['_token']);
 
-        if (strlen(trim($criterias['category']))  == 0) {
-            unset($criterias['category']);
+        if (strlen(trim($criterias['category_id']))  == 0) {
+            unset($criterias['category_id']);
         }
 
         if (strlen(trim($criterias['gender']))  == 0) {
             unset($criterias['gender']);
         }
 
-        if (strlen(trim($criterias['hasChildren'])) == 0) {
+        if (strlen(trim($criterias['has_children'])) == 0) {
             unset($criterias['hasChildren']);
         }
 
@@ -122,8 +122,8 @@ class UserManager implements UserManagerInterface
             unset($criterias['from']);
         }
 
-        if (strlen(trim($criterias['municipality'])) == 0) {
-            unset($criterias['municipality']);
+        if (strlen(trim($criterias['municipality_id'])) == 0) {
+            unset($criterias['municipality_id']);
         }
 
         $results    = $this->userRepository->findMatchArray($user, $criterias);
@@ -174,10 +174,10 @@ class UserManager implements UserManagerInterface
     private function getExactMatchByUser(User $user, User $currentUser)
     {
         $matches    = [];
-        $matches[]  =  ($currentUser->getAge() && ($currentUser->getAge()-$user->getAge()) < 5? '<span class="matches">'.$currentUser->getAge().' '.$this->translator->trans('years').'</span>': $currentUser->getAge().' '.$this->translator->trans('years'));
-        $matches[]  =  ($currentUser->getFrom() && $user->getFrom() == $currentUser->getFrom()? '<span class="matches">'.$currentUser->getCountryName().'</span>': $currentUser->getCountryName());
-        $matches[]  =  ($currentUser->getMunicipality()->getId() && $user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId()? '<span class="matches">'.$currentUser->getMunicipality()->getName().'</span>': $currentUser->getMunicipality()->getName());
-        $matches[]  =  ($currentUser->hasChildren() && $user->hasChildren() == $currentUser->hasChildren()? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
+        $matches[]  =  (($currentUser->getAge()-$user->getAge()) < 5? '<span class="matches">'.$currentUser->getAge().' '.$this->translator->trans('years').'</span>': $currentUser->getAge().' '.$this->translator->trans('years'));
+        $matches[]  =  ($user->getFrom() == $currentUser->getFrom()? '<span class="matches">'.$currentUser->getCountryName().'</span>': $currentUser->getCountryName());
+        $matches[]  =  ($user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId()? '<span class="matches">'.$currentUser->getMunicipality()->getName().'</span>': $currentUser->getMunicipality()->getName());
+        $matches[]  =  ($user->hasChildren() == $currentUser->hasChildren()? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
 
         return $matches;
     }

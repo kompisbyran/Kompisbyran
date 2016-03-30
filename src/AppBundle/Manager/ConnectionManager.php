@@ -82,11 +82,6 @@ class ConnectionManager implements ConnectionManagerInterface
 
         $this->save($connection);
 
-        $this->dispatcher->dispatch(
-            DomainEvents::CONNECTION_CREATED,
-            new ConnectionCreatedEvent($connection)
-        );
-
         return $connection;
     }
 
