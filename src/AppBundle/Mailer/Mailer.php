@@ -48,20 +48,17 @@ class Mailer
      */
     protected function sendEmailMessage($htmlRenderedTemplate = null, $txtRenderedTemplate, $subject, $toEmail, $fromEmail = 'info@kompisbyran.se', $replyEmail = 'matchning@kompisbyran.se')
     {
+        $message = \Swift_Message::newInstance()
+            ->setSubject($subject)
+            ->setFrom($fromEmail)
+            ->setReplyTo($replyEmail)
+            ->setTo($toEmail)
+        ;
+
         if (is_null($htmlRenderedTemplate)) {
-            $message = \Swift_Message::newInstance()
-                ->setSubject($subject)
-                ->setFrom($fromEmail)
-                ->setReplyTo($replyEmail)
-                ->setTo($toEmail)
-                ->setBody($txtRenderedTemplate  , 'text/plain')
-            ;
+            $message->setBody($txtRenderedTemplate  , 'text/plain');
         } else {
-            $message = \Swift_Message::newInstance()
-                ->setSubject($subject)
-                ->setFrom($fromEmail)
-                ->setReplyTo($replyEmail)
-                ->setTo($toEmail)
+            $message
                 ->setBody($htmlRenderedTemplate , 'text/html')
                 ->addPart($txtRenderedTemplate  , 'text/plain')
             ;
