@@ -201,7 +201,10 @@ class ConnectionRequestRepository extends EntityRepository
             ->createQueryBuilder('cr')
             ->where('cr.city        = :city')
             ->andWhere('cr.disqualified = false')
-            ->setParameter('city'   , $city)
+            ->groupBy('cr.user')
+            ->orderBy('cr.sortOrder', 'DESC')
+            ->addOrderBy('cr.createdAt', 'ASC')
+            ->setParameter('city', $city)
         ;
     }
 }
