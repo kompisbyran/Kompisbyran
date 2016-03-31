@@ -14,7 +14,7 @@
                             <span class="selection">{{ 'match.select_region'|trans }}</span>
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <ul class="dropdown-menu city-dropdown" aria-labelledby="dropdownMenu1">
                             {% for city in cities %}
                                 <li>
                                     <a href="#" data-path="{{ path('admin_start', {'id': city.id}) }}" data-city-id="{{ city.id }}" data-city-name="{{ city.name }}">{{ city.name }}</a>
@@ -100,10 +100,10 @@
                 showMoreResults($('#dropdownMenu1').find('.selection').val(), $('.show-more-btn').data('next-page'));
             } );
 
-            $(".dropdown-menu li a").click(function(){
+            $(".city-dropdown li a").click(function(){
                 $(this).closest(".dropdown").find('.selection').text($(this).text());
                 $(this).closest(".dropdown").find('.selection').val($(this).data('city-id'));
-
+                $('.stat-city-name').html($(this).text());
                 table.clear();
                 showMoreResults($(this).data('city-id'), 1);
             });
