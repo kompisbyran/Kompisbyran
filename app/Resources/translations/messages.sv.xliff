@@ -520,9 +520,9 @@ If you have any questions, please contact us! We wish you a %match_fika_buddy%.
 Best regards,
 Your friends at Kompisbyrån</target>
             </trans-unit>
-            <trans-unit id=match.email.user.subject">
+            <trans-unit id="match.email.user.subject">
                 <source>match.email.user.subject</source>
-                <target> %match_music_friend% from Kompisbyrån for you %user_name%</target>
+                <target>%match_music_friend% from Kompisbyrån for you %user_name%</target>
             </trans-unit>
         </body>
     </file>

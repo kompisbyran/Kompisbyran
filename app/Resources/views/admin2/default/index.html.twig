@@ -43,6 +43,7 @@
                     <tr>
                         <th id="request_date">{{ 'Date for request'|trans }}</th>
                         <th id="name">{{ 'Name'|trans }}</th>
+                        <th id="email">{{ 'Email'|trans }}</th>
                         <th id="category">{{ 'Category'|trans }}</th>
                         <th id="action">{{ 'Action'|trans }}</th>
                     </tr>
@@ -50,7 +51,7 @@
                     <tbody class="persons-list-body"></tbody>
                 </table>
                 <div class="text-center">
-                    <a href="#" class="btn btn-lg btn-default show-more-btn disabled" data-next-page="1">{{ 'Show 20 more'|trans }}</a>
+                    <a href="#" class="btn btn-lg btn-default show-more-btn disabled" data-next-page="1">{{ 'Show 25 more'|trans }}</a>
                 </div>
             </div>
         </div>
@@ -83,12 +84,13 @@
                 columns:[
                     {data: 'request_date', width: '15%'},
                     {data: "name"},
+                    {data: "email"},
                     {data: "category"},
                     {data: "action", width: '10%'}
                 ],
                 "createdRow": function ( row, data, index ) {
-                    var id = $('td', row).eq(3).text();
-                    $('td', row).eq(3).html('<a href="'+Routing.generate('admin_match_find', {id: id})+'" class="btn btn-danger">Find match</a>');
+                    var id = $('td', row).eq(4).text();
+                    $('td', row).eq(4).html('<a href="'+Routing.generate('admin_match_find', {id: id})+'" class="btn btn-danger">Find match</a>');
                 }
             });
 

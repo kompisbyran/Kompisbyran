@@ -115,7 +115,7 @@ class UserManager implements UserManagerInterface
         }
 
         if (strlen(trim($criterias['has_children'])) == 0) {
-            unset($criterias['hasChildren']);
+            unset($criterias['has_children']);
         }
 
         if (strlen(trim($criterias['from'])) == 0) {
@@ -129,7 +129,7 @@ class UserManager implements UserManagerInterface
         $results    = $this->userRepository->findMatchArray($user, $criterias);
         $adapter    = new ArrayAdapter($results);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(2);
+        $pagerfanta->setMaxPerPage(5);
         $pagerfanta->setCurrentPage($page);
 
         return [
