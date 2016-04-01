@@ -160,7 +160,8 @@ class UserManager implements UserManagerInterface
                 'about'             => $currentUser->getAbout(),
                 'matches'           => $this->getExactMatchByUser($user, $currentUser),
                 'ele'               => 'ele'.$auser['id'],
-                'gender'            => ($currentUser->getGender() == $user->getGender()? 1: 0)
+                'gender'            => ($currentUser->getGender() == $user->getGender()? 1: 0),
+                'age_diff'          => $currentUser->getAge()-$user->getAge()
             ];
         }
 
