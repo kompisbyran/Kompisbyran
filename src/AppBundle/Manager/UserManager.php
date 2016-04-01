@@ -159,7 +159,8 @@ class UserManager implements UserManagerInterface
                 'edit_profile_link' => $this->router->generate('admin_ajax_edit', ['id' => $auser['id']]),
                 'about'             => $currentUser->getAbout(),
                 'matches'           => $this->getExactMatchByUser($user, $currentUser),
-                'ele'               => 'ele'.$auser['id']
+                'ele'               => 'ele'.$auser['id'],
+                'gender'            => ($currentUser->getGender() == $user->getGender()? 1: 0)
             ];
         }
 
@@ -173,11 +174,12 @@ class UserManager implements UserManagerInterface
      */
     private function getExactMatchByUser(User $user, User $currentUser)
     {
+        $ageDiff    = $currentUser->getAge()-$user->getAge();
         $matches    = [];
-        $matches[]  =  (($currentUser->getAge()-$user->getAge()) < 5? '<span class="matches">'.$currentUser->getAge().' '.$this->translator->trans('years').'</span>': $currentUser->getAge().' '.$this->translator->trans('years'));
-        $matches[]  =  currentUser->getCountryName();
+        $matches[]  =  ( $ageDiff > -5 && $ageDiff < 5? '<span class="matches">'.$currentUser->getAge().' '.$this->translator->trans('years').'</span>': $currentUser->getAge().' '.$this->translator->trans('years'));
+        $matches[]  =  $currentUser->getCountryName();
         $matches[]  =  ($user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId()? '<span class="matches">'.$currentUser->getMunicipality()->getName().'</span>': $currentUser->getMunicipality()->getName());
-        $matches[]  =  ($user->hasChildren() == $currentUser->hasChildren()? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
+        $matches[]  =  ($user->hasChildren() == true && $currentUser->hasChildren() == true? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
 
         return $matches;
     }
