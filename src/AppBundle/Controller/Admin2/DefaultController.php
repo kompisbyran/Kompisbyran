@@ -46,7 +46,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="admin_start2", defaults={"id": null})
+     * @Route("", name="admin_start2")
      * @Method("GET")
      * @Template("admin2/default/index.html.twig")
      */
