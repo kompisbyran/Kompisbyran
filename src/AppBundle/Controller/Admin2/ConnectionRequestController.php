@@ -36,6 +36,7 @@ class ConnectionRequestController extends Controller
      * @InjectParams({
      *     "connectionRequestManager"   = @Inject("connection_request_manager"),
      *     "cityManager"                = @Inject("city_manager")
+     *
      * })
      */
     public function __construct(ConnectionRequestManager $connectionRequestManager, CityManager $cityManager)
@@ -62,5 +63,27 @@ class ConnectionRequestController extends Controller
         }
 
         return new JsonResponse($results);
+    }
+
+    /**
+     * @Route("/ajax-mark-pending/{id}", name="admin_ajax_connection_request_mark_pending", options={"expose"=true})0
+ 0    * @Method({"GET"})
+     */
+    public function ajaxMarkPendingAction(Request $request)
+    {
+        return new JsonResponse([
+            'success' => $this->connectionRequestManager->markAsPending($request->get('id'))
+        ]);
+    }
+
+    /**
+     * @Route("/mark-unpending/{id}", name="admin_connection_request_mark_unpending", options={"expose"=true})
+     * @Method({"GET"})
+     */
+    public function markUnpendingAction(Request $request)
+    {
+        $this->connectionRequestManager->markAsUnpending($request->get('id'));
+
+        return $this->redirect('admin_manual');
     }
 }

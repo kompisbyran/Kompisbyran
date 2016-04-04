@@ -86,6 +86,13 @@ class ConnectionRequest
      */
     protected $disqualifiedComment;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $pending = false;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -282,5 +289,21 @@ class ConnectionRequest
     public function getDisqualifiedComment()
     {
         return $this->disqualifiedComment;
+    }
+
+    /**
+     * @param boolean $pending
+     */
+    public function setPending($pending)
+    {
+        $this->pending = $pending;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getPending()
+    {
+        return $this->pending;
     }
 }
