@@ -50,6 +50,24 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
 
     /**
      * @param ConnectionRequest $connectionRequest
+     * @return mixed
+     */
+    public function save(ConnectionRequest $connectionRequest)
+    {
+        return $this->connectionRequestRepository->save($connectionRequest);
+    }
+
+    /**
+     * @param $id
+     * @return null|object
+     */
+    public function getFind($id)
+    {
+        return $this->connectionRequestRepository->find($id);
+    }
+
+    /**
+     * @param ConnectionRequest $connectionRequest
      */
     public function remove(ConnectionRequest $connectionRequest)
     {
@@ -160,5 +178,55 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
         }
 
         return $datas;
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function markAsPending($id)
+    {
+        $connectionRequest = $this->getFind($id);
+
+        if ($connectionRequest instanceof ConnectionRequest) {
+            $connectionRequest->setPending(true);
+
+            $this->save($connectionRequest);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $id
+     */
+    public function markAsUnpending($id)
+    {
+        $connectionRequest = $this->getFind($id);
+
+        if ($connectionRequest instanceof ConnectionRequest) {
+            $connectionRequest->setPending(false);
+
+            $this->save($connectionRequest);
+        }
+    }
+
+    /**
+     * @param $userId
+     * @return null|object
+     */
+    public function getFindOneUnpendingByUserId($userId)
+    {
+        return $this->connectionRequestRepository->findOneUnpendingByUserId($userId);
+    }
+
+    /**
+     * @return array
+     */
+    public function getFindAllPending()
+    {
+        return $this->connectionRequestRepository->findAllPending();
     }
 }

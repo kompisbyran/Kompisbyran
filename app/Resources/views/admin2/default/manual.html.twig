@@ -1,0 +1,81 @@
+{% extends 'admin2/default/base.html.twig' %}
+
+{% block default_content %}
+
+    <div class="row" style="margin-top: 40px;">
+        <h1>{{ 'manual.title.pending_connection_request' }}</h1>
+        <table id="match-users" class="table table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th id="request_date">{{ 'table.match.date_of_request'|trans }}</th>
+                <th id="name">{{ 'table.match.name'|trans }}</th>
+                <th id="email">{{ 'table.match.email'|trans }}</th>
+                <th id="category">{{ 'table.manual.internal_comments'|trans }}</th>
+                <th id="action">{{ 'table.match.action'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody class="persons-list-body">
+                {% for pendingRequest in pendingRequests%}
+                    <tr>
+                        <td>{{ pendingRequest.createdAt|date('Y-m-d') }}</td>
+                        <td>{{ pendingRequest.user.fullName }}</td>
+                        <td>{{ pendingRequest.user.email }}</td>
+                        <td>{{ pendingRequest.user.internalComment }}</td>
+                        <td>
+                            <a href="{{ path('admin_ajax_edit', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile" target="_blank">{{ 'btn.edit_profile'|trans }}</a>&nbsp;
+                            <a href="{{ path('admin_connection_request_mark_unpending', {id: pendingRequest.id}) }}" class="btn btn-warning btn-pending">{{ 'btn.make_pending'|trans }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="userEditModal" tabindex="-1" role="dialog" aria-labelledby="userEditModalLabel">
+        <div class="modal-dialog" role="document" style="width:800px;">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#match-users').DataTable({
+                "paging": false,
+                "bInfo": false,
+                "pageLength": 100
+            });
+
+            $('body').on('click', '.edit-current-profile', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                $('#userEditModal').removeClass('current');
+
+                $.get($this.attr('href'), function (html){
+                    if ($this.hasClass('current')) {
+                        $('#userEditModal').addClass('current');
+                    }
+
+                    $('#userEditModal .modal-content').html(html);
+                    $('#userEditModal').modal('show');
+                });
+            });
+
+            $('body').on('click', '.btn-save-profile', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                var $form = $this.closest('form');
+
+                $.post($form.attr('action'), $form.serialize(), function (resp){
+                    if (resp.success) {
+                        $('#userEditModal').modal('hide');
+                        window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

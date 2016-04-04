@@ -40,13 +40,13 @@ class MatchType extends AbstractType
             ->add('email_to_user', 'textarea', [
                 'label' => 'match.email.to',
                 'attr'  => [
-                    'rows' => 12
+                    'rows' => 25
                 ]
             ])
             ->add('email_to_match_user', 'textarea', [
                 'label' => 'match.email.to',
                 'attr'  => [
-                    'rows' => 12
+                    'rows' => 25
                 ]
             ])
             ->add('user_id', 'hidden', [

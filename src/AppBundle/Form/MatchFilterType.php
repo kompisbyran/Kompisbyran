@@ -79,8 +79,8 @@ class MatchFilterType extends AbstractType
                 'empty_data'        => '',
                 'empty_value'       => 'Doesn\'t matter',
                 'choices'           => [
-                    'yes'           => '1',
-                    'no'            => '0'
+                    'no'            => '0',
+                    'yes'           => '1'
                 ]
             ])
             ->add('from', 'choice', [
