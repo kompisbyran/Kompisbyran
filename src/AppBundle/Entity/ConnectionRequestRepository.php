@@ -225,4 +225,13 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this->findBy(array('pending' => true));
     }
+
+    /**
+     * @param $inspected
+     * @return array
+     */
+    public function findAllByInspected($inspected)
+    {
+        return $this->findBy(array('inspected' => $inspected));
+    }
 }

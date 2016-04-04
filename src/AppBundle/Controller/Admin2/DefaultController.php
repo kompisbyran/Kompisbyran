@@ -58,6 +58,18 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/inspection", name="admin_manual")
+     * @Method("GET")
+     * @Template("admin2/default/inspection.html.twig")
+     */
+    public function inspectionAction(Request $request, City $city = null)
+    {
+        return [
+            'pendingRequests' => $this->connectionRequestManager->getFindAllInspection()
+        ];
+    }
+
+    /**
      * @Route("", name="admin_start2")
      * @Method("GET")
      * @Template("admin2/default/index.html.twig")
