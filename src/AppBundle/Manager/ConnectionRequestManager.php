@@ -173,7 +173,7 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
                 'name'          => $connectionRequest->getUser()->getFullName(),
                 'email'         => $connectionRequest->getUser()->getEmail(),
                 'category'      => $connectionRequest->getType(),
-                'action'        => $connectionRequest->getUser()->getId()
+                'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId()
             ];
         }
 
