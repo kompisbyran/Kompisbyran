@@ -66,8 +66,8 @@ class ConnectionRequestController extends Controller
     }
 
     /**
-     * @Route("/ajax-mark-pending/{id}", name="admin_ajax_connection_request_mark_pending", options={"expose"=true})0
- 0    * @Method({"GET"})
+     * @Route("/ajax-mark-pending/{id}", name="admin_ajax_connection_request_mark_pending", options={"expose"=true})
+     * @Method({"GET"})
      */
     public function ajaxMarkPendingAction(Request $request)
     {

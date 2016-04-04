@@ -58,8 +58,8 @@
                     {data: "action", width: '20%'}
                 ],
                 "createdRow": function ( row, data, index ) {
-                    var id = $('td', row).eq(4).text().s;
-                    $('td', row).eq(4).html('<a href="'+Routing.generate('admin_ajax_connection_request_mark_pending', {id: id})+'" class="btn btn-warning btn-pending">Make pending</a>&nbsp;&nbsp;<a href="'+Routing.generate('admin_match_find', {id: id})+'" class="btn btn-danger">Find match</a>');
+                    var ids = $('td', row).eq(4).text().split('|');
+                    $('td', row).eq(4).html('<a href="'+Routing.generate('admin_ajax_connection_request_mark_pending', {id: ids[1]})+'" class="btn btn-warning btn-pending">Make pending</a>&nbsp;&nbsp;<a href="'+Routing.generate('admin_match_find', {id: ids[0]})+'" class="btn btn-danger">Find match</a>');
                 }
             });
 

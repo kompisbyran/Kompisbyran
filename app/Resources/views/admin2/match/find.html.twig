@@ -10,7 +10,7 @@
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-md-12">
                     <div class="pull-right">
-                        <a href="{{ path('admin_ajax_edit', {id: user.id}) }}" class="btn btn-danger edit-current-profile current">{{ 'Edit profile'|trans }}</a>&nbsp;<a href="{{ path('admin_ajax_connection_request_mark_pending', {user_id: user.id}) }}" class="btn btn-warning connection-requestion-mark-pending go-back">Make pending</a>
+                        <a href="{{ path('admin_ajax_edit', {id: user.id}) }}" class="btn btn-danger edit-current-profile current">{{ 'Edit profile'|trans }}</a>&nbsp;<a href="{{ path('admin_ajax_connection_request_mark_pending', {id: user.firstConnectionRequest.id}) }}" class="btn btn-warning connection-requestion-mark-pending go-back">Make pending</a>
                     </div>
                 </div>
             </div>
