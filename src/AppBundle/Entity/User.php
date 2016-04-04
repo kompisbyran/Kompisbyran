@@ -710,4 +710,12 @@ class User extends BaseUser
 
         return implode(', ', $matches) .' and '.$lastCategory;
     }
+
+    /**
+     * @return string
+     */
+    public function getFirstConnectionRequest()
+    {
+        return $this->connectionRequests->first();
+    }
 }
