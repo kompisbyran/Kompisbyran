@@ -82,7 +82,7 @@ class MatchController extends Controller
     public function findAction(Request $request)
     {
         $user           = $this->userManager->getFind($request->get('id'));
-        $userRequest    = $this->connectionRequestManager->getFindOneByUser($user);
+        $userRequest    = $this->connectionRequestManager->getFindOneUnpendingByUserId($request->get('id'));
 
         if (!$user instanceof User || !$userRequest instanceof ConnectionRequest) {
             throw $this->createNotFoundException();

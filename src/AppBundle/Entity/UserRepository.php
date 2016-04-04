@@ -7,7 +7,6 @@ use AppBundle\Entity\User;
 
 class UserRepository extends EntityRepository
 {
-
     /**
      * @param User $user
      * @return User
@@ -73,6 +72,8 @@ class UserRepository extends EntityRepository
                   ON mc.user_id = u.id
                   WHERE u.id != :user
                   AND u.want_to_learn != :want_to_learn
+                  AND cr.pending = false
+                  AND cr.disqualified = false
                   AND $where
                   GROUP BY u.id
               ) temp

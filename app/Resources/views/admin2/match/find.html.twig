@@ -10,7 +10,7 @@
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-md-12">
                     <div class="pull-right">
-                        <a href="{{ path('admin_ajax_edit', {id: user.id}) }}" class="btn btn-orange edit-current-profile current">{{ 'Edit profile'|trans }}</a>
+                        <a href="{{ path('admin_ajax_edit', {id: user.id}) }}" class="btn btn-danger edit-current-profile current">{{ 'Edit profile'|trans }}</a>&nbsp;<a href="{{ path('admin_ajax_connection_request_mark_pending', {user_id: user.id}) }}" class="btn btn-warning connection-requestion-mark-pending go-back">Make pending</a>
                     </div>
                 </div>
             </div>
@@ -229,11 +229,11 @@
             </div>
             <div class="col-md-9 presentation">
                 <div class="pull-right">
-                    <a data-href="edit_profile_link" class="btn btn-orange edit-current-profile">Edit Profile</a>
+                    <a data-href="edit_profile_link" class="btn btn-danger edit-current-profile">Edit Profile</a>&nbsp;<a data-href="mark_pending_link" class="btn btn-warning connection-requestion-mark-pending">Make pending</a>
+
                 </div>
                 <h4><span data-content="user_info"></span> (<span data-content="matches" data-format="SpanDelimiter"></span>)</h4>
-                <p class="interests">Matching interests: <span data-content="interests"
-                            ></span></p>
+                <p class="interests">Matching interests: <span data-content="interests"></span></p>
                 <p data-content="about"></p>
             </div>
             <div class="col-md-2 choice">
@@ -316,6 +316,21 @@
                             for (var prop in resp.user) {
                                 $('#'+prop).html(resp.user[prop]);
                             }
+                        } else {
+                            $('.btn-search').trigger('click');
+                        }
+                    }
+                });
+            });
+
+            $('body').on('click', '.connection-requestion-mark-pending', function(e){
+                e.preventDefault();
+                var $this = $(this);
+
+                $.get($this.attr('href'), function(resp) {
+                    if (resp.success) {
+                        if ($this.hasClass('go-back')) {
+                            window.location = '{{ path('admin_start2') }}';
                         } else {
                             $('.btn-search').trigger('click');
                         }

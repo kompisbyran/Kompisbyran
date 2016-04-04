@@ -17,6 +17,12 @@ interface ConnectionRequestManagerInterface
     public function createNew();
 
     /**
+     * @param $id
+     * @return mixed
+     */
+    public function getFind($id);
+
+    /**
      * @param City $city
      * @return mixed
      */
@@ -50,4 +56,26 @@ interface ConnectionRequestManagerInterface
      * @return mixed
      */
     public function getFindCity(City $city);
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function markAsPending($id);
+
+    /**
+     * @param $id
+     */
+    public function markAsUnpending($id);
+
+    /**
+     * @param $userId
+     * @return null|object
+     */
+    public function getFindOneUnpendingByUserId($userId);
+
+    /**
+     * @return array
+     */
+    public function getFindAllPending();
 }

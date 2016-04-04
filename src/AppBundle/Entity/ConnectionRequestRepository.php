@@ -71,11 +71,20 @@ class ConnectionRequestRepository extends EntityRepository
     }
 
     /**
+     * @param $userId
+     * @return null|object
+     */
+    public function findOneUnpendingByUserId($userId)
+    {
+        return $this->findOneBy(array('user' => $userId, 'pending' => false));
+    }
+
+    /**
      * @deprecated
      *
      * @param User $user
      * @return bool
-     */
+       */
     public function hasActiveRequest(User $user)
     {
         return $this->findOneByUser($user) instanceof ConnectionRequest? true: false;
@@ -201,10 +210,19 @@ class ConnectionRequestRepository extends EntityRepository
             ->createQueryBuilder('cr')
             ->where('cr.city        = :city')
             ->andWhere('cr.disqualified = false')
+            ->andWhere('cr.pending = false')
             ->groupBy('cr.user')
             ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')
             ->setParameter('city', $city)
         ;
+    }
+
+    /**
+     * @return array
+     */
+    public function findAllPending()
+    {
+        return $this->findBy(array('pending' => true));
     }
 }
