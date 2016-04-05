@@ -50,7 +50,7 @@ class DefaultController extends Controller
      * @Method("GET")
      * @Template("admin2/default/manual.html.twig")
      */
-    public function manualAction(Request $request, City $city = null)
+    public function manualAction(Request $request)
     {
         return [
             'pendingRequests' => $this->connectionRequestManager->getFindAllPending()
@@ -58,14 +58,14 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/inspection", name="admin_manual")
+     * @Route("/inspection", name="admin_inspection")
      * @Method("GET")
      * @Template("admin2/default/inspection.html.twig")
      */
-    public function inspectionAction(Request $request, City $city = null)
+    public function inspectionAction(Request $request)
     {
         return [
-            'pendingRequests' => $this->connectionRequestManager->getFindAllInspection()
+            'uninspectedRequests' => $this->connectionRequestManager->getFindAllUninspected()
         ];
     }
 
