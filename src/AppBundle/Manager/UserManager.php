@@ -157,7 +157,7 @@ class UserManager implements UserManagerInterface
                 'interests'         => $this->getCategoriesExactMatchByUser($user, $currentUser),
                 'user_info'         => $currentUser->getFullName(),
                 'edit_profile_link' => $this->router->generate('admin_ajax_edit', ['id' => $auser['id']]),
-                'mark_pending_link' => $this->router->generate('admin_ajax_connection_request_mark_pending', ['user_id' => $auser['id']]),
+                'mark_pending_link' => $this->router->generate('admin_ajax_connection_request_mark_pending', ['id' => $auser['id']]),
                 'about'             => $currentUser->getAbout(),
                 'matches'           => $this->getExactMatchByUser($user, $currentUser),
                 'ele'               => 'ele'.$auser['id'],
