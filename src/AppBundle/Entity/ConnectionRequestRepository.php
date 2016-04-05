@@ -223,7 +223,7 @@ class ConnectionRequestRepository extends EntityRepository
      */
     public function findAllPending()
     {
-        return $this->findBy(array('pending' => true));
+        return $this->findBy(['pending' => true]);
     }
 
     /**
@@ -232,6 +232,6 @@ class ConnectionRequestRepository extends EntityRepository
      */
     public function findAllByInspected($inspected)
     {
-        return $this->findBy(array('inspected' => $inspected));
+        return $this->findBy(['inspected' => $inspected], ['createdAt' => 'DESC']);
     }
 }

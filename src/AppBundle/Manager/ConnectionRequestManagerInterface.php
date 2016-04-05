@@ -78,4 +78,15 @@ interface ConnectionRequestManagerInterface
      * @return array
      */
     public function getFindAllPending();
+
+    /**
+     * @return array
+     */
+    public function getFindAllUninspected();
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function markAsInspected($id);
 }
