@@ -93,6 +93,13 @@ class ConnectionRequest
      */
     protected $pending = false;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $inspected = false;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -305,5 +312,21 @@ class ConnectionRequest
     public function getPending()
     {
         return $this->pending;
+    }
+
+    /**
+     * @param boolean $inspected
+     */
+    public function setInspected($inspected)
+    {
+        $this->inspected = $inspected;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getInspected()
+    {
+        return $this->inspected;
     }
 }

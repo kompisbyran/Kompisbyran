@@ -229,4 +229,31 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     {
         return $this->connectionRequestRepository->findAllPending();
     }
+
+    /**
+     * @return array
+     */
+    public function getFindAllUninspected()
+    {
+        return $this->connectionRequestRepository->findAllByInspected(false);
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function markAsInspected($id)
+    {
+        $connectionRequest = $this->getFind($id);
+
+        if ($connectionRequest instanceof ConnectionRequest) {
+            $connectionRequest->setInspected(true);
+
+            $this->save($connectionRequest);
+
+            return true;
+        }
+
+        return false;
+    }
 }

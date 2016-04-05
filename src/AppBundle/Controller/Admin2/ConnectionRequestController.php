@@ -77,6 +77,17 @@ class ConnectionRequestController extends Controller
     }
 
     /**
+     * @Route("/ajax-mark-inspected/{id}", name="admin_ajax_connection_request_mark_inspected", options={"expose"=true})
+     * @Method({"GET"})
+     */
+    public function ajaxMarkInspectedAction(Request $request)
+    {
+        return new JsonResponse([
+            'success' => $this->connectionRequestManager->markAsInspected($request->get('id'))
+        ]);
+    }
+
+    /**
      * @Route("/mark-unpending/{id}", name="admin_connection_request_mark_unpending", options={"expose"=true})
      * @Method({"GET"})
      */
