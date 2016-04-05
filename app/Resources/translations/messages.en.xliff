@@ -333,18 +333,21 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Thank you for signing up at Kompisbyrån! Please, answer some questions about yourself. We believe 
+                    <![CDATA[
+                    <p>Thank you for signing up at Kompisbyrån! Please, answer some questions about yourself. We believe 
                     that it’s the personal meeting that unites people, and want to create the best conditions for a 
                     successful meeting. Therefore, we match together new friends, mostly based on common or complementary 
-                    interests. 
+                    interests. </p><br/>
                     
-                    You can choose and sign up as a Fika friend (Fikakompis) or Music friend (Musikkompis): 
+                    <p>You can choose and sign up as a Fika friend (Fikakompis) or Music friend (Musikkompis): </p>
                     
-                    Fikakompis - You will be matched with a person who has similar interests as you. You meet and 
+                    <ul>
+                    <li>Fikakompis - You will be matched with a person who has similar interests as you. You meet and 
                     practice Swedish at a café in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
                     
-                    Musikkompis - You will be matched with a person who also likes music. You meet and exchange music experiences in 
-                    a public place in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
+                    <li>Musikkompis - You will be matched with a person who also likes music. You meet and exchange music experiences in 
+                    a public place in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.</ul>
+                    ]]>
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
