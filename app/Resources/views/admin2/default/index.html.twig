@@ -104,7 +104,10 @@
                 $link.closest(".dropdown").find('.selection').text(text);
                 $link.closest(".dropdown").find('.selection').val(id);
                 $('.stat-city-name').html($link.text());
-                table.clear();
+
+                if (page == 1) {
+                    table.clear();
+                }
 
                 $.get(Routing.generate('ajax_by_city', {id: id, page: page}), function (resp) {
                     if (resp.success) {

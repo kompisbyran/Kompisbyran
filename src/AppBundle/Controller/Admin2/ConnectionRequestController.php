@@ -95,6 +95,6 @@ class ConnectionRequestController extends Controller
     {
         $this->connectionRequestManager->markAsUnpending($request->get('id'));
 
-        return $this->redirect('admin_manual');
+        return $this->redirect($this->generateUrl('admin_manual'));
     }
 }
