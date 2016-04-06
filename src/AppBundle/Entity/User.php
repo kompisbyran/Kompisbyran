@@ -105,6 +105,12 @@ class User extends BaseUser
     /**
      * @var MusicCategory[]
      *
+     * @Assert\Expression(
+     *     "!this.isMusicFriend() || (value.count() > 0 && value.count() <= 4)",
+     *     message="Du måste välja minst ett och max fyra musikintressen",
+     *     groups={"settings"}
+     * )
+     *
      * @ORM\ManyToMany(targetEntity="MusicCategory", inversedBy="users")
      * @ORM\JoinTable(
      *     name="users_music_categories",
