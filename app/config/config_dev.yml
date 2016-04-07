@@ -46,3 +46,4 @@ assetic:
 
 swiftmailer:
     delivery_address: %delivery_address%
+    delivery_address: mikael.ohren@gmail.com

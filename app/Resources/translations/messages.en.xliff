@@ -10,6 +10,14 @@
                 <source>no</source>
                 <target>No</target>
             </trans-unit>
+            <trans-unit id="He">
+                <source>He</source>
+                <target>He</target>
+            </trans-unit>
+            <trans-unit id="She">
+                <source>She</source>
+                <target>She</target>
+            </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>
                 <target>Home</target>
@@ -66,11 +74,11 @@
                 <source>homepage.cta.message</source>
                 <target>
                     <![CDATA[
-                    We create meetings between new friends with similar interests. We create contact between those who are 
-                    new in Sweden and those who have lived in Sweden for a long time. You can sign up as a Fika friend 
+                    We create meetings between new friends with similar interests. We create contact between those who are
+                    new in Sweden and those who have lived in Sweden for a long time. You can sign up as a Fika friend
                     (Fikakompis) or Music friend (Musikkompis).<br><br>
-                    As a Fika friend we will match you with a person with similar interests that you have. You meet over 
-                    a ”fika” and practice Swedish! Together we can increase the spirit of community in the everyday life. 
+                    As a Fika friend we will match you with a person with similar interests that you have. You meet over
+                    a ”fika” and practice Swedish! Together we can increase the spirit of community in the everyday life.
                     Sign up as a Fika friend today!
                     ]]>
                 </target>
@@ -90,14 +98,14 @@
             <trans-unit id="homepage.cta.musicfriend.message.strong">
                 <source>homepage.cta.musicfriend.message.strong</source>
                 <target>
-                    Share your music interest with new friends from various cultures. 
+                    Share your music interest with new friends from various cultures.
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.message">
                 <source>homepage.cta.musicfriend.message</source>
                 <target>
-                    We believe that music unites. That’s why we now start Musikkompis together with the mobile company 3. 
-                    With Musikkompis, we give people a chance to meet through music. Play instruments together, go to 
+                    We believe that music unites. That’s why we now start Musikkompis together with the mobile company 3.
+                    With Musikkompis, we give people a chance to meet through music. Play instruments together, go to
                     concerts or talk music over a cup of coffee.
                 </target>
             </trans-unit>
@@ -141,11 +149,11 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.ingress">
                 <source>register.musicfriend.ingress</source>
-                <target>We believe that music unites. That’s why we now start Musikkompis together with 
-                    <![CDATA[ <a href="//tre.se/musikkompis">the mobile company 3</a> ]]>. 
-                    With Musikkompis, we give people a chance to meet through music. Play instruments together, 
-                    go to concerts or talk music over a cup of coffee. It doesn't matter if you are a professional 
-                    or an amateur - we want to make it easier for all people who likes music, to meet other music 
+                <target>We believe that music unites. That’s why we now start Musikkompis together with
+                    <![CDATA[ <a href="//tre.se/musikkompis">the mobile company 3</a> ]]>.
+                    With Musikkompis, we give people a chance to meet through music. Play instruments together,
+                    go to concerts or talk music over a cup of coffee. It doesn't matter if you are a professional
+                    or an amateur - we want to make it easier for all people who likes music, to meet other music
                     enthusiasts with different background, experiences and cultures.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.footer.header">
@@ -154,12 +162,12 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.footer.text">
                 <source>register.musicfriend.footer.text</source>
-                <target>Let’s share your music experiences with new friends. Together, we can create many moments of 
-                togetherness regardless of where we come from. In the end, this contributes to greater tolerance and 
-                understanding in the society.  This is why we start the project Musikkompis - a voluntary collaboration 
-                between 3 and Kompisbyrån, we wish to strengthen the integration and the feeling of togetherness in the 
-                society through music. We want to give more people the opportunity to share their music interests together 
-                with new friends: artists, underground bands, DJs, classical musicians and music fans. Sign up as a 
+                <target>Let’s share your music experiences with new friends. Together, we can create many moments of
+                togetherness regardless of where we come from. In the end, this contributes to greater tolerance and
+                understanding in the society.  This is why we start the project Musikkompis - a voluntary collaboration
+                between 3 and Kompisbyrån, we wish to strengthen the integration and the feeling of togetherness in the
+                society through music. We want to give more people the opportunity to share their music interests together
+                with new friends: artists, underground bands, DJs, classical musicians and music fans. Sign up as a
                 Musikkompis.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.videoheader">
@@ -168,22 +176,22 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.video1">
                 <source>register.musicfriend.video1</source>
-                <target>Filipe Minhava is a 19-year-old guitarist from Portugal who has lived in Sweden for three months at a friends place 
-                in Högdalen. Filipe and Little Jinder met in Stockholm and got to know each other during a day where they visited a flea market, 
+                <target>Filipe Minhava is a 19-year-old guitarist from Portugal who has lived in Sweden for three months at a friends place
+                in Högdalen. Filipe and Little Jinder met in Stockholm and got to know each other during a day where they visited a flea market,
                 checked on LPs and ate at a restaurant, before they rounded off with the classic hit ”La Bamba” at a karaoke bar.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video2">
                 <source>register.musicfriend.video2</source>
-                <target>Naim Kassis, a 45-year-old pianist from Aleppo in Syria, came to Sweden a year ago and ended up in an asylum 
-                accommodation in northern Sweden, where he has given numerous concerts. On a cold winter day, he met Sabina Ddumba, 
-                and together they played a version of Sabina's hit single "Not too young", which attracted the whole accommodation to 
+                <target>Naim Kassis, a 45-year-old pianist from Aleppo in Syria, came to Sweden a year ago and ended up in an asylum
+                accommodation in northern Sweden, where he has given numerous concerts. On a cold winter day, he met Sabina Ddumba,
+                and together they played a version of Sabina's hit single "Not too young", which attracted the whole accommodation to
                 take part in the meeting.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video3">
                 <source>register.musicfriend.video3</source>
-                <target>Bahar Hasko, a Kurdish English teacher, was born in Kamishlo in Syria. Today, she lives and studies 
-                in Sweden. Bahar and Eva Dahlgren met one day and talked about music as a way to communicate and learn 
-                languages. At the end of the day, Bahar surprised Eva with a children's orchestra who played Eva's classic 
+                <target>Bahar Hasko, a Kurdish English teacher, was born in Kamishlo in Syria. Today, she lives and studies
+                in Sweden. Bahar and Eva Dahlgren met one day and talked about music as a way to communicate and learn
+                languages. At the end of the day, Bahar surprised Eva with a children's orchestra who played Eva's classic
                 "Vem tänder stjärnorna".</target>
             </trans-unit>
             <trans-unit id="register.how_it_works.header">
@@ -195,8 +203,8 @@
                 <target>
                     <![CDATA[
                             <li>
-                                Join Kompisbyrån. Write your e-mail, a password of your choice and push the ”Sign up” button. 
-                                It is free to register. Please, read more about Kompisbyrån’s terms before you sign up. 
+                                Join Kompisbyrån. Write your e-mail, a password of your choice and push the ”Sign up” button.
+                                It is free to register. Please, read more about Kompisbyrån’s terms before you sign up.
                             </li>
                     ]]>
                 </target>
@@ -275,7 +283,7 @@
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>I.e education, work and for how long you've been in Sweden. 
+                <target>I.e education, work and for how long you've been in Sweden.
                 Musikkompis, please write if you play an instrument and which genre of music you like.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
@@ -317,17 +325,17 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Thank you for signing up at Kompisbyrån! Please, answer some questions about yourself. We believe 
-                    that it’s the personal meeting that unites people, and want to create the best conditions for a 
-                    successful meeting. Therefore, we match together new friends, mostly based on common or complementary 
-                    interests. 
-                    
-                    You can choose and sign up as a Fika friend (Fikakompis) or Music friend (Musikkompis): 
-                    
-                    Fikakompis - You will be matched with a person who has similar interests as you. You meet and 
+                    Thank you for signing up at Kompisbyrån! Please, answer some questions about yourself. We believe
+                    that it’s the personal meeting that unites people, and want to create the best conditions for a
+                    successful meeting. Therefore, we match together new friends, mostly based on common or complementary
+                    interests.
+
+                    You can choose and sign up as a Fika friend (Fikakompis) or Music friend (Musikkompis):
+
+                    Fikakompis - You will be matched with a person who has similar interests as you. You meet and
                     practice Swedish at a café in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
-                    
-                    Musikkompis - You will be matched with a person who also likes music. You meet and exchange music experiences in 
+
+                    Musikkompis - You will be matched with a person who also likes music. You meet and exchange music experiences in
                     a public place in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
                 </target>
             </trans-unit>
@@ -339,8 +347,8 @@
                 <source>index.intro</source>
                 <target>On this page, you can find your previous Fika or Music friends and you can meet new friends by doing a friend request.
 
-                    You meet your new friend one time. If you like each other, you can meet again by yourself. If you want to meet new friends, you select the city you can meet up in and then press the button "Fika friend request". 
-                    
+                    You meet your new friend one time. If you like each other, you can meet again by yourself. If you want to meet new friends, you select the city you can meet up in and then press the button "Fika friend request".
+
 
                     If you want to change your application, you can update the form in the menu above: press "Min profil" (My profile) and then "Inställningar" (Settings).</target>
             </trans-unit>
@@ -391,7 +399,7 @@
             </trans-unit>
             <trans-unit id="terms.list">
                 <source>terms.list</source>
-                <target><![CDATA[ 
+                <target><![CDATA[
                     <ul>
                         <li>
                             Kompisbyrån creates contact between new friends based on similar interests. Kompisbyrån is only responsible for linking together people who have lived in Sweden for a short time with people who have lived in Sweden for a long time.
@@ -407,7 +415,7 @@
                         </li>
                         <li>
                             When you have registered your application, you warrant that your information is correct and agree that the information: may be treated according to PUL and is saved in Kompisbyrån's register so that we can find new friends for you, that your information and e-mail is sent to your new friend, and that we will invite you to Kompisbyrån's activities or offerings. If you want to adjust your submitted information that is registered, please log in with your e-mail and password and update your profile.
-                        </li>    
+                        </li>
                         <li>
                             Our ambition is to find a new friend for you within 14 days, but it may take both shorter and longer time depending on your profile and the number of people who also want to meet new friends. That means that you may have to wait.
                         </li>
@@ -420,7 +428,7 @@
                         <li>
                             A meeting with your Fika or Music friend takes place once. If you like each other, you are welcome to meet again by your own. If you want to meet a new Fika or Music friend, please log in and make a new friend request.
                         </li>
-                        <li>    
+                        <li>
                             If you want to delete your account, please send an e-mail to kontakt@kompisbyran.se.
                         </li>
                         <li>
@@ -519,6 +527,10 @@ Your friends at Kompisbyrån</target>
             <trans-unit id="match.email.user.subject">
                 <source>match.email.user.subject</source>
                 <target>%match_music_friend% from Kompisbyrån for you %user_name%</target>
+            </trans-unit>
+            <trans-unit id="match.email.user_He">
+                <source>match.email.user_He</source>
+                <target>He2</target>
             </trans-unit>
         </body>
     </file>
