@@ -10,20 +10,20 @@
                 <source>no</source>
                 <target>Nej</target>
             </trans-unit>
-            <trans-unit id="global.He">
-                <source>global.He</source>
-                <target>Han</target>
+            <trans-unit id="global.he">
+                <source>global.he</source>
+                <target>han</target>
             </trans-unit>
-            <trans-unit id="global.His">
-                <source>global.His</source>
-                <target>Hans</target>
+            <trans-unit id="global.his">
+                <source>global.his</source>
+                <target>hans</target>
             </trans-unit>
-            <trans-unit id="global.Her">
-                <source>global.Her</source>
-                <target>Hennes</target>
+            <trans-unit id="global.her">
+                <source>global.her</source>
+                <target>hennes</target>
             </trans-unit>
-            <trans-unit id="global.She">
-                <source>global.She</source>
+            <trans-unit id="global.she">
+                <source>global.she</source>
                 <target>Hon</target>
             </trans-unit>
             <trans-unit id="global.music_buddy">

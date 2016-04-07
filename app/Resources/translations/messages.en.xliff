@@ -10,21 +10,21 @@
                 <source>no</source>
                 <target>No</target>
             </trans-unit>
-            <trans-unit id="global.He">
-                <source>global.He</source>
-                <target>He</target>
+            <trans-unit id="global.he">
+                <source>global.he</source>
+                <target>he</target>
             </trans-unit>
-            <trans-unit id="global.His">
-                <source>global.His</source>
-                <target>His</target>
+            <trans-unit id="global.his">
+                <source>global.his</source>
+                <target>his</target>
             </trans-unit>
-            <trans-unit id="global.Her">
-                <source>global.Her</source>
-                <target>Her</target>
+            <trans-unit id="global.her">
+                <source>global.her</source>
+                <target>her</target>
             </trans-unit>
-            <trans-unit id="global.She">
-                <source>global.She</source>
-                <target>She</target>
+            <trans-unit id="global.she">
+                <source>global.she</source>
+                <target>she</target>
             </trans-unit>
             <trans-unit id="global.music_buddy">
                 <source>global.music_buddy</source>
