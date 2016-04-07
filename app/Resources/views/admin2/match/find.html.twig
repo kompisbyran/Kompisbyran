@@ -193,12 +193,10 @@
                     <div class="col-md-6">
                         <h4>{{ 'Email to '|trans }} {{ user.fullName }}</h4>
                         {{ form_widget(matchForm.email_to_user) }}
-                        {#<textarea class="form-control" rows="12">{{ 'match.email.user'|trans }}</textarea>#}
                     </div>
                     <div class="col-md-6">
                         <h4>{{ 'Email to match'|trans }}</h4>
                         {{ form_widget(matchForm.email_to_match_user) }}
-                        {#<textarea class="form-control" rows="12">{{ 'match.email.match.user'|trans }}</textarea>#}
                     </div>
                     {{ form_rest(matchForm) }}
                 </form>
@@ -332,7 +330,7 @@
                         if ($this.hasClass('go-back')) {
                             window.location = '{{ path('admin_start2') }}';
                         } else {
-                            $('.btn-search').trigger('click');
+                            $this.closest('.row').remove();
                         }
                     }
                 });
