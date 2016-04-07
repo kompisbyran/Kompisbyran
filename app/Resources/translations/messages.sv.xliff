@@ -10,20 +10,28 @@
                 <source>no</source>
                 <target>Nej</target>
             </trans-unit>
-            <trans-unit id="He">
-                <source>He</source>
+            <trans-unit id="global.He">
+                <source>global.He</source>
                 <target>Han</target>
             </trans-unit>
-            <trans-unit id="She">
-                <source>She</source>
+            <trans-unit id="global.His">
+                <source>global.His</source>
+                <target>Hans</target>
+            </trans-unit>
+            <trans-unit id="global.Her">
+                <source>global.Her</source>
+                <target>Hennes</target>
+            </trans-unit>
+            <trans-unit id="global.She">
+                <source>global.She</source>
                 <target>Hon</target>
             </trans-unit>
-            <trans-unit id="Music_Buddy">
-                <source>Music Buddy</source>
+            <trans-unit id="global.music_buddy">
+                <source>global.music_buddy</source>
                 <target>Musikkompis</target>
             </trans-unit>
-            <trans-unit id="Fika_Buddy">
-                <source>Fika Buddy</source>
+            <trans-unit id="global.fika_buddy">
+                <source>global.fika_buddy</source>
                 <target>Fikakompis</target>
             </trans-unit>
             <trans-unit id="menu.home">
@@ -524,7 +532,7 @@ Hej %user_name%!
 
 Vad kul att du vill vara med i Kompisbyrån!
 
-Vi har hittat en %match_music_friend% till dig. %match_his_her% heter %match_name% och ni båda gillar %match_categories%.
+Vi har hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%.
 
 %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
 
@@ -590,14 +598,6 @@ Your friends at Kompisbyrån</target>
             <trans-unit id="match.email.user.café">
                 <source>café</source>
                 <target>café</target>
-            </trans-unit>
-            <trans-unit id="match.email.user.his">
-                <source>His</source>
-                <target>Han</target>
-            </trans-unit>
-            <trans-unit id="match.email.user.her">
-                <source>Her</source>
-                <target>Hon</target>
             </trans-unit>
         </body>
     </file>

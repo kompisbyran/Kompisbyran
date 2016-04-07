@@ -10,13 +10,29 @@
                 <source>no</source>
                 <target>No</target>
             </trans-unit>
-            <trans-unit id="He">
-                <source>He</source>
+            <trans-unit id="global.He">
+                <source>global.He</source>
                 <target>He</target>
             </trans-unit>
-            <trans-unit id="She">
-                <source>She</source>
+            <trans-unit id="global.His">
+                <source>global.His</source>
+                <target>His</target>
+            </trans-unit>
+            <trans-unit id="global.Her">
+                <source>global.Her</source>
+                <target>Her</target>
+            </trans-unit>
+            <trans-unit id="global.She">
+                <source>global.She</source>
                 <target>She</target>
+            </trans-unit>
+            <trans-unit id="global.music_buddy">
+                <source>global.music_buddy</source>
+                <target>music friend</target>
+            </trans-unit>
+            <trans-unit id="global.fika_buddy">
+                <source>global.fika_buddy</source>
+                <target>fika friend</target>
             </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>
