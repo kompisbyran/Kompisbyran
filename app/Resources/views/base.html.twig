@@ -99,7 +99,6 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ path('admin_start') }}">Fikakompisar att matcha</a></li>
                                     <li><a href="{{ path('admin_start', {'type': 'musicfriend'}) }}">Musikkompisar att matcha</a></li>
-                                    <li><a href="{{ path('admin_start2') }}">Admin 2.0</a></li>
                                     <li><a href="{{ path('admin_connections') }}">Matchade kompisar</a></li>
                                     <li><a href="{{ path('admin_users') }}">Användare</a></li>
                                     <li><a href="{{ path('admin_statistics') }}">Statistik</a></li>
@@ -212,9 +211,6 @@
 <script type="text/javascript" src="/js/html5shiv.js"></script>
 <!-- Custom JS -->
 <script type="text/javascript" src="/js/custom.js"></script>
-
-<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
         {% block javascripts %}{% endblock %}
 <script>
