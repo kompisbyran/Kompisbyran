@@ -19,33 +19,33 @@
         <div class="testimonial-content t-one">
             <h4>
                 <img
-                    style="width:50px"
-                    src="{% if connectionRequest.user.profilePicture -%}
+                        style="width:50px"
+                        src="{% if connectionRequest.user.profilePicture -%}
                             {{ connectionRequest.user.profilePicture }}
                         {%- else -%}
                             {{ asset('/images/user.png') }}
                         {%- endif %}"
-                    alt=""
-                    class="img-responsive img-circle"
-                /><a
-                    href="{{ path('admin_user', {'id': connectionRequest.user.id}) }}"
-                    data-toggle="popover"
-                    data-trigger="hover"
-                    title="{{ connectionRequest.user.name }}"
-                    data-html="true"
-                    data-content="<strong>Från:</strong> {{ connectionRequest.user.from|country_name }}<br>
+                        alt=""
+                        class="img-responsive img-circle"
+                        /><a
+                        href="{{ path('admin_user', {'id': connectionRequest.user.id}) }}"
+                        data-toggle="popover"
+                        data-trigger="hover"
+                        title="{{ connectionRequest.user.name }}"
+                        data-html="true"
+                        data-content="<strong>Från:</strong> {{ connectionRequest.user.from|country_name }}<br>
                     <strong>Antal kopplingar:</strong> {{ connectionRequest.user.connections|length }}<br>
                     <strong>Om:</strong> {{ connectionRequest.user.about }}"
-                    data-placement="bottom"
-                >{{ connectionRequest.user.name }}</a>
+                        data-placement="bottom"
+                        >{{ connectionRequest.user.name }}</a>
                 <span>{{ connectionRequest.user.gender }}, {{ connectionRequest.user.age }} år</span>
             </h4>
             <blockquote class="{% if connectionRequest.user.internalComment %}br-orange{% else %}br-green{% endif %}">
                 <p>
                     <input name="{{ inputName }}" value="{{ connectionRequest.id }}" type="radio"
-                        {% if isChecked %}checked="checked"{% endif %}
-                        data-name="{{ connectionRequest.user.name }} ({{ connectionRequest.user.gender }}, {{ connectionRequest.user.age }} år)"
-                    >
+                           {% if isChecked %}checked="checked"{% endif %}
+                           data-name="{{ connectionRequest.user.name }} ({{ connectionRequest.user.gender }}, {{ connectionRequest.user.age }} år)"
+                            >
                     {% for category in categories %}
                         {{ category.name }}{% if not loop.last %}, {% endif %}
                     {% endfor %}
@@ -72,8 +72,8 @@
 {% block body %}
 
 
-<div class="inner-page testimonial">
-    <div class="container">
+    <div class="inner-page testimonial">
+        <div class="container">
 
             <div class="inner-tab">
                 <ul class="nav nav-tabs">
@@ -86,45 +86,45 @@
             </div>
 
 
-        <div id="filters">
-            {% for category in categories %}
-                <label>
-                    <input type="checkbox" name="category" value="{{ category.id }}"> {{ category.name }}
-                </label>&nbsp;&nbsp;&nbsp;
-            {% endfor %}
-        </div>
+            <div id="filters">
+                {% for category in categories %}
+                    <label>
+                        <input type="checkbox" name="category" value="{{ category.id }}"> {{ category.name }}
+                    </label>&nbsp;&nbsp;&nbsp;
+                {% endfor %}
+            </div>
 
-        <div class="inner-testimonial row">
+            <div class="inner-testimonial row">
 
-            <form method="POST" action="" id="connectionForm">
-                <div class="col-md-6 col-sm-6">
-                    <h2>Övare</h2>
-                    <div class="row">
-                        {% for connectionRequest in learners %}
-                            {{ macro.connectionRequestItem(connectionRequest, 'learner', loop.first, type) }}
-                        {% endfor %}
+                <form method="POST" action="" id="connectionForm">
+                    <div class="col-md-6 col-sm-6">
+                        <h2>Övare</h2>
+                        <div class="row">
+                            {% for connectionRequest in learners %}
+                                {{ macro.connectionRequestItem(connectionRequest, 'learner', loop.first, type) }}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <h2 style="clear:both">Lärare</h2>
-                    <div class="row">
-                        {% for connectionRequest in fluentSpeakers %}
-                            {{ macro.connectionRequestItem(connectionRequest, 'fluentSpeaker', loop.first, type) }}
-                        {% endfor %}
+                    <div class="col-md-6 col-sm-6">
+                        <h2 style="clear:both">Lärare</h2>
+                        <div class="row">
+                            {% for connectionRequest in fluentSpeakers %}
+                                {{ macro.connectionRequestItem(connectionRequest, 'fluentSpeaker', loop.first, type) }}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
 
-                <p style="clear:both">
-                    <input type="submit"
-                        {% if learners|length == 0 or fluentSpeakers|length == 0 %}disabled="disabled"{% endif %}
-                        class="btn btn-default"
-                    >
-                </p>
+                    <p style="clear:both">
+                        <input type="submit"
+                               {% if learners|length == 0 or fluentSpeakers|length == 0 %}disabled="disabled"{% endif %}
+                               class="btn btn-default"
+                                >
+                    </p>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
 
@@ -135,20 +135,16 @@
                 if (confirm('Vill du koppla ihop ' + $('input[name=learner]:checked').data('name') + ' och ' + $('input[name=fluentSpeaker]:checked').data('name') + '?')) {
                     return;
                 }
-
                 e.preventDefault();
             });
-
             $('#filters input').change(function () {
                 var categoryIds = [];
                 $('#filters input:checked').each(function () {
                     categoryIds.push($(this).val());
                 });
-
                 $('.connection-request-item').each(function () {
                     var userCategoryIds = $(this).data('categories').split(',');
                     var found = 0;
-
                     $.each(categoryIds, function (i, categorydId) {
                         $.each(userCategoryIds, function (ii, userCategoryId) {
                             if (userCategoryId == categorydId) {
