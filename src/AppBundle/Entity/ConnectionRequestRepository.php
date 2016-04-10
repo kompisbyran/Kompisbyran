@@ -232,6 +232,15 @@ class ConnectionRequestRepository extends EntityRepository
      */
     public function findAllByInspected($inspected)
     {
-        return $this->findBy(['inspected' => $inspected], ['createdAt' => 'DESC']);
+        return $this
+            ->createQueryBuilder('cr')
+            ->where('cr.inspected        = :inspected')
+            ->groupBy('cr.user')
+            ->orderBy('cr.sortOrder', 'DESC')
+            ->addOrderBy('cr.createdAt', 'ASC')
+            ->setParameter('inspected', $inspected)
+            ->getQuery()
+            ->getResult()
+        ;
     }
 }
