@@ -88,7 +88,7 @@
                 </div>
                 <div class="col-md-10 col-md-offset-1">
                     <a href="{{ path('admin_ajax_connection_request_mark_inspected', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-approve">{{ 'Approve'|trans }}</a>&nbsp;
-                    <a href="{{ path('admin_connection_request_mark_unpending', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-unpending">{{ 'Make Pending'|trans }}</a>&nbsp;
+                    <a href="{{ path('admin_connection_request_mark_unpending', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-unpending">{{ 'Remove Pending'|trans }}</a>&nbsp;
                     <a href="{{ path('admin_ajax_edit', {id: uninspectedRequest.user.id}) }}" class="btn btn-large btn-default btn-edit-profile">{{ 'Edit Profile'|trans }}</a>
                 </div>
             </form>
