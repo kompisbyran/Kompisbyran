@@ -146,7 +146,7 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
         $qb         = $this->connectionRequestRepository->findByCityQueryBuilder($city);
         $adapter    = new DoctrineORMAdapter($qb);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(25);
+        $pagerfanta->setMaxPerPage(100000);
         $pagerfanta->setCurrentPage($page);
 
         return [
@@ -181,6 +181,8 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
+     * @deprecated
+     *
      * @param $id
      * @return bool
      */
@@ -200,6 +202,8 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
+     * @deprecated
+     *
      * @param $id
      */
     public function markAsUnpending($id)
@@ -252,6 +256,30 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
             $this->save($connectionRequest);
 
             return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function markAsPendingOrUnpending($id)
+    {
+        $connectionRequest = $this->getFind($id);
+
+        if ($connectionRequest instanceof ConnectionRequest) {
+
+            if ($connectionRequest->getPending()) {
+                $connectionRequest->setPending(false);
+            } else {
+                $connectionRequest->setPending(true);
+            }
+
+            $this->save($connectionRequest);
+
+            return $connectionRequest;
         }
 
         return false;

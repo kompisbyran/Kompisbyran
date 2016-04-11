@@ -33,7 +33,7 @@ class UserManager implements UserManagerInterface
     /**
      * @var Paginator
      */
-    private $paginator;
+     private $paginator;
 
     /**
      * @var RouterInterface

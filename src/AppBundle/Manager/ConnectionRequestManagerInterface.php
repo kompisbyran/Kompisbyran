@@ -89,4 +89,10 @@ interface ConnectionRequestManagerInterface
      * @return bool
      */
     public function markAsInspected($id);
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function markAsPendingOrUnpending($id);
 }

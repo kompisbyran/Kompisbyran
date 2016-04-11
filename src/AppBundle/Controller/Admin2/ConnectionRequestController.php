@@ -51,6 +51,10 @@ class ConnectionRequestController extends Controller
      */
     public function ajaxByCityAction(Request $request)
     {
+        if (!$request->isXmlHttpRequest()) {
+            throw $this->createAccessDeniedException();
+        }
+
         $city   = $this->cityManager->getFind($request->get('id'));
 
         if ($city instanceof City) {
@@ -66,11 +70,17 @@ class ConnectionRequestController extends Controller
     }
 
     /**
+     * @deprecated
+     *
      * @Route("/ajax-mark-pending/{id}", name="admin_ajax_connection_request_mark_pending", options={"expose"=true})
      * @Method({"GET"})
      */
     public function ajaxMarkPendingAction(Request $request)
     {
+        if (!$request->isXmlHttpRequest()) {
+            throw $this->createAccessDeniedException();
+        }
+
         return new JsonResponse([
             'success' => $this->connectionRequestManager->markAsPending($request->get('id'))
         ]);
@@ -82,12 +92,18 @@ class ConnectionRequestController extends Controller
      */
     public function ajaxMarkInspectedAction(Request $request)
     {
+        if (!$request->isXmlHttpRequest()) {
+            throw $this->createAccessDeniedException();
+        }
+
         return new JsonResponse([
             'success' => $this->connectionRequestManager->markAsInspected($request->get('id'))
         ]);
     }
 
     /**
+     * @deprecated
+     *
      * @Route("/mark-unpending/{id}", name="admin_connection_request_mark_unpending", options={"expose"=true})
      * @Method({"GET"})
      */
@@ -96,5 +112,23 @@ class ConnectionRequestController extends Controller
         $this->connectionRequestManager->markAsUnpending($request->get('id'));
 
         return $this->redirect($this->generateUrl('admin_manual'));
+    }
+
+    /**
+     * @Route("/ajax-mark-pending-unpending/{id}", name="admin_ajax_connection_request_mark_pending_or_unpending", options={"expose"=true})
+     * @Method({"GET"})
+     */
+    public function ajaxMarkPendingOrUnpendingAction(Request $request)
+    {
+        if (!$request->isXmlHttpRequest()) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $connectionRequest = $this->connectionRequestManager->markAsPendingOrUnpending($request->get('id'));
+
+        return new JsonResponse([
+            'success'   => ($connectionRequest == false? false: true),
+            'label'     => ($connectionRequest->getPending()? 'Remove Pending': 'Make Pending')
+        ]);
     }
 }
