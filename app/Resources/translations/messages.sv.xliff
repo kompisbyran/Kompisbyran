@@ -74,10 +74,10 @@
                 <source>homepage.cta.message</source>
                 <target>
                     <![CDATA[
-                    Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt 
-                    mellan dig som är ny i Sverige och dig som har bott i Sverige länge. Du kan bli Fikakompis eller 
+                    Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt
+                    mellan dig som är ny i Sverige och dig som har bott i Sverige länge. Du kan bli Fikakompis eller
                     Musikkompis.<br><br>
-                    Som Fikakompis blir du matchad med en person med liknande intressen som du har. Ni träffas, fikar 
+                    Som Fikakompis blir du matchad med en person med liknande intressen som du har. Ni träffas, fikar
                     och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en Fikakompis idag!
                     ]]>
                 </target>
@@ -119,7 +119,7 @@
             <trans-unit id="register.create.intro">
                 <source>register.create.intro</source>
                 <target>
-                    För att kompisfika eller bli Musikkompis fyller du i din e-post och ett lösenord som du bestämmer själv. 
+                    För att kompisfika eller bli Musikkompis fyller du i din e-post och ett lösenord som du bestämmer själv.
                 </target>
             </trans-unit>
             <trans-unit id="register.form.email">
@@ -148,7 +148,7 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.ingress">
                 <source>register.musicfriend.ingress</source>
-                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med 
+                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
                     <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.footer.header">
@@ -186,8 +186,8 @@
                 <target>
                     <![CDATA[
                             <li>
-                                Gå med i Kompisbyrån genom att registrera dig. Skriv din e-post, 
-                                ett lösenord som du bestämmer själv och klicka på "Gå med". Det är gratis att anmäla sig. 
+                                Gå med i Kompisbyrån genom att registrera dig. Skriv din e-post,
+                                ett lösenord som du bestämmer själv och klicka på "Gå med". Det är gratis att anmäla sig.
                                 Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
                             </li>
                     ]]>
@@ -267,7 +267,7 @@
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige. 
+                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige.
                 Musikkompis, skriv gärna om du spelar något instrument och vilken musikgenre du gillar.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
@@ -317,17 +317,17 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target><![CDATA[
-                    <p>Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor om dig själv. 
-                    Vi tror att det är det personliga mötet som förenar människor och vill skapa så bra förutsättningar 
-                    för ett lyckat möte. Därför matchar vi ihop nya kompisar, främst utifrån gemensamma eller 
+                    <p>Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor om dig själv.
+                    Vi tror att det är det personliga mötet som förenar människor och vill skapa så bra förutsättningar
+                    för ett lyckat möte. Därför matchar vi ihop nya kompisar, främst utifrån gemensamma eller
                     kompletterande intressen.</p><br />
-                    
+
                     <p>Du kan bli Fikakompis eller Musikkompis: </p>
                     <ul>
-                        <li>Fikakompis - Du blir matchad med en person som har liknande intressen som du har. Ni träffas och övar 
+                        <li>Fikakompis - Du blir matchad med en person som har liknande intressen som du har. Ni träffas och övar
                         svenska på ett kafé i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
-                        
-                        <li>Musikkompis - Du blir matchad med en person som också gillar musik. Ni träffas och utbyter musikerfarenheter 
+
+                        <li>Musikkompis - Du blir matchad med en person som också gillar musik. Ni träffas och utbyter musikerfarenheter
                         på en offentlig plats i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.</ul>
                     ]]>
                 </target>
@@ -338,8 +338,8 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här kan du anmäla dig igen för att träffa nya Fikakompisar eller Musikkompisar. 
-                Du ser även dina tidigare kompismöten och intresseanmälningar till att träffa nya kompisar. 
+                <target>Här kan du anmäla dig igen för att träffa nya Fikakompisar eller Musikkompisar.
+                Du ser även dina tidigare kompismöten och intresseanmälningar till att träffa nya kompisar.
 
                     Vill du ändra din ansökan trycker du först på "Min profil" och sedan på "Inställningar" i menyn.</target>
             </trans-unit>
@@ -391,11 +391,11 @@
             </trans-unit>
             <trans-unit id="terms.list">
                 <source>terms.list</source>
-                <target><![CDATA[ 
+                <target><![CDATA[
                     <ul>
                         <li>
-                            Kompisbyrån skapar kontakt mellan nya kompisar baserat på gemensamma intressen. 
-                            Kompisbyrån ansvarar endast för att matcha ihop personer som har bott i Sverige under kortare tid med 
+                            Kompisbyrån skapar kontakt mellan nya kompisar baserat på gemensamma intressen.
+                            Kompisbyrån ansvarar endast för att matcha ihop personer som har bott i Sverige under kortare tid med
                             personer som har bott i Sverige länge.
                         </li>
                         <li>
@@ -408,15 +408,15 @@
                             Kompisbyrån rekommenderar att ni träffas ungefär 1 timme på ett offentligt ställe i stadens centrala del.
                         </li>
                         <li>
-                            När du har registrerat din ansökan garanterar du att din information är korrekt och godkänner att 
-                            informationen; kan komma att behandlas enligt PUL och hamnar i Kompisbyråns register så att vi kan 
-                            hitta nya kompisar till dig, att din information och e-mail skickas till din nya kompis, och att vi 
-                            bjuder in dig till Kompisbyråns aktiviteter eller erbjudanden. Om du vill korrigera dina lämnade uppgifter 
+                            När du har registrerat din ansökan garanterar du att din information är korrekt och godkänner att
+                            informationen; kan komma att behandlas enligt PUL och hamnar i Kompisbyråns register så att vi kan
+                            hitta nya kompisar till dig, att din information och e-mail skickas till din nya kompis, och att vi
+                            bjuder in dig till Kompisbyråns aktiviteter eller erbjudanden. Om du vill korrigera dina lämnade uppgifter
                             som finns registrerade hos oss, vänligen logga in med din e-mail och ditt lösenord och uppdatera din profil.
-                        </li>    
+                        </li>
                         <li>
-                            Vår ambition är att hitta en ny kompis till dig inom 14 dagar, men det kan ta både kortare och längre tid 
-                            beroende på din profil och hur många personer som också vill träffa nya kompisar. Det innebär att du kan 
+                            Vår ambition är att hitta en ny kompis till dig inom 14 dagar, men det kan ta både kortare och längre tid
+                            beroende på din profil och hur många personer som också vill träffa nya kompisar. Det innebär att du kan
                             få vänta.
                         </li>
                         <li>
@@ -426,17 +426,17 @@
                             Du bör skicka ett e-mail till din nya fikakompis och bestämma när ni kan träffas inom 7 dagar.
                         </li>
                         <li>
-                            En kompisfika eller ett musikmöte sker en gång. Gillar ni varandra får ni gärna träffas igen själva. Vill du träffa en 
+                            En kompisfika eller ett musikmöte sker en gång. Gillar ni varandra får ni gärna träffas igen själva. Vill du träffa en
                             ny Fikakompis eller Musikkompis, loggar du in och anmäler dig igen.
                         </li>
-                        <li>    
+                        <li>
                             Om du vill avregistrera dig, skicka ett e-mail till kontakt@kompisbyran.se.
                         </li>
                         <li>
                             Kompisbyrån kan inte garantera att vi hittar en ny kompis till dig men vi gör alltid vårt bästa.
                         </li>
                         <li>
-                            Vi vill hela tiden bli bättre på vårt arbete. Därför skickar vi ett e-mail till dig efter att du har 
+                            Vi vill hela tiden bli bättre på vårt arbete. Därför skickar vi ett e-mail till dig efter att du har
                             träffat din nya kompis för att fråga hur ert möte var.
                         </li>
                     </ul>]]></target>
@@ -466,7 +466,7 @@
                     <p>
                         Bästa hälsningar,<br />
                         Alla på Kompisbyrån
-                        
+
                     <p>----------------------<br /></p>
                     <p>
                         Thank you for making a Fika friend request through Kompisbyrån!<br /><br />
@@ -475,7 +475,7 @@
                     <p>
                         Best regards,<br />
                         Kompisbyrån
-                        
+
                     </p>]]></target>
             </trans-unit>
             <trans-unit id="user.welcome.message.body.txt">
@@ -488,7 +488,16 @@
                     Om du har några frågor, vänligen skicka ett e-mail till oss :)
 
                     Bästa hälsningar
-                    Alla på Kompisbyrån</target>
+                    Alla på Kompisbyrån
+
+                    ----------------------
+                        Thank you for making a Fika friend request through Kompisbyrån!
+                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.
+
+                        Best regards,
+                        Kompisbyrån
+
+                  </target>
             </trans-unit>
             <trans-unit id="user.friend.welcome.message.subject">
                 <source>user.friend.welcome.message.subject</source>
@@ -496,16 +505,28 @@
             </trans-unit>
             <trans-unit id="user.friend.welcome.message.body">
                 <source>user.friend.welcome.message.body</source>
-                <target><![CDATA[
-                    <p>Hej!<br /></p>
-                    <p>
-                       Tack för att du har anmält dig till Musikkompis! Vi mailar dig när vi har hittat en Musikkompis som passar just dig. Vår ambition är att hitta en Musikkompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Musikkompisar.<br /><br />
-                       Om du har några frågor, vänligen skicka ett e-mail till oss :)
-                    </p>
-                    <p>
-                        Bästa hälsningar<br />
-                        Alla på Kompisbyrån
-                    </p>]]></target>
+
+                    <target><![CDATA[
+                        <p>(This message will follow in English)<br /><br /></p>
+                        <p>Hej!<br /></p>
+                        <p>
+                          Tack för att du har anmält dig till Musikkompis! Vi mailar dig när vi har hittat en Musikkompis som passar just dig. Vår ambition är att hitta en Musikkompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Musikkompisar.<br /><br />
+                            Om du har några frågor, vänligen skicka ett e-mail till oss :)
+                        </p>
+                        <p>
+                            Bästa hälsningar,<br />
+                            Alla på Kompisbyrån
+
+                        <p>----------------------<br /></p>
+                        <p>
+                            Thank you for making a Music friend request through Kompisbyrån!<br /><br />
+                            We will send you an e-mail as soon as we have found a new Music friend for you who has similar interests that you have. Our ambition is to find a Music friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends. <br /><br />
+                        </p>
+                        <p>
+                            Best regards,<br />
+                            Kompisbyrån
+
+                        </p>]]></target>
             </trans-unit>
             <trans-unit id="user.friend.welcome.message.body.txt">
                 <source>user.friend.welcome.message.body.txt</source>
