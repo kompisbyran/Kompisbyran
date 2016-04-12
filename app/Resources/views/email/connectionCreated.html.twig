@@ -1,6 +1,7 @@
 {% extends 'baseEmail.html.twig' %}
 
 {% block body %}
+    <p>-- This email will follow in english --</p>
     <p>Hej {{ recipient.firstName }}!</p>
 
     <p>Vad kul att du vill vara med i Kompisbyrån!</p>
@@ -17,7 +18,7 @@
         {%- endfor %}.</p>
 
     <p>Maila din {{ connection.musicFriend ? 'Musikkompis' : 'Fikakompis' }} som har e-mail: {{ partner.email }}. Bestäm var och när ni ska träffas,
-    skicka mailet inom en vecka. Vi rekommenderar att ni ses på en offentlig plats i ungefär en timme. Vi har också skickat 
+    skicka mailet inom en vecka. Vi rekommenderar att ni ses på en offentlig plats i ungefär en timme. Vi har också skickat
     din e-mail till din {{ connection.musicFriend ? 'Musikkompis' : 'Fikakompis' }}.</p>
 
     <p>
@@ -30,6 +31,25 @@
     <p>
         Bästa hälsningar<br>
         Vännerna på Kompisbyrån
+    </p>
+
+
+    <p>-- English version --</p>
+
+
+    <p>Hello {{ recipient.firstName }}!</p>
+
+    <p>Thank you for being part of Kompisbyrån!</p>
+
+    <p>We have found a match for you. This persons name is  {{ partner.name }}</p>
+
+    <p>Send an email to {{ partner.name }} at {{ partner.email }}. Decide where to meet and send this email within one week.
+    We recommend that you meet at a public place (for example a café) for about an hour.
+    </p>
+
+    <p>
+        Best regards<br>
+        Kompisbyrån
     </p>
 
 {% endblock %}
