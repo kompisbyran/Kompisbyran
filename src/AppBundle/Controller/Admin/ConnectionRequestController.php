@@ -3,7 +3,6 @@
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\Manager\ConnectionRequestManager;
-use AppBundle\Manager\CityManager;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Entity\City;
@@ -28,20 +27,13 @@ class ConnectionRequestController extends Controller
     private $connectionRequestManager;
 
     /**
-     * @var CityManager
-     */
-    private $cityManager;
-
-    /**
      * @InjectParams({
-     *     "connectionRequestManager"   = @Inject("connection_request_manager"),
-     *     "cityManager"                = @Inject("city_manager")
+     *     "connectionRequestManager"   = @Inject("connection_request_manager")
      * })
      */
-    public function __construct(ConnectionRequestManager $connectionRequestManager, CityManager $cityManager)
+    public function __construct(ConnectionRequestManager $connectionRequestManager)
     {
         $this->connectionRequestManager = $connectionRequestManager;
-        $this->cityManager              = $cityManager;
     }
 
     /**
