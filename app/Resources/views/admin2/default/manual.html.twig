@@ -3,15 +3,15 @@
 {% block default_content %}
 
     <div class="row" style="margin-top: 40px;">
-        <h1>{{ 'manual.title.pending_connection_request' }}</h1>
+        <h1>{{ 'Pending Connection Request'|trans }}</h1>
         <table id="match-users" class="table table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th id="request_date">{{ 'table.match.date_of_request'|trans }}</th>
-                <th id="name">{{ 'table.match.name'|trans }}</th>
-                <th id="email">{{ 'table.match.email'|trans }}</th>
-                <th id="category">{{ 'table.manual.internal_comments'|trans }}</th>
-                <th id="action">{{ 'table.match.action'|trans }}</th>
+                <th id="request_date">{{ 'Date Of Request'|trans }}</th>
+                <th id="name">{{ 'Name'|trans }}</th>
+                <th id="email">{{ 'Email'|trans }}</th>
+                <th id="category">{{ 'Internal Comments'|trans }}</th>
+                <th id="action">{{ 'Action'|trans }}</th>
             </tr>
             </thead>
             <tbody class="persons-list-body">
@@ -22,8 +22,8 @@
                         <td>{{ pendingRequest.user.email }}</td>
                         <td>{{ pendingRequest.user.internalComment }}</td>
                         <td>
-                            <a href="{{ path('admin_ajax_edit', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile" target="_blank">{{ 'btn.edit_profile'|trans }}</a>&nbsp;
-                            <a href="{{ path('admin_connection_request_mark_unpending', {id: pendingRequest.id}) }}" class="btn btn-warning btn-pending">{{ 'btn.make_pending'|trans }}</a>
+                            <a href="{{ path('admin_ajax_edit', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile" target="_blank">{{ 'Edit Profile'|trans }}</a>&nbsp;
+                            <a href="{{ path('admin_connection_request_mark_unpending', {id: pendingRequest.id}) }}" class="btn btn-warning btn-pending">{{ 'Remove Pending'|trans }}</a>
                         </td>
                     </tr>
                 {% endfor %}

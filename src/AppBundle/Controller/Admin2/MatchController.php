@@ -98,9 +98,10 @@ class MatchController extends Controller
         ]);
 
         return $this->render('admin2/match/find.html.twig', [
-            'user'      => $user,
-            'form'      => $form->createView(),
-            'matchForm' => $matchForm->createView()
+            'user'                  => $user,
+            'connectionRequest'     => $userRequest,
+            'form'                  => $form->createView(),
+            'matchForm'             => $matchForm->createView()
         ]);
     }
 
