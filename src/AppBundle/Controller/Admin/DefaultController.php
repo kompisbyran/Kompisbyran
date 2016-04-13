@@ -19,7 +19,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/{id}", name="admin_start", defaults={"id": null})
-     * @Method("GET")
+     * @Method({"GET","POST"})
      */
     public function indexAction(Request $request, City $city = null)
     {
