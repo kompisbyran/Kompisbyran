@@ -2,6 +2,7 @@
 
 namespace AppBundle\Manager;
 
+use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -23,11 +24,20 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     private $connectionRequestRepository;
 
     /**
+     * @var \Knp\Component\Pager\Paginator
+     */
+    private $paginator;
+
+    /**
+     * @InjectParams({
+     *     "paginator" = @Inject("knp_paginator")
+     * })
      * @param ConnectionRequestRepository $connectionRequestRepository
      */
-    public function __construct(ConnectionRequestRepository $connectionRequestRepository)
+    public function __construct(ConnectionRequestRepository $connectionRequestRepository, Paginator $paginator)
     {
         $this->connectionRequestRepository  = $connectionRequestRepository;
+        $this->paginator                    = $paginator;
     }
 
     /**
@@ -136,7 +146,7 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
         $qb         = $this->connectionRequestRepository->findByCityQueryBuilder($city);
         $adapter    = new DoctrineORMAdapter($qb);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(100000);
+        $pagerfanta->setMaxPerPage(25);
         $pagerfanta->setCurrentPage($page);
 
         return [
@@ -171,8 +181,6 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
-     * @deprecated
-     *
      * @param $id
      * @return bool
      */
@@ -192,8 +200,6 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
-     * @deprecated
-     *
      * @param $id
      */
     public function markAsUnpending($id)
@@ -246,30 +252,6 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
             $this->save($connectionRequest);
 
             return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @param $id
-     * @return bool|null|object
-     */
-    public function markAsPendingOrUnpending($id)
-    {
-        $connectionRequest = $this->getFind($id);
-
-        if ($connectionRequest instanceof ConnectionRequest) {
-
-            if ($connectionRequest->getPending()) {
-                $connectionRequest->setPending(false);
-            } else {
-                $connectionRequest->setPending(true);
-            }
-
-            $this->save($connectionRequest);
-
-            return $connectionRequest;
         }
 
         return false;

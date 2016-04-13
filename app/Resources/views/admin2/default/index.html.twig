@@ -4,6 +4,7 @@
     <div class="row" style="margin-top: 40px;">
         <div class="col-md-12">
             <p>Hi! Right now we have <strong class="learners-num">{{ newUsers|length }} new</strong> &amp; <strong class="established-num">{{ establishedUsers|length }} established</strong> to match in <span class="stat-city-name">{{ city.name }}</span>. Thank you for helping out!</p>
+            <p>Last month we matched 30 people, so far we have matched 16 people this month.</p>
         </div>
     </div>
     <div class="row" style="margin-top: 40px;">
@@ -22,7 +23,7 @@
             <tbody class="persons-list-body"></tbody>
         </table>
         <div class="text-center">
-            <a href="#" class="btn btn-lg btn-default show-more-btn disabled" data-next-page="1" style="display: none">{{ 'Show 25 more'|trans }}</a>
+            <a href="#" class="btn btn-lg btn-default show-more-btn disabled" data-next-page="1">{{ 'Show 25 more'|trans }}</a>
         </div>
     </div>
 {% endblock %}
@@ -35,20 +36,19 @@
             $('#match-users').block({
                 message: '<strong>Loading...</strong>'
             });
-
-        $(document).ready(function() {
         });
 
         $(document).ajaxStop(function(){
             $('#match-users').unblock();
         });
 
+        $(document).ready(function() {
+
             var currentCityId = {{ city.id }};
 
             var table = $('#match-users').DataTable({
                 "paging": false,
                 "bInfo": false,
-                "iDisplayLength": 1000,
                 //"bFilter": false,
                 columns:[
                     {data: 'request_date', width: '15%'},

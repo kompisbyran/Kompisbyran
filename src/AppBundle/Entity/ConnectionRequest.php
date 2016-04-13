@@ -227,6 +227,20 @@ class ConnectionRequest
     }
 
     /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return ConnectionRequest
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
      * Get musicFriend
      *
      * @return boolean

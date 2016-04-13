@@ -52,29 +52,29 @@ class MatchFilterType extends AbstractType
             ->add('category_id', 'entity', [
                 'class'         => 'AppBundle:Category',
                 'property'      => 'name',
-                'label'         => 'Interests',
+                'label'         => 'filter.form.interests',
                 'empty_data'    => '',
                 'empty_value'   => 'All',
                 'choices'       => $this->categoryManager->getFindAllByLocale($this->requestStack->getCurrentRequest()->getLocale())
             ])
             ->add('ageFrom', 'choice', [
-                'label'         => 'Age',
+                'label'         => 'filter.form.age_from',
                 'data'          => 18,
                 'choices'       => array_combine($age, $age)
             ])
             ->add('ageTo', 'choice', [
-                'label'         => 'Age to',
+                'label'         => 'filter.form.age_to',
                 'data'          => 100,
                 'choices'       => array_combine($age, $age)
             ])
             ->add('gender', 'choice', [
-                'label'         => 'Gender',
+                'label'         => 'filter.form.gender',
                 'choices'       => User::getGenders(),
                 'empty_data'    => '',
                 'empty_value'   => 'All'
             ])
             ->add('has_children', 'boolean_choice', [
-                'label'             => 'Children',
+                'label'             => 'filter.form.has_children',
                 'choices_as_values' => true,
                 'empty_data'        => '',
                 'empty_value'       => 'Doesn\'t matter',
@@ -84,7 +84,7 @@ class MatchFilterType extends AbstractType
                 ]
             ])
             ->add('from', 'choice', [
-                'label'         => 'Country',
+                'label'         => 'filter.form.from',
                 'choices'       => Countries::getList(),
                 'empty_data'    => '',
                 'empty_value'   => 'All'
@@ -92,12 +92,12 @@ class MatchFilterType extends AbstractType
             ->add('municipality_id', 'entity', [
                 'class'         => 'AppBundle:Municipality',
                 'property'      => 'name',
-                'label'         => 'Area',
+                'label'         => 'filter.form.municipality',
                 'empty_data'    => '',
                 'empty_value'   => 'All'
             ])
             ->add('music_friend', 'boolean_choice', [
-                'label'             => 'Type',
+                'label'             => 'filter.form.type',
                 'choices_as_values' => true,
                 'data'              => $options['music_friend'],
                 'choices'           => [
