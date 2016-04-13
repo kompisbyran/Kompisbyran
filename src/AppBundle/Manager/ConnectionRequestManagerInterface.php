@@ -92,7 +92,7 @@ interface ConnectionRequestManagerInterface
 
     /**
      * @param $id
-     * @return bool
+     * @return bool|null|object
      */
     public function markAsPendingOrUnpending($id);
 }

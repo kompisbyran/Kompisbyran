@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -31,11 +30,6 @@ class UserManager implements UserManagerInterface
     private $categoryManager;
 
     /**
-     * @var Paginator
-     */
-     private $paginator;
-
-    /**
      * @var RouterInterface
      */
     private $router;
@@ -52,7 +46,6 @@ class UserManager implements UserManagerInterface
 
     /**
      * @InjectParams({
-     *     "paginator" = @Inject("knp_paginator"),
      *     "router" = @Inject("router"),
      *     "translator" = @Inject("translator"),
      *     "requestStack" = @Inject("request_stack")
@@ -60,11 +53,10 @@ class UserManager implements UserManagerInterface
      * @param UserRepository $userRepository
      * @param CategoryManager $categoryManager
      */
-    public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, Paginator $paginator, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
+    public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
     {
         $this->userRepository   = $userRepository;
         $this->categoryManager  = $categoryManager;
-        $this->paginator        = $paginator;
         $this->router           = $router;
         $this->translator       = $translator;
         $this->requestStack     = $requestStack;
@@ -157,7 +149,8 @@ class UserManager implements UserManagerInterface
                 'interests'         => $this->getCategoriesExactMatchByUser($user, $currentUser),
                 'user_info'         => $currentUser->getFullName(),
                 'edit_profile_link' => $this->router->generate('admin_ajax_edit', ['id' => $auser['id']]),
-                'mark_pending_link' => $this->router->generate('admin_ajax_connection_request_mark_pending', ['id' => $auser['id']]),
+                'mark_pending_link' => $this->router->generate('admin_ajax_connection_request_mark_pending_or_unpending', ['id' => $auser['connection_request_id']]),
+                'mark_pending_label'=> ($auser['pending']? 'Remove Pending': 'Make Pending'),
                 'about'             => $currentUser->getAbout(),
                 'matches'           => $this->getExactMatchByUser($user, $currentUser),
                 'ele'               => 'ele'.$auser['id'],

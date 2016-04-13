@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -18,22 +17,12 @@ class CategoryManager implements CategoryInterface
      * @var CategoryRepository
      */
     private $categoryRepository;
-
     /**
-     * @var \Knp\Component\Pager\Paginator
-     */
-    private $paginator;
-
-    /**
-     * @InjectParams({
-     *      "paginator" = @Inject("knp_paginator")
-     * })
      * @param CategoryRepository $categoryRepository
      */
-    public function __construct(CategoryRepository $categoryRepository, Paginator $paginator)
+    public function __construct(CategoryRepository $categoryRepository)
     {
         $this->categoryRepository   = $categoryRepository;
-        $this->paginator            = $paginator;
     }
 
     /**

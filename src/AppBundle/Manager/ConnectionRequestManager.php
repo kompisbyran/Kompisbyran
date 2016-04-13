@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -24,20 +23,11 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     private $connectionRequestRepository;
 
     /**
-     * @var \Knp\Component\Pager\Paginator
-     */
-    private $paginator;
-
-    /**
-     * @InjectParams({
-     *     "paginator" = @Inject("knp_paginator")
-     * })
      * @param ConnectionRequestRepository $connectionRequestRepository
      */
-    public function __construct(ConnectionRequestRepository $connectionRequestRepository, Paginator $paginator)
+    public function __construct(ConnectionRequestRepository $connectionRequestRepository)
     {
         $this->connectionRequestRepository  = $connectionRequestRepository;
-        $this->paginator                    = $paginator;
     }
 
     /**
@@ -263,7 +253,7 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
 
     /**
      * @param $id
-     * @return bool
+     * @return bool|null|object
      */
     public function markAsPendingOrUnpending($id)
     {
