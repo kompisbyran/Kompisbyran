@@ -179,12 +179,7 @@ class ConnectionRequestRepository extends EntityRepository
             ->setParameter('user', $user)
         ;
 
-        try{
-            return $qb->getQuery()->getSingleScalarResult();
-        }
-        catch(NoResultException $e) {
-            return 0;
-        }
+        return $qb->getQuery()->getSingleScalarResult();
     }
 
     /**
