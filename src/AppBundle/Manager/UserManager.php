@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -18,7 +17,7 @@ use AppBundle\Manager\CategoryManager;
 /**
  * @Service("user_manager")
  */
-class UserManager implements UserManagerInterface
+class UserManager implements ManagerInterface
 {
     /**
      * @var UserRepository
@@ -29,11 +28,6 @@ class UserManager implements UserManagerInterface
      * @var CategoryManager
      */
     private $categoryManager;
-
-    /**
-     * @var Paginator
-     */
-    private $paginator;
 
     /**
      * @var RouterInterface
@@ -52,7 +46,6 @@ class UserManager implements UserManagerInterface
 
     /**
      * @InjectParams({
-     *     "paginator" = @Inject("knp_paginator"),
      *     "router" = @Inject("router"),
      *     "translator" = @Inject("translator"),
      *     "requestStack" = @Inject("request_stack")
@@ -60,11 +53,10 @@ class UserManager implements UserManagerInterface
      * @param UserRepository $userRepository
      * @param CategoryManager $categoryManager
      */
-    public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, Paginator $paginator, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
+    public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
     {
         $this->userRepository   = $userRepository;
         $this->categoryManager  = $categoryManager;
-        $this->paginator        = $paginator;
         $this->router           = $router;
         $this->translator       = $translator;
         $this->requestStack     = $requestStack;
@@ -79,12 +71,12 @@ class UserManager implements UserManagerInterface
     }
 
     /**
-     * @param User $user
+     * @param $entity
      * @return mixed
      */
-    public function save(User $user)
+    public function save($entity)
     {
-        return $this->userRepository->save($user);
+        return $this->userRepository->save($entity);
     }
 
     /**
@@ -97,6 +89,22 @@ class UserManager implements UserManagerInterface
     }
 
     /**
+     * @return array
+     */
+    public function getFindAll()
+    {
+        return $this->userRepository->findAll();
+    }
+
+    /**
+     * @param $entity
+     */
+    public function remove($entity)
+    {
+        $this->userRepository->remove($entity);
+    }
+
+    /**
      * @param User $user
      * @param int $page
      * @param array $criterias
@@ -104,27 +112,7 @@ class UserManager implements UserManagerInterface
      */
     public function getFindMatch(User $user, $page = 1, array $criterias)
     {
-        unset($criterias['_token']);
-
-        if (strlen(trim($criterias['category_id']))  == 0) {
-            unset($criterias['category_id']);
-        }
-
-        if (strlen(trim($criterias['gender']))  == 0) {
-            unset($criterias['gender']);
-        }
-
-        if (strlen(trim($criterias['has_children'])) == 0) {
-            unset($criterias['has_children']);
-        }
-
-        if (strlen(trim($criterias['from'])) == 0) {
-            unset($criterias['from']);
-        }
-
-        if (strlen(trim($criterias['municipality_id'])) == 0) {
-            unset($criterias['municipality_id']);
-        }
+        $this->unsetEmptyCriterias($criterias);
 
         $results    = $this->userRepository->findMatchArray($user, $criterias);
         $adapter    = new ArrayAdapter($results);
@@ -178,12 +166,46 @@ class UserManager implements UserManagerInterface
     {
         $ageDiff    = $currentUser->getAge()-$user->getAge();
         $matches    = [];
-        $matches[]  =  ( $ageDiff > -5 && $ageDiff < 5? '<span class="matches">'.$currentUser->getAge().' '.$this->translator->trans('years').'</span>': $currentUser->getAge().' '.$this->translator->trans('years'));
+
+        if ($this->isAgeDiffWithinRange($ageDiff)) {
+            $matches[] = $this->wrapSpanString($currentUser->getAge().' '.$this->translator->trans('years'));
+        } else {
+            $matches[] = $currentUser->getAge().' '.$this->translator->trans('years');
+        }
+
         $matches[]  =  $currentUser->getCountryName();
-        $matches[]  =  ($user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId()? '<span class="matches">'.$currentUser->getMunicipality()->getName().'</span>': $currentUser->getMunicipality()->getName());
-        $matches[]  =  ($user->hasChildren() == true && $currentUser->hasChildren() == true? '<span class="matches">'.($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')).'</span>': ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
+
+        if ($this->isUserMunicipalityMatch($user, $currentUser)) {
+            $matches[] = $this->wrapSpanString($currentUser->getMunicipality()->getName());
+        } else {
+            $matches[] = $currentUser->getMunicipality()->getName();
+        }
+
+        if ($this->isUserHasChildrenMatch($user, $currentUser)) {
+            $matches[] = $this->wrapSpanString(($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids')));
+        } else {
+            $matches[] = ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids'));
+        }
 
         return $matches;
+    }
+
+    /**
+     * @param User $user
+     * @return string
+     */
+    public function getCategoryNameStringByUser(User $user)
+    {
+        $categoryNames  = array_values($user->getCategoryNames());
+
+        if ($categoryNames > 1) {
+            $lastCategory   = array_pop($categoryNames);
+            $categories = implode(', ', $categoryNames) .' '.  $this->translator->trans('and') .' '. $lastCategory;
+        } else {
+            $categories = implode(', ', $categoryNames);
+        }
+
+        return $categories;
     }
 
     /**
@@ -201,7 +223,7 @@ class UserManager implements UserManagerInterface
         foreach($currentUserCategories as $currentUserCategory) {
 
             if (isset($userCategories[$currentUserCategory->getId()])) {
-                $categories[]   = '<span class="matches">'.$currentUserCategory->getName().'</span>';
+                $categories[]   = $this->wrapSpanString($currentUserCategory->getName());
             } else {
                 $categories[]   = $currentUserCategory->getName();
             }
@@ -209,11 +231,72 @@ class UserManager implements UserManagerInterface
 
         if (count($categories) > 1) {
             $lastCategory   = array_pop($categories);
-            $categories     = implode(', ', $categories) .' and '.$lastCategory;
+            $categories     = implode(', ', $categories) .' '.  $this->translator->trans('and') .' '. $lastCategory;
         } else {
             $categories     = implode(', ', $categories);
         }
 
         return $categories;
+    }
+
+    /**
+     * @param $ageDiff
+     * @return bool
+     */
+    private function isAgeDiffWithinRange($ageDiff)
+    {
+        return $ageDiff > -5 && $ageDiff < 5;
+    }
+
+    /**
+     * @param User $user
+     * @param User $currentUser
+     * @return bool
+     */
+    private function isUserMunicipalityMatch(User $user, User $currentUser)
+    {
+        return $user->getMunicipality()->getId() == $currentUser->getMunicipality()->getId();
+    }
+
+    /**
+     * @param User $user
+     * @param User $currentUser
+     * @return bool
+     */
+    private function isUserHasChildrenMatch(User $user, User $currentUser)
+    {
+        return $user->hasChildren() == true && $currentUser->hasChildren() == true;
+    }
+
+    /**
+     * @param array $criterias
+     */
+    private function unsetEmptyCriterias(array &$criterias)
+    {
+        unset($criterias['_token']);
+
+        foreach ($criterias as $key => $criteria) {
+            if (strlen(trim($criteria)) == 0) {
+                unset($criterias[$key]);
+            }
+        }
+    }
+
+    /**
+     * @param $str
+     * @return string
+     */
+    private function wrapSpanString($str)
+    {
+        return '<span class="matches">'.$str.'</span>';
+    }
+
+    /**
+     * @param User $user
+     * @return string
+     */
+    public function getWantToLearnTypeNameByUser(User $user)
+    {
+        return $user->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established');
     }
 }

@@ -20,6 +20,15 @@ class UserRepository extends EntityRepository
     }
 
     /**
+     * @param User $user
+     */
+    public function remove(User $user)
+    {
+        $this->getEntityManager()->remove($user);
+        $this->getEntityManager()->flush();
+    }
+
+    /**
      * @return array
      */
     public function findAllWithCategoryJoinAssoc()

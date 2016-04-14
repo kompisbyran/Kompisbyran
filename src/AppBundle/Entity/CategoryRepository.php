@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\NonUniqueResultException;
+use  AppBundle\Entity\Category;
 
 /**
  * Class CategoryRepository
@@ -12,6 +13,27 @@ use Doctrine\ORM\NonUniqueResultException;
  */
 class CategoryRepository extends EntityRepository
 {
+    /**
+     * @param Category $category
+     * @return Category
+     */
+    public function save(Category $category)
+    {
+        $this->getEntityManager()->persist($category);
+        $this->getEntityManager()->flush();
+
+        return $category;
+    }
+
+    /**
+     * @param Category $category
+     */
+    public function remove(Category $category)
+    {
+        $this->getEntityManager()->remove($category);
+        $this->getEntityManager()->flush();
+    }
+
     /**
      * @param $locale
      * @return array

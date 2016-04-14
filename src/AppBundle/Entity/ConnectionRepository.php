@@ -12,7 +12,6 @@ use AppBundle\Entity\Connection;
  */
 class ConnectionRepository extends EntityRepository
 {
-
     /**
      * @param String $city
      * @param String $year
@@ -81,9 +80,10 @@ class ConnectionRepository extends EntityRepository
     }
 
     /**
-     * @return \Doctrine\ORM\Query
+     * @param $searchString
+     * @return \Doctrine\ORM\QueryBuilder
      */
-    public function getFindAllQuery($searchString)
+    public function getFindAllQueryBuilder($searchString)
     {
         $qb = $this
             ->createQueryBuilder('c')
@@ -107,7 +107,6 @@ class ConnectionRepository extends EntityRepository
 
         return $qb
             ->orderBy('c.id', 'desc')
-            ->getQuery()
         ;
     }
 

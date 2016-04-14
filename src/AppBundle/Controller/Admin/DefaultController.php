@@ -2,17 +2,12 @@
 
 namespace AppBundle\Controller\Admin;
 
-use AppBundle\Manager\ConnectionRequestManager;
-use AppBundle\Manager\CityManager;
-use JMS\DiExtraBundle\Annotation\Inject;
-use JMS\DiExtraBundle\Annotation\InjectParams;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\City;
-
 use AppBundle\DomainEvents;
 use AppBundle\Entity\Connection;
 use AppBundle\Entity\ConnectionRequest;
@@ -23,28 +18,6 @@ use AppBundle\Event\ConnectionCreatedEvent;
  */
 class DefaultController extends Controller
 {
-    /**
-     * @var ConnectionRequestManager
-     */
-    private $connectionRequestManager;
-
-    /**
-     * @var CityManager
-     */
-    private $cityManager;
-
-    /**
-     * @InjectParams({
-     *     "connectionRequestManager"   = @Inject("connection_request_manager"),
-     *     "cityManager"                = @Inject("city_manager")
-     * })
-     */
-    public function __construct(ConnectionRequestManager $connectionRequestManager, CityManager $cityManager)
-    {
-        $this->connectionRequestManager = $connectionRequestManager;
-        $this->cityManager              = $cityManager;
-    }
-
     /**
      * @Route("/{id}", name="admin_start", defaults={"id": null})
      * @Method("GET")

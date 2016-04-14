@@ -219,28 +219,6 @@ class ConnectionRequest
     }
 
     /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->wantToLearn? 'New': 'Established';
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return ConnectionRequest
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get musicFriend
      *
      * @return boolean

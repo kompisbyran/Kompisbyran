@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c94a627b40772d7b67affd14936f9542",
-    "content-hash": "e7babd59b7d9727f050a541dc4c5af90",
+    "hash": "18e96c3ca1b33e30c55fc4291b062027",
+    "content-hash": "30ad914c24342a856abfbd567970be19",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -536,13 +536,13 @@
             "target-dir": "Doctrine/Bundle/DoctrineCacheBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "e4b6f810aa047f9cbfe41c3d6a3d7e83d7477a9d"
+                "url": "git@github.com:doctrine/DoctrineCacheBundle.git",
+                "reference": "9b7b22cea3aaaf6d53088c46a2cb08801ea38ace"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/e4b6f810aa047f9cbfe41c3d6a3d7e83d7477a9d",
-                "reference": "e4b6f810aa047f9cbfe41c3d6a3d7e83d7477a9d",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/9b7b22cea3aaaf6d53088c46a2cb08801ea38ace",
+                "reference": "9b7b22cea3aaaf6d53088c46a2cb08801ea38ace",
                 "shasum": ""
             },
             "require": {
@@ -1635,67 +1635,6 @@
                 "paginator"
             ],
             "time": "2015-09-01 10:54:53"
-        },
-        {
-            "name": "knplabs/knp-paginator-bundle",
-            "version": "2.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "5147740faff4d32e6f42acf64475314c35320fa4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/5147740faff4d32e6f42acf64475314c35320fa4",
-                "reference": "5147740faff4d32e6f42acf64475314c35320fa4",
-                "shasum": ""
-            },
-            "require": {
-                "knplabs/knp-components": "~1.2",
-                "php": ">=5.3.3",
-                "symfony/framework-bundle": "~2.3|~3.0",
-                "twig/twig": "~1.12|~2"
-            },
-            "require-dev": {
-                "symfony/expression-language": "~2.4|~3.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Knp\\Bundle\\PaginatorBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "KnpLabs Team",
-                    "homepage": "http://knplabs.com"
-                },
-                {
-                    "name": "Symfony2 Community",
-                    "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle/contributors"
-                }
-            ],
-            "description": "Paginator bundle for Symfony2 to automate pagination and simplify sorting and other features",
-            "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle",
-            "keywords": [
-                "Symfony2",
-                "bundle",
-                "knp",
-                "knplabs",
-                "pager",
-                "pagination",
-                "paginator"
-            ],
-            "time": "2015-11-23 17:51:40"
         },
         {
             "name": "kriswallsmith/assetic",
