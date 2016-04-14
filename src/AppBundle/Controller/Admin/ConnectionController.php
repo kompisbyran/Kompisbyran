@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller\Admin;
 
+use Pagerfanta\Pagerfanta;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,19 +18,16 @@ class ConnectionController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $searchString = $request->query->get('q');
+        $searchString   = $request->query->get('q');
+        $queryBuilder   = $this->getConnectionRepository()->getFindAllQueryBuilder($searchString);
+        $adapter        = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta     = new Pagerfanta($adapter);
 
-        $query = $this->getConnectionRepository()->getFindAllQuery($searchString);
-
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $query,
-            $request->query->getInt('page', 1),
-            10
-        );
+        $pagerfanta->setMaxPerPage(10);
+        $pagerfanta->setCurrentPage($request->query->getInt('page', 1));
 
         $parameters = [
-            'pagination' => $pagination,
+            'pagerfanta' => $pagerfanta
         ];
 
         return $this->render('admin/connection/index.html.twig', $parameters);
