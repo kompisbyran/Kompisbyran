@@ -24,6 +24,7 @@ class ConnectionManager implements ManagerInterface
 
     /**
      * @InjectParams({
+     *      "connectionRepository" = @Inject("connection_repository"),
      *      "dispatcher" = @Inject("event_dispatcher")
      * })
      * @param ConnectionRepository $connectionRepository

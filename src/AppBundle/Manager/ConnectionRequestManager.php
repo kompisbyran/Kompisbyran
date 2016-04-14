@@ -30,6 +30,7 @@ class ConnectionRequestManager implements ManagerInterface
 
     /**
      * @InjectParams({
+     *     "connectionRequestRepository" = @Inject("connection_request_repository"),
      *     "translator" = @Inject("translator")
      * })
      * @param ConnectionRequestRepository $connectionRequestRepository
