@@ -15,6 +15,7 @@ class CategoryManager implements ManagerInterface
      * @var CategoryRepository
      */
     private $categoryRepository;
+
     /**
      * @param CategoryRepository $categoryRepository
      */

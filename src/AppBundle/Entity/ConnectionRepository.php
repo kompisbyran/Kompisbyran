@@ -132,9 +132,8 @@ class ConnectionRepository extends EntityRepository
 
 
     /**
-     * @param User $user1
-     * @param User $user2
-     * @return bool
+     * @param User $user
+     * @return int
      */
     public function isUserConnectionExists(User $user1, User $user2)
     {
@@ -150,6 +149,11 @@ class ConnectionRepository extends EntityRepository
             ])
         ;
 
-        return $qb->getQuery()->getSingleScalarResult()? true: false;
+        try{
+            return $qb->getQuery()->getSingleScalarResult()? true: false;
+        }
+        catch(NoResultException $e) {
+            return false;
+        }
     }
 }

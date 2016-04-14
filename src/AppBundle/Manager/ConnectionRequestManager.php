@@ -2,6 +2,7 @@
 
 namespace AppBundle\Manager;
 
+use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -146,7 +147,7 @@ class ConnectionRequestManager implements ManagerInterface
         $qb         = $this->connectionRequestRepository->findByCityQueryBuilder($city);
         $adapter    = new DoctrineORMAdapter($qb);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(100000);
+        $pagerfanta->setMaxPerPage(25);
         $pagerfanta->setCurrentPage($page);
 
         return [
@@ -181,8 +182,6 @@ class ConnectionRequestManager implements ManagerInterface
     }
 
     /**
-     * @deprecated
-     *
      * @param $id
      * @return bool
      */
@@ -240,30 +239,6 @@ class ConnectionRequestManager implements ManagerInterface
             $this->save($connectionRequest);
 
             return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @param $id
-     * @return bool|null|object
-     */
-    public function markAsPendingOrUnpending($id)
-    {
-        $connectionRequest = $this->getFind($id);
-
-        if ($connectionRequest instanceof ConnectionRequest) {
-
-            if ($connectionRequest->getPending()) {
-                $connectionRequest->setPending(false);
-            } else {
-                $connectionRequest->setPending(true);
-            }
-
-            $this->save($connectionRequest);
-
-            return $connectionRequest;
         }
 
         return false;

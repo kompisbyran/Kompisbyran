@@ -3,7 +3,7 @@
 {% block default_content %}
 
     <div class="row" style="margin-top: 40px; margin-bottom: 20px;">
-        <h1>{{ 'Inspection Connection Requests'|trans }}</h1>
+        <h1>{{ 'inspection.title.inspection_connection_requests' }}</h1>
     </div>
     {% for uninspectedRequest in uninspectedRequests %}
         {% set user = uninspectedRequest.user %}
@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">{{ 'Name'|trans }}</label>
                         <div class="col-sm-10">
-                            <div class="form-control" id="fullName">{{ user.fullName }}&nbsp;({{ user.genderName|trans }})</div>
+                            <div class="form-control" id="fullName">{{ user.fullName }}</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">{{ 'Area'|trans }}</label>
                         <div class="col-sm-10">
-                            <div class="form-control" id="area">{{ uninspectedRequest.city.name }}, {{ user.municipality.name }}</div>
+                            <div class="form-control" id="area">{{ user.municipality.name }}</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">{{ 'Type'|trans }}</label>
                         <div class="col-sm-10">
-                            <div class="form-control" id="musicFriendType">{{ user.musicFriendType|trans }}</div>
+                            <div class="form-control" id="musicFriendType">{{ user.musicFriendType }}</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -76,7 +76,7 @@
                     <div class="form-group">
                         <label class="col-sm-12">{{ 'Match Request'|trans }}</label>
                         <div class="col-sm-12">
-                            <div class="form-control textarea" id="firstConnectionRequestComment">{{ uninspectedRequest.comment|raw }}</div>
+                            <div class="form-control textarea" id="firstConnectionRequestComment">{{ user.firstConnectionRequestComment|raw }}</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -87,9 +87,9 @@
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1">
-                    <a href="{{ path('admin_ajax_connection_request_mark_inspected', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-approve">{{ 'Approve'|trans }}</a>&nbsp;
-                    <a href="{{ path('admin_ajax_connection_request_mark_pending_or_unpending', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-unpending">{% if uninspectedRequest.pending %}{{ 'Remove Pending'|trans }}{% else %}{{ 'Make Pending'|trans }}{% endif %}</a>&nbsp;
-                    <a href="{{ path('admin_ajax_edit', {id: uninspectedRequest.user.id}) }}" class="btn btn-large btn-default btn-edit-profile">{{ 'Edit Profile'|trans }}</a>
+                    <a href="{{ path('admin_ajax_connection_request_mark_inspected', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-approve">{{ 'btn.approve'|trans }}</a>&nbsp;
+                    <a href="{{ path('admin_connection_request_mark_unpending', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-unpending">{{ 'btn.make_pending'|trans }}</a>&nbsp;
+                    <a href="{{ path('admin_ajax_edit', {id: uninspectedRequest.user.id}) }}" class="btn btn-large btn-default btn-edit-profile">{{ 'btn.edit_profile'|trans }}</a>
                 </div>
             </form>
         </div>
@@ -107,24 +107,10 @@
 
     <script>
         $(document).ready(function() {
-            $('.btn-approve').click(function(){
-                var $this = $(this);
-
-                $.get($this.attr('href'), function (resp){
-                    if (resp.success) {
-                        $this.html('disabled');
-                    }
-                });
-            });
-
-            $('.btn-unpending').click(function(){
-                var $this = $(this);
-
-                $.get($this.attr('href'), function (resp){
-                    if (resp.success) {
-                        $this.html(resp.label);
-                    }
-                });
+            var table = $('#match-users').DataTable({
+                "paging": false,
+                "bInfo": false,
+                "pageLength": 100
             });
 
             $('body').on('click', '.btn-edit-profile', function(e){

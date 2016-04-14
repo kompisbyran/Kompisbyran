@@ -672,14 +672,4 @@ class User extends BaseUser
     {
         return $this->connectionRequests->first();
     }
-
-    /**
-     * @return string
-     */
-    public function getGenderName()
-    {
-        $genders = self::getGenders();
-
-        return isset($genders[$this->getGender()])? $genders[$this->getGender()]: '';
-    }
 }
