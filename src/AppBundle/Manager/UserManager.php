@@ -46,12 +46,12 @@ class UserManager implements ManagerInterface
 
     /**
      * @InjectParams({
+     *     "userRepository" = @Inject("user_repository"),
+     *     "categoryManager" = @Inject("category_manager"),
      *     "router" = @Inject("router"),
      *     "translator" = @Inject("translator"),
      *     "requestStack" = @Inject("request_stack")
      * })
-     * @param UserRepository $userRepository
-     * @param CategoryManager $categoryManager
      */
     public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
     {

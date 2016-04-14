@@ -2,6 +2,8 @@
 
 namespace AppBundle\Manager;
 
+use JMS\DiExtraBundle\Annotation\Inject;
+use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
 use AppBundle\Entity\CategoryRepository;
 use AppBundle\Entity\Category;
@@ -17,7 +19,9 @@ class CategoryManager implements ManagerInterface
     private $categoryRepository;
 
     /**
-     * @param CategoryRepository $categoryRepository
+     * @InjectParams({
+     *     "categoryRepository"  = @Inject("category_repository")
+     * })
      */
     public function __construct(CategoryRepository $categoryRepository)
     {

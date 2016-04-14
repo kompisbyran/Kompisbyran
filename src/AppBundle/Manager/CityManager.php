@@ -2,6 +2,8 @@
 
 namespace AppBundle\Manager;
 
+use JMS\DiExtraBundle\Annotation\Inject;
+use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
 use AppBundle\Entity\CityRepository;
 use AppBundle\Entity\City;
@@ -17,7 +19,9 @@ class CityManager implements ManagerInterface
     private $cityRepository;
 
     /**
-     * @param CityRepository $cityRepository
+     * @InjectParams({
+     *     "cityRepository"  = @Inject("city_repository")
+     * })
      */
     public function __construct(CityRepository $cityRepository)
     {
