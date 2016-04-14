@@ -4,43 +4,17 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\AdminUserType;
-use JMS\DiExtraBundle\Annotation\Inject;
-use JMS\DiExtraBundle\Annotation\InjectParams;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use AppBundle\Manager\UserManager;
-use Symfony\Component\Form\FormFactoryInterface;
 
 /**
  * @Route("admin/users")
  */
 class UserController extends Controller
 {
-    /**
-     * @var UserManager
-     */
-    private $userManager;
-
-    /**
-     * @var FormFactoryInterface
-     */
-    private $formFactory;
-
-    /**
-     * @InjectParams({
-     *     "formFactory" = @Inject("form.factory")
-     * })
-     * @param UserManager $userManager
-     */
-    public function __construct(UserManager $userManager, FormFactoryInterface $formFactory)
-    {
-        $this->userManager = $userManager;
-        $this->formFactory = $formFactory;
-    }
-
     /**
      * @Route("/", name="admin_users")
      */

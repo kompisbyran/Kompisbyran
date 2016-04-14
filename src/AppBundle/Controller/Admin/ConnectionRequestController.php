@@ -2,14 +2,10 @@
 
 namespace AppBundle\Controller\Admin;
 
-use AppBundle\Manager\ConnectionRequestManager;
-use AppBundle\Manager\CityManager;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Entity\City;
 use AppBundle\Form\EditConnectionRequestType;
-use JMS\DiExtraBundle\Annotation\Inject;
-use JMS\DiExtraBundle\Annotation\InjectParams;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,28 +18,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class ConnectionRequestController extends Controller
 {
-    /**
-     * @var ConnectionRequestManager
-     */
-    private $connectionRequestManager;
-
-    /**
-     * @var CityManager
-     */
-    private $cityManager;
-
-    /**
-     * @InjectParams({
-     *     "connectionRequestManager"   = @Inject("connection_request_manager"),
-     *     "cityManager"                = @Inject("city_manager")
-     * })
-     */
-    public function __construct(ConnectionRequestManager $connectionRequestManager, CityManager $cityManager)
-    {
-        $this->connectionRequestManager = $connectionRequestManager;
-        $this->cityManager              = $cityManager;
-    }
-
     /**
      * @Route("/{id}", name="admin_connectionrequest")
      * @Method({"GET", "POST"})

@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -31,11 +30,6 @@ class UserManager implements ManagerInterface
     private $categoryManager;
 
     /**
-     * @var Paginator
-     */
-    private $paginator;
-
-    /**
      * @var RouterInterface
      */
     private $router;
@@ -52,7 +46,6 @@ class UserManager implements ManagerInterface
 
     /**
      * @InjectParams({
-     *     "paginator" = @Inject("knp_paginator"),
      *     "router" = @Inject("router"),
      *     "translator" = @Inject("translator"),
      *     "requestStack" = @Inject("request_stack")
@@ -60,11 +53,10 @@ class UserManager implements ManagerInterface
      * @param UserRepository $userRepository
      * @param CategoryManager $categoryManager
      */
-    public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, Paginator $paginator, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
+    public function __construct(UserRepository $userRepository, CategoryManager $categoryManager, RouterInterface $router, TranslatorInterface $translator, RequestStack $requestStack)
     {
         $this->userRepository   = $userRepository;
         $this->categoryManager  = $categoryManager;
-        $this->paginator        = $paginator;
         $this->router           = $router;
         $this->translator       = $translator;
         $this->requestStack     = $requestStack;

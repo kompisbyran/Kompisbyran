@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -21,24 +20,17 @@ class ConnectionManager implements ManagerInterface
      */
     private $connectionRepository;
 
-    /**
-     * @var \Knp\Component\Pager\Paginator
-     */
-    private $paginator;
-
     private $dispatcher;
 
     /**
      * @InjectParams({
-     *      "paginator" = @Inject("knp_paginator"),
      *      "dispatcher" = @Inject("event_dispatcher")
      * })
      * @param ConnectionRepository $connectionRepository
      */
-    public function __construct(ConnectionRepository $connectionRepository, Paginator $paginator, $dispatcher)
+    public function __construct(ConnectionRepository $connectionRepository, $dispatcher)
     {
         $this->connectionRepository = $connectionRepository;
-        $this->paginator            = $paginator;
         $this->dispatcher           = $dispatcher;
     }
 
