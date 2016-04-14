@@ -12,7 +12,6 @@ use AppBundle\Entity\Connection;
  */
 class ConnectionRepository extends EntityRepository
 {
-
     /**
      * @param String $city
      * @param String $year

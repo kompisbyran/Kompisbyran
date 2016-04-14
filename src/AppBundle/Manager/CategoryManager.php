@@ -2,8 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use JMS\DiExtraBundle\Annotation\Inject;
-use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
 use AppBundle\Entity\CategoryRepository;
 use AppBundle\Entity\Category;
@@ -11,7 +9,7 @@ use AppBundle\Entity\Category;
 /**
  * @Service("category_manager")
  */
-class CategoryManager implements CategoryInterface
+class CategoryManager implements ManagerInterface
 {
     /**
      * @var CategoryRepository
@@ -23,6 +21,45 @@ class CategoryManager implements CategoryInterface
     public function __construct(CategoryRepository $categoryRepository)
     {
         $this->categoryRepository   = $categoryRepository;
+    }
+
+    /**
+     * @return Category
+     */
+    public function createNew(){}
+
+    /**
+     * @param Category $connection
+     * @return mixed
+     */
+    public function save($entity)
+    {
+        return $this->categoryRepository->save($entity);
+    }
+
+    /**
+     * @param $id
+     * @return null|object
+     */
+    public function getFind($id)
+    {
+        return $this->categoryRepository->find($id);
+    }
+
+    /**
+     * @return array
+     */
+    public function getFindAll()
+    {
+        return $this->categoryRepository->findAll();
+    }
+
+    /**
+     * @param $entity
+     */
+    public function remove($entity)
+    {
+        return $this->categoryRepository->remove($entity);
     }
 
     /**

@@ -2,8 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use JMS\DiExtraBundle\Annotation\Inject;
-use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
 use AppBundle\Entity\CityRepository;
 use AppBundle\Entity\City;
@@ -11,7 +9,7 @@ use AppBundle\Entity\City;
 /**
  * @Service("city_manager")
  */
-class CityManager implements CityManagerInterface
+class CityManager implements ManagerInterface
 {
     /**
      * @var CityRepository
@@ -24,6 +22,23 @@ class CityManager implements CityManagerInterface
     public function __construct(CityRepository $cityRepository)
     {
         $this->cityRepository   = $cityRepository;
+    }
+
+    /**
+     * @return City
+     */
+    public function createNew()
+    {
+        return new City();
+    }
+
+    /**
+     * @param $entity
+     * @return City
+     */
+    public function save($entity)
+    {
+        return $this->cityRepository->save($entity);
     }
 
     /**
@@ -41,5 +56,13 @@ class CityManager implements CityManagerInterface
     public function getFindAll()
     {
         return $this->cityRepository->findAll();
+    }
+
+    /**
+     * @param $entity
+     */
+    public function remove($entity)
+    {
+        return $this->cityRepository->remove($entity);
     }
 }

@@ -221,12 +221,13 @@ class User extends BaseUser
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
-        $this->learnerConnections = new ArrayCollection();
-        $this->connectionRequests = new ArrayCollection();
-        $this->createdConnections = new ArrayCollection();
-        $this->categories = new ArrayCollection();
-        $this->createdAt = new \DateTime();
-        $this->comments = new ArrayCollection();
+        $this->learnerConnections       = new ArrayCollection();
+        $this->connectionRequests       = new ArrayCollection();
+        $this->createdConnections       = new ArrayCollection();
+        $this->categories               = new ArrayCollection();
+        $this->musicCategories          = new ArrayCollection();
+        $this->createdAt                = new \DateTime();
+        $this->comments                 = new ArrayCollection();
 
         parent::__construct();
     }
@@ -619,14 +620,6 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getType()
-    {
-        return $this->wantToLearn? 'New': 'Established';
-    }
-
-    /**
-     * @return string
-     */
     public function getMusicFriendType()
     {
         return $this->musicFriend? 'filter.form.music_buddy': 'filter.form.fika_buddy';
@@ -670,39 +663,6 @@ class User extends BaseUser
         }
 
         return $ids;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCategoryNameString()
-    {
-        $categoryNames  = array_values($this->getCategoryNames());
-        $lastCategory   = array_pop($categoryNames);
-
-        return implode(', ', $categoryNames) .' and '.$lastCategory;
-    }
-
-    /**
-     * @param User $user
-     * @return string
-     */
-    public function getMatchedCategories(User $user)
-    {
-        $matches = [];
-
-        foreach ($this->getCategoryNames() as $id => $name) {
-            foreach ($user->getCategoryNames() as $userCatId => $userCatName) {
-                if ($id == $userCatId) {
-                    $matches[] = $userCatName;
-                    break;
-                }
-            }
-        }
-
-        $lastCategory   = array_pop($matches);
-
-        return implode(', ', $matches) .' and '.$lastCategory;
     }
 
     /**

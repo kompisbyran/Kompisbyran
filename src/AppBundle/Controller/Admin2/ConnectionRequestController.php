@@ -109,7 +109,7 @@ class ConnectionRequestController extends Controller
      */
     public function markUnpendingAction(Request $request)
     {
-        $this->connectionRequestManager->markAsUnpending($request->get('id'));
+        $this->connectionRequestManager->markAsPendingOrUnpending($request->get('id'));
 
         return $this->redirect($this->generateUrl('admin_manual'));
     }

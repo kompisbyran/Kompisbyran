@@ -11,11 +11,12 @@ use AppBundle\Entity\City;
 use AppBundle\Entity\User;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Service("connection_request_manager")
  */
-class ConnectionRequestManager implements ConnectionRequestManagerInterface
+class ConnectionRequestManager implements ManagerInterface
 {
     /**
      * @var ConnectionRequestRepository
@@ -23,11 +24,20 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     private $connectionRequestRepository;
 
     /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * @InjectParams({
+     *     "translator" = @Inject("translator")
+     * })
      * @param ConnectionRequestRepository $connectionRequestRepository
      */
-    public function __construct(ConnectionRequestRepository $connectionRequestRepository)
+    public function __construct(ConnectionRequestRepository $connectionRequestRepository, TranslatorInterface $translator)
     {
         $this->connectionRequestRepository  = $connectionRequestRepository;
+        $this->translator                   = $translator;
     }
 
     /**
@@ -39,12 +49,12 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
-     * @param ConnectionRequest $connectionRequest
+     * @param $entity
      * @return mixed
      */
-    public function save(ConnectionRequest $connectionRequest)
+    public function save($entity)
     {
-        return $this->connectionRequestRepository->save($connectionRequest);
+        return $this->connectionRequestRepository->save($entity);
     }
 
     /**
@@ -57,11 +67,19 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
-     * @param ConnectionRequest $connectionRequest
+     * @return array
      */
-    public function remove(ConnectionRequest $connectionRequest)
+    public function getFindAll()
     {
-        $this->connectionRequestRepository->remove($connectionRequest);
+        return $this->connectionRequestRepository->findAll();
+    }
+
+    /**
+     * @param $entity
+     */
+    public function remove($entity)
+    {
+        $this->connectionRequestRepository->remove($entity);
     }
 
     /**
@@ -98,14 +116,6 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     public function userHasActiveRequest(User $user)
     {
         return $this->countUserActiveRequests($user)? true: false;
-    }
-
-    /**
-     * @return array
-     */
-    public function getFindAll()
-    {
-        return $this->connectionRequestRepository->findAll();
     }
 
     /**
@@ -162,7 +172,7 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
                 'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
                 'name'          => $connectionRequest->getUser()->getFullName(),
                 'email'         => $connectionRequest->getUser()->getEmail(),
-                'category'      => $connectionRequest->getType(),
+                'category'      => ($connectionRequest->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established')),
                 'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId()
             ];
         }
@@ -189,22 +199,6 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
         }
 
         return false;
-    }
-
-    /**
-     * @deprecated
-     *
-     * @param $id
-     */
-    public function markAsUnpending($id)
-    {
-        $connectionRequest = $this->getFind($id);
-
-        if ($connectionRequest instanceof ConnectionRequest) {
-            $connectionRequest->setPending(false);
-
-            $this->save($connectionRequest);
-        }
     }
 
     /**

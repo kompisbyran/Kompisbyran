@@ -9,13 +9,11 @@ use AppBundle\Entity\ConnectionRepository;
 use AppBundle\Entity\Connection;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
-use AppBundle\DomainEvents;
-use AppBundle\Event\ConnectionCreatedEvent;
 
 /**
  * @Service("connection_manager")
  */
-class ConnectionManager implements ConnectionManagerInterface
+class ConnectionManager implements ManagerInterface
 {
     /**
      * @var ConnectionRepository
@@ -48,9 +46,34 @@ class ConnectionManager implements ConnectionManagerInterface
      * @param Connection $connection
      * @return mixed
      */
-    public function save(Connection $connection)
+    public function save($entity)
     {
-        return $this->connectionRepository->save($connection);
+        return $this->connectionRepository->save($entity);
+    }
+
+    /**
+     * @param $id
+     * @return null|object
+     */
+    public function getFind($id)
+    {
+        return $this->connectionRepository->find($id);
+    }
+
+    /**
+     * @return array
+     */
+    public function getFindAll()
+    {
+        return $this->connectionRepository->findAll();
+    }
+
+    /**
+     * @param $entity
+     */
+    public function remove($entity)
+    {
+        return $this->connectionRepository->remove($entity);
     }
 
     /**
