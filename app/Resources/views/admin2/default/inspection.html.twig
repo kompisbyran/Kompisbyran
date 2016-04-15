@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">{{ 'Category'|trans }}</label>
                         <div class="col-sm-10">
-                            <div class="form-control" id="type">{{ user.type }}</div>
+                            <div class="form-control" id="type">{{ want_to_learn_name(user.wantToLearn) }}</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -87,8 +87,8 @@
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1">
-                    <a href="{{ path('admin_ajax_connection_request_mark_inspected', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-approve">{{ 'Approve'|trans }}</a>&nbsp;
-                    <a href="{{ path('admin_connection_request_mark_unpending', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-unpending">{{ 'Make Pending'|trans }}</a>&nbsp;
+                    <a href="{{ path('admin_ajax_connection_request_mark_inspected', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-approve{% if uninspectedRequest.inspected %} disabled{% endif %}">{{ 'Approve'|trans }}</a>&nbsp;
+                    <a href="{{ path('admin_ajax_connection_request_mark_pending_or_unpending', {id: uninspectedRequest.id}) }}" class="btn btn-large btn-default btn-unpending">{% if uninspectedRequest.pending %}{{ 'Remove Pending'|trans }}{% else %}{{ 'Make Pending'|trans }}{% endif %}</a>&nbsp;
                     <a href="{{ path('admin_ajax_edit', {id: uninspectedRequest.user.id}) }}" class="btn btn-large btn-default btn-edit-profile">{{ 'Edit Profile'|trans }}</a>
                 </div>
             </form>
@@ -107,10 +107,26 @@
 
     <script>
         $(document).ready(function() {
-            var table = $('#match-users').DataTable({
-                "paging": false,
-                "bInfo": false,
-                "pageLength": 100
+            $('.btn-approve').click(function(e){
+                e.preventDefault();
+
+                var $this = $(this);
+                $.get($this.attr('href'), function (resp){
+                    if (resp.success) {
+                        $this.html('disabled');
+                    }
+                });
+            });
+
+            $('.btn-unpending').click(function(e){
+                e.preventDefault();
+
+                var $this = $(this);
+                $.get($this.attr('href'), function (resp){
+                    if (resp.success) {
+                        $this.html(resp.label);
+                    }
+                });
             });
 
             $('body').on('click', '.btn-edit-profile', function(e){

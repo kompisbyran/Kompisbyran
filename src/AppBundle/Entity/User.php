@@ -227,12 +227,13 @@ class User extends BaseUser
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
-        $this->learnerConnections = new ArrayCollection();
-        $this->connectionRequests = new ArrayCollection();
-        $this->createdConnections = new ArrayCollection();
-        $this->categories = new ArrayCollection();
-        $this->createdAt = new \DateTime();
-        $this->comments = new ArrayCollection();
+        $this->learnerConnections       = new ArrayCollection();
+        $this->connectionRequests       = new ArrayCollection();
+        $this->createdConnections       = new ArrayCollection();
+        $this->categories               = new ArrayCollection();
+        $this->musicCategories          = new ArrayCollection();
+        $this->createdAt                = new \DateTime();
+        $this->comments                 = new ArrayCollection();
 
         parent::__construct();
     }

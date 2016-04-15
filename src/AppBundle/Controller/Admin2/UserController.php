@@ -64,7 +64,7 @@ class UserController extends Controller
                         'fullName'                      => $user->getFullName(),
                         'email'                         => $user->getEmail(),
                         'age'                           => $user->getAge(),
-                        'type'                          => $user->getType(),
+                        'type'                          => $this->userManager->getWantToLearnTypeNameByUser($user),
                         'countryName'                   => $user->getCountryName(),
                         'area'                          => $user->getMunicipality()->getName(),
                         'hasChildren'                   => ($user->getFullName()? 'Yes': 'No'),
@@ -72,7 +72,7 @@ class UserController extends Controller
                         'about'                         => $user->getAbout(),
                         'firstConnectionRequestComment' => $user->getFirstConnectionRequestComment(),
                         'internalComment'               => $user->getInternalComment(),
-                        'interests'                     => $user->getCategoryNameString()
+                        'interests'                     => $this->userManager->getCategoryNameStringByUser($user)
                     ]
                 ]);
             } else {

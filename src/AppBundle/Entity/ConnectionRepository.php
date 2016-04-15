@@ -86,7 +86,7 @@ class ConnectionRepository extends EntityRepository
     /**
      * @return \Doctrine\ORM\Query
      */
-    public function getFindAllQuery($searchString)
+    public function getFindAllQueryBuilder($searchString)
     {
         $qb = $this
             ->createQueryBuilder('c')
@@ -110,7 +110,6 @@ class ConnectionRepository extends EntityRepository
 
         return $qb
             ->orderBy('c.id', 'desc')
-            ->getQuery()
         ;
     }
 
@@ -152,11 +151,6 @@ class ConnectionRepository extends EntityRepository
             ])
         ;
 
-        try{
-            return $qb->getQuery()->getSingleScalarResult()? true: false;
-        }
-        catch(NoResultException $e) {
-            return false;
-        }
+        return $qb->getQuery()->getSingleScalarResult()? true: false;
     }
 }

@@ -2,13 +2,11 @@
 
 namespace AppBundle\Manager;
 
-use AppBundle\Entity\User;
-
 /**
- * Interface UserManagerInterface
+ * Interface ManagerInterface
  * @package AppBundle\Manager
  */
-interface UserManagerInterface
+interface ManagerInterface
 {
     /**
      * @return mixed
@@ -16,10 +14,10 @@ interface UserManagerInterface
     public function createNew();
 
     /**
-     * @param User $user
+     * @param $entity
      * @return mixed
      */
-    public function save(User $user);
+    public function save($entity);
 
     /**
      * @param $id
@@ -28,10 +26,13 @@ interface UserManagerInterface
     public function getFind($id);
 
     /**
-     * @param User $user
-     * @param int $page
-     * @param array $criterias
      * @return mixed
      */
-    public function getFindMatch(User $user, $page = 1, array $criterias);
+    public function getFindAll();
+
+    /**
+     * @param $entity
+     * @return mixed
+     */
+    public function remove($entity);
 }

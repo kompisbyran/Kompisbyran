@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -16,31 +15,24 @@ use AppBundle\Event\ConnectionCreatedEvent;
 /**
  * @Service("connection_manager")
  */
-class ConnectionManager implements ConnectionManagerInterface
+class ConnectionManager implements ManagerInterface
 {
     /**
      * @var ConnectionRepository
      */
     private $connectionRepository;
 
-    /**
-     * @var \Knp\Component\Pager\Paginator
-     */
-    private $paginator;
-
     private $dispatcher;
 
     /**
      * @InjectParams({
-     *      "paginator" = @Inject("knp_paginator"),
+     *      "connectionRepository" = @Inject("connection_repository"),
      *      "dispatcher" = @Inject("event_dispatcher")
      * })
-     * @param ConnectionRepository $connectionRepository
      */
-    public function __construct(ConnectionRepository $connectionRepository, Paginator $paginator, $dispatcher)
+    public function __construct(ConnectionRepository $connectionRepository, $dispatcher)
     {
         $this->connectionRepository = $connectionRepository;
-        $this->paginator            = $paginator;
         $this->dispatcher           = $dispatcher;
     }
 
@@ -53,12 +45,37 @@ class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
-     * @param Connection $connection
-     * @return mixed
+     * @param $entity
+     * @return Connection
      */
-    public function save(Connection $connection)
+    public function save($entity)
     {
-        return $this->connectionRepository->save($connection);
+        return $this->connectionRepository->save($entity);
+    }
+
+    /**
+     * @param $id
+     * @return null|object
+     */
+    public function getFind($id)
+    {
+        return $this->connectionRepository->find($id);
+    }
+
+    /**
+     * @return array
+     */
+    public function getFindAll()
+    {
+        return $this->connectionRepository->findAll();
+    }
+
+    /**
+     * @param $entity
+     */
+    public function remove($entity)
+    {
+        return $this->connectionRepository->remove($entity);
     }
 
     /**

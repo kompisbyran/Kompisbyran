@@ -3,9 +3,27 @@
 namespace AppBundle\Twig;
 
 use AppBundle\Enum\Countries;
+use Symfony\Component\Translation\TranslatorInterface;
 
+/**
+ * Class AppExtension
+ * @package AppBundle\Twig
+ */
 class AppExtension extends \Twig_Extension
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * @return array
      */
@@ -15,6 +33,16 @@ class AppExtension extends \Twig_Extension
             new \Twig_SimpleFilter('country_name', [$this, 'countryName']),
             new \Twig_SimpleFilter('pronoun', [$this, 'pronoun']),
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getFunctions()
+    {
+        return array(
+            'want_to_learn_name' => new \Twig_Function_Method($this, 'wantToLearnName')
+        );
     }
 
     /**
@@ -49,5 +77,14 @@ class AppExtension extends \Twig_Extension
         }
 
         return 'hen';
+    }
+
+    /**
+     * @param bool $wantToLearn
+     * @return string
+     */
+    public function wantToLearnName($wantToLearn)
+    {
+        return $wantToLearn? $this->translator->trans('New'): $this->translator->trans('Established');
     }
 }

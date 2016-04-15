@@ -11,7 +11,7 @@
                 <th id="name">{{ 'Name'|trans }}</th>
                 <th id="email">{{ 'Email'|trans }}</th>
                 <th id="category">{{ 'Internal Comments'|trans }}</th>
-                <th id="action">{{ 'Action'|trans }}</th>
+                <th id="action" style="width: 21%">{{ 'Action'|trans }}</th>
             </tr>
             </thead>
             <tbody class="persons-list-body">
@@ -22,8 +22,10 @@
                         <td>{{ pendingRequest.user.email }}</td>
                         <td>{{ pendingRequest.user.internalComment }}</td>
                         <td>
-                            <a href="{{ path('admin_ajax_edit', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile" target="_blank">{{ 'Edit Profile'|trans }}</a>&nbsp;
-                            <a href="{{ path('admin_connection_request_mark_unpending', {id: pendingRequest.id}) }}" class="btn btn-warning btn-pending">{{ 'Make Pending'|trans }}</a>
+                            <div class="text-right">
+                                <a href="{{ path('admin_ajax_edit', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile" target="_blank">{{ 'Edit Profile'|trans }}</a>&nbsp;
+                                <a href="{{ path('admin_ajax_connection_request_mark_pending_or_unpending', {id: pendingRequest.id}) }}" class="btn btn-warning btn-unpending">{% if pendingRequest.pending %}{{ 'Remove Pending'|trans }}{% else %}{{ 'Make Pending'|trans }}{% endif %}</a>
+                            </div>
                         </td>
                     </tr>
                 {% endfor %}
@@ -42,11 +44,33 @@
     {{ parent() }}
 
     <script>
+        $(document).ajaxStart(function(){
+            $('body').block({
+                message: '<strong>Loading...</strong>'
+            });
+        });
+
+        $(document).ajaxStop(function(){
+            $('body').unblock();
+        });
+
         $(document).ready(function() {
             var table = $('#match-users').DataTable({
                 "paging": false,
                 "bInfo": false,
                 "pageLength": 100
+            });
+
+            $('.btn-unpending').click(function(e){
+                e.preventDefault();
+
+                var $this = $(this);
+                $.get($this.attr('href'), function (resp){
+                    if (resp.success) {
+                        //$this.html(resp.label);
+                        window.location.reload();
+                    }
+                });
             });
 
             $('body').on('click', '.edit-current-profile', function(e){

@@ -2,7 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use Knp\Component\Pager\Paginator;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
@@ -12,11 +11,12 @@ use AppBundle\Entity\City;
 use AppBundle\Entity\User;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * @Service("connection_request_manager")
  */
-class ConnectionRequestManager implements ConnectionRequestManagerInterface
+class ConnectionRequestManager implements ManagerInterface
 {
     /**
      * @var ConnectionRequestRepository
@@ -24,20 +24,20 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     private $connectionRequestRepository;
 
     /**
-     * @var \Knp\Component\Pager\Paginator
+     * @var TranslatorInterface
      */
-    private $paginator;
+    private $translator;
 
     /**
      * @InjectParams({
-     *     "paginator" = @Inject("knp_paginator")
+     *     "connectionRequestRepository" = @Inject("connection_request_repository"),
+     *     "translator" = @Inject("translator")
      * })
-     * @param ConnectionRequestRepository $connectionRequestRepository
      */
-    public function __construct(ConnectionRequestRepository $connectionRequestRepository, Paginator $paginator)
+    public function __construct(ConnectionRequestRepository $connectionRequestRepository, TranslatorInterface $translator)
     {
         $this->connectionRequestRepository  = $connectionRequestRepository;
-        $this->paginator                    = $paginator;
+        $this->translator                   = $translator;
     }
 
     /**
@@ -49,12 +49,12 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
-     * @param ConnectionRequest $connectionRequest
-     * @return mixed
+     * @param $entity
+     * @return ConnectionRequest
      */
-    public function save(ConnectionRequest $connectionRequest)
+    public function save($entity)
     {
-        return $this->connectionRequestRepository->save($connectionRequest);
+        return $this->connectionRequestRepository->save($entity);
     }
 
     /**
@@ -67,11 +67,11 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
     }
 
     /**
-     * @param ConnectionRequest $connectionRequest
+     * @param $entity
      */
-    public function remove(ConnectionRequest $connectionRequest)
+    public function remove($entity)
     {
-        $this->connectionRequestRepository->remove($connectionRequest);
+        $this->connectionRequestRepository->remove($entity);
     }
 
     /**
@@ -146,7 +146,7 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
         $qb         = $this->connectionRequestRepository->findByCityQueryBuilder($city);
         $adapter    = new DoctrineORMAdapter($qb);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(25);
+        $pagerfanta->setMaxPerPage(100000);
         $pagerfanta->setCurrentPage($page);
 
         return [
@@ -168,49 +168,17 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
         $connectionRequests = $pagerfanta->getCurrentPageResults();
 
         foreach ($connectionRequests as $connectionRequest) {
-            $datas[] = [
+            $pending    = $connectionRequest->getPending()? 1: 0;
+            $datas[]    = [
                 'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
                 'name'          => $connectionRequest->getUser()->getFullName(),
                 'email'         => $connectionRequest->getUser()->getEmail(),
-                'category'      => $connectionRequest->getType(),
-                'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId()
+                'category'      => ($connectionRequest->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established')),
+                'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending //user_id|request_id|pending
             ];
         }
 
         return $datas;
-    }
-
-    /**
-     * @param $id
-     * @return bool
-     */
-    public function markAsPending($id)
-    {
-        $connectionRequest = $this->getFind($id);
-
-        if ($connectionRequest instanceof ConnectionRequest) {
-            $connectionRequest->setPending(true);
-
-            $this->save($connectionRequest);
-
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @param $id
-     */
-    public function markAsUnpending($id)
-    {
-        $connectionRequest = $this->getFind($id);
-
-        if ($connectionRequest instanceof ConnectionRequest) {
-            $connectionRequest->setPending(false);
-
-            $this->save($connectionRequest);
-        }
     }
 
     /**
@@ -252,6 +220,30 @@ class ConnectionRequestManager implements ConnectionRequestManagerInterface
             $this->save($connectionRequest);
 
             return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function markAsPendingOrUnpending($id)
+    {
+        $connectionRequest = $this->getFind($id);
+
+        if ($connectionRequest instanceof ConnectionRequest) {
+
+            if ($connectionRequest->getPending()) {
+                $connectionRequest->setPending(false);
+            } else {
+                $connectionRequest->setPending(true);
+            }
+
+            $this->save($connectionRequest);
+
+            return $connectionRequest;
         }
 
         return false;
