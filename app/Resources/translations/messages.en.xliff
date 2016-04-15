@@ -2,6 +2,14 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="error">
+                <source>error</source>
+                <target>Error!</target>
+            </trans-unit>
+            <trans-unit id="error.active_request">
+                <source>error.active_request</source>
+                <target>You still have an active request.</target>
+            </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
                 <target>Yes</target>
@@ -547,6 +555,18 @@ Your friends at Kompisbyrån</target>
             <trans-unit id="match.email.user_He">
                 <source>match.email.user_He</source>
                 <target>He2</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype">
+                <source>user.form.fikatype</source>
+                <target>I want to be:</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.fikafriend">
+                <source>user.form.fikatype.fikafriend</source>
+                <target>Fika friend</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.musicfriend">
+                <source>user.form.fikatype.musicfriend</source>
+                <target>Music friend</target>
             </trans-unit>
         </body>
     </file>
