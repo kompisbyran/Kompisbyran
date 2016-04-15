@@ -4,6 +4,7 @@ namespace AppBundle\Twig;
 
 use AppBundle\Enum\Countries;
 use Symfony\Component\Translation\TranslatorInterface;
+use AppBundle\Entity\User;
 
 /**
  * Class AppExtension
@@ -41,7 +42,8 @@ class AppExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'want_to_learn_name' => new \Twig_Function_Method($this, 'wantToLearnName')
+            'want_to_learn_name' => new \Twig_Function_Method($this, 'wantToLearnName'),
+            'user_category_name_string' => new \Twig_Function_Method($this, 'userCategoryNameString')
         );
     }
 
@@ -86,5 +88,21 @@ class AppExtension extends \Twig_Extension
     public function wantToLearnName($wantToLearn)
     {
         return $wantToLearn? $this->translator->trans('New'): $this->translator->trans('Established');
+    }
+
+    /**
+     * @param User $user
+     * @return string
+     */
+    public function userCategoryNameString(User $user)
+    {
+        $categoryNames  = array_values($user->getCategoryNames());
+        if ($categoryNames > 1) {
+            $lastCategory   = array_pop($categoryNames);
+            $categories = implode(', ', $categoryNames) .' '.  $this->translator->trans('and') .' '. $lastCategory;
+        } else {
+            $categories = implode(', ', $categoryNames);
+        }
+        return $categories;
     }
 }
