@@ -4,7 +4,11 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use JMS\DiExtraBundle\Annotation\FormType;
 
+/**
+ * @FormType
+ */
 class AdminUserType extends UserType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
