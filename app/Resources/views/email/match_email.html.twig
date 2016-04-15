@@ -3,7 +3,7 @@
     '%match_music_friend%': matchUser.musicFriend ? 'global.music_buddy'|trans: 'global.fika_buddy'|trans,
     '%match_his_her%': matchUser.gender == 'M' ? 'global.his'|trans|capitalize : 'global.her'|trans|capitalize,
     '%match_name%': matchUser.fullName,
-    '%match_categories%': matchUser.getMatchedCategories(user),
+    '%match_categories%': user_matched_categories(matchUser, user),
     '%match_age%': matchUser.age,
     '%match_area%': matchUser.municipality.name,
     '%match_from%': matchUser.countryName,

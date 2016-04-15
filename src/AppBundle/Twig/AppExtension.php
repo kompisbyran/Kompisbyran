@@ -42,8 +42,9 @@ class AppExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'want_to_learn_name' => new \Twig_Function_Method($this, 'wantToLearnName'),
-            'user_category_name_string' => new \Twig_Function_Method($this, 'userCategoryNameString')
+            'want_to_learn_name'        => new \Twig_Function_Method($this, 'wantToLearnName'),
+            'user_category_name_string' => new \Twig_Function_Method($this, 'userCategoryNameString'),
+            'user_matched_categories'   => new \Twig_Function_Method($this, 'userMatchedCategories')
         );
     }
 
@@ -97,12 +98,44 @@ class AppExtension extends \Twig_Extension
     public function userCategoryNameString(User $user)
     {
         $categoryNames  = array_values($user->getCategoryNames());
+
         if (count($categoryNames) > 1) {
             $lastCategory   = array_pop($categoryNames);
             $categories = implode(', ', $categoryNames) .' '.  $this->translator->trans('and') .' '. $lastCategory;
         } else {
             $categories = implode(', ', $categoryNames);
         }
+
         return $categories;
     }
+
+    /**
+     * @param User $matchUser
+     * @param User $user
+     * @return string
+     */
+    public function userMatchedCategories(User $matchUser, User $user)
+    {
+        $matches = [];
+
+        foreach ($matchUser->getCategoryNames() as $id => $name) {
+            foreach ($user->getCategoryNames() as $userCatId => $userCatName) {
+                if ($id == $userCatId) {
+                    $matches[] = $userCatName;
+                    break;
+                }
+            }
+        }
+
+        if (count($matches) > 1) {
+            $lastCategory   = array_pop($matches);
+            $categories = implode(', ', $matches) .' '.  $this->translator->trans('and') .' '. $lastCategory;
+        } else {
+            $categories = implode(', ', $matches);
+        }
+
+        return $categories;
+    }
+
+
 }
