@@ -569,7 +569,7 @@
             </trans-unit>
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>
-                <target>(This message will follow in English)
+                <target><![CDATA[(This message will follow in English)
                     
 Hej %user_name%!
 
@@ -579,16 +579,20 @@ Vi har hittat en %match_music_friend% till dig. %match_gender% heter %match_name
 
 %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
 
-E-postadressen till din %match_music_friend% är: %match_email% Vi har också skickat din e-postadress till din %match_music_friend%.
+Din %match_music_friend% e-mail är: %match_email% Vi har också skickat din e-mail till din %match_music_friend%.
 
-Maila nu din %match_music_friend% och bestäm var och när ni ska träffas, skicka mailet inom en vecka. Vi rekommenderar att ni ses på ett %match_fika_buddies% i ungefär en timme.
+Gör så här:
+1. Skicka ett e-mail till din nya kompis och bestäm dag, tid och plats där ni ska ses. Skicka mailet inom 7 dagar. Vi rekommenderar att ni ses på en offentlig plats i cirka 1 timme, och att ni byter telefonnummer så att ni får tag på varandra.
 
-Skicka gärna ett foto och berätta om hur du tycker att mötet var. Vi vill gärna dela med oss av det för att uppmuntra fler till att vara med och få information om Kompisbyrån.
+2. Ni träffas!
+
+3. Under eller efter ert möte, ta gärna ett foto och skriv ett par meningar om hur mötet var. Maila fotohälsningen till oss, matchning@kompisbyran.se. Vi kommer att dela detta digitalt för att uppmuntra fler till att vara med i Kompisbyrån. 
 
 Om du har frågor, kontakta oss! Vi önskar er ett trevligt möte!
 
 Bästa hälsningar
 Vännerna på Kompisbyrån
+
 
 --------- English version ---------
 
@@ -609,11 +613,11 @@ We would love to if you could send a photo and tell us about your meeting! We wa
 If you have any questions, please contact us! We wish you a nice meeting!
 
 Best regards,
-Your friends at Kompisbyrån</target>
+Your friends at Kompisbyrån]]></target>
             </trans-unit>
             <trans-unit id="match.email.user.subject">
                 <source>match.email.user.subject</source>
-                <target>%match_music_friend% from Kompisbyrån for you %user_name%</target>
+                <target>%user_name%, here is your %match_music_friend% from Kompisbyrån</target>
             </trans-unit>
         </body>
     </file>
