@@ -26,10 +26,9 @@
                     {% endif %}
                 </div>
                 <div class="col-md-8">
-                    <a href="{{ path('admin_start2') }}" class="btn btn-default btn-md">{{ 'match.find_matches'|trans }}</a>
-                    <a href="{{ path('admin_manual') }}" class="btn btn-default btn-md">{{ 'match.manual_handling'|trans }}</a>
-                    <a href="{{ path('admin_inspection') }}" class="btn btn-default btn-md">{{ 'match.inspection'|trans }}</a>
-                    <a href="#" class="btn btn-default btn-md">{{ 'match.statistics'|trans }}</a>
+                    <a href="{{ path('admin_start2') }}" class="btn btn-default btn-md">{{ 'Find matches' }}</a>
+                    <a href="{{ path('admin_manual') }}" class="btn btn-default btn-md">{{ 'Pending' }}</a>
+                    <a href="{{ path('admin_inspection') }}" class="btn btn-default btn-md">{{ 'Inspection' }}</a>
                 </div>
             </div>
             {% block default_content %}{% endblock %}
