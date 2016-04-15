@@ -99,14 +99,7 @@ class AppExtension extends \Twig_Extension
     {
         $categoryNames  = array_values($user->getCategoryNames());
 
-        if (count($categoryNames) > 1) {
-            $lastCategory   = array_pop($categoryNames);
-            $categories = implode(', ', $categoryNames) .' '.  $this->translator->trans('and') .' '. $lastCategory;
-        } else {
-            $categories = implode(', ', $categoryNames);
-        }
-
-        return $categories;
+        return $this->toStringCategories($categoryNames);
     }
 
     /**
@@ -127,15 +120,22 @@ class AppExtension extends \Twig_Extension
             }
         }
 
-        if (count($matches) > 1) {
-            $lastCategory   = array_pop($matches);
-            $categories = implode(', ', $matches) .' '.  $this->translator->trans('and') .' '. $lastCategory;
+        return $this->toStringCategories($matches);
+    }
+
+    /**
+     * @param array $categories
+     * @return array|string
+     */
+    private function toStringCategories(array $categories)
+    {
+        if (count($categories) > 1) {
+            $lastCategory   = array_pop($categories);
+            $categories = implode(', ', $categories) .' '.  $this->translator->trans('and') .' '. $lastCategory;
         } else {
-            $categories = implode(', ', $matches);
+            $categories = implode(', ', $categories);
         }
 
         return $categories;
     }
-
-
 }
