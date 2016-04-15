@@ -100,6 +100,8 @@ class MatchFilterType extends AbstractType
                 'label'             => 'Type',
                 'choices_as_values' => true,
                 'data'              => $options['music_friend'],
+                'empty_data'        => '',
+                'empty_value'       => 'All',
                 'choices'           => [
                     'filter.form.fika_buddy'    => '0',
                     'filter.form.music_buddy'   => '1'
