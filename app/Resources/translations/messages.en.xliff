@@ -22,6 +22,10 @@
                 <source>global.he</source>
                 <target>he</target>
             </trans-unit>
+            <trans-unit id="global.and">
+                <source>and</source>
+                <target>and</target>
+            </trans-unit>
             <trans-unit id="global.his">
                 <source>global.his</source>
                 <target>his</target>
@@ -529,31 +533,36 @@
             </trans-unit>
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>
-                <target>(This message will follow in English)
+                <target><![CDATA[(This message will follow in English)
+                    
 Hej %user_name%!
 
 Vad kul att du vill vara med i Kompisbyrån!
 
-Vi har hittat en %match_music_friend% till dig. %match_his_her% heter %match_name% och ni båda gillar %match_categories%.
+Vi har hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%.
 
 %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
 
-E-postadressen till din %match_music_friend% är: %match_email% Vi har också skickat din e-postadress till din %match_music_friend%.
+Din %match_music_friend% e-mail är: %match_email% Vi har också skickat din e-mail till din %match_music_friend%.
 
-Maila nu din %match_music_friend% och bestäm var och när ni ska träffas, skicka mailet inom en vecka. Vi rekommenderar att ni ses på ett %match_fika_buddies% i ungefär en timme.
+Gör så här:
+1. Skicka ett e-mail till din nya kompis och bestäm dag, tid och plats där ni ska ses. Skicka mailet inom 7 dagar. Vi rekommenderar att ni ses på en offentlig plats i cirka 1 timme, och att ni byter telefonnummer så att ni får tag på varandra.
 
-Skicka gärna ett foto och berätta om hur du tycker att mötet var. Vi vill gärna dela med oss av det för att uppmuntra fler till att vara med och få information om Kompisbyrån.
+2. Ni träffas!
+
+3. Under eller efter ert möte, ta gärna ett foto och skriv ett par meningar om hur mötet var. Maila fotohälsningen till oss, matchning@kompisbyran.se. Vi kommer att dela detta digitalt för att uppmuntra fler till att vara med i Kompisbyrån. 
 
 Om du har frågor, kontakta oss! Vi önskar er ett trevligt möte!
 
 Bästa hälsningar
 Vännerna på Kompisbyrån
 
+
 --------- English version ---------
 
 Hello %user_name%!
 
-Great that you want to be part of Kompisbyrån!
+Thank you for being a part of Kompisbyrån!
 
 We have found a person for you to meet. The person you will meet is %match_name% and both of you like %match_categories%.
 
@@ -561,18 +570,23 @@ We have found a person for you to meet. The person you will meet is %match_name%
 
 The email adress to %match_name% is: %match_email%. We have also sent your email adress to %match_name%.
 
-Your next step is to email %match_name% and decide on when and where to meet. Send the email within one week. We recommend that you meet at a public place for about one hour.
+Please follow the steps below:
 
-We would love to if you could send a photo and tell us about your meeting! We want to share your story to encourage more to be part of Kompisbyrån.
+1. Send an email to %match_name% and decide date, time and place where you should meet. Send the email within 7 days. We recommend that you meet at a public place for about 1 hour, and exchange phone numbers so that you can reach each other.
 
-If you have any questions, please contact us! We wish you a nice meeting!
+2. You meet each other!
+
+3. During or after your meeting, we would be very happy if you would like to take a photo and write some sentences about your experience. Please, send the photo greeting to: matchning@kompisbyran.se so that we can share your story digitally to encourage more people to join.
+
+Please, contact us if you have any questions! We wish you a nice meeting!
 
 Best regards,
-Your friends at Kompisbyrån</target>
+Your friends at Kompisbyrån
+]]></target>
             </trans-unit>
             <trans-unit id="match.email.user.subject">
                 <source>match.email.user.subject</source>
-                <target>%match_music_friend% from Kompisbyrån for you %user_name%</target>
+                <target>%user_name%, here is your %match_music_friend% from Kompisbyrån</target>
             </trans-unit>
             <trans-unit id="match.email.user_He">
                 <source>match.email.user_He</source>
