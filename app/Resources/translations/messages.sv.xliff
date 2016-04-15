@@ -18,6 +18,34 @@
                 <source>no</source>
                 <target>Nej</target>
             </trans-unit>
+            <trans-unit id="global.he">
+                <source>global.he</source>
+                <target>han</target>
+            </trans-unit>
+            <trans-unit id="global.and">
+                <source>and</source>
+                <target>och</target>
+            </trans-unit>
+            <trans-unit id="global.his">
+                <source>global.his</source>
+                <target>hans</target>
+            </trans-unit>
+            <trans-unit id="global.her">
+                <source>global.her</source>
+                <target>hennes</target>
+            </trans-unit>
+            <trans-unit id="global.she">
+                <source>global.she</source>
+                <target>Hon</target>
+            </trans-unit>
+            <trans-unit id="global.music_buddy">
+                <source>global.music_buddy</source>
+                <target>Musikkompis</target>
+            </trans-unit>
+            <trans-unit id="global.fika_buddy">
+                <source>global.fika_buddy</source>
+                <target>Fikakompis</target>
+            </trans-unit>        
             <trans-unit id="menu.home">
                 <source>menu.home</source>
                 <target>Hem</target>
@@ -542,11 +570,12 @@
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>
                 <target>(This message will follow in English)
+                    
 Hej %user_name%!
 
 Vad kul att du vill vara med i Kompisbyrån!
 
-Vi har hittat en %match_music_friend% till dig. %match_his_her% heter %match_name% och ni båda gillar %match_categories%.
+Vi har hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%.
 
 %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
 
