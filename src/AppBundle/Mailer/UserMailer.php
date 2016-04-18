@@ -67,7 +67,7 @@ class UserMailer extends Mailer
     public function sendMatchEmailMessage(UserInterface $user, UserInterface $matchUser, $body)
     {
         $subject    = $this->translator->trans('match.email.user.subject', [
-            '%match_music_friend%'    => ($matchUser->isMusicFriend()? 'Music Buddy': 'Fika Buddy'),
+            '%match_music_friend%'    => ($matchUser->isMusicFriend()?  $this->translator->trans('global.music_buddy'):  $this->translator->trans('global.fika_buddy')),
             '%user_name%'             => $user->getFullName()
         ]);
 
