@@ -534,7 +534,7 @@
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>
                 <target><![CDATA[(This message will follow in English)
-                    
+
 Hej %user_name%!
 
 Vad kul att du vill vara med i Kompisbyrån!
@@ -550,7 +550,7 @@ Gör så här:
 
 2. Ni träffas!
 
-3. Under eller efter ert möte, ta gärna ett foto och skriv ett par meningar om hur mötet var. Maila fotohälsningen till oss, matchning@kompisbyran.se. Vi kommer att dela detta digitalt för att uppmuntra fler till att vara med i Kompisbyrån. 
+3. Under eller efter ert möte, ta gärna ett foto och skriv ett par meningar om hur mötet var. Maila fotohälsningen till oss, matchning@kompisbyran.se. Vi kommer att dela detta digitalt för att uppmuntra fler till att vara med i Kompisbyrån.
 
 Om du har frågor, kontakta oss! Vi önskar er ett trevligt möte!
 
@@ -588,21 +588,17 @@ Your friends at Kompisbyrån
                 <source>match.email.user.subject</source>
                 <target>%user_name%, here is your %match_music_friend% from Kompisbyrån</target>
             </trans-unit>
-            <trans-unit id="match.email.user_He">
-                <source>match.email.user_He</source>
-                <target>He2</target>
-            </trans-unit>
             <trans-unit id="user.form.fikatype">
                 <source>user.form.fikatype</source>
                 <target>I want to be:</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.fikafriend">
                 <source>user.form.fikatype.fikafriend</source>
-                <target>Fika friend</target>
+                <target>fika friend</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.musicfriend">
                 <source>user.form.fikatype.musicfriend</source>
-                <target>Music friend</target>
+                <target>music friend</target>
             </trans-unit>
         </body>
     </file>

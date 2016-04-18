@@ -45,14 +45,14 @@
             <trans-unit id="global.fika_buddy">
                 <source>global.fika_buddy</source>
                 <target>Fikakompis</target>
-            </trans-unit>        
+            </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>
                 <target>Hem</target>
             </trans-unit>
             <trans-unit id="menu.fikafriend">
                 <source>menu.fikafriend</source>
-                <target>Bli fikakompis</target>
+                <target>Bli Fikakompis</target>
             </trans-unit>
             <trans-unit id="menu.musicfriend">
                 <source>menu.musicfriend</source>
@@ -570,7 +570,7 @@
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>
                 <target><![CDATA[(This message will follow in English)
-                    
+
 Hej %user_name%!
 
 Vad kul att du vill vara med i Kompisbyrån!
@@ -586,7 +586,7 @@ Gör så här:
 
 2. Ni träffas!
 
-3. Under eller efter ert möte, ta gärna ett foto och skriv ett par meningar om hur mötet var. Maila fotohälsningen till oss, matchning@kompisbyran.se. Vi kommer att dela detta digitalt för att uppmuntra fler till att vara med i Kompisbyrån. 
+3. Under eller efter ert möte, ta gärna ett foto och skriv ett par meningar om hur mötet var. Maila fotohälsningen till oss, matchning@kompisbyran.se. Vi kommer att dela detta digitalt för att uppmuntra fler till att vara med i Kompisbyrån.
 
 Om du har frågor, kontakta oss! Vi önskar er ett trevligt möte!
 
