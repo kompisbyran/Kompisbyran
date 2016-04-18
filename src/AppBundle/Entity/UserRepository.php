@@ -131,7 +131,7 @@ class UserRepository extends EntityRepository
         }
         if (isset($criterias['music_friend'])) {
             $criterias['music_friend'] = $criterias['music_friend'] == 1? true: false;
-            $where[] = 'u.music_friend = :music_friend';
+            $where[] = 'cr.music_friend = :music_friend';
         }
         return implode(' AND ', $where);
     }
