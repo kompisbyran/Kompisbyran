@@ -622,7 +622,7 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="match.email.user.subject">
                 <source>match.email.user.subject</source>
-                <target>%user_name%, here is your %match_music_friend% from Kompisbyrån</target>
+                <target>%user_name%, här är din %match_music_friend% från Kompisbyrån</target>
             </trans-unit>
         </body>
     </file>
