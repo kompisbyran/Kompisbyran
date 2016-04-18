@@ -197,7 +197,7 @@ class UserManager implements ManagerInterface
     public function getCategoryNameStringByUser(User $user)
     {
         $categoryNames  = array_values($user->getCategoryNames());
-        if ($categoryNames > 1) {
+        if (count($categoryNames) > 1) {
             $lastCategory   = array_pop($categoryNames);
             $categories = implode(', ', $categoryNames) .' '.  $this->translator->trans('and') .' '. $lastCategory;
         } else {
