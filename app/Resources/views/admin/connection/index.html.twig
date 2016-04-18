@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% import 'macros.html.twig' as macros %}
-
 {% import _self as macro %}
 
 {% macro userCell(connection, wantToLearn) %}
@@ -53,7 +51,7 @@
                         <th>Skapad av</th>
                     </tr>
                 </thead>
-                {% for connection in pagination %}
+                {% for connection in pagerfanta.getCurrentPageResults() %}
                     <tbody>
                         <tr>
                             <td>
@@ -91,8 +89,9 @@
                 {% endfor %}
             </table>
 
-
-            {{ macros.paging(pagination) }}
+            <div class="pagerfanta text-right">
+                {{ pagerfanta(pagerfanta, 'twitter_bootstrap3') }}
+            </div>
         </div>
     </div>
 

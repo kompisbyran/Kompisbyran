@@ -4,12 +4,14 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
+use AppBundle\Entity\City;
 use AppBundle\Form\EditConnectionRequestType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("admin/connectionrequests")
@@ -78,6 +80,4 @@ class ConnectionRequestController extends Controller
 
         return new Response();
     }
-
-
 }

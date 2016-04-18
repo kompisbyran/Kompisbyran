@@ -24,6 +24,8 @@ services:
 
     twig.app_extension:
         class: AppBundle\Twig\AppExtension
+        arguments:
+            - @translator
         tags:
             - { name: twig.extension }
 

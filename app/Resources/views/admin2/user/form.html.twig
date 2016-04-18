@@ -1,0 +1,141 @@
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{{ form_start(form, {action: path('admin_ajax_edit', {id: user.id})}) }}
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Edit Profile</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            {#{ form_widget(form) }#}
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_label(form.firstName) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.firstName) }}
+                        {{ form_errors(form.firstName) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.lastName) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.lastName) }}
+                        {{ form_errors(form.lastName) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+
+                {% if not is_granted('ROLE_COMPLETE_USER') %}
+                    <div class="form-group">
+                        {{ form_label(form.city) }}
+                        <div class="col-sm-6">
+                            {{ form_widget(form.city) }}
+                            {{ form_errors(form.city) }}
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    {{ form_label(form.wantToLearn) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.wantToLearn) }}
+                        {{ form_errors(form.wantToLearn) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.musicFriend) }}
+                    <div class="col-sm-6 col-md-offset-4">
+                        {{ form_widget(form.musicFriend) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.categories) }}
+                    <div class="col-sm-4">
+                        {{ form_widget(form.categories) }}
+                        {{ form_errors(form.categories) }}
+                    </div>
+                    <div class="col-sm-4">
+                        {{ form_widget(form.musicCategories) }}
+                        {{ form_errors(form.musicCategories) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.about) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.about) }}
+                        {{ form_errors(form.about) }}
+                        <span class="help-block">{{ 'user.form.about.help'|trans }}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.internalComment) }}
+                    <div class="col-sm-8">
+                        {{ form_widget(form.internalComment) }}
+                        {{ form_errors(form.internalComment) }}
+                        <span class="help-block">{{ 'user.form.internalComment.help'|trans }}</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.age) }}
+                    <div class="col-sm-2">
+                        {{ form_widget(form.age) }}
+                        {{ form_errors(form.age) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.gender) }}
+                    <div class="col-sm-2">
+                        {{ form_widget(form.gender) }}
+                        {{ form_errors(form.gender) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.from) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.from) }}
+                        {{ form_errors(form.from) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.municipality) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.municipality) }}
+                        {{ form_errors(form.municipality) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.hasChildren) }}
+                    <div class="col-sm-6">
+                        {{ form_widget(form.hasChildren) }}
+                        {{ form_errors(form.hasChildren) }}
+                    </div>
+                </div>
+
+                {{ form_rest(form) }}
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-11 pull-right">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default btn-save-profile">{{ 'user.form.button'|trans }}</button>
+        </div>
+    </div>
+{{ form_end(form) }}

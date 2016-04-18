@@ -18,6 +18,34 @@
                 <source>no</source>
                 <target>Nej</target>
             </trans-unit>
+            <trans-unit id="global.he">
+                <source>global.he</source>
+                <target>han</target>
+            </trans-unit>
+            <trans-unit id="global.and">
+                <source>and</source>
+                <target>och</target>
+            </trans-unit>
+            <trans-unit id="global.his">
+                <source>global.his</source>
+                <target>hans</target>
+            </trans-unit>
+            <trans-unit id="global.her">
+                <source>global.her</source>
+                <target>hennes</target>
+            </trans-unit>
+            <trans-unit id="global.she">
+                <source>global.she</source>
+                <target>Hon</target>
+            </trans-unit>
+            <trans-unit id="global.music_buddy">
+                <source>global.music_buddy</source>
+                <target>Musikkompis</target>
+            </trans-unit>
+            <trans-unit id="global.fika_buddy">
+                <source>global.fika_buddy</source>
+                <target>Fikakompis</target>
+            </trans-unit>        
             <trans-unit id="menu.home">
                 <source>menu.home</source>
                 <target>Hem</target>
@@ -538,6 +566,63 @@
 
                     Best regards,
                     Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="match.email.user">
+                <source>match.email.user</source>
+                <target><![CDATA[(This message will follow in English)
+                    
+Hej %user_name%!
+
+Vad kul att du vill vara med i Kompisbyrån!
+
+Vi har hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%.
+
+%match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
+
+Din %match_music_friend% e-mail är: %match_email% Vi har också skickat din e-mail till din %match_music_friend%.
+
+Gör så här:
+1. Skicka ett e-mail till din nya kompis och bestäm dag, tid och plats där ni ska ses. Skicka mailet inom 7 dagar. Vi rekommenderar att ni ses på en offentlig plats i cirka 1 timme, och att ni byter telefonnummer så att ni får tag på varandra.
+
+2. Ni träffas!
+
+3. Under eller efter ert möte, ta gärna ett foto och skriv ett par meningar om hur mötet var. Maila fotohälsningen till oss, matchning@kompisbyran.se. Vi kommer att dela detta digitalt för att uppmuntra fler till att vara med i Kompisbyrån. 
+
+Om du har frågor, kontakta oss! Vi önskar er ett trevligt möte!
+
+Bästa hälsningar
+Vännerna på Kompisbyrån
+
+
+--------- English version ---------
+
+Hello %user_name%!
+
+Thank you for being a part of Kompisbyrån!
+
+We have found a person for you to meet. The person you will meet is %match_name% and both of you like %match_categories%.
+
+%match_name% is %match_age% years old, lives in %match_area% and is from %match_from%. %match_name% would like to meet you in %match_city%.
+
+The email adress to %match_name% is: %match_email%. We have also sent your email adress to %match_name%.
+
+Please follow the steps below:
+
+1. Send an email to %match_name% and decide date, time and place where you should meet. Send the email within 7 days. We recommend that you meet at a public place for about 1 hour, and exchange phone numbers so that you can reach each other.
+
+2. You meet each other!
+
+3. During or after your meeting, we would be very happy if you would like to take a photo and write some sentences about your experience. Please, send the photo greeting to: matchning@kompisbyran.se so that we can share your story digitally to encourage more people to join.
+
+Please, contact us if you have any questions! We wish you a nice meeting!
+
+Best regards,
+Your friends at Kompisbyrån
+]]></target>
+            </trans-unit>
+            <trans-unit id="match.email.user.subject">
+                <source>match.email.user.subject</source>
+                <target>%user_name%, here is your %match_music_friend% from Kompisbyrån</target>
             </trans-unit>
         </body>
     </file>

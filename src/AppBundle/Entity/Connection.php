@@ -87,7 +87,7 @@ class Connection
      */
     protected $musicFriend = false;
 
-    public function __construct(User $user)
+    public function __construct(User $user = null)
     {
         $this->createdAt = new \DateTime();
         $this->createdBy = $user;
@@ -188,6 +188,17 @@ class Connection
     public function getLearnerComment()
     {
         return $this->learnerComment;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function setCreatedBy(User $user)
+    {
+        $this->createdBy = $user;
+
+        return $this;
     }
 
     /**

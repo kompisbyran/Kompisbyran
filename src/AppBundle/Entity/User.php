@@ -7,6 +7,7 @@ use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use AppBundle\Enum\Countries;
 
 /**
  * @ORM\Entity(repositoryClass="UserRepository")
@@ -15,6 +16,12 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  **/
 class User extends BaseUser
 {
+    const GENDER_MALE   = 'M';
+
+    const GENDER_FEMALE = 'F';
+
+    const GENDER_X      = 'X';
+
     /**
     * @ORM\Id
     * @ORM\Column(type="integer")
@@ -220,12 +227,13 @@ class User extends BaseUser
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
-        $this->learnerConnections = new ArrayCollection();
-        $this->connectionRequests = new ArrayCollection();
-        $this->createdConnections = new ArrayCollection();
-        $this->categories = new ArrayCollection();
-        $this->createdAt = new \DateTime();
-        $this->comments = new ArrayCollection();
+        $this->learnerConnections       = new ArrayCollection();
+        $this->connectionRequests       = new ArrayCollection();
+        $this->createdConnections       = new ArrayCollection();
+        $this->categories               = new ArrayCollection();
+        $this->musicCategories          = new ArrayCollection();
+        $this->createdAt                = new \DateTime();
+        $this->comments                 = new ArrayCollection();
 
         parent::__construct();
     }
@@ -565,5 +573,127 @@ class User extends BaseUser
     public function setMunicipality($municipality)
     {
         $this->municipality = $municipality;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->firstName .' '. $this->lastName;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getGenders()
+    {
+        return [
+            self::GENDER_MALE   => 'user.form.gender.m',
+            self::GENDER_FEMALE => 'user.form.gender.f',
+            self::GENDER_X      => 'user.form.gender.x'
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getCategoryNames()
+    {
+        $categories = [];
+
+        foreach($this->getCategories() as $category) {
+            $categories[$category->getId()] = $category->getName();
+        }
+
+        foreach($this->getMusicCategories() as $category) {
+            $categories[$category->getId()] = $category->getName();
+        }
+
+        asort($categories);
+
+        return $categories;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryName()
+    {
+        return Countries::getName($this->from);
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->wantToLearn? 'New': 'Established';
+    }
+
+    /**
+     * @return string
+     */
+    public function getMusicFriendType()
+    {
+        return $this->musicFriend? 'filter.form.music_buddy': 'filter.form.fika_buddy';
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstConnectionRequestComment()
+    {
+        if ($this->connectionRequests->count()) {
+            return $this->connectionRequests->first()->getComment();
+        }
+
+        return '';
+    }
+
+    /**
+     * @return array
+     */
+    public function getCategoryIds()
+    {
+        $ids = [];
+
+        foreach ($this->categories as $category) {
+            $ids[] = $category->getId();
+        }
+
+        return $ids;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMusicCategoryIds()
+    {
+        $ids = [];
+
+        foreach ($this->musicCategories as $category) {
+            $ids[] = $category->getId();
+        }
+
+        return $ids;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstConnectionRequest()
+    {
+        return $this->connectionRequests->first();
+    }
+
+    /**
+     * @return string
+     */
+    public function getGenderName()
+    {
+        $genders = self::getGenders();
+
+        return isset($genders[$this->getGender()])? $genders[$this->getGender()]: '';
     }
 }

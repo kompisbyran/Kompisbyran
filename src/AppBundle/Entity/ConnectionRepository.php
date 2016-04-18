@@ -3,7 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\NoResultException;
+use AppBundle\Entity\Connection;
 
+/**
+ * Class ConnectionRepository
+ * @package AppBundle\Entity
+ */
 class ConnectionRepository extends EntityRepository
 {
 
@@ -57,9 +63,30 @@ class ConnectionRepository extends EntityRepository
     }
 
     /**
+     * @param Connection $connection
+     * @return Connection
+     */
+    public function save(Connection $connection)
+    {
+        $this->getEntityManager()->persist($connection);
+        $this->getEntityManager()->flush();
+
+        return $connection;
+    }
+
+    /**
+     * @param Connection $connection
+     */
+    public function remove(Connection $connection)
+    {
+        $this->getEntityManager()->remove($connection);
+        $this->getEntityManager()->flush();
+    }
+
+    /**
      * @return \Doctrine\ORM\Query
      */
-    public function getFindAllQuery($searchString)
+    public function getFindAllQueryBuilder($searchString)
     {
         $qb = $this
             ->createQueryBuilder('c')
@@ -83,7 +110,6 @@ class ConnectionRepository extends EntityRepository
 
         return $qb
             ->orderBy('c.id', 'desc')
-            ->getQuery()
         ;
     }
 
@@ -105,5 +131,26 @@ class ConnectionRepository extends EntityRepository
             ->getQuery()
             ->execute()
             ;
+    }
+
+    /**
+     * @param User $user
+     * @return int
+     */
+    public function isUserConnectionExists(User $user1, User $user2)
+    {
+        $qb = $this->createQueryBuilder('c');
+
+        $qb
+            ->select('COUNT(c.id)')
+            ->where('c.fluentSpeaker = :user1 and c.learner = :user2')
+            ->orWhere('c.fluentSpeaker = :user2 and c.learner = :user1')
+            ->setParameters([
+                'user1' => $user1,
+                'user2' => $user2,
+            ])
+        ;
+
+        return $qb->getQuery()->getSingleScalarResult()? true: false;
     }
 }
