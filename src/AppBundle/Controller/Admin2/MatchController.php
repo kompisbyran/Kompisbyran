@@ -89,7 +89,7 @@ class MatchController extends Controller
         }
 
         $form       = $this->formFactory->create('match_filter', null, [
-            'music_friend'  => $user->isMusicFriend(),
+            'music_friend'  => $userRequest->isMusicFriend(),
             'city_id'       => $userRequest->getCity()->getId()
         ]);
 
