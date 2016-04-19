@@ -111,8 +111,9 @@ class MatchController extends Controller
      */
     public function ajaxResultsAction(Request $request, User $user)
     {
-        $criterias  = $request->request->all();
-        $results    = $this->userManager->getFindMatch($user, $request->get('page', 1), $criterias['match_filter']);
+        $criterias      = $request->request->all();
+        $userRequest    = $this->connectionRequestManager->getFindOneUnpendingByUserId($user->getId());
+        $results        = $this->userManager->getFindMatch($user, $userRequest, $request->get('page', 1), $criterias['match_filter']);
 
         return new JsonResponse($results);
     }
