@@ -18,7 +18,7 @@ class Version20160419062316 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql("UPDATE connection_request SET inspected = 1 WHERE created_at < '2016-04-01'");
+        $this->addSql("UPDATE connection_request SET inspected = 1 WHERE created_at < '2016-04-15'");
     }
 
     /**
