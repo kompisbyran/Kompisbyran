@@ -28,7 +28,7 @@ class UserController extends Controller
     /**
      * @var ConnectionRequestManager
      */
-    private $connectionManager;
+    private $connectionRequestManager;
 
     /**
      * @var FormFactoryInterface
