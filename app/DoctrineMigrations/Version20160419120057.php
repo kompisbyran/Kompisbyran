@@ -18,9 +18,9 @@ class Version20160419120057 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE city ADD sender_email VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE city ADD sender_email VARCHAR(255) NOT NULL');
 
-        $this->addSql("UPDATE city SET sender_email = 'matchning@kompisbyran.se' WHERE sender_email IS NULL");
+        $this->addSql("UPDATE city SET sender_email = 'matchning@kompisbyran.se'");
     }
 
     /**

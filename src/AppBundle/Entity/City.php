@@ -43,7 +43,7 @@ class City
     /**
      * @var string
      *
-     * @ORM\Column(name="sender_email", type="string", nullable=true)
+     * @ORM\Column(type="string")
      */
     protected $senderEmail;
 

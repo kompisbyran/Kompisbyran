@@ -72,6 +72,6 @@ class UserMailer extends Mailer
             '%user_name%'             => $user->getFullName()
         ]);
 
-        $this->sendEmailMessage(null, $body, $subject, $user->getEmail(), $fromEmail);
+        $this->sendEmailMessage(null, $body, $subject, $user->getEmail(), $fromEmail, $fromEmail);
     }
 }
