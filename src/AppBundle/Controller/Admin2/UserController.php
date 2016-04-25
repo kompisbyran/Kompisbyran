@@ -55,10 +55,13 @@ class UserController extends Controller
      */
     public function ajaxEditAction(Request $request, User $user)
     {
-        $form   = $this->formFactory->create('admin_user', $user, [
+        $userRequest    = $this->connectionRequestManager->getFindOneByUserId($user->getId());
+        $form           = $this->formFactory->create('admin_user', $user, [
             'manager'   => $this->getDoctrine()->getManager(),
             'locale'    => $request->getLocale()
         ]);
+
+        $requestForm    = $this->formFactory->create('connectionRequest', $userRequest);
 
         $form->handleRequest($request);
 
@@ -74,7 +77,7 @@ class UserController extends Controller
                         'fullName'                      => $user->getFullName(),
                         'email'                         => $user->getEmail(),
                         'age'                           => $user->getAge(),
-                        'type'                          => $this->connectionRequestManager->getWantToLearnTypeName($userRequest),
+                        'type'                          => $this->userManager->getWantToLearnTypeName($user),
                         'countryName'                   => $user->getCountryName(),
                         'area'                          => $user->getMunicipality()->getName(),
                         'hasChildren'                   => ($user->getFullName()? 'Yes': 'No'),
@@ -91,8 +94,10 @@ class UserController extends Controller
         }
 
         return $this->render('admin2/user/form.html.twig', [
-            'form'  => $form->createView(),
-            'user'  => $user
+            'form'          => $form->createView(),
+            'requestForm'   => $requestForm->createView(),
+            'user'          => $user,
+            'request_id'    => $userRequest->getId()
         ]);
     }
 }
