@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Manager\UserManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use AppBundle\Manager\ConnectionRequestManager;
+use AppBundle\Manager\CityManager;
 
 /**
  * @Route("admin2/users")
@@ -31,6 +32,11 @@ class UserController extends Controller
     private $connectionRequestManager;
 
     /**
+     * @var CityManager
+     */
+    private $cityManager;
+
+    /**
      * @var FormFactoryInterface
      */
     private $formFactory;
@@ -41,16 +47,18 @@ class UserController extends Controller
      * })
      * @param UserManager $userManager
      * @param ConnectionRequestManager $connectionRequestManager
+     * @param CityManager $cityManager
      */
-    public function __construct(UserManager $userManager, ConnectionRequestManager $connectionRequestManager, FormFactoryInterface $formFactory)
+    public function __construct(UserManager $userManager, ConnectionRequestManager $connectionRequestManager, CityManager $cityManager, FormFactoryInterface $formFactory)
     {
         $this->userManager              = $userManager;
         $this->connectionRequestManager = $connectionRequestManager;
+        $this->cityManager              = $cityManager;
         $this->formFactory              = $formFactory;
     }
 
     /**
-     * @Route("/edit/{id}", name="admin_ajax_edit", options={"expose"=true})
+     * @Route("/ajax/edit/{id}", name="admin_ajax_edit", options={"expose"=true})
      * @Method({"GET", "POST"})
      */
     public function ajaxEditAction(Request $request, User $user)
@@ -98,6 +106,46 @@ class UserController extends Controller
             'requestForm'   => $requestForm->createView(),
             'user'          => $user,
             'request_id'    => $userRequest->getId()
+        ]);
+    }
+
+    /**
+     * @Route("/priviledges", name="admin_user_priviledges")
+     * @Method({"GET"})
+     */
+    public function priviledgeAction(Request $request)
+    {
+        return $this->render('admin2/user/priviledge.html.twig', [
+            'users'     => $this->userManager->getFindAllAdmin(),
+            'cities'    => $this->cityManager->getFindAll()
+        ]);
+    }
+
+    /**
+     * @Route("/ajax/add-city/{id}", name="admin_user_add_city", options={"expose"=true})
+     * @Method({"POST"})
+     */
+    public function ajaxAddCityAction(Request $request, User $user)
+    {
+        $city   = $this->cityManager->getFind($request->get('city_id'));
+        $result = $this->userManager->addUserCity($user, $city);
+
+        return new JsonResponse([
+            'success' => $result
+        ]);
+    }
+
+    /**
+     * @Route("/ajax/remove-city/{id}", name="admin_user_remove_city", options={"expose"=true})
+     * @Method({"POST"})
+     */
+    public function ajaxRemoveCityAction(Request $request, User $user)
+    {
+        $city   = $this->cityManager->getFind($request->get('city_id'));
+        $result = $this->userManager->removeUserCity($user, $city);
+
+        return new JsonResponse([
+            'success' => $result
         ]);
     }
 }

@@ -139,4 +139,20 @@ class UserRepository extends EntityRepository
         }
         return implode(' AND ', $where);
     }
+
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function findAllAdmin()
+    {
+        return $this
+            ->createQueryBuilder('u')
+            ->where('u.roles LIKE :role_admin')
+            ->orWhere('u.roles LIKE :role_super_admin')
+            ->setParameter('role_admin', "%ROLE_ADMIN%")
+            ->setParameter('role_super_admin', "%ROLE_SUPER_ADMIN%%")
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

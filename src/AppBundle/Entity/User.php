@@ -224,6 +224,12 @@ class User extends BaseUser
      */
     protected $municipality;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="City", inversedBy="users")
+     * @ORM\JoinTable(name="users_cities")
+     */
+    private $cities;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -234,6 +240,7 @@ class User extends BaseUser
         $this->musicCategories          = new ArrayCollection();
         $this->createdAt                = new \DateTime();
         $this->comments                 = new ArrayCollection();
+        $this->cities                   = new ArrayCollection();
 
         parent::__construct();
     }
@@ -695,5 +702,39 @@ class User extends BaseUser
         $genders = self::getGenders();
 
         return isset($genders[$this->getGender()])? $genders[$this->getGender()]: '';
+    }
+
+    /**
+     * Add city
+     *
+     * @param \AppBundle\Entity\City $city
+     *
+     * @return User
+     */
+    public function addCity(\AppBundle\Entity\City $city)
+    {
+        $this->cities[] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Remove city
+     *
+     * @param \AppBundle\Entity\City $city
+     */
+    public function removeCity(\AppBundle\Entity\City $city)
+    {
+        $this->cities->removeElement($city);
+    }
+
+    /**
+     * Get cities
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCities()
+    {
+        return $this->cities;
     }
 }
