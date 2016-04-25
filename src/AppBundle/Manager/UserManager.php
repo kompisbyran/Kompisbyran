@@ -14,6 +14,7 @@ use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use AppBundle\Manager\CategoryManager;
+use AppBundle\Util\Util;
 
 /**
  * @Service("user_manager")
@@ -179,9 +180,9 @@ class UserManager implements ManagerInterface
         $matches[]  =  $currentUser->getCountryName();
 
         if ($this->isUserMunicipalityMatch($user, $currentUser)) {
-            $matches[] = $this->wrapSpanString($currentUser->getMunicipality()->getName());
+            $matches[] = $this->wrapSpanString(Util::googleMapLink($currentUser->getMunicipality()->getName()));
         } else {
-            $matches[] = $currentUser->getMunicipality()->getName();
+            $matches[] = Util::googleMapLink($currentUser->getMunicipality()->getName());
         }
 
         if ($this->isUserHasChildrenMatch($user, $currentUser)) {
