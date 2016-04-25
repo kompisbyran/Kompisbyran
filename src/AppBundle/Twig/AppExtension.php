@@ -5,6 +5,7 @@ namespace AppBundle\Twig;
 use AppBundle\Enum\Countries;
 use Symfony\Component\Translation\TranslatorInterface;
 use AppBundle\Entity\User;
+use AppBundle\Util\Util;
 
 /**
  * Class AppExtension
@@ -44,7 +45,8 @@ class AppExtension extends \Twig_Extension
         return array(
             'want_to_learn_name'        => new \Twig_Function_Method($this, 'wantToLearnName'),
             'user_category_name_string' => new \Twig_Function_Method($this, 'userCategoryNameString'),
-            'user_matched_categories'   => new \Twig_Function_Method($this, 'userMatchedCategories')
+            'user_matched_categories'   => new \Twig_Function_Method($this, 'userMatchedCategories'),
+            'google_map_link'           => new \Twig_Function_Method($this, 'googleMapLink'),
         );
     }
 
@@ -137,5 +139,14 @@ class AppExtension extends \Twig_Extension
         }
 
         return $categories;
+    }
+
+    /**
+     * @param $string
+     * @return string
+     */
+    public function googleMapLink($string)
+    {
+        return Util::googleMapLink($string);
     }
 }
