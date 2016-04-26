@@ -3,7 +3,8 @@
 {% block default_content %}
     <div class="row" style="margin-top: 40px;">
         <div class="col-md-12">
-            <p>We have <strong class="learners-num">{{ newUsers|length }} new</strong> &amp; <strong class="established-num">{{ establishedUsers|length }} established</strong> to match in <strong><span class="stat-city-name">{{ city.name }}</span></strong>.</p>
+            <p>Fika friend: <strong class="learners-num">0 new</strong> &amp; <strong class="fika-established-num">0 established</strong></p>
+            <p>Music friend: <strong class="learners-num">0 new</strong> &amp; <strong class="music-established-num">0 established</strong></p>
         </div>
     </div>
     <div class="row" style="margin-top: 40px;">
@@ -114,7 +115,8 @@
                 $.get(Routing.generate('ajax_by_city', {id: id, page: page}), function (resp) {
                     if (resp.success) {
                         $('.learners-num').html(resp.newUsers+' new');
-                        $('.established-num').html(resp.establishedUsers+' established');
+                        $('.fika-established-num').html(resp.establishedUsers+' established');
+                        $('.music-established-num').html(resp.establishedMusicFriendUsers+' established');
                         if (resp.next) {
                             $('.show-more-btn').data('next-page', resp.next);
                             $('.show-more-btn').removeClass('disabled');
