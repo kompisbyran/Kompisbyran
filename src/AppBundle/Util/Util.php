@@ -9,13 +9,14 @@ namespace AppBundle\Util;
 class Util
 {
     /**
-     * @param $string
+     * @param $personArea
+     * @param string $matchArea
      * @return string
      */
-    public static function googleMapLink($string)
+    public static function googleMapLink($personArea, $matchArea = '')
     {
-        $qs = str_replace(' ', '/', $string);
+        $matchArea = strlem(trim($matchArea))? '/' . $matchArea: '';
 
-        return '<a href="https://www.google.se/maps/dir/'.$qs.'">'.$string.'</a>';
+        return '<a href="https://www.google.se/maps/dir/'.$personArea.$matchArea.'">'.$personArea.'</a>';
     }
 }
