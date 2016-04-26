@@ -87,6 +87,17 @@
                     }
                 });
             });
+
+            $('body').on('click', '.btn-delete-request', function(e){
+                e.preventDefault();
+                var $this = $(this);
+                $.get($this.data('url'), function (resp){
+                    if (resp.success) {
+                        $('#userEditModal').modal('hide');
+                        window.location.reload();
+                    }
+                });
+            });
         });
     </script>
 {% endblock %}
