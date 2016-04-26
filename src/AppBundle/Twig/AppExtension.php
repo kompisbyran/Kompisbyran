@@ -46,8 +46,10 @@ class AppExtension extends \Twig_Extension
             'want_to_learn_name'        => new \Twig_Function_Method($this, 'wantToLearnName'),
             'user_category_name_string' => new \Twig_Function_Method($this, 'userCategoryNameString'),
             'user_matched_categories'   => new \Twig_Function_Method($this, 'userMatchedCategories'),
-            'google_map_link'           => new \Twig_Function_Method($this, 'googleMapLink'),
             'selected_city'             => new \Twig_Function_Method($this, 'selectedCity'),
+            'google_map_link'           => new \Twig_Function_Method($this, 'googleMapLink', [
+                'is_safe' => ['html']
+            ])
         );
     }
 

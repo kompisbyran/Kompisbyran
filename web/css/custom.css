@@ -85,3 +85,13 @@ div.textarea {
 div.form-control {
     background-color: #efeded !important;
 }
+
+div.candidate a.google-link {
+    color: #666;
+    text-decoration: none !important;
+}
+
+div.candidate span.matches a.google-link {
+    color: #F76753;
+    text-decoration: none;
+}

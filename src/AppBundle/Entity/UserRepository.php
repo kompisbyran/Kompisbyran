@@ -62,7 +62,7 @@ class UserRepository extends EntityRepository
             'user_gender'           => $user->getGender(),
             'user_age'              => $user->getAge(),
             'user_children'         => $user->hasChildren(),
-            'want_to_learn'         => $userRequest->getWantToLearn(),
+            'want_to_learn'         => $user->getWantToLearn(),
             'user'                  => $user->getId(),
             'user_categories'       => array_values($user->getCategoryIds()),
             'user_music_categories' => array_values($user->getMusicCategoryIds())

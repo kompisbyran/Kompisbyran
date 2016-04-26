@@ -182,9 +182,9 @@ class UserManager implements ManagerInterface
         $matches[]  =  $currentUser->getCountryName();
 
         if ($this->isUserMunicipalityMatch($user, $currentUser)) {
-            $matches[] = $this->wrapSpanString(Util::googleMapLink($currentUser->getMunicipality()->getName()));
+            $matches[] = $this->wrapSpanString(Util::googleMapLink($user->getMunicipality()->getName(), $currentUser->getMunicipality()->getName()));
         } else {
-            $matches[] = Util::googleMapLink($currentUser->getMunicipality()->getName());
+            $matches[] = Util::googleMapLink($user->getMunicipality()->getName(), $currentUser->getMunicipality()->getName());
         }
 
         if ($this->isUserHasChildrenMatch($user, $currentUser)) {
