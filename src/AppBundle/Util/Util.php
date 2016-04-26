@@ -15,8 +15,10 @@ class Util
      */
     public static function googleMapLink($personArea, $matchArea = '')
     {
-        $matchArea = strlem(trim($matchArea))? '/' . $matchArea: '';
+        if (strlem(trim($matchArea))) {
+            return '<a href="https://www.google.se/maps/dir/'.$personArea.'/'.$matchArea.'">'.$matchArea.'</a>';
+        }
 
-        return '<a href="https://www.google.se/maps/dir/'.$personArea.$matchArea.'">'.$personArea.'</a>';
+        return '<a href="https://www.google.se/maps/dir/'.$personArea.'">'.$personArea.'</a>';
     }
 }
