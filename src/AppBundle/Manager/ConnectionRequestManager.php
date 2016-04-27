@@ -86,27 +86,36 @@ class ConnectionRequestManager implements ManagerInterface
      * @param City $city
      * @return array
      */
-    public function getFindNewWithinCity(City $city)
+    public function getCountNewWithinCity(City $city)
     {
-        return $this->connectionRequestRepository->findNewWithinCity($city);
+        return $this->connectionRequestRepository->countNewWithinCity($city);
     }
 
     /**
      * @param City $city
      * @return array
      */
-    public function getFindEstablishedWithinCity(City $city)
+    public function getCountNewMusicFriendWithinCity(City $city)
     {
-        return $this->connectionRequestRepository->findEstablishedWithinCity($city);
+        return $this->connectionRequestRepository->countNewMusicFriendWithinCity($city);
     }
 
     /**
      * @param City $city
      * @return array
      */
-    public function getFindEstablishedMusicFriendWithinCity(City $city)
+    public function getCountEstablishedWithinCity(City $city)
     {
-        return $this->connectionRequestRepository->findEstablishedMusicFriendWithinCity($city);
+        return $this->connectionRequestRepository->countEstablishedWithinCity($city);
+    }
+
+    /**
+     * @param City $city
+     * @return array
+     */
+    public function getCountEstablishedMusicFriendWithinCity(City $city)
+    {
+        return $this->connectionRequestRepository->countEstablishedMusicFriendWithinCity($city);
     }
 
     /**
@@ -168,9 +177,10 @@ class ConnectionRequestManager implements ManagerInterface
 
         return [
             'success'                       => true,
-            'newUsers'                      => count($this->getFindNewWithinCity($city)),
-            'establishedUsers'              => count($this->getFindEstablishedWithinCity($city)),
-            'establishedMusicFriendUsers'   => count($this->getFindEstablishedMusicFriendWithinCity($city)),
+            'newUsers'                      => count($this->getCountNewWithinCity($city)),
+            'newMusicFriendUsers'           => count($this->getCountNewMusicFriendWithinCity($city)),
+            'establishedUsers'              => count($this->getCountEstablishedWithinCity($city)),
+            'establishedMusicFriendUsers'   => count($this->getCountEstablishedMusicFriendWithinCity($city)),
             'results'                       => $this->getCityResultsdByPagination($pagerfanta),
             'next'                          => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
         ];

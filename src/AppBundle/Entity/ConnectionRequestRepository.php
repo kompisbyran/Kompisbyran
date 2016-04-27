@@ -119,10 +119,10 @@ class ConnectionRequestRepository extends EntityRepository
      * @param $musicFriend
      * @return array
      */
-    public function findByCityWantToLearnAndMusicFriend(City $city, $wantToLearn, $musicFriend)
+    public function countByCityWantToLearnAndMusicFriend(City $city, $wantToLearn, $musicFriend)
     {
         return $this
-            ->createQueryBuilder('cr')
+            ->select('COUNT(cr.id)')
             ->where('cr.wantToLearn         = :wantToLearn')
             ->andWhere('cr.city             = :city')
             ->andWhere('cr.disqualified     = false')
@@ -136,7 +136,7 @@ class ConnectionRequestRepository extends EntityRepository
             ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')
             ->getQuery()
-            ->getResult()
+            ->getSingleScalarResult()
         ;
     }
 
@@ -144,27 +144,36 @@ class ConnectionRequestRepository extends EntityRepository
      * @param City $city
      * @return array
      */
-    public function findNewWithinCity(City $city)
+    public function countNewWithinCity(City $city)
     {
-        return $this->findByCityWantToLearnAndMusicFriend($city, true, false);
+        return $this->countByCityWantToLearnAndMusicFriend($city, true, false);
     }
 
     /**
      * @param City $city
      * @return array
      */
-    public function findEstablishedWithinCity(City $city)
+    public function countNewMusicFriendWithinCity(City $city)
     {
-        return $this->findByCityWantToLearnAndMusicFriend($city, false, false);
+        return $this->countByCityWantToLearnAndMusicFriend($city, true, true);
     }
 
     /**
      * @param City $city
      * @return array
      */
-    public function findEstablishedMusicFriendWithinCity(City $city)
+    public function countEstablishedWithinCity(City $city)
     {
-        return $this->findByCityWantToLearnAndMusicFriend($city, false, true);
+        return $this->countByCityWantToLearnAndMusicFriend($city, false, false);
+    }
+
+    /**
+     * @param City $city
+     * @return array
+     */
+    public function countEstablishedMusicFriendWithinCity(City $city)
+    {
+        return $this->countByCityWantToLearnAndMusicFriend($city, false, true);
     }
 
     /**
