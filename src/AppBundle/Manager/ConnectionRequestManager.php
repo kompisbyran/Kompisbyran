@@ -177,10 +177,10 @@ class ConnectionRequestManager implements ManagerInterface
 
         return [
             'success'                       => true,
-            'newUsers'                      => count($this->getCountNewWithinCity($city)),
-            'newMusicFriendUsers'           => count($this->getCountNewMusicFriendWithinCity($city)),
-            'establishedUsers'              => count($this->getCountEstablishedWithinCity($city)),
-            'establishedMusicFriendUsers'   => count($this->getCountEstablishedMusicFriendWithinCity($city)),
+            'newUsers'                      => $this->getCountNewWithinCity($city),
+            'newMusicFriendUsers'           => $this->getCountNewMusicFriendWithinCity($city),
+            'establishedUsers'              => $this->getCountEstablishedWithinCity($city),
+            'establishedMusicFriendUsers'   => $this->getCountEstablishedMusicFriendWithinCity($city),
             'results'                       => $this->getCityResultsdByPagination($pagerfanta),
             'next'                          => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
         ];
