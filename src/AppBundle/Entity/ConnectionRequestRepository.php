@@ -126,11 +126,12 @@ class ConnectionRequestRepository extends EntityRepository
             ->where('cr.wantToLearn         = :wantToLearn')
             ->andWhere('cr.city             = :city')
             ->andWhere('cr.disqualified     = false')
-            //->andWhere('cr.musicFriend  = :musicFriend')
+            ->andWhere('cr.pending          = false')
+            ->andWhere('cr.musicFriend      = :musicFriend')
             ->setParameters([
                 'city'          => $city,
                 'wantToLearn'   => $wantToLearn,
-                //'musicFriend'   => $musicFriend,
+                'musicFriend'   => $musicFriend,
             ])
             ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')
@@ -145,7 +146,7 @@ class ConnectionRequestRepository extends EntityRepository
      */
     public function findNewWithinCity(City $city)
     {
-        return $this->findByCityWantToLearnAndMusicFriend($city, true, true);
+        return $this->findByCityWantToLearnAndMusicFriend($city, true, false);
     }
 
     /**
@@ -153,6 +154,15 @@ class ConnectionRequestRepository extends EntityRepository
      * @return array
      */
     public function findEstablishedWithinCity(City $city)
+    {
+        return $this->findByCityWantToLearnAndMusicFriend($city, false, false);
+    }
+
+    /**
+     * @param City $city
+     * @return array
+     */
+    public function findEstablishedMusicFriendWithinCity(City $city)
     {
         return $this->findByCityWantToLearnAndMusicFriend($city, false, true);
     }

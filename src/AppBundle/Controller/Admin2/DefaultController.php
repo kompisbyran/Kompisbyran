@@ -83,11 +83,9 @@ class DefaultController extends Controller
         }
 
         return [
-            'newUsers'          => $this->connectionRequestManager->getFindNewWithinCity($city),
-            'establishedUsers'  => $this->connectionRequestManager->getFindEstablishedWithinCity($city),
-            'cities'            => $cities,
-            'city'              => $city,
-            'currentCityId'     => $request->getSession()->get('selected_city', $city->getId())
+            'cities'                        => $cities,
+            'city'                          => $city,
+            'currentCityId'                 => $request->getSession()->get('selected_city', $city->getId())
         ];
     }
 }
