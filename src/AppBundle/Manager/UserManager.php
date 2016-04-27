@@ -169,8 +169,15 @@ class UserManager implements ManagerInterface
      */
     private function getExactMatchByUser(User $user, User $currentUser)
     {
-        $ageDiff    = $currentUser->getAge()-$user->getAge();
-        $matches    = [];
+        $ageDiff                = $currentUser->getAge()-$user->getAge();
+        $matches                = [];
+        $currentUserGenderName  = $this->translator->trans($currentUser->getGenderName());
+
+        if ($user->getGender() == $currentUser->getGender()) {
+            $matches[] = $this->wrapSpanString($currentUserGenderName);
+        } else {
+            $matches[] = $currentUserGenderName;
+        }
 
         if ($this->isAgeDiffWithinRange($ageDiff)) {
             $matches[] = $this->wrapSpanString($currentUser->getAge().' '.$this->translator->trans('years'));
