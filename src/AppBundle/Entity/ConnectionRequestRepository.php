@@ -122,6 +122,7 @@ class ConnectionRequestRepository extends EntityRepository
     public function countByCityWantToLearnAndMusicFriend(City $city, $wantToLearn, $musicFriend)
     {
         return $this
+            ->createQueryBuilder('cr')
             ->select('COUNT(cr.id)')
             ->where('cr.wantToLearn         = :wantToLearn')
             ->andWhere('cr.city             = :city')
