@@ -737,4 +737,19 @@ class User extends BaseUser
     {
         return $this->cities;
     }
+
+    /**
+     * @param City $city
+     * @return bool
+     */
+    public function hasAccessToCity(City $city)
+    {
+        foreach ($this->cities as $userCity) {
+            if ($userCity->getId() == $city->getId()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

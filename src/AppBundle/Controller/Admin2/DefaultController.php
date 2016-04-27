@@ -53,7 +53,7 @@ class DefaultController extends Controller
     public function manualAction(Request $request)
     {
         return [
-            'pendingRequests' => $this->connectionRequestManager->getFindAllPending()
+            'pendingRequests' => $this->connectionRequestManager->getFindAllPending($this->getUser())
         ];
     }
 
@@ -65,7 +65,7 @@ class DefaultController extends Controller
     public function inspectionAction(Request $request)
     {
         return [
-            'uninspectedRequests' => $this->connectionRequestManager->getFindAllUninspected()
+            'uninspectedRequests' => $this->connectionRequestManager->getFindAllUninspected($this->getUser())
         ];
     }
 
@@ -74,12 +74,15 @@ class DefaultController extends Controller
      * @Method("GET")
      * @Template("admin2/default/index.html.twig")
      */
-    public function indexAction(Request $request, City $city = null)
+    public function indexAction(Request $request)
     {
-        $cities = $this->cityManager->getFindAll();
+        $cities = $this->cityManager->getFindByUser($this->getUser());
+        $cityId = 0;
+        $city   = null;
 
-        if (!$city instanceof City) {
-            $city   = $cities[0];
+        if (count($cities)) {
+            $city       = $cities[0];
+            $cityId     = $city->getId();
         }
 
         return [
@@ -87,7 +90,7 @@ class DefaultController extends Controller
             'establishedUsers'  => $this->connectionRequestManager->getFindEstablishedWithinCity($city),
             'cities'            => $cities,
             'city'              => $city,
-            'currentCityId'     => $request->getSession()->get('selected_city', $city->getId())
+            'currentCityId'     => $request->getSession()->get('selected_city', $cityId)
         ];
     }
 }

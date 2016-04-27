@@ -7,6 +7,7 @@ use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
 use AppBundle\Entity\CityRepository;
 use AppBundle\Entity\City;
+use AppBundle\Entity\User;
 
 /**
  * @Service("city_manager")
@@ -68,5 +69,18 @@ class CityManager implements ManagerInterface
     public function remove($entity)
     {
         return $this->cityRepository->remove($entity);
+    }
+
+    /**
+     * @param User $user
+     * @return array|\Doctrine\Common\Collections\Collection
+     */
+    public function getFindByUser(User $user)
+    {
+        if ($user->hasRole('ROLE_SUPER_ADMIN')) {
+            return $this->getFindAll();
+        }
+
+        return $user->getCities();
     }
 }
