@@ -156,7 +156,8 @@ class UserManager implements ManagerInterface
                 'matches'           => $this->getExactMatchByUser($user, $currentUser),
                 'ele'               => 'ele'.$auser['id'],
                 'gender'            => ($currentUser->getGender() == $user->getGender()? 1: 0),
-                'age_diff'          => $currentUser->getAge()-$user->getAge()
+                'age_diff'          => $currentUser->getAge()-$user->getAge(),
+                'internal_comments' => $currentUser->getInternalComment()
             ];
         }
 
@@ -170,8 +171,15 @@ class UserManager implements ManagerInterface
      */
     private function getExactMatchByUser(User $user, User $currentUser)
     {
-        $ageDiff    = $currentUser->getAge()-$user->getAge();
-        $matches    = [];
+        $ageDiff                = $currentUser->getAge()-$user->getAge();
+        $matches                = [];
+        $currentUserGenderName  = $this->translator->trans($currentUser->getGenderName());
+
+        if ($user->getGender() == $currentUser->getGender()) {
+            $matches[] = $this->wrapSpanString($currentUserGenderName);
+        } else {
+            $matches[] = $currentUserGenderName;
+        }
 
         if ($this->isAgeDiffWithinRange($ageDiff)) {
             $matches[] = $this->wrapSpanString($currentUser->getAge().' '.$this->translator->trans('years'));

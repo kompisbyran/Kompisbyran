@@ -101,6 +101,15 @@ class ConnectionRequestManager implements ManagerInterface
     }
 
     /**
+     * @param City $city
+     * @return array
+     */
+    public function getFindEstablishedMusicFriendWithinCity(City $city)
+    {
+        return $this->connectionRequestRepository->findEstablishedMusicFriendWithinCity($city);
+    }
+
+    /**
      * @param User $user
      * @return null|object
      */
@@ -158,11 +167,12 @@ class ConnectionRequestManager implements ManagerInterface
         $pagerfanta->setCurrentPage($page);
 
         return [
-            'success'           => true,
-            'newUsers'          => count($this->getFindNewWithinCity($city)),
-            'establishedUsers'  => count($this->getFindEstablishedWithinCity($city)),
-            'results'           => $this->getCityResultsdByPagination($pagerfanta),
-            'next'              => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
+            'success'                       => true,
+            'newUsers'                      => count($this->getFindNewWithinCity($city)),
+            'establishedUsers'              => count($this->getFindEstablishedWithinCity($city)),
+            'establishedMusicFriendUsers'   => count($this->getFindEstablishedMusicFriendWithinCity($city)),
+            'results'                       => $this->getCityResultsdByPagination($pagerfanta),
+            'next'                          => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
         ];
     }
 

@@ -82,7 +82,7 @@ class UserRepository extends EntityRepository
                   LEFT JOIN users_music_categories mc
                   ON mc.user_id = u.id
                   WHERE u.id != :user
-                  AND cr.want_to_learn != :want_to_learn
+                  AND u.want_to_learn != :want_to_learn
                   AND cr.pending = false
                   AND cr.disqualified = false
                   AND $where
