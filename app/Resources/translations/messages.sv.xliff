@@ -8,7 +8,7 @@
             </trans-unit>
             <trans-unit id="error.active_request">
                 <source>error.active_request</source>
-                <target>Du har redan en pågående fikamatchning</target>
+                <target>Du har redan en aktiv kompisförfrågan hos Kompisbyrån</target>
             </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
