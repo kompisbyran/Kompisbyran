@@ -34,7 +34,7 @@ class ConnectionRequestVoter extends AbstractVoter
     protected function getSupportedClasses()
     {
         return [
-            ConnectionRequest::class
+            'AppBundle\Entity\ConnectionRequest'
         ];
     }
 
