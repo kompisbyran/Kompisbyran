@@ -25,6 +25,9 @@
         data-city-id="{{ connection.city.id }}"
     >Kompisfika igen</a>
 
+    <div class="color: red" style="display: none">
+        {{ 'error.active_request'|trans }}
+    </div>
 {% endmacro %}
 
 {% block body %}
@@ -102,6 +105,7 @@
         $(function () {
             $('.create-connection-request').click(function (e) {
                 e.preventDefault();
+                var $this = $(this);
                 if (confirm('Vill du verkligen skapa en kompisfikaförfrågan?')) {
                     $.ajax({
                         url: '{{ path('admin_create_connectionrequest') }}',
@@ -114,8 +118,12 @@
                             sortOrder: 1,
                             musicFriend: $(this).data('music-friend')
                         },
-                        success: function () {
-                            location.href='{{ path('admin_start') }}';
+                        success: function (resp) {
+                            if (resp.success) {
+                                location.href='{{ path('admin_start') }}';
+                            } else {
+                                $this.next().show();
+                            }
                         }
                     });
                 }

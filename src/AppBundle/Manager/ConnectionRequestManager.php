@@ -133,7 +133,7 @@ class ConnectionRequestManager implements ManagerInterface
      */
     public function userHasActiveRequest(User $user)
     {
-        return $this->countUserActiveRequests($user)? true: false;
+        return $this->connectionRequestRepository->countUserActiveRequests($user)? true: false;
     }
 
     /**
