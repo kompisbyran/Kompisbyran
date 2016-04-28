@@ -201,7 +201,7 @@ class ConnectionRequestManager implements ManagerInterface
                 'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
                 'name'          => $connectionRequest->getUser()->getFullName(),
                 'email'         => $connectionRequest->getUser()->getEmail(),
-                'category'      => $this->userManager->getWantToLearnTypeName($connectionRequest->getUser()),
+                'category'      => $connectionRequest->getUser()->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Music Friend'),
                 'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending //user_id|request_id|pending
             ];
         }
