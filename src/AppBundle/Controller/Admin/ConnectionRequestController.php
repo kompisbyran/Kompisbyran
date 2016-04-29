@@ -2,10 +2,15 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\Manager\ConnectionRequestManager;
+use AppBundle\Manager\CityManager;
+use AppBundle\Manager\UserManager;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Entity\City;
 use AppBundle\Form\EditConnectionRequestType;
+use JMS\DiExtraBundle\Annotation\Inject;
+use JMS\DiExtraBundle\Annotation\InjectParams;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -18,6 +23,35 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class ConnectionRequestController extends Controller
 {
+    /**
+     * @var ConnectionRequestManager
+     */
+    private $connectionRequestManager;
+
+    /**
+     * @var UserManager
+     */
+    private $userManager;
+
+    /**
+     * @var CityManager
+     */
+    private $cityManager;
+
+    /**
+     * @InjectParams({
+     *     "connectionRequestManager"   = @Inject("connection_request_manager"),
+     *     "userManager"                = @Inject("user_manager"),
+     *     "cityManager"                = @Inject("city_manager")
+     * })
+     */
+    public function __construct(ConnectionRequestManager $connectionRequestManager, UserManager $userManager, CityManager $cityManager)
+    {
+        $this->connectionRequestManager = $connectionRequestManager;
+        $this->userManager              = $userManager;
+        $this->cityManager              = $cityManager;
+    }
+
     /**
      * @Route("/{id}", name="admin_connectionrequest")
      * @Method({"GET", "POST"})
@@ -61,23 +95,31 @@ class ConnectionRequestController extends Controller
      */
     public function createAction(Request $request)
     {
-        /** @var User $user */
-        $user = $this->getDoctrine()->getManager()->getRepository('AppBundle:User')
-            ->find($request->request->getInt('userId'));
-        $city = $this->getDoctrine()->getManager()->getRepository('AppBundle:City')
-            ->find($request->request->getInt('cityId'));
+        $user           = $this->userManager->getFind($request->request->getInt('userId'));
+        $activeRequest  = $this->connectionRequestManager->userHasActiveRequest($user);
 
-        $connectionRequest = new ConnectionRequest();
-        $connectionRequest->setUser($user);
-        $connectionRequest->setWantToLearn($request->request->getBoolean('wantToLearn'));
-        $connectionRequest->setComment($request->request->get('comment'));
-        $connectionRequest->setCity($city);
-        $connectionRequest->setSortOrder($request->request->getInt('sortOrder'));
-        $connectionRequest->setMusicFriend($request->request->getBoolean('musicFriend'));
+        if ($activeRequest) {
+            return new JsonResponse([
+                'success' => false
+            ]);
+        }
 
-        $this->getDoctrine()->getEntityManager()->persist($connectionRequest);
-        $this->getDoctrine()->getEntityManager()->flush();
+        $city               = $this->cityManager->getFind($request->request->getInt('cityId'));
+        $connectionRequest  = $this->connectionRequestManager->createNew();
 
-        return new Response();
+        $connectionRequest->setUser         ( $user                                         );
+        $connectionRequest->setWantToLearn  ( $request->request->getBoolean('wantToLearn')  );
+        $connectionRequest->setComment      ( $request->request->get('comment')             );
+        $connectionRequest->setCity         ( $city                                         );
+        $connectionRequest->setSortOrder    ( $request->request->getInt('sortOrder')        );
+        $connectionRequest->setMusicFriend  ( $request->request->getBoolean('musicFriend')  );
+
+        $this->connectionRequestManager->save($connectionRequest);
+
+        return new JsonResponse([
+            'success' => true
+        ]);
+
+
     }
 }
