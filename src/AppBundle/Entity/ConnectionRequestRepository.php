@@ -124,11 +124,12 @@ class ConnectionRequestRepository extends EntityRepository
         return $this
             ->createQueryBuilder('cr')
             ->select('COUNT(cr.id)')
-            ->where('cr.wantToLearn         = :wantToLearn')
-            ->andWhere('cr.city             = :city')
-            ->andWhere('cr.disqualified     = false')
-            ->andWhere('cr.pending          = false')
-            ->andWhere('cr.musicFriend      = :musicFriend')
+            ->join('cr.user', 'u')
+            ->where('u.wantToLearn         = :wantToLearn')
+            ->andWhere('cr.city            = :city')
+            ->andWhere('cr.disqualified    = false')
+            ->andWhere('cr.pending         = false')
+            ->andWhere('u.musicFriend      = :musicFriend')
             ->setParameters([
                 'city'          => $city,
                 'wantToLearn'   => $wantToLearn,
