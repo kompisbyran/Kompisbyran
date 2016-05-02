@@ -194,14 +194,24 @@ class ConnectionRequestManager implements ManagerInterface
     {
         $datas              = [];
         $connectionRequests = $pagerfanta->getCurrentPageResults();
+        $establishedTrans   = $this->translator->trans('Established');
+        $newTrans           = $this->translator->trans('New');
+        $musicFriendTrans   = $this->translator->trans('Music Friend');
 
         foreach ($connectionRequests as $connectionRequest) {
-            $pending    = $connectionRequest->getPending()? 1: 0;
+            $user               = $connectionRequest->getUser();
+            $pending            = $connectionRequest->getPending()? 1: 0;
+            $wantToLearnText    = $user->getWantToLearn()? $newTrans: $establishedTrans;
+
+            if (!$user->getWantToLearn() && $user->isMusicFriend()) {
+                $wantToLearnText .= ' (' . $musicFriendTrans .')';
+            }
+
             $datas[]    = [
                 'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
-                'name'          => $connectionRequest->getUser()->getFullName(),
-                'email'         => $connectionRequest->getUser()->getEmail(),
-                'category'      => $connectionRequest->getUser()->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Music Friend'),
+                'name'          => $user->getFullName(),
+                'email'         => $user->getEmail(),
+                'category'      => $wantToLearnText,
                 'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending //user_id|request_id|pending
             ];
         }
