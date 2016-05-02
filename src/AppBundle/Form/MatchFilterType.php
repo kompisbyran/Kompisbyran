@@ -107,6 +107,9 @@ class MatchFilterType extends AbstractType
                     'filter.form.music_buddy'   => '1'
                 ]
             ])
+            ->add('q', 'text', [
+                'label' => 'Search'
+            ])
             ->add('city_id', 'hidden', [
                 'data' => $options['city_id']
             ])

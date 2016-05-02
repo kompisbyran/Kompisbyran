@@ -91,6 +91,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-sm-1">
+                            {{ form_label(form.q) }}
+                        </div>
+                        <div class="col-sm-7">
+                            {{ form_widget(form.q) }}
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12" style="margin-top: 15px;">
                     <a href="" class="btn btn-lg btn-default btn-search" data-current-user="{{ user.id }}">Search</a>
                 </div>
