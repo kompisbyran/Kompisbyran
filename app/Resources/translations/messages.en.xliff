@@ -204,16 +204,16 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.video1">
                 <source>register.musicfriend.video1</source>
-                <target>Filipe Minhava is a 19-year-old guitarist from Portugal who has lived in Sweden for three months at a friends place
-                in Högdalen. Filipe and Little Jinder met in Stockholm and got to know each other during a day where they visited a flea market,
-                checked on LPs and ate at a restaurant, before they rounded off with the classic hit ”La Bamba” at a karaoke bar.</target>
-            </trans-unit>
-            <trans-unit id="register.musicfriend.video2">
-                <source>register.musicfriend.video2</source>
                 <target>Naim Kassis, a 45-year-old pianist from Aleppo in Syria, came to Sweden a year ago and ended up in an asylum
                 accommodation in northern Sweden, where he has given numerous concerts. On a cold winter day, he met Sabina Ddumba,
                 and together they played a version of Sabina's hit single "Not too young", which attracted the whole accommodation to
                 take part in the meeting.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.video2">
+                <source>register.musicfriend.video2</source>
+                <target>Filipe Minhava is a 19-year-old guitarist from Portugal who has lived in Sweden for three months at a friends place
+                in Högdalen. Filipe and Little Jinder met in Stockholm and got to know each other during a day where they visited a flea market,
+                checked on LPs and ate at a restaurant, before they rounded off with the classic hit ”La Bamba” at a karaoke bar.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video3">
                 <source>register.musicfriend.video3</source>
