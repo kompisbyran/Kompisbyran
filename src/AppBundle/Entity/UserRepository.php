@@ -105,9 +105,26 @@ class UserRepository extends EntityRepository
         $rsm->addScalarResult('pending'                 , 'pending');
         $rsm->addScalarResult('connection_request_id'   , 'connection_request_id');
 
-        $query->setParameters(array_merge($criterias, $userParams));
+        $this->setSearchParamaters(array_merge($criterias, $userParams), $query);
 
         return $query->getArrayResult();
+    }
+
+    /**
+     * @param array $params
+     * @param $query
+     */
+    private function setSearchParamaters(array $params, $query)
+    {
+        foreach($params as $key => $value) {
+            if ($key == 'q') {
+                $query->setParameter($key, "%$value%");
+
+                continue;
+            }
+
+            $query->setParameter($key, $value);
+        }
     }
 
     /**
@@ -119,7 +136,7 @@ class UserRepository extends EntityRepository
         $where  = [];
         $fields = array_keys($criterias);
         foreach($fields as $field) {
-            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'music_friend') {
+            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'music_friend' || $field === 'q') {
                 continue;
             }
             $where[] = 'u.'.$field .' = :'.$field;
@@ -137,6 +154,10 @@ class UserRepository extends EntityRepository
             $criterias['music_friend'] = $criterias['music_friend'] == 1? true: false;
             $where[] = 'cr.music_friend = :music_friend';
         }
+        if (isset($criterias['q'])) {
+            $where[] = '(cr.comment LIKE :q OR u.about LIKE :q)';
+        }
+
         return implode(' AND ', $where);
     }
 

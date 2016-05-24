@@ -8,7 +8,7 @@
             </trans-unit>
             <trans-unit id="error.active_request">
                 <source>error.active_request</source>
-                <target>Du har redan en pågående fikamatchning</target>
+                <target>Du har redan en aktiv kompisförfrågan hos Kompisbyrån</target>
             </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
@@ -193,11 +193,11 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.video1">
                 <source>register.musicfriend.video1</source>
-                <target>Filipe Minhava är en 19-årig gitarrist från Portugal och bor sedan tre månader hemma hos en kompis i Högdalen. Filipe och Little Jinder möttes på Södermalm i Stockholm och lärde känna varandra under en dag där de besökte en loppmarknad, kollade på LP-skivor och åt på restaurang, innan de rundade av sitt möte med att tillsammans sjunga La Bamba på en karaokebar.</target>
+                <target>Naim Kassis, 45-årig pianist från Aleppo i Syrien, kom till Sverige för ett drygt år sedan och hamnade på ett asylboende i norra Sverige, där han under året har gett ett flertal konserter. En kall vinterdag träffades han och Sabina Ddumba, och tillsammans spelade de en version av Sabinas ”Not too young”, vilket lockade hela förläggningen att ta del av mötet.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video2">
                 <source>register.musicfriend.video2</source>
-                <target>Naim Kassis, 45-årig pianist från Aleppo i Syrien, kom till Sverige för ett drygt år sedan och hamnade på ett asylboende i norra Sverige, där han under året har gett ett flertal konserter. En kall vinterdag träffades han och Sabina Ddumba, och tillsammans spelade de en version av Sabinas ”Not too young”, vilket lockade hela förläggningen att ta del av mötet.</target>
+                <target>Filipe Minhava är en 19-årig gitarrist från Portugal och bor sedan tre månader hemma hos en kompis i Högdalen. Filipe och Little Jinder möttes på Södermalm i Stockholm och lärde känna varandra under en dag där de besökte en loppmarknad, kollade på LP-skivor och åt på restaurang, innan de rundade av sitt möte med att tillsammans sjunga La Bamba på en karaokebar.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video3">
                 <source>register.musicfriend.video3</source>
@@ -443,7 +443,7 @@
                             som finns registrerade hos oss, vänligen logga in med din e-mail och ditt lösenord och uppdatera din profil.
                         </li>
                         <li>
-                            Vår ambition är att hitta en ny kompis till dig inom 14 dagar, men det kan ta både kortare och längre tid
+                            Vår ambition är att hitta en ny kompis till dig inom 30 dagar, men det kan ta både kortare och längre tid
                             beroende på din profil och hur många personer som också vill träffa nya kompisar. Det innebär att du kan
                             få vänta.
                         </li>
@@ -452,6 +452,10 @@
                         </li>
                         <li>
                             Du bör skicka ett e-mail till din nya fikakompis och bestämma när ni kan träffas inom 7 dagar.
+                        </li>
+                        <li>
+                            Du måste behandla alla på ett respektfullt sätt. Tänk på att vara tydliga mot varandra då 
+                            språkskillnader kan skapa missuppfattningar.
                         </li>
                         <li>
                             En kompisfika eller ett musikmöte sker en gång. Gillar ni varandra får ni gärna träffas igen själva. Vill du träffa en
@@ -488,7 +492,7 @@
                     <p>(This message will follow in English)<br /><br /></p>
                     <p>Hej!<br /></p>
                     <p>
-                        Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.<br /><br />
+                        Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 4 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.<br /><br />
                         Om du har några frågor, vänligen skicka ett e-mail till oss :)
                     </p>
                     <p>
@@ -498,7 +502,7 @@
                     <p>----------------------<br /></p>
                     <p>
                         Thank you for making a Fika friend request through Kompisbyrån!<br /><br />
-                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends. <br /><br />
+                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends. <br /><br />
                     </p>
                     <p>
                         Best regards,<br />
@@ -511,7 +515,7 @@
                 <target>
                     Hej!
 
-                    Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.
+                    Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 4 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.
 
                     Om du har några frågor, vänligen skicka ett e-mail till oss :)
 
@@ -520,7 +524,7 @@
 
                     ----------------------
                         Thank you for making a Fika friend request through Kompisbyrån!
-                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.
+                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.
 
                         Best regards,
                         Kompisbyrån
@@ -538,7 +542,7 @@
                         <p>(This message will follow in English)<br /><br /></p>
                         <p>Hej!<br /></p>
                         <p>
-                          Tack för att du har anmält dig till Musikkompis! Vi mailar dig när vi har hittat en Musikkompis som passar just dig. Vår ambition är att hitta en Musikkompis till dig inom 2 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Musikkompisar.<br /><br />
+                          Tack för att du har anmält dig till Musikkompis! Vi mailar dig när vi har hittat en Musikkompis som passar just dig. Vår ambition är att hitta en Musikkompis till dig inom 4 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Musikkompisar.<br /><br />
                             Om du har några frågor, vänligen skicka ett e-mail till oss :)
                         </p>
                         <p>
@@ -548,7 +552,7 @@
                         <p>----------------------<br /></p>
                         <p>
                             Thank you for making a Music friend request through Kompisbyrån!<br /><br />
-                            We will send you an e-mail as soon as we have found a new Music friend for you who has similar interests that you have. Our ambition is to find a Music friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends. <br /><br />
+                            We will send you an e-mail as soon as we have found a new Music friend for you who has similar interests that you have. Our ambition is to find a Music friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends. <br /><br />
                         </p>
                         <p>
                             Best regards,<br />

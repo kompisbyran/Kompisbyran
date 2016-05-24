@@ -86,27 +86,36 @@ class ConnectionRequestManager implements ManagerInterface
      * @param City $city
      * @return array
      */
-    public function getFindNewWithinCity(City $city)
+    public function getCountNewWithinCity(City $city)
     {
-        return $this->connectionRequestRepository->findNewWithinCity($city);
+        return $this->connectionRequestRepository->countNewWithinCity($city);
     }
 
     /**
      * @param City $city
      * @return array
      */
-    public function getFindEstablishedWithinCity(City $city)
+    public function getCountNewMusicFriendWithinCity(City $city)
     {
-        return $this->connectionRequestRepository->findEstablishedWithinCity($city);
+        return $this->connectionRequestRepository->countNewMusicFriendWithinCity($city);
     }
 
     /**
      * @param City $city
      * @return array
      */
-    public function getFindEstablishedMusicFriendWithinCity(City $city)
+    public function getCountEstablishedWithinCity(City $city)
     {
-        return $this->connectionRequestRepository->findEstablishedMusicFriendWithinCity($city);
+        return $this->connectionRequestRepository->countEstablishedWithinCity($city);
+    }
+
+    /**
+     * @param City $city
+     * @return array
+     */
+    public function getCountEstablishedMusicFriendWithinCity(City $city)
+    {
+        return $this->connectionRequestRepository->countEstablishedMusicFriendWithinCity($city);
     }
 
     /**
@@ -124,7 +133,7 @@ class ConnectionRequestManager implements ManagerInterface
      */
     public function userHasActiveRequest(User $user)
     {
-        return $this->countUserActiveRequests($user)? true: false;
+        return $this->connectionRequestRepository->countUserActiveRequests($user)? true: false;
     }
 
     /**
@@ -168,9 +177,10 @@ class ConnectionRequestManager implements ManagerInterface
 
         return [
             'success'                       => true,
-            'newUsers'                      => count($this->getFindNewWithinCity($city)),
-            'establishedUsers'              => count($this->getFindEstablishedWithinCity($city)),
-            'establishedMusicFriendUsers'   => count($this->getFindEstablishedMusicFriendWithinCity($city)),
+            'newUsers'                      => $this->getCountNewWithinCity($city),
+            'newMusicFriendUsers'           => $this->getCountNewMusicFriendWithinCity($city),
+            'establishedUsers'              => $this->getCountEstablishedWithinCity($city),
+            'establishedMusicFriendUsers'   => $this->getCountEstablishedMusicFriendWithinCity($city),
             'results'                       => $this->getCityResultsdByPagination($pagerfanta),
             'next'                          => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
         ];
@@ -184,14 +194,24 @@ class ConnectionRequestManager implements ManagerInterface
     {
         $datas              = [];
         $connectionRequests = $pagerfanta->getCurrentPageResults();
+        $establishedTrans   = $this->translator->trans('Established');
+        $newTrans           = $this->translator->trans('New');
+        $musicFriendTrans   = $this->translator->trans('Music Friend');
 
         foreach ($connectionRequests as $connectionRequest) {
-            $pending    = $connectionRequest->getPending()? 1: 0;
+            $user               = $connectionRequest->getUser();
+            $pending            = $connectionRequest->getPending()? 1: 0;
+            $wantToLearnText    = $user->getWantToLearn()? $newTrans: $establishedTrans;
+
+            if (!$user->getWantToLearn() && $user->isMusicFriend()) {
+                $wantToLearnText .= ' (' . $musicFriendTrans .')';
+            }
+
             $datas[]    = [
                 'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
-                'name'          => $connectionRequest->getUser()->getFullName(),
-                'email'         => $connectionRequest->getUser()->getEmail(),
-                'category'      => $this->userManager->getWantToLearnTypeName($connectionRequest->getUser()),
+                'name'          => $user->getFullName(),
+                'email'         => $user->getEmail(),
+                'category'      => $wantToLearnText,
                 'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending //user_id|request_id|pending
             ];
         }

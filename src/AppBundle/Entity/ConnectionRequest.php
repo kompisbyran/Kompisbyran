@@ -313,6 +313,6 @@ class ConnectionRequest
      */
     public function getMusicFriendType()
     {
-        return $this->musicFriend? 'filter.form.music_buddy': 'filter.form.fika_buddy';
+        return $this->musicFriend? 'global.music_buddy': 'global.fika_buddy';
     }
 }

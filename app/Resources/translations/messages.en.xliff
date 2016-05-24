@@ -8,7 +8,7 @@
             </trans-unit>
             <trans-unit id="error.active_request">
                 <source>error.active_request</source>
-                <target>You still have an active request.</target>
+                <target>You already have an active friend request at Kompisbyrån.</target>
             </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
@@ -204,16 +204,16 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.video1">
                 <source>register.musicfriend.video1</source>
-                <target>Filipe Minhava is a 19-year-old guitarist from Portugal who has lived in Sweden for three months at a friends place
-                in Högdalen. Filipe and Little Jinder met in Stockholm and got to know each other during a day where they visited a flea market,
-                checked on LPs and ate at a restaurant, before they rounded off with the classic hit ”La Bamba” at a karaoke bar.</target>
-            </trans-unit>
-            <trans-unit id="register.musicfriend.video2">
-                <source>register.musicfriend.video2</source>
                 <target>Naim Kassis, a 45-year-old pianist from Aleppo in Syria, came to Sweden a year ago and ended up in an asylum
                 accommodation in northern Sweden, where he has given numerous concerts. On a cold winter day, he met Sabina Ddumba,
                 and together they played a version of Sabina's hit single "Not too young", which attracted the whole accommodation to
                 take part in the meeting.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.video2">
+                <source>register.musicfriend.video2</source>
+                <target>Filipe Minhava is a 19-year-old guitarist from Portugal who has lived in Sweden for three months at a friends place
+                in Högdalen. Filipe and Little Jinder met in Stockholm and got to know each other during a day where they visited a flea market,
+                checked on LPs and ate at a restaurant, before they rounded off with the classic hit ”La Bamba” at a karaoke bar.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video3">
                 <source>register.musicfriend.video3</source>
@@ -445,13 +445,17 @@
                             When you have registered your application, you warrant that your information is correct and agree that the information: may be treated according to PUL and is saved in Kompisbyrån's register so that we can find new friends for you, that your information and e-mail is sent to your new friend, and that we will invite you to Kompisbyrån's activities or offerings. If you want to adjust your submitted information that is registered, please log in with your e-mail and password and update your profile.
                         </li>
                         <li>
-                            Our ambition is to find a new friend for you within 14 days, but it may take both shorter and longer time depending on your profile and the number of people who also want to meet new friends. That means that you may have to wait.
+                            Our ambition is to find a new friend for you within 30 days, but it may take both shorter and longer time depending on your profile and the number of people who also want to meet new friends. That means that you may have to wait.
                         </li>
                         <li>
                             We confirm that we have received your application, by sending an e-mail to you, often within 48 hours.
                         </li>
                         <li>
                             You should send an e-mail to your new friend and decide when and where to meet within 7 days.
+                        </li>
+                        <li>
+                            You need to treat each other in a respectful manner. Remember to be clear in you communication 
+                            with each other as language differences can create misunderstandings. 
                         </li>
                         <li>
                             A meeting with your Fika or Music friend takes place once. If you like each other, you are welcome to meet again by your own. If you want to meet a new Fika or Music friend, please log in and make a new friend request.
@@ -484,7 +488,7 @@
                 <target><![CDATA[
                     <p>Thank you for making a Fika friend request through Kompisbyrån!</p>
                     <p>
-                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.<br /><br />
+                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.<br /><br />
                         If you have any questions, please send us an e-mail :)
                     </p>
                     <p>
@@ -496,7 +500,7 @@
                 <source>user.welcome.message.body.txt</source>
                 <target>
                     Thank you for making a Fika friend request through Kompisbyrån!
-                    We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.
+                    We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.
 
                     If you have any questions, please send us an e-mail :)
 
@@ -512,7 +516,7 @@
                 <target><![CDATA[
                     <p>Thank you for making a Music friend request through Kompisbyrån!</p>
                     <p>
-                       We will send you an e-mail as soon as we have found a Music friend for you. Our ambition is to find a friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends.<br /><br />
+                       We will send you an e-mail as soon as we have found a Music friend for you. Our ambition is to find a friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends.<br /><br />
                        If you have any questions, please send us an e-mail :)
                     </p>
                     <p>
@@ -524,7 +528,7 @@
                 <source>user.friend.welcome.message.body.txt</source>
                 <target>
                     Thank you for making a Music friend request through Kompisbyrån!
-                    We will send you an e-mail as soon as we have found a Music friend for you. Our ambition is to find a friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends.
+                    We will send you an e-mail as soon as we have found a Music friend for you. Our ambition is to find a friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends.
 
                     If you have any questions, please send us an e-mail :)
 
