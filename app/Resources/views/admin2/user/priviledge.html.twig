@@ -1,0 +1,82 @@
+{% extends 'admin2/default/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="/css/select2.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block default_content %}
+    <div class="row" style="margin-top: 40px;">
+        <h1>{{ 'User Priviledges'|trans }}</h1>
+        <table id="match-users" class="table table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th id="request_date" style="width: 15%">{{ 'Name'|trans }}</th>
+                <th id="name" style="width: 15%">{{ 'Email'|trans }}</th>
+                <th id="region">{{ 'Regions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody class="persons-list-body">
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.fullName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <select class="regions form-control" multiple="multiple">
+                            {% for city in cities %}
+                                <option value="{{ user.id ~'|'~ city.id }}" {{ selected_city(user.cities, city.id) }}>{{ city.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".regions").each(function(){
+                var $eventSelect = $(this).select2();
+                $eventSelect.on("select2:select", function (e) {
+                    var value = getValue(e)
+
+                    $.post(Routing.generate('admin_user_add_city', {id: value[0]}), {city_id: value[1]}, function(resp){
+
+                    });
+                });
+
+                $eventSelect.on("select2:unselect", function (e) {
+                    var value = getValue(e);
+
+                    $.post(Routing.generate('admin_user_remove_city', {id: value[0]}), {city_id: value[1]}, function(resp){
+
+                    });
+                });
+            });
+
+            function getValue (evt) {
+                if (!evt) {
+                    var value = "0|0";
+                } else {
+                    var value = JSON.stringify(evt.params, function (key, value) {
+                        if (value && value.nodeName) return "[DOM node]";
+                        if (value instanceof $.Event) return "[$.Event]";
+
+                        return value.data.id;
+                    });
+                }
+
+                value = value.replace('"', '').split('|');
+
+                return [parseInt(value[0]), parseInt(value[1])];
+            }
+        });
+    </script>
+{% endblock %}

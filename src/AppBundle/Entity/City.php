@@ -47,10 +47,16 @@ class City
      */
     protected $senderEmail;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="cities")
+     */
+    protected $users;
+
     public function __construct()
     {
-        $this->connectionRequests = new ArrayCollection();
-        $this->connections = new ArrayCollection();
+        $this->connectionRequests   = new ArrayCollection();
+        $this->connections          = new ArrayCollection();
+        $this->users                = new ArrayCollection();
     }
     /**
      * @return int
@@ -172,5 +178,39 @@ class City
     public function getConnections()
     {
         return $this->connections;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return City
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

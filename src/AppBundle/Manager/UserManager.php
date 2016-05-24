@@ -15,6 +15,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use AppBundle\Manager\CategoryManager;
 use AppBundle\Util\Util;
+use AppBundle\Entity\City;
 
 /**
  * @Service("user_manager")
@@ -298,5 +299,44 @@ class UserManager implements ManagerInterface
     public function getWantToLearnTypeName(User $user)
     {
         return $user->getWantToLearn()? $this->translator->trans('New'): $this->translator->trans('Established');
+    }
+
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function getFindAllAdmin()
+    {
+        return $this->userRepository->findAllAdmin();
+    }
+
+    /**
+     * @param User $user
+     * @param City $city
+     * @return bool
+     */
+    public function addUserCity(User $user, City $city)
+    {
+        $user->addCity($city);
+
+        $this->save($user);
+
+        return true;
+    }
+
+    /**
+     * @param User $user
+     * @param City $city
+     * @return bool
+     */
+    public function removeUserCity(User $user, City $city)
+    {
+        try {
+            $user->removeCity($city);
+            $this->save($user);
+        } catch (\Exception $e) {
+            return false;
+        }
+
+        return true;
     }
 }

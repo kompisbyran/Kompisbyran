@@ -238,19 +238,21 @@ class ConnectionRequestManager implements ManagerInterface
     }
 
     /**
+     * @param User $user
      * @return array
      */
-    public function getFindAllPending()
+    public function getFindAllPending(User $user)
     {
-        return $this->connectionRequestRepository->findAllPending();
+        return $this->connectionRequestRepository->findAllPending($user);
     }
 
     /**
+     * @param User $user
      * @return array
      */
-    public function getFindAllUninspected()
+    public function getFindAllUninspected(User $user)
     {
-        return $this->connectionRequestRepository->findAllByInspected(false);
+        return $this->connectionRequestRepository->findAllByInspected($user, false);
     }
 
     /**

@@ -46,9 +46,10 @@ class AppExtension extends \Twig_Extension
             'want_to_learn_name'        => new \Twig_Function_Method($this, 'wantToLearnName'),
             'user_category_name_string' => new \Twig_Function_Method($this, 'userCategoryNameString'),
             'user_matched_categories'   => new \Twig_Function_Method($this, 'userMatchedCategories'),
+            'selected_city'             => new \Twig_Function_Method($this, 'selectedCity'),
             'google_map_link'           => new \Twig_Function_Method($this, 'googleMapLink', [
                 'is_safe' => ['html']
-            ]),
+            ])
         );
     }
 
@@ -150,5 +151,21 @@ class AppExtension extends \Twig_Extension
     public function googleMapLink($string)
     {
         return Util::googleMapLink($string);
+    }
+
+    /**
+     * @param array $cities
+     * @param $cityId
+     * @return string|void
+     */
+    public function selectedCity($cities, $cityId)
+    {
+        foreach ($cities as $city) {
+            if ($city->getId() == $cityId) {
+                return 'SELECTED';
+            }
+        }
+
+        return;
     }
 }

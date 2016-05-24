@@ -84,6 +84,8 @@ class MatchController extends Controller
         $user           = $this->userManager->getFind($request->get('id'));
         $userRequest    = $this->connectionRequestManager->getFindOneUnpendingByUserId($request->get('id'));
 
+        $this->denyAccessUnlessGranted('view', $userRequest);
+
         if (!$user instanceof User || !$userRequest instanceof ConnectionRequest) {
             throw $this->createNotFoundException();
         }

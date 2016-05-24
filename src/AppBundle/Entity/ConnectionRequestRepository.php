@@ -244,28 +244,52 @@ class ConnectionRequestRepository extends EntityRepository
     }
 
     /**
+     * @param User $user
      * @return array
      */
-    public function findAllPending()
+    public function findAllPending(User $user)
     {
-        return $this->findBy(['pending' => true]);
+        $qb     =  $this
+            ->createQueryBuilder('cr')
+            ->where('cr.pending  = true')
+            ->groupBy('cr.user')
+            ->orderBy('cr.sortOrder', 'DESC')
+            ->addOrderBy('cr.createdAt', 'ASC')
+        ;
+
+        if (count($cities = $user->getCities())) {
+            $qb
+                ->andWhere('cr.city IN (:cities)')
+                ->setParameter('cities', $cities)
+            ;
+        }
+
+        return $qb->getQuery()->getResult();
     }
 
     /**
+     * @param User $user
      * @param $inspected
      * @return array
      */
-    public function findAllByInspected($inspected)
+    public function findAllByInspected(User $user, $inspected)
     {
-        return $this
+        $qb     =  $this
             ->createQueryBuilder('cr')
-            ->where('cr.inspected        = :inspected')
+            ->where('cr.inspected  = :inspected')
             ->groupBy('cr.user')
             ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')
             ->setParameter('inspected', $inspected)
-            ->getQuery()
-            ->getResult()
         ;
+
+        if (count($cities = $user->getCities())) {
+            $qb
+                ->andWhere('cr.city IN (:cities)')
+                ->setParameter('cities', $cities)
+            ;
+        }
+
+        return $qb->getQuery()->getResult();
     }
 }
