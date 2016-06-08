@@ -42,6 +42,7 @@ class UserRepository extends EntityRepository
             FROM fos_user u
             LEFT JOIN users_categories uc on u.id = uc.user_id
             WHERE u.roles != 'a:0:{}'
+            AND u.enabled = 1
             GROUP BY u.id
             ORDER BY u.id";
         $stmt = $this->getEntityManager()->getConnection()->prepare($sql);
