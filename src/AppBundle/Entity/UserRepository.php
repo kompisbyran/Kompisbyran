@@ -38,9 +38,10 @@ class UserRepository extends EntityRepository
     {
         $sql = "
             SELECT u.id, u.email, u.first_name, u.last_name, u.want_to_learn, u.gender, u.age, u.from_country,
-                GROUP_CONCAT(uc.category_id) as category_ids
+                GROUP_CONCAT(uc.category_id) as category_ids, MAX(cr.created_at) as connection_request_created_at
             FROM fos_user u
             LEFT JOIN users_categories uc on u.id = uc.user_id
+            LEFT JOIN connection_request cr on u.id = cr.user_id
             WHERE u.roles != 'a:0:{}'
             AND u.enabled = 1
             GROUP BY u.id
