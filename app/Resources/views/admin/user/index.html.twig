@@ -13,7 +13,7 @@
                         <th>Kön</th>
                         <th>Ålder</th>
                         <th>Från</th>
-                        <th>Senaste intresseanmälan</th>
+                        <th>Senaste kopplingen</th>
                         {% for category in categories %}
                             <th>{{ category.name }}</th>
                         {% endfor %}
@@ -29,7 +29,7 @@
                             <td>{{ user.gender }}</td>
                             <td>{{ user.age }}</td>
                             <td>{{ user.from_country|country_name }}</td>
-                            <td>{{ user.connection_request_created_at }}</td>
+                            <td>{{ user.connection_created_at }}</td>
                             {% for category in categories %}
                                 <td>
                                     {% for categoryId in user.category_ids|split(',') %}
