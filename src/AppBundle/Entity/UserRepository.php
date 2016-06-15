@@ -38,7 +38,7 @@ class UserRepository extends EntityRepository
     {
         $sql = "
             SELECT u.id, u.email, u.first_name, u.last_name, u.want_to_learn, u.gender, u.age, u.from_country,
-                GROUP_CONCAT(uc.category_id) as category_ids,
+                GROUP_CONCAT(DISTINCT uc.category_id) as category_ids,
                 IF (
                     IFNULL(MAX(c1.created_at), '2000-01-01') > IFNULL(MAX(c2.created_at), '2000-01-01'),
                     MAX(c1.created_at),
