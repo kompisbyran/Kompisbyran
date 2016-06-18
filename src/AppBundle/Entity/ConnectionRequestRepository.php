@@ -135,8 +135,9 @@ class ConnectionRequestRepository extends EntityRepository
                 'wantToLearn'   => $wantToLearn,
                 'musicFriend'   => $musicFriend,
             ])
-            ->orderBy('cr.sortOrder', 'DESC')
-            ->addOrderBy('cr.createdAt', 'ASC')
+            //->orderBy('cr.sortOrder', 'DESC')
+            //->addOrderBy('cr.createdAt', 'ASC')
+            //->groupBy('cr')
             ->getQuery()
             ->getSingleScalarResult()
         ;

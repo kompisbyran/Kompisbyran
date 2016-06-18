@@ -8,6 +8,7 @@ use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -111,6 +112,7 @@ class UserController extends Controller
 
     /**
      * @Route("/priviledges", name="admin_user_priviledges")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
      * @Method({"GET"})
      */
     public function priviledgeAction(Request $request)

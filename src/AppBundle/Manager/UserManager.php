@@ -153,7 +153,7 @@ class UserManager implements ManagerInterface
                 'find_match_link'   => $this->router->generate('admin_match_find', ['id' => $auser['id']]),
                 'mark_pending_label'=> ($auser['pending']? 'Remove Pending': 'Make Pending'),
                 'about'             => $currentUser->getAbout(),
-                'matches'           => $this->getExactMatchByUser($user, $currentUser),
+                'matches'           => $this->getExactMatchByUser($user, $currentUser, $auser['created_at']),
                 'ele'               => 'ele'.$auser['id'],
                 'gender'            => ($currentUser->getGender() == $user->getGender()? 1: 0),
                 'age_diff'          => $currentUser->getAge()-$user->getAge(),
@@ -169,7 +169,7 @@ class UserManager implements ManagerInterface
      * @param User $currentUser
      * @return array
      */
-    private function getExactMatchByUser(User $user, User $currentUser)
+    private function getExactMatchByUser(User $user, User $currentUser, $createdAt)
     {
         $ageDiff                = $currentUser->getAge()-$user->getAge();
         $matches                = [];
@@ -200,6 +200,8 @@ class UserManager implements ManagerInterface
         } else {
             $matches[] = ($currentUser->hasChildren()? $this->translator->trans('kids'): $this->translator->trans('no kids'));
         }
+
+        $matches[]  = date('Y-m-d', strtotime($createdAt));
 
         return $matches;
     }
