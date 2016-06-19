@@ -93,6 +93,7 @@ class UserRepository extends EntityRepository
                   AND u.want_to_learn != :want_to_learn
                   AND cr.pending = false
                   AND cr.disqualified = false
+                  and u.enabled = true
                   AND $where
                   GROUP BY u.id
               ) temp
@@ -141,7 +142,7 @@ class UserRepository extends EntityRepository
      */
     private function prepareMatchCriterias(array $criterias)
     {
-        $where  = [];
+        $where  = ['u.enabled = true'];
         $fields = array_keys($criterias);
         foreach($fields as $field) {
             if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'music_friend' || $field === 'q') {

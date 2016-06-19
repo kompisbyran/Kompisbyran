@@ -46,9 +46,12 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('cr')
+            ->select('cr, u')
+            ->innerJoin('cr.user', 'u')
             ->where('cr.wantToLearn = :wantToLearn')
             ->andWhere('cr.city = :city')
             ->andWhere('cr.musicFriend = :musicFriend')
+            ->andWhere('u.enabled = true')
             ->setParameters([
                 'wantToLearn' => $wantToLearn,
                 'city' => $city,
@@ -233,9 +236,11 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('cr')
+            ->innerJoin('cr.user', 'u')
             ->where('cr.city        = :city')
             ->andWhere('cr.disqualified = false')
             ->andWhere('cr.pending = false')
+            ->andWhere('c.enabled = true')
             ->groupBy('cr.user')
             ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')

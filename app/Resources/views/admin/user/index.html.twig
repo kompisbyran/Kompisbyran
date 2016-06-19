@@ -23,7 +23,9 @@
                 <tbody>
                     {% for user in users %}
                         <tr>
-                            <td>{{ user.first_name ~ ' ' ~ user.last_name }}</td>
+                            <td>
+                                <a href="{{ path('admin_user', {'id': user.id}) }}">{{ user.first_name ~ ' ' ~ user.last_name }}</a>
+                            </td>
                             <td>{{ user.email }}</td>
                             <td>{% if user.want_to_learn %}x{% endif %}</td>
                             <td>{{ user.gender }}</td>
