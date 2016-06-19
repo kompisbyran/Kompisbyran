@@ -279,7 +279,6 @@ class ConnectionRequestRepository extends EntityRepository
             ->createQueryBuilder('cr')
             ->where('cr.inspected  = :inspected')
             ->groupBy('cr.user')
-            ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')
             ->setParameter('inspected', $inspected)
         ;
