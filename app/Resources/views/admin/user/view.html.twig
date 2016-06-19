@@ -10,10 +10,38 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Spara</button>
+                    <button
+                        type="submit"
+                        class="btn btn-default"
+                        {% if not user.enabled %}disabled="disabled"{% endif %}
+                    >Spara</button>
+                    {% if user.enabled %}
+                        <a href="#" id="delete">Ta bort</a>
+                    {% endif %}
                 </div>
             </div>
             {{ form_end(form) }}
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function () {
+            $('#delete').click(function (e) {
+                e.preventDefault();
+                if (confirm('Vill du verkligen ta bort användaren?')) {
+                    $.ajax({
+                        url: '{{ path('admin_user_delete', {'id': user.id}) }}',
+                        type: 'DELETE',
+                        success: function () {
+                            location.href='{{ path('admin_start') }}';
+                        }
+                    });
+
+                }
+            });
+        });
+    </script>
+
 {% endblock %}

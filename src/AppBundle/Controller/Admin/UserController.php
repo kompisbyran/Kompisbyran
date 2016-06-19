@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("admin/users")
@@ -33,6 +34,7 @@ class UserController extends Controller
 
     /**
      * @Route("/{id}", name="admin_user", defaults={"id": null})
+     * @Method({"POST", "GET"})
      */
     public function viewAction(Request $request, User $user)
     {
@@ -57,9 +59,30 @@ class UserController extends Controller
 
         $parameters = [
             'form' => $form->createView(),
+            'user' => $user,
         ];
 
         return $this->render('admin/user/view.html.twig', $parameters);
+    }
+
+    /**
+     * @Route("/{id}", name="admin_user_delete", requirements={"id": "\d+"})
+     * @Method({"DELETE"})
+     */
+    public function deleteAction(User $user)
+    {
+        $user->setFirstName('x');
+        $user->setLastName('x');
+        $user->setEnabled(false);
+        $user->setEmail('x' . $user->getId());
+        $user->setUsername('x' . $user->getId());
+        $user->setUsernameCanonical('x' . $user->getId());
+        $user->setPassword('xxxxxxx');
+
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new Response();
     }
 
     protected function getUserRepository()
