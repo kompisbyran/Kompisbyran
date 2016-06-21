@@ -169,22 +169,6 @@ class ConnectionRequestManager implements ManagerInterface
      */
     public function getFindPaginatedByCityResults(City $city, $page = 1)
     {
-        /*$qb         = $this->connectionRequestRepository->findByCityQueryBuilder($city);
-        $adapter    = new DoctrineORMAdapter($qb);
-        $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(100000);
-        $pagerfanta->setCurrentPage($page);
-
-        return [
-            'success'                       => true,
-            'newUsers'                      => $this->getCountNewWithinCity($city),
-            'newMusicFriendUsers'           => $this->getCountNewMusicFriendWithinCity($city),
-            'establishedUsers'              => $this->getCountEstablishedWithinCity($city),
-            'establishedMusicFriendUsers'   => $this->getCountEstablishedMusicFriendWithinCity($city),
-            'results'                       => $this->getCityResultsdByPagination($pagerfanta),
-            'next'                          => ($pagerfanta->hasNextPage()? $pagerfanta->getNextPage(): false)
-        ];*/
-
         return [
             'success'                       => true,
             'newUsers'                      => $this->getCountNewWithinCity($city),
@@ -195,39 +179,6 @@ class ConnectionRequestManager implements ManagerInterface
             'next'                          => false
         ];
     }
-
-    /**
-     * @param Pagerfanta $pagerfanta
-     * @return array
-     */
-    /*private function getCityResultsdByPagination(Pagerfanta $pagerfanta)
-    {
-        $datas              = [];
-        $connectionRequests = $pagerfanta->getCurrentPageResults();
-        $establishedTrans   = $this->translator->trans('Established');
-        $newTrans           = $this->translator->trans('New');
-        $musicFriendTrans   = $this->translator->trans('Music Friend');
-
-        foreach ($connectionRequests as $connectionRequest) {
-            $user               = $connectionRequest->getUser();
-            $pending            = $connectionRequest->getPending()? 1: 0;
-            $wantToLearnText    = $user->getWantToLearn()? $newTrans: $establishedTrans;
-
-            if (!$user->getWantToLearn() && $user->isMusicFriend()) {
-                $wantToLearnText .= ' (' . $musicFriendTrans .')';
-            }
-
-            $datas[]    = [
-                'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
-                'name'          => $user->getFullName(),
-                'email'         => $user->getEmail(),
-                'category'      => $wantToLearnText,
-                'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending //user_id|request_id|pending
-            ];
-        }
-
-        return $datas;
-    }*/
 
     private function getCityResults($connectionRequests)
     {
