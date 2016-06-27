@@ -187,6 +187,7 @@
         });
 
         $(document).ready(function(){
+
             $.addTemplateFormatter({
                 SpanMatches : function(value, template) {
                     var values  = [];
@@ -341,6 +342,14 @@
                     }
                 });
             }
+
+            $('#match_filter_q').keypress(function(e){
+                if(e.which == 13) {
+                    e.preventDefault();
+
+                    $('.btn-search').trigger('click');
+                }
+            });
 
             $('.btn-search').trigger('click');
         });

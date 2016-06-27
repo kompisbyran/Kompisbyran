@@ -138,8 +138,6 @@ class ConnectionRequestRepository extends EntityRepository
                 'wantToLearn'   => $wantToLearn,
                 'musicFriend'   => $musicFriend,
             ])
-            ->orderBy('cr.sortOrder', 'DESC')
-            ->addOrderBy('cr.createdAt', 'ASC')
             ->getQuery()
             ->getSingleScalarResult()
         ;
@@ -283,7 +281,6 @@ class ConnectionRequestRepository extends EntityRepository
             ->createQueryBuilder('cr')
             ->where('cr.inspected  = :inspected')
             ->groupBy('cr.user')
-            ->orderBy('cr.sortOrder', 'DESC')
             ->addOrderBy('cr.createdAt', 'ASC')
             ->setParameter('inspected', $inspected)
         ;
