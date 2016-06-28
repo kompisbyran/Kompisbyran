@@ -153,7 +153,7 @@ class UserManager implements ManagerInterface
                 'find_match_link'   => $this->router->generate('admin_match_find', ['id' => $auser['id']]),
                 'mark_pending_label'=> ($auser['pending']? 'Remove Pending': 'Make Pending'),
                 'about'             => $currentUser->getAbout(),
-                'matches'           => $this->getExactMatchByUser($user, $currentUser, $auser['created_at']),
+                'matches'           => $this->getExactMatchByUser($user, $currentUser, $auser['connection_request_created_at']),
                 'ele'               => 'ele'.$auser['id'],
                 'gender'            => ($currentUser->getGender() == $user->getGender()? 1: 0),
                 'age_diff'          => $currentUser->getAge()-$user->getAge(),
