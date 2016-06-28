@@ -188,6 +188,7 @@ class Countries
         'PM' => 'Saint-Pierre och Miquelon',
         'PN' => 'Pitcairnöarna',
         'PR' => 'Puerto Rico',
+        'PS' => 'Palestina',
         'PT' => 'Portugal',
         'PW' => 'Palau',
         'PY' => 'Paraguay',
