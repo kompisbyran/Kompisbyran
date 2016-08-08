@@ -60,7 +60,11 @@ class AppExtension extends \Twig_Extension
      */
     public function countryName($countryCode)
     {
-        return Countries::getName($countryCode);
+        if ($countryCode) {
+            return Countries::getName($countryCode);
+        }
+
+        return '';
     }
 
     /**
