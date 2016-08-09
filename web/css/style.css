@@ -2631,7 +2631,7 @@ div.ppt {
 .footer{
     margin-top: 40px;
     padding: 0 30px 30px 30px;
-    background: #000 url('../img/stressed_linen.png') repeat;
+    background: #000;
 }
 
 .footer .footer-head{
