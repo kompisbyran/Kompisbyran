@@ -627,7 +627,11 @@ class User extends BaseUser
      */
     public function getCountryName()
     {
-        return Countries::getName($this->from);
+        if ($this->from) {
+            return Countries::getName($this->from);
+        }
+
+        return '';
     }
 
     /**
