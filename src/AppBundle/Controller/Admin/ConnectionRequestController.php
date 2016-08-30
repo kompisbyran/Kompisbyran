@@ -113,6 +113,9 @@ class ConnectionRequestController extends Controller
         $connectionRequest->setCity         ( $city                                         );
         $connectionRequest->setSortOrder    ( $request->request->getInt('sortOrder')        );
         $connectionRequest->setMusicFriend  ( $request->request->getBoolean('musicFriend')  );
+        try {
+            $connectionRequest->setCreatedAt(new \DateTime($request->request->get('date')));
+        } catch (\Exception $e) {}
 
         $this->connectionRequestManager->save($connectionRequest);
 

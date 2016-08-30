@@ -87,6 +87,20 @@ class Connection
      */
     protected $musicFriend = false;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $learnerConnectionRequestCreatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $fluentSpeakerConnectionRequestCreatedAt;
+
     public function __construct(User $user = null)
     {
         $this->createdAt = new \DateTime();
@@ -231,5 +245,37 @@ class Connection
     public function setMusicFriend($musicFriend)
     {
         $this->musicFriend = $musicFriend;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLearnerConnectionRequestCreatedAt()
+    {
+        return $this->learnerConnectionRequestCreatedAt;
+    }
+
+    /**
+     * @param \DateTime $learnerConnectionRequestCreatedAt
+     */
+    public function setLearnerConnectionRequestCreatedAt($learnerConnectionRequestCreatedAt)
+    {
+        $this->learnerConnectionRequestCreatedAt = $learnerConnectionRequestCreatedAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFluentSpeakerConnectionRequestCreatedAt()
+    {
+        return $this->fluentSpeakerConnectionRequestCreatedAt;
+    }
+
+    /**
+     * @param \DateTime $fluentSpeakerConnectionRequestCreatedAt
+     */
+    public function setFluentSpeakerConnectionRequestCreatedAt($fluentSpeakerConnectionRequestCreatedAt)
+    {
+        $this->fluentSpeakerConnectionRequestCreatedAt = $fluentSpeakerConnectionRequestCreatedAt;
     }
 }
