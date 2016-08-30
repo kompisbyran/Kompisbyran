@@ -235,6 +235,8 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
             $connection->setCity($this->getReference('city-1'));
             $connection->setFluentSpeaker($this->getReference('user-fluentspeaker'));
             $connection->setLearner($this->getReference('user-learner'));
+            $connection->setFluentSpeakerConnectionRequestCreatedAt(new \DateTime());
+            $connection->setLearnerConnectionRequestCreatedAt(new \DateTime());
             $manager->persist($connection);
         }
     }
