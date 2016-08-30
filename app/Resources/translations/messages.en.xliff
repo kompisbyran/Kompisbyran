@@ -271,7 +271,7 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
-                <target>I</target>
+                <target>Which option best describes you?</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
@@ -373,20 +373,20 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>On this page, you can find your previous Fika or Music friends and you can meet new friends by doing a friend request.
+                <target>On this page, you can find your previous Fika or Music friends and you can make a new request if you want to meet a new person.
 
-                    You meet your new friend one time. If you like each other, you can meet again by yourself. If you want to meet new friends, you select the city you can meet up in and then press the button "Fika friend request".
+                    We provide the first contact to a person, so that you can meet 1 time. If you think it's fun, you can meet again by yourself. If you want to meet a new person, please select the city you can meet up in and press the button "Fika friend request".
 
 
                     If you want to change your application, you can update the form in the menu above: press "Min profil" (My profile) and then "Inställningar" (Settings).</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
-                <target>Previous Fika or Music friends</target>
+                <target>Previous meetings</target>
             </trans-unit>
             <trans-unit id="index.connection_request.header">
                 <source>index.connection_request.header</source>
-                <target>Friend requests</target>
+                <target>Your active requests</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
@@ -415,7 +415,7 @@
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
-                <target>Friend request</target>
+                <target>New request</target>
             </trans-unit>
                         <trans-unit id="terms.header">
                 <source>terms.header</source>
@@ -611,7 +611,7 @@
 
 Hej %user_name%!
 
-Nu har vi hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%. %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
+Nu har vi hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%, så nu vet du några samtalsämnen du kan inleda er första fika med. %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
 
 Din %match_music_friend% email är: %match_email% Vi har också skickat din email till din %match_music_friend%.
 
@@ -637,7 +637,7 @@ Vännerna på Kompisbyrån
 
 Hello %user_name%!
 
-We have now found a good match for you. The person you will meet is %match_name% and both of you like %match_categories%. %match_name% is %match_age% years old, lives in %match_area% and is from %match_from%. %match_name% would like to meet you in %match_city%.
+We have now found a good match for you. The person you will meet is %match_name% and both of you like %match_categories%. So now you know what topics you can start the conversation with on your first fika meeting. %match_name% is %match_age% years old, lives in %match_area% and is from %match_from%. %match_name% would like to meet you in %match_city%.
 
 The email adress to %match_name% is: %match_email%. We have also sent your email adress to %match_name%.
 
