@@ -115,6 +115,14 @@ class ConnectionRequest
     }
 
     /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
      * @return int
      */
     public function getId()
