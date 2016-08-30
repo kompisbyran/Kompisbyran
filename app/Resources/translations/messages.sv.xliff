@@ -102,11 +102,11 @@
                 <source>homepage.cta.message</source>
                 <target>
                     <![CDATA[
-                    Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt
-                    mellan dig som är ny i Sverige och dig som har bott i Sverige länge. Du kan bli Fikakompis eller
-                    Musikkompis.<br><br>
-                    Som Fikakompis blir du matchad med en person med liknande intressen som du har. Ni träffas, fikar
-                    och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en Fikakompis idag!
+                    Kompisbyrån skapar kontakt mellan en ny och en etablerad svensk, med liknande intressen, 
+                    som ses i cirka 1 timme på en offentlig plats. Du kan bli Fikakompis eller Musikkompis.<br><br> 
+                    Fikakompis - Ni träffas, fikar och pratar svenska i cirka 1 timme. Ni vet på förhand att ni har 
+                    några liknande intressen att inleda samtalet med. Om ni tycker det är roligt får ni gärna ses 
+                    igen på egen hand. Om inte, gör inte det något för timmen har ändå uppfyllt sitt syfte.
                     ]]>
                 </target>
             </trans-unit>
@@ -255,7 +255,7 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
-                <target>Jag:</target>
+                <target>Vilket alternativ stämmer bäst in på dig?</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
@@ -295,8 +295,8 @@
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige.
-                Musikkompis, skriv gärna om du spelar något instrument och vilken musikgenre du gillar.</target>
+                <target>T.ex. saker du tycker om att göra, vem du är som person, utbildning/jobb och hur länge du har varit i Sverige
+                Musikkompis, skriv om du spelar något instrument och vilken musikgenre du gillar.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
@@ -345,18 +345,20 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target><![CDATA[
-                    <p>Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor om dig själv.
-                    Vi tror att det är det personliga mötet som förenar människor och vill skapa så bra förutsättningar
-                    för ett lyckat möte. Därför matchar vi ihop nya kompisar, främst utifrån gemensamma eller
-                    kompletterande intressen.</p><br />
+                    <p>Här svarar du på några frågor om dig själv. Ju tydligare du berättar om vem du är som person, 
+                    desto större är chansen att vi hittar en bra matchning. Vi skapar kontakt mellan två nya personer, 
+                    främst baserat på liknande eller kompletterande intressen. Om du har ett specifikt önskemål, 
+                    vänligen skriv det tydligt i din ansökan, så att vi kan ta ställning till om vi kan tillgodose det. 
+                    Ni träffas i 1 av 9 städer där vi har verksamhet: Göteborg, Jönköping, Linköping, Malmö, Stockholm, 
+                    Umeå, Uppsala, Västerås eller Örebro.</p><br />
 
                     <p>Du kan bli Fikakompis eller Musikkompis: </p>
                     <ul>
-                        <li>Fikakompis - Du blir matchad med en person som har liknande intressen som du har. Ni träffas och övar
-                        svenska på ett kafé i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
+                        <li>Fikakompis = Du blir matchad med en person som har liknande intressen som du har. Ni träffas på ett kafé för att 
+                        prata svenska i en timme. 
 
-                        <li>Musikkompis - Du blir matchad med en person som också gillar musik. Ni träffas och utbyter musikerfarenheter
-                        på en offentlig plats i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.</ul>
+                        <li>Musikkompis = Du blir matchad med en person som också gillar musik. Ni träffas på en offentlig plats
+                        för att dela ert musikintresse, till exempel för att prata om musik på ett kafé, gå på konsert eller spela instrument ihop.</ul>
                     ]]>
                 </target>
             </trans-unit>
@@ -366,18 +368,18 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här kan du anmäla dig igen för att träffa nya Fikakompisar eller Musikkompisar.
-                Du ser även dina tidigare kompismöten och intresseanmälningar till att träffa nya kompisar.
+                <target>Här kan du göra en ny anmälan för att träffa nya Fikakompisar eller Musikkompisar. Tryck på "Kompisfika"-knappen. 
+                Du ser även dina tidigare kompismöten och nuvarande status.
 
                     Vill du ändra din ansökan trycker du först på "Min profil" och sedan på "Inställningar" i menyn.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
-                <target>Tidigare kompismöten</target>
+                <target>Tidigare möten</target>
             </trans-unit>
             <trans-unit id="index.connection_request.header">
                 <source>index.connection_request.header</source>
-                <target>Intresseanmälningar</target>
+                <target>Nuvarande status</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
@@ -389,12 +391,12 @@
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
-                <target>Jag vill träffa ny kompis</target>
+                <target>Jag vill träffa en ny person</target>
             </trans-unit>
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Om du vill träffa en ny Fikakompis eller Musikkompis, väljer du stad och trycker på knappen "Kompisfika".
+                    Om du vill träffa en ny Fikakompis eller Musikkompis, väljer du den stad du kan träffas i och trycker på knappen "Kompisfika".
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
@@ -705,8 +707,7 @@
 
 Hej %user_name%!
 
-Nu har vi hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%. %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i 
-%match_city%.
+Nu har vi hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%, så nu vet du några samtalsämnen du kan inleda er första fika med. %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%. 
 
 Din %match_music_friend% email är: %match_email% Vi har också skickat din email till din %match_music_friend%.
 
@@ -732,7 +733,7 @@ Vännerna på Kompisbyrån
 
 Hello %user_name%!
 
-We have now found a good match for you. The person you will meet is %match_name% and both of you like %match_categories%. %match_name% is %match_age% years old, lives in %match_area% and is from %match_from%. %match_name% would like to meet you in %match_city%.
+We have now found a good match for you. The person you will meet is %match_name% and both of you like %match_categories%. So now you know what topics you can start the conversation with on your first fika meeting. %match_name% is %match_age% years old, lives in %match_area% and is from %match_from%. %match_name% would like to meet you in %match_city%.
 
 The email adress to %match_name% is: %match_email%. We have also sent your email adress to %match_name%.
 
