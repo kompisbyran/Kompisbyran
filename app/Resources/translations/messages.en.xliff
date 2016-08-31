@@ -275,11 +275,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>I do not speak Swedish fluently and I am not established in Sweden</target>
+                <target>I am a new Swede and wants to speak better Swedish </target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>I speak Swedish fluently and I am established in Sweden</target>
+                <target>I am an established Swede and has Swedish as mother tongue or equivalent</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -311,7 +311,7 @@
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>I.e education, work and for how long you've been in Sweden.
+                <target>I.e. how you would describe yourself as a person, things that you like to do, education, work and for how long you've been in Sweden.
                 Musikkompis, please write if you play an instrument and which genre of music you like.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
