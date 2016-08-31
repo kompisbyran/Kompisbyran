@@ -259,11 +259,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Jag pratar inte flytande svenska och jag är inte etablerad i Sverige</target>
+                <target>Jag är en ny svensk och vill bli bättre på att prata svenska</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Jag pratar flytande svenska och jag är etablerad i Sverige</target>
+                <target>Jag är en etablerad svensk och har svenska som modersmål eller motsvarande </target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -275,7 +275,7 @@
             </trans-unit>
             <trans-unit id="user.form.gender">
                 <source>user.form.gender</source>
-                <target>Jag är:</target>
+                <target>Kön:</target>
             </trans-unit>
             <trans-unit id="user.form.gender.m">
                 <source>user.form.gender.m</source>
