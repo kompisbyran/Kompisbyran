@@ -87,6 +87,8 @@ class ConnectionManager implements ManagerInterface
     public function saveByConnectionRequest(ConnectionRequest $userRequest, ConnectionRequest $matchUserRequest, User $loggedUser)
     {
         $connection                 = $this->createNew();
+        /** @var $learner ConnectionRequest */
+        /** @var $speaker ConnectionRequest */
         list($learner, $speaker)    = $this->getLearnerSpeaker($userRequest, $matchUserRequest);
 
         $connection->setCreatedBy           ( $loggedUser               );
@@ -96,6 +98,8 @@ class ConnectionManager implements ManagerInterface
         $connection->setFluentSpeakerComment( $speaker->getComment()    );
         $connection->setLearnerComment      ( $learner->getComment()    );
         $connection->setMusicFriend         ( $learner->isMusicFriend() );
+        $connection->setFluentSpeakerConnectionRequestCreatedAt($speaker->getCreatedAt());
+        $connection->setLearnerConnectionRequestCreatedAt($learner->getCreatedAt());
 
         $this->save($connection);
 
