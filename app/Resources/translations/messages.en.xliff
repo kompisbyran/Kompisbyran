@@ -102,12 +102,13 @@
                 <source>homepage.cta.message</source>
                 <target>
                     <![CDATA[
-                    We create meetings between new friends with similar interests. We create contact between those who are
-                    new in Sweden and those who have lived in Sweden for a long time. You can sign up as a Fika friend
-                    (Fikakompis) or Music friend (Musikkompis).<br><br>
-                    As a Fika friend we will match you with a person with similar interests that you have. You meet over
-                    a ”fika” and practice Swedish! Together we can increase the spirit of community in the everyday life.
-                    Sign up as a Fika friend today!
+                    Kompisbyrån creates contact between a new and an established Swede with similar interests, who meet 
+                    for about 1 hour at a public place.  You can sign up as a Fika friend (Fikakompis) or Music friend 
+                    (Musikkompis).<br><br>
+                    
+                    Fika friend. You meet over a “fika” and speak Swedish for about 1 hour. You know in advanced that 
+                    you have some similar interests that you can start the conversation with. If you think it is fun, 
+                    you can meet again on your own. If not, it doesn’t matter since the hour still has fulfilled its purpose.
                     ]]>
                 </target>
             </trans-unit>
@@ -243,7 +244,7 @@
             </trans-unit>
             <trans-unit id="register.login.intro">
                 <source>register.login.intro</source>
-                <target>If you already have registered, you log in here.</target>
+                <target>If you already has sent us an application, please log in by writing your e-mail and password. If you visit us for the first time, please create an application.</target>
             </trans-unit>
             <trans-unit id="login.form.email">
                 <source>login.form.email</source>
@@ -275,11 +276,11 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>I am a new Swede and wants to speak better Swedish </target>
+                <target>I am a new Swede and want to speak better Swedish </target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>I am an established Swede and has Swedish as mother tongue or equivalent</target>
+                <target>I am an established Swede and have Swedish as mother tongue or equivalent</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
@@ -311,7 +312,7 @@
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>I.e. how you would describe yourself as a person, things that you like to do, education, work and for how long you've been in Sweden.
+                <target>I.e. how you would describe yourself as a person, things that you like to do, education, occupation, and for how long you've been in Sweden.
                 Musikkompis, please write if you play an instrument and which genre of music you like.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
@@ -353,18 +354,19 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Thank you for signing up at Kompisbyrån! Please, answer some questions about yourself. We believe
-                    that it’s the personal meeting that unites people, and want to create the best conditions for a
-                    successful meeting. Therefore, we match together new friends, mostly based on common or complementary
-                    interests.
+                    Please, answer some questions about yourself. The clearer you describe who you are as a person, 
+                    the greater is the chance that we find a good match for you. We create contact between two persons, 
+                    mainly based on similar or complementary interests. If you have specific wishes/ demands, please write 
+                    it clearly in your application, so that we can decide whether we can meet them. You meet in 1 of 9 
+                    cities where we operate: Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
 
-                    You can choose and sign up as a Fika friend (Fikakompis) or Music friend (Musikkompis):
+                    You can choose between becoming a Fika friend (Fikakompis) or Music friend (Musikkompis). 
 
-                    Fikakompis - You will be matched with a person who has similar interests as you. You meet and
-                    practice Swedish at a café in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
+                    Fika friend - You will be matched with a person who has similar interests as you. You meet and practice Swedish 
+                    at a café for about 1 hour.  
 
-                    Musikkompis - You will be matched with a person who also likes music. You meet and exchange music experiences in
-                    a public place in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
+                    Music friend - You will be matched with a person who also likes music. You meet and share your music interest with 
+                    each other at a public place. For example, you talk about music at a café, you visit a concert or you play instruments together. 
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
@@ -375,7 +377,7 @@
                 <source>index.intro</source>
                 <target>On this page, you can find your previous Fika or Music friends and you can make a new request if you want to meet a new person.
 
-                    We provide the first contact to a person, so that you can meet 1 time. If you think it's fun, you can meet again by yourself. If you want to meet a new person, please select the city you can meet up in and press the button "Fika friend request".
+                    We provide the first contact to a person, so that you can meet 1 time. If you think it's fun, you can meet again by yourself. If you want to meet a new person, please select the city you can meet up in and press the button "New request".
 
 
                     If you want to change your application, you can update the form in the menu above: press "Min profil" (My profile) and then "Inställningar" (Settings).</target>
@@ -423,26 +425,32 @@
             </trans-unit>
             <trans-unit id="terms.ingress">
                 <source>terms.ingress</source>
-                <target>Kompisbyrån creates contact between people who are new in Sweden and people who have lived in Sweden for a long time. 
-                We want to give you the possibility to meet several new persons with another background than yours, in order for you to broaden 
-                your social network.</target>
+                <target>Kompisbyrån mediates the first contact between new Swedes and established Swedes.</target>
             </trans-unit>
             <trans-unit id="terms.list">
                 <source>terms.list</source>
                 <target><![CDATA[
                     <ul>
                         <li>
-                            Kompisbyrån creates contact between new friends based on similar interests. 
+                            Our idea is to give you the possibility to meet several new persons with another background than yours, in order 
+                            for you to broaden your social network.
                         </li>
                         <li>
-                            You must be able to meet your new Fika or Music friend in one of these cities: Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
+                            Kompisbyrån connects two new persons, mainly based on similar interests. This means that you can be matched with 
+                            a person who is, for example, in another age or sex. If you have special wishes/ demands, please write it clearly 
+                            in your application so that we can decide if we can meet it.
                         </li>
                         <li>
-                            Kompisbyrån is only responsible for linking together people who have lived in Sweden for a short time with people who have lived in Sweden for a long time.
+                            You must be able to meet your new Fika or Music friend in 1 of 9 cities: Göteborg, Jönköping, Linköping, Malmö, 
+                            Stockholm, Umeå, Uppsala, Västerås or Örebro. We hope that we can connect new people in more cities in the future. 
                         </li>
                         <li>
-                            A meeting with the same person happens one time. Of course, you can together decide if you want to meet again.
-                            If you want to meet a new person, you log in with your email and password and make a new request. 
+                            Kompisbyrån is only responsible for linking together people who have lived in Sweden for a short time with people 
+                            who have lived in Sweden for a long time.
+                        </li>
+                        <li>
+                            The starting point is that you meet the same person 1 time. If you think it is fun, you can meet again by your own. 
+                            If you want to meet a new person, you log in and make a new request. 
                         </li>
                         <li>
                             Everyone over 18 years (of age) can participate.
@@ -451,7 +459,7 @@
                             You only have to pay for your own "fika" (for example, a cup of coffee), the registration is for free.
                         </li>
                         <li>
-                            Kompisbyrån recommends that you meet your new friend for about 1 hour at a public place in the central part of the city.
+                            Kompisbyrån recommends that you meet for about 1 hour at a public place in the central part of that city that you have chosen. 
                         </li>
                         <li>
                             When you have registered your application, you warrant that your information is correct and agree that the information: 
@@ -467,17 +475,22 @@
                             We confirm that we have received your application, by sending an e-mail to you.
                         </li>
                         <li>
-                            You should send an e-mail to your new friend and decide when and where to meet within 7 days.
+                            Remember to respect each other. A cancellation will affect the other person who has been looking forward to a meeting. 
+                            Think twice before you sign up, to ensure that you really want to join us! 
                         </li>
                         <li>
-                            You need to treat each other in a respectful manner. Remember to be clear in you communication 
-                            with each other as language differences can create misunderstandings. 
+                            It is the responsibility of both two persons, that you establish contact with each other, within 7 days. We recommend 
+                            that you exchange telephone numbers to easier get in contact with each other. 
+                        </li>
+                        <li>
+                            You need to treat each other in a respectful manner. Remember to be clear in you communication with each other, as 
+                            language differences can create misunderstandings.  
                         </li>
                         <li>
                             If you want to delete your account, please send an e-mail to kontakt@kompisbyran.se.
                         </li>
                         <li>
-                            Kompisbyrån cannot guarantee that we will find a new friend for you, but we will always do our best.
+                            Kompisbyrån cannot guarantee that we will find a good match for you, but we will always do our best.
                         </li>
                         <li>
                             We wish to constantly improve our work. Therefore, we will contact you after your meeting to follow up.
