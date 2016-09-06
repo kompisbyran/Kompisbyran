@@ -12,11 +12,11 @@
             </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
-                <target>Ja</target>
+                <target>نعم</target>
             </trans-unit>
             <trans-unit id="no">
                 <source>no</source>
-                <target>Nej</target>
+                <target>لا</target>
             </trans-unit>
             <trans-unit id="global.he">
                 <source>global.he</source>
@@ -40,35 +40,35 @@
             </trans-unit>
             <trans-unit id="global.music_buddy">
                 <source>global.music_buddy</source>
-                <target>Musikkompis</target>
+                <target>رفيق موسيقى</target>
             </trans-unit>
             <trans-unit id="global.fika_buddy">
                 <source>global.fika_buddy</source>
-                <target>Fikakompis</target>
+                <target>رفيق فيكا</target>
             </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>
-                <target>Hem</target>
+                <target>الصفحة الرئيسية</target>
             </trans-unit>
             <trans-unit id="menu.fikafriend">
                 <source>menu.fikafriend</source>
-                <target>Bli Fikakompis</target>
+                <target>أن تكون رفيق فيكا</target>
             </trans-unit>
             <trans-unit id="menu.musicfriend">
                 <source>menu.musicfriend</source>
-                <target>Bli Musikkompis</target>
+                <target>أن تكون رفيق موسيقى</target>
             </trans-unit>
             <trans-unit id="menu.support">
                 <source>menu.support</source>
-                <target>Stöd oss</target>
+                <target>ادعمنا</target>
             </trans-unit>
             <trans-unit id="menu.about">
                 <source>menu.about</source>
-                <target>Om oss</target>
+                <target>من نحن</target>
             </trans-unit>
             <trans-unit id="menu.signin">
                 <source>menu.signin</source>
-                <target>Logga in</target>
+                <target>تسجيل الدخول</target>
             </trans-unit>
             <trans-unit id="menu.signin.fb">
                 <source>menu.signin.fb</source>
@@ -76,15 +76,15 @@
             </trans-unit>
             <trans-unit id="menu.signout">
                 <source>menu.signout</source>
-                <target>Logga ut</target>
+                <target>تسجيل الخروج</target>
             </trans-unit>
             <trans-unit id="menu.profile">
                 <source>menu.profile</source>
-                <target>Min Profil</target>
+                <target>صفحتي الشخصية</target>
             </trans-unit>
             <trans-unit id="menu.settings">
                 <source>menu.settings</source>
-                <target>Inställningar</target>
+                <target>الاعدادات</target>
             </trans-unit>
             <trans-unit id="footer.contact">
                 <source>footer.contact</source>
@@ -112,7 +112,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.button">
                 <source>homepage.cta.button</source>
-                <target>Bli Fikakompis</target>
+                <target>أن تكون رفيق فيكا</target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.header">
                 <source>homepage.cta.musicfriend.header</source>
@@ -142,33 +142,33 @@
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
-                <target>Gå med</target>
+                <target>انضم إلينا</target>
             </trans-unit>
             <trans-unit id="register.create.intro">
                 <source>register.create.intro</source>
                 <target>
-                    För att kompisfika eller bli Musikkompis fyller du i din e-post och ett lösenord som du bestämmer själv.
+                    لتكوين صداقات جديدة عليك فقط أن تملأ البريد الالكتروني و كلمة السر
                 </target>
             </trans-unit>
             <trans-unit id="register.form.email">
                 <source>register.form.email</source>
-                <target>E-post</target>
+                <target>البريد الالكتروني</target>
             </trans-unit>
             <trans-unit id="register.form.password">
                 <source>register.form.password</source>
-                <target>Lösenord</target>
+                <target>كلمة السر</target>
             </trans-unit>
             <trans-unit id="register.form.password_confirmation">
                 <source>register.form.password_confirmation</source>
-                <target>Ange lösenordet igen</target>
+                <target>كلمة السر أعد إدخال</target>
             </trans-unit>
             <trans-unit id="register.form.terms">
                 <source>register.form.terms</source>
-                <target>Jag godkänner %linkStart%villkoren%linkEnd%</target>
+                <target>أنا أوافق على %linkStart%الشروط%linkEnd%</target>
             </trans-unit>
             <trans-unit id="register.form.button">
                 <source>register.form.button</source>
-                <target>Gå med</target>
+                <target>انضم إلينا</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.subheader">
                 <source>register.musicfriend.subheader</source>
@@ -206,7 +206,7 @@
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
                 <target>
-                    Så här gör du:
+                    ...أن تكون رفيق فيكا
                 </target>
             </trans-unit>
             <trans-unit id="register.how_it_works.text">
@@ -223,84 +223,83 @@
             </trans-unit>
             <trans-unit id="register.login.header">
                 <source>register.login.header</source>
-                <target>Logga in</target>
+                <target>تسجيل الدخول</target>
             </trans-unit>
             <trans-unit id="register.login.intro">
                 <source>register.login.intro</source>
-                <target>Om du redan har ett konto, loggar du in här.</target>
+                <target>إذا كان لديك حساب مسبقا فيمكنك تسجيل الدخول بكتابة البريد الالكتروني و كلمة السر. إذا كانت هذه هي المرة الاولى اضغط هنا.</target>
             </trans-unit>
             <trans-unit id="login.form.email">
                 <source>login.form.email</source>
-                <target>E-post</target>
+                <target>البريد الالكتروني</target>
             </trans-unit>
             <trans-unit id="login.form.password">
                 <source>login.form.password</source>
-                <target>Lösenord</target>
+                <target>كلمة السر</target>
             </trans-unit>
             <trans-unit id="login.form.button">
                 <source>login.form.button</source>
-                <target>Logga in</target>
+                <target>تسجيل الدخول</target>
             </trans-unit>
             <trans-unit id="login.forgot_password">
                 <source>login.forgot_password</source>
-                <target>Glömt lösenordet?</target>
+                <target>نسيت كلمة السر؟</target>
             </trans-unit>
             <trans-unit id="user.form.first_name">
                 <source>user.form.first_name</source>
-                <target>Förnamn:</target>
+                <target>الاسم الاول</target>
             </trans-unit>
             <trans-unit id="user.form.last_name">
                 <source>user.form.last_name</source>
-                <target>Efternamn:</target>
+                <target>الكنية</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
-                <target>Jag:</target>
+                <target>أي البدائل هي الافضل لك ؟</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Jag pratar inte flytande svenska och jag är inte etablerad i Sverige</target>
+                <target>أنا لا أتحدث السويدية بطلاقة و أنا مقيم في السويد</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Jag pratar flytande svenska och jag är etablerad i Sverige</target>
+                <target>أنا أتحدث السويدية بطلاقة و أنا مقيم في السويد</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
-                <target>Jag gillar (intressen):</target>
+                <target>أنا مهتم بما يلي</target>
             </trans-unit>
             <trans-unit id="user.form.age">
                 <source>user.form.age</source>
-                <target>Ålder</target>
+                <target>العمر</target>
             </trans-unit>
             <trans-unit id="user.form.gender">
                 <source>user.form.gender</source>
-                <target>Jag är:</target>
+                <target>أنا</target>
             </trans-unit>
             <trans-unit id="user.form.gender.m">
                 <source>user.form.gender.m</source>
-                <target>Man</target>
+                <target>ذكر</target>
             </trans-unit>
             <trans-unit id="user.form.gender.f">
                 <source>user.form.gender.f</source>
-                <target>Kvinna</target>
+                <target>أنثى</target>
             </trans-unit>
             <trans-unit id="user.form.gender.x">
                 <source>user.form.gender.x</source>
-                <target>Annat</target>
+                <target>شيء اخر</target>
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Berätta om dig själv. Om du vill bli Musikkompis, berätta också om ditt musikintresse:</target>
+                <target> تحدث عن نفسك. اذا كنت تريد  أن تكون رفيق موسيقى تحدث عن اهتماماتك الموسيقية</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>T.ex. utbildning, jobb och hur länge du har varit i Sverige.
-                Musikkompis, skriv gärna om du spelar något instrument och vilken musikgenre du gillar.</target>
+                <target>كمثال.... ماذا تحب أن تفعل؟ من أنت كشخص؟ الدراسة او العمل؟ ما المدة التي قضيتها في السويد؟ أما صديق الموسيقى فتحدث عن الالة التي تعزفها و الموسيقى التي تحبها.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
-                <target>Vilket land kommer du ifrån?</target>
+                <target>البلد التي اتيت منها ؟</target>
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
@@ -308,7 +307,7 @@
             </trans-unit>
             <trans-unit id="user.form.municipality">
                 <source>user.form.municipality</source>
-                <target>Jag bor i (kommun):</target>
+                <target>أنا أعيش في (بلدية)</target>
             </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
@@ -316,19 +315,19 @@
             </trans-unit>
             <trans-unit id="user.form.has_children">
                 <source>user.form.has_children</source>
-                <target>Jag har barn:</target>
+                <target>هل لديك أولاد ؟</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype">
                 <source>user.form.fikatype</source>
-                <target>Jag vill bli:</target>
+                <target>أنا أريد أن أكون</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.fikafriend">
                 <source>user.form.fikatype.fikafriend</source>
-                <target>Fikakompis</target>
+                <target>رفيق فيكا</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.musicfriend">
                 <source>user.form.fikatype.musicfriend</source>
-                <target>Musikkompis</target>
+                <target>رفيق موسيقى</target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
@@ -340,23 +339,19 @@
             </trans-unit>
             <trans-unit id="user.settings.header">
                 <source>user.settings.header</source>
-                <target>Min profil</target>
+                <target>صفحتي الشخصية</target>
             </trans-unit>
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target><![CDATA[
-                    <p>Vad roligt att du vill vara med i Kompisbyrån. Här svarar du på några frågor om dig själv.
-                    Vi tror att det är det personliga mötet som förenar människor och vill skapa så bra förutsättningar
-                    för ett lyckat möte. Därför matchar vi ihop nya kompisar, främst utifrån gemensamma eller
-                    kompletterande intressen.</p><br />
+                    <p>هنا تجيب عن أسئلة تتعلق بك كشخص :كلما توسعت بالحديث عن نفسك أكثر كلما كانت الفرصة اكبر لكي نجد لك نطابق افضل, نحن نحاول إيجاد التطابق بين أشخاص ذوي أهداف متطابقة أو متكاملة ,إذا كان لديكم هدف مشترك تحاولون تحقيقه لطفا اجعل هذا واضحت في تعريفك بنفسك و نحن بدورنا سوف نرى إن كنا نستطبع استيعان ذلك و الاستفادة منه.
+                    يجب ان تكون قادرا على اللقاء في أحد المدن التسعة التالية: يوتوبوري, يونشوبينغ, لينشوبينغ,مالمو ستوكهولم, أوميو أوبسالا, فيستروس و أوربرو.</p><br />
 
-                    <p>Du kan bli Fikakompis eller Musikkompis: </p>
+                    <p>يمكنك أن تكون رفيق فيكا أو رفيق موسيقا</p>
                     <ul>
-                        <li>Fikakompis - Du blir matchad med en person som har liknande intressen som du har. Ni träffas och övar
-                        svenska på ett kafé i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
+                        <li>رفيق فيكا: تتم المطابقة على أساس الاهتمامات المشتركة بين الطرفين ثم تلتقيان في مكان ما لجلسة فيكا حوالي ساعة من الوقت.
 
-                        <li>Musikkompis - Du blir matchad med en person som också gillar musik. Ni träffas och utbyter musikerfarenheter
-                        på en offentlig plats i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.</ul>
+                        <li>رفيق موسيقا: تتم المطابقة  مع شخص لديه اهتمامات موسيقية ثم تلتقيان في مكان عام لتبادل الاهتمامات الموسيقية, مثلا الذهاب الى حفلة سويا او اللقاء للعزف سويا على الة موسيقية.</ul>
                     ]]>
                 </target>
             </trans-unit>
@@ -487,11 +482,11 @@
             </trans-unit>
             <trans-unit id="terms.outro">
                 <source>terms.outro</source>
-                <target>Tack för att du accepterar Kompisbyråns villkor!</target>
+                <target>شاكرين لكم قراءتكم لشروطنا وموافقتكم عليها.</target>
             </trans-unit>
             <trans-unit id="register.form.email_confirmation">
                 <source>register.form.email_confirmation</source>
-                <target>Ange e-post igen</target>
+                <target>أعد إدخال البريد الالكتروني</target>
             </trans-unit>
 
             <trans-unit id="user.welcome.message.subject">
