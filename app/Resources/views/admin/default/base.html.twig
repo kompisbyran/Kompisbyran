@@ -18,7 +18,7 @@
                             <ul class="dropdown-menu city-dropdown" aria-labelledby="dropdownMenu1">
                                 {% for city in cities %}
                                     <li>
-                                        <a href="{{ path(app.request.attributes.get('_route')) }}#{{ city.id }}" data-path="{{ path('admin_start', {'id': city.id}) }}" id="city-{{ city.id }}" data-city-id="{{ city.id }}" data-city-name="{{ city.name }}">{{ city.name }}</a>
+                                        <a href="{{ path(app.request.attributes.get('_route')) }}#{{ city.id }}" id="city-{{ city.id }}" data-city-id="{{ city.id }}" data-city-name="{{ city.name }}">{{ city.name }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
@@ -26,7 +26,7 @@
                     {% endif %}
                 </div>
                 <div class="col-md-8">
-                    <a href="{{ path('admin_start2') }}" class="btn btn-default btn-md">{{ 'Find matches' }}</a>
+                    <a href="{{ path('admin_start') }}" class="btn btn-default btn-md">{{ 'Find matches' }}</a>
                     <a href="{{ path('admin_manual') }}" class="btn btn-default btn-md">{{ 'Pending' }}</a>
                     <a href="{{ path('admin_inspection') }}" class="btn btn-default btn-md">{{ 'Inspection' }}</a>
                 </div>
