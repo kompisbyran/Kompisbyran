@@ -161,7 +161,7 @@ class MatchController extends Controller
                 }
             }
 
-            return $this->redirect($this->generateUrl('admin_start2'));
+            return $this->redirect($this->generateUrl('admin_start'));
         }
 
         throw $this->createNotFoundException();

@@ -97,9 +97,7 @@
                                     Admin<span class="fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ path('admin_start') }}">Fikakompisar att matcha</a></li>
-                                    <li><a href="{{ path('admin_start', {'type': 'musicfriend'}) }}">Musikkompisar att matcha</a></li>
-                                    <li><a href="{{ path('admin_start2') }}">Admin 2.0</a></li>
+                                    <li><a href="{{ path('admin_start') }}">Admin start</a></li>
                                     {% if is_granted('ROLE_SUPER_ADMIN') %}
                                         <li><a href="{{ path('admin_user_priviledges') }}">User Priviledges</a></li>
                                     {% endif %}

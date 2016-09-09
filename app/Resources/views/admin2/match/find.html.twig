@@ -272,7 +272,7 @@
                     if (resp.success) {
                         $('#userEditModal').modal('hide');
                         if ($('#userEditModal').hasClass('current')) {
-                            window.location = Routing.generate('admin_start2');
+                            window.location = Routing.generate('admin_start');
                         } else {
                             $('.btn-search').trigger('click');
                         }
@@ -287,7 +287,7 @@
                 $.get($this.attr('href'), function(resp) {
                     if (resp.success) {
                         if ($this.hasClass('go-back')) {
-                            window.location = '{{ path('admin_start2') }}';
+                            window.location = '{{ path('admin_start') }}';
                         } else {
                             $this.closest('.row').remove();
                         }
