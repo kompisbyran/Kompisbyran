@@ -1,0 +1,58 @@
+<?php
+
+namespace LeanlinkBundle\Tests\Service;
+
+use AppBundle\Entity\ConnectionRequest;
+use AppBundle\Entity\MusicCategory;
+use AppBundle\Entity\User;
+use AppBundle\Validator\Constraints\UserHasMusicCategories;
+use AppBundle\Validator\Constraints\UserHasMusicCategoriesValidator;
+use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+
+class UserHasMusicCategoriesValidatorTest extends AbstractConstraintValidatorTest
+{
+    protected function createValidator()
+    {
+        return new UserHasMusicCategoriesValidator();
+    }
+
+    /**
+     * @test
+     */
+    public function nonMusicConnectionRequestIsValid()
+    {
+        $connectionRequestMock = $this->getMock(ConnectionRequest::class);
+        $connectionRequestMock->expects($this->once())->method('isMusicFriend')->willReturn(false);
+        $connectionRequestMock->expects($this->never())->method('getUser');
+        $this->validator->validate($connectionRequestMock, new UserHasMusicCategories());
+        $this->assertNoViolation();
+    }
+
+    /**
+     * @test
+     */
+    public function musicConnectionRequestWithMusicCategoriesIsValid()
+    {
+        $userMock = $this->getMock(User::class);
+        $userMock->expects($this->once())->method('getMusicCategories')->willReturn([$this->getMock(MusicCategory::class)]);
+        $connectionRequestMock = $this->getMock(ConnectionRequest::class);
+        $connectionRequestMock->expects($this->once())->method('getUser')->willReturn($userMock);
+        $connectionRequestMock->expects($this->once())->method('isMusicFriend')->willReturn(true);
+        $this->validator->validate($connectionRequestMock, new UserHasMusicCategories());
+        $this->assertNoViolation();
+    }
+
+    /**
+     * @test
+     */
+    public function musicConnectionRequestWithoutMusicCategoriesIsNotValid()
+    {
+        $userMock = $this->getMock(User::class);
+        $userMock->expects($this->once())->method('getMusiCCategories')->willReturn([]);
+        $connectionRequestMock = $this->getMock(ConnectionRequest::class);
+        $connectionRequestMock->expects($this->once())->method('getUser')->willReturn($userMock);
+        $connectionRequestMock->expects($this->once())->method('isMusicFriend')->willReturn(true);
+        $this->validator->validate($connectionRequestMock, new UserHasMusicCategories());
+        $this->buildViolation('För att vara musikompis måste du ha anget några musikkategorier på din profil.')->assertRaised();
+    }
+}

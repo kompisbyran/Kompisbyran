@@ -30,7 +30,11 @@ class DefaultController extends Controller
             $connectionRequest->setUser($user);
             $connectionRequest->setWantToLearn($user->getWantToLearn());
             $connectionRequest->setMusicFriend($user->isMusicFriend());
-            $form = $this->createForm(new ConnectionRequestType(), $connectionRequest);
+            $form = $this->createForm(
+                new ConnectionRequestType(),
+                $connectionRequest,
+                ['validation_groups' => ['newConnectionRequest']]
+            );
 
             $form->handleRequest($request);
 
