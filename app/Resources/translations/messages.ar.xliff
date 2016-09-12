@@ -1,0 +1,647 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="error">
+                <source>error</source>
+                <target>Hoppsan nu vart det fel!</target>
+            </trans-unit>
+            <trans-unit id="error.active_request">
+                <source>error.active_request</source>
+                <target>Du har redan en aktiv kompisförfrågan hos Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="yes">
+                <source>yes</source>
+                <target>نعم</target>
+            </trans-unit>
+            <trans-unit id="no">
+                <source>no</source>
+                <target>لا</target>
+            </trans-unit>
+            <trans-unit id="global.he">
+                <source>global.he</source>
+                <target>han</target>
+            </trans-unit>
+            <trans-unit id="global.and">
+                <source>and</source>
+                <target>och</target>
+            </trans-unit>
+            <trans-unit id="global.his">
+                <source>global.his</source>
+                <target>hans</target>
+            </trans-unit>
+            <trans-unit id="global.her">
+                <source>global.her</source>
+                <target>hennes</target>
+            </trans-unit>
+            <trans-unit id="global.she">
+                <source>global.she</source>
+                <target>Hon</target>
+            </trans-unit>
+            <trans-unit id="global.music_buddy">
+                <source>global.music_buddy</source>
+                <target>رفيق موسيقى</target>
+            </trans-unit>
+            <trans-unit id="global.fika_buddy">
+                <source>global.fika_buddy</source>
+                <target>رفيق فيكا</target>
+            </trans-unit>
+            <trans-unit id="menu.home">
+                <source>menu.home</source>
+                <target>الصفحة الرئيسية</target>
+            </trans-unit>
+            <trans-unit id="menu.fikafriend">
+                <source>menu.fikafriend</source>
+                <target>أن تكون رفيق فيكا</target>
+            </trans-unit>
+            <trans-unit id="menu.musicfriend">
+                <source>menu.musicfriend</source>
+                <target>أن تكون رفيق موسيقى</target>
+            </trans-unit>
+            <trans-unit id="menu.support">
+                <source>menu.support</source>
+                <target>ادعمنا</target>
+            </trans-unit>
+            <trans-unit id="menu.about">
+                <source>menu.about</source>
+                <target>من نحن</target>
+            </trans-unit>
+            <trans-unit id="menu.signin">
+                <source>menu.signin</source>
+                <target>تسجيل الدخول</target>
+            </trans-unit>
+            <trans-unit id="menu.signin.fb">
+                <source>menu.signin.fb</source>
+                <target>Logga in med Facebook</target>
+            </trans-unit>
+            <trans-unit id="menu.signout">
+                <source>menu.signout</source>
+                <target>تسجيل الخروج</target>
+            </trans-unit>
+            <trans-unit id="menu.profile">
+                <source>menu.profile</source>
+                <target>صفحتي الشخصية</target>
+            </trans-unit>
+            <trans-unit id="menu.settings">
+                <source>menu.settings</source>
+                <target>الاعدادات</target>
+            </trans-unit>
+            <trans-unit id="footer.contact">
+                <source>footer.contact</source>
+                <target>Kontakta oss</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.header">
+                <source>homepage.cta.header</source>
+                <target>I Kompisbyrån övar vi svenska och fikar.</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.header.strong">
+                <source>homepage.cta.header.strong</source>
+                <target>Vill du vara med?</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.message">
+                <source>homepage.cta.message</source>
+                <target>
+                    <![CDATA[
+                    Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt
+                    mellan dig som är ny i Sverige och dig som har bott i Sverige länge. Du kan bli Fikakompis eller
+                    Musikkompis.<br><br>
+                    Som Fikakompis blir du matchad med en person med liknande intressen som du har. Ni träffas, fikar
+                    och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en Fikakompis idag!
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.button">
+                <source>homepage.cta.button</source>
+                <target>أن تكون رفيق فيكا</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.header">
+                <source>homepage.cta.musicfriend.header</source>
+                <target>Musikkompis.</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.header.strong">
+                <source>homepage.cta.musicfriend.header.strong</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message.strong">
+                <source>homepage.cta.musicfriend.message.strong</source>
+                <target>
+                    Dela ditt musikintresse med människor från olika kulturer.
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.message">
+                <source>homepage.cta.musicfriend.message</source>
+                <target>
+                    Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
+                    mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik
+                    tillsammans, lyssna eller prata musik över en fika.
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.musicfriend.button">
+                <source>homepage.cta.musicfriend.button</source>
+                <target>Bli Musikkompis</target>
+            </trans-unit>
+            <trans-unit id="register.create.header">
+                <source>register.create.header</source>
+                <target>انضم إلينا</target>
+            </trans-unit>
+            <trans-unit id="register.create.intro">
+                <source>register.create.intro</source>
+                <target>
+                    لتكوين صداقات جديدة عليك فقط أن تملأ البريد الالكتروني و كلمة السر
+                </target>
+            </trans-unit>
+            <trans-unit id="register.form.email">
+                <source>register.form.email</source>
+                <target>البريد الالكتروني</target>
+            </trans-unit>
+            <trans-unit id="register.form.password">
+                <source>register.form.password</source>
+                <target>كلمة السر</target>
+            </trans-unit>
+            <trans-unit id="register.form.password_confirmation">
+                <source>register.form.password_confirmation</source>
+                <target>كلمة السر أعد إدخال</target>
+            </trans-unit>
+            <trans-unit id="register.form.terms">
+                <source>register.form.terms</source>
+                <target>أنا أوافق على %linkStart%الشروط%linkEnd%</target>
+            </trans-unit>
+            <trans-unit id="register.form.button">
+                <source>register.form.button</source>
+                <target>انضم إلينا</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.subheader">
+                <source>register.musicfriend.subheader</source>
+                <target>Dela ditt musikintresse med människor från olika kulturer.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.ingress">
+                <source>register.musicfriend.ingress</source>
+                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
+                    <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.footer.header">
+                <source>register.musicfriend.footer.header</source>
+                <target>Musikkompis är ett initiativ av 3 och Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.footer.text">
+                <source>register.musicfriend.footer.text</source>
+                <target>Genom att dela musikupplevelser med varandra kan vi skapa många stunder av gemenskap och samhörighet oavsett var du kommer ifrån eller tror på. Stunder som i slutändan bidrar till större tolerans och ökad förståelse i samhället. Därför har vi startat projektet Musikkompis – ett ideellt samarbete mellan 3 och Kompisbyrån som syftar till att med musikens hjälp stärka integrationen och gemenskapen i samhället. Vi vill ge fler möjlighet att utöva musik tillsammans, människor som på olika nivåer sysslar med musik: artister, källarband, DJ:s, klassiska musiker, konsertbesökare och andra musikintresserade. Bli Musikkompis du också.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.videoheader">
+                <source>register.musicfriend.videoheader</source>
+                <target>Här kan du se andra musikkompisar och deras musikmöten</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.video1">
+                <source>register.musicfriend.video1</source>
+                <target>Naim Kassis, 45-årig pianist från Aleppo i Syrien, kom till Sverige för ett drygt år sedan och hamnade på ett asylboende i norra Sverige, där han under året har gett ett flertal konserter. En kall vinterdag träffades han och Sabina Ddumba, och tillsammans spelade de en version av Sabinas ”Not too young”, vilket lockade hela förläggningen att ta del av mötet.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.video2">
+                <source>register.musicfriend.video2</source>
+                <target>Filipe Minhava är en 19-årig gitarrist från Portugal och bor sedan tre månader hemma hos en kompis i Högdalen. Filipe och Little Jinder möttes på Södermalm i Stockholm och lärde känna varandra under en dag där de besökte en loppmarknad, kollade på LP-skivor och åt på restaurang, innan de rundade av sitt möte med att tillsammans sjunga La Bamba på en karaokebar.</target>
+            </trans-unit>
+            <trans-unit id="register.musicfriend.video3">
+                <source>register.musicfriend.video3</source>
+                <target>Bahar Hasko, en 25-årig, kurdisk engelskalärare, föddes i Kamishlo i Syrien. I dag bor och studerar hon i Sverige. Bahar och Eva Dahlgren träffades en dag och pratade om musik som språköverskridande. I slutet av dagen överraskades Eva av Bahar, som hade anordnat att en barnorkester spelade Evas klassiska ”Vem tänder stjärnorna”</target>
+            </trans-unit>
+            <trans-unit id="register.how_it_works.header">
+                <source>register.how_it_works.header</source>
+                <target>
+                    ...أن تكون رفيق فيكا
+                </target>
+            </trans-unit>
+            <trans-unit id="register.how_it_works.text">
+                <source>register.how_it_works.text</source>
+                <target>
+                    <![CDATA[
+                            <li>
+                                Gå med i Kompisbyrån genom att registrera dig. Skriv din e-post,
+                                ett lösenord som du bestämmer själv och klicka på "Gå med". Det är gratis att anmäla sig.
+                                Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
+                            </li>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="register.login.header">
+                <source>register.login.header</source>
+                <target>تسجيل الدخول</target>
+            </trans-unit>
+            <trans-unit id="register.login.intro">
+                <source>register.login.intro</source>
+                <target>إذا كان لديك حساب مسبقا فيمكنك تسجيل الدخول بكتابة البريد الالكتروني و كلمة السر. إذا كانت هذه هي المرة الاولى اضغط هنا.</target>
+            </trans-unit>
+            <trans-unit id="login.form.email">
+                <source>login.form.email</source>
+                <target>البريد الالكتروني</target>
+            </trans-unit>
+            <trans-unit id="login.form.password">
+                <source>login.form.password</source>
+                <target>كلمة السر</target>
+            </trans-unit>
+            <trans-unit id="login.form.button">
+                <source>login.form.button</source>
+                <target>تسجيل الدخول</target>
+            </trans-unit>
+            <trans-unit id="login.forgot_password">
+                <source>login.forgot_password</source>
+                <target>نسيت كلمة السر؟</target>
+            </trans-unit>
+            <trans-unit id="user.form.first_name">
+                <source>user.form.first_name</source>
+                <target>الاسم الاول</target>
+            </trans-unit>
+            <trans-unit id="user.form.last_name">
+                <source>user.form.last_name</source>
+                <target>الكنية</target>
+            </trans-unit>
+            <trans-unit id="user.form.want_to_learn">
+                <source>user.form.want_to_learn</source>
+                <target>أي البدائل هي الافضل لك ؟</target>
+            </trans-unit>
+            <trans-unit id="user.form.want_to_learn.choice.learn">
+                <source>user.form.want_to_learn.choice.learn</source>
+                <target>أنا لا أتحدث السويدية بطلاقة و أنا مقيم في السويد</target>
+            </trans-unit>
+            <trans-unit id="user.form.want_to_learn.choice.teach">
+                <source>user.form.want_to_learn.choice.teach</source>
+                <target>أنا أتحدث السويدية بطلاقة و أنا مقيم في السويد</target>
+            </trans-unit>
+            <trans-unit id="user.form.categories">
+                <source>user.form.categories</source>
+                <target>أنا مهتم بما يلي</target>
+            </trans-unit>
+            <trans-unit id="user.form.age">
+                <source>user.form.age</source>
+                <target>العمر</target>
+            </trans-unit>
+            <trans-unit id="user.form.gender">
+                <source>user.form.gender</source>
+                <target>أنا</target>
+            </trans-unit>
+            <trans-unit id="user.form.gender.m">
+                <source>user.form.gender.m</source>
+                <target>ذكر</target>
+            </trans-unit>
+            <trans-unit id="user.form.gender.f">
+                <source>user.form.gender.f</source>
+                <target>أنثى</target>
+            </trans-unit>
+            <trans-unit id="user.form.gender.x">
+                <source>user.form.gender.x</source>
+                <target>شيء اخر</target>
+            </trans-unit>
+            <trans-unit id="user.form.about">
+                <source>user.form.about</source>
+                <target> تحدث عن نفسك. اذا كنت تريد  أن تكون رفيق موسيقى تحدث عن اهتماماتك الموسيقية</target>
+            </trans-unit>
+            <trans-unit id="user.form.about.help">
+                <source>user.form.about.help</source>
+                <target>كمثال.... ماذا تحب أن تفعل؟ من أنت كشخص؟ الدراسة او العمل؟ ما المدة التي قضيتها في السويد؟ أما صديق الموسيقى فتحدث عن الالة التي تعزفها و الموسيقى التي تحبها.</target>
+            </trans-unit>
+            <trans-unit id="user.form.from">
+                <source>user.form.from</source>
+                <target>البلد التي اتيت منها ؟</target>
+            </trans-unit>
+            <trans-unit id="user.form.city">
+                <source>user.form.city</source>
+                <target>Jag kan träffas i (stad):</target>
+            </trans-unit>
+            <trans-unit id="user.form.municipality">
+                <source>user.form.municipality</source>
+                <target>أنا أعيش في (بلدية)</target>
+            </trans-unit>
+            <trans-unit id="user.form.district">
+                <source>user.form.district</source>
+                <target>Jag bor i (stadsdel):</target>
+            </trans-unit>
+            <trans-unit id="user.form.has_children">
+                <source>user.form.has_children</source>
+                <target>هل لديك أولاد ؟</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype">
+                <source>user.form.fikatype</source>
+                <target>أنا أريد أن أكون</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.fikafriend">
+                <source>user.form.fikatype.fikafriend</source>
+                <target>رفيق فيكا</target>
+            </trans-unit>
+            <trans-unit id="user.form.fikatype.musicfriend">
+                <source>user.form.fikatype.musicfriend</source>
+                <target>رفيق موسيقى</target>
+            </trans-unit>
+            <trans-unit id="user.form.facebook">
+                <source>user.form.facebook</source>
+                <target>Hämta din profilbild från Facebook</target>
+            </trans-unit>
+            <trans-unit id="user.form.button">
+                <source>user.form.button</source>
+                <target>Spara</target>
+            </trans-unit>
+            <trans-unit id="user.settings.header">
+                <source>user.settings.header</source>
+                <target>صفحتي الشخصية</target>
+            </trans-unit>
+            <trans-unit id="user.settings.intro">
+                <source>user.settings.intro</source>
+                <target><![CDATA[
+                    <p>هنا تجيب عن أسئلة تتعلق بك كشخص :كلما توسعت بالحديث عن نفسك أكثر كلما كانت الفرصة اكبر لكي نجد لك نطابق افضل, نحن نحاول إيجاد التطابق بين أشخاص ذوي أهداف متطابقة أو متكاملة ,إذا كان لديكم هدف مشترك تحاولون تحقيقه لطفا اجعل هذا واضحت في تعريفك بنفسك و نحن بدورنا سوف نرى إن كنا نستطبع استيعان ذلك و الاستفادة منه.
+                    يجب ان تكون قادرا على اللقاء في أحد المدن التسعة التالية: يوتوبوري, يونشوبينغ, لينشوبينغ,مالمو ستوكهولم, أوميو أوبسالا, فيستروس و أوربرو.</p><br />
+
+                    <p>يمكنك أن تكون رفيق فيكا أو رفيق موسيقا</p>
+                    <ul>
+                        <li>رفيق فيكا: تتم المطابقة على أساس الاهتمامات المشتركة بين الطرفين ثم تلتقيان في مكان ما لجلسة فيكا حوالي ساعة من الوقت.
+
+                        <li>رفيق موسيقا: تتم المطابقة  مع شخص لديه اهتمامات موسيقية ثم تلتقيان في مكان عام لتبادل الاهتمامات الموسيقية, مثلا الذهاب الى حفلة سويا او اللقاء للعزف سويا على الة موسيقية.</ul>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="index.header">
+                <source>index.header</source>
+                <target>Välkommen till Kompisbyrån!</target>
+            </trans-unit>
+            <trans-unit id="index.intro">
+                <source>index.intro</source>
+                <target>Här kan du anmäla dig igen för att träffa nya Fikakompisar eller Musikkompisar.
+                Du ser även dina tidigare kompismöten och intresseanmälningar till att träffa nya kompisar.
+
+                    Vill du ändra din ansökan trycker du först på "Min profil" och sedan på "Inställningar" i menyn.</target>
+            </trans-unit>
+            <trans-unit id="index.previous.header">
+                <source>index.previous.header</source>
+                <target>Tidigare kompismöten</target>
+            </trans-unit>
+            <trans-unit id="index.connection_request.header">
+                <source>index.connection_request.header</source>
+                <target>Intresseanmälningar</target>
+            </trans-unit>
+            <trans-unit id="index.connection_request.want_to_learn.learn">
+                <source>index.connection_request.want_to_learn.learn</source>
+                <target>Du väntar på en matchning</target>
+            </trans-unit>
+            <trans-unit id="index.connection_request.want_to_learn.teach">
+                <source>index.connection_request.want_to_learn.teach</source>
+                <target>Du väntar på en matchning</target>
+            </trans-unit>
+            <trans-unit id="index.again.header">
+                <source>index.again.header</source>
+                <target>Jag vill träffa ny kompis</target>
+            </trans-unit>
+            <trans-unit id="index.again.intro">
+                <source>index.again.intro</source>
+                <target>
+                    Om du vill träffa en ny Fikakompis eller Musikkompis, väljer du stad och trycker på knappen "Kompisfika".
+                </target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.city">
+                <source>connection_request.form.city</source>
+                <target>Jag kan träffas i (stad):</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.comment">
+                <source>connection_request.form.comment</source>
+                <target>Meddelande till Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.button">
+                <source>connection_request.form.button</source>
+                <target>Kompisfika</target>
+            </trans-unit>
+            <trans-unit id="terms.header">
+                <source>terms.header</source>
+                <target>Villkor</target>
+            </trans-unit>
+            <trans-unit id="terms.ingress">
+                <source>terms.ingress</source>
+                <target>Kompisbyrån förmedlar kontakten mellan personer som är nya i Sverige med personer som har bott i Sverige länge.</target>
+            </trans-unit>
+            <trans-unit id="terms.list">
+                <source>terms.list</source>
+                <target><![CDATA[
+                    <ul>
+                        <li>
+                            Kompisbyrån förmedlar kontakten mellan personer som är nya i Sverige med personer som har bott 
+                            i Sverige länge. Tanken är att ge dig möjlighet att träffa flera olika personer med annan 
+                            bakgrund än din egen, för att kunna skapa ett socialt nätverk.
+                        </li>
+                        <li>
+                            Kompisbyrån skapar kontakt mellan nya kompisar baserat på liknande intressen. 
+                        </li>
+                        <li>
+                            Du måste kunna träffas i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås 
+                            eller Örebro.
+                        </li>
+                        <li>
+                            Kompisbyrån ansvarar endast för att matcha ihop personer som har bott i Sverige under kortare tid med 
+                            personer som har bott i Sverige länge. 
+                        </li>
+                        <li>
+                            Utgångspunkten är att en kompisfika eller ett musikmöte med samma person sker en gång. Gillar ni 
+                            varandra får ni gärna träffas igen själva. Vill du träffa en ny fikakompis eller musikkompis, loggar 
+                            du in och gör en ny förfrågan. 
+                        </li>
+                        <li>
+                            Alla över 18 år (myndiga) får delta.
+                        </li>
+                        <li>
+                            Du betalar bara för din egen fika, att registrera sig är gratis.
+                        </li>
+                        <li>
+                            Kompisbyrån rekommenderar att ni träffas ungefär 1 timme på ett offentligt ställe i stadens centrala del.
+                        </li>
+                        <li>
+                            När du har registrerat din ansökan garanterar du att din information är korrekt och godkänner att 
+                            informationen; kan komma att behandlas enligt PUL och hamnar i Kompisbyråns register så att vi kan hitta 
+                            nya kompisar till dig, att din information och e-mail skickas till din nya kompis, och att vi bjuder in 
+                            dig till Kompisbyråns aktiviteter eller erbjudanden. Om du vill korrigera dina lämnade uppgifter som finns 
+                            registrerade hos oss, vänligen logga in med din e-mail och ditt lösenord och uppdatera din profil. 
+                            Personuppgiftsansvarig är Kompisbyråns styrelse.
+                        </li>
+                        <li>
+                            Vår ambition är att hitta en ny kompis till dig inom 30 dagar, men det kan ta både kortare och längre tid 
+                            beroende på din profil och hur många personer som också vill träffa nya kompisar. Det innebär att du kan få vänta.
+                        </li>
+                        <li>
+                            När vi har tagit emot din ansökan, bekräftar vi detta genom att skicka ett e-mail till dig.
+                        </li>
+                        <li>
+                            Du bör skicka ett e-mail till din nya fikakompis och bestämma när ni kan träffas inom 7 dagar.
+                        </li>
+                        <li>
+                            Du måste behandla alla på ett respektfullt sätt. Tänk på att vara tydliga mot varandra då 
+                            språkskillnader kan skapa missuppfattningar.
+                        </li>
+                        <li>
+                            Om du vill avregistrera dig, skicka ett e-mail till kontakt@kompisbyran.se.
+                        </li>
+                        <li>
+                            Kompisbyrån kan inte garantera att vi hittar en ny kompis till dig men vi gör alltid vårt bästa.
+                        </li>
+                        <li>
+                            Vi vill hela tiden bli bättre på vårt arbete. Därför skickar vi ett e-mail till dig efter att du har
+                            träffat din nya kompis för att fråga hur ert möte var.
+                        </li>
+                    </ul>]]></target>
+            </trans-unit>
+            <trans-unit id="terms.outro">
+                <source>terms.outro</source>
+                <target>شاكرين لكم قراءتكم لشروطنا وموافقتكم عليها.</target>
+            </trans-unit>
+            <trans-unit id="register.form.email_confirmation">
+                <source>register.form.email_confirmation</source>
+                <target>أعد إدخال البريد الالكتروني</target>
+            </trans-unit>
+
+            <trans-unit id="user.welcome.message.subject">
+                <source>user.welcome.message.subject</source>
+                <target>Välkommen till Kompisbyrån - Welcome to Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="user.welcome.message.body">
+                <source>user.welcome.message.body</source>
+                <target><![CDATA[
+                    <p>(This message will follow in English)<br /><br /></p>
+                    <p>Hej!<br /></p>
+                    <p>
+                        Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 4 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.<br /><br />
+                        Vi vill informera dig om att vi kommer gå ner i tempo nu under sommaren och är tillbaka i augusti i full kapacitet. Vi hoppas kunna hitta en bra matchning till dig snart, och vi hoppas att du vill vänta.
+
+                        Om du har några frågor, vänligen skicka ett e-mail till oss :)
+                    </p>
+                    <p>
+                        Bästa hälsningar,<br />
+                        Alla på Kompisbyrån
+
+                    <p>----------------------<br /></p>
+                    <p>
+                        Thank you for making a Fika friend request through Kompisbyrån!<br /><br />
+                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends. We would like to inform you that we will have a lower pace during the summer and is back with full capacity in August. We hope that we will find a good match for you soon, and we hope that you will wait.<br /><br />
+                    </p>
+                    <p>
+                        Best regards,<br />
+                        Kompisbyrån
+
+                    </p>]]></target>
+            </trans-unit>
+            <trans-unit id="user.welcome.message.body.txt">
+                <source>user.welcome.message.body.txt</source>
+                <target>
+                    Hej!
+
+                    Tack för att du har anmält dig till en kompisfika via Kompisbyrån! Vi mailar dig när vi har hittat en ny Fikakompis som har liknande intressen som du. Vår ambition är att hitta en Fikakompis till dig inom 4 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Fikakompisar.
+                    Vi vill informera dig om att vi kommer gå ner i tempo nu under sommaren och är tillbaka i augusti i full kapacitet. Vi hoppas kunna hitta en bra matchning till dig snart, och vi hoppas att du vill vänta.
+                    
+                    Om du har några frågor, vänligen skicka ett e-mail till oss :)
+
+                    Bästa hälsningar
+                    Alla på Kompisbyrån
+
+                    ----------------------
+                        Thank you for making a Fika friend request through Kompisbyrån!
+                        We will send you an e-mail as soon as we have found a new Fika friend for you who has similar interests that you have. Our ambition is to find a Fika friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Fika friends.
+                        We would like to inform you that we will have a lower pace during the summer and is back with full capacity in August. We hope that we will find a good match for you soon, and we hope that you will wait.
+
+                        Best regards,
+                        Kompisbyrån
+
+                  </target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.subject">
+                <source>user.friend.welcome.message.subject</source>
+                <target>Tack för att du blivit Musikkompis hos Kompisbyrån!</target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.body">
+                <source>user.friend.welcome.message.body</source>
+
+                    <target><![CDATA[
+                        <p>(This message will follow in English)<br /><br /></p>
+                        <p>Hej!<br /></p>
+                        <p>
+                          Tack för att du har anmält dig till Musikkompis! Vi mailar dig när vi har hittat en Musikkompis som passar just dig. Vår ambition är att hitta en Musikkompis till dig inom 4 veckor, men det kan ta både kortare och längre tid beroende på din profil och hur många det är som också vill träffa nya Musikkompisar.<br /><br />
+                            Vi vill informera dig om att vi kommer gå ner i tempo nu under sommaren och är tillbaka i augusti i full kapacitet. Vi hoppas kunna hitta en bra matchning till dig snart, och vi hoppas att du vill vänta.
+
+                            Om du har några frågor, vänligen skicka ett e-mail till oss :)
+                        </p>
+                        <p>
+                            Bästa hälsningar,<br />
+                            Alla på Kompisbyrån
+
+                        <p>----------------------<br /></p>
+                        <p>
+                            Thank you for making a Music friend request through Kompisbyrån!<br /><br />
+                            We will send you an e-mail as soon as we have found a new Music friend for you who has similar interests that you have. Our ambition is to find a Music friend for you within 4 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends. We would like to inform you that we will have a lower pace during the summer and is back with full capacity in August. We hope that we will find a good match for you soon, and we hope that you will wait. <br /><br />
+                        </p>
+                        <p>
+                            Best regards,<br />
+                            Kompisbyrån
+
+                        </p>]]></target>
+            </trans-unit>
+            <trans-unit id="user.friend.welcome.message.body.txt">
+                <source>user.friend.welcome.message.body.txt</source>
+                <target>
+                    Thank you for making a Music friend request through Kompisbyrån!
+                    We will send you an e-mail as soon as we have found a Music friend for you. Our ambition is to find a friend for you within 2 weeks but it can take both shorter and longer time depending on your profile and how many people there are who also want to find new Music friends.
+                    We would like to inform you that we will have a lower pace during the summer and is back with full capacity in August. We hope that we will find a good match for you soon, and we hope that you will wait.
+
+                    If you have any questions, please send us an e-mail :)
+
+                    Best regards,
+                    Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="match.email.user">
+                <source>match.email.user</source>
+                <target><![CDATA[(This message will follow in English)
+
+Hej %user_name%!
+
+Vad kul att du vill vara med i Kompisbyrån!
+
+Vi har hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%.
+
+%match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
+
+Din %match_music_friend% e-mail är: %match_email% Vi har också skickat din e-mail till din %match_music_friend%.
+
+Gör så här:
+1. Skicka ett e-mail till din nya kompis och bestäm dag, tid och plats där ni ska ses. Skicka mailet inom 7 dagar. Vi rekommenderar att ni ses på en offentlig plats i cirka 1 timme, och att ni byter telefonnummer så att ni får tag på varandra.
+
+2. Ni träffas!
+
+3. Under eller efter ert möte, ta gärna ett foto och skriv ett par meningar om hur mötet var. Maila fotohälsningen till oss, matchning@kompisbyran.se. Vi kommer att dela detta digitalt för att uppmuntra fler till att vara med i Kompisbyrån.
+
+Om du har frågor, kontakta oss! Vi önskar er ett trevligt möte!
+
+Bästa hälsningar
+Vännerna på Kompisbyrån
+
+
+--------- English version ---------
+
+Hello %user_name%!
+
+Thank you for being a part of Kompisbyrån!
+
+We have found a person for you to meet. The person you will meet is %match_name% and both of you like %match_categories%.
+
+%match_name% is %match_age% years old, lives in %match_area% and is from %match_from%. %match_name% would like to meet you in %match_city%.
+
+The email adress to %match_name% is: %match_email%. We have also sent your email adress to %match_name%.
+
+Please follow the steps below:
+
+1. Send an email to %match_name% and decide date, time and place where you should meet. Send the email within 7 days. We recommend that you meet at a public place for about 1 hour, and exchange phone numbers so that you can reach each other.
+
+2. You meet each other!
+
+3. During or after your meeting, we would be very happy if you would like to take a photo and write some sentences about your experience. Please, send the photo greeting to: matchning@kompisbyran.se so that we can share your story digitally to encourage more people to join.
+
+Please, contact us if you have any questions! We wish you a nice meeting!
+
+Best regards,
+Your friends at Kompisbyrån
+]]></target>
+            </trans-unit>
+            <trans-unit id="match.email.user.subject">
+                <source>match.email.user.subject</source>
+                <target>%user_name%, här är din %match_music_friend% från Kompisbyrån</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

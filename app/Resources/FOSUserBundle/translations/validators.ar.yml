@@ -1,0 +1,3 @@
+fos_user:
+    email:
+        mismatch: De angivna e-postadress matchar inte
