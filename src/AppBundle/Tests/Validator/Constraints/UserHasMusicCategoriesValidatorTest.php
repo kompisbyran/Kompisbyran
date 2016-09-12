@@ -21,7 +21,7 @@ class UserHasMusicCategoriesValidatorTest extends AbstractConstraintValidatorTes
      */
     public function nonMusicConnectionRequestIsValid()
     {
-        $connectionRequestMock = $this->getMock(ConnectionRequest::class);
+        $connectionRequestMock = $this->getMock('AppBundle\Entity\ConnectionRequest');
         $connectionRequestMock->expects($this->once())->method('isMusicFriend')->willReturn(false);
         $connectionRequestMock->expects($this->never())->method('getUser');
         $this->validator->validate($connectionRequestMock, new UserHasMusicCategories());
@@ -33,9 +33,9 @@ class UserHasMusicCategoriesValidatorTest extends AbstractConstraintValidatorTes
      */
     public function musicConnectionRequestWithMusicCategoriesIsValid()
     {
-        $userMock = $this->getMock(User::class);
-        $userMock->expects($this->once())->method('getMusicCategories')->willReturn([$this->getMock(MusicCategory::class)]);
-        $connectionRequestMock = $this->getMock(ConnectionRequest::class);
+        $userMock = $this->getMock('AppBundle\Entity\User');
+        $userMock->expects($this->once())->method('getMusicCategories')->willReturn([$this->getMock('AppBundle\Entity\MusicCategory')]);
+        $connectionRequestMock = $this->getMock('AppBundle\Entity\ConnectionRequest');
         $connectionRequestMock->expects($this->once())->method('getUser')->willReturn($userMock);
         $connectionRequestMock->expects($this->once())->method('isMusicFriend')->willReturn(true);
         $this->validator->validate($connectionRequestMock, new UserHasMusicCategories());
@@ -47,9 +47,9 @@ class UserHasMusicCategoriesValidatorTest extends AbstractConstraintValidatorTes
      */
     public function musicConnectionRequestWithoutMusicCategoriesIsNotValid()
     {
-        $userMock = $this->getMock(User::class);
+        $userMock = $this->getMock('AppBundle\Entity\User');
         $userMock->expects($this->once())->method('getMusiCCategories')->willReturn([]);
-        $connectionRequestMock = $this->getMock(ConnectionRequest::class);
+        $connectionRequestMock = $this->getMock('AppBundle\Entity\ConnectionRequest');
         $connectionRequestMock->expects($this->once())->method('getUser')->willReturn($userMock);
         $connectionRequestMock->expects($this->once())->method('isMusicFriend')->willReturn(true);
         $this->validator->validate($connectionRequestMock, new UserHasMusicCategories());
