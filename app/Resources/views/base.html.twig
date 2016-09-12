@@ -158,13 +158,15 @@
                 <div class="col-md-8 col-sm-10">
                     <div class="footer-widget">
                         <h4><i class="fa fa-users"></i> &nbsp; {{'menu.about'|trans}}</h4>
-                        <p>Emma Hammar och Cecilia Holmgren startade Kompisbyrån 2014. Kompisbyrån är en ideell
-                            förening som vill göra det lätt för människor att träffas i vardagen. Genom att kompisfika
-                            skapas kontakt mellan personer som vill träna på att prata svenska och personer som har bott i
-                            Sverige länge. Hittills har tusentals människor från 79 länder träffats genom Kompisbyrån.
-                            </p>
-                            <p>Läs igenom våra <a href="{{ path('terms') }}">villkor</a> innan du anmäler dig till en fika.</p>
-                            <p>Vill du ge fler möjlighet att träffa nya Fikakompisar? Stöd Kompisbyrån med ett bidrag på valfri summa: BG 386-3982</p>
+                        <p>
+                            {{ 'footer.text1'|trans }}
+                        </p>
+                        <p>
+                            {{ 'footer.text2'|trans({'%link%': path('terms')})|raw }}
+                        </p>
+                        <p>
+                            {{ 'footer.text3'|trans }}
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-5">
