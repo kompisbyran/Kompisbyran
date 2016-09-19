@@ -766,25 +766,28 @@ Your friends at Kompisbyrån
             <trans-unit id="footer.text1">
                 <source>footer.text1</source>
                 <target>
-                    Emma Hammar och Cecilia Holmgren startade Kompisbyrån 2014. Kompisbyrån är en ideell
-                    förening som vill göra det lätt för människor att träffas i vardagen. Genom att kompisfika
-                    skapas kontakt mellan personer som vill träna på att prata svenska och personer som har bott i
-                    Sverige länge. Hittills har tusentals människor från 79 länder träffats genom Kompisbyrån.
+                    Kompisbyrån är en ideell organisation sedan 2014, som länkar samman nya fikakompisar 
+                    med olika bakgrund och erfarenheter men med liknande intressen. En ny och en etablerad 
+                    svensk träffas för att öva svenska och fika, med syftet att öka gemenskapen i samhället.  
+                    Vår vision är att göra integration enkel och tillgänglig för alla. Idag finns Kompisbyrån 
+                    i nio städer, tiotal aktiva som arbetar ideellt och närmre 10 000 kontakter från 126 länder 
+                    har förmedlats.
                 </target>
             </trans-unit>
             <trans-unit id="footer.text2">
                 <source>footer.text2</source>
                 <target>
                     <![CDATA[
-                        Läs igenom våra <a href="%link%">villkor</a> innan du anmäler dig till en fika.
+                        Läs noga igenom Kompisbyråns <a href="%link%">villkor</a> innan du anmäler dig till en fika.
                     ]]>
                 </target>
             </trans-unit>
             <trans-unit id="footer.text3">
                 <source>footer.text3</source>
                 <target>
-                    Vill du ge fler möjlighet att träffa nya Fikakompisar? Stöd Kompisbyrån med ett bidrag på valfri
-                    summa: BG 386-3982
+                    Stöd oss och låt fler få chansen att träffa en ny fikakompis att öva svenska med. Din gåva är väldigt 
+                    värdefull för oss, oavsett hur mycket eller lite du väljer att skänka: Kompisbyråns Swishnr 1236 809 602 eller BG-konto 386-3982.
+
                 </target>
             </trans-unit>
             <trans-unit id="page.how_it_works.header">
@@ -892,6 +895,19 @@ Your friends at Kompisbyrån
                             mötas och träffa nya vänner i vardagen. I och med detta har vi möjlighet att nå ut till fler som
                             vill träffa nya kompisar.
                         </p>
+                        
+                        <h3>Ett särskilt tack till...</h3>
+                        <p>
+                            Carl Lindström
+                            Jessie Moberg
+                            Johanna Nordin
+                            Mikael Öhrén 
+                            Noa Bachner
+                            Sameer Marmary
+                            Sebastian Stenlund
+                            Stella Hernström
+                            Stina Wäppling
+                        </p>
                     ]]>
                 </target>
             </trans-unit>
@@ -964,11 +980,12 @@ Your friends at Kompisbyrån
                             Stockholm: <a href="mailto:stockholm@kompisbyran.se">stockholm@kompisbyran.se</a><br>
                             Umeå: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
                             Uppsala: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
+                            Västerås: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
                             Örebro: <a href="mailto:orebro@kompisbyran.se">orebro@kompisbyran.se</a><br>
 
-                            Övrigt: <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a><br>
-
                             Frågor om samarbete, rekrytering eller press: kontakta <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a> eller <a href="mailto:cecilia@kompisbyran.se ">cecilia@kompisbyran.se </a>
+                            
+                            Övrigt: <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a><br>
                         </p>
                     ]]>
                 </target>
