@@ -103,7 +103,7 @@
                 <target>
                     <![CDATA[
                     Kompisbyrån creates contact between a new and an established Swede with similar interests, who meet 
-                    for about 1 hour at a public place.  You can sign up as a Fika friend (Fikakompis) or Music friend 
+                    for about 1 hour at a public place. You can sign up as a Fika friend (Fikakompis) or Music friend 
                     (Musikkompis).<br><br>
                     
                     Fika friend. You meet over a “fika” and speak Swedish for about 1 hour. You know in advanced that 
@@ -232,8 +232,13 @@
                 <target>
                     <![CDATA[
                             <li>
-                                Join Kompisbyrån. Write your e-mail, a password of your choice and push the ”Sign up” button.
-                                It is free to register. Please, read more about Kompisbyrån’s terms before you sign up.
+                                Write your e-mail, a password of your choice and push the ”Sign up” button.
+                            </li>
+                            <li>
+                                Please, read more about Kompisbyrån’s terms before you sign up. 
+                            </li>
+                            <li>
+                                It is free to register.
                             </li>
                     ]]>
                 </target>
@@ -244,7 +249,7 @@
             </trans-unit>
             <trans-unit id="register.login.intro">
                 <source>register.login.intro</source>
-                <target>If you already has sent us an application, please log in by writing your e-mail and password. If you visit us for the first time, please create an application.</target>
+                <target>If you already has sent us an application, please log in by writing your e-mail and password. If you visit us for the first time, you have to create an application.</target>
             </trans-unit>
             <trans-unit id="login.form.email">
                 <source>login.form.email</source>
@@ -695,62 +700,66 @@ Your friends at Kompisbyrån
             <trans-unit id="footer.text1">
                 <source>footer.text1</source>
                 <target>
-                    Emma Hammar och Cecilia Holmgren startade Kompisbyrån 2014. Kompisbyrån är en ideell
-                    förening som vill göra det lätt för människor att träffas i vardagen. Genom att kompisfika
-                    skapas kontakt mellan personer som vill träna på att prata svenska och personer som har bott i
-                    Sverige länge. Hittills har tusentals människor från 79 länder träffats genom Kompisbyrån.
+                    Kompisbyrån is an non-profit organization since 2014. We connect new fika friends with 
+                    different backgrounds and experiences but with similar interests. A new and an established 
+                    Swede meet to practise Swedish over a “fika”. We want to make integration easy and accessible. 
+                    Today, Kompisbyrån is active in 9 cities, has a dozen active ambassadours, and nearly 10 000 
+                    contacts from 126 countries has been mediated.
                 </target>
             </trans-unit>
             <trans-unit id="footer.text2">
                 <source>footer.text2</source>
                 <target>
                     <![CDATA[
-                        Läs igenom våra <a href="%link%">villkor</a> innan du anmäler dig till en fika.
+                        Read our <a href="%link%">terms</a> very carefully before you sign up.
                     ]]>
                 </target>
             </trans-unit>
             <trans-unit id="footer.text3">
                 <source>footer.text3</source>
                 <target>
-                    Vill du ge fler möjlighet att träffa nya Fikakompisar? Stöd Kompisbyrån med ett bidrag på valfri
-                    summa: BG 386-3982
+                    Support us, and you will give the chance for more people to meet new fika friends. Your gift is very valuable to us, 
+                    no matter how much or little you choose to donate. Kompisbyrån's Swish number is: 1236 809 602 or BG account 386-3982. 
                 </target>
             </trans-unit>
             <trans-unit id="page.how_it_works.header">
                 <source>page.how_it_works.header</source>
-                <target>Bli Fikakompis</target>
+                <target>Fika friend</target>
             </trans-unit>
             <trans-unit id="page.how_it_works.text">
                 <source>page.how_it_works.text</source>
                 <target>
                     <![CDATA[
                         <p>
-                            Kompisbyrån skapar kontakt mellan två nya fikakompisar med liknande intressen. Syftet är att prata svenska över
-                            en fika. En person är ny i Sverige och en person har bott i Sverige länge. Ni träffas på ett kafé i cirka 1
-                            timme och pratar svenska. Det är det vi kallar för en “kompisfika”. Om ni tycker det är roligt får ni gärna
-                            ses igen på egen hand. Om inte, gör inte det något för timmen har ändå uppfyllt sitt syfte.
+                            Kompisbyrån creates contact between two new fika friends who have with similar interests. The aim is to speak 
+                            Swedish during a “fika”. One person is new in Sweden, and one person has lived in Sweden for a long time. 
+                            They meet at a café for about 1 hour and speak Swedish. That is what we call a “friend fika” (kompisfika). 
+                            If you think it is fun, you can meet again on your own. If not, it doesn’t matter since the hour still has fulfilled 
+                            its purpose. 
                         </p>
                         <p>
-                            Vi låter varje person själv bestämma hur han eller hon vill definiera sig, så det är du som bestämmer om du
-                            definierar dig som ny eller etablerad. Som <strong>ny svensk</strong> vill du lära dig prata bättre svenska,
-                            det spelar ingen roll hur lång eller kort tid du har bott i Sverige. Som <strong>etablerad svensk</strong> har du
-                            svenska som modersmål eller motsvarande, har bott i Sverige under lång tid och kan lära ut svenska.
+                            We let each person decide how they want to define themselves, as new or established. Being <strong>new in Sweden</strong>, 
+                            you want to speak better Swedish, it does not matter how long or short period of time you have lived in Sweden. As 
+                            <strong>established in Sweden</strong>, you have Swedish as a mother toungue or equivalent, and can tech Swedish in order 
+                            to help someone to improve their Swedish pronunciation, vocabulary and so on.  
                         </p>
                         <p>
-                            Så här går det till:
+                            This is how it works:
                         </p>
                         <p>
-                            1. Du registrerar dig. Tryck på "Bli Fikakompis"-knappen och följ instruktionerna, det är gratis att registrera sig.
-                            Du måste kunna träffas i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
+                            1. <strong>Registration.</strong> Press the “Sign up”-button (“Bli fikakompis”-knappen) and follow the instructions. The registration is 
+                            for free. You need to be able to meet a person in Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås 
+                            or Örebro.
                         </p>
                         <p>
-                            2. Matchning. Vi skickar ett email till dig när vi har hittat en fikakompis som har liknande intressen som du har.
+                            2. <strong>Match.</strong> We will send you an email (often within 1-30 days) when we have found a a good match who has similar interests as you. 
+                            (If you need to complete your application, we will let you know)
                         </p>
                         <p>
-                            3. Bestäm ett datum. Du skickar ett email till din fikakompis inom 7 dagar och bestämmer datum, tid och plats.
+                            3. <strong>Decide a date.</strong> You send an email to the person within 7 days, and decide date, time and place. 
                         </p>
                         <p>
-                            4. Mötet. Ni träffas för att prata svenska på ett kafé eller annat offentligt ställe i cirka 1 timme.
+                            4. <strong>Meeting.</strong> You meet and speak Swedish at a café or another public place for about 1 hour. 
                         </p>
                     ]]>
                 </target>
@@ -758,98 +767,106 @@ Your friends at Kompisbyrån
             <trans-unit id="page.how_it_works.well">
                 <source>page.how_it_works.well</source>
                 <target>
-                    Vi förmedlar första kontakten till en fikakompis som du träffar 1 gång (om ni inte kommer överens om
-                    annat). Vill du träffa en ny fikakompis, loggar du in och gör en ny förfrågan.
+                    We mediate the firs contact to a new fika friend that you meet 1 time (if you two don’t decide other). If you want to meet 
+                    a new person, you can log in and make a new request. 
                 </target>
             </trans-unit>
             <trans-unit id="page.work_with_us.header">
                 <source>page.work_with_us.header</source>
-                <target>Stöd oss</target>
+                <target>Support us</target>
             </trans-unit>
             <trans-unit id="page.work_with_us.text">
                 <source>page.work_with_us.text</source>
                 <target>
                     <![CDATA[
-                        <h3>Stöd oss!</h3>
+                        <h3>Give your support!</h3>
                         <p>
-                            Vill du som privatperson, företag, kommun eller annan organisation, samarbeta med Kompisbyrån? Idag har
-                            tusentals fikakompisar från 126 länder lärt känna varandra över en kompisfika. Många möten har lett
-                            till etablering på arbetsmarknaden. Andra till en egen bostad. Och framförallt, har det lett till vänskap
-                            som förenar olika länder, kultur, ålder, språk och erfarenheter.
+                            Would you as an individual, company, municipality or other organization, cooperate with Kompisbyrån? Today, 
+                            thousands of coffee buddies from over 79 countries have come to know each other over a fika. Many meetings 
+                            have led to job opportunities. Some to an own apartment. And above all, it has led to the friendship that 
+                            unites different countries, cultures, ages, languages and experiences.
                         </p>
                         <p>
-                            Vi är helt finansierade genom samarbeten så det är genom dem som vi kan hjälpa alla tusentals människor
-                            som vill skapa ett socialt sammanhang i samhället. Följ med oss på vår resa till ett öppnare samhälle
-                            där alla kan känna sig delaktiga och välkomna.
+                            We are only funded through partnerships. It is through them that we can help all the thousands of people who 
+                            want to create a social context in society. Join us on our journey to a more open society in which everyone 
+                            can feel included and welcome.
+
                         </p>
                         <p>
-                            <strong>Din gåva är väldigt värdefull för oss, oavsett hur mycket eller lite du väljer att skänka:</strong>
+                            <strong>Your gift is very valuable to us, no matter how much or little you choose to donate:</strong>
                         </p>
                         <p>
-                            <strong>Kompisbyråns Swishnr: 1236 809 602 eller BG-konto 386-3982</strong>
+                            <strong>Kompisbyrån's Swish number: 1236 809 602 or BG account 386-3982</strong>
                         </p>
                         <p>
-                            Vi vill gärna ge dig ett personligt gåvobevis som tack - maila kontakt@kompisbyran.se så skickar vi över det!
+                            We would like to give you a personal gift certificate as a thank you. Please, email kontakt@kompisbyran.se 
+                            and we'll send over it!
                         </p>
                         <p>
-                            Vi berättar mer än gärna om hur du kan stötta Kompisbyrån på olika vis - kontakta emma@kompisbyran.se eller cecilia@kompisbyran.se.
+                            We are more than happy to speak with you about how you can support Kompisbyrån in several ways. Please don’t 
+                            hesitate to contact: emma@kompisbyran.se or cecilia@kompisbyran.se.
                         </p>
                         <p>
-                            Stort tack för att du vill vara med och göra skillnad.
+                            Many thanks to you all who are involved and really make a difference! 
                         </p>
 
-                        <h3>Tack till...</h3>
+                        <h3>Thanks to...</h3>
                         <p>
-                            <strong>Svenska Postkodstiftelsen</strong> som stöttar Kompisbyrån. Tack vare detta
-                            bidrag har vi fått möjlighet att effektivisera vårt arbete genom att bl.a. utveckling av datasystem och hemsida.
+                            <strong>Svenska Postkodstiftelsen</strong> 
                         </p>
                         <p>
-                            <strong>Sigtunastiftelsen</strong> som 2015 belönade Kompisbyrån med <a
-                                href="http://www.sigtunastiftelsen.se/kompisbyran-far-abrahams-barns-pris-2015/"
-                                target="_blank"
-                            >Abrahams Barns pris</a>, med motiveringen att Kompisbyrån skapar förutsättningar
-                            för mötesplatser i vardagen där ett kulturellt utbyte kan ske mellan personer som
-                            annars inte skulle ha träffats. “Vi vill därför uppmuntra initiativ som Kompisbyrån eftersom de,
-                            liksom Abrahams Barn, önskar delta i byggandet av ett inkluderande samhälle”, säger Elisabet
-                            Mattizon Armgard, programsekreterare för Abrahams Barn.
+                            <strong>Sigtunastiftelsen</strong> which awarded Kompisbyrån with "Abrahams barns pris" 2015 
                         </p>
                         <p>
                             <a
                                 href="http://www.lernia.se/kompisbyran/)"
                                 target="_blank"
-                            >Lernia</a> som stöttar Kompisbyråns arbete med att göra det enklare för människor med liknande intressen att
-                            mötas och träffa nya vänner i vardagen. I och med detta har vi möjlighet att nå ut till fler som
-                            vill träffa nya kompisar.
+                            >Lernia</a> 
+                        </p>
+                        
+                        <h3>A special thanks to...</h3>
+                        <p>
+                        Carl Lindström
+                        Jessie Moberg
+                        Johanna Nordin
+                        Mikael Öhrén
+                        Noa Bachner
+                        Sameer Marmary
+                        Sebastian Stenlund
+                        Stella Hernström
+                        Stina Wäppling
                         </p>
                     ]]>
                 </target>
             </trans-unit>
             <trans-unit id="page.about.header">
                 <source>page.about.header</source>
-                <target>Om Kompisbyrån</target>
+                <target>About Kompisbyrån</target>
             </trans-unit>
             <trans-unit id="page.about.text">
                 <source>page.about.text</source>
                 <target>
                     <![CDATA[
                         <p>
-                            Kompisbyrån är en ideell organisation som digitalt skapar kontakt mellan nya och etablerade
-                            svenskar med liknande intressen. Kompisbyrån startades 2014 av Emma Hammar och Cecilia Holmgren
-                            med en vision om att öka gemenskapen i samhället genom att förenkla förutsättningar till fler
-                            vardagsmöten mellan människor med olika bakgrund, erfarenhet och kultur. Syftet är att prata
-                            svenska under 1 timmes fika. Det är det vi kallar för en kompisfika.
+                            Kompisbyrån is a non-profit organization who connects new and established Swedes based on similar 
+                            interests. Kompisbyrån was founded in 2014 by Emma Hammar and Cecilia Holmgren with a vision to 
+                            increase the spirit of community in the society, by simplifying the conditions for more meetings 
+                            in the everyday life between people of different backgrounds, experiences and cultures. The aim is 
+                            to speak Swedish during a one-hour “fika”. That is what we call a “friend fika” (“kompisfika”). 
                         </p>
                         <p>
-                            Vi har verksamhet i nio städer i Sverige; Göteborg, Jönköping, Linköping, Malmö, Stockholm,
-                            Umeå, Uppsala, Västerås och Örebro. Möjliggör vi tillräckligt många möten får nya
-                            svenskar bättre svenskkunskaper, breddat socialt nätverk och ökade möjligheter till jobb.
-                            Fler vardagsmöten leder också till en ökad förståelse för varandra och en berikande tillvaro.
-                            För att nämna en bråkdel.
+                            If we facilitate enough amount of meetings, new Swedes get better knowledge of Swedish, broaden 
+                            their social networks and improve their job opportunities. More everyday meetings also lead to a 
+                            greater understanding of each other as human beings, and enrich our lives. To name a fraction.
                         </p>
                         <p>
-                            “En fika är något som av många ses som centralt i svensk kultur och är associerat med något
-                            lättsamt, avslappnat och roligt. Därför tycker vi att det är väldigt passande att träffas och
-                            öva svenska över just en fika.” - Emma Hammar och Cecilia Holmgren, grundare av Kompisbyrån
+                            Kompisbyrån operates in 9 cities in Sweden: Göteborg, Jönköping, Linköping, Malmö, Stockholm, 
+                            Umeå, Uppsala, Västerås or Örebro.
+                        </p>
+                        <p>
+                            "Many Swedes associate a “fika” with something relaxed and fun, and is often perceived as central 
+                            in the Swedish culture. That’s why we think it fits so well to meet and practice Swedish over 
+                            just a fika.” - Emma Hammar and Cecilia Holmgren, Founders of Kompisbyrån
                         </p>
                     ]]>
                 </target>
@@ -858,7 +875,7 @@ Your friends at Kompisbyrån
                 <source>page.about.well1</source>
                 <target>
                     <![CDATA[
-                        <h4>Vi som jobbar med Kompisbyrån</h4>
+                        <h4>We are Kompisbyrån</h4>
                         <p>
                              Emma Hammar, grundare <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a><br>
                             Cecilia Holmgren, grundare
@@ -885,7 +902,7 @@ Your friends at Kompisbyrån
                 <target>
                     <![CDATA[
                         <p>
-                            Frågor om matchningen?<br>
+                            Questions about the matching process?<br>
                             Göteborg: <a href="mailto:goteborg@kompisbyran.se">goteborg@kompisbyran.se</a><br>
                             Jönköping: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
                             Linköping: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
@@ -893,11 +910,10 @@ Your friends at Kompisbyrån
                             Stockholm: <a href="mailto:stockholm@kompisbyran.se">stockholm@kompisbyran.se</a><br>
                             Umeå: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
                             Uppsala: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
+                            Västerås: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
                             Örebro: <a href="mailto:orebro@kompisbyran.se">orebro@kompisbyran.se</a><br>
 
-                            Övrigt: <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a><br>
-
-                            Frågor om samarbete, rekrytering eller press: kontakta <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a> eller <a href="mailto:cecilia@kompisbyran.se ">cecilia@kompisbyran.se </a>
+                            Questions about collaborations, recruitment or press, please contact: <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a> or <a href="mailto:cecilia@kompisbyran.se ">cecilia@kompisbyran.se </a>
                         </p>
                     ]]>
                 </target>
