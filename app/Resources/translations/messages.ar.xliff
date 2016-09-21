@@ -299,7 +299,7 @@
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
-                <target>Jag kan träffas i (stad):</target>
+                <target>أنا يمكنني اللقاء في (مدينة)</target>
             </trans-unit>
             <trans-unit id="user.form.municipality">
                 <source>user.form.municipality</source>
@@ -307,7 +307,7 @@
             </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
-                <target>Jag bor i (stadsdel):</target>
+                <target>أنا أعيش في (بلدية)</target>
             </trans-unit>
             <trans-unit id="user.form.has_children">
                 <source>user.form.has_children</source>
