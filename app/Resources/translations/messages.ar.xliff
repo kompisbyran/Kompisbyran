@@ -4,11 +4,11 @@
         <body>
             <trans-unit id="error">
                 <source>error</source>
-                <target>Hoppsan nu vart det fel!</target>
+                <target>عذرا لقد حصل خطأ !</target>
             </trans-unit>
             <trans-unit id="error.active_request">
                 <source>error.active_request</source>
-                <target>Du har redan en aktiv kompisförfrågan hos Kompisbyrån</target>
+                <target>لديك مسقا طلب فعال على موقعنا</target>
             </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
@@ -20,23 +20,23 @@
             </trans-unit>
             <trans-unit id="global.he">
                 <source>global.he</source>
-                <target>han</target>
+                <target>هو</target>
             </trans-unit>
             <trans-unit id="global.and">
                 <source>and</source>
-                <target>och</target>
+                <target>و</target>
             </trans-unit>
             <trans-unit id="global.his">
                 <source>global.his</source>
-                <target>hans</target>
+                <target>خاصته</target>
             </trans-unit>
             <trans-unit id="global.her">
                 <source>global.her</source>
-                <target>hennes</target>
+                <target>خاصتها</target>
             </trans-unit>
             <trans-unit id="global.she">
                 <source>global.she</source>
-                <target>Hon</target>
+                <target>هي</target>
             </trans-unit>
             <trans-unit id="global.music_buddy">
                 <source>global.music_buddy</source>
