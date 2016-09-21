@@ -353,56 +353,56 @@
             </trans-unit>
             <trans-unit id="index.header">
                 <source>index.header</source>
-                <target>Välkommen till Kompisbyrån!</target>
+                <target>أهلا بكم معنا</target>
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här kan du anmäla dig igen för att träffa nya Fikakompisar eller Musikkompisar.
-                Du ser även dina tidigare kompismöten och intresseanmälningar till att träffa nya kompisar.
+                <target>هنا يمكنك التقدم بطلب للتعرف على رفيق فيكا او موسيقى. اضغط على زر "رفيق فيكا " من فضلك.
+                يمكنك رؤية أضدقائك القدامى و الحالة الراهنة أيضا
 
-                    Vill du ändra din ansökan trycker du först på "Min profil" och sedan på "Inställningar" i menyn.</target>
+                    إذا كنت تريد تغيير شيء في طلبك يمكنك الضغط على " حسابي الشخصي" ثم قائمة أعدادات.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
-                <target>Tidigare kompismöten</target>
+                <target>اللقاءات السابقة</target>
             </trans-unit>
             <trans-unit id="index.connection_request.header">
                 <source>index.connection_request.header</source>
-                <target>Intresseanmälningar</target>
+                <target>الحالة الراهنة</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
-                <target>Du väntar på en matchning</target>
+                <target>أنت في انتظار مطابقة</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.teach">
                 <source>index.connection_request.want_to_learn.teach</source>
-                <target>Du väntar på en matchning</target>
+                <target>أنت في انتظار مطابقة</target>
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
-                <target>Jag vill träffa ny kompis</target>
+                <target>أريد أن التقي بشخص جديد</target>
             </trans-unit>
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Om du vill träffa en ny Fikakompis eller Musikkompis, väljer du stad och trycker på knappen "Kompisfika".
+                    أذا كنت تريد أن تلتقي برفيق فيكا أو رفيق موسيقى جديد عليك باختيار المدينة التي تستطيع اللقاء فيها و اضغط على الزر "رفيق فيكا"
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
                 <source>connection_request.form.city</source>
-                <target>Jag kan träffas i (stad):</target>
+                <target>أنا يمكنني اللقاء في (مدينة)</target>
             </trans-unit>
             <trans-unit id="connection_request.form.comment">
                 <source>connection_request.form.comment</source>
-                <target>Meddelande till Kompisbyrån</target>
+                <target>رسالة الى الموقع </target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
-                <target>Kompisfika</target>
+                <target>رفيق فيكا</target>
             </trans-unit>
             <trans-unit id="terms.header">
                 <source>terms.header</source>
-                <target>Villkor</target>
+                <target>الشروط</target>
             </trans-unit>
             <trans-unit id="terms.ingress">
                 <source>terms.ingress</source>
