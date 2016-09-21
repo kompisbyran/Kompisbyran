@@ -88,25 +88,23 @@
             </trans-unit>
             <trans-unit id="footer.contact">
                 <source>footer.contact</source>
-                <target>Kontakta oss</target>
+                <target>تواصل معنا</target>
             </trans-unit>
             <trans-unit id="homepage.cta.header">
                 <source>homepage.cta.header</source>
-                <target>I Kompisbyrån övar vi svenska och fikar.</target>
+                <target>في  نتدرب على اللغة السويدية و نلتقي في فيكا</target>
             </trans-unit>
             <trans-unit id="homepage.cta.header.strong">
                 <source>homepage.cta.header.strong</source>
-                <target>Vill du vara med?</target>
+                <target>هل تريد أن تكون مع ؟</target>
             </trans-unit>
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
                     <![CDATA[
-                    Kompisbyrån hjälper människor att träffa nya kompisar med liknande intressen. Vi skapar kontakt
-                    mellan dig som är ny i Sverige och dig som har bott i Sverige länge. Du kan bli Fikakompis eller
-                    Musikkompis.<br><br>
-                    Som Fikakompis blir du matchad med en person med liknande intressen som du har. Ni träffas, fikar
-                    och övar svenska! Tillsammans kan vi öka gemenskapen i samhället. Bli en Fikakompis idag!
+                    نحن نساعد على خلق اتصال بين المقيمين حديثا في السويد و السويديين أو القدامى في السويد من الذين لديهم اهتمامات مشتركة فيما بينهم. حوالي ساعة من الوقت تقضونها سويا<br><br>
+                    هنا يمكنك الاختيار بين أن تكون رفيق فيكا* أو رفيق موسيقى  تلتقون في جلسة فيكا و تتحدثون السويدية ,وأنتم تعرفون مسبقا أنه يوجد قواسم مشتركة بينكما تستطيعان بدء الحديث بها.إذا شعرتم أن الأمور على ما يرام فيمكنكم لطفا أن تقوموا بذلك باتفاق خاص بينكما, و إلا فلا داعي لاعادة المحاولة الساعة التي قضيتموها تفي بالغرض... إنه قراركم.<br><br
+                    *فيكا :كلمة سويدية تعبر عن جلسة لطيفة قصيرة نسبيا لنتاول القهوة و قطعة من الحلوى و هي جزء من الثقافة و الحياة اليومية السويدية.
                     ]]>
                 </target>
             </trans-unit>
@@ -138,7 +136,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.button">
                 <source>homepage.cta.musicfriend.button</source>
-                <target>Bli Musikkompis</target>
+                <target>أن تكون رفيق موسيقى</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -214,9 +212,7 @@
                 <target>
                     <![CDATA[
                             <li>
-                                Gå med i Kompisbyrån genom att registrera dig. Skriv din e-post,
-                                ett lösenord som du bestämmer själv och klicka på "Gå med". Det är gratis att anmäla sig.
-                                Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
+                                انضم الينا بتسجيل نفسك. اكتب بريدك الالكتروني و كلمة مرور من اختيارك ثم اضغط عل زر "انضم الينا" هذا التسجيل مجاني . الرجاء الاطلاع على شروط الموقع. <a href="%termsPath%">villkor</a>.
                             </li>
                     ]]>
                 </target>
