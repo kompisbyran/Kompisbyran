@@ -406,7 +406,7 @@
             </trans-unit>
             <trans-unit id="terms.ingress">
                 <source>terms.ingress</source>
-                <target>Kompisbyrån förmedlar kontakten mellan personer som är nya i Sverige med personer som har bott i Sverige länge.</target>
+                <target>كومبيس بيرون يساعد على خلق اتصال بين المقيمين حديثا في السويد و السويديين أو القدامى في السويد</target>
             </trans-unit>
             <trans-unit id="terms.list">
                 <source>terms.list</source>
@@ -627,17 +627,16 @@ Your friends at Kompisbyrån
             <trans-unit id="footer.text1">
                 <source>footer.text1</source>
                 <target>
-                    Emma Hammar och Cecilia Holmgren startade Kompisbyrån 2014. Kompisbyrån är en ideell
-                    förening som vill göra det lätt för människor att träffas i vardagen. Genom att kompisfika
-                    skapas kontakt mellan personer som vill träna på att prata svenska och personer som har bott i
-                    Sverige länge. Hittills har tusentals människor från 79 länder träffats genom Kompisbyrån.
+                    كومبيس بيرون هو فكرة وجدت عام 2014 تقوم على تسهيل اللقاء بين أشخاص جدد ممن يتشاركون اهتمامات متشابهة. جديد و قديم في السويد يلتقيان في فيكا للتحدث باللغة السويدية. و ذلك بهدف رفع مستوى التواصل في المجتمع.
+                    
+                    رؤيتنا و هدفنا هو أن نجعل الاندماح متاحا و أكثر سهولة للجميع .نحن موجودون في تسع محافظات و لدينا حوالي 10000 مشترك من 126 منطقة .
                 </target>
             </trans-unit>
             <trans-unit id="footer.text2">
                 <source>footer.text2</source>
                 <target>
                     <![CDATA[
-                        Läs igenom våra <a href="%link%">villkor</a> innan du anmäler dig till en fika.
+                        اعرف أكثر عن كومبيس بيرون <a href="%link%">الشروط</a> قبل أن تقوم بتسجيل نفسك
                     ]]>
                 </target>
             </trans-unit>
