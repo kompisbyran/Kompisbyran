@@ -428,7 +428,7 @@
                             نقطة البداية هي جلسة فيكا أو جلسة موسيقى مع الشخص الذي تمت معه المطابقة فإذا سارت الامور على ما يرام يمكنكم الاتفاق بانفسكم على لقاء جديد وإذا أردتم لقاء صديق جديد ما عليكم إلا تسجيل الدخول و التقدك بطلب جديد.
                         </li>
                         <li>
-                            Alla över 18 år (myndiga) får delta.
+                            .كل من هم فوق ال 18 عاما مرحب بهم للمشاركة
                         </li>
                         <li>
                             التسجيل في الموقع و خدماته مجانية و لكن سوف تدفع ثمن الفيكا خاصتك عندما تخرج مع صديقك.
@@ -656,16 +656,10 @@ Your friends at Kompisbyrån
                 <target>
                     <![CDATA[
                         <p>
-                            Kompisbyrån skapar kontakt mellan två nya fikakompisar med liknande intressen. Syftet är att prata svenska över
-                            en fika. En person är ny i Sverige och en person har bott i Sverige länge. Ni träffas på ett kafé i cirka 1
-                            timme och pratar svenska. Det är det vi kallar för en “kompisfika”. Om ni tycker det är roligt får ni gärna
-                            ses igen på egen hand. Om inte, gör inte det något för timmen har ändå uppfyllt sitt syfte.
+                            نحن نساعد على خلق اتصال بين المقيمين حديثا في السويد و السويديين أو القدامى *في السويد من الذين لديهم اهتمامات مشتركة فيما بينهم. حوالي ساعة من الوقت تقضونها سويا هذا هو ما ندعوه ب فيكا.هنا يمكنك الاختيار بين أن تكون رفيق فيكا* أو رفيق موسيقى ,وأنتم تعرفون مسبقا أنه يوجد قواسم مشتركة بينكما تستطيعان بدء الحديث بها. إذا شعرتم أن الأمور على ما يرام فيمكنكم لطفا أن تقوموا بذلك باتفاق خاص بينكما, و إلا فلا داعي لاعادة المحاولة... إنه قراركم.
                         </p>
                         <p>
-                            Vi låter varje person själv bestämma hur han eller hon vill definiera sig, så det är du som bestämmer om du
-                            definierar dig som ny eller etablerad. Som <strong>ny svensk</strong> vill du lära dig prata bättre svenska,
-                            det spelar ingen roll hur lång eller kort tid du har bott i Sverige. Som <strong>etablerad svensk</strong> har du
-                            svenska som modersmål eller motsvarande, har bott i Sverige under lång tid och kan lära ut svenska.
+                            أنت هو الشخص المعني بتعريف نفسه كقديم أو جديد في السويد بغض النطر عن طول أو قصر المدة التي قضينتها فعلا هنا. هل تريد ان تتعلم السويدية أو انك قادر على تعليمها و التواصل بها. من المهم أن تكون هذه المعلومات واضحة في طلبك و في تقديمك لنفسك.
                         </p>
                         <p>
                             ...حسنا زز هذا ما عليك فعله
@@ -693,7 +687,7 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="page.work_with_us.header">
                 <source>page.work_with_us.header</source>
-                <target>Stöd oss</target>
+                <target>ادعمنا</target>
             </trans-unit>
             <trans-unit id="page.work_with_us.text">
                 <source>page.work_with_us.text</source>
@@ -701,84 +695,65 @@ Your friends at Kompisbyrån
                     <![CDATA[
                         <h3>Stöd oss!</h3>
                         <p>
-                            Vill du som privatperson, företag, kommun eller annan organisation, samarbeta med Kompisbyrån? Idag har
-                            tusentals fikakompisar från 126 länder lärt känna varandra över en kompisfika. Många möten har lett
-                            till etablering på arbetsmarknaden. Andra till en egen bostad. Och framförallt, har det lett till vänskap
-                            som förenar olika länder, kultur, ålder, språk och erfarenheter.
+                             هل تريد كشخص أو كشركة او كبلدية  أو منظمة أن تقوم بعمل مشترك معنا؟  اليوم هناك الالاف من الأصدقاء من 126 منطقة قد تعرفوا على بعضهم البعض من خلالنا, الكثير من اللقاءات قد أدت إلى الدخول في سوق العمل و أخرى إلى مكان سكن و الاهم من ذلك الصداقات التي تجمع مناطق, ثقافات ,أعمار, و الخبرات المختلفة.
                         </p>
                         <p>
-                            Vi är helt finansierade genom samarbeten så det är genom dem som vi kan hjälpa alla tusentals människor
-                            som vill skapa ett socialt sammanhang i samhället. Följ med oss på vår resa till ett öppnare samhälle
-                            där alla kan känna sig delaktiga och välkomna.
+                            نحن ممولون كليا من خلال العمل المشترك و من خلاله مساعدة  الالاف من الناس الذين يريدون محتوى اجتماعي.. انضم  الينا في رحلتنا الى مجتمع أكثر انفتاحا ... المجمع الذي يشعر الجميع بالانتماء اليه و الترحاب فيه.
                         </p>
                         <p>
-                            <strong>Din gåva är väldigt värdefull för oss, oavsett hur mycket eller lite du väljer att skänka:</strong>
+                            <strong>.هبتك لنا و مشاركتك معنا ذات قيمة كبرى بالنسبة لنا مهما كانت المشاركة التي تقدمها صغيرة</strong>
                         </p>
                         <p>
-                            <strong>Kompisbyråns Swishnr: 1236 809 602 eller BG-konto 386-3982</strong>
+                            <strong>يمكنك استخدام سويش على الرقم 1236809602 أو على حساب 3863982</strong>
                         </p>
                         <p>
-                            Vi vill gärna ge dig ett personligt gåvobevis som tack - maila kontakt@kompisbyran.se så skickar vi över det!
+                            نود أن نرسل لك بطاقة شكر شخصية. الرجاء مراسلتنا على kontakt@kompisbyran.se
                         </p>
                         <p>
-                            Vi berättar mer än gärna om hur du kan stötta Kompisbyrån på olika vis - kontakta emma@kompisbyran.se eller cecilia@kompisbyran.se.
+                            يمكننا بسرور أن نقدم تفاصيل أكثر عن كيفية دعمنا بطرق مختلفة... تواصل معنا على emma@kompisbyran.se أو cecilia@kompisbyran.se
                         </p>
                         <p>
-                            Stort tack för att du vill vara med och göra skillnad.
+                            شكرا جزيلا لأنك تريد أن تكون معنا لنحدث فرقا 
                         </p>
 
-                        <h3>Tack till...</h3>
+                        <h3>شكرا ل</h3>
                         <p>
-                            <strong>Svenska Postkodstiftelsen</strong> som stöttar Kompisbyrån. Tack vare detta
-                            bidrag har vi fått möjlighet att effektivisera vårt arbete genom att bl.a. utveckling av datasystem och hemsida.
+                            <strong>Svenska Postkodstiftelsen</strong>
                         </p>
                         <p>
-                            <strong>Sigtunastiftelsen</strong> som 2015 belönade Kompisbyrån med <a
-                                href="http://www.sigtunastiftelsen.se/kompisbyran-far-abrahams-barns-pris-2015/"
-                                target="_blank"
-                            >Abrahams Barns pris</a>, med motiveringen att Kompisbyrån skapar förutsättningar
-                            för mötesplatser i vardagen där ett kulturellt utbyte kan ske mellan personer som
-                            annars inte skulle ha träffats. “Vi vill därför uppmuntra initiativ som Kompisbyrån eftersom de,
-                            liksom Abrahams Barn, önskar delta i byggandet av ett inkluderande samhälle”, säger Elisabet
-                            Mattizon Armgard, programsekreterare för Abrahams Barn.
+                            <strong>Sigtunastiftelsen</strong> 
                         </p>
                         <p>
                             <a
                                 href="http://www.lernia.se/kompisbyran/)"
                                 target="_blank"
-                            >Lernia</a> som stöttar Kompisbyråns arbete med att göra det enklare för människor med liknande intressen att
-                            mötas och träffa nya vänner i vardagen. I och med detta har vi möjlighet att nå ut till fler som
-                            vill träffa nya kompisar.
+                            >Lernia</a> 
+                        </p>
+                        <p>
+                            شكر خاص ل
+                        </p>
+                        <p>
+                            Carl Lindström, Jessie Moberg, Johanna Nordin, Mikael Öhrén, Noa Bachner, Sameer Marmary, Sebastian Stenlund, Stella Hernström och Stina Wäppling.
                         </p>
                     ]]>
                 </target>
             </trans-unit>
             <trans-unit id="page.about.header">
                 <source>page.about.header</source>
-                <target>Om Kompisbyrån</target>
+                <target>عن كومبيس بيرون</target>
             </trans-unit>
             <trans-unit id="page.about.text">
                 <source>page.about.text</source>
                 <target>
                     <![CDATA[
                         <p>
-                            Kompisbyrån är en ideell organisation som digitalt skapar kontakt mellan nya och etablerade
-                            svenskar med liknande intressen. Kompisbyrån startades 2014 av Emma Hammar och Cecilia Holmgren
-                            med en vision om att öka gemenskapen i samhället genom att förenkla förutsättningar till fler
-                            vardagsmöten mellan människor med olika bakgrund, erfarenhet och kultur. Syftet är att prata
-                            svenska under 1 timmes fika. Det är det vi kallar för en kompisfika.
+                            بالنسبة ل  Kompisbyrån فهو فكرة تقوم على خلق اتصال بين المقيمين حديثا في السويد و السويديين أو القدامى في السويد من الذين لديهم اهتمامات مشتركة فيما بينهم. ابتدات الفكرة في عام 2014 بمبادرة من إيما هامار و سيسيليا هولمغرين مع رؤية جديدة تتضمن الاندماج في المجتمع عن طريق تسهيل الظروف مسبقا للقاءات بين أشخاص من خلفيات وثقافات و خبرات مختلفة ضمن جلسة فيكا تحت راية التحدث باللغة السويدية لحوالي الساعة من الوقت. هذا ما نعنيه برفيق فيكا.
                         </p>
                         <p>
-                            Vi har verksamhet i nio städer i Sverige; Göteborg, Jönköping, Linköping, Malmö, Stockholm,
-                            Umeå, Uppsala, Västerås och Örebro. Möjliggör vi tillräckligt många möten får nya
-                            svenskar bättre svenskkunskaper, breddat socialt nätverk och ökade möjligheter till jobb.
-                            Fler vardagsmöten leder också till en ökad förståelse för varandra och en berikande tillvaro.
-                            För att nämna en bråkdel.
+                            الفرصة للقاء بين المقيمين حديثا في السويد و السويديين أو القدامى في السويد تقدم للجدد في السويد خبرات أفضل و تساعد على بناء شبكة اتصال و معارف من الممكن أن تؤدي إلى إيجاد عمل كما أنها تساعد على فهم أعمق بين الأطراف المتعارفة و ذلك على سبيل المثال لا الحصر.
                         </p>
                         <p>
-                            “En fika är något som av många ses som centralt i svensk kultur och är associerat med något
-                            lättsamt, avslappnat och roligt. Därför tycker vi att det är väldigt passande att träffas och
-                            öva svenska över just en fika.” - Emma Hammar och Cecilia Holmgren, grundare av Kompisbyrån
+                            فيكا: هي أمر يراه غالبية الناس أمرت مركزيا في الثقافة اليومية السويدية وهي أمر لطيف, مفرح و يدعو إلى الاسترخاء لذلك نحن نعتقد أنه من المناسب جدا أن يتم اللقاء الأول ضمن جلسة فيكا لتبادل الحديث باللغة السويدية.- إيما هامار و سيسيليا هولمغرين 
                         </p>
                     ]]>
                 </target>
