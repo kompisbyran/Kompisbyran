@@ -88,7 +88,7 @@ class ConnectionRepository extends EntityRepository
      */
     public function getFindAllQueryBuilderForUser($searchString, User $user)
     {
-        $cities = $this->getEntityManager()->getRepository(City::class)
+        $cities = $this->getEntityManager()->getRepository('AppBundle\Entity\City')
             ->createQueryBuilder('c')
             ->innerJoin('c.users', 'u')
             ->where('u.id = :userId')
