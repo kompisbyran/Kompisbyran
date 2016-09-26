@@ -19,7 +19,8 @@ class ConnectionController extends Controller
     public function indexAction(Request $request)
     {
         $searchString   = $request->query->get('q');
-        $queryBuilder   = $this->getConnectionRepository()->getFindAllQueryBuilder($searchString);
+        $queryBuilder   = $this->getConnectionRepository()
+            ->getFindAllQueryBuilderForUser($searchString, $this->getUser());
 
         $adapter        = new DoctrineORMAdapter($queryBuilder);
         $pagerfanta     = new Pagerfanta($adapter);

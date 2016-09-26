@@ -86,24 +86,42 @@ class ConnectionRepository extends EntityRepository
     /**
      * @return \Doctrine\ORM\Query
      */
-    public function getFindAllQueryBuilder($searchString)
+    public function getFindAllQueryBuilderForUser($searchString, User $user)
     {
+        $cities = $this->getEntityManager()->getRepository('AppBundle\Entity\City')
+            ->createQueryBuilder('c')
+            ->innerJoin('c.users', 'u')
+            ->where('u.id = :userId')
+            ->setParameter('userId', $user->getId())
+            ->getQuery()
+            ->execute();
+
+        $cityIds = [];
+        foreach ($cities as $city) {
+            $cityIds[] = $city->getId();
+        }
+
         $qb = $this
             ->createQueryBuilder('c')
             ->select('c, f, l, cb, c2, u')
             ->innerJoin('c.fluentSpeaker', 'f')
             ->innerJoin('c.learner', 'l')
             ->innerJoin('c.createdBy', 'cb')
+            ->innerJoin('c.city', 'city')
             ->leftJoin('c.comments', 'c2')
             ->leftJoin('c2.user', 'u')
+            ->andWhere('city.id IN (:cityIds)')
+            ->setParameter('cityIds', $cityIds)
         ;
 
         if ($searchString) {
             $qb
-                ->where('f.email LIKE :searchString')
-                ->orWhere('l.email LIKE :searchString')
-                ->orWhere("CONCAT(CONCAT(f.firstName, ' '), f.lastName) LIKE :searchString")
-                ->orWhere("CONCAT(CONCAT(l.firstName, ' '), l.lastName) LIKE :searchString")
+                ->andwhere("
+                    f.email LIKE :searchString
+                    OR l.email LIKE :searchString
+                    OR CONCAT(CONCAT(f.firstName, ' '), f.lastName) LIKE :searchString
+                    OR CONCAT(CONCAT(l.firstName, ' '), l.lastName) LIKE :searchString
+                ")
                 ->setParameter('searchString', '%'.trim($searchString).'%')
             ;
         }
