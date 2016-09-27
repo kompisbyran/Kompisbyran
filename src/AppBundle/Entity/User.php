@@ -58,6 +58,7 @@ class User extends BaseUser
      * @var Connection[]
      *
      * @ORM\OneToMany(targetEntity="Connection", mappedBy="fluentSpeaker")
+     * @ORM\OrderBy({"createdAt"="DESC"})
      */
     protected $fluentSpeakerConnections;
 
@@ -65,6 +66,7 @@ class User extends BaseUser
      * @var Connection[]
      *
      * @ORM\OneToMany(targetEntity="Connection", mappedBy="learner")
+     * @ORM\OrderBy({"createdAt"="DESC"})
      */
     protected $learnerConnections;
 
