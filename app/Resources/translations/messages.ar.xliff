@@ -241,6 +241,14 @@
                 <source>login.forgot_password</source>
                 <target>نسيت كلمة السر؟</target>
             </trans-unit>
+            <trans-unit id="login.text">
+                <source>login.text</source>
+                <target>
+                    Om du redan har skapat ett användarkonto, loggar du in här genom att fylla i din
+                    e-postadress och lösenord. Är det första gången du vill fika, trycker du
+                    %link_start%här%link_end%.
+                </target>
+            </trans-unit>
             <trans-unit id="user.form.first_name">
                 <source>user.form.first_name</source>
                 <target>الاسم الاول</target>
