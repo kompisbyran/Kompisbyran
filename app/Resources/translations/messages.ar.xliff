@@ -244,9 +244,8 @@
             <trans-unit id="login.text">
                 <source>login.text</source>
                 <target>
-                    Om du redan har skapat ett användarkonto, loggar du in här genom att fylla i din
-                    e-postadress och lösenord. Är det första gången du vill fika, trycker du
-                    %link_start%här%link_end%.
+                    .إذا كان لديك حساب مسبقا فيمكنك تسجيل الدخول بكتابة البريد الالكتروني و كلمة السر. إذا كانت هذه هي المرة الاولى
+                    %link_start%اضغط هنا%link_end%.
                 </target>
             </trans-unit>
             <trans-unit id="user.form.first_name">
