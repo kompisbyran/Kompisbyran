@@ -339,7 +339,7 @@
             </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
-                <target>Spara</target>
+                <target>حفظ</target>
             </trans-unit>
             <trans-unit id="user.settings.header">
                 <source>user.settings.header</source>
@@ -651,8 +651,7 @@ Your friends at Kompisbyrån
             <trans-unit id="footer.text3">
                 <source>footer.text3</source>
                 <target>
-                    Vill du ge fler möjlighet att träffa nya Fikakompisar? Stöd Kompisbyrån med ett bidrag på valfri
-                    summa: BG 386-3982
+                    .هبتك لنا و مشاركتك معنا ذات قيمة كبرى بالنسبة لنا مهما كانت المشاركة التي تقدمها صغيرة. يمكنك استخدام سويش على الرقم 1236809602 أو على حساب 3863982
                 </target>
             </trans-unit>
             <trans-unit id="page.how_it_works.header">
