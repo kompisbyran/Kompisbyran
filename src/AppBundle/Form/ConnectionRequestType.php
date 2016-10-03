@@ -32,7 +32,7 @@ class ConnectionRequestType extends AbstractType
             ])
             ->add('musicFriend', 'checkbox', [
                 'required' => false,
-                'label' => 'Musikkompis',
+                'label' => 'global.music_buddy',
             ])
         ;
     }
