@@ -793,9 +793,9 @@ Your friends at Kompisbyrån
             <trans-unit id="footer.text3">
                 <source>footer.text3</source>
                 <target>
-                    Stöd oss och låt fler få chansen att träffa en ny fikakompis att öva svenska med. Din gåva är väldigt 
-                    värdefull för oss, oavsett hur mycket eller lite du väljer att skänka: Kompisbyråns Swishnr 1236 809 602 eller BG-konto 386-3982.
-
+                    Stöd oss och låt fler få chansen att träffa en ny fikakompis att öva svenska med. Varenda krona vi 
+                    får in går till att skapa fler möjligheter för nyanlända och etablerade svenskar att mötas. Swisha 
+                    300 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt stöd!
                 </target>
             </trans-unit>
             <trans-unit id="page.how_it_works.header">
@@ -865,10 +865,10 @@ Your friends at Kompisbyrån
                             där alla kan känna sig delaktiga och välkomna.
                         </p>
                         <p>
-                            <strong>Din gåva är väldigt värdefull för oss, oavsett hur mycket eller lite du väljer att skänka:</strong>
+                            <strong>Stötta Kompisbyrån – Swisha en Kompisfika</strong>
                         </p>
                         <p>
-                            <strong>Kompisbyråns Swishnr: 1236 809 602 eller BG-konto 386-3982</strong>
+                            <strong>Vill du hjälpa oss att hjälpa fler kompisar att hitta varandra över en kaffe? Kul! Nu har vi nämligen fått Swish! Varenda krona vi får in går till att skapa fler möjligheter för nyanlända och etablerade svenskar att mötas. Swisha 300 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt stöd!</strong>
                         </p>
                         <p>
                             Vi vill gärna ge dig ett personligt gåvobevis som tack - maila kontakt@kompisbyran.se så skickar vi över det!
@@ -906,6 +906,7 @@ Your friends at Kompisbyrån
                         
                         <h3>Ett särskilt tack till...</h3>
                         <p>
+                            Alexandra Arvidson
                             Carl Lindström
                             Jessie Moberg
                             Johanna Nordin
