@@ -157,7 +157,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setFirstName('Kal p');
         $user->setLastName('Dal');
         $user->setEnabled(true);
-        $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN']);
+        $user->setRoles(['ROLE_COMPLETE_USER', 'ROLE_ADMIN', 'ROLE_SUPER_ADMIN']);
         $user->setWantToLearn(false);
         $user->setAge(40);
         $user->setAbout('Sportintresserad lärare');
