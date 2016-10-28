@@ -1,13 +1,16 @@
 .page a:not(.btn) {
     text-decoration: underline;
 }
+
 .help-block .list-unstyled {
     color: red;
 }
+
 .navbar-default {
     padding-top: 20px;
 }
-.language-choice{
+
+.language-choice {
     position: absolute;
     right: 10%;
     z-index: 2000;
@@ -25,7 +28,7 @@
     text-decoration: none !important;
 }
 
-.btn-orange{
+.btn-orange {
     font-size: 14px;
     font-weight: bold;
     border-radius: 3px;
@@ -36,7 +39,7 @@
 }
 
 .candidate {
-    background-color:#efeded;
+    background-color: #efeded;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 15px 0;
@@ -94,4 +97,12 @@ div.candidate a.google-link {
 div.candidate span.matches a.google-link {
     color: #F76753;
     text-decoration: none;
+}
+
+.checkableList label {
+    margin-right: 20px;
+}
+
+.checkableList label > input[type="radio"], label > input[type="checkbox"] {
+    margin-right: -20px;
 }
