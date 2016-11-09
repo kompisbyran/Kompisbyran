@@ -36,27 +36,20 @@ class UserMailer extends Mailer
     {
         $subject    = 'user.welcome.message.subject';
         $htmlBody   = 'user.welcome.message.body';
-        $txtBody    = 'user.welcome.message.body.txt';
 
         if ($user->isMusicFriend()) {
             $subject    = 'user.friend.welcome.message.subject';
             $htmlBody   = 'user.friend.welcome.message.body';
-            $txtBody    = 'user.friend.welcome.message.body.txt';
         }
 
         $subject    = $this->translator->trans($subject);
         $htmlBody   = $this->translator->trans($htmlBody);
-        $txtBody    = $this->translator->trans($txtBody);
 
         $html       = $this->templating->render('email/welcome.html.twig', [
             'body'  =>  $htmlBody
         ]);
 
-        $txt        = $this->templating->render('email/welcome.txt.twig', [
-            'body'  => $txtBody
-        ]);
-
-        $this->sendEmailMessage($html, $txt, $subject, $user->getEmail());
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
     }
 
     /**
