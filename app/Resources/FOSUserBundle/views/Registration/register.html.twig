@@ -2,8 +2,8 @@
 {% form_theme form _self %}
 
 {% block _fos_user_registration_form_termsAccepted_widget %}
-    <label>
-        <input type="checkbox" {{ block('widget_attributes') }} />
+    <input type="checkbox" {{ block('widget_attributes') }} />
+    <label for="fos_user_registration_form_termsAccepted">
         {{ 'register.form.terms'|trans({'%linkStart%': '<a href="' ~ path('terms') ~ '">', '%linkEnd%': '</a>'})|raw }}
     </label>
 {% endblock %}
