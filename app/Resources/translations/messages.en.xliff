@@ -553,31 +553,6 @@
                         Kompisbyrån
                     </p>]]></target>
             </trans-unit>
-            <trans-unit id="user.welcome.message.body.txt">
-                <source>user.welcome.message.body.txt</source>
-                <target>
-                    Thank you for making a Fika friend request through Kompisbyrån!
-                    
-                    This is how it works:
-                    
-                    1. Match. We will send you an email (often within 1-30 days) when we have found a new Fika friend who 
-                    has similar interests as you. (If you need to complete your application, we will let you know)
-                    
-                    2. Decide a date. You send an email to the person within 7 days, and decide date, time and place. 
-                    Write in Swedish or English (some find Google Translate as a good tool). It is the responsibility of 
-                    both that you establish contact. Remember to respect each other, not responding an email will affect 
-                    the other person who has been looking forward to a meeting. Contact us if you don’t get answer. 
-                    
-                    3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high expectations 
-                    but take it as it comes. Be in time! The boring meetings is when someone doesn’t show up, so please 
-                    exchange telephone numbers and send a text message reminder the day before your meeting, that the other 
-                    person confirm. 
-                    
-                    If you have any questions, please send us an e-mail :)
-
-                    Best regards,
-                    Kompisbyrån</target>
-            </trans-unit>
             <trans-unit id="user.friend.welcome.message.subject">
                 <source>user.friend.welcome.message.subject</source>
                 <target>Welcome to Kompisbyrån</target>
@@ -608,31 +583,6 @@
                         Best regards,<br />
                         Kompisbyrån
                     </p>]]></target>
-            </trans-unit>
-            <trans-unit id="user.friend.welcome.message.body.txt">
-                <source>user.friend.welcome.message.body.txt</source>
-                <target>
-                    Thank you for making a Music friend request through Kompisbyrån!
-                    
-                    This is how it works:
-                        
-                    1. Match. We will send you an email (often within 1-30 days) when we have found a new Music friend 
-                    who has similar interests as you. (If you need to complete your application, we will let you know)
-                        
-                    2. Decide a date. You send an email to the person within 7 days, and decide date, time and place. 
-                    Write in Swedish or English (some find Google Translate as a good tool). It is the responsibility 
-                    of both that you establish contact. Remember to respect each other, not responding an email will 
-                    affect the other person who has been looking forward to a meeting. Contact us if you don’t get answer. 
-                        
-                    3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high 
-                    expectations but take it as it comes. Be in time! The boring meetings is when someone doesn’t 
-                    show up, so please exchange telephone numbers and send a text message reminder the day before 
-                    your meeting, that the other person confirm. 
-                    
-                    If you have any questions, please send us an e-mail :)
-
-                    Best regards,
-                    Kompisbyrån</target>
             </trans-unit>
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>

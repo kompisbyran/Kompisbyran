@@ -543,55 +543,6 @@
 
                     </p>]]></target>
             </trans-unit>
-            <trans-unit id="user.welcome.message.body.txt">
-                <source>user.welcome.message.body.txt</source>
-                <target>
-                    Hej!
-
-                    Tack för att du har anmält dig till en kompisfika via Kompisbyrån!
-
-                    Så här går det till:
-
-                    1. Matchning. Vi mailar dig (oftast inom 1-30 dagar) när vi har hittat en ny Fikakompis som har liknande
-                    intressen som du har. (Om du skulle behöva komplettera din ansökan meddelar vi dig om detta.)
-
-                    2. Bestäm ett datum. Du mailar personen inom 7 dagar och bestämmer datum, tid och plats. Skriv gärna på
-                    svenska och engelska. Det är bådas ansvar att ni etablerar kontakt med varandra. Kom ihåg att respektera
-                    varandra, att inte svara på ett mail påverkar den andra personen som har sett fram emot ett möte.
-                    Kontakta oss om du inte får svar.
-
-                    3. Mötet. Ni träffas på ett kafé eller annat offentligt ställe i cirka 1 timme. Försök att inte ha
-                    höga förväntningar utan ta det som det kommer. Kom i tid! De tråkiga träffarna är när någon inte
-                    dyker upp, så byt gärna telefonnummer och skicka en sms-påminnelse dagen innan er fika som den andra
-                    personen bekräftar.
-
-                    Om du har några frågor, vänligen skicka ett e-mail till oss :)
-
-                    Bästa hälsningar
-                    Alla på Kompisbyrån
-
-                    ----------------------
-                    Thank you for making a Fika friend request through Kompisbyrån!
-
-                    This is how it works:
-
-                    1. Match. We will send you an email (often within 1-30 days) when we have found a new Fika friend who
-                    has similar interests as you. (If you need to complete your application, we will let you know)
-
-                    2. Decide a date. You send an email to the person within 7 days, and decide date, time and place.
-                    Write in Swedish or English (some find Google Translate as a good tool). It is the responsibility of
-                    both that you establish contact. Remember to respect each other, not responding an email will affect
-                    the other person who has been looking forward to a meeting. Contact us if you don’t get answer.
-
-                    3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high
-                    expectations but take it as it comes. Be in time! The boring meetings is when someone doesn’t show up,
-                    so please exchange telephone numbers and send a text message reminder the day before your meeting,
-                    that the other person confirm.
-
-                    If you have any questions, please send us an email :)
-
-                </target>
-            </trans-unit>
             <trans-unit id="user.friend.welcome.message.subject">
                 <source>user.friend.welcome.message.subject</source>
                 <target>Tack för att du blivit Musikkompis hos Kompisbyrån!</target>
@@ -653,33 +604,6 @@
                             Kompisbyrån
 
                         </p>]]></target>
-            </trans-unit>
-            <trans-unit id="user.friend.welcome.message.body.txt">
-                <source>user.friend.welcome.message.body.txt</source>
-                <target>
-                    Thank you for making a Music friend request through Kompisbyrån!
-
-                    This is how it works:
-
-                    1. Match. We will send you an email (often within 1-30 days) when we have found a new FK/MK who
-                    has similar interests as you. (If you need to complete your application, we will let you know)
-
-                    2. Decide a date. You send an email to the person within 7 days, and decide date, time and place.
-                    Write in Swedish or English (some find Google Translate as a good tool). It is the responsibility
-                    of both that you establish contact. Remember to respect each other, not responding an email will
-                    affect the other person who has been looking forward to a meeting. Contact us if you don’t get
-                    answer.
-
-                    3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high
-                    expectations but take it as it comes. Be in time! The boring meetings is when someone doesn’t
-                    show up, so please exchange telephone numbers and send a text message reminder the day before
-                    your meeting, that the other person confirm.
-
-                    If you have any questions, please send us an e-mail :)
-
-                    Best regards,
-                    Kompisbyrån
-                </target>
             </trans-unit>
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>

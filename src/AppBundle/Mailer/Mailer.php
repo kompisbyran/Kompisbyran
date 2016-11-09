@@ -46,7 +46,7 @@ class Mailer
      * @param string $fromEmail
      * @param string $replyEmail
      */
-    protected function sendEmailMessage($htmlRenderedTemplate = null, $txtRenderedTemplate, $subject, $toEmail, $fromEmail = 'info@kompisbyran.se', $replyEmail = 'matchning@kompisbyran.se')
+    protected function sendEmailMessage($htmlRenderedTemplate, $txtRenderedTemplate, $subject, $toEmail, $fromEmail = 'info@kompisbyran.se', $replyEmail = 'matchning@kompisbyran.se')
     {
         $message = \Swift_Message::newInstance()
             ->setSubject($subject)
@@ -56,7 +56,9 @@ class Mailer
         ;
 
         if (is_null($htmlRenderedTemplate)) {
-            $message->setBody($txtRenderedTemplate  , 'text/plain');
+            $message->setBody($txtRenderedTemplate, 'text/plain');
+        } else if (is_null($txtRenderedTemplate)) {
+            $message->setBody($htmlRenderedTemplate, 'text/html');
         } else {
             $message
                 ->setBody($htmlRenderedTemplate , 'text/html')
