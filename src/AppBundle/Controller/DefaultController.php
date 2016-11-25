@@ -6,6 +6,7 @@ use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Form\ConnectionRequestType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -56,6 +57,8 @@ class DefaultController extends Controller
                 'activeRequest' => $activeRequest
             ];
         } else {
+
+            return new RedirectResponse('http://cms.kompisbyran.se');
             $parameters = [
                 'activeRequest' => $activeRequest
             ];

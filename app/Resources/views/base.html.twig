@@ -81,11 +81,8 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ path('homepage') }}">{{'menu.home'|trans}}</a></li>
-                    <li><a href="{{ path('how_it_works') }}">{{'menu.fikafriend'|trans}}</a></li>
-                    <li><a href="{{ path('musicfriend') }}">{{'menu.musicfriend'|trans}}</a></li>
-                    <li><a href="{{ path('work_with_us') }}">{{'menu.support'|trans}}</a></li>
-                    <li><a href="{{ path('about') }}">{{'menu.about'|trans}}</a></li>
+                    <li><a href="http://cms.kompisbyran.se">{{'menu.home'|trans}}</a></li>
+
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
