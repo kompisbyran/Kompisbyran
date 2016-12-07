@@ -170,6 +170,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->addCity($this->getReference('city-0'));
         $user->addCity($this->getReference('city-1'));
         $user->addCity($this->getReference('city-2'));
+        $user->addAdminMunicipality($this->getReference('municipality-1'));
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);

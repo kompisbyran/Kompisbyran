@@ -233,6 +233,13 @@ class User extends BaseUser
      */
     private $cities;
 
+    /**
+     * @var Municipality[]
+     *
+     * @ORM\ManyToMany(targetEntity="Municipality", inversedBy="adminUsers")
+     */
+    private $adminMunicipalities;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -245,6 +252,7 @@ class User extends BaseUser
         $this->comments                 = new ArrayCollection();
         $this->cities                   = new ArrayCollection();
         $this->type = FriendTypes::FRIEND;
+        $this->adminMunicipalities = new ArrayCollection();
 
         parent::__construct();
     }
@@ -743,5 +751,29 @@ class User extends BaseUser
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return Municipality[]|ArrayCollection
+     */
+    public function getAdminMunicipalities()
+    {
+        return $this->adminMunicipalities;
+    }
+
+    /**
+     * @param Municipality[] $adminMunicipalities
+     */
+    public function setAdminMunicipalities($adminMunicipalities)
+    {
+        $this->adminMunicipalities = $adminMunicipalities;
+    }
+
+    /**
+     * @param Municipality $adminMunicipality
+     */
+    public function addAdminMunicipality(Municipality $adminMunicipality)
+    {
+        $this->adminMunicipalities->add($adminMunicipality);
     }
 }

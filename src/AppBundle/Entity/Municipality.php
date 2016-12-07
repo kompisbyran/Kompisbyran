@@ -33,9 +33,17 @@ class Municipality
      */
     protected $users;
 
+    /**
+     * @var User[]
+     *
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="adminMunicipalities")
+     */
+    protected $adminUsers;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->adminUsers = new ArrayCollection();
     }
 
     /**
@@ -76,5 +84,29 @@ class Municipality
     public function setUsers($users)
     {
         $this->users = $users;
+    }
+
+    /**
+     * @return User[]
+     */
+    public function getAdminUsers()
+    {
+        return $this->adminUsers;
+    }
+
+    /**
+     * @param User[] $adminUsers
+     */
+    public function setAdminUsers($adminUsers)
+    {
+        $this->adminUsers = $adminUsers;
+    }
+
+    /**
+     * @param User $adminUser
+     */
+    public function addAdminUser(User $adminUser)
+    {
+        $this->adminUsers->add($adminUser);
     }
 }

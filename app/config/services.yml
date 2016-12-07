@@ -49,3 +49,9 @@ services:
         class: AppBundle\Validator\Constraints\UserHasMusicCategoriesValidator
         tags:
             - { name: validator.constraint_validator, alias: user_has_music_categories }
+
+    voter.municipality:
+        class: AppBundle\Security\Authorization\Voter\MunicipalityVoter
+        public: false
+        tags:
+            - { name: security.voter }
