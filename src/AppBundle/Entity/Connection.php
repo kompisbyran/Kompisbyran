@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Enum\FriendTypes;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -85,7 +86,7 @@ class Connection
      *
      * @ORM\Column(type="string")
      */
-    protected $type = 'friend';
+    protected $type;
 
     /**
      * @var \DateTime
@@ -106,6 +107,7 @@ class Connection
         $this->createdAt = new \DateTime();
         $this->createdBy = $user;
         $this->comments = new ArrayCollection();
+        $this->type = FriendTypes::FRIEND;
     }
 
     /**

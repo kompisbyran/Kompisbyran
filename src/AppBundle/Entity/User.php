@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Enum\FriendTypes;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -216,7 +217,7 @@ class User extends BaseUser
      *
      * @ORM\Column(type="string")
      */
-    protected $type = 'friend';
+    protected $type;
 
     /**
      * @var Municipality
@@ -243,6 +244,7 @@ class User extends BaseUser
         $this->createdAt                = new \DateTime();
         $this->comments                 = new ArrayCollection();
         $this->cities                   = new ArrayCollection();
+        $this->type = FriendTypes::FRIEND;
 
         parent::__construct();
     }

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Enum\FriendTypes;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use AppBundle\Validator\Constraints as KompisbyranAssert;
@@ -72,7 +73,7 @@ class ConnectionRequest
      *
      * @ORM\Column(type="string")
      */
-    protected $type = 'friend';
+    protected $type;
 
     /**
      * @var boolean
@@ -106,6 +107,7 @@ class ConnectionRequest
     {
         $this->createdAt = new \DateTime();
         $this->sortOrder = 0;
+        $this->type = FriendTypes::FRIEND;
     }
 
     /**
