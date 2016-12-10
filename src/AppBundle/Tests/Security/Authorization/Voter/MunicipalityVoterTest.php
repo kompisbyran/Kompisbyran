@@ -49,6 +49,7 @@ class MunicipalityVoterTest extends \PHPUnit_Framework_TestCase
         $tokenMock->expects($this->once())->method('getUser')->willReturn($userMock);
 
         $municipality = new Municipality();
+        $userMock->method('getAdminMunicipalities')->willReturn([]);
 
         $this->assertEquals(
             VoterInterface::ACCESS_DENIED,
