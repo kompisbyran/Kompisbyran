@@ -112,7 +112,7 @@
                                     <li><a href="{{ path('admin_users') }}">Användare</a></li>
                                     <li><a href="{{ path('admin_statistics') }}">Statistik</a></li>
                                     {% for municipality in app.user.adminMunicipalities %}
-                                        <li><a href="{{ path('admin_pre_match', {'id': municipality.id}) }}">{{ municipality.name }}</a></li>
+                                        <li><a href="{{ path('admin_pre_matches', {'id': municipality.id}) }}">{{ municipality.name }}</a></li>
                                     {% endfor %}
                                 </ul>
                             <li>

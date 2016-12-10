@@ -48,6 +48,20 @@ class ConnectionRequest
     protected $city;
 
     /**
+     * @var PreMatch
+     *
+     * @ORM\OneToOne(targetEntity="PreMatch", mappedBy="fluentSpeakerConnectionRequest")
+     */
+    protected $fluentSpeakerPreMatch;
+
+    /**
+     * @var PreMatch
+     *
+     * @ORM\OneToOne(targetEntity="PreMatch", mappedBy="learnerConnectionRequest")
+     */
+    protected $learnerPreMatch;
+
+    /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
@@ -308,5 +322,37 @@ class ConnectionRequest
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return PreMatch
+     */
+    public function getFluentSpeakerPreMatch()
+    {
+        return $this->fluentSpeakerPreMatch;
+    }
+
+    /**
+     * @param PreMatch $fluentSpeakerPreMatch
+     */
+    public function setFluentSpeakerPreMatch($fluentSpeakerPreMatch)
+    {
+        $this->fluentSpeakerPreMatch = $fluentSpeakerPreMatch;
+    }
+
+    /**
+     * @return PreMatch
+     */
+    public function getLearnerPreMatch()
+    {
+        return $this->learnerPreMatch;
+    }
+
+    /**
+     * @param PreMatch $learnerPreMatch
+     */
+    public function setLearnerPreMatch($learnerPreMatch)
+    {
+        $this->learnerPreMatch = $learnerPreMatch;
     }
 }

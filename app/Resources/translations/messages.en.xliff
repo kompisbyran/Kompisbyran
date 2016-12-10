@@ -40,11 +40,15 @@
             </trans-unit>
             <trans-unit id="global.music_buddy">
                 <source>global.music_buddy</source>
-                <target>music friend</target>
+                <target>Music friend</target>
             </trans-unit>
             <trans-unit id="global.fika_buddy">
                 <source>global.fika_buddy</source>
-                <target>fika friend</target>
+                <target>Fika friend</target>
+            </trans-unit>
+            <trans-unit id="global.start_buddy">
+                <source>global.start_buddy</source>
+                <target>Start friend</target>
             </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>

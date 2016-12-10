@@ -266,4 +266,24 @@ class ConnectionRequestRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @param Municipality $municipality
+     *
+     * @return ConnectionRequest[]
+     */
+    public function findWantToLearnStartFriendsByMunicipality(Municipality $municipality)
+    {
+        return $qb = $this->createQueryBuilder('cr')
+            ->innerJoin('cr.user', 'u')
+            ->where('u.municipality = :municipality')
+            ->andWhere('cr.wantToLearn = true')
+            ->andWhere('cr.type = :type')
+            ->andWhere('cr.inspected = true')
+            ->setParameter('municipality', $municipality)
+            ->setParameter('type', FriendTypes::START)
+            ->getQuery()
+            ->execute()
+            ;
+    }
 }

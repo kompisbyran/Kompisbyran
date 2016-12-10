@@ -40,10 +40,18 @@ class Municipality
      */
     protected $adminUsers;
 
+    /**
+     * @var PreMatch[]
+     *
+     * @ORM\OneToMany(targetEntity="PreMatch", mappedBy="municipality")
+     */
+    protected $preMatches;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
         $this->adminUsers = new ArrayCollection();
+        $this->preMatches = new ArrayCollection();
     }
 
     /**
@@ -108,5 +116,21 @@ class Municipality
     public function addAdminUser(User $adminUser)
     {
         $this->adminUsers->add($adminUser);
+    }
+
+    /**
+     * @return PreMatch[]
+     */
+    public function getPreMatches()
+    {
+        return $this->preMatches;
+    }
+
+    /**
+     * @param PreMatch[] $preMatches
+     */
+    public function setPreMatches($preMatches)
+    {
+        $this->preMatches = $preMatches;
     }
 }

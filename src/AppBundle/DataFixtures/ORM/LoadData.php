@@ -9,6 +9,7 @@ use AppBundle\Entity\GeneralCategory;
 use AppBundle\Entity\Municipality;
 use AppBundle\Entity\MusicCategory;
 use AppBundle\Entity\User;
+use AppBundle\Enum\FriendTypes;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -240,6 +241,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $this->addReference('user-cecilia', $user);
 
         $user = new User();
+        $user->setType(FriendTypes::START);
         $user->setEmail('jon@example.com');
         $user->setFirstName('Jon');
         $user->setLastName('Gotlin');
@@ -257,6 +259,66 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
         $this->addReference('user-jon', $user);
+
+        $user = new User();
+        $user->setType(FriendTypes::START);
+        $user->setEmail('kal@example.com');
+        $user->setFirstName('Kal');
+        $user->setLastName('Ström');
+        $user->setEnabled(true);
+        $user->setRoles(['ROLE_COMPLETE_USER']);
+        $user->setWantToLearn(true);
+        $user->setAge(20);
+        $user->setAbout('-');
+        $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
+        $user->setFrom('SE');
+        $user->setGender('M');
+        $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/5.jpg');
+        $user->setMunicipality($this->getReference('municipality-1'));
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
+        $this->addReference('user-kal', $user);
+
+        $user = new User();
+        $user->setType(FriendTypes::START);
+        $user->setEmail('malin@example.com');
+        $user->setFirstName('Malin');
+        $user->setLastName('Gotlin');
+        $user->setEnabled(true);
+        $user->setRoles(['ROLE_COMPLETE_USER']);
+        $user->setWantToLearn(false);
+        $user->setAge(20);
+        $user->setAbout('-');
+        $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
+        $user->setFrom('SE');
+        $user->setGender('F');
+        $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/5.jpg');
+        $user->setMunicipality($this->getReference('municipality-1'));
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
+        $this->addReference('user-malin', $user);
+
+        $user = new User();
+        $user->setType(FriendTypes::START);
+        $user->setEmail('stella@example.com');
+        $user->setFirstName('Stella');
+        $user->setLastName('Gotlin');
+        $user->setEnabled(true);
+        $user->setRoles(['ROLE_COMPLETE_USER']);
+        $user->setWantToLearn(false);
+        $user->setAge(20);
+        $user->setAbout('-');
+        $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
+        $user->setFrom('SE');
+        $user->setGender('F');
+        $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/6.jpg');
+        $user->setMunicipality($this->getReference('municipality-1'));
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
+        $this->addReference('user-stella', $user);
     }
 
     /**
@@ -293,6 +355,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setType(FriendTypes::START);
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-cecilia'));
@@ -300,10 +363,39 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setType(FriendTypes::START);
         $connectionRequest->setWantToLearn(true);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-jon'));
         $connectionRequest->setComment('');
+        $connectionRequest->setInspected(true);
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setType(FriendTypes::START);
+        $connectionRequest->setWantToLearn(true);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-kal'));
+        $connectionRequest->setComment('');
+        $connectionRequest->setInspected(true);
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setType(FriendTypes::START);
+        $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-malin'));
+        $connectionRequest->setComment('');
+        $connectionRequest->setInspected(true);
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setType(FriendTypes::START);
+        $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-stella'));
+        $connectionRequest->setComment('');
+        $connectionRequest->setInspected(true);
         $manager->persist($connectionRequest);
     }
 

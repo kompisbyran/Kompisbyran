@@ -106,10 +106,7 @@ class UserType extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
                 'label' => 'user.form.fikatype',
-                'choices' => [
-                    FriendTypes::FRIEND => 'user.form.fikatype.fikafriend',
-                    FriendTypes::MUSIC => 'user.form.fikatype.musicfriend',
-                ],
+                'choices' => FriendTypes::listTypesWithTranslationKeys(),
             ])
             ->add('municipality', 'entity', [
                     'class' => 'AppBundle:Municipality',

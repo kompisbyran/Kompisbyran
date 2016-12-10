@@ -17,6 +17,7 @@
                 <th id="name">{{ 'Name'|trans }}</th>
                 <th id="email">{{ 'Email'|trans }}</th>
                 <th id="category">{{ 'Category'|trans }}</th>
+                <th id="type">{{ 'Type'|trans }}</th>
                 <th id="action">{{ 'Action'|trans }}</th>
             </tr>
             </thead>
@@ -56,13 +57,14 @@
                     {data: "name"},
                     {data: "email"},
                     {data: "category"},
+                    {data: "type_text"},
                     {data: "action", width: '20%'}
                 ],
                 "createdRow": function ( row, data, index ) {
-                    var ids         = $('td', row).eq(4).text().split('|');
+                    var ids         = $('td', row).eq(5).text().split('|');
                     var pendingText = parseInt(ids[2])? 'Remove pending': 'Make pending';
 
-                    $('td', row).eq(4).html('<a href="'+Routing.generate('admin_ajax_connection_request_mark_pending_or_unpending', {id: ids[1]})+'" class="btn btn-warning btn-pending">'+ pendingText +'</a>&nbsp;&nbsp;<a href="'+Routing.generate('admin_match_find', {id: ids[0]})+'" class="btn btn-danger">Find match</a>');
+                    $('td', row).eq(5).html('<a href="'+Routing.generate('admin_ajax_connection_request_mark_pending_or_unpending', {id: ids[1]})+'" class="btn btn-warning btn-pending">'+ pendingText +'</a>&nbsp;&nbsp;<a href="'+Routing.generate('admin_match_find', {id: ids[0]})+'" class="btn btn-danger">Find match</a>');
                 }
             });
 

@@ -146,7 +146,7 @@ class UserRepository extends EntityRepository
         $where  = ['u.enabled = true'];
         $fields = array_keys($criterias);
         foreach($fields as $field) {
-            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'music_friend' || $field === 'q') {
+            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'type' || $field === 'q') {
                 continue;
             }
             $where[] = 'u.'.$field .' = :'.$field;
@@ -165,6 +165,9 @@ class UserRepository extends EntityRepository
         }
         if (isset($criterias['q'])) {
             $where[] = '(cr.comment LIKE :q OR u.about LIKE :q)';
+        }
+        if (isset($criterias['municipality_id'])) {
+            $where[] = 'u.municipality_id = :municipality_id';
         }
 
         return implode(' AND ', $where);

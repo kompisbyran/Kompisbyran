@@ -46,6 +46,10 @@
                 <source>global.fika_buddy</source>
                 <target>رفيق فيكا</target>
             </trans-unit>
+            <trans-unit id="global.start_buddy">
+                <source>global.start_buddy</source>
+                <target>Startkompis</target>
+            </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>
                 <target>الصفحة الرئيسية</target>

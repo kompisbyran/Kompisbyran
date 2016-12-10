@@ -1,6 +1,111 @@
-{% extends 'admin/default/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
-    asdf
+    <div class="inner-page testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="selection">Välj kommun</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu city-dropdown" aria-labelledby="dropdownMenu1">
+                            {% for loopedMunicipality in municipalities %}
+                                <li>
+                                    <a
+                                        href="{{ path('admin_pre_matches', {'id': loopedMunicipality.id}) }}"
+                                    >{{ loopedMunicipality.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 40px;">
+                <table class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Category</th>
+                        <th>Date for request</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for preMatch in preMatches %}
+                            <tr id="row-{{ preMatch.id }}-1">
+                                <td rowspan="2" class="text-center" style="vertical-align: middle">
+                                    <strong>{{ preMatch.id }}</strong>
+                                </td>
+                                <td>New</td>
+                                <td>{{ preMatch.learnerConnectionRequest.createdAt|date('Y-m-d') }}</td>
+                                <td>{{ preMatch.learnerConnectionRequest.user.name }}</td>
+                                <td>{{ preMatch.learnerConnectionRequest.user.email }}</td>
+                                <td>
+                                </td>
+                                <td rowspan="2" style="vertical-align: middle">
+                                    <a href="#" class="btn btn-primary confirm-match">Bekräfta matchning</a>
+                                </td>
+                            </tr>
+                            <tr id="row-{{ preMatch.id }}-2">
+                                <td>Established</td>
+                                <td class="fluent-speaker-connection-request-created-at">
+                                    {{ preMatch.fluentSpeakerConnectionRequest ? preMatch.fluentSpeakerConnectionRequest.createdAt|date('Y-m-d') : null }}
+                                </td>
+                                <td class="fluent-speaker-name">
+                                    {{ preMatch.fluentSpeakerConnectionRequest ? preMatch.fluentSpeakerConnectionRequest.user.name : null }}
+                                </td>
+                                <td class="fluent-speaker-email">
+                                    {{ preMatch.fluentSpeakerConnectionRequest ? preMatch.fluentSpeakerConnectionRequest.user.email : null }}
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-default re-match" data-pre-match-id="{{ preMatch.id }}">
+                                        Sök ny
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
 {% endblock %}
 
+{% block javascripts %}
+<script>
+    $(document).ready(function() {
+        $('.re-match').click(function(e) {
+            e.preventDefault();
+            var preMatchId = $(this).data('preMatchId');
+            $.ajax({
+                url: Routing.generate('admin_re_pre_match', {
+                    municipalityId: {{ municipality.id }},
+                    preMatchId: preMatchId
+                }),
+                method: 'PUT'
+            }).done(function(data) {
+                var requestCreatedAt = '';
+                var name = '';
+                var email = '';
+                $('#row-' + preMatchId + '-1 .confirm-match').attr('disabled', 'disabled');
+                if (data.fluent_speaker != null) {
+                    $('#row-' + preMatchId + '-1 .confirm-match').removeAttr('disabled');
+                    requestCreatedAt = data.fluent_speaker.request_created_at;
+                    name = data.fluent_speaker.name;
+                    email = data.fluent_speaker.email;
+                }
+                $('#row-' + preMatchId + '-2 .fluent-speaker-connection-request-created-at').text(requestCreatedAt);
+                $('#row-' + preMatchId + '-2 .fluent-speaker-name').text(name);
+                $('#row-' + preMatchId + '-2 .fluent-speaker-email').text(email);
+            });
+        });
+    });
+</script>
+{% endblock %}
