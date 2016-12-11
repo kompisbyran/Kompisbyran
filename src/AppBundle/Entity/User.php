@@ -776,4 +776,12 @@ class User extends BaseUser
     {
         $this->adminMunicipalities->add($adminMunicipality);
     }
+
+    /**
+     * @param Municipality $municipality
+     */
+    public function removeAdminMunicipality(Municipality $municipality)
+    {
+        $this->adminMunicipalities->removeElement($municipality);
+    }
 }

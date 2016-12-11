@@ -3,6 +3,8 @@
 namespace AppBundle\Controller\Admin2;
 
 use AppBundle\Entity\ConnectionRequest;
+use AppBundle\Entity\Municipality;
+use AppBundle\Entity\MunicipalityRepository;
 use AppBundle\Entity\User;
 use AppBundle\Form\AdminUserType;
 use JMS\DiExtraBundle\Annotation\Inject;
@@ -10,6 +12,7 @@ use JMS\DiExtraBundle\Annotation\InjectParams;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,6 +20,7 @@ use AppBundle\Manager\UserManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use AppBundle\Manager\ConnectionRequestManager;
 use AppBundle\Manager\CityManager;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("admin2/users")
@@ -44,6 +48,11 @@ class UserController extends Controller
     private $formFactory;
 
     /**
+     * @var MunicipalityRepository
+     */
+    private $municipalityRepository;
+
+    /**
      * @InjectParams({
      *     "formFactory" = @Inject("form.factory")
      * })
@@ -51,12 +60,19 @@ class UserController extends Controller
      * @param ConnectionRequestManager $connectionRequestManager
      * @param CityManager $cityManager
      */
-    public function __construct(UserManager $userManager, ConnectionRequestManager $connectionRequestManager, CityManager $cityManager, FormFactoryInterface $formFactory)
+    public function __construct(
+        UserManager $userManager,
+        ConnectionRequestManager $connectionRequestManager,
+        CityManager $cityManager,
+        FormFactoryInterface $formFactory,
+        MunicipalityRepository $municipalityRepository
+    )
     {
         $this->userManager              = $userManager;
         $this->connectionRequestManager = $connectionRequestManager;
         $this->cityManager              = $cityManager;
         $this->formFactory              = $formFactory;
+        $this->municipalityRepository = $municipalityRepository;
     }
 
     /**
@@ -96,14 +112,21 @@ class UserController extends Controller
     /**
      * @Route("/priviledges", name="admin_user_priviledges")
      * @Security("has_role('ROLE_SUPER_ADMIN')")
-     * @Method({"GET"})
+     * @Method("GET")
      */
-    public function priviledgeAction(Request $request)
+    public function priviledgeAction()
     {
-        return $this->render('admin2/user/priviledge.html.twig', [
-            'users'     => $this->userManager->getFindAllAdmin(),
-            'cities'    => $this->cityManager->getFindAll()
-        ]);
+        $administrators = $this->userManager->getFindAllAdmin();
+        $municipalityAdministrators = array_merge($this->userManager->getAllMunicipalityAdministrators(), $administrators);
+
+        $parameters = [
+            'administrators' => $administrators,
+            'municipalityAdministrators' => $municipalityAdministrators,
+            'cities' => $this->cityManager->getFindAll(),
+            'municipalities' => $this->municipalityRepository->findAll(),
+        ];
+
+        return $this->render('admin2/user/priviledge.html.twig', $parameters);
     }
 
     /**
@@ -132,5 +155,54 @@ class UserController extends Controller
         return new JsonResponse([
             'success' => $result
         ]);
+    }
+
+    /**
+     * @Route(
+     *     "/{id}/municipalities",
+     *     name="admin_user_add_municipality",
+     *     options={"expose"=true},
+     *     requirements={"id": "\d+"}
+     * )
+     * @Method("POST")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
+     */
+    public function addMunicipalityAction(User $user, Request $request)
+    {
+        $municipality = $this->municipalityRepository->find($request->get('municipalityId'));
+        $user->addAdminMunicipality($municipality);
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new Response('', Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * @Route(
+     *     "/{userId}/municipalities/{municipalityId}",
+     *     name="admin_user_remove_municipality",
+     *     options={"expose"=true},
+     *     requirements={"userId": "\d+", "municipalityId": "\d+"},
+     * )
+     * @ParamConverter(
+     *     "user",
+     *     class="AppBundle:User",
+     *     options={"id"="userId"}
+     * )
+     * @ParamConverter(
+     *     "municipality",
+     *     class="AppBundle:Municipality",
+     *     options={"id"="municipalityId"}
+     * )
+     * @Method("DELETE")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
+     */
+    public function removeMunicipalityAction(User $user, Municipality $municipality)
+    {
+        $user->removeAdminMunicipality($municipality);
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new Response('', Response::HTTP_NO_CONTENT);
     }
 }

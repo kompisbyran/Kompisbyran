@@ -312,6 +312,14 @@ class UserManager implements ManagerInterface
     }
 
     /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function getAllMunicipalityAdministrators()
+    {
+        return $this->userRepository->findAllMunicipalityAdministrators();
+    }
+
+    /**
      * @param User $user
      * @param City $city
      * @return bool

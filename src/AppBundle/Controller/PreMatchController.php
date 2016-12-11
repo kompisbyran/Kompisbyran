@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Admin;
+namespace AppBundle\Controller;
 
 use AppBundle\Entity\Municipality;
 use AppBundle\Entity\PreMatch;
@@ -12,13 +12,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-/**
- * @Route("/admin")
- */
 class PreMatchController extends Controller
 {
     /**
-     * @Route("/pre-matches/{id}", name="admin_pre_matches", requirements={"id": "\d+"})
+     * @Route("/pre-matches/{id}", name="pre_matches", requirements={"id": "\d+"})
      * @Method("GET")
      */
     public function indexAction(Municipality $municipality)
@@ -39,13 +36,13 @@ class PreMatchController extends Controller
             'preMatches' => $municipality->getPreMatches(),
         ];
 
-        return $this->render('admin/preMatch/index.html.twig', $parameters);
+        return $this->render('preMatch/index.html.twig', $parameters);
     }
 
     /**
      * @Route(
      *     "/pre-matches/{municipalityId}/{preMatchId}",
-     *     name="admin_re_pre_match",
+     *     name="re_pre_match",
      *     requirements={"municipalityId": "\d+", "preMatchId": "\d+"},
      *     options={"expose"=true}
      * )
@@ -85,16 +82,5 @@ class PreMatchController extends Controller
         $this->getDoctrine()->getManager()->refresh($preMatch);
 
         return new JsonResponse($this->get('serializer')->normalize($preMatch));
-    }
-
-    /**
-     * @Route("/pre-match/{id}.json", name="admin_pre_match_json", requirements={"id": "\d+"}, options={"expose"=true})
-     * @Method("GET")
-     */
-    public function jsonAction(Municipality $municipality)
-    {
-        $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_VIEW, $municipality);
-
-        return new JsonResponse($this->get('serializer')->normalize($municipality->getPreMatches()));
     }
 }

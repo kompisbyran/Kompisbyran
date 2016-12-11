@@ -40,19 +40,21 @@ class UserController extends Controller
                 $user->addRole('ROLE_COMPLETE_USER');
                 $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
                 $this->getSecurityContext()->setToken($token);
-                $this->addFlash(
-                    'info',
-                    'Nu har vi registrerat dina uppgifter, och kommer att höra av oss så fort vi har hittat en ny
-                    matchning.'
-                );
-                $connectionRequest = new ConnectionRequest();
-                $connectionRequest->setUser($user);
-                $connectionRequest->setCity($form->get('city')->getData());
-                $connectionRequest->setWantToLearn($user->getWantToLearn());
-                $connectionRequest->setType($user->getType());
-                $em->persist($connectionRequest);
+                if (!$user->hasRole('ROLE_MUNICIPALITY')) {
+                    $this->addFlash(
+                        'info',
+                        'Nu har vi registrerat dina uppgifter, och kommer att höra av oss så fort vi har hittat en ny
+                         matchning.'
+                    );
+                    $connectionRequest = new ConnectionRequest();
+                    $connectionRequest->setUser($user);
+                    $connectionRequest->setCity($form->get('city')->getData());
+                    $connectionRequest->setWantToLearn($user->getWantToLearn());
+                    $connectionRequest->setType($user->getType());
+                    $em->persist($connectionRequest);
 
-                $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
+                    $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
+                }
             }
             $em->persist($user);
             $em->flush();

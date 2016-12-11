@@ -14,7 +14,7 @@
                             {% for loopedMunicipality in municipalities %}
                                 <li>
                                     <a
-                                        href="{{ path('admin_pre_matches', {'id': loopedMunicipality.id}) }}"
+                                        href="{{ path('pre_matches', {'id': loopedMunicipality.id}) }}"
                                     >{{ loopedMunicipality.name }}</a>
                                 </li>
                             {% endfor %}
@@ -38,7 +38,7 @@
                     <tbody>
                         {% for preMatch in preMatches %}
                             <tr id="row-{{ preMatch.id }}-1">
-                                <td rowspan="2" class="text-center" style="vertical-align: middle">
+                                <td rowspan="3" class="text-center" style="vertical-align: middle">
                                     <strong>{{ preMatch.id }}</strong>
                                 </td>
                                 <td>New</td>
@@ -47,7 +47,7 @@
                                 <td>{{ preMatch.learnerConnectionRequest.user.email }}</td>
                                 <td>
                                 </td>
-                                <td rowspan="2" style="vertical-align: middle">
+                                <td rowspan="3" style="vertical-align: middle">
                                     <a href="#" class="btn btn-primary confirm-match">Bekräfta matchning</a>
                                 </td>
                             </tr>
@@ -68,6 +68,11 @@
                                     </a>
                                 </td>
                             </tr>
+                            <tr>
+                                <td colspan="5">
+                                    [Text om matchningen]
+                                </td>
+                            </tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -85,7 +90,7 @@
             e.preventDefault();
             var preMatchId = $(this).data('preMatchId');
             $.ajax({
-                url: Routing.generate('admin_re_pre_match', {
+                url: Routing.generate('re_pre_match', {
                     municipalityId: {{ municipality.id }},
                     preMatchId: preMatchId
                 }),
