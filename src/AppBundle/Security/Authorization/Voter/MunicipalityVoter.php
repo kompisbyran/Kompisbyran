@@ -9,7 +9,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class MunicipalityVoter extends AbstractVoter
 {
-    const ADMIN_VIEW = 'admin_view';
+    const ADMIN_VIEW = 'municipality.admin_view';
+    const ADMIN_DELETE = 'municipality.admin_delete';
 
     /**
      * @return array
@@ -18,6 +19,7 @@ class MunicipalityVoter extends AbstractVoter
     {
         return [
             self::ADMIN_VIEW,
+            self::ADMIN_DELETE,
         ];
     }
 
@@ -45,6 +47,13 @@ class MunicipalityVoter extends AbstractVoter
 
         switch($attribute) {
             case self::ADMIN_VIEW:
+                foreach ($user->getAdminMunicipalities() as $adminMunicipality) {
+                    if ($adminMunicipality == $municipality) {
+                        return true;
+                    }
+                }
+                break;
+            case self::ADMIN_DELETE:
                 foreach ($user->getAdminMunicipalities() as $adminMunicipality) {
                     if ($adminMunicipality == $municipality) {
                         return true;

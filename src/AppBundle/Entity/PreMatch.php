@@ -45,7 +45,7 @@ class PreMatch
     /**
      * @var PreMatchIgnore[]
      *
-     * @ORM\OneToMany(targetEntity="PreMatchIgnore", mappedBy="preMatch", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="PreMatchIgnore", mappedBy="preMatch", cascade={"persist", "remove"})
      */
     protected $preMatchIgnores;
 

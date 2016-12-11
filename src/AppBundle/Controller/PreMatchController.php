@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class PreMatchController extends Controller
 {
@@ -82,5 +83,32 @@ class PreMatchController extends Controller
         $this->getDoctrine()->getManager()->refresh($preMatch);
 
         return new JsonResponse($this->get('serializer')->normalize($preMatch));
+    }
+
+    /**
+     * @Route(
+     *     "/pre-matches/{municipalityId}/{preMatchId}",
+     *     name="delete_pre_match",
+     *     requirements={"municipalityId": "\d+", "preMatchId": "\d+"},
+     *     options={"expose"=true}
+     * )
+     * @Method("DELETE")
+     * @ParamConverter(
+     *     "preMatch",
+     *     class="AppBundle:PreMatch",
+     *     options={
+     *         "repository_method"="findByMunicipalityIdAndPreMatchId",
+     *         "map_method_signature"=true
+     *     }
+     * )
+     */
+    public function deletePreMatchAction(PreMatch $preMatch)
+    {
+        $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_DELETE, $preMatch->getMunicipality());
+
+        $this->getDoctrine()->getManager()->remove($preMatch);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new Response('', Response::HTTP_NO_CONTENT);
     }
 }
