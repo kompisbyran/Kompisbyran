@@ -29,8 +29,8 @@
                         <div class="form-group">
                             <select class="form-control" name="type">
                                 <option value=""{{ params.type == '' ? ' selected ' : '' }}>Alla typer</option>
-                                <option value="0"{{ params.type == '0' ? ' selected ' : '' }}>Inte Musikkompis</option>
-                                <option value="1"{{ params.type == '1' ? ' selected ' : '' }}>Musikkompis</option>
+                                <option value="{{ constant('AppBundle\\Enum\\FriendTypes::FRIEND') }}"{{ params.type == constant('AppBundle\\Enum\\FriendTypes::FRIEND') ? ' selected ' : '' }}>Inte Musikkompis</option>
+                                <option value="{{ constant('AppBundle\\Enum\\FriendTypes::MUSIC') }}"{{ params.type == constant('AppBundle\\Enum\\FriendTypes::MUSIC') ? ' selected ' : '' }}>Musikkompis</option>
                             </select>
                         </div>
                     </div>
