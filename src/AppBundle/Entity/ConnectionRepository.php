@@ -34,7 +34,7 @@ class ConnectionRepository extends EntityRepository
         }
 
         if ($type !== "") {
-            $query .= " AND c.music_friend = :type";
+            $query .= " AND c.type = :type";
             $params['type'] = $type;
         }
 

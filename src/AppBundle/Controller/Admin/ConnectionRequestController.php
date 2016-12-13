@@ -112,7 +112,7 @@ class ConnectionRequestController extends Controller
         $connectionRequest->setComment      ( $request->request->get('comment')             );
         $connectionRequest->setCity         ( $city                                         );
         $connectionRequest->setSortOrder    ( $request->request->getInt('sortOrder')        );
-        $connectionRequest->setType($request->request->getType('type'));
+        $connectionRequest->setType($request->request->get('type'));
         try {
             $connectionRequest->setCreatedAt(new \DateTime($request->request->get('date')));
         } catch (\Exception $e) {}
