@@ -58,6 +58,10 @@
                 <source>menu.musicfriend</source>
                 <target>Music Friend</target>
             </trans-unit>
+            <trans-unit id="menu.startfriend">
+                <source>menu.startfriend</source>
+                <target>Start Friend</target>
+            </trans-unit>
             <trans-unit id="menu.support">
                 <source>menu.support</source>
                 <target>Support us</target>
@@ -875,6 +879,26 @@ Your friends at Kompisbyrån
                             Questions about collaborations, recruitment or press, please contact: <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a> or <a href="mailto:cecilia@kompisbyran.se ">cecilia@kompisbyran.se </a>
                         </p>
                     ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="page.start.header">
+                <source>page.start.header</source>
+                <target>Bli Startkompis</target>
+            </trans-unit>
+            <trans-unit id="page.start.text">
+                <source>page.start.text</source>
+                <target>
+                    <![CDATA[
+                        <p>
+                            ...
+                        </p>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="page.start.well">
+                <source>page.start.well</source>
+                <target>
+                    ...
                 </target>
             </trans-unit>
         </body>

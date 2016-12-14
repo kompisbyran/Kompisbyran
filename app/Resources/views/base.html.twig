@@ -73,8 +73,7 @@
                     <!-- Logo and Head Text -->
                     <div class="logo">
                         <!-- Logo Icon and Heading -->
-                        <img src="/images/logo.png" class="img-responsive" alt="" />
-                        <span>Kompisbyrån</span>
+                        <img src="/images/logo.png" class="img-responsive" alt="Kompisbyrån" />
                     </div>
                 </a>
             </div>
@@ -84,6 +83,7 @@
                     <li><a href="{{ path('homepage') }}">{{'menu.home'|trans}}</a></li>
                     <li><a href="{{ path('how_it_works') }}">{{'menu.fikafriend'|trans}}</a></li>
                     <li><a href="{{ path('musicfriend') }}">{{'menu.musicfriend'|trans}}</a></li>
+                    <li><a href="{{ path('startfriend') }}">{{'menu.startfriend'|trans}}</a></li>
                     <li><a href="{{ path('work_with_us') }}">{{'menu.support'|trans}}</a></li>
                     <li><a href="{{ path('about') }}">{{'menu.about'|trans}}</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
