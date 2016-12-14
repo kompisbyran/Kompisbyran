@@ -52,11 +52,15 @@
             </trans-unit>
             <trans-unit id="menu.fikafriend">
                 <source>menu.fikafriend</source>
-                <target>Bli Fikakompis</target>
+                <target>Fikakompis</target>
             </trans-unit>
             <trans-unit id="menu.musicfriend">
                 <source>menu.musicfriend</source>
-                <target>Bli Musikkompis</target>
+                <target>Musikkompis</target>
+            </trans-unit>
+            <trans-unit id="menu.startfriend">
+                <source>menu.startfriend</source>
+                <target>Startkompis</target>
             </trans-unit>
             <trans-unit id="menu.support">
                 <source>menu.support</source>
@@ -922,6 +926,26 @@ Your friends at Kompisbyrån
                             Övrigt: <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a><br>
                         </p>
                     ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="page.start.header">
+                <source>page.start.header</source>
+                <target>Bli Startkompis</target>
+            </trans-unit>
+            <trans-unit id="page.start.text">
+                <source>page.start.text</source>
+                <target>
+                    <![CDATA[
+                        <p>
+                            ...
+                        </p>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="page.start.well">
+                <source>page.start.well</source>
+                <target>
+                    ...
                 </target>
             </trans-unit>
         </body>
