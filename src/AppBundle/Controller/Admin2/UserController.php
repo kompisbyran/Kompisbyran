@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Admin2;
 
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Form\AdminUserType;
 use JMS\DiExtraBundle\Annotation\Inject;
@@ -78,25 +79,7 @@ class UserController extends Controller
             if ($form->isValid()) {
                 $this->userManager->save($user);
 
-                $userRequest = $this->connectionRequestManager->getFindOneUnpendingByUserId($user->getId());
-
-                return new JsonResponse([
-                    'success'   => true,
-                    'user'      => [
-                        'fullName'                      => $user->getFullName(),
-                        'email'                         => $user->getEmail(),
-                        'age'                           => $user->getAge(),
-                        'type'                          => $this->userManager->getWantToLearnTypeName($user),
-                        'countryName'                   => $user->getCountryName(),
-                        'area'                          => $user->getMunicipality()->getName(),
-                        'hasChildren'                   => ($user->getFullName()? 'Yes': 'No'),
-                        'musicFriendType'               => $userRequest->getMusicFriendType(),
-                        'about'                         => $user->getAbout(),
-                        'firstConnectionRequestComment' => $user->getFirstConnectionRequestComment(),
-                        'internalComment'               => $user->getInternalComment(),
-                        'interests'                     => $this->userManager->getCategoryNameStringByUser($user)
-                    ]
-                ]);
+                return new JsonResponse(['success' => true]);
             } else {
                 return new JsonResponse(['success' => false]);
             }
