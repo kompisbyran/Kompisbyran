@@ -48,6 +48,14 @@
                                 <td>
                                 </td>
                                 <td rowspan="3" style="vertical-align: middle">
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <a
+                                        href="#"
+                                        class="btn btn-info verify-match"
+                                        data-pre-match-id="{{ preMatch.id }}"
+                                        data-verify="{{ preMatch.verified ? 'true' : 'false' }}"
+                                    >{{ preMatch.verified ? 'Godkänn inte förslag' : 'Godkänn förslag' }}</a><br><br>
+                                    {% endif %}
                                     <a
                                         href="#"
                                         class="btn btn-primary confirm-match"
@@ -135,6 +143,30 @@
                     $('#row-' + preMatchId + '-1, #row-' + preMatchId + '-2, #row-' + preMatchId + '-3').fadeOut();
                 });
             }
+        });
+
+        $('.verify-match').click(function(e) {
+            e.preventDefault();
+            var $button = $(this);
+            var preMatchId = $button.data('preMatchId');
+            var verify = $button.attr('data-verify') == 'false';
+            $.ajax({
+                url: Routing.generate('patch_pre_match', {
+                    municipalityId: {{ municipality.id }},
+                    preMatchId: preMatchId
+                }),
+                data: {
+                    verified: verify
+                },
+                method: 'PATCH'
+            }).done(function () {
+                $button.attr('data-verify', verify);
+                if (verify) {
+                    $button.text('Godkänn inte förslag');
+                } else {
+                    $button.text('Godkänn förslag');
+                }
+            });
         });
     });
 </script>

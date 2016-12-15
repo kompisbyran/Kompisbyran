@@ -49,6 +49,13 @@ class PreMatch
      */
     protected $preMatchIgnores;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $verified= false;
+
     public function __construct()
     {
         $this->preMatchIgnores = new ArrayCollection();
@@ -133,5 +140,21 @@ class PreMatch
     {
         $this->preMatchIgnores->add($preMatchIgnore);
         $preMatchIgnore->setPreMatch($this);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isVerified()
+    {
+        return $this->verified;
+    }
+
+    /**
+     * @param boolean $verified
+     */
+    public function setVerified($verified)
+    {
+        $this->verified = $verified;
     }
 }

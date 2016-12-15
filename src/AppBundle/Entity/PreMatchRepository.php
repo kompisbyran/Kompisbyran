@@ -28,4 +28,21 @@ class PreMatchRepository extends EntityRepository
             ->getOneOrNullResult()
             ;
     }
+
+    /**
+     * @param Municipality $municipality
+     *
+     * @return PreMatch[]
+     */
+    public function findVerifiedByMunicipality(Municipality $municipality)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.verified = true')
+            ->andWhere('p.municipality = :municipality')
+            ->setParameter('municipality', $municipality)
+            ->orderBy('p.id')
+            ->getQuery()
+            ->execute()
+            ;
+    }
 }

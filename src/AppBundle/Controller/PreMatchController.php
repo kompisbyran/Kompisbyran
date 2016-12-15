@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class PreMatchController extends Controller
@@ -29,12 +30,17 @@ class PreMatchController extends Controller
             $this->get('manager.pre_match')->createMatches($municipality);
         }
 
-        $this->getDoctrine()->getManager()->refresh($municipality);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $this->getDoctrine()->getManager()->refresh($municipality);
+            $preMatches = $municipality->getPreMatches();
+        } else {
+            $preMatches = $this->get('pre_match_repository')->findVerifiedByMunicipality($municipality);
+        }
 
         $parameters = [
             'municipalities' => $municipalities,
             'municipality' => $municipality,
-            'preMatches' => $municipality->getPreMatches(),
+            'preMatches' => $preMatches,
         ];
 
         return $this->render('preMatch/index.html.twig', $parameters);
@@ -83,6 +89,36 @@ class PreMatchController extends Controller
         $this->getDoctrine()->getManager()->refresh($preMatch);
 
         return new JsonResponse($this->get('serializer')->normalize($preMatch));
+    }
+
+    /**
+     * @Route(
+     *     "/pre-matches/{municipalityId}/{preMatchId}",
+     *     name="patch_pre_match",
+     *     requirements={"municipalityId": "\d+", "preMatchId": "\d+"},
+     *     options={"expose"=true}
+     * )
+     * @Method("PATCH")
+     * @ParamConverter(
+     *     "preMatch",
+     *     class="AppBundle:PreMatch",
+     *     options={
+     *         "repository_method"="findByMunicipalityIdAndPreMatchId",
+     *         "map_method_signature"=true
+     *     }
+     * )
+     */
+    public function patchAction(PreMatch $preMatch, Request $request)
+    {
+        $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_VIEW, $preMatch->getMunicipality());
+
+        if ($request->request->has('verified')) {
+            $preMatch->setVerified($request->request->getBoolean('verified'));
+            $this->getDoctrine()->getManager()->persist($preMatch);
+            $this->getDoctrine()->getManager()->flush();
+        }
+
+        return new Response('', Response::HTTP_NO_CONTENT);
     }
 
     /**
