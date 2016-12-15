@@ -176,7 +176,7 @@ class ConnectionRequestManager implements ManagerInterface
             'newMusicFriendUsers'           => $this->getCountNewMusicFriendWithinCity($city),
             'establishedUsers'              => $this->getCountEstablishedWithinCity($city),
             'establishedMusicFriendUsers'   => $this->getCountEstablishedMusicFriendWithinCity($city),
-            'results'                       => $this->getCityResults($this->connectionRequestRepository->findByCity($city)),
+            'results'                       => $this->getCityResults($this->connectionRequestRepository->findByCity($city, FriendTypes::START)),
             'next'                          => false
         ];
     }
@@ -203,7 +203,7 @@ class ConnectionRequestManager implements ManagerInterface
                 'email'         => $user->getEmail(),
                 'category'      => $wantToLearnText,
                 'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending, //user_id|request_id|pending
-                'type_text' => $this->translator->trans(FriendTypes::tranlsationKey($user->getType())),
+                'type_text' => $this->translator->trans(FriendTypes::tranlsationKey($connectionRequest->getType())),
             ];
         }
 

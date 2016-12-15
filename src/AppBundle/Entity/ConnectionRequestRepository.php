@@ -187,12 +187,14 @@ class ConnectionRequestRepository extends EntityRepository
 
     /**
      * @param City $city
-     * @return mixed
+     * @param $excludeType
+     *
+     * @return ConnectionRequest[]
      */
-    public function findByCity(City $city)
+    public function findByCity(City $city, $excludeType = null)
     {
         return $this
-            ->findByCityQueryBuilder($city)
+            ->findByCityQueryBuilder($city, $excludeType)
             ->getQuery()
             ->getResult()
         ;
@@ -200,11 +202,13 @@ class ConnectionRequestRepository extends EntityRepository
 
     /**
      * @param City $city
+     * @param $excludeType
+     *
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function findByCityQueryBuilder(City $city)
+    public function findByCityQueryBuilder(City $city, $excludeType = null)
     {
-        return $this
+        $qb = $this
             ->createQueryBuilder('cr')
             ->innerJoin('cr.user', 'u')
             ->where('cr.city        = :city')
@@ -216,6 +220,11 @@ class ConnectionRequestRepository extends EntityRepository
             ->addOrderBy('cr.createdAt', 'ASC')
             ->setParameter('city', $city)
         ;
+        if ($excludeType) {
+            $qb->andWhere('cr.type != :type')->setParameter('type', $excludeType);
+        }
+
+        return $qb;
     }
 
     /**
