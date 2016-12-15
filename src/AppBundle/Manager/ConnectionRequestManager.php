@@ -211,7 +211,7 @@ class ConnectionRequestManager implements ManagerInterface
 
     /**
      * @param $userId
-     * @return null|object
+     * @return null|ConnectionRequest
      */
     public function getFindOneUnpendingByUserId($userId)
     {
