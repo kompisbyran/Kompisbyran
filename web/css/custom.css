@@ -106,3 +106,8 @@ div.candidate span.matches a.google-link {
 .checkableList label > input[type="radio"], label > input[type="checkbox"] {
     margin-right: -20px;
 }
+.nav-head .navbar-default .logo img{
+    width: 265px;
+    display: inline;
+    margin: 0 10px 0 0;
+}
