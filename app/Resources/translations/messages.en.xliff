@@ -884,14 +884,14 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="page.start.header">
                 <source>page.start.header</source>
-                <target>Bli Startkompis</target>
+                <target>Start Friend</target>
             </trans-unit>
             <trans-unit id="page.start.text">
                 <source>page.start.text</source>
                 <target>
                     <![CDATA[
                         <p>
-                            ...
+                            More information will soon be released. Open for registration from January 2017. 
                         </p>
                     ]]>
                 </target>
