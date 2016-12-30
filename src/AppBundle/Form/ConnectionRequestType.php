@@ -27,7 +27,21 @@ class ConnectionRequestType extends AbstractType
                         return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
                     },
                     'property' => 'name',
-                    'empty_value' => ''
+                    'empty_value' => '',
+                    'required' => false,
+                ]
+            )
+            ->add('municipality', 'entity', [
+                    'label' => 'connection_request.form.municipality',
+                    'class' => 'AppBundle:Municipality',
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('m')
+                            ->where('m.startMunicipality = true')
+                            ->orderBy('m.name', 'ASC');
+                    },
+                    'property' => 'name',
+                    'empty_value' => '',
+                    'required' => false,
                 ]
             )
             ->add('comment', 'textarea', [
@@ -44,18 +58,23 @@ class ConnectionRequestType extends AbstractType
             ])
             ->add('availableWeekday', 'checkbox', [
                 'required' => false,
+                'label' => 'connection_request.form.available_weekday',
             ])
             ->add('availableWeekend', 'checkbox', [
                 'required' => false,
+                'label' => 'connection_request.form.available_weekend',
             ])
             ->add('availableDay', 'checkbox', [
                 'required' => false,
+                'label' => 'connection_request.form.available_day',
             ])
             ->add('availableEvening', 'checkbox', [
                 'required' => false,
+                'label' => 'connection_request.form.available_evening',
             ])
             ->add('extraPerson', 'checkbox', [
                 'required' => false,
+                'label' => 'connection_request.form.extra_person',
             ])
             ->add('extraPersonGender', 'choice', [
                 'label' => 'connection_request.form.extra_person_gender',

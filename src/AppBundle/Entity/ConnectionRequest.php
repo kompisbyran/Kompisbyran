@@ -40,12 +40,18 @@ class ConnectionRequest
     /**
      * @var City
      *
-     * @Assert\NotBlank(groups={"newConnectionRequest"})
-     *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     protected $city;
+
+    /**
+     * @var Municipality
+     *
+     * @ORM\ManyToOne(targetEntity="Municipality", inversedBy="connectionRequests")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $municipality;
 
     /**
      * @var PreMatch
@@ -607,5 +613,21 @@ class ConnectionRequest
     public function setWantSameAge($wantSameAge)
     {
         $this->wantSameAge = $wantSameAge;
+    }
+
+    /**
+     * @return Municipality
+     */
+    public function getMunicipality()
+    {
+        return $this->municipality;
+    }
+
+    /**
+     * @param Municipality $municipality
+     */
+    public function setMunicipality($municipality)
+    {
+        $this->municipality = $municipality;
     }
 }

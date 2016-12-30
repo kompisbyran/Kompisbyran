@@ -47,6 +47,20 @@ class Municipality
      */
     protected $preMatches;
 
+    /**
+     * @var ConnectionRequest[]
+     *
+     * @ORM\OneToMany(targetEntity="ConnectionRequest", mappedBy="municipality")
+     */
+    protected $connectionRequests;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $startMunicipality = false;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -132,5 +146,37 @@ class Municipality
     public function setPreMatches($preMatches)
     {
         $this->preMatches = $preMatches;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isStartMunicipality()
+    {
+        return $this->startMunicipality;
+    }
+
+    /**
+     * @param boolean $startMunicipality
+     */
+    public function setStartMunicipality($startMunicipality)
+    {
+        $this->startMunicipality = $startMunicipality;
+    }
+
+    /**
+     * @return ConnectionRequest[]
+     */
+    public function getConnectionRequests()
+    {
+        return $this->connectionRequests;
+    }
+
+    /**
+     * @param ConnectionRequest[] $connectionRequests
+     */
+    public function setConnectionRequests($connectionRequests)
+    {
+        $this->connectionRequests = $connectionRequests;
     }
 }

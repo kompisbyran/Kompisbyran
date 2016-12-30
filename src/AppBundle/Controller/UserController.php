@@ -46,17 +46,14 @@ class UserController extends Controller
                         'Nu har vi registrerat dina uppgifter, och kommer att höra av oss så fort vi har hittat en ny
                          matchning.'
                     );
-                    $connectionRequest = new ConnectionRequest();
-                    $connectionRequest->setUser($user);
-                    $connectionRequest->setCity($form->get('city')->getData());
-                    $connectionRequest->setWantToLearn($user->getWantToLearn());
-                    $connectionRequest->setType($user->getType());
-                    $em->persist($connectionRequest);
 
                     $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
                 }
             }
             $em->persist($user);
+            if ($connectionRequest = $user->getFirstConnectionRequest()) {
+                $em->persist($connectionRequest);
+            }
             $em->flush();
 
             return $this->redirect($this->generateUrl('homepage'));

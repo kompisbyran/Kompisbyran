@@ -421,6 +421,9 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         foreach ($array as $i => $value) {
             $municipality = new Municipality();
             $municipality->setName($value);
+            if ($i == 198) {
+                $municipality->setStartMunicipality(true);
+            }
             $manager->persist($municipality);
             $this->addReference('municipality-' . $i, $municipality);
         }

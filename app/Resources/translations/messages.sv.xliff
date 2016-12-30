@@ -297,12 +297,11 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Berätta om dig själv. Om du vill bli Musikkompis, berätta också om ditt musikintresse:</target>
+                <target>Berätta om dig själv.</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>T.ex. saker du tycker om att göra, vem du är som person, utbildning/jobb och hur länge du har varit i Sverige
-                Musikkompis, skriv om du spelar något instrument och vilken musikgenre du gillar.</target>
+                <target>T.ex. saker du tycker om att göra eller vem du är som person.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
@@ -336,6 +335,18 @@
                 <source>user.form.fikatype.musicfriend</source>
                 <target>Musikkompis</target>
             </trans-unit>
+            <trans-unit id="user.form.type.friend.help">
+                <source>user.form.type.friend.help</source>
+                <target>Du blir matchad med en person som har liknande intressen som du har. Ni träffas på ett kafé för att prata svenska i en timme.</target>
+            </trans-unit>
+            <trans-unit id="user.form.type.music.help">
+                <source>user.form.type.music.help</source>
+                <target>Du blir matchad med en person som också gillar musik. Ni träffas på en offentlig plats för att dela ert musikintresse, till exempel för att prata om musik på ett kafé, gå på konsert eller spela instrument ihop.</target>
+            </trans-unit>
+            <trans-unit id="user.form.type.start.help">
+                <source>user.form.type.start.help</source>
+                <target>user.form.type.start.help</target>
+            </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
                 <target>Hämta din profilbild från Facebook</target>
@@ -350,7 +361,7 @@
             </trans-unit>
             <trans-unit id="user.form.occupation_description">
                 <source>user.form.occupation_description</source>
-                <target>Ev beskrivning av din sysselsättning</target>
+                <target>Beskrivning av din sysselsättning</target>
             </trans-unit>
             <trans-unit id="user.form.has_education">
                 <source>user.form.has_education</source>
@@ -358,7 +369,7 @@
             </trans-unit>
             <trans-unit id="user.form.education_description">
                 <source>user.form.education_description</source>
-                <target>Ev beskrivning av din sysselsättning</target>
+                <target>Beskrivning av din utbildning</target>
             </trans-unit>
             <trans-unit id="user.form.children_age">
                 <source>user.form.children_age</source>
@@ -433,7 +444,11 @@
             </trans-unit>
             <trans-unit id="connection_request.form.comment">
                 <source>connection_request.form.comment</source>
-                <target>Meddelande till Kompisbyrån</target>
+                <target>Har du önskemål om vad du vill att din Startkompis ska visa på promenaden?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.comment.help">
+                <source>connection_request.form.comment.help</source>
+                <target>Tänk på att ju fler önskemål/begränsningar du fyller i, desto längre tid kan det dröja. För att öka chanserna till en snabb matchning - gå in med öppet sinne!</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>

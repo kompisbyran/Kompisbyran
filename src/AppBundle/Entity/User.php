@@ -259,6 +259,67 @@ class User extends BaseUser
 
     /**
      * @var string
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'music' || this.getAboutMusic() != ''",
+     *     message="Du måste berätta om ditt musikintresse",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $aboutMusic;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $canPlayInstrument = false;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $canSing = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $aboutInstrument;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $professionalMusician = false;
+
+    /**
+     * @var string
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'music' || this.getMusicGenre() != ''",
+     *     message="Du måste skriva vilken musikgenre du gillar",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $musicGenre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $phoneNumber;
+
+    /**
+     * @var string
      * @Assert\Email
      */
     protected $email;
@@ -962,5 +1023,117 @@ class User extends BaseUser
     public function setChildrenAge($childrenAge)
     {
         $this->childrenAge = $childrenAge;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAboutMusic()
+    {
+        return $this->aboutMusic;
+    }
+
+    /**
+     * @param string $aboutMusic
+     */
+    public function setAboutMusic($aboutMusic)
+    {
+        $this->aboutMusic = $aboutMusic;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isCanPlayInstrument()
+    {
+        return $this->canPlayInstrument;
+    }
+
+    /**
+     * @param boolean $canPlayInstrument
+     */
+    public function setCanPlayInstrument($canPlayInstrument)
+    {
+        $this->canPlayInstrument = $canPlayInstrument;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAboutInstrument()
+    {
+        return $this->aboutInstrument;
+    }
+
+    /**
+     * @param string $aboutInstrument
+     */
+    public function setAboutInstrument($aboutInstrument)
+    {
+        $this->aboutInstrument = $aboutInstrument;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isProfessionalMusician()
+    {
+        return $this->professionalMusician;
+    }
+
+    /**
+     * @param boolean $professionalMusician
+     */
+    public function setProfessionalMusician($professionalMusician)
+    {
+        $this->professionalMusician = $professionalMusician;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMusicGenre()
+    {
+        return $this->musicGenre;
+    }
+
+    /**
+     * @param string $musicGenre
+     */
+    public function setMusicGenre($musicGenre)
+    {
+        $this->musicGenre = $musicGenre;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isCanSing()
+    {
+        return $this->canSing;
+    }
+
+    /**
+     * @param boolean $canSing
+     */
+    public function setCanSing($canSing)
+    {
+        $this->canSing = $canSing;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param string $phoneNumber
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
     }
 }

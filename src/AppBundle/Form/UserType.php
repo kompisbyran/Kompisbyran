@@ -155,7 +155,55 @@ class UserType extends AbstractType
                 'label' => 'user.form.children_age',
                 'required' => false,
             ])
-
+            ->add('aboutMusic', 'textarea', [
+                'label' => 'user.form.about_music',
+                'required' => false,
+            ])
+            ->add('canSing', 'choice', [
+                'expanded' => true,
+                'label' => 'user.form.can_sing',
+                'choices' => [
+                    true => 'yes',
+                    false => 'no',
+                ],
+                'choice_value' => function ($currentChoiceKey) {
+                    return $currentChoiceKey ? 'true' : 'false';
+                },
+            ])
+            ->add('canPlayInstrument', 'choice', [
+                'expanded' => true,
+                'label' => 'user.form.can_play_instrument',
+                'choices' => [
+                    true => 'yes',
+                    false => 'no',
+                ],
+                'choice_value' => function ($currentChoiceKey) {
+                    return $currentChoiceKey ? 'true' : 'false';
+                },
+            ])
+            ->add('aboutInstrument', 'textarea', [
+                'label' => 'user.form.about_instrument',
+                'required' => false,
+            ])
+            ->add('professionalMusician', 'choice', [
+                'expanded' => true,
+                'label' => 'user.form.professional_musician',
+                'choices' => [
+                    true => 'yes',
+                    false => 'no',
+                ],
+                'choice_value' => function ($currentChoiceKey) {
+                    return $currentChoiceKey ? 'true' : 'false';
+                },
+            ])
+            ->add('musicGenre', 'textarea', [
+                'label' => 'user.form.music_genre',
+                'required' => false,
+            ])
+            ->add('phoneNumber', 'textarea', [
+                'label' => 'user.form.phone_number',
+                'required' => false,
+            ])
         ;
 
         if (!$user->hasRole('ROLE_COMPLETE_USER')) {

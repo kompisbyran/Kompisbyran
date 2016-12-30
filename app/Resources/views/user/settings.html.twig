@@ -61,7 +61,10 @@
                         <div class="form-group">
                             {{ form_label(form.type) }}
                             <div class="col-sm-4 checkableList">
-                                {{ form_widget(form.type) }}
+                                {% for type in form.type %}
+                                    {{ form_widget(type) }}
+                                    <p>{{ ('user.form.type.' ~ type.vars.value ~ '.help')|trans }}</p>
+                                {% endfor %}
                                 {{ form_errors(form.type) }}
                             </div>
                         </div>
@@ -72,7 +75,7 @@
                                 {{ form_widget(form.categories) }}
                                 {{ form_errors(form.categories) }}
                             </div>
-                            <div class="col-sm-4 checkableList">
+                            <div class="col-sm-4 checkableList music hidden">
                                 {{ form_widget(form.musicCategories) }}
                                 {{ form_errors(form.musicCategories) }}
                             </div>
@@ -84,6 +87,14 @@
                                 {{ form_widget(form.about) }}
                                 {{ form_errors(form.about) }}
                                 <span class="help-block">{{ 'user.form.about.help'|trans }}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group start hidden">
+                            {{ form_label(form.phoneNumber) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.phoneNumber) }}
+                                {{ form_errors(form.phoneNumber) }}
                             </div>
                         </div>
 
@@ -167,18 +178,85 @@
                             </div>
                         </div>
 
+                        <div class="form-group music hidden">
+                            {{ form_label(form.aboutMusic) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.aboutMusic) }}
+                                {{ form_errors(form.aboutMusic) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group music hidden">
+                            {{ form_label(form.professionalMusician) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.professionalMusician) }}
+                                {{ form_errors(form.professionalMusician) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group music hidden">
+                            {{ form_label(form.musicGenre) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.musicGenre) }}
+                                {{ form_errors(form.musicGenre) }}
+                            </div>
+                        </div>
+
+
+                        <div class="form-group music hidden">
+                            {{ form_label(form.canPlayInstrument) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.canPlayInstrument) }}
+                                {{ form_errors(form.canPlayInstrument) }}
+
+                                <div id="instrument">
+                                    {{ form_label(form.aboutInstrument) }}
+                                    {{ form_widget(form.aboutInstrument) }}
+                                    {{ form_errors(form.aboutInstrument) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group music hidden">
+                            {{ form_label(form.canSing) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.canSing) }}
+                                {{ form_errors(form.canSing) }}
+                            </div>
+                        </div>
+
                         {% if not is_granted('ROLE_COMPLETE_USER') %}
                             {% set connectionRequest = form.connectionRequests[0] %}
                             <h3>Om mötet</h3>
-                            <div class="form-group">
+                            <div class="form-group hidden music friend">
                                 {{ form_label(connectionRequest.city) }}
                                 <div class="col-sm-4">
                                     {{ form_widget(connectionRequest.city) }}
                                     {{ form_errors(connectionRequest.city) }}
                                 </div>
                             </div>
+
+                            <div class="form-group hidden start">
+                                {{ form_label(connectionRequest.municipality) }}
+                                <div class="col-sm-4">
+                                    {{ form_widget(connectionRequest.municipality) }}
+                                    {{ form_errors(connectionRequest.municipality) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group start hidden">
+                                {{ form_label(connectionRequest.comment) }}
+                                <div class="col-sm-8">
+                                    {{ form_widget(connectionRequest.comment) }}
+                                    {{ form_errors(connectionRequest.comment) }}
+                                    <span class="help-block">{{ 'connection_request.form.comment.help'|trans }}</span>
+                                </div>
+                            </div>
+
                             {{ form_widget(connectionRequest) }}
                         {% endif %}
+
+
 
                         {{ form_widget(form) }}
 
@@ -195,4 +273,87 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('input[name="user[type]"]').change(function() {
+            var type = $('input[name="user[type]"]:checked').val();
+            $('.friend').hide();
+            $('.music').hide();
+            $('.start').hide();
+            $('.friend').removeClass('hidden');
+            $('.music').removeClass('hidden');
+            $('.start').removeClass('hidden');
+
+            $('.' + type).show();
+        });
+        $('input[name="user[type]"]').eq(0).trigger('change');
+
+        $('select[name="user[occupation]"]').change(function() {
+            if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::EMPLOYED') }}'
+                || $(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::STUDENT') }}'
+            ) {
+                $('#user_occupationDescription').removeAttr('readonly');
+            } else {
+                $('#user_occupationDescription').prop('readonly', true);
+                $('#user_occupationDescription').val('');
+            }
+        });
+        $('select[name="user[occupation]"]').eq(0).trigger('change');
+
+        $('input[name="user[education]"]').change(function() {
+            if ($('input[name="user[education]"]:checked').val() == 'true') {
+                $('#user_educationDescription').removeAttr('readonly');
+            } else {
+                $('#user_educationDescription').prop('readonly', true);
+                $('#user_educationDescription').val('');
+            }
+        });
+        $('input[name="user[education]"]').eq(0).trigger('change');
+
+        $('input[name="user[hasChildren]"]').change(function() {
+            if ($('input[name="user[hasChildren]"]:checked').val() == 'true') {
+                $('#user_childrenAge').removeAttr('readonly');
+            } else {
+                $('#user_childrenAge').prop('readonly', true);
+                $('#user_childrenAge').val('');
+            }
+        });
+        $('input[name="user[hasChildren]"]').eq(0).trigger('change');
+
+        $('input[name="user[education]"]').change(function() {
+            if ($('input[name="user[education]"]:checked').val() == 'true') {
+                $('#user_aboutEducation').removeAttr('readonly');
+            } else {
+                $('#user_aboutEducation').prop('readonly', true);
+                $('#user_aboutEducation').val('');
+            }
+        });
+        $('input[name="user[canPlayInstrument]"]').eq(0).trigger('change');
+
+        $('input[name="user[canPlayInstrument]"]').change(function() {
+            if ($('input[name="user[canPlayInstrument]"]:checked').val() == 'true') {
+                $('#user_aboutInstrument').removeAttr('readonly');
+            } else {
+                $('#user_aboutInstrument').prop('readonly', true);
+                $('#user_aboutInstrument').val('');
+            }
+        });
+        $('input[name="user[canPlayInstrument]"]').eq(0).trigger('change');
+
+        $('select[name="user[connectionRequests][0][extraPersonType]"]').change(function() {
+            if ($(this).val() == '{{ constant('AppBundle\\Enum\\ExtraPersonTypes::OTHER') }}') {
+                $('#user_connectionRequests_0_extraPersonDescription').removeAttr('readonly');
+            } else {
+                $('#user_connectionRequests_0_extraPersonDescription').prop('readonly', true);
+                $('#user_connectionRequests_0_extraPersonDescription').val('');
+            }
+        });
+        $('select[name="user[connectionRequests][0][extraPersonType]"]').eq(0).trigger('change');
+
+    });
+</script>
 {% endblock %}
