@@ -117,6 +117,83 @@ class ConnectionRequest
      */
     protected $inspected = false;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $availableWeekday = true;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $availableWeekend = true;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $availableDay = true;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $availableEvening = true;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $extraPerson = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $extraPersonGender;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $extraPersonType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $extraPersonDescription;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $wantSameGender = false;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $wantTwoPersons = false;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $wantSameAge = false;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -354,5 +431,181 @@ class ConnectionRequest
     public function setLearnerPreMatch($learnerPreMatch)
     {
         $this->learnerPreMatch = $learnerPreMatch;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAvailableWeekday()
+    {
+        return $this->availableWeekday;
+    }
+
+    /**
+     * @param boolean $availableWeekday
+     */
+    public function setAvailableWeekday($availableWeekday)
+    {
+        $this->availableWeekday = $availableWeekday;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAvailableWeekend()
+    {
+        return $this->availableWeekend;
+    }
+
+    /**
+     * @param boolean $availableWeekend
+     */
+    public function setAvailableWeekend($availableWeekend)
+    {
+        $this->availableWeekend = $availableWeekend;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAvailableDay()
+    {
+        return $this->availableDay;
+    }
+
+    /**
+     * @param boolean $availableDay
+     */
+    public function setAvailableDay($availableDay)
+    {
+        $this->availableDay = $availableDay;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAvailableEvening()
+    {
+        return $this->availableEvening;
+    }
+
+    /**
+     * @param boolean $availableEvening
+     */
+    public function setAvailableEvening($availableEvening)
+    {
+        $this->availableEvening = $availableEvening;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isExtraPerson()
+    {
+        return $this->extraPerson;
+    }
+
+    /**
+     * @param boolean $extraPerson
+     */
+    public function setExtraPerson($extraPerson)
+    {
+        $this->extraPerson = $extraPerson;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExtraPersonGender()
+    {
+        return $this->extraPersonGender;
+    }
+
+    /**
+     * @param string $extraPersonGender
+     */
+    public function setExtraPersonGender($extraPersonGender)
+    {
+        $this->extraPersonGender = $extraPersonGender;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExtraPersonType()
+    {
+        return $this->extraPersonType;
+    }
+
+    /**
+     * @param string $extraPersonType
+     */
+    public function setExtraPersonType($extraPersonType)
+    {
+        $this->extraPersonType = $extraPersonType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExtraPersonDescription()
+    {
+        return $this->extraPersonDescription;
+    }
+
+    /**
+     * @param string $extraPersonDescription
+     */
+    public function setExtraPersonDescription($extraPersonDescription)
+    {
+        $this->extraPersonDescription = $extraPersonDescription;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function wantSameGender()
+    {
+        return $this->wantSameGender;
+    }
+
+    /**
+     * @param boolean $wantSameGender
+     */
+    public function setWantSameGender($wantSameGender)
+    {
+        $this->wantSameGender = $wantSameGender;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function wantTwoPersons()
+    {
+        return $this->wantTwoPersons;
+    }
+
+    /**
+     * @param boolean $wantTwoPersons
+     */
+    public function setWantTwoPersons($wantTwoPersons)
+    {
+        $this->wantTwoPersons = $wantTwoPersons;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function wantSameAge()
+    {
+        return $this->wantSameAge;
+    }
+
+    /**
+     * @param boolean $wantSameAge
+     */
+    public function setWantSameAge($wantSameAge)
+    {
+        $this->wantSameAge = $wantSameAge;
     }
 }

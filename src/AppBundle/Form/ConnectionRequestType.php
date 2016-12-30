@@ -2,10 +2,13 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use JMS\DiExtraBundle\Annotation\FormType;
 
@@ -39,7 +42,57 @@ class ConnectionRequestType extends AbstractType
                 ],
                 'choices_as_values' => true,
             ])
+            ->add('availableWeekday', 'checkbox', [
+                'required' => false,
+            ])
+            ->add('availableWeekend', 'checkbox', [
+                'required' => false,
+            ])
+            ->add('availableDay', 'checkbox', [
+                'required' => false,
+            ])
+            ->add('availableEvening', 'checkbox', [
+                'required' => false,
+            ])
+            ->add('extraPerson', 'checkbox', [
+                'required' => false,
+            ])
+            ->add('extraPersonGender', 'choice', [
+                'label' => 'connection_request.form.extra_person_gender',
+                'empty_data'  => null,
+                'required'    => false,
+                'choices' => [
+                    'M' => 'user.form.gender.m',
+                    'F' => 'user.form.gender.f',
+                ]
+            ])
+            ->add('extraPersonType', 'choice', [
+                'label' => 'connection_request.form.extra_person_type',
+                'empty_data'  => null,
+                'required'    => false,
+                'choices' => ExtraPersonTypes::listTypesWithTranslationKeys(),
+            ])
+            ->add('extraPersonDescription', 'textarea', [
+                'required' => false,
+                'label' => 'connection_request.form.extra_person_description',
+            ])
+            ->add('wantSameGender', 'checkbox', [
+                'required' => false,
+                'label' => 'connection_request.form.want_same_gender',
+            ])
+            ->add('wantTwoPersons', 'checkbox', [
+                'required' => false,
+                'label' => 'connection_request.form.want_two_persons',
+            ])
+            ->add('wantSameAge', 'checkbox', [
+                'required' => false,
+                'label' => 'connection_request.form.want_same_age',
+            ])
         ;
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+            $event->getForm()->remove('type');
+        });
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -51,6 +104,6 @@ class ConnectionRequestType extends AbstractType
 
     public function getName()
     {
-        return 'connectionRequest';
+        return 'connection_request';
     }
 }

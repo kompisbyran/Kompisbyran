@@ -340,6 +340,34 @@
                 <source>user.form.facebook</source>
                 <target>Hämta din profilbild från Facebook</target>
             </trans-unit>
+            <trans-unit id="user.form.friend_description">
+                <source>user.form.friend_description</source>
+                <target>Hur skulle en kompis beskriva dig?</target>
+            </trans-unit>
+            <trans-unit id="user.form.occupation">
+                <source>user.form.occupation</source>
+                <target>Sysselsättning</target>
+            </trans-unit>
+            <trans-unit id="user.form.occupation_description">
+                <source>user.form.occupation_description</source>
+                <target>Ev beskrivning av din sysselsättning</target>
+            </trans-unit>
+            <trans-unit id="user.form.has_education">
+                <source>user.form.has_education</source>
+                <target>Har du en utbildning?</target>
+            </trans-unit>
+            <trans-unit id="user.form.education_description">
+                <source>user.form.education_description</source>
+                <target>Ev beskrivning av din sysselsättning</target>
+            </trans-unit>
+            <trans-unit id="user.form.children_age">
+                <source>user.form.children_age</source>
+                <target>Ålder på barn</target>
+            </trans-unit>
+            <trans-unit id="user.form.time_in_sweden">
+                <source>user.form.time_in_sweden</source>
+                <target>Hur länge har du bott i Sverige?</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>Spara</target>
@@ -972,6 +1000,18 @@ Your friends at Kompisbyrån
                 <target>
                     ...
                 </target>
+            </trans-unit>
+            <trans-unit id="occupation.employed">
+                <source>occupation.employed</source>
+                <target>Jobbar</target>
+            </trans-unit>
+            <trans-unit id="occupation.student">
+                <source>occupation.student</source>
+                <target>Studerar</target>
+            </trans-unit>
+            <trans-unit id="occupation.unemployed">
+                <source>occupation.unemployed</source>
+                <target>Vill ha jobb</target>
             </trans-unit>
         </body>
     </file>

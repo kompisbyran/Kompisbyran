@@ -34,15 +34,21 @@
                             </div>
                         </div>
 
-                        {% if not is_granted('ROLE_COMPLETE_USER') %}
-                            <div class="form-group">
-                                {{ form_label(form.city) }}
-                                <div class="col-sm-4">
-                                    {{ form_widget(form.city) }}
-                                    {{ form_errors(form.city) }}
-                                </div>
+                        <div class="form-group">
+                            {{ form_label(form.age) }}
+                            <div class="col-sm-2">
+                                {{ form_widget(form.age) }}
+                                {{ form_errors(form.age) }}
                             </div>
-                        {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.gender) }}
+                            <div class="col-sm-2 checkableList">
+                                {{ form_widget(form.gender) }}
+                                {{ form_errors(form.gender) }}
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             {{ form_label(form.wantToLearn) }}
@@ -82,18 +88,50 @@
                         </div>
 
                         <div class="form-group">
-                            {{ form_label(form.age) }}
-                            <div class="col-sm-2">
-                                {{ form_widget(form.age) }}
-                                {{ form_errors(form.age) }}
+                            {{ form_label(form.friendDescription) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.friendDescription) }}
+                                {{ form_errors(form.friendDescription) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {{ form_label(form.gender) }}
-                            <div class="col-sm-2 checkableList">
-                                {{ form_widget(form.gender) }}
-                                {{ form_errors(form.gender) }}
+                            {{ form_label(form.occupation) }}
+                            <div class="col-sm-4">
+                                {{ form_widget(form.occupation) }}
+                                {{ form_errors(form.occupation) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.occupationDescription) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.occupationDescription) }}
+                                {{ form_errors(form.occupationDescription) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.education) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.education) }}
+                                {{ form_errors(form.education) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.educationDescription) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.educationDescription) }}
+                                {{ form_errors(form.educationDescription) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.timeInSweden) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.timeInSweden) }}
+                                {{ form_errors(form.timeInSweden) }}
                             </div>
                         </div>
 
@@ -120,6 +158,27 @@
                                 {{ form_errors(form.hasChildren) }}
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.childrenAge) }}
+                            <div class="col-sm-8">
+                                {{ form_widget(form.childrenAge) }}
+                                {{ form_errors(form.childrenAge) }}
+                            </div>
+                        </div>
+
+                        {% if not is_granted('ROLE_COMPLETE_USER') %}
+                            {% set connectionRequest = form.connectionRequests[0] %}
+                            <h3>Om mötet</h3>
+                            <div class="form-group">
+                                {{ form_label(connectionRequest.city) }}
+                                <div class="col-sm-4">
+                                    {{ form_widget(connectionRequest.city) }}
+                                    {{ form_errors(connectionRequest.city) }}
+                                </div>
+                            </div>
+                            {{ form_widget(connectionRequest) }}
+                        {% endif %}
 
                         {{ form_widget(form) }}
 

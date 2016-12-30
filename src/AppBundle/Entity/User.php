@@ -171,6 +171,57 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @Assert\NotBlank(groups={"settings"})
+     * @Assert\Length(min=10, groups={"settings"})
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $friendDescription;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $occupation = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $occupationDescription;
+
+    /**
+     * @var bool
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $education = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $educationDescription;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $timeInSweden;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(type="text", nullable=true)
      */
     protected $internalComment;
@@ -198,6 +249,13 @@ class User extends BaseUser
      * @ORM\Column(type="boolean")
      */
     protected $hasChildren = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $childrenAge;
 
     /**
      * @var string
@@ -374,6 +432,15 @@ class User extends BaseUser
     public function getConnectionRequests()
     {
         return $this->connectionRequests;
+    }
+
+    /**
+     * @param ConnectionRequest $connectionRequest
+     */
+    public function addConnectionRequest(ConnectionRequest $connectionRequest)
+    {
+        $this->connectionRequests->add($connectionRequest);
+        $connectionRequest->setUser($this);
     }
 
     /**
@@ -783,5 +850,117 @@ class User extends BaseUser
     public function removeAdminMunicipality(Municipality $municipality)
     {
         $this->adminMunicipalities->removeElement($municipality);
+    }
+
+    /**
+     * @return string
+     */
+    public function getFriendDescription()
+    {
+        return $this->friendDescription;
+    }
+
+    /**
+     * @param string $friendDescription
+     */
+    public function setFriendDescription($friendDescription)
+    {
+        $this->friendDescription = $friendDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOccupation()
+    {
+        return $this->occupation;
+    }
+
+    /**
+     * @param string $occupation
+     */
+    public function setOccupation($occupation)
+    {
+        $this->occupation = $occupation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOccupationDescription()
+    {
+        return $this->occupationDescription;
+    }
+
+    /**
+     * @param string $occupationDescription
+     */
+    public function setOccupationDescription($occupationDescription)
+    {
+        $this->occupationDescription = $occupationDescription;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasEducation()
+    {
+        return $this->education;
+    }
+
+    /**
+     * @param boolean $education
+     */
+    public function setEducation($education)
+    {
+        $this->education = $education;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEducationDescription()
+    {
+        return $this->educationDescription;
+    }
+
+    /**
+     * @param string $educationDescription
+     */
+    public function setEducationDescription($educationDescription)
+    {
+        $this->educationDescription = $educationDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimeInSweden()
+    {
+        return $this->timeInSweden;
+    }
+
+    /**
+     * @param string $timeInSweden
+     */
+    public function setTimeInSweden($timeInSweden)
+    {
+        $this->timeInSweden = $timeInSweden;
+    }
+
+    /**
+     * @return string
+     */
+    public function getChildrenAge()
+    {
+        return $this->childrenAge;
+    }
+
+    /**
+     * @param string $childrenAge
+     */
+    public function setChildrenAge($childrenAge)
+    {
+        $this->childrenAge = $childrenAge;
     }
 }

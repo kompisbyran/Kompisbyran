@@ -2,12 +2,17 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\ConnectionRequest;
+use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
-use AppBundle\Enum\Languages;
+use AppBundle\Enum\OccupationTypes;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use AppBundle\Enum\Countries;
 
@@ -34,6 +39,7 @@ class UserType extends AbstractType
             }
         };
 
+        /** @var User $user */
         $user = $builder->getData();
 
         $builder
@@ -116,21 +122,60 @@ class UserType extends AbstractType
                     'label' => 'user.form.municipality',
                 ]
             )
+            ->add('friendDescription', 'textarea', [
+                'label' => 'user.form.friend_description',
+            ])
+            ->add('occupation', 'choice', [
+                'label' => 'user.form.occupation',
+                'choices' => OccupationTypes::listTypesWithTranslationKeys(),
+            ])
+            ->add('occupationDescription', 'textarea', [
+                'label' => 'user.form.occupation_description',
+                'required' => false,
+            ])
+            ->add('education', 'choice', [
+                'expanded' => true,
+                'label' => 'user.form.has_education',
+                'choices' => [
+                    true => 'yes',
+                    false => 'no',
+                ],
+                'choice_value' => function ($currentChoiceKey) {
+                    return $currentChoiceKey ? 'true' : 'false';
+                },
+            ])
+            ->add('educationDescription', 'textarea', [
+                'label' => 'user.form.education_description',
+                'required' => false,
+            ])
+            ->add('timeInSweden', 'textarea', [
+                'label' => 'user.form.time_in_sweden',
+            ])
+            ->add('childrenAge', 'textarea', [
+                'label' => 'user.form.children_age',
+                'required' => false,
+            ])
 
         ;
-        $user = $builder->getData();
+
         if (!$user->hasRole('ROLE_COMPLETE_USER')) {
-            $builder->add('city', 'entity', [
-                'label' => 'user.form.city',
-                'class' => 'AppBundle:City',
-                'query_builder' => function(EntityRepository $er) {
-                    return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
-                },
-                'property' => 'name',
-                'mapped' => false,
-                'empty_value' => ''
-            ]);
+            $builder->add('connectionRequests',
+                'collection',
+                [
+                    'type' => 'connection_request',
+                    'allow_add' => true,
+                    'by_reference' => false,
+                ]
+            );
+
+            $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                /** @var User $user */
+                $user = $event->getData();
+                $user->addConnectionRequest(new ConnectionRequest());
+            });
+
         }
+
 
     }
 

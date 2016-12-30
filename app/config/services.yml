@@ -1,9 +1,14 @@
 services:
 
-    registration.form.type:
+    form.type.registration:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+
+    form.type.connection_request:
+        class: AppBundle\Form\ConnectionRequestType
+        tags:
+            - { name: form.type, alias: connection_request }
 
     success_handler:
         class: AppBundle\Security\SuccessHandler
