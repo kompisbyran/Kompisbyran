@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
-
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {% form_theme form 'form/fields.html.twig' %}
+{% endif %}
 {% import _self as macro %}
 
 {% macro connectionRow(connection) %}
@@ -18,12 +20,12 @@
         <div class="inner-page">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-3">
 
                         <h2>{{ 'index.header'|trans }}</h2>
                         {{ 'index.intro'|trans|nl2br }}
                     </div>
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-3">
 
                         <h2>{{ 'index.previous.header'|trans }}</h2>
                         {% if app.user.fluentSpeakerConnections|length > 0 %}
@@ -45,10 +47,12 @@
                         <h2>{{ 'index.connection_request.header'|trans }}</h2>
                         {% if app.user.connectionRequests|length %}
                             <ul>
-                                {% for connectionRequest in app.user.connectionRequests %}
+                                {% for connectionRequest in connectionRequests %}
                                     <li>
                                         {{ connectionRequest.createdAt|date('Y-m-d H:i') }},
-                                        {{ connectionRequest.city.name }}<br>
+                                        {% if connectionRequest.city %}
+                                            {{ connectionRequest.city.name }}<br>
+                                        {% endif %}
                                         {% if connectionRequest.wantToLearn %}
                                             {{ 'index.connection_request.want_to_learn.learn'|trans }}
                                         {% else %}
@@ -62,25 +66,31 @@
                             </ul>
                         {% endif %}
                     </div>
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-6 col-sm-6">
                         <h2>{{ 'index.again.header'|trans }}</h2>
                         <p>{{ 'index.again.intro'|trans }}</p>
-                        {% if activeRequest %}
-                            <div class="alert alert-danger fade in" role="alert">
-                                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                <strong>{{ 'error'|trans }}</strong> {{ 'error.active_request'|trans }}
+                        {% if connectionRequests|length > 0 %}
+                            <div class="alert alert-info" role="alert">
+                                {{ 'error.active_request'|trans }}
                             </div>
+                        {% else %}
+                            {{ include(':user:form.html.twig') }}
+                            <input type="submit" value="{{ 'connection_request.form.button'|trans }}" class="btn btn-default">
+                            {{ form_end(form) }}
                         {% endif %}
-                        {{ form_start(form) }}
-                        {{ form_widget(form) }}
-
-                        <input type="submit" value="{{ 'connection_request.form.button'|trans }}" class="btn btn-default">
-                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>
         </div>
     {% else %}
         {{ include('default/notLoggedIn.html.twig') }}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<script type="text/javascript">
+    {{ include(':user:form.js.twig') }}
+</script>
     {% endif %}
 {% endblock %}

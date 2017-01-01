@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,7 +20,6 @@ class UserController extends Controller
     {
         /** @var \AppBundle\Entity\User $user */
         $user = $this->getUser();
-        //$user->setWantToLearn(null);
         $form = $this->createForm(
             new UserType(),
             $user,
@@ -51,7 +49,8 @@ class UserController extends Controller
                 }
             }
             $em->persist($user);
-            if ($connectionRequest = $user->getFirstConnectionRequest()) {
+            if ($form->has('connectionRequests')) {
+                $connectionRequest = $user->getConnectionRequests()->last();
                 $em->persist($connectionRequest);
             }
             $em->flush();

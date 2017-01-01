@@ -64,17 +64,6 @@ class ConnectionRequestRepository extends EntityRepository
     }
 
     /**
-     * @deprecated
-     *
-     * @param User $user
-     * @return bool
-       */
-    public function hasActiveRequest(User $user)
-    {
-        return $this->findOneByUser($user) instanceof ConnectionRequest? true: false;
-    }
-
-    /**
      * @return array
      */
     public function findAll()

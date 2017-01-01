@@ -488,7 +488,7 @@ class User extends BaseUser
     }
 
     /**
-     * @return \AppBundle\Entity\ConnectionRequest[]
+     * @return ConnectionRequest[]|ArrayCollection
      */
     public function getConnectionRequests()
     {
@@ -799,7 +799,7 @@ class User extends BaseUser
     }
 
     /**
-     * @return string
+     * @return ConnectionRequest
      */
     public function getFirstConnectionRequest()
     {

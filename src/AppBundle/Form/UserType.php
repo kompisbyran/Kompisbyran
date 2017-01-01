@@ -6,10 +6,8 @@ use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\OccupationTypes;
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -200,13 +198,13 @@ class UserType extends AbstractType
                 'label' => 'user.form.music_genre',
                 'required' => false,
             ])
-            ->add('phoneNumber', 'textarea', [
+            ->add('phoneNumber', 'text', [
                 'label' => 'user.form.phone_number',
                 'required' => false,
             ])
         ;
 
-        if (!$user->hasRole('ROLE_COMPLETE_USER')) {
+        if (!$user->hasRole('ROLE_COMPLETE_USER') || $options['add_connection_request']) {
             $builder->add('connectionRequests',
                 'collection',
                 [
@@ -222,15 +220,21 @@ class UserType extends AbstractType
                 $user->addConnectionRequest(new ConnectionRequest());
             });
 
+            $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
+                /** @var User $user */
+                $user = $event->getForm()->getNormData();
+                $connectionRequest = $user->getConnectionRequests()->last();
+                $connectionRequest->setType($user->getType());
+                $connectionRequest->setWantToLearn($user->getWantToLearn());
+            });
         }
-
-
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class'    => 'AppBundle\Entity\User'
+            'data_class' => 'AppBundle\Entity\User',
+            'add_connection_request' => false,
         ]);
         $resolver->setRequired([
             'manager',

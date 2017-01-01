@@ -1,0 +1,241 @@
+{{ form_start(form) }}
+
+<div class="form-group">
+    {{ form_label(form.firstName) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.firstName) }}
+        {{ form_errors(form.firstName) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.lastName) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.lastName) }}
+        {{ form_errors(form.lastName) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.age) }}
+    <div class="col-sm-2">
+        {{ form_widget(form.age) }}
+        {{ form_errors(form.age) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.gender) }}
+    <div class="col-sm-2 checkableList">
+        {{ form_widget(form.gender) }}
+        {{ form_errors(form.gender) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.wantToLearn) }}
+    <div class="col-sm-4 checkableList">
+        {{ form_widget(form.wantToLearn) }}
+        {{ form_errors(form.wantToLearn) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.type) }}
+    <div class="col-sm-4 checkableList">
+        {% for type in form.type %}
+            {{ form_widget(type) }}
+            <p>{{ ('user.form.type.' ~ type.vars.value ~ '.help')|trans }}</p>
+        {% endfor %}
+        {{ form_errors(form.type) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.categories) }}
+    <div class="col-sm-4 checkableList">
+        {{ form_widget(form.categories) }}
+        {{ form_errors(form.categories) }}
+    </div>
+    <div class="col-sm-4 checkableList music hidden">
+        {{ form_widget(form.musicCategories) }}
+        {{ form_errors(form.musicCategories) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.about) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.about) }}
+        {{ form_errors(form.about) }}
+        <span class="help-block">{{ 'user.form.about.help'|trans }}</span>
+    </div>
+</div>
+
+<div class="form-group start hidden">
+    {{ form_label(form.phoneNumber) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.phoneNumber) }}
+        {{ form_errors(form.phoneNumber) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.friendDescription) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.friendDescription) }}
+        {{ form_errors(form.friendDescription) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.occupation) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.occupation) }}
+        {{ form_errors(form.occupation) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.occupationDescription) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.occupationDescription) }}
+        {{ form_errors(form.occupationDescription) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.education) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.education) }}
+        {{ form_errors(form.education) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.educationDescription) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.educationDescription) }}
+        {{ form_errors(form.educationDescription) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.timeInSweden) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.timeInSweden) }}
+        {{ form_errors(form.timeInSweden) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.from) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.from) }}
+        {{ form_errors(form.from) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.municipality) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.municipality) }}
+        {{ form_errors(form.municipality) }}
+    </div>
+</div>
+
+<div class="form-group ">
+    {{ form_label(form.hasChildren) }}
+    <div class="col-sm-4 checkableList">
+        {{ form_widget(form.hasChildren) }}
+        {{ form_errors(form.hasChildren) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.childrenAge) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.childrenAge) }}
+        {{ form_errors(form.childrenAge) }}
+    </div>
+</div>
+
+<div class="form-group music hidden">
+    {{ form_label(form.aboutMusic) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.aboutMusic) }}
+        {{ form_errors(form.aboutMusic) }}
+    </div>
+</div>
+
+<div class="form-group music hidden">
+    {{ form_label(form.professionalMusician) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.professionalMusician) }}
+        {{ form_errors(form.professionalMusician) }}
+    </div>
+</div>
+
+<div class="form-group music hidden">
+    {{ form_label(form.musicGenre) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.musicGenre) }}
+        {{ form_errors(form.musicGenre) }}
+    </div>
+</div>
+
+
+<div class="form-group music hidden">
+    {{ form_label(form.canPlayInstrument) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.canPlayInstrument) }}
+        {{ form_errors(form.canPlayInstrument) }}
+
+        <div id="instrument">
+            {{ form_label(form.aboutInstrument) }}
+            {{ form_widget(form.aboutInstrument) }}
+            {{ form_errors(form.aboutInstrument) }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group music hidden">
+    {{ form_label(form.canSing) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.canSing) }}
+        {{ form_errors(form.canSing) }}
+    </div>
+</div>
+
+{% if form.connectionRequests|length > 0 %}
+    {% set connectionRequest = form.connectionRequests[0] %}
+    <h3>Om mötet</h3>
+    <div class="form-group hidden music friend">
+        {{ form_label(connectionRequest.city) }}
+        <div class="col-sm-4">
+            {{ form_widget(connectionRequest.city) }}
+            {{ form_errors(connectionRequest.city) }}
+        </div>
+    </div>
+
+    <div class="form-group hidden start">
+        {{ form_label(connectionRequest.municipality) }}
+        <div class="col-sm-4">
+            {{ form_widget(connectionRequest.municipality) }}
+            {{ form_errors(connectionRequest.municipality) }}
+        </div>
+    </div>
+
+    <div class="form-group start hidden">
+        {{ form_label(connectionRequest.comment) }}
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.comment) }}
+            {{ form_errors(connectionRequest.comment) }}
+            <span class="help-block">{{ 'connection_request.form.comment.help'|trans }}</span>
+        </div>
+    </div>
+
+    {{ form_widget(connectionRequest) }}
+{% endif %}
+
+{{ form_widget(form) }}

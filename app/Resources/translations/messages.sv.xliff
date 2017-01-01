@@ -1028,6 +1028,14 @@ Your friends at Kompisbyrån
                 <source>occupation.unemployed</source>
                 <target>Vill ha jobb</target>
             </trans-unit>
+            <trans-unit id="connection_request.created.flash">
+                <source>connection_request.created.flash</source>
+                <target>Din kompisförfrågan är sparad. Vi hör av oss när vi hittat en matchning.</target>
+            </trans-unit>
+            <trans-unit id="connection_request.validation_failed.flash">
+                <source>connection_request.validation_failed.flash</source>
+                <target>Ett eller flera fält är felaktigt ifylda.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
