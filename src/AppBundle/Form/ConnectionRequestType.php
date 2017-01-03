@@ -58,24 +58,32 @@ class ConnectionRequestType extends AbstractType
             ])
             ->add('availableWeekday', 'checkbox', [
                 'required' => false,
-                'label' => 'connection_request.form.available_weekday',
+                'label' => 'connection_request.form.available.weekday',
             ])
             ->add('availableWeekend', 'checkbox', [
                 'required' => false,
-                'label' => 'connection_request.form.available_weekend',
+                'label' => 'connection_request.form.available.weekend',
             ])
             ->add('availableDay', 'checkbox', [
                 'required' => false,
-                'label' => 'connection_request.form.available_day',
+                'label' => 'connection_request.form.available.daytime',
             ])
             ->add('availableEvening', 'checkbox', [
                 'required' => false,
-                'label' => 'connection_request.form.available_evening',
+                'label' => 'connection_request.form.available.evening',
             ])
-            ->add('extraPerson', 'checkbox', [
-                'required' => false,
+            ->add('extraPerson', 'choice', [
+                'expanded' => true,
                 'label' => 'connection_request.form.extra_person',
+                'choices' => [
+                    true => 'yes',
+                    false => 'no',
+                ],
+                'choice_value' => function ($currentChoiceKey) {
+                    return $currentChoiceKey ? 'true' : 'false';
+                },
             ])
+
             ->add('extraPersonGender', 'choice', [
                 'label' => 'connection_request.form.extra_person_gender',
                 'empty_data'  => null,
@@ -90,10 +98,6 @@ class ConnectionRequestType extends AbstractType
                 'empty_data'  => null,
                 'required'    => false,
                 'choices' => ExtraPersonTypes::listTypesWithTranslationKeys(),
-            ])
-            ->add('extraPersonDescription', 'textarea', [
-                'required' => false,
-                'label' => 'connection_request.form.extra_person_description',
             ])
             ->add('wantSameGender', 'checkbox', [
                 'required' => false,

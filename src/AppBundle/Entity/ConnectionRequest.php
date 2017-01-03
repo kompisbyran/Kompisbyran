@@ -173,13 +173,6 @@ class ConnectionRequest
     protected $extraPersonType;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $extraPersonDescription;
-
-    /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
@@ -549,22 +542,6 @@ class ConnectionRequest
     public function setExtraPersonType($extraPersonType)
     {
         $this->extraPersonType = $extraPersonType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getExtraPersonDescription()
-    {
-        return $this->extraPersonDescription;
-    }
-
-    /**
-     * @param string $extraPersonDescription
-     */
-    public function setExtraPersonDescription($extraPersonDescription)
-    {
-        $this->extraPersonDescription = $extraPersonDescription;
     }
 
     /**

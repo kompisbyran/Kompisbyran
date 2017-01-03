@@ -7,7 +7,7 @@ final class ExtraPersonTypes
     const FRIEND = 'friend';
     const CHILD = 'child';
     const PARTNER = 'partner';
-    const OTHER = 'other';
+    const FAMILY = 'family';
 
     private function __construct()
     {
@@ -22,7 +22,7 @@ final class ExtraPersonTypes
             self::FRIEND => 'extra_person.friend',
             self::CHILD => 'extra_person.child',
             self::PARTNER => 'extra_person.partner',
-            self::OTHER => 'extra_person.other',
+            self::FAMILY => 'extra_person.family',
         ];
     }
 

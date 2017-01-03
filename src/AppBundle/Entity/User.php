@@ -116,8 +116,8 @@ class User extends BaseUser
      * @var MusicCategory[]
      *
      * @Assert\Expression(
-     *     "this.getType() != 'music' || (value.count() > 0 && value.count() <= 4)",
-     *     message="Du måste välja minst ett och max fyra musikintressen",
+     *     "this.getType() != 'music' || value.count() > 0",
+     *     message="Du måste välja minst ett alternativ",
      *     groups={"settings"}
      * )
      *

@@ -14,22 +14,26 @@ $(document).ready(function() {
     $('input[name="user[type]"]').eq(0).trigger('change');
 
     $('select[name="user[occupation]"]').change(function() {
-        if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::EMPLOYED') }}'
-        || $(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::STUDENT') }}'
-        ) {
-            $('#user_occupationDescription').removeAttr('readonly');
-        } else {
-            $('#user_occupationDescription').prop('readonly', true);
-            $('#user_occupationDescription').val('');
+        if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::EMPLOYED') }}') {
+            $('#occupationDescriptionLabel').text('{{ 'user.form.occupation_description.employed'|trans }}');
+        }
+        if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::STUDENT') }}') {
+            $('#occupationDescriptionLabel').text('{{ 'user.form.occupation_description.student'|trans }}');
+        }
+        if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::UNEMPLOYED') }}') {
+            $('#occupationDescriptionLabel').text('{{ 'user.form.occupation_description.unemployed'|trans }}');
+        }
+        if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::OTHER') }}') {
+            $('#occupationDescriptionLabel').text('{{ 'user.form.occupation_description.other'|trans }}');
         }
     });
     $('select[name="user[occupation]"]').eq(0).trigger('change');
 
     $('input[name="user[education]"]').change(function() {
         if ($('input[name="user[education]"]:checked').val() == 'true') {
-            $('#user_educationDescription').removeAttr('readonly');
+            $('#educationDescription').show();
         } else {
-            $('#user_educationDescription').prop('readonly', true);
+            $('#educationDescription').hide();
             $('#user_educationDescription').val('');
         }
     });
@@ -37,42 +41,32 @@ $(document).ready(function() {
 
     $('input[name="user[hasChildren]"]').change(function() {
         if ($('input[name="user[hasChildren]"]:checked').val() == 'true') {
-            $('#user_childrenAge').removeAttr('readonly');
+            $('#childrenAge').show();
         } else {
-            $('#user_childrenAge').prop('readonly', true);
+            $('#childrenAge').hide();
             $('#user_childrenAge').val('');
         }
     });
     $('input[name="user[hasChildren]"]').eq(0).trigger('change');
 
-    $('input[name="user[education]"]').change(function() {
-        if ($('input[name="user[education]"]:checked').val() == 'true') {
-            $('#user_aboutEducation').removeAttr('readonly');
-        } else {
-            $('#user_aboutEducation').prop('readonly', true);
-            $('#user_aboutEducation').val('');
-        }
-    });
-    $('input[name="user[canPlayInstrument]"]').eq(0).trigger('change');
-
     $('input[name="user[canPlayInstrument]"]').change(function() {
         if ($('input[name="user[canPlayInstrument]"]:checked').val() == 'true') {
-            $('#user_aboutInstrument').removeAttr('readonly');
+            $('#aboutInstrument').show();
         } else {
-            $('#user_aboutInstrument').prop('readonly', true);
+            $('#aboutInstrument').hide();
             $('#user_aboutInstrument').val('');
         }
     });
     $('input[name="user[canPlayInstrument]"]').eq(0).trigger('change');
 
-    $('select[name="user[connectionRequests][0][extraPersonType]"]').change(function() {
-        if ($(this).val() == '{{ constant('AppBundle\\Enum\\ExtraPersonTypes::OTHER') }}') {
-            $('#user_connectionRequests_0_extraPersonDescription').removeAttr('readonly');
+    $('input[name="user[connectionRequests][0][extraPerson]"]').change(function() {
+        if ($('input[name="user[connectionRequests][0][extraPerson]"]:checked').val() == 'true') {
+            $('#extraPerson').show();
         } else {
-            $('#user_connectionRequests_0_extraPersonDescription').prop('readonly', true);
-            $('#user_connectionRequests_0_extraPersonDescription').val('');
+            $('#extraPerson').hide();
+            $('#user_connectionRequests_0_extraPersonGender').val('');
+            $('#user_connectionRequests_0_extraPersonType').val('');
         }
     });
-    $('select[name="user[connectionRequests][0][extraPersonType]"]').eq(0).trigger('change');
-
+    $('input[name="user[connectionRequests][0][extraPerson]"]').eq(0).trigger('change');
 });

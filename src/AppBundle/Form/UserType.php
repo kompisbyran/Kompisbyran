@@ -128,7 +128,7 @@ class UserType extends AbstractType
                 'choices' => OccupationTypes::listTypesWithTranslationKeys(),
             ])
             ->add('occupationDescription', 'textarea', [
-                'label' => 'user.form.occupation_description',
+                'label_attr' => ['id' => 'occupationDescriptionLabel'],
                 'required' => false,
             ])
             ->add('education', 'choice', [
@@ -187,8 +187,8 @@ class UserType extends AbstractType
                 'expanded' => true,
                 'label' => 'user.form.professional_musician',
                 'choices' => [
-                    true => 'yes',
-                    false => 'no',
+                    true => 'user.form.professional_musician.yes',
+                    false => 'user.form.professional_musician.no',
                 ],
                 'choice_value' => function ($currentChoiceKey) {
                     return $currentChoiceKey ? 'true' : 'false';
@@ -226,6 +226,12 @@ class UserType extends AbstractType
                 $connectionRequest = $user->getConnectionRequests()->last();
                 $connectionRequest->setType($user->getType());
                 $connectionRequest->setWantToLearn($user->getWantToLearn());
+
+                if ($connectionRequest->getType() == FriendTypes::START) {
+                    $connectionRequest->setCity(null);
+                } else {
+                    $connectionRequest->setMunicipality(null);
+                }
             });
         }
     }

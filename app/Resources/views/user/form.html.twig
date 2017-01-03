@@ -41,10 +41,26 @@
 </div>
 
 <div class="form-group">
+    {{ form_label(form.from) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.from) }}
+        {{ form_errors(form.from) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.municipality) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.municipality) }}
+        {{ form_errors(form.municipality) }}
+    </div>
+</div>
+
+<div class="form-group">
     {{ form_label(form.type) }}
     <div class="col-sm-4 checkableList">
         {% for type in form.type %}
-            {{ form_widget(type) }}
+            {{ form_widget(type, {'label_attr': {'class': 'lead'}}) }}
             <p>{{ ('user.form.type.' ~ type.vars.value ~ '.help')|trans }}</p>
         {% endfor %}
         {{ form_errors(form.type) }}
@@ -52,14 +68,14 @@
 </div>
 
 <div class="form-group">
-    {{ form_label(form.categories) }}
+    <div class="col-lg-4">
+        <label class="control-label required">{{ 'user.form.categories'|trans }}</label>
+        <p>{{ 'user.form.categories.help'|trans }}</p>
+    </div>
+
     <div class="col-sm-4 checkableList">
         {{ form_widget(form.categories) }}
         {{ form_errors(form.categories) }}
-    </div>
-    <div class="col-sm-4 checkableList music hidden">
-        {{ form_widget(form.musicCategories) }}
-        {{ form_errors(form.musicCategories) }}
     </div>
 </div>
 
@@ -68,15 +84,6 @@
     <div class="col-sm-8">
         {{ form_widget(form.about) }}
         {{ form_errors(form.about) }}
-        <span class="help-block">{{ 'user.form.about.help'|trans }}</span>
-    </div>
-</div>
-
-<div class="form-group start hidden">
-    {{ form_label(form.phoneNumber) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.phoneNumber) }}
-        {{ form_errors(form.phoneNumber) }}
     </div>
 </div>
 
@@ -96,11 +103,13 @@
     </div>
 </div>
 
-<div class="form-group">
-    {{ form_label(form.occupationDescription) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.occupationDescription) }}
-        {{ form_errors(form.occupationDescription) }}
+<div class="col-sm-offset-4">
+    <div class="form-group">
+        {{ form_label(form.occupationDescription) }}
+        <div class="col-sm-8">
+            {{ form_widget(form.occupationDescription) }}
+            {{ form_errors(form.occupationDescription) }}
+        </div>
     </div>
 </div>
 
@@ -112,11 +121,13 @@
     </div>
 </div>
 
-<div class="form-group">
-    {{ form_label(form.educationDescription) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.educationDescription) }}
-        {{ form_errors(form.educationDescription) }}
+<div class="col-sm-offset-4" id="educationDescription">
+    <div class="form-group">
+        {{ form_label(form.educationDescription) }}
+        <div class="col-sm-8">
+            {{ form_widget(form.educationDescription) }}
+            {{ form_errors(form.educationDescription) }}
+        </div>
     </div>
 </div>
 
@@ -128,22 +139,6 @@
     </div>
 </div>
 
-<div class="form-group">
-    {{ form_label(form.from) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.from) }}
-        {{ form_errors(form.from) }}
-    </div>
-</div>
-
-<div class="form-group">
-    {{ form_label(form.municipality) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.municipality) }}
-        {{ form_errors(form.municipality) }}
-    </div>
-</div>
-
 <div class="form-group ">
     {{ form_label(form.hasChildren) }}
     <div class="col-sm-4 checkableList">
@@ -152,11 +147,34 @@
     </div>
 </div>
 
-<div class="form-group">
-    {{ form_label(form.childrenAge) }}
+<div class="col-sm-offset-4" id="childrenAge">
+    <div class="form-group">
+        {{ form_label(form.childrenAge) }}
+        <div class="col-sm-8">
+            {{ form_widget(form.childrenAge) }}
+            {{ form_errors(form.childrenAge) }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group start hidden">
+    {{ form_label(form.phoneNumber) }}
     <div class="col-sm-8">
-        {{ form_widget(form.childrenAge) }}
-        {{ form_errors(form.childrenAge) }}
+        {{ form_widget(form.phoneNumber) }}
+        {{ form_errors(form.phoneNumber) }}
+    </div>
+</div>
+
+
+<div class="form-group music hidden">
+    <div class="col-lg-4">
+        <label class="control-label required">{{ 'user.form.music_categories'|trans }}</label>
+        <p>{{ 'user.form.music_categories.help'|trans }}</p>
+    </div>
+
+    <div class="col-sm-4 checkableList">
+        {{ form_widget(form.musicCategories) }}
+        {{ form_errors(form.musicCategories) }}
     </div>
 </div>
 
@@ -165,6 +183,34 @@
     <div class="col-sm-8">
         {{ form_widget(form.aboutMusic) }}
         {{ form_errors(form.aboutMusic) }}
+    </div>
+</div>
+
+<div class="form-group music hidden">
+    {{ form_label(form.canPlayInstrument) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.canPlayInstrument) }}
+        {{ form_errors(form.canPlayInstrument) }}
+    </div>
+</div>
+
+<div class="music hidden">
+    <div class="col-sm-offset-4" id="aboutInstrument">
+        <div class="form-group">
+            {{ form_label(form.aboutInstrument) }}
+            <div class="col-sm-8">
+                {{ form_widget(form.aboutInstrument) }}
+                {{ form_errors(form.aboutInstrument) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group music hidden">
+    {{ form_label(form.canSing) }}
+    <div class="col-sm-8">
+        {{ form_widget(form.canSing) }}
+        {{ form_errors(form.canSing) }}
     </div>
 </div>
 
@@ -181,29 +227,6 @@
     <div class="col-sm-8">
         {{ form_widget(form.musicGenre) }}
         {{ form_errors(form.musicGenre) }}
-    </div>
-</div>
-
-
-<div class="form-group music hidden">
-    {{ form_label(form.canPlayInstrument) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.canPlayInstrument) }}
-        {{ form_errors(form.canPlayInstrument) }}
-
-        <div id="instrument">
-            {{ form_label(form.aboutInstrument) }}
-            {{ form_widget(form.aboutInstrument) }}
-            {{ form_errors(form.aboutInstrument) }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group music hidden">
-    {{ form_label(form.canSing) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.canSing) }}
-        {{ form_errors(form.canSing) }}
     </div>
 </div>
 
@@ -234,6 +257,58 @@
             <span class="help-block">{{ 'connection_request.form.comment.help'|trans }}</span>
         </div>
     </div>
+
+    <div class="form-group">
+        <label class="col-lg-4 control-label">{{ 'connection_request.form.available'|trans }}</label>
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.availableWeekday) }}
+            {{ form_widget(connectionRequest.availableWeekend) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-4 control-label">{{ 'connection_request.form.available'|trans }}</label>
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.availableDay) }}
+            {{ form_widget(connectionRequest.availableEvening) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(connectionRequest.extraPerson) }}
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.extraPerson) }}
+            {{ form_errors(connectionRequest.extraPerson) }}
+        </div>
+    </div>
+
+    <div class="col-sm-offset-4" id="extraPerson">
+        <div class="form-group">
+            {{ form_label(connectionRequest.extraPersonGender) }}
+            <div class="col-sm-8">
+                {{ form_widget(connectionRequest.extraPersonGender) }}
+                {{ form_errors(connectionRequest.extraPersonGender) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(connectionRequest.extraPersonType) }}
+            <div class="col-sm-8">
+                {{ form_widget(connectionRequest.extraPersonType) }}
+                {{ form_errors(connectionRequest.extraPersonType) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-4 control-label">{{ 'connection_request.form.requests'|trans }}</label>
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.wantSameGender) }}
+            {{ form_widget(connectionRequest.wantSameAge) }}
+            {{ form_widget(connectionRequest.wantTwoPersons) }}
+        </div>
+    </div>
+
+
 
     {{ form_widget(connectionRequest) }}
 {% endif %}

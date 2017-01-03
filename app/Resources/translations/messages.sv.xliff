@@ -273,7 +273,19 @@
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
-                <target>Jag gillar (intressen):</target>
+                <target>Vilka är dina intressen?</target>
+            </trans-unit>
+            <trans-unit id="user.form.categories.help">
+                <source>user.form.categories.help</source>
+                <target>(Välj minst 2 och max 5 intressen)</target>
+            </trans-unit>
+            <trans-unit id="user.form.music_categories">
+                <source>user.form.music_categories</source>
+                <target>Vad kan du tänka dig att göra med din musikkompis?</target>
+            </trans-unit>
+            <trans-unit id="user.form.music_categories.help">
+                <source>user.form.music_categories.help</source>
+                <target>(Välj minst 1 alternativ)</target>
             </trans-unit>
             <trans-unit id="user.form.age">
                 <source>user.form.age</source>
@@ -297,7 +309,7 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Berätta om dig själv.</target>
+                <target>Berätta om dig själv och hur du är som person.</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
@@ -313,7 +325,7 @@
             </trans-unit>
             <trans-unit id="user.form.municipality">
                 <source>user.form.municipality</source>
-                <target>Jag bor i (kommun):</target>
+                <target>Vilken kommun i Sverige bor du i?</target>
             </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
@@ -325,7 +337,7 @@
             </trans-unit>
             <trans-unit id="user.form.fikatype">
                 <source>user.form.fikatype</source>
-                <target>Jag vill bli:</target>
+                <target>Jag vill registrera mig som:</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.fikafriend">
                 <source>user.form.fikatype.fikafriend</source>
@@ -345,7 +357,10 @@
             </trans-unit>
             <trans-unit id="user.form.type.start.help">
                 <source>user.form.type.start.help</source>
-                <target>user.form.type.start.help</target>
+                <target>
+                    Du blir matchad med en person för att gå en promenad ihop och lära känna området där ni båda bor.
+                    Just nu kan du bli Startkompis i Lidingö, Nynäshamn, Solna, Vaxholm och Österåker.
+                </target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
                 <source>user.form.facebook</source>
@@ -357,11 +372,23 @@
             </trans-unit>
             <trans-unit id="user.form.occupation">
                 <source>user.form.occupation</source>
-                <target>Sysselsättning</target>
+                <target>Vad är din sysselsättning?</target>
             </trans-unit>
-            <trans-unit id="user.form.occupation_description">
-                <source>user.form.occupation_description</source>
-                <target>Beskrivning av din sysselsättning</target>
+            <trans-unit id="user.form.occupation_description.employed">
+                <source>user.form.occupation_description.employed</source>
+                <target>Vad jobbar du med?</target>
+            </trans-unit>
+            <trans-unit id="user.form.occupation_description.student">
+                <source>user.form.occupation_description.student</source>
+                <target>Vad studerar du?</target>
+            </trans-unit>
+            <trans-unit id="user.form.occupation_description.unemployed">
+                <source>user.form.occupation_description.unemployed</source>
+                <target>Vad söker du jobb inom för område?</target>
+            </trans-unit>
+            <trans-unit id="user.form.occupation_description.other">
+                <source>user.form.occupation_description.other</source>
+                <target>Vad?</target>
             </trans-unit>
             <trans-unit id="user.form.has_education">
                 <source>user.form.has_education</source>
@@ -369,7 +396,7 @@
             </trans-unit>
             <trans-unit id="user.form.education_description">
                 <source>user.form.education_description</source>
-                <target>Beskrivning av din utbildning</target>
+                <target>Vad är du utbildad inom?</target>
             </trans-unit>
             <trans-unit id="user.form.children_age">
                 <source>user.form.children_age</source>
@@ -378,6 +405,42 @@
             <trans-unit id="user.form.time_in_sweden">
                 <source>user.form.time_in_sweden</source>
                 <target>Hur länge har du bott i Sverige?</target>
+            </trans-unit>
+            <trans-unit id="user.form.about_music">
+                <source>user.form.about_music</source>
+                <target>Berätta om ditt musikintresse:</target>
+            </trans-unit>
+            <trans-unit id="user.form.can_play_instrument">
+                <source>user.form.can_play_instrument</source>
+                <target>Kan du spela ett instrument?</target>
+            </trans-unit>
+            <trans-unit id="user.form.about_instrument">
+                <source>user.form.about_instrument</source>
+                <target>Vilket eller vilka instrument kan du spela?</target>
+            </trans-unit>
+            <trans-unit id="user.form.can_sing">
+                <source>user.form.can_sing</source>
+                <target>Kan du sjunga?</target>
+            </trans-unit>
+            <trans-unit id="user.form.professional_musician">
+                <source>user.form.professional_musician</source>
+                <target>Är du en professionell musiker eller en amatör?</target>
+            </trans-unit>
+            <trans-unit id="user.form.professional_musician.yes">
+                <source>user.form.professional_musician.yes</source>
+                <target>Jag är en professionell musiker</target>
+            </trans-unit>
+            <trans-unit id="user.form.professional_musician.no">
+                <source>user.form.professional_musician.no</source>
+                <target>Jag är en amatör?</target>
+            </trans-unit>
+            <trans-unit id="user.form.music_genre">
+                <source>user.form.music_genre</source>
+                <target>Vilken musikgenre gillar du att spela, sjunga eller dansa till?</target>
+            </trans-unit>
+            <trans-unit id="user.form.phone_number">
+                <source>user.form.phone_number</source>
+                <target>Mobilnummer</target>
             </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
@@ -440,7 +503,63 @@
             </trans-unit>
             <trans-unit id="connection_request.form.city">
                 <source>connection_request.form.city</source>
-                <target>Jag kan träffas i (stad):</target>
+                <target>Vilken stad vill du träffas i?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.municipality">
+                <source>connection_request.form.municipality</source>
+                <target>Vilken kommun vill du träffa din Startkompis i?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.available.day">
+                <source>connection_request.form.available</source>
+                <target>Vilken dag kan du ses?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.available.weekday">
+                <source>connection_request.form.available.weekday</source>
+                <target>Måndag - fredag</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.available.weekend">
+                <source>connection_request.form.available.weekend</source>
+                <target>Lördag - söndag</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.available.time">
+                <source>connection_request.form.available</source>
+                <target>Vilken tid kan du ses?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.available.daytime">
+                <source>connection_request.form.available.daytime</source>
+                <target>Dag (innan klockan 17.00)</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.available.evening">
+                <source>connection_request.form.available.evening</source>
+                <target>Kväll (efter klockan 17.00)</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.extra_person">
+                <source>connection_request.form.extra_person</source>
+                <target>Vill du ta med dig en till person till mötet?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.extra_person_gender">
+                <source>connection_request.form.extra_person_gender</source>
+                <target>Kön:</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.extra_person_type">
+                <source>connection_request.form.extra_person_type</source>
+                <target>Vem?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.requests">
+                <source>connection_request.form.requests</source>
+                <target>Har du önskemål om vem du vill träffa?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.want_same_gender">
+                <source>connection_request.form.want_same_gender</source>
+                <target>Endast person av samma kön</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.want_same_age">
+                <source>connection_request.form.want_same_age</source>
+                <target>Endast person nära i ålder</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.want_two_persons">
+                <source>connection_request.form.want_two_persons</source>
+                <target>Endast två personer</target>
             </trans-unit>
             <trans-unit id="connection_request.form.comment">
                 <source>connection_request.form.comment</source>
@@ -1018,15 +1137,19 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="occupation.employed">
                 <source>occupation.employed</source>
-                <target>Jobbar</target>
+                <target>Jag jobbar</target>
             </trans-unit>
             <trans-unit id="occupation.student">
                 <source>occupation.student</source>
-                <target>Studerar</target>
+                <target>Jag studerar</target>
             </trans-unit>
             <trans-unit id="occupation.unemployed">
                 <source>occupation.unemployed</source>
-                <target>Vill ha jobb</target>
+                <target>Jag vill ha jobb</target>
+            </trans-unit>
+            <trans-unit id="occupation.other">
+                <source>occupation.other</source>
+                <target>Annat</target>
             </trans-unit>
             <trans-unit id="connection_request.created.flash">
                 <source>connection_request.created.flash</source>
@@ -1035,6 +1158,22 @@ Your friends at Kompisbyrån
             <trans-unit id="connection_request.validation_failed.flash">
                 <source>connection_request.validation_failed.flash</source>
                 <target>Ett eller flera fält är felaktigt ifylda.</target>
+            </trans-unit>
+            <trans-unit id="extra_person.friend">
+                <source>extra_person.friend</source>
+                <target>Kompis</target>
+            </trans-unit>
+            <trans-unit id="extra_person.child">
+                <source>extra_person.child</source>
+                <target>Barn</target>
+            </trans-unit>
+            <trans-unit id="extra_person.partner">
+                <source>extra_person.partner</source>
+                <target>Partner</target>
+            </trans-unit>
+            <trans-unit id="extra_person.family">
+                <source>extra_person.family</source>
+                <target>Annan familjemedlem</target>
             </trans-unit>
         </body>
     </file>
