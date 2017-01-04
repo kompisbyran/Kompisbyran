@@ -75,13 +75,6 @@ class ConnectionRequest
     protected $wantToLearn = false;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $comment;
-
-    /**
      * @var int
      *
      * @ORM\Column(type="integer")
@@ -184,13 +177,6 @@ class ConnectionRequest
      *
      * @ORM\Column(type="boolean")
      */
-    protected $wantTwoPersons = false;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
     protected $wantSameAge = false;
 
     public function __construct()
@@ -270,22 +256,6 @@ class ConnectionRequest
     public function getWantToLearn()
     {
         return $this->wantToLearn;
-    }
-
-    /**
-     * @param string $comment
-     */
-    public function setComment($comment)
-    {
-        $this->comment = $comment;
-    }
-
-    /**
-     * @return string
-     */
-    public function getComment()
-    {
-        return $this->comment;
     }
 
     /**
@@ -558,22 +528,6 @@ class ConnectionRequest
     public function setWantSameGender($wantSameGender)
     {
         $this->wantSameGender = $wantSameGender;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function wantTwoPersons()
-    {
-        return $this->wantTwoPersons;
-    }
-
-    /**
-     * @param boolean $wantTwoPersons
-     */
-    public function setWantTwoPersons($wantTwoPersons)
-    {
-        $this->wantTwoPersons = $wantTwoPersons;
     }
 
     /**

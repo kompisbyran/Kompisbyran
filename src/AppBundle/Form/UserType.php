@@ -120,12 +120,14 @@ class UserType extends AbstractType
                     'label' => 'user.form.municipality',
                 ]
             )
-            ->add('friendDescription', 'textarea', [
-                'label' => 'user.form.friend_description',
+            ->add('activities', 'textarea', [
+                'label' => 'user.form.activities',
             ])
             ->add('occupation', 'choice', [
                 'label' => 'user.form.occupation',
                 'choices' => OccupationTypes::listTypesWithTranslationKeys(),
+                'empty_data' => null,
+                'required' => false
             ])
             ->add('occupationDescription', 'textarea', [
                 'label_attr' => ['id' => 'occupationDescriptionLabel'],
@@ -200,6 +202,11 @@ class UserType extends AbstractType
             ])
             ->add('phoneNumber', 'text', [
                 'label' => 'user.form.phone_number',
+                'required' => false,
+                'attr' => ['placeholder' => '0701234567'],
+            ])
+            ->add('languages', 'text', [
+                'label' => 'user.form.languages',
                 'required' => false,
             ])
         ;

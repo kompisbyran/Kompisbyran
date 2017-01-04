@@ -44,10 +44,6 @@ class ConnectionRequestType extends AbstractType
                     'required' => false,
                 ]
             )
-            ->add('comment', 'textarea', [
-                'required' => false,
-                'label' => 'connection_request.form.comment',
-            ])
             ->add('type', 'choice', [
                 'label' => 'global.music_buddy',
                 'choices' => [
@@ -102,10 +98,6 @@ class ConnectionRequestType extends AbstractType
             ->add('wantSameGender', 'checkbox', [
                 'required' => false,
                 'label' => 'connection_request.form.want_same_gender',
-            ])
-            ->add('wantTwoPersons', 'checkbox', [
-                'required' => false,
-                'label' => 'connection_request.form.want_two_persons',
             ])
             ->add('wantSameAge', 'checkbox', [
                 'required' => false,

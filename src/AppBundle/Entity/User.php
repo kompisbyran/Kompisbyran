@@ -163,6 +163,7 @@ class User extends BaseUser
      * @var string
      *
      * @Assert\NotBlank(groups={"settings"})
+     * @Assert\Length(min=10, max=300, groups={"settings"})
      *
      * @ORM\Column(type="text", nullable=true)
      */
@@ -172,11 +173,11 @@ class User extends BaseUser
      * @var string
      *
      * @Assert\NotBlank(groups={"settings"})
-     * @Assert\Length(min=10, groups={"settings"})
+     * @Assert\Length(min=10, max=300, groups={"settings"})
      *
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $friendDescription;
+    protected $activities;
 
     /**
      * @var string
@@ -314,9 +315,22 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @Assert\Expression(
+     *     "this.getType() != 'start' || this.getPhoneNumber() != ''",
+     *     message="Du måste fylla i ditt telefonnummer",
+     *     groups={"settings"}
+     * )
+     *
      * @ORM\Column(type="text", nullable=true)
      */
     protected $phoneNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $languages;
 
     /**
      * @var string
@@ -916,17 +930,17 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getFriendDescription()
+    public function getActivities()
     {
-        return $this->friendDescription;
+        return $this->activities;
     }
 
     /**
-     * @param string $friendDescription
+     * @param string $activities
      */
-    public function setFriendDescription($friendDescription)
+    public function setActivities($activities)
     {
-        $this->friendDescription = $friendDescription;
+        $this->activities = $activities;
     }
 
     /**
@@ -1135,5 +1149,21 @@ class User extends BaseUser
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * @param string $languages
+     */
+    public function setLanguages($languages)
+    {
+        $this->languages = $languages;
     }
 }

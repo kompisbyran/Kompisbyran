@@ -333,7 +333,7 @@
             </trans-unit>
             <trans-unit id="user.form.has_children">
                 <source>user.form.has_children</source>
-                <target>Jag har barn:</target>
+                <target>Har du barn?</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype">
                 <source>user.form.fikatype</source>
@@ -366,9 +366,9 @@
                 <source>user.form.facebook</source>
                 <target>Hämta din profilbild från Facebook</target>
             </trans-unit>
-            <trans-unit id="user.form.friend_description">
-                <source>user.form.friend_description</source>
-                <target>Hur skulle en kompis beskriva dig?</target>
+            <trans-unit id="user.form.activities">
+                <source>user.form.activities</source>
+                <target>Berätta om saker du tycker om att göra:</target>
             </trans-unit>
             <trans-unit id="user.form.occupation">
                 <source>user.form.occupation</source>
@@ -432,7 +432,7 @@
             </trans-unit>
             <trans-unit id="user.form.professional_musician.no">
                 <source>user.form.professional_musician.no</source>
-                <target>Jag är en amatör?</target>
+                <target>Jag är en amatör</target>
             </trans-unit>
             <trans-unit id="user.form.music_genre">
                 <source>user.form.music_genre</source>
@@ -441,6 +441,14 @@
             <trans-unit id="user.form.phone_number">
                 <source>user.form.phone_number</source>
                 <target>Mobilnummer</target>
+            </trans-unit>
+            <trans-unit id="user.form.optional">
+                <source>user.form.optional</source>
+                <target>(Frivilligt)</target>
+            </trans-unit>
+            <trans-unit id="user.form.languages">
+                <source>user.form.languages</source>
+                <target>Vilka språk pratar du?</target>
             </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
@@ -556,18 +564,6 @@
             <trans-unit id="connection_request.form.want_same_age">
                 <source>connection_request.form.want_same_age</source>
                 <target>Endast person nära i ålder</target>
-            </trans-unit>
-            <trans-unit id="connection_request.form.want_two_persons">
-                <source>connection_request.form.want_two_persons</source>
-                <target>Endast två personer</target>
-            </trans-unit>
-            <trans-unit id="connection_request.form.comment">
-                <source>connection_request.form.comment</source>
-                <target>Har du önskemål om vad du vill att din Startkompis ska visa på promenaden?</target>
-            </trans-unit>
-            <trans-unit id="connection_request.form.comment.help">
-                <source>connection_request.form.comment.help</source>
-                <target>Tänk på att ju fler önskemål/begränsningar du fyller i, desto längre tid kan det dröja. För att öka chanserna till en snabb matchning - gå in med öppet sinne!</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>

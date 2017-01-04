@@ -26,6 +26,12 @@ $(document).ready(function() {
         if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::OTHER') }}') {
             $('#occupationDescriptionLabel').text('{{ 'user.form.occupation_description.other'|trans }}');
         }
+        if ($(this).val() == '') {
+            $('#occupationDescription').hide();
+            $('#user_occupationDescription').val('');
+        } else {
+            $('#occupationDescription').show();
+        }
     });
     $('select[name="user[occupation]"]').eq(0).trigger('change');
 
