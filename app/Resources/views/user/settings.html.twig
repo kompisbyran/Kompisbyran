@@ -20,7 +20,13 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-4">
-                                <button type="submit" class="btn btn-default">{{ 'user.form.button'|trans }}</button>
+                                <button type="submit" class="btn btn-default">
+                                    {% if form.connectionRequests is defined %}
+                                        {{ 'connection_request.form.button'|trans }}
+                                    {% else %}
+                                        {{ 'user.form.button'|trans }}
+                                    {% endif %}
+                                </button>
                             </div>
                         </div>
                         {{ form_end(form) }}

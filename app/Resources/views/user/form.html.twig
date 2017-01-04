@@ -1,4 +1,4 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
 <div class="form-group">
     {{ form_label(form.firstName) }}
@@ -306,14 +306,12 @@
     </div>
 
     <div class="form-group">
-        <label class="col-lg-4 control-label">{{ 'connection_request.form.requests'|trans }}</label>
+        {{ form_label(connectionRequest.matchingProfileRequestType) }}
         <div class="col-sm-8">
-            {{ form_widget(connectionRequest.wantSameGender) }}
-            {{ form_widget(connectionRequest.wantSameAge) }}
+            {{ form_widget(connectionRequest.matchingProfileRequestType) }}
+            {{ form_errors(connectionRequest.matchingProfileRequestType) }}
         </div>
     </div>
-
-
 
     {{ form_widget(connectionRequest) }}
 {% endif %}

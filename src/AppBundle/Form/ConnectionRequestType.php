@@ -2,8 +2,10 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\MatchingProfileRequestTypes;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,6 +21,8 @@ class ConnectionRequestType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        /** @var ConnectionRequest $connectionRequest */
+        $connectionRequest = $builder->getData();
         $builder
             ->add('city', 'entity', [
                     'label' => 'connection_request.form.city',
@@ -72,18 +76,17 @@ class ConnectionRequestType extends AbstractType
                 'expanded' => true,
                 'label' => 'connection_request.form.extra_person',
                 'choices' => [
-                    true => 'yes',
                     false => 'no',
+                    true => 'yes',
                 ],
                 'choice_value' => function ($currentChoiceKey) {
                     return $currentChoiceKey ? 'true' : 'false';
                 },
             ])
-
             ->add('extraPersonGender', 'choice', [
                 'label' => 'connection_request.form.extra_person_gender',
-                'empty_data'  => null,
-                'required'    => false,
+                'empty_data' => null,
+                'required' => false,
                 'choices' => [
                     'M' => 'user.form.gender.m',
                     'F' => 'user.form.gender.f',
@@ -91,17 +94,16 @@ class ConnectionRequestType extends AbstractType
             ])
             ->add('extraPersonType', 'choice', [
                 'label' => 'connection_request.form.extra_person_type',
-                'empty_data'  => null,
-                'required'    => false,
+                'empty_data' => null,
+                'required' => false,
                 'choices' => ExtraPersonTypes::listTypesWithTranslationKeys(),
             ])
-            ->add('wantSameGender', 'checkbox', [
+            ->add('matchingProfileRequestType', 'choice', [
+                'label' => 'connection_request.form.matching_profile_request_type',
+                'empty_data' => null,
+                'empty_value' => 'connection_request.form.matching_profile_request_type.empty_value',
                 'required' => false,
-                'label' => 'connection_request.form.want_same_gender',
-            ])
-            ->add('wantSameAge', 'checkbox', [
-                'required' => false,
-                'label' => 'connection_request.form.want_same_age',
+                'choices' => MatchingProfileRequestTypes::listTypesWithTranslationKeys(),
             ])
         ;
 

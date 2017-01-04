@@ -51,7 +51,7 @@ class UserType extends AbstractType
                     'user.form.want_to_learn.choice.teach'  => '0'
                 ],
                 'choices_as_values' => true,
-                'data'              => (!$user->hasRole('ROLE_COMPLETE_USER')? null: $user->getWantToLearn())
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->getWantToLearn() : null,
             ])
             ->add('categories', 'entity', [
                     'class' => 'AppBundle:GeneralCategory',
@@ -82,7 +82,6 @@ class UserType extends AbstractType
                 'choices' => [
                     'M' => 'user.form.gender.m',
                     'F' => 'user.form.gender.f',
-                    'X' => 'user.form.gender.x',
                 ]
             ])
             ->add('about', 'textarea', ['label' => 'user.form.about'])
@@ -94,16 +93,14 @@ class UserType extends AbstractType
             ])
             // Might be removed after music friend campaign
             // ->add('district', 'text', ['label' => 'user.form.district'])
-            ->add('hasChildren', 'choice', [
+            ->add('hasChildren', 'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.has_children',
                 'choices' => [
-                    true => 'yes',
-                    false => 'no',
+                    'no',
+                    'yes',
                 ],
-                'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                }
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->hasChildren() : null,
             ])
             ->add('profilePicture', 'hidden')
             ->add('type', 'choice', [
@@ -133,16 +130,14 @@ class UserType extends AbstractType
                 'label_attr' => ['id' => 'occupationDescriptionLabel'],
                 'required' => false,
             ])
-            ->add('education', 'choice', [
+            ->add('education', 'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.has_education',
                 'choices' => [
-                    true => 'yes',
-                    false => 'no',
+                    'no',
+                    'yes'
                 ],
-                'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                },
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->hasEducation() : null,
             ])
             ->add('educationDescription', 'textarea', [
                 'label' => 'user.form.education_description',
@@ -159,42 +154,36 @@ class UserType extends AbstractType
                 'label' => 'user.form.about_music',
                 'required' => false,
             ])
-            ->add('canSing', 'choice', [
+            ->add('canSing', 'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.can_sing',
                 'choices' => [
-                    true => 'yes',
-                    false => 'no',
+                    'no',
+                    'yes'
                 ],
-                'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                },
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isCanSing() : null,
             ])
-            ->add('canPlayInstrument', 'choice', [
+            ->add('canPlayInstrument', 'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.can_play_instrument',
                 'choices' => [
-                    true => 'yes',
-                    false => 'no',
+                    'no',
+                    'yes'
                 ],
-                'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                },
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isCanPlayInstrument() : null,
             ])
             ->add('aboutInstrument', 'textarea', [
                 'label' => 'user.form.about_instrument',
                 'required' => false,
             ])
-            ->add('professionalMusician', 'choice', [
+            ->add('professionalMusician', 'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.professional_musician',
                 'choices' => [
-                    true => 'user.form.professional_musician.yes',
-                    false => 'user.form.professional_musician.no',
+                    'user.form.professional_musician.no',
+                    'user.form.professional_musician.yes',
                 ],
-                'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                },
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isProfessionalMusician() : null,
             ])
             ->add('musicGenre', 'textarea', [
                 'label' => 'user.form.music_genre',

@@ -81,12 +81,16 @@ class User extends BaseUser
     /**
      * @var ConnectionRequest[]
      *
+     * @Assert\Valid
+     *
      * @ORM\OneToMany(targetEntity="ConnectionRequest", mappedBy="user")
      */
     protected $connectionRequests;
 
     /**
      * @var bool
+     *
+     * @Assert\NotNull(groups={"settings"})
      *
      * @ORM\Column(type="boolean")
      */
@@ -96,9 +100,9 @@ class User extends BaseUser
      * @var GeneralCategory[]
      *
      * @Assert\Count(
-     *     min=1,
+     *     min=2,
      *     max=5,
-     *     minMessage="Du måste välja minst ett intresse",
+     *     minMessage="Du måste välja minst 2 intressen",
      *     maxMessage="Du kan inte välja fler än 5 intressen",
      *     groups={"settings"}
      * )
@@ -191,6 +195,8 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @Assert\NotBlank(groups={"settings"})
+     *
      * @ORM\Column(type="text", nullable=true)
      */
     protected $occupationDescription;
@@ -198,7 +204,7 @@ class User extends BaseUser
     /**
      * @var bool
      *
-     * @Assert\NotBlank(groups={"settings"})
+     * @Assert\NotNull(groups={"settings"})
      *
      * @ORM\Column(type="boolean")
      */
@@ -206,6 +212,12 @@ class User extends BaseUser
 
     /**
      * @var string
+     *
+     * @Assert\Expression(
+     *     "!this.hasEducation() || this.getEducationDescription() != ''",
+     *     message="Du måste beskriva din utbildning",
+     *     groups={"settings"}
+     * )
      *
      * @ORM\Column(type="text", nullable=true)
      */
@@ -247,12 +259,20 @@ class User extends BaseUser
     /**
      * @var bool
      *
+     * @Assert\NotNull(groups={"settings"})
+     *
      * @ORM\Column(type="boolean")
      */
     protected $hasChildren = false;
 
     /**
      * @var string
+     *
+     * @Assert\Expression(
+     *     "!this.hasChildren() || this.getChildrenAge() != ''",
+     *     message="Du måste fylla i ålder på barn",
+     *     groups={"settings"}
+     * )
      *
      * @ORM\Column(type="text", nullable=true)
      */
@@ -327,6 +347,12 @@ class User extends BaseUser
 
     /**
      * @var string
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'start' || this.getLanguages() != ''",
+     *     message="Du måste fylla i vilka språk du pratar",
+     *     groups={"settings"}
+     * )
      *
      * @ORM\Column(type="text", nullable=true)
      */

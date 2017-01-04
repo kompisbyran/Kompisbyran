@@ -53,13 +53,13 @@
                                         {% if connectionRequest.city %}
                                             {{ connectionRequest.city.name }}<br>
                                         {% endif %}
+                                        {% if connectionRequest.municipality %}
+                                            {{ connectionRequest.municipality.name }}<br>
+                                        {% endif %}
                                         {% if connectionRequest.wantToLearn %}
                                             {{ 'index.connection_request.want_to_learn.learn'|trans }}
                                         {% else %}
                                             {{ 'index.connection_request.want_to_learn.teach'|trans }}
-                                        {% endif %}
-                                        {% if connectionRequest.comment %}
-                                            <br>{{ connectionRequest.comment }}
                                         {% endif %}
                                     </li>
                                 {% endfor %}

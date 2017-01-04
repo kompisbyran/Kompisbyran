@@ -6,6 +6,7 @@ use AppBundle\Enum\FriendTypes;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use AppBundle\Validator\Constraints as KompisbyranAssert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @KompisbyranAssert\UserHasMusicCategories(groups="newConnectionRequest")
@@ -40,6 +41,13 @@ class ConnectionRequest
     /**
      * @var City
      *
+     * Expression uses user type since type is not copied to connection request on time of validation
+     * @Assert\Expression(
+     *     "this.getUser().getType() == 'start' || this.getCity() != null",
+     *     message="Du måste välja stad",
+     *     groups={"newConnectionRequest"}
+     * )
+     *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=true)
      */
@@ -47,6 +55,13 @@ class ConnectionRequest
 
     /**
      * @var Municipality
+     *
+     * Expression uses user type since type is not copied to connection request on time of validation
+     * @Assert\Expression(
+     *     "this.getUser().getType() != 'start' || this.getMunicipality() != null",
+     *     message="Du måste välja kommun",
+     *     groups={"newConnectionRequest"}
+     * )
      *
      * @ORM\ManyToOne(targetEntity="Municipality", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=true)
@@ -166,18 +181,11 @@ class ConnectionRequest
     protected $extraPersonType;
 
     /**
-     * @var bool
+     * @var string
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string", nullable=true)
      */
-    protected $wantSameGender = false;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    protected $wantSameAge = false;
+    protected $matchingProfileRequestType;
 
     public function __construct()
     {
@@ -560,5 +568,21 @@ class ConnectionRequest
     public function setMunicipality($municipality)
     {
         $this->municipality = $municipality;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMatchingProfileRequestType()
+    {
+        return $this->matchingProfileRequestType;
+    }
+
+    /**
+     * @param string $matchingProfileRequestType
+     */
+    public function setMatchingProfileRequestType($matchingProfileRequestType)
+    {
+        $this->matchingProfileRequestType = $matchingProfileRequestType;
     }
 }

@@ -557,17 +557,17 @@
                 <source>connection_request.form.requests</source>
                 <target>Har du önskemål om vem du vill träffa?</target>
             </trans-unit>
-            <trans-unit id="connection_request.form.want_same_gender">
-                <source>connection_request.form.want_same_gender</source>
-                <target>Endast person av samma kön</target>
+            <trans-unit id="connection_request.form.matching_profile_request_type">
+                <source>connection_request.form.matching_profile_request_type</source>
+                <target>Har du önskemål om vem du vill träffa?</target>
             </trans-unit>
-            <trans-unit id="connection_request.form.want_same_age">
-                <source>connection_request.form.want_same_age</source>
-                <target>Endast person nära i ålder</target>
+            <trans-unit id="connection_request.form.matching_profile_request_type.empty_value">
+                <source>connection_request.form.matching_profile_request_type.empty_value</source>
+                <target>Spelar ingen roll</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
-                <target>Kompisfika</target>
+                <target>Skicka anmälan</target>
             </trans-unit>
             <trans-unit id="terms.header">
                 <source>terms.header</source>
@@ -1170,6 +1170,14 @@ Your friends at Kompisbyrån
             <trans-unit id="extra_person.family">
                 <source>extra_person.family</source>
                 <target>Annan familjemedlem</target>
+            </trans-unit>
+            <trans-unit id="matching_profile_request.same_gender">
+                <source>matching_profile_request.same_gender</source>
+                <target>Endast person av samma kön</target>
+            </trans-unit>
+            <trans-unit id="matching_profile_request.same_age">
+                <source>matching_profile_request.same_age</source>
+                <target>Endast person nära i ålder</target>
             </trans-unit>
         </body>
     </file>

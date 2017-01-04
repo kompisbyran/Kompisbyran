@@ -36,7 +36,7 @@ $(document).ready(function() {
     $('select[name="user[occupation]"]').eq(0).trigger('change');
 
     $('input[name="user[education]"]').change(function() {
-        if ($('input[name="user[education]"]:checked').val() == 'true') {
+        if ($('input[name="user[education]"]:checked').val() == '1') {
             $('#educationDescription').show();
         } else {
             $('#educationDescription').hide();
@@ -46,7 +46,7 @@ $(document).ready(function() {
     $('input[name="user[education]"]').eq(0).trigger('change');
 
     $('input[name="user[hasChildren]"]').change(function() {
-        if ($('input[name="user[hasChildren]"]:checked').val() == 'true') {
+        if ($('input[name="user[hasChildren]"]:checked').val() == '1') {
             $('#childrenAge').show();
         } else {
             $('#childrenAge').hide();
@@ -56,7 +56,7 @@ $(document).ready(function() {
     $('input[name="user[hasChildren]"]').eq(0).trigger('change');
 
     $('input[name="user[canPlayInstrument]"]').change(function() {
-        if ($('input[name="user[canPlayInstrument]"]:checked').val() == 'true') {
+        if ($('input[name="user[canPlayInstrument]"]:checked').val() == '1') {
             $('#aboutInstrument').show();
         } else {
             $('#aboutInstrument').hide();
