@@ -348,19 +348,14 @@
                 <source>user.settings.intro</source>
                 <target><![CDATA[
                     <p>Här svarar du på några frågor om dig själv. Ju tydligare du berättar om vem du är som person, 
-                    desto större är chansen att vi hittar en bra matchning. Vi skapar kontakt mellan två nya personer, 
-                    främst baserat på liknande eller kompletterande intressen. Om du har ett specifikt önskemål, 
-                    vänligen skriv det tydligt i din ansökan, så att vi kan ta ställning till om vi kan tillgodose det. 
-                    Ni träffas i 1 av 9 städer där vi har verksamhet: Göteborg, Jönköping, Linköping, Malmö, Stockholm, 
-                    Umeå, Uppsala, Västerås eller Örebro.</p><br />
+                    desto större är chansen att vi hittar en bra matchning.</p><br />
 
-                    <p>Du kan bli Fikakompis eller Musikkompis: </p>
-                    <ul>
-                        <li>Fikakompis = Du blir matchad med en person som har liknande intressen som du har. Ni träffas på ett kafé för att 
-                        prata svenska i en timme. 
+                    <p>Som Fikakompis eller Musikkompis träffas ni i 1 av 9 städer där vi har verksamhet: Göteborg, 
+                    Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro. Som Startkompis 
+                    träffas ni i 1 av 5 kommuner i Stockholm: Lidingö, Nynäshamn, Solna, Vaxholm eller Österåker.</p><br />
 
-                        <li>Musikkompis = Du blir matchad med en person som också gillar musik. Ni träffas på en offentlig plats
-                        för att dela ert musikintresse, till exempel för att prata om musik på ett kafé, gå på konsert eller spela instrument ihop.</ul>
+                    <p>Tänk på att ju fler önskemål/begränsningar du fyller i, desto längre tid kan det dröja. 
+                    För att öka chanserna till en snabb matchning - gå in med öppet sinne!</p><br /> 
                     ]]>
                 </target>
             </trans-unit>
