@@ -367,7 +367,7 @@
                 <source>index.intro</source>
                 <target>Här kan du göra en ny anmälan för att träffa en ny Fikakompis, Musikkompis eller Startkompis. 
                 
-                    Du ser även dina <strong>tidigare möten<strong/> och <strong>nuvarande status<strong/> om du har gjort en ny anmälan.</target>
+                    Du ser även dina tidigare möten och nuvarande status om du har gjort en ny anmälan.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
