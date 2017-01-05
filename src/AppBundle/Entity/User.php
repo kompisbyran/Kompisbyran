@@ -799,18 +799,6 @@ class User extends BaseUser
     }
 
     /**
-     * @return string
-     */
-    public function getFirstConnectionRequestComment()
-    {
-        if ($this->connectionRequests->count()) {
-            return $this->connectionRequests->first()->getComment();
-        }
-
-        return '';
-    }
-
-    /**
      * @return array
      */
     public function getCategoryIds()

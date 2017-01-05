@@ -2,7 +2,9 @@
 
 namespace AppBundle\Tests\Controller;
 
+use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\OccupationTypes;
 use AppBundle\Tests\Phpunit\DatabaseTestCase;
 use AppBundle\Tests\Phpunit\Extension\AuthenticationExtensionTrait;
 use AppBundle\Tests\Phpunit\Extension\RepositoryExtensionTrait;
@@ -66,17 +68,32 @@ class RegistrationControllerTest extends DatabaseTestCase
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
         $form = $crawler->filter('form[name=user]')->form([
-            'user[firstName]'       => 'John',
-            'user[lastName]'        => 'Doe',
-            'user[categories]'      => [0],
-            'user[age]'             => '35',
-            'user[gender]'          => 'M',
-            'user[about]'           => 'About me',
-            'user[municipality]'    => $this->getMunicipalityRepository()->findAll()[0]->getId(),
-            'user[wantToLearn]'     => 0,
+            'user[firstName]' => 'John',
+            'user[lastName]' => 'Doe',
+            'user[wantToLearn]' => 0,
+            'user[categories]' => [0,1,2],
+            'user[age]' => '35',
+            'user[gender]' => 'M',
+            'user[about]' => 'About me asdf asdf asdf asdf ',
+            'user[from]' => 'SE',
+            'user[hasChildren]' => 0,
             'user[type]' => FriendTypes::FRIEND,
-            'user[from]'            => 'SE',
-            'user[city]'            => $this->getCityRepository()->findAll()[0]->getId(),
+            'user[municipality]' => $this->getMunicipalityRepository()->findAll()[0]->getId(),
+            'user[activities]' => 'asdf asdf asfd asdf',
+            'user[occupation]' => OccupationTypes::EMPLOYED,
+            'user[occupationDescription]' => 'asdf asdf asdf asdf',
+            'user[education]' => 0,
+            'user[timeInSweden]' => 'From day one',
+            'user[canSing]' => 0,
+            'user[canPlayInstrument]' => 0,
+            'user[professionalMusician]' => 0,
+            'user[languages]' => 'Swedish',
+            'user[connectionRequests][0][city]' => $this->getCityRepository()->findAll()[0]->getId(),
+            'user[connectionRequests][0][availableWeekday]' => 1,
+            'user[connectionRequests][0][availableWeekend]' => 1,
+            'user[connectionRequests][0][availableDay]' => 1,
+            'user[connectionRequests][0][availableEvening]' => 1,
+            'user[connectionRequests][0][extraPerson]' => 'false',
         ]);
 
         $crawler = $client->submit($form);

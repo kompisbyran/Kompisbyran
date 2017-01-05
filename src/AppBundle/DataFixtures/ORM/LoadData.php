@@ -644,28 +644,24 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(true);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-learner'));
-        $connectionRequest->setComment('Jag vill fika');
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-fluentspeaker'));
-        $connectionRequest->setComment('Jag vill dricka kaffe');
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-2'));
         $connectionRequest->setUser($this->getReference('user-glenn'));
-        $connectionRequest->setComment('Jag vill träffas ute');
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-emma'));
-        $connectionRequest->setComment('');
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
@@ -673,7 +669,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-cecilia'));
-        $connectionRequest->setComment('');
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
@@ -681,7 +676,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(true);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-jon'));
-        $connectionRequest->setComment('');
         $connectionRequest->setInspected(true);
         $manager->persist($connectionRequest);
 
@@ -690,7 +684,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(true);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-kal'));
-        $connectionRequest->setComment('');
         $connectionRequest->setInspected(true);
         $manager->persist($connectionRequest);
 
@@ -699,7 +692,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-malin'));
-        $connectionRequest->setComment('');
         $connectionRequest->setInspected(true);
         $manager->persist($connectionRequest);
 
@@ -708,7 +700,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-stella'));
-        $connectionRequest->setComment('');
         $connectionRequest->setInspected(true);
         $manager->persist($connectionRequest);
     }
