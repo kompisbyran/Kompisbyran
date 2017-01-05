@@ -106,13 +106,9 @@
                 <source>homepage.cta.message</source>
                 <target>
                     <![CDATA[
-                    Kompisbyrån creates contact between a new and an established Swede with similar interests, who meet 
-                    for about 1 hour at a public place. You can sign up as a Fika friend (Fikakompis) or Music friend 
-                    (Musikkompis).<br><br>
-                    
-                    Fika friend. You meet over a “fika” and speak Swedish for about 1 hour. You know in advanced that 
-                    you have some similar interests that you can start the conversation with. If you think it is fun, 
-                    you can meet again on your own. If not, it doesn’t matter since the hour still has fulfilled its purpose.
+                    Meet a new Fika friend at a café for about 1 hour, “fika” and practice Swedish. You know in advanced 
+                    that you have some similar interests that you can start the conversation with. We call this a  
+                    “Friend fika”. <br><br>
                     ]]>
                 </target>
             </trans-unit>
@@ -229,31 +225,22 @@
             </trans-unit>
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
-                <target>How it works</target>
+                <target></target>
             </trans-unit>
             <trans-unit id="register.how_it_works.text">
                 <source>register.how_it_works.text</source>
                 <target>
                     <![CDATA[
-                            <li>
-                                Write your e-mail, a password of your choice and push the ”Sign up” button.
-                            </li>
-                            <li>
-                                Please, read more about Kompisbyrån’s terms before you sign up. 
-                            </li>
-                            <li>
-                                It is free to register.
-                            </li>
                     ]]>
                 </target>
             </trans-unit>
             <trans-unit id="register.login.header">
                 <source>register.login.header</source>
-                <target>Log in</target>
+                <target>Sign in</target>
             </trans-unit>
             <trans-unit id="register.login.intro">
                 <source>register.login.intro</source>
-                <target>If you already has sent us an application, please log in by writing your e-mail and password. If you visit us for the first time, you have to create an application.</target>
+                <target>If you already has signed up, please sign in here:</target>
             </trans-unit>
             <trans-unit id="login.form.email">
                 <source>login.form.email</source>
@@ -265,7 +252,7 @@
             </trans-unit>
             <trans-unit id="login.form.button">
                 <source>login.form.button</source>
-                <target>Log in</target>
+                <target>Sign in</target>
             </trans-unit>
             <trans-unit id="login.forgot_password">
                 <source>login.forgot_password</source>
@@ -274,9 +261,8 @@
             <trans-unit id="login.text">
                 <source>login.text</source>
                 <target>
-                    Om du redan har skapat ett användarkonto, loggar du in här genom att fylla i din
-                    e-postadress och lösenord. Är det första gången du vill fika, trycker du
-                    %link_start%här%link_end%.
+                    If you visit us for the first time, you have to
+                    %link_start%sign up here%link_end%.
                 </target>
             </trans-unit>
             <trans-unit id="user.form.first_name">
