@@ -148,7 +148,7 @@
             <trans-unit id="register.create.intro">
                 <source>register.create.intro</source>
                 <target>
-                    För att kompisfika eller bli Musikkompis fyller du i din e-post och ett lösenord som du bestämmer själv.
+                    Skriv din email och ett lösenord du bestämmer själv. I nästa steg väljer du Fikakompis, Musikkompis eller Startkompis. 
                 </target>
             </trans-unit>
             <trans-unit id="register.form.email">
@@ -207,18 +207,12 @@
             <trans-unit id="register.how_it_works.header">
                 <source>register.how_it_works.header</source>
                 <target>
-                    Så här gör du:
                 </target>
             </trans-unit>
             <trans-unit id="register.how_it_works.text">
                 <source>register.how_it_works.text</source>
                 <target>
                     <![CDATA[
-                            <li>
-                                Gå med i Kompisbyrån genom att registrera dig. Skriv din e-post,
-                                ett lösenord som du bestämmer själv och klicka på "Gå med". Det är gratis att anmäla sig.
-                                Läs igenom Kompisbyråns <a href="%termsPath%">villkor</a>.
-                            </li>
                     ]]>
                 </target>
             </trans-unit>
@@ -228,11 +222,11 @@
             </trans-unit>
             <trans-unit id="register.login.intro">
                 <source>register.login.intro</source>
-                <target>Om du redan har ett konto, loggar du in här.</target>
+                <target>Om du har anmält dig till Kompisbyrån tidigare, logga in här:</target>
             </trans-unit>
             <trans-unit id="login.form.email">
                 <source>login.form.email</source>
-                <target>E-post</target>
+                <target>Email</target>
             </trans-unit>
             <trans-unit id="login.form.password">
                 <source>login.form.password</source>
@@ -249,9 +243,8 @@
             <trans-unit id="login.text">
                 <source>login.text</source>
                 <target>
-                    Om du redan har skapat ett användarkonto, loggar du in här genom att fylla i din
-                    e-postadress och lösenord. Är det första gången du vill fika, trycker du
-                    %link_start%här%link_end%.
+                    Är det första gången du anmäler dig hos Kompisbyrån?
+                    %link_start%Klicka här!%link_end%.
                 </target>
             </trans-unit>
             <trans-unit id="user.form.first_name">
