@@ -106,11 +106,8 @@
                 <source>homepage.cta.message</source>
                 <target>
                     <![CDATA[
-                    Kompisbyrån skapar kontakt mellan en ny och en etablerad svensk, med liknande intressen, 
-                    som träffas i cirka 1 timme på en offentlig plats. Du kan bli Fikakompis eller Musikkompis.<br><br> 
-                    Fikakompis - Ni träffas, fikar och pratar svenska i cirka 1 timme. Ni vet på förhand att ni har 
-                    några liknande intressen att inleda samtalet med. Om ni tycker det är roligt får ni gärna träffas 
-                    igen på egen hand. Om inte, gör inte det något för timmen har ändå uppfyllt sitt syfte.
+                    Träffa en ny fikakompis på ett kafé i 1 timme, fika och öva svenska. Ni vet på förhand att ni 
+                    har några liknande intressen att inleda samtalet med. Vi kallar det för Kompisfika.
                     ]]>
                 </target>
             </trans-unit>
@@ -704,19 +701,19 @@ Your friends at Kompisbyrån
             <trans-unit id="footer.text1">
                 <source>footer.text1</source>
                 <target>
-                    Kompisbyrån är en ideell organisation sedan 2014, som länkar samman nya fikakompisar 
-                    med olika bakgrund och erfarenheter men med liknande intressen. En ny och en etablerad 
-                    svensk träffas för att öva svenska och fika, med syftet att öka gemenskapen i samhället.  
-                    Vår vision är att göra integration enkel och tillgänglig för alla. Idag finns Kompisbyrån 
-                    i nio städer, tiotal aktiva som arbetar ideellt och närmre 10 000 kontakter från 126 länder 
-                    har förmedlats.
+                    Kompisbyrån är en ideell, partipolitiskt och religiöst obunden organisation sedan 2014 som 
+                    syftar till att öka gemenskapen i samhället mellan nya och etablerade svenskar. Kompisbyrån 
+                    matchar nya och etablerade svenskar som träffas som fikakompisar, musikkompisar eller startkompisar. 
+                    Vi erbjuder enkla former av vardagsintegration för att göra det lätt och kul för alla att engagera sig! 
+                    Idag finns Kompisbyrån i nio städer, tjugotal aktiva arbetar ideellt och ungefär 10 000 kontakter från 
+                    över 126 länder har förmedlats.
                 </target>
             </trans-unit>
             <trans-unit id="footer.text2">
                 <source>footer.text2</source>
                 <target>
                     <![CDATA[
-                        Läs noga igenom Kompisbyråns <a href="%link%">villkor</a> innan du anmäler dig till en fika.
+                        Läs noga igenom Kompisbyråns <a href="%link%">villkor</a> innan du anmäler dig.
                     ]]>
                 </target>
             </trans-unit>
@@ -724,8 +721,8 @@ Your friends at Kompisbyrån
                 <source>footer.text3</source>
                 <target>
                     Stöd oss och låt fler få chansen att träffa en ny fikakompis att öva svenska med. Varenda krona vi 
-                    får in går till att skapa fler möjligheter för nyanlända och etablerade svenskar att mötas. Swisha 
-                    300 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt stöd!
+                    får in går till att skapa fler möjligheter för nyanlända och etablerade svenskar att mötas. <strong>Swisha 
+                    300 kr till 1236 809 602</strong> eller sätt in pengar på <strong>BG-konto 386-3982</strong>. Tack för ditt stöd!
                 </target>
             </trans-unit>
             <trans-unit id="page.how_it_works.header">
@@ -737,32 +734,40 @@ Your friends at Kompisbyrån
                 <target>
                     <![CDATA[
                         <p>
-                            Kompisbyrån skapar kontakt mellan två nya fikakompisar med liknande intressen. Syftet är att prata svenska över
-                            en fika. En person är ny i Sverige och en person har bott i Sverige länge. Ni träffas på ett kafé i cirka 1
-                            timme och pratar svenska. Det är det vi kallar för en “kompisfika”. Om ni tycker det är roligt får ni gärna
-                            ses igen på egen hand. Om inte, gör inte det något för timmen har ändå uppfyllt sitt syfte.
+                            Träffa en person med liknande intressen på ett kafé i cirka 1 timme, fika och prata svenska. En person är ny i Sverige 
+                            och en person har bott i Sverige länge*. Det är det vi kallar för en Kompisfika. Du måste kunna träffas i Göteborg, 
+                            Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
                         </p>
                         <p>
-                            Vi låter varje person själv bestämma hur han eller hon vill definiera sig, så det är du som bestämmer om du
+                            <strong>Så här blir du en Fikakompis:</strong>
+                        </p>
+                        <p>
+                            <strong>1. Svara på några frågor.</strong> Tryck på "Bli Fikakompis"-knappen och fyll i formuläret. Det är gratis att registrera sig. 
+                               Du får ett bekräftelsemail när vi har tagit emot ditt formulär. 
+                        </p>
+                        <p>
+                            <strong>2. Matchning.</strong> Vi skickar ett email med kontaktuppgifter till din fikakompis.
+                        </p>
+                        <p>
+                            <strong>3. Första kontakten.</strong> Du tar kontakt med din fikakompis inom 7 dagar och bekräftar datum, tid och plats för er fika. 
+                        </p>
+                        <p>
+                            <strong>4. Fikan.</strong> Ni träffas på ett kafé i cirka 1 timme och övar på att prata svenska. Skicka gärna ett foto från er fika och berätta vad ni gjorde. 
+                        </p>
+                        <p>
+                            <strong>5. Vad händer sen?</strong> Vi kontaktar dig efter kompisfikan för att få veta hur du tyckte att det var. Om du tyckte att det var kul får ni gärna 
+                               fortsätta ses. Du kan också logga in och göra en ny anmälan för att träffa en ny person eller helt enkelt vara supernöjd över att ha varit 
+                               någons fikakompis! 
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                            *Vi låter varje person själv bestämma hur han eller hon vill definiera sig, så det är du som bestämmer om du
                             definierar dig som ny eller etablerad. Som <strong>ny svensk</strong> vill du lära dig prata bättre svenska,
                             det spelar ingen roll hur lång eller kort tid du har bott i Sverige. Som <strong>etablerad svensk</strong> har du
                             svenska som modersmål eller motsvarande, har bott i Sverige under lång tid och kan lära ut svenska.
-                        </p>
-                        <p>
-                            Så här går det till:
-                        </p>
-                        <p>
-                            1. Du registrerar dig. Tryck på "Bli Fikakompis"-knappen och följ instruktionerna, det är gratis att registrera sig.
-                            Du måste kunna träffas i Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
-                        </p>
-                        <p>
-                            2. Matchning. Vi skickar ett email till dig när vi har hittat en fikakompis som har liknande intressen som du har.
-                        </p>
-                        <p>
-                            3. Bestäm ett datum. Du skickar ett email till din fikakompis inom 7 dagar och bestämmer datum, tid och plats.
-                        </p>
-                        <p>
-                            4. Mötet. Ni träffas för att prata svenska på ett kafé eller annat offentligt ställe i cirka 1 timme.
                         </p>
                     ]]>
                 </target>
