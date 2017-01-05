@@ -791,13 +791,31 @@
             </trans-unit>
             <trans-unit id="email.welcome.start.subject">
                 <source>email.welcome.start.subject</source>
-                <target>Tack för att du blivit Startkompis hos Kompisbyrån!</target>
+                <target>Tack för din anmälan!</target>
             </trans-unit>
             <trans-unit id="email.welcome.start.body">
                 <source>email.welcome.start.body</source>
 
                 <target><![CDATA[
-                    ....
+                    <p>
+                    Hej %firstName%!<br><br>
+
+                    Vad roligt att du har anmält dig som Startkompis hos oss på Kompisbyrån! Med detta email vill vi bekräfta att vi har tagit emot din anmälan.<br><br>
+
+                    Här kommer en liten påminnelse om hur det går till:<br><br>
+
+                    <strong>1. Matchningen.</strong> Vi mailar dig (oftast inom 1-30 dagar) när vi har hittat en person som matchar din profil. Du får personens kontaktuppgifter och vi föreslår en dag, tid och plats då ni ska träffas. (Om du skulle behöva komplettera din ansökan meddelar vi dig om detta.)<br><br>
+
+                    <strong>2. Första kontakten.</strong> Du kontaktar personen inom 7 dagar och bekräftar ert möte. Skriv gärna på svenska och engelska. Du som är etablerad i Sverige har huvudansvaret för att ni får kontakt med varandra. Om tiden vi har föreslagit inte passar er måste du se till att ni hittar en ny tid som passar båda.<br>
+                    Kom ihåg att respektera varandra, att inte svara påverkar den andra personen som har sett fram emot ert möte. Kontakta oss om du inte får svar så hjälper vi till!<br><br>
+
+                    <strong>3. Mötet.</strong> Ni träffas och går en promenad i närområdet i cirka 1 timme. Försök att inte ha höga förväntningar utan ta det som det kommer. Kom i tid! De tråkiga träffarna är när någon inte dyker upp, så skicka gärna en sms-påminnelse dagen innan ert möte, som den andra personen bekräftar.<br><br>
+
+                    Om du har några frågor, vänligen skicka ett email till oss :)<br><br>
+
+                    Bästa hälsningar<br>
+                    Vi på Kompisbyrån
+                    </p>
                 ]]></target>
             </trans-unit>
             <trans-unit id="match.email.user">

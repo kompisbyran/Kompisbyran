@@ -37,12 +37,16 @@ class UserMailer extends Mailer
         $subject = sprintf('email.welcome.%s.subject', $user->getType());
         $htmlBody = sprintf('email.welcome.%s.body', $user->getType());
 
+        $subject = $this->translator->trans($subject);
+        $htmlBody = $this->translator->trans(
+            $htmlBody,
+            [
+                '%firstName%' => $user->getFirstName(),
+            ]
+        );
 
-        $subject    = $this->translator->trans($subject);
-        $htmlBody   = $this->translator->trans($htmlBody);
-
-        $html       = $this->templating->render('email/welcome.html.twig', [
-            'body'  =>  $htmlBody
+        $html = $this->templating->render('email/welcome.html.twig', [
+            'body' => $htmlBody
         ]);
 
         $this->sendEmailMessage($html, null, $subject, $user->getEmail());

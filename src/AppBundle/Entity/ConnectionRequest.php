@@ -587,7 +587,7 @@ class ConnectionRequest
     }
 
     /**
-     * @Assert\Callback(groups={"settings"})
+     * @Assert\Callback(groups={"newConnectionRequest", "registration"})
      */
     public function validate(ExecutionContextInterface $context)
     {
