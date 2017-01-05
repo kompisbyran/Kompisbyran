@@ -358,18 +358,15 @@
                 <source>user.settings.intro</source>
                 <target>
                     Please, answer some questions about yourself. The clearer you describe who you are as a person, 
-                    the greater is the chance that we find a good match for you. We create contact between two persons, 
-                    mainly based on similar or complementary interests. If you have specific wishes/ demands, please write 
-                    it clearly in your application, so that we can decide whether we can meet them. You meet in 1 of 9 
-                    cities where we operate: Göteborg, Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro.
-
-                    You can choose between becoming a Fika friend (Fikakompis) or Music friend (Musikkompis). 
-
-                    Fika friend - You will be matched with a person who has similar interests as you. You meet and practice Swedish 
-                    at a café for about 1 hour.  
-
-                    Music friend - You will be matched with a person who also likes music. You meet and share your music interest with 
-                    each other at a public place. For example, you talk about music at a café, you visit a concert or you play instruments together. 
+                    the greater is the chance that we find a good match for you. Please have in mind that if you have 
+                    special demands, it can be more difficult for us to find a good match. Try not to have high expectations 
+                    but take it as it comes!
+                    
+                    As a Fika friend or Music friend, you meet in 1 of 9 cities where we operate: Göteborg, Jönköping, 
+                    Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro. 
+                    
+                    As a Start friend, you meet in 1 of 5 municipalities in Stockholm county: Lidingö, Nynäshamn, 
+                    Solna, Vaxholm or Österåker. 
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
@@ -378,12 +375,9 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>On this page, you can find your previous Fika or Music friends and you can make a new request if you want to meet a new person.
-
-                    We provide the first contact to a person, so that you can meet 1 time. If you think it's fun, you can meet again by yourself. If you want to meet a new person, please select the city you can meet up in and press the button "New request".
-
-
-                    If you want to change your application, you can update the form in the menu above: press "Min profil" (My profile) and then "Inställningar" (Settings).</target>
+                <target>We provide the first contact to a person who you can meet 1 time. If you want to meet a new Fika, Music or Start friend, please make a new application by pressing the “Send application” button.
+                
+                You can also see previous meetings and if you already have an active request.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
@@ -391,19 +385,19 @@
             </trans-unit>
             <trans-unit id="index.connection_request.header">
                 <source>index.connection_request.header</source>
-                <target>Your active requests</target>
+                <target>Active request</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
-                <target>You are waiting for a new Fika or Music friend</target>
+                <target>You are waiting for a new friend</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.teach">
                 <source>index.connection_request.want_to_learn.teach</source>
-                <target>You are waiting for a new Fika or Music friend</target>
+                <target>You are waiting for a new friend</target>
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
-                <target>I want to meet a new Fika or Music friend</target>
+                <target>I want to meet a new person</target>
             </trans-unit>
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
