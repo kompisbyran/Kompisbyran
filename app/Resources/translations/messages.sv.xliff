@@ -436,7 +436,7 @@
             </trans-unit>
             <trans-unit id="user.form.music_genre">
                 <source>user.form.music_genre</source>
-                <target>Vilken musikgenre gillar du att spela, sjunga eller dansa till?</target>
+                <target>Vilka musikgenrer gillar du?</target>
             </trans-unit>
             <trans-unit id="user.form.phone_number">
                 <source>user.form.phone_number</source>
@@ -518,7 +518,7 @@
                 <target>Vilken kommun vill du träffa din Startkompis i?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.day">
-                <source>connection_request.form.available</source>
+                <source>connection_request.form.available.day</source>
                 <target>Vilken dag kan du ses?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.weekday">
@@ -530,7 +530,7 @@
                 <target>Lördag - söndag</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.time">
-                <source>connection_request.form.available</source>
+                <source>connection_request.form.available.time</source>
                 <target>Vilken tid kan du ses?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.daytime">
@@ -666,12 +666,12 @@
                 <target>Ange e-post igen</target>
             </trans-unit>
 
-            <trans-unit id="user.welcome.message.subject">
-                <source>user.welcome.message.subject</source>
+            <trans-unit id="email.welcome.friend.subject">
+                <source>email.welcome.friend.subject</source>
                 <target>Välkommen till Kompisbyrån</target>
             </trans-unit>
-            <trans-unit id="user.welcome.message.body">
-                <source>user.welcome.message.body</source>
+            <trans-unit id="email.welcome.friend.body">
+                <source>email.welcome.friend.body</source>
                 <target><![CDATA[
                     <p>(This message will follow in English)<br /><br /></p>
                     <p>Hej!<br /></p>
@@ -726,12 +726,12 @@
 
                     </p>]]></target>
             </trans-unit>
-            <trans-unit id="user.friend.welcome.message.subject">
-                <source>user.friend.welcome.message.subject</source>
+            <trans-unit id="email.welcome.music.subject">
+                <source>email.welcome.music.subject</source>
                 <target>Tack för att du blivit Musikkompis hos Kompisbyrån!</target>
             </trans-unit>
-            <trans-unit id="user.friend.welcome.message.body">
-                <source>user.friend.welcome.message.body</source>
+            <trans-unit id="email.welcome.music.body">
+                <source>email.welcome.music.body</source>
 
                     <target><![CDATA[
                         <p>(This message will follow in English)<br /><br /></p>
@@ -788,6 +788,17 @@
                             Kompisbyrån
 
                         </p>]]></target>
+            </trans-unit>
+            <trans-unit id="email.welcome.start.subject">
+                <source>email.welcome.start.subject</source>
+                <target>Tack för att du blivit Startkompis hos Kompisbyrån!</target>
+            </trans-unit>
+            <trans-unit id="email.welcome.start.body">
+                <source>email.welcome.start.body</source>
+
+                <target><![CDATA[
+                    ....
+                ]]></target>
             </trans-unit>
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>

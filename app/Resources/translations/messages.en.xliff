@@ -513,12 +513,12 @@
                 <source>register.form.email_confirmation</source>
                 <target>Re-enter e-mail</target>
             </trans-unit>
-            <trans-unit id="user.welcome.message.subject">
-                <source>user.welcome.message.subject</source>
+            <trans-unit id="email.welcome.friend.subject">
+                <source>email.welcome.friend.subject</source>
                 <target>Welcome to Kompisbyrån</target>
             </trans-unit>
-            <trans-unit id="user.welcome.message.body">
-                <source>user.welcome.message.body</source>
+            <trans-unit id="email.welcome.friend.body">
+                <source>email.welcome.friend.body</source>
                 <target><![CDATA[
                     <p>Thank you for making a Fika friend request through Kompisbyrån!</p>
                     <p>
@@ -544,12 +544,12 @@
                         Kompisbyrån
                     </p>]]></target>
             </trans-unit>
-            <trans-unit id="user.friend.welcome.message.subject">
-                <source>user.friend.welcome.message.subject</source>
+            <trans-unit id="email.welcome.music.subject">
+                <source>email.welcome.music.subject</source>
                 <target>Welcome to Kompisbyrån</target>
             </trans-unit>
-            <trans-unit id="user.friend.welcome.message.body">
-                <source>user.friend.welcome.message.body</source>
+            <trans-unit id="email.welcome.music.body">
+                <source>email.welcome.music.body</source>
                 <target><![CDATA[
                     <p>Thank you for making a Music friend request through Kompisbyrån!</p>
                     <p>
@@ -574,6 +574,17 @@
                         Best regards,<br />
                         Kompisbyrån
                     </p>]]></target>
+            </trans-unit>
+            <trans-unit id="email.welcome.start.subject">
+                <source>email.welcome.start.subject</source>
+                <target>Tack för att du blivit Startkompis hos Kompisbyrån!</target>
+            </trans-unit>
+            <trans-unit id="email.welcome.start.body">
+                <source>email.welcome.start.body</source>
+
+                <target><![CDATA[
+                    ....
+                ]]></target>
             </trans-unit>
             <trans-unit id="match.email.user">
                 <source>match.email.user</source>

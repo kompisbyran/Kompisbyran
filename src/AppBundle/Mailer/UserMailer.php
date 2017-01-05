@@ -34,13 +34,9 @@ class UserMailer extends Mailer
      */
     public function sendRegistrationWelcomeEmailMessage(User $user)
     {
-        $subject    = 'user.welcome.message.subject';
-        $htmlBody   = 'user.welcome.message.body';
+        $subject = sprintf('email.welcome.%s.subject', $user->getType());
+        $htmlBody = sprintf('email.welcome.%s.body', $user->getType());
 
-        if ($user->getType() == FriendTypes::MUSIC) {
-            $subject    = 'user.friend.welcome.message.subject';
-            $htmlBody   = 'user.friend.welcome.message.body';
-        }
 
         $subject    = $this->translator->trans($subject);
         $htmlBody   = $this->translator->trans($htmlBody);

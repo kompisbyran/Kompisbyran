@@ -45,7 +45,7 @@ class ConnectionRequest
      * @Assert\Expression(
      *     "this.getUser().getType() == 'start' || this.getCity() != null",
      *     message="Du måste välja stad",
-     *     groups={"newConnectionRequest"}
+     *     groups={"newConnectionRequest", "registration"}
      * )
      *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
@@ -60,7 +60,7 @@ class ConnectionRequest
      * @Assert\Expression(
      *     "this.getUser().getType() != 'start' || this.getMunicipality() != null",
      *     message="Du måste välja kommun",
-     *     groups={"newConnectionRequest"}
+     *     groups={"newConnectionRequest", "registration"}
      * )
      *
      * @ORM\ManyToOne(targetEntity="Municipality", inversedBy="connectionRequests")
@@ -584,5 +584,23 @@ class ConnectionRequest
     public function setMatchingProfileRequestType($matchingProfileRequestType)
     {
         $this->matchingProfileRequestType = $matchingProfileRequestType;
+    }
+
+    /**
+     * @Assert\Callback(groups={"settings"})
+     */
+    public function validate(ExecutionContextInterface $context)
+    {
+        if (!$this->availableDay && !$this->availableEvening) {
+            $context->buildViolation('Du måste välja minst ett alternativ')
+                ->atPath('availableDay')
+                ->addViolation();
+        }
+
+        if (!$this->availableWeekday && !$this->availableWeekend) {
+            $context->buildViolation('Du måste välja minst ett alternativ')
+                ->atPath('availableWeekday')
+                ->addViolation();
+        }
     }
 }
