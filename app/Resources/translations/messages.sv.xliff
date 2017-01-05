@@ -370,10 +370,9 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här kan du göra en ny anmälan för att träffa nya Fikakompisar eller Musikkompisar. Tryck på "Kompisfika"-knappen. 
-                Du ser även dina tidigare kompismöten och nuvarande status.
-
-                    Vill du ändra din ansökan trycker du först på "Min profil" och sedan på "Inställningar" i menyn.</target>
+                <target>Här kan du göra en ny anmälan för att träffa en ny Fikakompis, Musikkompis eller Startkompis. 
+                
+                    Du ser även dina <strong>tidigare möten<strong/> och <strong>nuvarande status<strong/> om du har gjort en ny anmälan.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
@@ -398,7 +397,7 @@
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Om du vill träffa en ny Fikakompis eller Musikkompis, väljer du den stad du kan träffas i och trycker på knappen "Kompisfika".
+                    Vill du träffa en ny Fikakompis, Musikkompis eller Startkompis? Fyll i formuläret och tryck på “Skicka anmälan”-knappen.
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
