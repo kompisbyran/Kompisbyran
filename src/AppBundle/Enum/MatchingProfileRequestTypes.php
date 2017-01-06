@@ -2,11 +2,10 @@
 
 namespace AppBundle\Enum;
 
-final class FriendTypes
+final class MatchingProfileRequestTypes
 {
-    const FRIEND = 'friend';
-    const MUSIC = 'music';
-    const START = 'start';
+    const SAME_AGE = 'same_age';
+    const SAME_GENDER = 'same_gender';
 
     private function __construct()
     {
@@ -18,9 +17,8 @@ final class FriendTypes
     public static function listTypesWithTranslationKeys()
     {
         return [
-            self::FRIEND => 'global.fika_buddy',
-            self::MUSIC => 'global.music_buddy',
-            self::START => 'global.start_buddy',
+            self::SAME_AGE => 'matching_profile_request.same_age',
+            self::SAME_GENDER => 'matching_profile_request.same_gender',
         ];
     }
 

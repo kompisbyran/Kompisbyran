@@ -81,12 +81,16 @@ class User extends BaseUser
     /**
      * @var ConnectionRequest[]
      *
+     * @Assert\Valid
+     *
      * @ORM\OneToMany(targetEntity="ConnectionRequest", mappedBy="user")
      */
     protected $connectionRequests;
 
     /**
      * @var bool
+     *
+     * @Assert\NotNull(groups={"settings"})
      *
      * @ORM\Column(type="boolean")
      */
@@ -96,9 +100,9 @@ class User extends BaseUser
      * @var GeneralCategory[]
      *
      * @Assert\Count(
-     *     min=1,
+     *     min=2,
      *     max=5,
-     *     minMessage="Du måste välja minst ett intresse",
+     *     minMessage="Du måste välja minst 2 intressen",
      *     maxMessage="Du kan inte välja fler än 5 intressen",
      *     groups={"settings"}
      * )
@@ -116,8 +120,8 @@ class User extends BaseUser
      * @var MusicCategory[]
      *
      * @Assert\Expression(
-     *     "this.getType() != 'music' || (value.count() > 0 && value.count() <= 4)",
-     *     message="Du måste välja minst ett och max fyra musikintressen",
+     *     "this.getType() != 'music' || value.count() > 0",
+     *     message="Du måste välja minst ett alternativ",
      *     groups={"settings"}
      * )
      *
@@ -163,10 +167,70 @@ class User extends BaseUser
      * @var string
      *
      * @Assert\NotBlank(groups={"settings"})
+     * @Assert\Length(min=10, max=300, groups={"settings"})
      *
      * @ORM\Column(type="text", nullable=true)
      */
     protected $about;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     * @Assert\Length(min=10, max=300, groups={"settings"})
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $activities;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $occupation = false;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $occupationDescription;
+
+    /**
+     * @var bool
+     *
+     * @Assert\NotNull(groups={"settings"})
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $education = false;
+
+    /**
+     * @var string
+     *
+     * @Assert\Expression(
+     *     "!this.hasEducation() || this.getEducationDescription() != ''",
+     *     message="Du måste beskriva din utbildning",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $educationDescription;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $timeInSweden;
 
     /**
      * @var string
@@ -195,9 +259,104 @@ class User extends BaseUser
     /**
      * @var bool
      *
+     * @Assert\NotNull(groups={"settings"})
+     *
      * @ORM\Column(type="boolean")
      */
     protected $hasChildren = false;
+
+    /**
+     * @var string
+     *
+     * @Assert\Expression(
+     *     "!this.hasChildren() || this.getChildrenAge() != ''",
+     *     message="Du måste fylla i ålder på barn",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $childrenAge;
+
+    /**
+     * @var string
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'music' || this.getAboutMusic() != ''",
+     *     message="Du måste berätta om ditt musikintresse",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $aboutMusic;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $canPlayInstrument = false;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $canSing = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $aboutInstrument;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $professionalMusician = false;
+
+    /**
+     * @var string
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'music' || this.getMusicGenre() != ''",
+     *     message="Du måste skriva vilken musikgenre du gillar",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $musicGenre;
+
+    /**
+     * @var string
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'start' || this.getPhoneNumber() != ''",
+     *     message="Du måste fylla i ditt telefonnummer",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $phoneNumber;
+
+    /**
+     * @var string
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'start' || this.getLanguages() != ''",
+     *     message="Du måste fylla i vilka språk du pratar",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $languages;
 
     /**
      * @var string
@@ -233,6 +392,13 @@ class User extends BaseUser
      */
     private $cities;
 
+    /**
+     * @var Municipality[]
+     *
+     * @ORM\ManyToMany(targetEntity="Municipality", inversedBy="adminUsers")
+     */
+    private $adminMunicipalities;
+
     public function __construct()
     {
         $this->fluentSpeakerConnections = new ArrayCollection();
@@ -245,6 +411,7 @@ class User extends BaseUser
         $this->comments                 = new ArrayCollection();
         $this->cities                   = new ArrayCollection();
         $this->type = FriendTypes::FRIEND;
+        $this->adminMunicipalities = new ArrayCollection();
 
         parent::__construct();
     }
@@ -361,11 +528,20 @@ class User extends BaseUser
     }
 
     /**
-     * @return \AppBundle\Entity\ConnectionRequest[]
+     * @return ConnectionRequest[]|ArrayCollection
      */
     public function getConnectionRequests()
     {
         return $this->connectionRequests;
+    }
+
+    /**
+     * @param ConnectionRequest $connectionRequest
+     */
+    public function addConnectionRequest(ConnectionRequest $connectionRequest)
+    {
+        $this->connectionRequests->add($connectionRequest);
+        $connectionRequest->setUser($this);
     }
 
     /**
@@ -623,18 +799,6 @@ class User extends BaseUser
     }
 
     /**
-     * @return string
-     */
-    public function getFirstConnectionRequestComment()
-    {
-        if ($this->connectionRequests->count()) {
-            return $this->connectionRequests->first()->getComment();
-        }
-
-        return '';
-    }
-
-    /**
      * @return array
      */
     public function getCategoryIds()
@@ -663,7 +827,7 @@ class User extends BaseUser
     }
 
     /**
-     * @return string
+     * @return ConnectionRequest
      */
     public function getFirstConnectionRequest()
     {
@@ -743,5 +907,277 @@ class User extends BaseUser
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return Municipality[]|ArrayCollection
+     */
+    public function getAdminMunicipalities()
+    {
+        return $this->adminMunicipalities;
+    }
+
+    /**
+     * @param Municipality[] $adminMunicipalities
+     */
+    public function setAdminMunicipalities($adminMunicipalities)
+    {
+        $this->adminMunicipalities = $adminMunicipalities;
+    }
+
+    /**
+     * @param Municipality $adminMunicipality
+     */
+    public function addAdminMunicipality(Municipality $adminMunicipality)
+    {
+        $this->adminMunicipalities->add($adminMunicipality);
+    }
+
+    /**
+     * @param Municipality $municipality
+     */
+    public function removeAdminMunicipality(Municipality $municipality)
+    {
+        $this->adminMunicipalities->removeElement($municipality);
+    }
+
+    /**
+     * @return string
+     */
+    public function getActivities()
+    {
+        return $this->activities;
+    }
+
+    /**
+     * @param string $activities
+     */
+    public function setActivities($activities)
+    {
+        $this->activities = $activities;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOccupation()
+    {
+        return $this->occupation;
+    }
+
+    /**
+     * @param string $occupation
+     */
+    public function setOccupation($occupation)
+    {
+        $this->occupation = $occupation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOccupationDescription()
+    {
+        return $this->occupationDescription;
+    }
+
+    /**
+     * @param string $occupationDescription
+     */
+    public function setOccupationDescription($occupationDescription)
+    {
+        $this->occupationDescription = $occupationDescription;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasEducation()
+    {
+        return $this->education;
+    }
+
+    /**
+     * @param boolean $education
+     */
+    public function setEducation($education)
+    {
+        $this->education = $education;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEducationDescription()
+    {
+        return $this->educationDescription;
+    }
+
+    /**
+     * @param string $educationDescription
+     */
+    public function setEducationDescription($educationDescription)
+    {
+        $this->educationDescription = $educationDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimeInSweden()
+    {
+        return $this->timeInSweden;
+    }
+
+    /**
+     * @param string $timeInSweden
+     */
+    public function setTimeInSweden($timeInSweden)
+    {
+        $this->timeInSweden = $timeInSweden;
+    }
+
+    /**
+     * @return string
+     */
+    public function getChildrenAge()
+    {
+        return $this->childrenAge;
+    }
+
+    /**
+     * @param string $childrenAge
+     */
+    public function setChildrenAge($childrenAge)
+    {
+        $this->childrenAge = $childrenAge;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAboutMusic()
+    {
+        return $this->aboutMusic;
+    }
+
+    /**
+     * @param string $aboutMusic
+     */
+    public function setAboutMusic($aboutMusic)
+    {
+        $this->aboutMusic = $aboutMusic;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isCanPlayInstrument()
+    {
+        return $this->canPlayInstrument;
+    }
+
+    /**
+     * @param boolean $canPlayInstrument
+     */
+    public function setCanPlayInstrument($canPlayInstrument)
+    {
+        $this->canPlayInstrument = $canPlayInstrument;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAboutInstrument()
+    {
+        return $this->aboutInstrument;
+    }
+
+    /**
+     * @param string $aboutInstrument
+     */
+    public function setAboutInstrument($aboutInstrument)
+    {
+        $this->aboutInstrument = $aboutInstrument;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isProfessionalMusician()
+    {
+        return $this->professionalMusician;
+    }
+
+    /**
+     * @param boolean $professionalMusician
+     */
+    public function setProfessionalMusician($professionalMusician)
+    {
+        $this->professionalMusician = $professionalMusician;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMusicGenre()
+    {
+        return $this->musicGenre;
+    }
+
+    /**
+     * @param string $musicGenre
+     */
+    public function setMusicGenre($musicGenre)
+    {
+        $this->musicGenre = $musicGenre;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isCanSing()
+    {
+        return $this->canSing;
+    }
+
+    /**
+     * @param boolean $canSing
+     */
+    public function setCanSing($canSing)
+    {
+        $this->canSing = $canSing;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param string $phoneNumber
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * @param string $languages
+     */
+    public function setLanguages($languages)
+    {
+        $this->languages = $languages;
     }
 }

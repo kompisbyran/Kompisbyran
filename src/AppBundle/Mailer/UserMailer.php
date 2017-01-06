@@ -34,22 +34,27 @@ class UserMailer extends Mailer
      */
     public function sendRegistrationWelcomeEmailMessage(User $user)
     {
-        $subject    = 'user.welcome.message.subject';
-        $htmlBody   = 'user.welcome.message.body';
+        $subject = sprintf('email.welcome.%s.subject', $user->getType());
+        $htmlBody = sprintf('email.welcome.%s.body', $user->getType());
 
-        if ($user->getType() == FriendTypes::MUSIC) {
-            $subject    = 'user.friend.welcome.message.subject';
-            $htmlBody   = 'user.friend.welcome.message.body';
-        }
+        $subject = $this->translator->trans($subject);
+        $htmlBody = $this->translator->trans(
+            $htmlBody,
+            [
+                '%firstName%' => $user->getFirstName(),
+            ]
+        );
 
-        $subject    = $this->translator->trans($subject);
-        $htmlBody   = $this->translator->trans($htmlBody);
-
-        $html       = $this->templating->render('email/welcome.html.twig', [
-            'body'  =>  $htmlBody
+        $html = $this->templating->render('email/welcome.html.twig', [
+            'body' => $htmlBody
         ]);
 
-        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
+        $replyEmail = null;
+        if ($user->getType() == FriendTypes::START) {
+            $replyEmail = 'start@kompisbyran.se';
+        }
+
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail(), null, $replyEmail);
     }
 
     /**

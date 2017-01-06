@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MunicipalityRepository")
  */
 class Municipality
 {
@@ -33,9 +33,39 @@ class Municipality
      */
     protected $users;
 
+    /**
+     * @var User[]
+     *
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="adminMunicipalities")
+     */
+    protected $adminUsers;
+
+    /**
+     * @var PreMatch[]
+     *
+     * @ORM\OneToMany(targetEntity="PreMatch", mappedBy="municipality")
+     */
+    protected $preMatches;
+
+    /**
+     * @var ConnectionRequest[]
+     *
+     * @ORM\OneToMany(targetEntity="ConnectionRequest", mappedBy="municipality")
+     */
+    protected $connectionRequests;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $startMunicipality = false;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->adminUsers = new ArrayCollection();
+        $this->preMatches = new ArrayCollection();
     }
 
     /**
@@ -76,5 +106,77 @@ class Municipality
     public function setUsers($users)
     {
         $this->users = $users;
+    }
+
+    /**
+     * @return User[]
+     */
+    public function getAdminUsers()
+    {
+        return $this->adminUsers;
+    }
+
+    /**
+     * @param User[] $adminUsers
+     */
+    public function setAdminUsers($adminUsers)
+    {
+        $this->adminUsers = $adminUsers;
+    }
+
+    /**
+     * @param User $adminUser
+     */
+    public function addAdminUser(User $adminUser)
+    {
+        $this->adminUsers->add($adminUser);
+    }
+
+    /**
+     * @return PreMatch[]
+     */
+    public function getPreMatches()
+    {
+        return $this->preMatches;
+    }
+
+    /**
+     * @param PreMatch[] $preMatches
+     */
+    public function setPreMatches($preMatches)
+    {
+        $this->preMatches = $preMatches;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isStartMunicipality()
+    {
+        return $this->startMunicipality;
+    }
+
+    /**
+     * @param boolean $startMunicipality
+     */
+    public function setStartMunicipality($startMunicipality)
+    {
+        $this->startMunicipality = $startMunicipality;
+    }
+
+    /**
+     * @return ConnectionRequest[]
+     */
+    public function getConnectionRequests()
+    {
+        return $this->connectionRequests;
+    }
+
+    /**
+     * @param ConnectionRequest[] $connectionRequests
+     */
+    public function setConnectionRequests($connectionRequests)
+    {
+        $this->connectionRequests = $connectionRequests;
     }
 }

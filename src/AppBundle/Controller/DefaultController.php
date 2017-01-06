@@ -2,8 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\ConnectionRequest;
-use AppBundle\Form\ConnectionRequestType;
+use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,50 +14,49 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $activeRequest = false;
-
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             if (false === $this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER')) {
                 return $this->redirect($this->generateUrl('settings'));
             }
 
-            $user           = $this->getUser();
-            $em             = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $em = $this->getDoctrine()->getManager();
 
-            /** @var \AppBundle\Entity\User $user */
-            $connectionRequest = new ConnectionRequest();
-            $connectionRequest->setUser($user);
-            $connectionRequest->setWantToLearn($user->getWantToLearn());
-            $connectionRequest->setType($user->getType());
             $form = $this->createForm(
-                new ConnectionRequestType(),
-                $connectionRequest,
-                ['validation_groups' => ['newConnectionRequest']]
+                new UserType(),
+                $user,
+                [
+                    'validation_groups' => ['settings', 'newConnectionRequest'],
+                    'manager' => $this->getDoctrine()->getManager(),
+                    'locale' => $request->getLocale(),
+                    'add_connection_request' => true,
+                ]
             );
 
             $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $activeRequest  = $em->getRepository('AppBundle:ConnectionRequest')->hasActiveRequest($user);
-
-                if (!$activeRequest) {
+            if ($form->isSubmitted()) {
+                if ($form->isValid()) {
+                    $connectionRequest = $user->getConnectionRequests()->last();
+                    $em->persist($user);
                     $em->persist($connectionRequest);
                     $em->flush();
 
-                    $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
+                    $this->addFlash('info', $this->get('translator')->trans('connection_request.created.flash'));
 
                     return $this->redirect($this->generateUrl('homepage'));
+                } else {
+                    $this->addFlash('error', $this->get('translator')
+                        ->trans('connection_request.validation_failed.flash'));
                 }
             }
 
             $parameters = [
-                'form'          => $form->createView(),
-                'activeRequest' => $activeRequest
+                'form' => $form->createView(),
+                'connectionRequests' => $this->get('connection_request_repository')->findByUser($user),
             ];
         } else {
-            $parameters = [
-                'activeRequest' => $activeRequest
-            ];
+            $parameters = [];
         }
 
         return $this->render('default/index.html.twig', $parameters);

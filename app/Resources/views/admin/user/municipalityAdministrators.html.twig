@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="inner-page" xmlns="http://www.w3.org/1999/html">
+        <div class="container">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" class="btn btn-primary" value="Spara">
+            {{ form_end(form) }}
+
+            <br>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Namn</th>
+                    <th>Epost</th>
+                    <th>Kommun</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for user in municipalityAdministrators %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('admin_user', {'id': user.id}) }}">{{ user.name }}</a>
+                        </td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% for municipality in user.adminMunicipalities %}
+                                {{ municipality.name }}<br>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}

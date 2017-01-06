@@ -64,17 +64,6 @@ class ConnectionRequestRepository extends EntityRepository
     }
 
     /**
-     * @deprecated
-     *
-     * @param User $user
-     * @return bool
-       */
-    public function hasActiveRequest(User $user)
-    {
-        return $this->findOneByUser($user) instanceof ConnectionRequest? true: false;
-    }
-
-    /**
      * @return array
      */
     public function findAll()
@@ -187,12 +176,14 @@ class ConnectionRequestRepository extends EntityRepository
 
     /**
      * @param City $city
-     * @return mixed
+     * @param $excludeType
+     *
+     * @return ConnectionRequest[]
      */
-    public function findByCity(City $city)
+    public function findByCity(City $city, $excludeType = null)
     {
         return $this
-            ->findByCityQueryBuilder($city)
+            ->findByCityQueryBuilder($city, $excludeType)
             ->getQuery()
             ->getResult()
         ;
@@ -200,11 +191,13 @@ class ConnectionRequestRepository extends EntityRepository
 
     /**
      * @param City $city
+     * @param $excludeType
+     *
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function findByCityQueryBuilder(City $city)
+    public function findByCityQueryBuilder(City $city, $excludeType = null)
     {
-        return $this
+        $qb = $this
             ->createQueryBuilder('cr')
             ->innerJoin('cr.user', 'u')
             ->where('cr.city        = :city')
@@ -216,6 +209,11 @@ class ConnectionRequestRepository extends EntityRepository
             ->addOrderBy('cr.createdAt', 'ASC')
             ->setParameter('city', $city)
         ;
+        if ($excludeType) {
+            $qb->andWhere('cr.type != :type')->setParameter('type', $excludeType);
+        }
+
+        return $qb;
     }
 
     /**
@@ -265,5 +263,25 @@ class ConnectionRequestRepository extends EntityRepository
         }
 
         return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param Municipality $municipality
+     *
+     * @return ConnectionRequest[]
+     */
+    public function findWantToLearnStartFriendsByMunicipality(Municipality $municipality)
+    {
+        return $qb = $this->createQueryBuilder('cr')
+            ->innerJoin('cr.user', 'u')
+            ->where('u.municipality = :municipality')
+            ->andWhere('cr.wantToLearn = true')
+            ->andWhere('cr.type = :type')
+            ->andWhere('cr.inspected = true')
+            ->setParameter('municipality', $municipality)
+            ->setParameter('type', FriendTypes::START)
+            ->getQuery()
+            ->execute()
+            ;
     }
 }

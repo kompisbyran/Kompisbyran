@@ -33,3 +33,17 @@ services:
         factory_method: getRepository
         arguments:
             - AppBundle:City
+
+    pre_match_repository:
+        class: AppBundle\Entity\PreMatchRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:PreMatch
+
+    municipality_repository:
+        class: AppBundle\Entity\MunicipalityRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:Municipality

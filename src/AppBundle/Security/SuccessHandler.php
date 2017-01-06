@@ -2,6 +2,7 @@
 
 namespace AppBundle\Security;
 
+use AppBundle\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -34,6 +35,14 @@ class SuccessHandler implements AuthenticationSuccessHandlerInterface
         foreach ($token->getRoles() as $role) {
             if ('ROLE_ADMIN' == $role->getRole()) {
                 return new RedirectResponse($this->router->generate('admin_start'));
+            }
+
+            if ('ROLE_MUNICIPALITY' == $role->getRole()) {
+                /** @var User $user */
+                $user = $token->getUser();
+                return new RedirectResponse(
+                    $this->router->generate('pre_matches', ['id' => $user->getAdminMunicipalities()[0]->getId()])
+                );
             }
         }
 

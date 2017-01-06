@@ -2,12 +2,15 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\ConnectionRequest;
+use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
-use AppBundle\Enum\Languages;
-use Doctrine\ORM\EntityRepository;
+use AppBundle\Enum\OccupationTypes;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use AppBundle\Enum\Countries;
 
@@ -34,6 +37,7 @@ class UserType extends AbstractType
             }
         };
 
+        /** @var User $user */
         $user = $builder->getData();
 
         $builder
@@ -47,7 +51,7 @@ class UserType extends AbstractType
                     'user.form.want_to_learn.choice.teach'  => '0'
                 ],
                 'choices_as_values' => true,
-                'data'              => (!$user->hasRole('ROLE_COMPLETE_USER')? null: $user->getWantToLearn())
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->getWantToLearn() : null,
             ])
             ->add('categories', 'entity', [
                     'class' => 'AppBundle:GeneralCategory',
@@ -78,7 +82,6 @@ class UserType extends AbstractType
                 'choices' => [
                     'M' => 'user.form.gender.m',
                     'F' => 'user.form.gender.f',
-                    'X' => 'user.form.gender.x',
                 ]
             ])
             ->add('about', 'textarea', ['label' => 'user.form.about'])
@@ -90,26 +93,21 @@ class UserType extends AbstractType
             ])
             // Might be removed after music friend campaign
             // ->add('district', 'text', ['label' => 'user.form.district'])
-            ->add('hasChildren', 'choice', [
+            ->add('hasChildren', 'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.has_children',
                 'choices' => [
-                    true => 'yes',
-                    false => 'no',
+                    'no',
+                    'yes',
                 ],
-                'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                }
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->hasChildren() : null,
             ])
             ->add('profilePicture', 'hidden')
             ->add('type', 'choice', [
                 'expanded' => true,
                 'multiple' => false,
                 'label' => 'user.form.fikatype',
-                'choices' => [
-                    FriendTypes::FRIEND => 'user.form.fikatype.fikafriend',
-                    FriendTypes::MUSIC => 'user.form.fikatype.musicfriend',
-                ],
+                'choices' => FriendTypes::listTypesWithTranslationKeys(),
             ])
             ->add('municipality', 'entity', [
                     'class' => 'AppBundle:Municipality',
@@ -119,28 +117,126 @@ class UserType extends AbstractType
                     'label' => 'user.form.municipality',
                 ]
             )
-
+            ->add('activities', 'textarea', [
+                'label' => 'user.form.activities',
+            ])
+            ->add('occupation', 'choice', [
+                'label' => 'user.form.occupation',
+                'choices' => OccupationTypes::listTypesWithTranslationKeys(),
+                'empty_data' => null,
+                'required' => false
+            ])
+            ->add('occupationDescription', 'textarea', [
+                'label_attr' => ['id' => 'occupationDescriptionLabel'],
+                'required' => false,
+            ])
+            ->add('education', 'boolean_choice', [
+                'expanded' => true,
+                'label' => 'user.form.has_education',
+                'choices' => [
+                    'no',
+                    'yes'
+                ],
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->hasEducation() : null,
+            ])
+            ->add('educationDescription', 'textarea', [
+                'label' => 'user.form.education_description',
+                'required' => false,
+            ])
+            ->add('timeInSweden', 'textarea', [
+                'label' => 'user.form.time_in_sweden',
+            ])
+            ->add('childrenAge', 'textarea', [
+                'label' => 'user.form.children_age',
+                'required' => false,
+            ])
+            ->add('aboutMusic', 'textarea', [
+                'label' => 'user.form.about_music',
+                'required' => false,
+            ])
+            ->add('canSing', 'boolean_choice', [
+                'expanded' => true,
+                'label' => 'user.form.can_sing',
+                'choices' => [
+                    'no',
+                    'yes'
+                ],
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isCanSing() : null,
+            ])
+            ->add('canPlayInstrument', 'boolean_choice', [
+                'expanded' => true,
+                'label' => 'user.form.can_play_instrument',
+                'choices' => [
+                    'no',
+                    'yes'
+                ],
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isCanPlayInstrument() : null,
+            ])
+            ->add('aboutInstrument', 'textarea', [
+                'label' => 'user.form.about_instrument',
+                'required' => false,
+            ])
+            ->add('professionalMusician', 'boolean_choice', [
+                'expanded' => true,
+                'label' => 'user.form.professional_musician',
+                'choices' => [
+                    'user.form.professional_musician.no',
+                    'user.form.professional_musician.yes',
+                ],
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isProfessionalMusician() : null,
+            ])
+            ->add('musicGenre', 'textarea', [
+                'label' => 'user.form.music_genre',
+                'required' => false,
+            ])
+            ->add('phoneNumber', 'text', [
+                'label' => 'user.form.phone_number',
+                'required' => false,
+                'attr' => ['placeholder' => '0701234567'],
+            ])
+            ->add('languages', 'text', [
+                'label' => 'user.form.languages',
+                'required' => false,
+            ])
         ;
-        $user = $builder->getData();
-        if (!$user->hasRole('ROLE_COMPLETE_USER')) {
-            $builder->add('city', 'entity', [
-                'label' => 'user.form.city',
-                'class' => 'AppBundle:City',
-                'query_builder' => function(EntityRepository $er) {
-                    return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
-                },
-                'property' => 'name',
-                'mapped' => false,
-                'empty_value' => ''
-            ]);
-        }
 
+        if (!$user->hasRole('ROLE_COMPLETE_USER') || $options['add_connection_request']) {
+            $builder->add('connectionRequests',
+                'collection',
+                [
+                    'type' => 'connection_request',
+                    'allow_add' => true,
+                    'by_reference' => false,
+                ]
+            );
+
+            $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                /** @var User $user */
+                $user = $event->getData();
+                $user->addConnectionRequest(new ConnectionRequest());
+            });
+
+            $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
+                /** @var User $user */
+                $user = $event->getForm()->getNormData();
+                $connectionRequest = $user->getConnectionRequests()->last();
+                $connectionRequest->setType($user->getType());
+                $connectionRequest->setWantToLearn($user->getWantToLearn());
+
+                if ($connectionRequest->getType() == FriendTypes::START) {
+                    $connectionRequest->setCity(null);
+                } else {
+                    $connectionRequest->setMunicipality(null);
+                }
+            });
+        }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class'    => 'AppBundle\Entity\User'
+            'data_class' => 'AppBundle\Entity\User',
+            'add_connection_request' => false,
         ]);
         $resolver->setRequired([
             'manager',

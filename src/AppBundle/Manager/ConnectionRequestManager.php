@@ -176,33 +176,34 @@ class ConnectionRequestManager implements ManagerInterface
             'newMusicFriendUsers'           => $this->getCountNewMusicFriendWithinCity($city),
             'establishedUsers'              => $this->getCountEstablishedWithinCity($city),
             'establishedMusicFriendUsers'   => $this->getCountEstablishedMusicFriendWithinCity($city),
-            'results'                       => $this->getCityResults($this->connectionRequestRepository->findByCity($city)),
+            'results'                       => $this->getCityResults($this->connectionRequestRepository->findByCity($city, FriendTypes::START)),
             'next'                          => false
         ];
     }
 
+    /**
+     * @param ConnectionRequest[] $connectionRequests
+     *
+     * @return array
+     */
     private function getCityResults($connectionRequests)
     {
         $datas              = [];
         $establishedTrans   = $this->translator->trans('Established');
         $newTrans           = $this->translator->trans('New');
-        $musicFriendTrans   = $this->translator->trans('Music Friend');
 
         foreach ($connectionRequests as $connectionRequest) {
             $user               = $connectionRequest->getUser();
             $pending            = $connectionRequest->getPending()? 1: 0;
             $wantToLearnText    = $user->getWantToLearn()? $newTrans: $establishedTrans;
 
-            if (!$user->getWantToLearn() && $user->getType() == FriendTypes::MUSIC) {
-                $wantToLearnText .= ' (' . $musicFriendTrans .')';
-            }
-
             $datas[]    = [
                 'request_date'  => $connectionRequest->getCreatedAt()->format('Y-m-d'),
                 'name'          => $user->getFullName(),
                 'email'         => $user->getEmail(),
                 'category'      => $wantToLearnText,
-                'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending //user_id|request_id|pending
+                'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending, //user_id|request_id|pending
+                'type_text' => $this->translator->trans(FriendTypes::tranlsationKey($connectionRequest->getType())),
             ];
         }
 

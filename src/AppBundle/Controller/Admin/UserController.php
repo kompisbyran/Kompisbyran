@@ -3,9 +3,12 @@
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\User;
+use AppBundle\Enum\FriendTypes;
 use AppBundle\Form\AdminUserType;
+use AppBundle\Form\MunicipalityAdministratorType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,7 +36,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="admin_user", defaults={"id": null})
+     * @Route("/{id}", name="admin_user", requirements={"id": "\d+"})
      * @Method({"POST", "GET"})
      */
     public function viewAction(Request $request, User $user)
@@ -83,6 +86,39 @@ class UserController extends Controller
         $this->getDoctrine()->getManager()->flush();
 
         return new Response();
+    }
+
+    /**
+     * @Route("/municipality-administrators", name="admin_municipality_administrators")
+     * @Security("has_role('ROLE_SUPER_ADMIN')")
+     */
+    public function municipalityAdministrators(Request $request)
+    {
+        $user = new User();
+        $user->setType(FriendTypes::START);
+        $form = $this->createForm(new MunicipalityAdministratorType(), $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            $this->addFlash('info', 'Användaren skapades');
+
+            return $this->redirect($this->generateUrl('admin_municipality_administrators'));
+        }
+
+
+        $municipalityAdministrators = $this->getUserRepository()->findAllMunicipalityAdministrators();
+
+
+        $parameters = [
+            'municipalityAdministrators' => $municipalityAdministrators,
+            'form' => $form->createView(),
+        ];
+
+        return $this->render('admin/user/municipalityAdministrators.html.twig', $parameters);
     }
 
     protected function getUserRepository()

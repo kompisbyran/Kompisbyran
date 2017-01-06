@@ -1,9 +1,14 @@
 services:
 
-    registration.form.type:
+    form.type.registration:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
+
+    form.type.connection_request:
+        class: AppBundle\Form\ConnectionRequestType
+        tags:
+            - { name: form.type, alias: connection_request }
 
     success_handler:
         class: AppBundle\Security\SuccessHandler
@@ -49,3 +54,21 @@ services:
         class: AppBundle\Validator\Constraints\UserHasMusicCategoriesValidator
         tags:
             - { name: validator.constraint_validator, alias: user_has_music_categories }
+
+    voter.municipality:
+        class: AppBundle\Security\Authorization\Voter\MunicipalityVoter
+        public: false
+        tags:
+            - { name: security.voter }
+
+    normalizer.pre_match:
+        class: AppBundle\Serializer\Normalizer\PreMatchNormalizer
+        tags:
+            - { name: serializer.normalizer }
+
+    manager.pre_match:
+        class: AppBundle\Manager\PreMatchManager
+        arguments:
+            - "@connection_request_repository"
+            - "@user_repository"
+            - "@doctrine.orm.entity_manager"

@@ -8,7 +8,7 @@
 
 {% block default_content %}
     <div class="row" style="margin-top: 40px;">
-        <h1>{{ 'User Priviledges'|trans }}</h1>
+        <h2>Administrators</h2>
         <table id="match-users" class="table table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
@@ -18,7 +18,7 @@
             </tr>
             </thead>
             <tbody class="persons-list-body">
-            {% for user in users %}
+            {% for user in administrators %}
                 <tr>
                     <td>{{ user.fullName }}</td>
                     <td>{{ user.email }}</td>
@@ -26,6 +26,32 @@
                         <select class="regions form-control" multiple="multiple">
                             {% for city in cities %}
                                 <option value="{{ user.id ~'|'~ city.id }}" {{ selected_city(user.cities, city.id) }}>{{ city.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Municipality administrators</h2>
+        <table class="table table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th style="width: 15%">{{ 'Name'|trans }}</th>
+                <th style="width: 15%">{{ 'Email'|trans }}</th>
+                <th>{{ 'Municipality'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody class="persons-list-body">
+            {% for user in municipalityAdministrators %}
+                <tr>
+                    <td>{{ user.fullName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <select class="municipalities form-control" multiple="multiple">
+                            {% for municipality in municipalities %}
+                                <option value="{{ user.id ~'|'~ municipality.id }}" {{ selected_city(user.adminMunicipalities, municipality.id) }}>{{ municipality.name }}</option>
                             {% endfor %}
                         </select>
                     </td>
@@ -45,7 +71,7 @@
             $(".regions").each(function(){
                 var $eventSelect = $(this).select2();
                 $eventSelect.on("select2:select", function (e) {
-                    var value = getValue(e)
+                    var value = getValue(e);
 
                     $.post(Routing.generate('admin_user_add_city', {id: value[0]}), {city_id: value[1]}, function(resp){
 
@@ -57,6 +83,26 @@
 
                     $.post(Routing.generate('admin_user_remove_city', {id: value[0]}), {city_id: value[1]}, function(resp){
 
+                    });
+                });
+            });
+
+            $(".municipalities").each(function(){
+                var $eventSelect = $(this).select2();
+                $eventSelect.on("select2:select", function (e) {
+                    var value = getValue(e);
+
+                    $.post(Routing.generate('admin_user_add_municipality', {id: value[0]}), {municipalityId: value[1]}, function(resp){
+
+                    });
+                });
+
+                $eventSelect.on("select2:unselect", function (e) {
+                    var value = getValue(e);
+
+                    $.ajax({
+                        url: Routing.generate('admin_user_remove_municipality', {userId: value[0], municipalityId: value[1]}),
+                        method: 'DELETE'
                     });
                 });
             });

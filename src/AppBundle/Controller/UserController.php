@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,12 +20,17 @@ class UserController extends Controller
     {
         /** @var \AppBundle\Entity\User $user */
         $user = $this->getUser();
-        //$user->setWantToLearn(null);
+
+        $validationGroups = ['settings'];
+        if (false === $this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER')) {
+            $validationGroups[] = 'registration';
+        }
+
         $form = $this->createForm(
             new UserType(),
             $user,
             [
-                'validation_groups' => ['settings'],
+                'validation_groups' => $validationGroups,
                 'manager'           => $this->getDoctrine()->getManager(),
                 'locale'            => $request->getLocale()
             ]
@@ -40,21 +44,21 @@ class UserController extends Controller
                 $user->addRole('ROLE_COMPLETE_USER');
                 $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
                 $this->getSecurityContext()->setToken($token);
-                $this->addFlash(
-                    'info',
-                    'Nu har vi registrerat dina uppgifter, och kommer att höra av oss så fort vi har hittat en ny
-                    matchning.'
-                );
-                $connectionRequest = new ConnectionRequest();
-                $connectionRequest->setUser($user);
-                $connectionRequest->setCity($form->get('city')->getData());
-                $connectionRequest->setWantToLearn($user->getWantToLearn());
-                $connectionRequest->setType($user->getType());
-                $em->persist($connectionRequest);
+                if (!$user->hasRole('ROLE_MUNICIPALITY')) {
+                    $this->addFlash(
+                        'info',
+                        'Nu har vi registrerat dina uppgifter, och kommer att höra av oss så fort vi har hittat en ny
+                         matchning.'
+                    );
 
-                $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
+                    $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
+                }
             }
             $em->persist($user);
+            if ($form->has('connectionRequests')) {
+                $connectionRequest = $user->getConnectionRequests()->last();
+                $em->persist($connectionRequest);
+            }
             $em->flush();
 
             return $this->redirect($this->generateUrl('homepage'));

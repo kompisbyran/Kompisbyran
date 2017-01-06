@@ -2,11 +2,12 @@
 
 namespace AppBundle\Enum;
 
-final class FriendTypes
+final class ExtraPersonTypes
 {
     const FRIEND = 'friend';
-    const MUSIC = 'music';
-    const START = 'start';
+    const CHILD = 'child';
+    const PARTNER = 'partner';
+    const FAMILY = 'family';
 
     private function __construct()
     {
@@ -18,9 +19,10 @@ final class FriendTypes
     public static function listTypesWithTranslationKeys()
     {
         return [
-            self::FRIEND => 'global.fika_buddy',
-            self::MUSIC => 'global.music_buddy',
-            self::START => 'global.start_buddy',
+            self::FRIEND => 'extra_person.friend',
+            self::CHILD => 'extra_person.child',
+            self::PARTNER => 'extra_person.partner',
+            self::FAMILY => 'extra_person.family',
         ];
     }
 

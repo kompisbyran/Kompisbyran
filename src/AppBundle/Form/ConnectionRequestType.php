@@ -2,10 +2,15 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\ConnectionRequest;
+use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\MatchingProfileRequestTypes;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use JMS\DiExtraBundle\Annotation\FormType;
 
@@ -16,6 +21,8 @@ class ConnectionRequestType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        /** @var ConnectionRequest $connectionRequest */
+        $connectionRequest = $builder->getData();
         $builder
             ->add('city', 'entity', [
                     'label' => 'connection_request.form.city',
@@ -24,13 +31,23 @@ class ConnectionRequestType extends AbstractType
                         return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
                     },
                     'property' => 'name',
-                    'empty_value' => ''
+                    'empty_value' => '',
+                    'required' => false,
                 ]
             )
-            ->add('comment', 'textarea', [
-                'required' => false,
-                'label' => 'connection_request.form.comment',
-            ])
+            ->add('municipality', 'entity', [
+                    'label' => 'connection_request.form.municipality',
+                    'class' => 'AppBundle:Municipality',
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('m')
+                            ->where('m.startMunicipality = true')
+                            ->orderBy('m.name', 'ASC');
+                    },
+                    'property' => 'name',
+                    'empty_value' => '',
+                    'required' => false,
+                ]
+            )
             ->add('type', 'choice', [
                 'label' => 'global.music_buddy',
                 'choices' => [
@@ -39,7 +56,60 @@ class ConnectionRequestType extends AbstractType
                 ],
                 'choices_as_values' => true,
             ])
+            ->add('availableWeekday', 'checkbox', [
+                'required' => false,
+                'label' => 'connection_request.form.available.weekday',
+            ])
+            ->add('availableWeekend', 'checkbox', [
+                'required' => false,
+                'label' => 'connection_request.form.available.weekend',
+            ])
+            ->add('availableDay', 'checkbox', [
+                'required' => false,
+                'label' => 'connection_request.form.available.daytime',
+            ])
+            ->add('availableEvening', 'checkbox', [
+                'required' => false,
+                'label' => 'connection_request.form.available.evening',
+            ])
+            ->add('extraPerson', 'choice', [
+                'expanded' => true,
+                'label' => 'connection_request.form.extra_person',
+                'choices' => [
+                    false => 'no',
+                    true => 'yes',
+                ],
+                'choice_value' => function ($currentChoiceKey) {
+                    return $currentChoiceKey ? 'true' : 'false';
+                },
+            ])
+            ->add('extraPersonGender', 'choice', [
+                'label' => 'connection_request.form.extra_person_gender',
+                'empty_data' => null,
+                'required' => false,
+                'choices' => [
+                    'M' => 'user.form.gender.m',
+                    'F' => 'user.form.gender.f',
+                ]
+            ])
+            ->add('extraPersonType', 'choice', [
+                'label' => 'connection_request.form.extra_person_type',
+                'empty_data' => null,
+                'required' => false,
+                'choices' => ExtraPersonTypes::listTypesWithTranslationKeys(),
+            ])
+            ->add('matchingProfileRequestType', 'choice', [
+                'label' => 'connection_request.form.matching_profile_request_type',
+                'empty_data' => null,
+                'empty_value' => 'connection_request.form.matching_profile_request_type.empty_value',
+                'required' => false,
+                'choices' => MatchingProfileRequestTypes::listTypesWithTranslationKeys(),
+            ])
         ;
+
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+            $event->getForm()->remove('type');
+        });
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -51,6 +121,6 @@ class ConnectionRequestType extends AbstractType
 
     public function getName()
     {
-        return 'connectionRequest';
+        return 'connection_request';
     }
 }
