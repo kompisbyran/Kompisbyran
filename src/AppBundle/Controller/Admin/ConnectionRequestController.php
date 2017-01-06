@@ -109,7 +109,6 @@ class ConnectionRequestController extends Controller
 
         $connectionRequest->setUser         ( $user                                         );
         $connectionRequest->setWantToLearn  ( $request->request->getBoolean('wantToLearn')  );
-        $connectionRequest->setComment      ( $request->request->get('comment')             );
         $connectionRequest->setCity         ( $city                                         );
         $connectionRequest->setSortOrder    ( $request->request->getInt('sortOrder')        );
         $connectionRequest->setType($request->request->get('type'));
