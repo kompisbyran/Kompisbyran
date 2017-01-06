@@ -49,6 +49,7 @@ class UserMailer extends Mailer
             'body' => $htmlBody
         ]);
 
+        $replyEmail = null;
         if ($user->getType() == FriendTypes::START) {
             $replyEmail = 'start@kompisbyran.se';
         }
