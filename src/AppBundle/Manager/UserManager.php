@@ -142,7 +142,9 @@ class UserManager implements ManagerInterface
         $users  = $pagerfanta->getCurrentPageResults();
 
         foreach ($users as $auser) {
-            $currentUser    = $this->getFind($auser['id']);
+            /** @var User $currentUser */
+            $currentUser = $this->getFind($auser['id']);
+            $connectionRequest = $currentUser->getConnectionRequests()[0];
             $datas[]        = [
                 'user_id'           => $auser['id'],
                 'score'             => $auser['score'],
@@ -159,6 +161,9 @@ class UserManager implements ManagerInterface
                 'age_diff'          => $currentUser->getAge()-$user->getAge(),
                 'internal_comments' => $currentUser->getInternalComment(),
                 'availability' => $this->getAvailabilityByUser($user, $currentUser),
+                'matching_profile_request_type' => $connectionRequest->getMatchingProfileRequestType() ?
+                    $this->translator->trans('matching_profile_request.' . $connectionRequest->getMatchingProfileRequestType()) :
+                    null,
             ];
         }
 
