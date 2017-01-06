@@ -9,7 +9,9 @@ use AppBundle\Entity\GeneralCategory;
 use AppBundle\Entity\Municipality;
 use AppBundle\Entity\MusicCategory;
 use AppBundle\Entity\User;
+use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\MatchingProfileRequestTypes;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -644,24 +646,45 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(true);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-learner'));
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-fluentspeaker'));
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-2'));
         $connectionRequest->setUser($this->getReference('user-glenn'));
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-emma'));
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
+        $connectionRequest->setExtraPerson(true);
+        $connectionRequest->setExtraPersonGender(User::GENDER_MALE);
+        $connectionRequest->setExtraPersonType(ExtraPersonTypes::FAMILY);
+        $connectionRequest->setMatchingProfileRequestType(MatchingProfileRequestTypes::SAME_AGE);
+
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
@@ -669,6 +692,10 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-cecilia'));
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
@@ -677,6 +704,10 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-jon'));
         $connectionRequest->setInspected(true);
+        $connectionRequest->setAvailableDay(false);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
@@ -685,6 +716,10 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-kal'));
         $connectionRequest->setInspected(true);
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(false);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
@@ -693,6 +728,10 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-malin'));
         $connectionRequest->setInspected(true);
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(false);
+        $connectionRequest->setAvailableWeekend(true);
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
@@ -701,6 +740,10 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-stella'));
         $connectionRequest->setInspected(true);
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(false);
         $manager->persist($connectionRequest);
     }
 
