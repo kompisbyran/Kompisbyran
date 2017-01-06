@@ -5,6 +5,7 @@ namespace AppBundle\Controller\Admin;
 use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Form\AdminUserType;
+use AppBundle\Form\ConnectionRequestType;
 use AppBundle\Form\MunicipalityAdministratorType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -51,18 +52,34 @@ class UserController extends Controller
         );
 
         $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
             return $this->redirect($this->generateUrl('admin_start'));
         }
 
+        $connectionRequestForm = null;
+        if ($user->getConnectionRequests()) {
+            $connectionRequest = $user->getConnectionRequests()->first();
+            $connectionRequestForm = $this->createForm(new ConnectionRequestType(), $connectionRequest);
+            $connectionRequestForm->handleRequest($request);
+
+            if ($connectionRequestForm->isSubmitted() && $connectionRequestForm->isValid()) {
+                $em->persist($connectionRequest);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('admin_start'));
+            }
+            $connectionRequestForm = $connectionRequestForm->createView();
+        }
+
         $parameters = [
             'form' => $form->createView(),
             'user' => $user,
+            'connectionRequestForm' => $connectionRequestForm,
         ];
 
         return $this->render('admin/user/view.html.twig', $parameters);

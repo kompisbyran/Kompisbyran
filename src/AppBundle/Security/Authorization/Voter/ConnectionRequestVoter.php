@@ -52,6 +52,9 @@ class ConnectionRequestVoter extends AbstractVoter
 
         switch($attribute) {
             case self::VIEW:
+                if (!$connectionRequest->getCity()) {
+                    return false;
+                }
                 if ($user->hasAccessToCity($connectionRequest->getCity()) && !$connectionRequest->getPending()) {
                     return true;
                 }

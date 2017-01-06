@@ -207,6 +207,9 @@ class UserType extends AbstractType
                     'type' => 'connection_request',
                     'allow_add' => true,
                     'by_reference' => false,
+                    'options' => [
+                        'remove_type' => true,
+                    ],
                 ]
             );
 

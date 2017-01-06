@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    $('input[name="user[type]"]').change(function() {
-        var type = $('input[name="user[type]"]:checked').val();
+    $('input[name$="[type]"]').change(function() {
+        var type = $('input[name$="[type]"]:checked').val();
         $('.friend').hide();
         $('.music').hide();
         $('.start').hide();
@@ -11,9 +11,9 @@ $(document).ready(function() {
 
         $('.' + type).show();
     });
-    $('input[name="user[type]"]').eq(0).trigger('change');
+    $('input[name$="[type]"]').eq(0).trigger('change');
 
-    $('select[name="user[occupation]"]').change(function() {
+    $('select[name$="[occupation]"]').change(function() {
         if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::EMPLOYED') }}') {
             $('#occupationDescriptionLabel').text('{{ 'user.form.occupation_description.employed'|trans }}');
         }
@@ -33,37 +33,37 @@ $(document).ready(function() {
             $('#occupationDescription').show();
         }
     });
-    $('select[name="user[occupation]"]').eq(0).trigger('change');
+    $('select[name$="[occupation]"]').eq(0).trigger('change');
 
-    $('input[name="user[education]"]').change(function() {
-        if ($('input[name="user[education]"]:checked').val() == '1') {
+    $('input[name$="[education]"]').change(function() {
+        if ($('input[name$="[education]"]:checked').val() == '1') {
             $('#educationDescription').show();
         } else {
             $('#educationDescription').hide();
             $('#user_educationDescription').val('');
         }
     });
-    $('input[name="user[education]"]').eq(0).trigger('change');
+    $('input[name$="[education]"]').eq(0).trigger('change');
 
-    $('input[name="user[hasChildren]"]').change(function() {
-        if ($('input[name="user[hasChildren]"]:checked').val() == '1') {
+    $('input[name$="[hasChildren]"]').change(function() {
+        if ($('input[name$="[hasChildren]"]:checked').val() == '1') {
             $('#childrenAge').show();
         } else {
             $('#childrenAge').hide();
             $('#user_childrenAge').val('');
         }
     });
-    $('input[name="user[hasChildren]"]').eq(0).trigger('change');
+    $('input[name$="[hasChildren]"]').eq(0).trigger('change');
 
-    $('input[name="user[canPlayInstrument]"]').change(function() {
-        if ($('input[name="user[canPlayInstrument]"]:checked').val() == '1') {
+    $('input[name$="[canPlayInstrument]"]').change(function() {
+        if ($('input[name$="[canPlayInstrument]"]:checked').val() == '1') {
             $('#aboutInstrument').show();
         } else {
             $('#aboutInstrument').hide();
             $('#user_aboutInstrument').val('');
         }
     });
-    $('input[name="user[canPlayInstrument]"]').eq(0).trigger('change');
+    $('input[name$="[canPlayInstrument]"]').eq(0).trigger('change');
 
     $('input[name="user[connectionRequests][0][extraPerson]"]').change(function() {
         if ($('input[name="user[connectionRequests][0][extraPerson]"]:checked').val() == 'true') {

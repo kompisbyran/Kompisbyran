@@ -76,40 +76,6 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/ajax/edit/{id}", name="admin_ajax_edit", options={"expose"=true})
-     * @Method({"GET", "POST"})
-     */
-    public function ajaxEditAction(Request $request, User $user)
-    {
-        $userRequest    = $this->connectionRequestManager->getFindOneByUserId($user->getId());
-        $form           = $this->formFactory->create('admin_user', $user, [
-            'manager'   => $this->getDoctrine()->getManager(),
-            'locale'    => $request->getLocale()
-        ]);
-
-        $requestForm    = $this->formFactory->create('connectionRequest', $userRequest);
-
-        $form->handleRequest($request);
-
-        if ($request->isMethod(Request::METHOD_POST)) {
-            if ($form->isValid()) {
-                $this->userManager->save($user);
-
-                return new JsonResponse(['success' => true]);
-            } else {
-                return new JsonResponse(['success' => false]);
-            }
-        }
-
-        return $this->render('admin2/user/form.html.twig', [
-            'form'          => $form->createView(),
-            'requestForm'   => $requestForm->createView(),
-            'user'          => $user,
-            'request_id'    => $userRequest->getId()
-        ]);
-    }
-
-    /**
      * @Route("/priviledges", name="admin_user_priviledges")
      * @Security("has_role('ROLE_SUPER_ADMIN')")
      * @Method("GET")

@@ -23,7 +23,7 @@
                         <td>{{ pendingRequest.user.internalComment }}</td>
                         <td>
                             <div class="text-right">
-                                <a href="{{ path('admin_ajax_edit', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile">{{ 'Edit Profile'|trans }}</a>&nbsp;
+                                <a href="{{ path('admin_user', {id: pendingRequest.user.id}) }}" class="btn btn-danger edit-current-profile">{{ 'Edit Profile'|trans }}</a>&nbsp;
                                 <a href="{{ path('admin_ajax_connection_request_mark_pending_or_unpending', {id: pendingRequest.id}) }}" class="btn btn-warning btn-unpending">{% if pendingRequest.pending %}{{ 'Remove Pending'|trans }}{% else %}{{ 'Make Pending'|trans }}{% endif %}</a>
                             </div>
                         </td>

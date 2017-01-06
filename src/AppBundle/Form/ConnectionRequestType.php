@@ -21,8 +21,6 @@ class ConnectionRequestType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        /** @var ConnectionRequest $connectionRequest */
-        $connectionRequest = $builder->getData();
         $builder
             ->add('city', 'entity', [
                     'label' => 'connection_request.form.city',
@@ -49,10 +47,11 @@ class ConnectionRequestType extends AbstractType
                 ]
             )
             ->add('type', 'choice', [
-                'label' => 'global.music_buddy',
+                'label' => 'Typ',
                 'choices' => [
                     'user.form.fikatype.fikafriend' => FriendTypes::FRIEND,
-                    'user.form.fikatype.musicfriend' => FriendTypes::MUSIC
+                    'user.form.fikatype.musicfriend' => FriendTypes::MUSIC,
+                    'Startkompis' => FriendTypes::START,
                 ],
                 'choices_as_values' => true,
             ])
@@ -107,15 +106,18 @@ class ConnectionRequestType extends AbstractType
             ])
         ;
 
-        $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
-            $event->getForm()->remove('type');
-        });
+        if ($options['remove_type']) {
+            $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                $event->getForm()->remove('type');
+            });
+        }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\ConnectionRequest',
+            'remove_type' => false,
         ]);
     }
 
