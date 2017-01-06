@@ -49,14 +49,11 @@ class UserMailer extends Mailer
             'body' => $htmlBody
         ]);
 
-        $fromEmail = 'info@kompisbyran.se';
-        $replyEmail = 'info@kompisbyran.se';
         if ($user->getType() == FriendTypes::START) {
-            $fromEmail = 'start@kompisbyran.se';
             $replyEmail = 'start@kompisbyran.se';
         }
 
-        $this->sendEmailMessage($html, null, $subject, $user->getEmail(), $fromEmail, $replyEmail);
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail(), null, $replyEmail);
     }
 
     /**

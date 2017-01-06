@@ -46,8 +46,22 @@ class Mailer
      * @param string $fromEmail
      * @param string $replyEmail
      */
-    protected function sendEmailMessage($htmlRenderedTemplate, $txtRenderedTemplate, $subject, $toEmail, $fromEmail = 'info@kompisbyran.se', $replyEmail = 'matchning@kompisbyran.se')
+    protected function sendEmailMessage(
+        $htmlRenderedTemplate,
+        $txtRenderedTemplate,
+        $subject,
+        $toEmail,
+        $fromEmail = null,
+        $replyEmail = null
+    )
     {
+        if (!$fromEmail) {
+            $fromEmail = 'info@kompisbyran.se';
+        }
+        if (!$replyEmail) {
+            $replyEmail = 'matchning@kompisbyran.se';
+        }
+
         $message = \Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom($fromEmail)
