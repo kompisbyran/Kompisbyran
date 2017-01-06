@@ -146,6 +146,27 @@
                 <source>homepage.cta.musicfriend.button</source>
                 <target>أن تكون رفيق موسيقى</target>
             </trans-unit>
+            <trans-unit id="homepage.cta.start.header">
+                <source>homepage.cta.start.header</source>
+                <target>Lär känna eller visa närområdet</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.start.header.strong">
+                <source>homepage.cta.start.header.strong</source>
+                <target>Startkompis</target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.start.message">
+                <source>homepage.cta.start.message</source>
+                <target>
+                    <![CDATA[
+                    Är du ny i kommunen eller kan du kommunen utan och innan? Nyanlända och etablerade kommunbor lär
+                    känna närområdet över en promenad.
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="homepage.cta.start.button">
+                <source>homepage.cta.start.button</source>
+                <target>Bli Startkompis</target>
+            </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
                 <target>انضم إلينا</target>
