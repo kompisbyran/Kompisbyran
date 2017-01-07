@@ -255,10 +255,16 @@ class ConnectionRequestRepository extends EntityRepository
             ->setParameter('inspected', $inspected)
         ;
 
-        if (count($cities = $user->getCities())) {
+        if ($user->getCities()) {
             $qb
-                ->andWhere('cr.city IN (:cities)')
-                ->setParameter('cities', $cities)
+                ->andWhere('cr.city IS NULL OR cr.city IN (:cities)')
+                ->setParameter('cities', $user->getCities())
+            ;
+        }
+        if ($user->getAdminMunicipalities()) {
+            $qb
+                ->andWhere('cr.municipality IS NULL OR cr.municipality IN (:municipalities)')
+                ->setParameter('municipalities', $user->getAdminMunicipalities())
             ;
         }
 
