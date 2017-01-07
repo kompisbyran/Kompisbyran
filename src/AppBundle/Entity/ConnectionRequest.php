@@ -48,6 +48,18 @@ class ConnectionRequest
      *     groups={"newConnectionRequest", "registration"}
      * )
      *
+     * @Assert\Expression(
+     *     "this.getType() == 'start' || this.getCity() != null",
+     *     message="Du måste välja stad",
+     *     groups={"Default"}
+     * )
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'start' || this.getCity() == null",
+     *     message="Du kan inte välja stad",
+     *     groups={"Default"}
+     * )
+     *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=true)
      */
@@ -61,6 +73,18 @@ class ConnectionRequest
      *     "this.getUser().getType() != 'start' || this.getMunicipality() != null",
      *     message="Du måste välja kommun",
      *     groups={"newConnectionRequest", "registration"}
+     * )
+     *
+     * @Assert\Expression(
+     *     "this.getType() != 'start' || this.getMunicipality() != null",
+     *     message="Du måste välja kommun",
+     *     groups={"Default"}
+     * )
+     *
+     * @Assert\Expression(
+     *     "this.getType() == 'start' || this.getMunicipality() == null",
+     *     message="Du kan inte välja kommun",
+     *     groups={"Default"}
      * )
      *
      * @ORM\ManyToOne(targetEntity="Municipality", inversedBy="connectionRequests")
@@ -587,7 +611,7 @@ class ConnectionRequest
     }
 
     /**
-     * @Assert\Callback(groups={"newConnectionRequest", "registration"})
+     * @Assert\Callback(groups={"newConnectionRequest", "registration", "Default"})
      */
     public function validate(ExecutionContextInterface $context)
     {

@@ -150,7 +150,7 @@ class UserManager implements ManagerInterface
                 'score'             => $auser['score'],
                 'interests'         => $this->getCategoriesExactMatchByUser($user, $currentUser),
                 'user_info'         => $currentUser->getFullName(),
-                'edit_profile_link' => $this->router->generate('admin_ajax_edit', ['id' => $auser['id']]),
+                'edit_profile_link' => $this->router->generate('admin_user', ['id' => $auser['id']]),
                 'mark_pending_link' => $this->router->generate('admin_ajax_connection_request_mark_pending_or_unpending', ['id' => $auser['connection_request_id']]),
                 'find_match_link'   => $this->router->generate('admin_match_find', ['id' => $auser['id']]),
                 'mark_pending_label'=> ($auser['pending']? 'Remove Pending': 'Make Pending'),
