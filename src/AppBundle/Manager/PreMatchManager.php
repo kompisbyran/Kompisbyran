@@ -97,7 +97,7 @@ class PreMatchManager
                 }
                 $preMatch->setLearnerConnectionRequest($connectionRequest);
                 $preMatch->setFluentSpeakerConnectionRequest($fluentSpeakerConnectionRequest);
-                $preMatch->setMunicipality($connectionRequest->getUser()->getMunicipality());
+                $preMatch->setMunicipality($connectionRequest->getMunicipality());
                 $this->entityManager->persist($preMatch);
                 $this->entityManager->flush();
                 return;

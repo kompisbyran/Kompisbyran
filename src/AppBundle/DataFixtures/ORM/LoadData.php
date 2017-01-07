@@ -690,7 +690,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setType(FriendTypes::START);
         $connectionRequest->setWantToLearn(false);
-        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setMunicipality($this->getReference('municipality-198'));
         $connectionRequest->setUser($this->getReference('user-cecilia'));
         $connectionRequest->setAvailableDay(true);
         $connectionRequest->setAvailableEvening(true);
@@ -701,7 +701,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setType(FriendTypes::START);
         $connectionRequest->setWantToLearn(true);
-        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setMunicipality($this->getReference('municipality-198'));
         $connectionRequest->setUser($this->getReference('user-jon'));
         $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(false);
@@ -713,7 +713,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setType(FriendTypes::START);
         $connectionRequest->setWantToLearn(true);
-        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setMunicipality($this->getReference('municipality-198'));
         $connectionRequest->setUser($this->getReference('user-kal'));
         $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(true);
@@ -725,7 +725,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setType(FriendTypes::START);
         $connectionRequest->setWantToLearn(false);
-        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setMunicipality($this->getReference('municipality-198'));
         $connectionRequest->setUser($this->getReference('user-malin'));
         $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(true);
@@ -737,7 +737,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest = new ConnectionRequest();
         $connectionRequest->setType(FriendTypes::START);
         $connectionRequest->setWantToLearn(false);
-        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setMunicipality($this->getReference('municipality-198'));
         $connectionRequest->setUser($this->getReference('user-stella'));
         $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(true);
