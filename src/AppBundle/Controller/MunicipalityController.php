@@ -85,6 +85,6 @@ class MunicipalityController extends Controller
             'user' => $user,
         ];
 
-        return $this->render('municipality/userfragment.html.twig', $parameters);
+        return $this->render('municipality/userFragment.html.twig', $parameters);
     }
 }
