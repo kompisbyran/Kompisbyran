@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="inner-page testimonial">
+        <div class="container">
+            <form>
+            <div class="row" style="margin-top: 40px;">
+                <div class="col-lg-6">
+                    <h2>Etablerad</h2>
+                    <div class="well">
+                        <textarea cols="20" rows="20" style="width:100%" id="fluentSpeakerEmail">{{ render(controller(
+                            'AppBundle:PreMatch:renderEmail',
+                            {
+                                'municipalityId': preMatch.municipality.id,
+                                'preMatchId': preMatch.id,
+                                'connectionRequestId': preMatch.fluentSpeakerConnectionRequest.id
+                            }
+                            )) }}</textarea>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2>Nyanländ</h2>
+                    <div class="well">
+                        <textarea cols="20" rows="20" style="width:100%" id="learnerEmail">{{ render(controller(
+                            'AppBundle:PreMatch:renderEmail',
+                            {
+                                'municipalityId': preMatch.municipality.id,
+                                'preMatchId': preMatch.id,
+                                'connectionRequestId': preMatch.learnerConnectionRequest.id
+                            }
+                            )) }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a
+                        href="#"
+                        class="btn btn-info confirm"
+                    >Bekräfta matchning</a>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+            $('.confirm').click(function(e) {
+                e.preventDefault();
+                var fluentSpeakerEmail = $('#fluentSpeakerEmail').val();
+                var learnerEmail = $('#learnerEmail').val();
+                $.ajax({
+                    url: Routing.generate('patch_pre_match', {
+                        municipalityId: {{ preMatch.municipality.id }},
+                        preMatchId: {{ preMatch.id }}
+                    }),
+                    data: {
+                        confirm: true,
+                        learnerEmail: learnerEmail,
+                        fluentSpeakerEmail: fluentSpeakerEmail
+                    },
+                    method: 'PATCH'
+                }).done(function () {
+                    location.href=Routing.generate('municipality_matched', {'id': {{ preMatch.municipality.id }}});
+                });
+            });
+        });
+    </script>
+{% endblock %}

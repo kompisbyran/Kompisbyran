@@ -46,7 +46,7 @@ class Mailer
      * @param string $fromEmail
      * @param string $replyEmail
      */
-    protected function sendEmailMessage(
+    public function sendEmailMessage(
         $htmlRenderedTemplate,
         $txtRenderedTemplate,
         $subject,

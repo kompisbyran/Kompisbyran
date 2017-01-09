@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Enum\FriendTypes;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\NoResultException;
 use AppBundle\Entity\Connection;
@@ -170,5 +171,23 @@ class ConnectionRepository extends EntityRepository
         ;
 
         return $qb->getQuery()->getSingleScalarResult()? true: false;
+    }
+
+    /**
+     * @param Municipality $municipality
+     *
+     * @return Connection
+     */
+    public function findStartFriendsByMunicipality(Municipality $municipality)
+    {
+        return $this
+            ->createQueryBuilder('c')
+            ->where('c.type = :type')
+            ->andWhere('c.municipality = :municipality')
+            ->setParameter('type', FriendTypes::START)
+            ->setParameter('municipality', $municipality)
+            ->getQuery()
+            ->execute()
+            ;
     }
 }

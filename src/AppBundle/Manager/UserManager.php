@@ -297,7 +297,7 @@ class UserManager implements ManagerInterface
      * @param User $currentUser
      * @return string
      */
-    private function getCategoriesExactMatchByUser(User $user, User $currentUser)
+    public function getCategoriesExactMatchByUser(User $user, User $currentUser)
     {
         $categories             = [];
         $locale                 = $this->requestStack->getCurrentRequest()->getLocale();

@@ -18,7 +18,8 @@ services:
     twig.app_extension:
         class: AppBundle\Twig\AppExtension
         arguments:
-            - @translator
+            - '@translator'
+            - '@user_manager'
         tags:
             - { name: twig.extension }
 
@@ -44,6 +45,13 @@ services:
             - @router
             - @templating
             - @translator
+
+    app.mailer:
+        class: AppBundle\Mailer\Mailer
+        arguments:
+            - @mailer
+            - @router
+            - @templating
 
     app.form.boolean_choice:
         class: AppBundle\Form\ChoiceTypeBoolean

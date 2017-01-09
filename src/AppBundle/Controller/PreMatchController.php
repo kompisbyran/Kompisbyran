@@ -2,9 +2,12 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Connection;
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\Municipality;
 use AppBundle\Entity\PreMatch;
 use AppBundle\Entity\PreMatchIgnore;
+use AppBundle\Enum\FriendTypes;
 use AppBundle\Security\Authorization\Voter\MunicipalityVoter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -17,7 +20,12 @@ use Symfony\Component\HttpFoundation\Response;
 class PreMatchController extends Controller
 {
     /**
-     * @Route("/pre-matches/{id}", name="pre_matches", requirements={"id": "\d+"})
+     * @Route(
+     *     "/pre-matches/{id}",
+     *     name="pre_matches",
+     *     requirements={"id": "\d+"},
+     *     options={"expose"=true}
+     * )
      * @Method("GET")
      */
     public function indexAction(Municipality $municipality)
@@ -44,6 +52,33 @@ class PreMatchController extends Controller
         ];
 
         return $this->render('preMatch/index.html.twig', $parameters);
+    }
+
+    /**
+     * @Route(
+     *     "/pre-matches/{municipalityId}/{preMatchId}/fragment",
+     *     name="pre_match_fragment",
+     *     requirements={"municipalityId": "\d+", "preMatchId": "\d+"},
+     *     options={"expose"=true}
+     * )
+     * @Method("GET")
+     * @ParamConverter(
+     *     "preMatch",
+     *     class="AppBundle:PreMatch",
+     *     options={
+     *         "repository_method"="findByMunicipalityIdAndPreMatchId",
+     *         "map_method_signature"=true
+     *     }
+     * )
+     */
+    public function fragmentAction(PreMatch $preMatch)
+    {
+        $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_VIEW, $preMatch->getMunicipality());
+        $parameters = [
+            'preMatch' => $preMatch,
+        ];
+
+        return $this->render('preMatch/fragment.html.twig', $parameters);
     }
 
     /**
@@ -117,6 +152,39 @@ class PreMatchController extends Controller
             $this->getDoctrine()->getManager()->persist($preMatch);
             $this->getDoctrine()->getManager()->flush();
         }
+        if ($request->request->has('confirm') && $request->request->getBoolean('confirm')) {
+            $connection = new Connection();
+            $connection->setType(FriendTypes::START);
+            $connection->setCreatedBy($this->getUser());
+            $connection->setFluentSpeaker($preMatch->getFluentSpeakerConnectionRequest()->getUser());
+            $connection->setFluentSpeakerConnectionRequestCreatedAt($preMatch->getFluentSpeakerConnectionRequest()->getCreatedAt());
+            $connection->setLearner($preMatch->getLearnerConnectionRequest()->getUser());
+            $connection->setLearnerConnectionRequestCreatedAt($preMatch->getLearnerConnectionRequest()->getCreatedAt());
+            $connection->setMunicipality($preMatch->getMunicipality());
+            $this->getDoctrine()->getManager()->persist($connection);
+            $this->getDoctrine()->getManager()->remove($preMatch->getLearnerConnectionRequest());
+            $this->getDoctrine()->getManager()->remove($preMatch->getFluentSpeakerConnectionRequest());
+            $this->getDoctrine()->getManager()->remove($preMatch);
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->get('app.mailer')->sendEmailMessage(
+                null,
+                $request->request->get('fluentSpeakerEmail'),
+                sprintf('%s, här är din Startkompis', $preMatch->getFluentSpeakerConnectionRequest()->getUser()->getFirstName()),
+                $preMatch->getFluentSpeakerConnectionRequest()->getUser()->getEmail(),
+                $fromEmail = null,
+                $replyEmail = 'start@kompisbyran.se'
+            );
+
+            $this->get('app.mailer')->sendEmailMessage(
+                null,
+                $request->request->get('learnerEmail'),
+                sprintf('%s, här är din Startkompis', $preMatch->getLearnerConnectionRequest()->getUser()->getFirstName()),
+                $preMatch->getLearnerConnectionRequest()->getUser()->getEmail(),
+                $fromEmail = null,
+                $replyEmail = 'start@kompisbyran.se'
+            );
+        }
 
         return new Response('', Response::HTTP_NO_CONTENT);
     }
@@ -146,5 +214,68 @@ class PreMatchController extends Controller
         $this->getDoctrine()->getManager()->flush();
 
         return new Response('', Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * @Route(
+     *     "/pre-matches/{municipalityId}/{preMatchId}/confirm",
+     *     name="pre_match_confirm",
+     *     requirements={"municipalityId": "\d+", "preMatchId": "\d+"}
+     * )
+     * @Method("GET")
+     * @ParamConverter(
+     *     "preMatch",
+     *     class="AppBundle:PreMatch",
+     *     options={
+     *         "repository_method"="findByMunicipalityIdAndPreMatchId",
+     *         "map_method_signature"=true
+     *     }
+     * )
+     */
+    public function confirmAction(PreMatch $preMatch)
+    {
+        $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_VIEW, $preMatch->getMunicipality());
+        $parameters = [
+            'preMatch' => $preMatch,
+        ];
+
+        return $this->render('preMatch/confirm.html.twig', $parameters);
+    }
+
+    /**
+     * @Route(
+     *     "/pre-matches/{municipalityId}/{preMatchId}/{connectionRequestId}",
+     *     requirements={"municipalityId": "\d+", "preMatchId": "\d+", "connectionRequestId": "\d+"}
+     * )
+     * @Method("GET")
+     * @ParamConverter(
+     *     "preMatch",
+     *     class="AppBundle:PreMatch",
+     *     options={
+     *         "repository_method"="findByMunicipalityIdAndPreMatchId",
+     *         "map_method_signature"=true
+     *     }
+     * )
+     * @ParamConverter(
+     *     "connectionRequest",
+     *     class="AppBundle:ConnectionRequest",
+     *     options={"id"="connectionRequestId"}
+     * )
+     */
+    public function renderEmailAction(PreMatch $preMatch, ConnectionRequest $connectionRequest)
+    {
+        $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_VIEW, $preMatch->getMunicipality());
+        if ($preMatch->getLearnerConnectionRequest() != $connectionRequest
+            && $preMatch->getFluentSpeakerConnectionRequest() != $connectionRequest)
+        {
+            throw $this->createNotFoundException();
+        }
+
+        $parameters = [
+            'connectionRequest' => $connectionRequest,
+            'user' => $connectionRequest->getUser(),
+        ];
+
+        return $this->render('preMatch/email.txt.twig', $parameters);
     }
 }

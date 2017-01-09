@@ -290,4 +290,24 @@ class ConnectionRequestRepository extends EntityRepository
             ->execute()
             ;
     }
+
+    /**
+     * @param Municipality $municipality
+     *
+     * @return ConnectionRequest[]
+     */
+    public function findInspectedStartFriendsByMunicipality(Municipality $municipality)
+    {
+        return $qb = $this->createQueryBuilder('cr')
+            ->innerJoin('cr.user', 'u')
+            ->where('u.municipality = :municipality')
+            ->andWhere('cr.type = :type')
+            ->andWhere('cr.inspected = true')
+            ->setParameter('municipality', $municipality)
+            ->setParameter('type', FriendTypes::START)
+            ->orderBy('cr.createdAt', 'DESC')
+            ->getQuery()
+            ->execute()
+            ;
+    }
 }

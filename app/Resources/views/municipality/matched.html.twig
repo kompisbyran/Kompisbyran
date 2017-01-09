@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="inner-page testimonial">
+        <div class="container">
+
+            <div class="row" style="margin-top: 40px;">
+                <table class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Created at</th>
+                        <th>Learner</th>
+                        <th>Fluent speaker</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for connection in connections %}
+                        <tr>
+                            <td>{{ connection.createdAt|date('Y-m-d') }}</td>
+                            <td>{{ connection.learner.name }}</td>
+                            <td>{{ connection.fluentSpeaker.name }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

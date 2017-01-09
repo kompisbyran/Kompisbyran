@@ -1,0 +1,86 @@
+<strong>
+{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('admin_user', {'id': preMatch.fluentSpeakerConnectionRequest.user.id}) }}">{{ preMatch.fluentSpeakerConnectionRequest.user.name }}</a></strong>,
+{% else %}
+    {{ preMatch.fluentSpeakerConnectionRequest.user.name }}</strong>,
+{% endif %}
+{% if preMatch.fluentSpeakerConnectionRequest.user.gender == preMatch.learnerConnectionRequest.user.gender %}
+    <span class="matches">{{ preMatch.fluentSpeakerConnectionRequest.user.gender|gender }}</span>,
+{% else %}
+    {{ preMatch.fluentSpeakerConnectionRequest.user.gender|gender }},
+{% endif %}
+{% set years = range(preMatch.fluentSpeakerConnectionRequest.user.age - 5, preMatch.fluentSpeakerConnectionRequest.user.age + 5) %}
+{% if preMatch.learnerConnectionRequest.user.age in years %}
+    <span class="matches">{{ preMatch.fluentSpeakerConnectionRequest.user.age }}</span>,
+{% else %}
+    {{ preMatch.fluentSpeakerConnectionRequest.user.age }},
+{% endif %}
+
+{{ preMatch.fluentSpeakerConnectionRequest.user.from }}<br>
+<strong>Språk:</strong> {{ preMatch.fluentSpeakerConnectionRequest.user.languages }}<br>
+<strong>Berätta om dig själv:</strong> {{ preMatch.fluentSpeakerConnectionRequest.user.about }}<br>
+<strong>Saker du typer om:</strong> {{ preMatch.fluentSpeakerConnectionRequest.user.activities }}<br>
+<strong>Sysselsättning:</strong>
+{% if preMatch.fluentSpeakerConnectionRequest.user.occupation == preMatch.learnerConnectionRequest.user.occupation %}
+    <span class="matches">{{ preMatch.fluentSpeakerConnectionRequest.user.occupation|occupation }}</span><br>
+{% else %}
+    {{ preMatch.fluentSpeakerConnectionRequest.user.occupation|occupation }}<br>
+{% endif %}
+<strong>Vill du ta med dig någon:</strong>
+{% if preMatch.fluentSpeakerConnectionRequest.extraPerson %}
+    Ja, {{ preMatch.fluentSpeakerConnectionRequest.extraPersonGender|gender }}, {{ ('extra_person.' ~ preMatch.learnerConnectionRequest.extraPersonType)|trans }}
+{% else %}
+    Nej
+{% endif %}
+<br>
+<strong>Barn:</strong>
+{% if preMatch.fluentSpeakerConnectionRequest.user.hasChildren %}
+    {% if preMatch.fluentSpeakerConnectionRequest.user.hasChildren == preMatch.learnerConnectionRequest.user.hasChildren %}
+        <span class="matches">Ja</span>,
+    {% else %}
+        Ja,
+    {%  endif %}
+    {{ preMatch.fluentSpeakerConnectionRequest.user.childrenAge }}
+{% else %}
+    {% if preMatch.fluentSpeakerConnectionRequest.user.hasChildren == preMatch.learnerConnectionRequest.user.hasChildren %}
+        <span class="matches">Nej</span>
+    {% else %}
+        Nej
+    {%  endif %}
+{% endif %}
+<br>
+<strong>Önskemål:</strong>
+{% if preMatch.learnerConnectionRequest.matchingProfileRequestType %}
+    {% if preMatch.fluentSpeakerConnectionRequest.matchingProfileRequestType == preMatch.learnerConnectionRequest.matchingProfileRequestType %}
+        <span class="matches">{{ ('matching_profile_request.' ~ preMatch.learnerConnectionRequest.matchingProfileRequestType)|trans }}</span>
+    {% else %}
+        {{ ('matching_profile_request.' ~ preMatch.learnerConnectionRequest.matchingProfileRequestType)|trans }}
+    {% endif %}
+{% endif %}<br>
+
+<strong>Tillgänglig:</strong>
+{% if preMatch.fluentSpeakerConnectionRequest.availableWeekday and preMatch.learnerConnectionRequest.availableWeekday %}
+    <span class="matches">{{ 'connection_request.form.available.weekday'|trans }}</span>,
+{% elseif preMatch.fluentSpeakerConnectionRequest.availableWeekday %}
+    {{ 'connection_request.form.available.weekday'|trans }}
+{% endif %}
+{% if preMatch.fluentSpeakerConnectionRequest.availableWeekend and preMatch.learnerConnectionRequest.availableWeekend %}
+    <span class="matches">{{ 'connection_request.form.available.weekend'|trans }}</span>,
+{% elseif preMatch.fluentSpeakerConnectionRequest.availableWeekend %}
+    {{ 'connection_request.form.available.weekend'|trans }},
+{% endif %}
+{% if preMatch.fluentSpeakerConnectionRequest.availableDay and preMatch.learnerConnectionRequest.availableDay %}
+    <span class="matches">{{ 'connection_request.form.available.daytime'|trans }}</span>,
+{% elseif preMatch.fluentSpeakerConnectionRequest.availableDay %}
+    {{ 'connection_request.form.available.daytime'|trans }},
+{% endif %}
+{% if preMatch.fluentSpeakerConnectionRequest.availableEvening and preMatch.learnerConnectionRequest.availableEvening %}
+    <span class="matches">{{ 'connection_request.form.available.evening'|trans }}</span>
+{% elseif preMatch.fluentSpeakerConnectionRequest.availableEvening %}
+    {{ 'connection_request.form.available.evening'|trans }}
+{% endif %}
+<br>
+<strong>Kategorier:</strong> {{ mark_matched_categories(preMatch.learnerConnectionRequest.user, preMatch.fluentSpeakerConnectionRequest.user) }}<br>
+{% if is_granted('ROLE_ADMIN') %}
+    <strong>Intern kommentar:</strong> {{ preMatch.fluentSpeakerConnectionRequest.user.internalComment }}<br>
+{% endif %}

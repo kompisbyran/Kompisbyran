@@ -47,9 +47,17 @@ class Connection
      * @var City
      *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connections")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     protected $city;
+
+    /**
+     * @var Municipality
+     *
+     * @ORM\ManyToOne(targetEntity="Municipality", inversedBy="connections")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $municipality;
 
     /**
      * @var string
@@ -279,5 +287,21 @@ class Connection
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return Municipality
+     */
+    public function getMunicipality()
+    {
+        return $this->municipality;
+    }
+
+    /**
+     * @param Municipality $municipality
+     */
+    public function setMunicipality($municipality)
+    {
+        $this->municipality = $municipality;
     }
 }
