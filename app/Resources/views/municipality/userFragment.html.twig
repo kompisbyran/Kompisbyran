@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">{{ user.name }}</h4>
+</div>
+
+<div class="modal-body">
+    <dl class="dl-horizontal">
+        <dt>Epostadress</dt>
+        <dd>{{ user.email }}</dd>
+        <dt>Ålder</dt>
+        <dd>{{ user.age }}</dd>
+        <dt>Kön</dt>
+        <dd>{{ user.gender|gender }}</dd>
+        <dt>Från</dt>
+        <dd>{{ user.from }}</dd>
+        <dt>Tid i Sverige</dt>
+        <dd>{{ user.timeInSweden }}</dd>
+        <dt>Språk</dt>
+        <dd>{{ user.languages }}</dd>
+        <dt>Telefonnummer</dt>
+        <dd>{{ user.phoneNumber }}</dd>
+        <dt>Om</dt>
+        <dd>{{ user.about }}</dd>
+        <dt>Barn</dt>
+        <dd>
+            {% if user.hasChildren %}Ja<br>{{ user.childrenAge }}{% else %}Nej{% endif %}
+        </dd>
+        <dt>Sysselsättning</dt>
+        <dd>
+            {{ ('occupation.' ~ user.occupation)|trans }}<br>
+            {{ user.occupationDescription }}
+        </dd>
+        <dt>Utbildning</dt>
+        <dd>
+            {% if user.hasEducation %}Ja<br>{{ user.educationDescription }}{% else %}Nej{% endif %}
+        </dd>
+    </dl>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+

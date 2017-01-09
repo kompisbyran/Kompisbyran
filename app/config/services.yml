@@ -69,6 +69,12 @@ services:
         tags:
             - { name: security.voter }
 
+    voter.user:
+        class: AppBundle\Security\Authorization\Voter\UserVoter
+        public: false
+        tags:
+            - { name: security.voter }
+
     normalizer.pre_match:
         class: AppBundle\Serializer\Normalizer\PreMatchNormalizer
         tags:

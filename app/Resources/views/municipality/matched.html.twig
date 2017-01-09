@@ -17,8 +17,14 @@
                     {% for connection in connections %}
                         <tr>
                             <td>{{ connection.createdAt|date('Y-m-d') }}</td>
-                            <td>{{ connection.learner.name }}</td>
-                            <td>{{ connection.fluentSpeaker.name }}</td>
+                            <td>
+                                {{ connection.learner.name }}
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#userModal" data-user="{{ connection.learner.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
+                            </td>
+                            <td>
+                                {{ connection.fluentSpeaker.name }}
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#userModal" data-user="{{ connection.fluentSpeaker.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -28,4 +34,12 @@
         </div>
     </div>
 
+    {% include(':municipality:modal.html.twig') %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        {% include('municipality/modal.js.twig') %}
+    </script>
 {% endblock %}

@@ -46,6 +46,7 @@
                                 <td>{{ preMatch.learnerConnectionRequest.createdAt|date('Y-m-d') }}</td>
                                 <td>New</td>
                                 <td>
+                                    <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#userModal" data-user="{{ preMatch.learnerConnectionRequest.user.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
                                     {% if is_granted('ROLE_ADMIN') %}
                                         <strong><a href="{{ path('admin_user', {'id': preMatch.learnerConnectionRequest.user.id}) }}">{{ preMatch.learnerConnectionRequest.user.name }}</a></strong>,
                                     {% else %}
@@ -143,6 +144,8 @@
         </div>
     </div>
 
+    {% include('municipality:modal.html.twig') %}
+
 {% endblock %}
 
 {% block javascripts %}
@@ -220,5 +223,6 @@
             });
         });
     });
+    {% include('municipality/modal.js.twig') %}
 </script>
 {% endblock %}

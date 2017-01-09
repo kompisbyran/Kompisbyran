@@ -2,10 +2,14 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\Municipality;
+use AppBundle\Entity\User;
 use AppBundle\Security\Authorization\Voter\MunicipalityVoter;
+use AppBundle\Security\Authorization\Voter\UserVoter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class MunicipalityController extends Controller
@@ -24,6 +28,7 @@ class MunicipalityController extends Controller
 
         $parameters = [
             'connectionRequests' => $connectionRequests,
+            'municipality' => $municipality,
         ];
 
         return $this->render('municipality/waiting.html.twig', $parameters);
@@ -46,8 +51,40 @@ class MunicipalityController extends Controller
 
         $parameters = [
             'connections' => $connections,
+            'municipality' => $municipality,
         ];
 
         return $this->render('municipality/matched.html.twig', $parameters);
+    }
+
+    /**
+     * @Route(
+     *     "/municipalities/{municipalityId}/users/{userId}",
+     *     name="municipality_user_fragment",
+     *     requirements={"municipalityId": "\d+", "userId": "\d+"},
+     *     options={"expose"=true}
+     * )
+     * @ParamConverter(
+     *     "municipality",
+     *     class="AppBundle:Municipality",
+     *     options={"id"="municipalityId"}
+     * )
+     * @ParamConverter(
+     *     "user",
+     *     class="AppBundle:User",
+     *     options={"id"="userId"}
+     * )
+     * @Method("GET")
+     */
+    public function userFragmentAction(Municipality $municipality, User $user)
+    {
+        $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_VIEW, $municipality);
+        $this->denyAccessUnlessGranted(UserVoter::VIEW, $user);
+
+        $parameters = [
+            'user' => $user,
+        ];
+
+        return $this->render('municipality/userfragment.html.twig', $parameters);
     }
 }

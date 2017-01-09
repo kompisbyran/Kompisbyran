@@ -16,7 +16,10 @@
                     {% for connectionRequest in connectionRequests %}
                         <tr>
                             <td>{{ connectionRequest.createdAt|date('Y-m-d') }}</td>
-                            <td>{{ connectionRequest.user.name }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#userModal" data-user="{{ connectionRequest.user.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
+                                {{ connectionRequest.user.name }}
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -26,4 +29,12 @@
         </div>
     </div>
 
+    {% include(':municipality:modal.html.twig') %}
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    {% include('municipality/modal.js.twig') %}
+</script>
 {% endblock %}
