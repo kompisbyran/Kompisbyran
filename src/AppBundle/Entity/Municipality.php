@@ -55,6 +55,13 @@ class Municipality
     protected $connectionRequests;
 
     /**
+     * @var Connection[]
+     *
+     * @ORM\OneToMany(targetEntity="Connection", mappedBy="municipality")
+     */
+    protected $connections;
+
+    /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
@@ -66,6 +73,7 @@ class Municipality
         $this->users = new ArrayCollection();
         $this->adminUsers = new ArrayCollection();
         $this->preMatches = new ArrayCollection();
+        $this->connections = new ArrayCollection();
     }
 
     /**

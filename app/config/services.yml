@@ -18,7 +18,8 @@ services:
     twig.app_extension:
         class: AppBundle\Twig\AppExtension
         arguments:
-            - @translator
+            - '@translator'
+            - '@user_manager'
         tags:
             - { name: twig.extension }
 
@@ -45,6 +46,13 @@ services:
             - @templating
             - @translator
 
+    app.mailer:
+        class: AppBundle\Mailer\Mailer
+        arguments:
+            - @mailer
+            - @router
+            - @templating
+
     app.form.boolean_choice:
         class: AppBundle\Form\ChoiceTypeBoolean
         tags:
@@ -57,6 +65,12 @@ services:
 
     voter.municipality:
         class: AppBundle\Security\Authorization\Voter\MunicipalityVoter
+        public: false
+        tags:
+            - { name: security.voter }
+
+    voter.user:
+        class: AppBundle\Security\Authorization\Voter\UserVoter
         public: false
         tags:
             - { name: security.voter }

@@ -3,6 +3,8 @@
 namespace AppBundle\Twig;
 
 use AppBundle\Enum\Countries;
+use AppBundle\Enum\OccupationTypes;
+use AppBundle\Manager\UserManager;
 use Symfony\Component\Translation\TranslatorInterface;
 use AppBundle\Entity\User;
 use AppBundle\Util\Util;
@@ -19,11 +21,18 @@ class AppExtension extends \Twig_Extension
     private $translator;
 
     /**
-     * @param TranslatorInterface $translator
+     * @var UserManager
      */
-    public function __construct(TranslatorInterface $translator)
+    private $userManager;
+
+    /**
+     * @param TranslatorInterface $translator
+     * @param UserManager $userManager
+     */
+    public function __construct(TranslatorInterface $translator, UserManager $userManager)
     {
         $this->translator = $translator;
+        $this->userManager = $userManager;
     }
 
     /**
@@ -34,6 +43,8 @@ class AppExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFilter('country_name', [$this, 'countryName']),
             new \Twig_SimpleFilter('pronoun', [$this, 'pronoun']),
+            new \Twig_SimpleFilter('gender', [$this, 'gender']),
+            new \Twig_SimpleFilter('occupation', [$this, 'occupation']),
         ];
     }
 
@@ -49,7 +60,10 @@ class AppExtension extends \Twig_Extension
             'selected_city'             => new \Twig_Function_Method($this, 'selectedCity'),
             'google_map_link'           => new \Twig_Function_Method($this, 'googleMapLink', [
                 'is_safe' => ['html']
-            ])
+            ]),
+            'mark_matched_categories' => new \Twig_Function_Method($this, 'markMatchedCategories', [
+                'is_safe' => ['html']
+            ]),
         );
     }
 
@@ -89,6 +103,32 @@ class AppExtension extends \Twig_Extension
         }
 
         return 'hen';
+    }
+
+    /**
+     * @param string $gender
+     *
+     * @return string
+     */
+    public function gender($gender)
+    {
+        if ('M' == $gender) {
+            return $this->translator->trans('user.form.gender.m');
+        } elseif ('F' == $gender) {
+            return $this->translator->trans('user.form.gender.f');
+        }
+
+        return $this->translator->trans('user.form.gender.x');
+    }
+
+    /**
+     * @param $occupationType
+     *
+     * @return string
+     */
+    public function occupation($occupationType)
+    {
+        return $this->translator->trans(OccupationTypes::tranlsationKey($occupationType));
     }
 
     /**
@@ -171,5 +211,16 @@ class AppExtension extends \Twig_Extension
         }
 
         return;
+    }
+
+    /**
+     * @param $matchedUser
+     * @param $user
+     *
+     * @return string
+     */
+    public function markMatchedCategories($matchedUser, $user)
+    {
+        return $this->userManager->getCategoriesExactMatchByUser($matchedUser, $user);
     }
 }

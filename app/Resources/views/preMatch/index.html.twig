@@ -20,6 +20,9 @@
                             {% endfor %}
                         </ul>
                     </div>
+                    <br>
+                    <a href="{{ path('municipality_waiting', {'id': municipality.id}) }}">Waiting</a>
+                    <a href="{{ path('municipality_matched', {'id': municipality.id}) }}">Matched</a>
                 </div>
             </div>
 
@@ -28,26 +31,75 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Category</th>
                         <th>Date for request</th>
-                        <th>Name</th>
-                        <th>Email</th>
+                        <th>Category</th>
+                        <th>About</th>
                         <th colspan="2">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                         {% for preMatch in preMatches %}
                             <tr id="row-{{ preMatch.id }}-1">
-                                <td rowspan="3" class="text-center" style="vertical-align: middle">
+                                <td rowspan="2" class="text-center" style="vertical-align: middle">
                                     <strong>{{ preMatch.id }}</strong>
                                 </td>
-                                <td>New</td>
                                 <td>{{ preMatch.learnerConnectionRequest.createdAt|date('Y-m-d') }}</td>
-                                <td>{{ preMatch.learnerConnectionRequest.user.name }}</td>
-                                <td>{{ preMatch.learnerConnectionRequest.user.email }}</td>
+                                <td>New</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#userModal" data-user="{{ preMatch.learnerConnectionRequest.user.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <strong><a href="{{ path('admin_user', {'id': preMatch.learnerConnectionRequest.user.id}) }}">{{ preMatch.learnerConnectionRequest.user.name }}</a></strong>,
+                                    {% else %}
+                                        <strong>{{ preMatch.learnerConnectionRequest.user.name }}</strong>,
+                                    {% endif %}
+                                    {{ preMatch.learnerConnectionRequest.user.gender|gender }},
+                                    {{ preMatch.learnerConnectionRequest.user.age }},
+                                    {{ preMatch.learnerConnectionRequest.user.from }}<br>
+                                    <strong>Språk:</strong> {{ preMatch.learnerConnectionRequest.user.languages }}<br>
+                                    <strong>Berätta om dig själv:</strong> {{ preMatch.learnerConnectionRequest.user.about }}<br>
+                                    <strong>Saker du typer om:</strong> {{ preMatch.learnerConnectionRequest.user.activities }}<br>
+                                    <strong>Sysselsättning:</strong> {{ preMatch.learnerConnectionRequest.user.occupation|occupation }}<br>
+                                    <strong>Vill du ta med dig någon:</strong>
+                                        {% if preMatch.learnerConnectionRequest.extraPerson %}
+                                            Ja, {{ preMatch.learnerConnectionRequest.extraPersonGender|gender }}, {{ ('extra_person.' ~ preMatch.learnerConnectionRequest.extraPersonType)|trans }}
+                                        {% else %}
+                                            Nej
+                                        {% endif %}
+                                    <br>
+                                    <strong>Barn:</strong>
+                                        {% if preMatch.learnerConnectionRequest.user.hasChildren %}
+                                            Ja, {{ preMatch.learnerConnectionRequest.user.childrenAge }}
+                                        {% else %}
+                                            Nej
+                                        {% endif %}
+                                    <br>
+                                    <strong>Önskemål:</strong>
+                                    {% if preMatch.learnerConnectionRequest.matchingProfileRequestType %}
+                                        {{ ('matching_profile_request.' ~ preMatch.learnerConnectionRequest.matchingProfileRequestType)|trans }}
+                                    {% endif %}<br>
+
+                                    <strong>Tillgänglig:</strong>
+                                    {% if preMatch.learnerConnectionRequest.availableWeekday %}
+                                        {{ 'connection_request.form.available.weekday'|trans }}
+                                    {% endif %}
+                                    {% if preMatch.learnerConnectionRequest.availableWeekend %}
+                                        {{ 'connection_request.form.available.weekend'|trans }},
+                                    {% endif %}
+                                    {% if preMatch.learnerConnectionRequest.availableDay %}
+                                        {{ 'connection_request.form.available.daytime'|trans }},
+                                    {% endif %}
+                                    {% if preMatch.learnerConnectionRequest.availableEvening %}
+                                        {{ 'connection_request.form.available.evening'|trans }}
+                                    {% endif %}
+                                    <br>
+                                    <strong>Kategorier:</strong> {{ user_category_name_string(preMatch.learnerConnectionRequest.user) }}<br>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <strong>Intern kommentar:</strong> {{ preMatch.learnerConnectionRequest.user.internalComment }}<br>
+                                    {% endif %}
+                                </td>
                                 <td>
                                 </td>
-                                <td rowspan="3" style="vertical-align: middle">
+                                <td rowspan="2" style="vertical-align: middle">
                                     {% if is_granted('ROLE_ADMIN') %}
                                     <a
                                         href="#"
@@ -57,10 +109,10 @@
                                     >{{ preMatch.verified ? 'Godkänn inte förslag' : 'Godkänn förslag' }}</a><br><br>
                                     {% endif %}
                                     <a
-                                        href="#"
+                                        href="{{ path('pre_match_confirm', {'municipalityId': municipality.id, 'preMatchId': preMatch.id}) }}"
                                         class="btn btn-primary confirm-match"
                                         data-pre-match-id="{{ preMatch.id }}"
-                                    >Bekräfta matchning</a><br><br>
+                                    >Bekräfta matchning...</a><br><br>
                                     <a
                                         href="#"
                                         class="btn btn-danger delete-match"
@@ -69,25 +121,19 @@
                                 </td>
                             </tr>
                             <tr id="row-{{ preMatch.id }}-2">
-                                <td>Established</td>
                                 <td class="fluent-speaker-connection-request-created-at">
                                     {{ preMatch.fluentSpeakerConnectionRequest ? preMatch.fluentSpeakerConnectionRequest.createdAt|date('Y-m-d') : null }}
                                 </td>
-                                <td class="fluent-speaker-name">
-                                    {{ preMatch.fluentSpeakerConnectionRequest ? preMatch.fluentSpeakerConnectionRequest.user.name : null }}
-                                </td>
-                                <td class="fluent-speaker-email">
-                                    {{ preMatch.fluentSpeakerConnectionRequest ? preMatch.fluentSpeakerConnectionRequest.user.email : null }}
+                                <td>Established</td>
+                                <td class="fluent-speaker">
+                                    {% if preMatch.fluentSpeakerConnectionRequest %}
+                                        {{ render(controller('AppBundle:PreMatch:fragment', {'municipalityId': municipality.id, 'preMatchId': preMatch.id})) }}
+                                    {% endif %}
                                 </td>
                                 <td>
                                     <a href="#" class="btn btn-default re-match" data-pre-match-id="{{ preMatch.id }}">
                                         Sök ny
                                     </a>
-                                </td>
-                            </tr>
-                            <tr id="row-{{ preMatch.id }}-3">
-                                <td colspan="5">
-                                    [Text om matchningen]
                                 </td>
                             </tr>
                         {% endfor %}
@@ -98,6 +144,8 @@
         </div>
     </div>
 
+    {% include('municipality/modal.html.twig') %}
+
 {% endblock %}
 
 {% block javascripts %}
@@ -106,6 +154,7 @@
         $('.re-match').click(function(e) {
             e.preventDefault();
             var preMatchId = $(this).data('preMatchId');
+            $('#row-' + preMatchId + '-2 .fluent-speaker').html('<i class="fa fa-spinner fa-spin fa-3x"></i>');
             $.ajax({
                 url: Routing.generate('re_pre_match', {
                     municipalityId: {{ municipality.id }},
@@ -114,18 +163,23 @@
                 method: 'PUT'
             }).done(function(data) {
                 var requestCreatedAt = '';
-                var name = '';
-                var email = '';
                 $('#row-' + preMatchId + '-1 .confirm-match').attr('disabled', 'disabled');
                 if (data.fluent_speaker != null) {
                     $('#row-' + preMatchId + '-1 .confirm-match').removeAttr('disabled');
                     requestCreatedAt = data.fluent_speaker.request_created_at;
-                    name = data.fluent_speaker.name;
-                    email = data.fluent_speaker.email;
+                    $.ajax({
+                        url: Routing.generate('pre_match_fragment', {
+                            municipalityId: {{ municipality.id }},
+                            preMatchId: preMatchId
+                        }),
+                        method: 'GET'
+                    }).done(function(data) {
+                        $('#row-' + preMatchId + '-2 .fluent-speaker').html(data);
+                    });
+                } else {
+                    $('#row-' + preMatchId + '-2 .fluent-speaker').html('');
                 }
                 $('#row-' + preMatchId + '-2 .fluent-speaker-connection-request-created-at').text(requestCreatedAt);
-                $('#row-' + preMatchId + '-2 .fluent-speaker-name').text(name);
-                $('#row-' + preMatchId + '-2 .fluent-speaker-email').text(email);
             });
         });
 
@@ -140,7 +194,7 @@
                     }),
                     method: 'DELETE'
                 }).done(function () {
-                    $('#row-' + preMatchId + '-1, #row-' + preMatchId + '-2, #row-' + preMatchId + '-3').fadeOut();
+                    $('#row-' + preMatchId + '-1, #row-' + preMatchId + '-2').fadeOut();
                 });
             }
         });
@@ -169,5 +223,6 @@
             });
         });
     });
+    {% include('municipality/modal.js.twig') %}
 </script>
 {% endblock %}

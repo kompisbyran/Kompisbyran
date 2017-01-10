@@ -12,6 +12,7 @@ use AppBundle\Entity\User;
 use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\MatchingProfileRequestTypes;
+use AppBundle\Enum\OccupationTypes;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -451,6 +452,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/1.jpg');
         $user->setDistrict('Södermalm');
         $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -475,6 +477,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->addCity($this->getReference('city-1'));
         $user->addCity($this->getReference('city-2'));
         $user->addAdminMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -494,6 +497,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('M');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/3.jpg');
         $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -519,6 +523,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('F');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/3.jpg');
         $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -538,6 +543,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('F');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/4.jpg');
         $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -558,6 +564,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('M');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/4.jpg');
         $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -578,6 +585,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('M');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/men/5.jpg');
         $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -598,6 +606,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('F');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/5.jpg');
         $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
@@ -618,6 +627,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setGender('F');
         $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/6.jpg');
         $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);

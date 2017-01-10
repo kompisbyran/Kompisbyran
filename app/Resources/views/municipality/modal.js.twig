@@ -1,0 +1,18 @@
+$(document).ready(function() {
+    $('#userModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var userId = button.data('user');
+        var modal = $(this);
+
+        modal.find('.modal-content').html('<div style="padding:50px"><i class="fa fa-spinner fa-3x fa-spin"></i></div>');
+        $.ajax({
+            url: Routing.generate('municipality_user_fragment', {
+                municipalityId: {{ municipality.id }},
+                userId: userId
+            }),
+            method: 'GET'
+        }).done(function(data) {
+            modal.find('.modal-content').html(data);
+        });
+    });
+});
