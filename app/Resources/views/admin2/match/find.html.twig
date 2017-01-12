@@ -221,67 +221,6 @@
                 showMoreResults($(this).data('current-user'), $('#filter-form').serialize(), $(this).data('next-page'));
             });
 
-            $('body').on('click', '.edit-current-profile', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                $('#userEditModal').removeClass('current');
-
-                $.get($this.attr('href'), function (html){
-                    if ($this.hasClass('current')) {
-                        $('#userEditModal').addClass('current');
-                    }
-
-                    $('#userEditModal .modal-content').html(html);
-                    $('#userEditModal').modal('show');
-                });
-            });
-
-            $('body').on('click', '.btn-save-profile', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                var $form = $('[name=admin_user]');
-
-                $.post($form.attr('action'), $form.serialize(), function (resp){
-                    if (resp.success) {
-                        $('#userEditModal').modal('hide');
-                        if ($('#userEditModal').hasClass('current')) {
-                            for (var prop in resp.user) {
-                                $('#'+prop).html(resp.user[prop]);
-                            }
-                        } else {
-                            $('.btn-search').trigger('click');
-                        }
-                    }
-                });
-            });
-
-            $('body').on('click', '.btn-save-request', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                var $form = $('[name=connectionRequest]'); //$this.closest('form');
-                $.post($form.attr('action'), $form.serialize(), function (resp){
-                    if (resp.success) {
-                        $('#userEditModal').modal('hide');
-                        window.location.reload();
-                    }
-                });
-            });
-
-            $('body').on('click', '.btn-delete-request', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                $.get($this.data('url'), function (resp){
-                    if (resp.success) {
-                        $('#userEditModal').modal('hide');
-                        if ($('#userEditModal').hasClass('current')) {
-                            window.location = Routing.generate('admin_start');
-                        } else {
-                            $('.btn-search').trigger('click');
-                        }
-                    }
-                });
-            });
-
             $('body').on('click', '.connection-requestion-mark-pending', function(e){
                 e.preventDefault();
                 var $this = $(this);

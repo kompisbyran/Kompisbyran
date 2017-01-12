@@ -48,56 +48,6 @@
                     }
                 });
             });
-
-            $('body').on('click', '.btn-edit-profile', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                $('#userEditModal').removeClass('current');
-
-                $.get($this.attr('href'), function (html){
-                    if ($this.hasClass('current')) {
-                        $('#userEditModal').addClass('current');
-                    }
-
-                    $('#userEditModal .modal-content').html(html);
-                    $('#userEditModal').modal('show');
-                });
-            });
-
-            $('body').on('click', '.btn-save-profile', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                var $form = $('[name=admin_user]'); //$this.closest('form');
-                $.post($form.attr('action'), $form.serialize(), function (resp){
-                    if (resp.success) {
-                        $('#userEditModal').modal('hide');
-                        window.location.reload();
-                    }
-                });
-            });
-
-            $('body').on('click', '.btn-save-request', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                var $form = $('[name=connectionRequest]');
-                $.post($form.attr('action'), $form.serialize(), function (resp){
-                    if (resp.success) {
-                        $('#userEditModal').modal('hide');
-                        window.location.reload();
-                    }
-                });
-            });
-
-            $('body').on('click', '.btn-delete-request', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                $.get($this.data('url'), function (resp){
-                    if (resp.success) {
-                        $('#userEditModal').modal('hide');
-                        window.location.reload();
-                    }
-                });
-            });
         });
     </script>
 {% endblock %}
