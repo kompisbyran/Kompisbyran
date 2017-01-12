@@ -90,7 +90,7 @@ class UserRepository extends EntityRepository
                   LEFT JOIN users_music_categories mc
                   ON mc.user_id = u.id
                   WHERE u.id != :user
-                  AND u.want_to_learn != :want_to_learn
+                  AND cr.want_to_learn != :want_to_learn
                   AND cr.pending = false
                   AND cr.disqualified = false
                   and u.enabled = true
@@ -146,7 +146,7 @@ class UserRepository extends EntityRepository
         $where  = ['u.enabled = true'];
         $fields = array_keys($criterias);
         foreach($fields as $field) {
-            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'type' || $field === 'q') {
+            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'type' || $field === 'q' || $field == 'municipality_id') {
                 continue;
             }
             $where[] = 'u.'.$field .' = :'.$field;
@@ -167,7 +167,7 @@ class UserRepository extends EntityRepository
             $where[] = 'u.about LIKE :q';
         }
         if (isset($criterias['municipality_id'])) {
-            $where[] = 'u.municipality_id = :municipality_id';
+            $where[] = 'cr.municipality_id = :municipality_id';
         }
 
         return implode(' AND ', $where);
