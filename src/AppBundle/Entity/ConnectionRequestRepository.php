@@ -280,7 +280,7 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $qb = $this->createQueryBuilder('cr')
             ->innerJoin('cr.user', 'u')
-            ->where('u.municipality = :municipality')
+            ->where('cr.municipality = :municipality')
             ->andWhere('cr.wantToLearn = true')
             ->andWhere('cr.type = :type')
             ->andWhere('cr.inspected = true')
@@ -300,7 +300,7 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $qb = $this->createQueryBuilder('cr')
             ->innerJoin('cr.user', 'u')
-            ->where('u.municipality = :municipality')
+            ->where('cr.municipality = :municipality')
             ->andWhere('cr.type = :type')
             ->andWhere('cr.inspected = true')
             ->setParameter('municipality', $municipality)
