@@ -66,7 +66,7 @@ class PreMatchManager
             $connectionRequest,
             [
                 'type' => $connectionRequest->getType(),
-                'municipality_id' => $connectionRequest->getUser()->getMunicipality()->getId(),
+                'municipality_id' => $connectionRequest->getMunicipality()->getId(),
             ]
         );
 
