@@ -95,14 +95,14 @@ class ConnectionRequest
     /**
      * @var PreMatch
      *
-     * @ORM\OneToOne(targetEntity="PreMatch", mappedBy="fluentSpeakerConnectionRequest")
+     * @ORM\OneToOne(targetEntity="PreMatch", mappedBy="fluentSpeakerConnectionRequest", cascade={"remove"})
      */
     protected $fluentSpeakerPreMatch;
 
     /**
      * @var PreMatch
      *
-     * @ORM\OneToOne(targetEntity="PreMatch", mappedBy="learnerConnectionRequest")
+     * @ORM\OneToOne(targetEntity="PreMatch", mappedBy="learnerConnectionRequest", cascade={"remove"})
      */
     protected $learnerPreMatch;
 
