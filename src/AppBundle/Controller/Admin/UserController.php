@@ -61,8 +61,9 @@ class UserController extends Controller
             return $this->redirect($this->generateUrl('admin_start'));
         }
 
+
         $connectionRequestForm = null;
-        if ($user->getConnectionRequests()) {
+        if (count($user->getConnectionRequests()) > 0) {
             $connectionRequest = $user->getConnectionRequests()->first();
             $connectionRequestForm = $this->createForm(new ConnectionRequestType(), $connectionRequest);
             $connectionRequestForm->handleRequest($request);
