@@ -53,6 +53,7 @@
 
                     {{ form_widget(connectionRequestForm) }}
                     <button type="submit" class="btn btn-default">Save connection request</button>
+                    <button class="btn btn-danger" id="delete-connection-request" data-connection-request-id="{{ connectionRequestForm.vars.value.id }}">Ta bort</button>
                     {{ form_end(connectionRequestForm) }}
                 </div>
             </div>
@@ -74,6 +75,19 @@
                         }
                     });
 
+                }
+            });
+            $('#delete-connection-request').click(function (e) {
+                e.preventDefault();
+                var connectionRequestId = $(this).data('connection-request-id');
+                if (confirm('Vill du verkligen ta bort denne connection request?')) {
+                    $.ajax({
+                        url: Routing.generate('admin_delete_connectionrequest', {id: connectionRequestId}),
+                        type: 'DELETE',
+                        success: function () {
+                            location.href='{{ path('admin_start') }}';
+                        }
+                    });
                 }
             });
         });

@@ -78,7 +78,7 @@ class ConnectionRequestController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="admin_delete_connectionrequest")
+     * @Route("/{id}", name="admin_delete_connectionrequest", options={"expose": true})
      * @Method("DELETE")
      */
     public function deleteAction(ConnectionRequest $connectionRequest)
