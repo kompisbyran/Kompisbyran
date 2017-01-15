@@ -113,11 +113,6 @@
                                         class="btn btn-primary confirm-match"
                                         data-pre-match-id="{{ preMatch.id }}"
                                     >Bekräfta matchning...</a><br><br>
-                                    <a
-                                        href="#"
-                                        class="btn btn-danger delete-match"
-                                        data-pre-match-id="{{ preMatch.id }}"
-                                    >Ta bort</a>
                                 </td>
                             </tr>
                             <tr id="row-{{ preMatch.id }}-2">
@@ -181,22 +176,6 @@
                 }
                 $('#row-' + preMatchId + '-2 .fluent-speaker-connection-request-created-at').text(requestCreatedAt);
             });
-        });
-
-        $('.delete-match').click(function(e) {
-            e.preventDefault();
-            if (confirm('Är du säker på att du vill ta bort matchningsförslaget?')) {
-                var preMatchId = $(this).data('preMatchId');
-                $.ajax({
-                    url: Routing.generate('delete_pre_match', {
-                        municipalityId: {{ municipality.id }},
-                        preMatchId: preMatchId
-                    }),
-                    method: 'DELETE'
-                }).done(function () {
-                    $('#row-' + preMatchId + '-1, #row-' + preMatchId + '-2').fadeOut();
-                });
-            }
         });
 
         $('.verify-match').click(function(e) {

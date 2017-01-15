@@ -34,9 +34,7 @@ class PreMatchController extends Controller
 
         $municipalities = $this->getUser()->getAdminMunicipalities();
 
-        if (count($municipality->getPreMatches()) == 0) {
-            $this->get('manager.pre_match')->createMatches($municipality);
-        }
+        $this->get('manager.pre_match')->createMatches($municipality);
 
         if ($this->isGranted('ROLE_ADMIN')) {
             $this->getDoctrine()->getManager()->refresh($municipality);
@@ -185,33 +183,6 @@ class PreMatchController extends Controller
                 $replyEmail = 'start@kompisbyran.se'
             );
         }
-
-        return new Response('', Response::HTTP_NO_CONTENT);
-    }
-
-    /**
-     * @Route(
-     *     "/pre-matches/{municipalityId}/{preMatchId}",
-     *     name="delete_pre_match",
-     *     requirements={"municipalityId": "\d+", "preMatchId": "\d+"},
-     *     options={"expose"=true}
-     * )
-     * @Method("DELETE")
-     * @ParamConverter(
-     *     "preMatch",
-     *     class="AppBundle:PreMatch",
-     *     options={
-     *         "repository_method"="findByMunicipalityIdAndPreMatchId",
-     *         "map_method_signature"=true
-     *     }
-     * )
-     */
-    public function deletePreMatchAction(PreMatch $preMatch)
-    {
-        $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_DELETE, $preMatch->getMunicipality());
-
-        $this->getDoctrine()->getManager()->remove($preMatch);
-        $this->getDoctrine()->getManager()->flush();
 
         return new Response('', Response::HTTP_NO_CONTENT);
     }
