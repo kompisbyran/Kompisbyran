@@ -242,9 +242,16 @@ class PreMatchController extends Controller
             throw $this->createNotFoundException();
         }
 
+        if ($preMatch->getFluentSpeakerConnectionRequest() == $connectionRequest) {
+            $otherUser = $preMatch->getLearnerConnectionRequest()->getUser();
+        } else {
+            $otherUser = $preMatch->getFluentSpeakerConnectionRequest()->getUser();
+        }
+
         $parameters = [
             'connectionRequest' => $connectionRequest,
             'user' => $connectionRequest->getUser(),
+            'otherUser' => $otherUser,
             'preMatch' => $preMatch,
         ];
 
