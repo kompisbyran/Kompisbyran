@@ -104,11 +104,25 @@ class ConnectionRequestType extends AbstractType
                 'required' => false,
                 'choices' => MatchingProfileRequestTypes::listTypesWithTranslationKeys(),
             ])
+            ->add('wantToLearn', 'boolean_choice', [
+                'expanded' => true,
+                'label' => 'user.form.want_to_learn',
+                'choices' => [
+                    'user.form.want_to_learn.choice.learn'  => '1',
+                    'user.form.want_to_learn.choice.teach'  => '0'
+                ],
+                'choices_as_values' => true,
+            ])
         ;
 
         if ($options['remove_type']) {
             $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
                 $event->getForm()->remove('type');
+            });
+        }
+        if ($options['remove_want_to_learn']) {
+            $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                $event->getForm()->remove('wantToLearn');
             });
         }
     }
@@ -118,6 +132,7 @@ class ConnectionRequestType extends AbstractType
         $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\ConnectionRequest',
             'remove_type' => false,
+            'remove_want_to_learn' => false,
         ]);
     }
 

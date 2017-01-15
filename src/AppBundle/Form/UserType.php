@@ -209,6 +209,7 @@ class UserType extends AbstractType
                     'by_reference' => false,
                     'options' => [
                         'remove_type' => true,
+                        'remove_want_to_learn' => true,
                     ],
                 ]
             );
