@@ -20,6 +20,7 @@ services:
         arguments:
             - '@translator'
             - '@user_manager'
+            - '@manager.pre_match'
         tags:
             - { name: twig.extension }
 
@@ -86,3 +87,7 @@ services:
             - "@connection_request_repository"
             - "@user_repository"
             - "@doctrine.orm.entity_manager"
+            - '@datetime'
+
+    datetime:
+        class: DateTime

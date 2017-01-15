@@ -245,6 +245,7 @@ class PreMatchController extends Controller
         $parameters = [
             'connectionRequest' => $connectionRequest,
             'user' => $connectionRequest->getUser(),
+            'preMatch' => $preMatch,
         ];
 
         return $this->render('preMatch/email.txt.twig', $parameters);

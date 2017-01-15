@@ -3,8 +3,7 @@ Hej {{ user.firstName }}!
 Nu har vi hittat en Startkompis till dig att upptäcka {{ connectionRequest.municipality.name }} med! {{ user|pronoun }} heter {{ user.name }}, är {{ user.age }} år och kommer från {{ user.from }}. {% if connectionRequest.extraPerson %}{{ user.firstName }} kommer ta med sig (en kompis/sin partner/ sitt barn) till mötet.{% endif %}
 
 
-Vi föreslår att ni träffas {{ connectionRequest.municipality.meetingPlace }}.{#, (veckodag eller helgdag 7 dagar framåt i tiden + datum + månad, t.ex. tisdag 3 januari), klockan (12 för dag och 18 för kväll). Det är mycket viktigt att du kommer i tid.
-#}
+Vi föreslår att ni träffas {{ connectionRequest.municipality.meetingPlace }}, {{ preMatch|meeting_time }}. Det är mycket viktigt att du kommer i tid.
 
 {{ user.firstName }}s kontaktuppgifter är: {{ user.phoneNumber }} och {{ user.email }}.
 
