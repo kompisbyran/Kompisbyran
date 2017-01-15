@@ -27,6 +27,13 @@ class Municipality
     protected $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $meetingPlace;
+
+    /**
      * @var User[]
      *
      * @ORM\OneToMany(targetEntity="User", mappedBy="municipality")
@@ -186,5 +193,21 @@ class Municipality
     public function setConnectionRequests($connectionRequests)
     {
         $this->connectionRequests = $connectionRequests;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMeetingPlace()
+    {
+        return $this->meetingPlace;
+    }
+
+    /**
+     * @param string $meetingPlace
+     */
+    public function setMeetingPlace($meetingPlace)
+    {
+        $this->meetingPlace = $meetingPlace;
     }
 }
