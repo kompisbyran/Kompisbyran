@@ -2,8 +2,10 @@
 
 namespace AppBundle\Twig;
 
+use AppBundle\Entity\PreMatch;
 use AppBundle\Enum\Countries;
 use AppBundle\Enum\OccupationTypes;
+use AppBundle\Manager\PreMatchManager;
 use AppBundle\Manager\UserManager;
 use Symfony\Component\Translation\TranslatorInterface;
 use AppBundle\Entity\User;
@@ -26,13 +28,23 @@ class AppExtension extends \Twig_Extension
     private $userManager;
 
     /**
+     * @var PreMatchManager
+     */
+    private $preMatchManager;
+
+    /**
      * @param TranslatorInterface $translator
      * @param UserManager $userManager
      */
-    public function __construct(TranslatorInterface $translator, UserManager $userManager)
+    public function __construct(
+        TranslatorInterface $translator,
+        UserManager $userManager,
+        PreMatchManager $preMatchManager
+    )
     {
         $this->translator = $translator;
         $this->userManager = $userManager;
+        $this->preMatchManager = $preMatchManager;
     }
 
     /**
@@ -45,6 +57,7 @@ class AppExtension extends \Twig_Extension
             new \Twig_SimpleFilter('pronoun', [$this, 'pronoun']),
             new \Twig_SimpleFilter('gender', [$this, 'gender']),
             new \Twig_SimpleFilter('occupation', [$this, 'occupation']),
+            new \Twig_SimpleFilter('meeting_time', [$this, 'meetingTime']),
         ];
     }
 
@@ -222,5 +235,15 @@ class AppExtension extends \Twig_Extension
     public function markMatchedCategories($matchedUser, $user)
     {
         return $this->userManager->getCategoriesExactMatchByUser($matchedUser, $user);
+    }
+
+    /**
+     * @param PreMatch $preMatch
+     *
+     * @return string
+     */
+    public function meetingTime(PreMatch $preMatch)
+    {
+        return $this->preMatchManager->getMeetingTime($preMatch);
     }
 }
