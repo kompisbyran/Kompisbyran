@@ -100,7 +100,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.header">
                 <source>homepage.cta.header</source>
-                <target>In Kompisbyrån we practise Swedish over a "fika".</target>
+                <target>Practise Swedish over a "fika".</target>
             </trans-unit>
             <trans-unit id="homepage.cta.header.strong">
                 <source>homepage.cta.header.strong</source>
@@ -158,14 +158,13 @@
                 <source>homepage.cta.start.message</source>
                 <target>
                     <![CDATA[
-                    Är du ny i kommunen eller kan du kommunen utan och innan? Nyanlända och etablerade kommunbor lär
-                    känna närområdet över en promenad.
+                    Are you newly arrived in the municipality, or have you lived in the area for a very long time and want to show your neighborhood during a walk? Sign up as a Start friend. 
                     ]]>
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.start.button">
                 <source>homepage.cta.start.button</source>
-                <target>Bli Startkompis</target>
+                <target>Start friend</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -265,7 +264,7 @@
             </trans-unit>
             <trans-unit id="register.login.intro">
                 <source>register.login.intro</source>
-                <target>If you already has signed up, please sign in here:</target>
+                <target>If you already have signed up, please sign in here:</target>
             </trans-unit>
             <trans-unit id="login.form.email">
                 <source>login.form.email</source>
@@ -316,15 +315,15 @@
             </trans-unit>
             <trans-unit id="user.form.categories.help">
                 <source>user.form.categories.help</source>
-                <target>(Välj minst 2 och max 5 intressen)</target>
+                <target>(Select minimum of 2 and maximum of 5 interests)</target>
             </trans-unit>
             <trans-unit id="user.form.music_categories">
                 <source>user.form.music_categories</source>
-                <target>Vad kan du tänka dig att göra med din musikkompis?</target>
+                <target>What do you want to do with your Musikkompis?</target>
             </trans-unit>
             <trans-unit id="user.form.music_categories.help">
                 <source>user.form.music_categories.help</source>
-                <target>(Välj minst 1 alternativ)</target>
+                <target>(Select at least 1 alternative)</target>
             </trans-unit>
             <trans-unit id="user.form.age">
                 <source>user.form.age</source>
@@ -348,7 +347,7 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Tell us about yourself, and if you want to be a Musikkompis, please also write about your music interest</target>
+                <target>Tell us about yourself and who you would describe yourself as a person:</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
@@ -357,7 +356,7 @@
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
-                <target>What country are you from?</target>
+                <target>Which country are you from?</target>
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
@@ -373,7 +372,7 @@
             </trans-unit>
             <trans-unit id="user.form.has_children">
                 <source>user.form.has_children</source>
-                <target>I have children:</target>
+                <target>Do you have children?</target>
             </trans-unit>
             <trans-unit id="user.form.musicfriend">
                 <source>user.form.musicfriend</source>
@@ -381,17 +380,16 @@
             </trans-unit>
             <trans-unit id="user.form.type.friend.help">
                 <source>user.form.type.friend.help</source>
-                <target>Du blir matchad med en person som har liknande intressen som du har. Ni träffas på ett kafé för att prata svenska i en timme.</target>
+                <target>You will be connected with a person who has similar interests as you. You meet at café and speak Swedish in 1 hour.</target>
             </trans-unit>
             <trans-unit id="user.form.type.music.help">
                 <source>user.form.type.music.help</source>
-                <target>Du blir matchad med en person som också gillar musik. Ni träffas på en offentlig plats för att dela ert musikintresse, till exempel för att prata om musik på ett kafé, gå på konsert eller spela instrument ihop.</target>
+                <target>You will be connected with a person who also likes music. You meet in a public place to share your music interest. For example, you talk about music at a café, you visit a concert or play instruments together.</target>
             </trans-unit>
             <trans-unit id="user.form.type.start.help">
                 <source>user.form.type.start.help</source>
                 <target>
-                    Du blir matchad med en person för att gå en promenad ihop och lära känna området där ni båda bor.
-                    Just nu kan du bli Startkompis i Lidingö, Nynäshamn, Solna, Vaxholm och Österåker.
+                    You will be connected with a person who you meet and go for a walk with to discover the area where you both live. Right now, you can sign up if you live in Lidingö, Nynäshamn, Solna, Vaxholm or Österåker.
                 </target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
@@ -400,83 +398,83 @@
             </trans-unit>
             <trans-unit id="user.form.activities">
                 <source>user.form.activities</source>
-                <target>Berätta om saker du tycker om att göra:</target>
+                <target>Write about the things that you like to do:</target>
             </trans-unit>
             <trans-unit id="user.form.occupation">
                 <source>user.form.occupation</source>
-                <target>Vad är din sysselsättning?</target>
+                <target>What is your occupation?</target>
             </trans-unit>
             <trans-unit id="user.form.occupation_description.employed">
                 <source>user.form.occupation_description.employed</source>
-                <target>Vad jobbar du med?</target>
+                <target>What do you work with?</target>
             </trans-unit>
             <trans-unit id="user.form.occupation_description.student">
                 <source>user.form.occupation_description.student</source>
-                <target>Vad studerar du?</target>
+                <target>What are you studying?</target>
             </trans-unit>
             <trans-unit id="user.form.occupation_description.unemployed">
                 <source>user.form.occupation_description.unemployed</source>
-                <target>Vad söker du jobb inom för område?</target>
+                <target>In which field are you looking for a job?</target>
             </trans-unit>
             <trans-unit id="user.form.occupation_description.other">
                 <source>user.form.occupation_description.other</source>
-                <target>Vad?</target>
+                <target>What?</target>
             </trans-unit>
             <trans-unit id="user.form.has_education">
                 <source>user.form.has_education</source>
-                <target>Har du en utbildning?</target>
+                <target>Do you have an education?</target>
             </trans-unit>
             <trans-unit id="user.form.education_description">
                 <source>user.form.education_description</source>
-                <target>Vad är du utbildad inom?</target>
+                <target>What education do you have?</target>
             </trans-unit>
             <trans-unit id="user.form.children_age">
                 <source>user.form.children_age</source>
-                <target>Ålder på barn</target>
+                <target>Age of children:</target>
             </trans-unit>
             <trans-unit id="user.form.time_in_sweden">
                 <source>user.form.time_in_sweden</source>
-                <target>Hur länge har du bott i Sverige?</target>
+                <target>How long have you lived in Sweden?</target>
             </trans-unit>
             <trans-unit id="user.form.about_music">
                 <source>user.form.about_music</source>
-                <target>Berätta om ditt musikintresse:</target>
+                <target>Tell us about your interest in music:</target>
             </trans-unit>
             <trans-unit id="user.form.can_play_instrument">
                 <source>user.form.can_play_instrument</source>
-                <target>Kan du spela ett instrument?</target>
+                <target>Can you play an instrument?</target>
             </trans-unit>
             <trans-unit id="user.form.about_instrument">
                 <source>user.form.about_instrument</source>
-                <target>Vilket eller vilka instrument kan du spela?</target>
+                <target>Which instruments can you play?</target>
             </trans-unit>
             <trans-unit id="user.form.can_sing">
                 <source>user.form.can_sing</source>
-                <target>Kan du sjunga?</target>
+                <target>Can you sing?</target>
             </trans-unit>
             <trans-unit id="user.form.professional_musician">
                 <source>user.form.professional_musician</source>
-                <target>Är du en professionell musiker eller en amatör?</target>
+                <target>Are you a professional musician or an amateur?</target>
             </trans-unit>
             <trans-unit id="user.form.professional_musician.yes">
                 <source>user.form.professional_musician.yes</source>
-                <target>Jag är en professionell musiker</target>
+                <target>I am a professional musician</target>
             </trans-unit>
             <trans-unit id="user.form.professional_musician.no">
                 <source>user.form.professional_musician.no</source>
-                <target>Jag är en amatör</target>
+                <target>I am an amateur</target>
             </trans-unit>
             <trans-unit id="user.form.music_genre">
                 <source>user.form.music_genre</source>
-                <target>Vilka musikgenrer gillar du?</target>
+                <target>What genres of music do you like?</target>
             </trans-unit>
             <trans-unit id="user.form.phone_number">
                 <source>user.form.phone_number</source>
-                <target>Mobilnummer</target>
+                <target>Mobile number</target>
             </trans-unit>
             <trans-unit id="user.form.optional">
                 <source>user.form.optional</source>
-                <target>(Frivilligt)</target>
+                <target>(Optional)</target>
             </trans-unit>
             <trans-unit id="user.form.languages">
                 <source>user.form.languages</source>
