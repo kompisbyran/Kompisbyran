@@ -478,11 +478,11 @@
             </trans-unit>
             <trans-unit id="user.form.languages">
                 <source>user.form.languages</source>
-                <target>Vilka språk pratar du?</target>
+                <target>Which languages do you speak?</target>
             </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
-                <target>Save</target>
+                <target>Send application</target>
             </trans-unit>
             <trans-unit id="user.settings.header">
                 <source>user.settings.header</source>
@@ -509,9 +509,9 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>We provide the first contact to a person who you can meet 1 time. If you want to meet a new Fika, Music or Start friend, please make a new application by pressing the “Send application” button.
+                <target>We provide the first contact to a person who you meet 1 time. On this page, you can make a new request to meet a new Fika, Music or Start friend. 
                 
-                You can also see previous meetings and if you already have an active request.</target>
+                You can also see Previous meetings and if you already have an Active request.</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
@@ -523,11 +523,11 @@
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
-                <target>You are waiting for a new friend</target>
+                <target>You have an active request. Kompisbyrån will contact you when we have found a good match (or if you need to complete your application).</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.teach">
                 <source>index.connection_request.want_to_learn.teach</source>
-                <target>You are waiting for a new friend</target>
+                <target>You have an active request. Kompisbyrån will contact you when we have found a good match (or if you need to complete your application).</target>
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
@@ -544,55 +544,55 @@
             </trans-unit>
             <trans-unit id="connection_request.form.municipality">
                 <source>connection_request.form.municipality</source>
-                <target>Vilken kommun vill du träffa din Startkompis i?</target>
+                <target>In which municipality do you want to meet your Start friend?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.day">
                 <source>connection_request.form.available.day</source>
-                <target>Vilken dag kan du ses?</target>
+                <target>What day can you meet?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.weekday">
                 <source>connection_request.form.available.weekday</source>
-                <target>Måndag - fredag</target>
+                <target>Monday - Friday</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.weekend">
                 <source>connection_request.form.available.weekend</source>
-                <target>Lördag - söndag</target>
+                <target>Saturday - Sunday</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.time">
                 <source>connection_request.form.available.time</source>
-                <target>Vilken tid kan du ses?</target>
+                <target>What time can you meet?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.daytime">
                 <source>connection_request.form.available.daytime</source>
-                <target>Dag (innan klockan 17.00)</target>
+                <target>Daytime (before 17.00 / 5 P.M.)</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.evening">
                 <source>connection_request.form.available.evening</source>
-                <target>Kväll (efter klockan 17.00)</target>
+                <target>Evening (after 17.00 / 5 P.M.)</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person">
                 <source>connection_request.form.extra_person</source>
-                <target>Vill du ta med dig en till person till mötet?</target>
+                <target>Do you want to bring an extra person to the meeting?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person_gender">
                 <source>connection_request.form.extra_person_gender</source>
-                <target>Kön:</target>
+                <target>Gender:</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person_type">
                 <source>connection_request.form.extra_person_type</source>
-                <target>Vem?</target>
+                <target>Who?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.requests">
                 <source>connection_request.form.requests</source>
-                <target>Har du önskemål om vem du vill träffa?</target>
+                <target>Do you have wishes about who you want to meet?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.matching_profile_request_type">
                 <source>connection_request.form.matching_profile_request_type</source>
-                <target>Har du önskemål om vem du vill träffa?</target>
+                <target>Do you have wishes about who you want to meet?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.matching_profile_request_type.empty_value">
                 <source>connection_request.form.matching_profile_request_type.empty_value</source>
-                <target>Spelar ingen roll</target>
+                <target>It doesn't matter</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
@@ -755,30 +755,30 @@
             </trans-unit>
             <trans-unit id="email.welcome.start.subject">
                 <source>email.welcome.start.subject</source>
-                <target>Tack för din anmälan!</target>
+                <target>Thank you for your Start friend application!</target>
             </trans-unit>
             <trans-unit id="email.welcome.start.body">
                 <source>email.welcome.start.body</source>
 
                 <target><![CDATA[
                     <p>
-                    Hej %firstName%!<br><br>
+                    Dear %firstName%!<br><br>
 
-                    Vad roligt att du har anmält dig som Startkompis hos oss på Kompisbyrån! Med detta email vill vi bekräfta att vi har tagit emot din anmälan.<br><br>
+                    Thank you for your registration as Start friend (Startkompis)! With this email, we are confirming that we have received your application.<br><br>
 
-                    Här kommer en liten påminnelse om hur det går till:<br><br>
+                    Here is a short reminder of how it works:<br><br>
 
-                    <strong>1. Matchningen.</strong> Vi mailar dig (oftast inom 1-30 dagar) när vi har hittat en person som matchar din profil. Du får personens kontaktuppgifter och vi föreslår en dag, tid och plats då ni ska träffas. (Om du skulle behöva komplettera din ansökan meddelar vi dig om detta.)<br><br>
+                    <strong>1. Match.</strong> We will send you an email (usually within 1-30 days) when we have found a person who matches your profile. You get the person's contact information and we propose a date, time and place of your meeting. (If you need to complete your application, we will let you know.)<br><br>
 
-                    <strong>2. Första kontakten.</strong> Du kontaktar personen inom 7 dagar och bekräftar ert möte. Skriv gärna på svenska och engelska. Du som är etablerad i Sverige har huvudansvaret för att ni får kontakt med varandra. Om tiden vi har föreslagit inte passar er måste du se till att ni hittar en ny tid som passar båda.<br>
-                    Kom ihåg att respektera varandra, att inte svara påverkar den andra personen som har sett fram emot ert möte. Kontakta oss om du inte får svar så hjälper vi till!<br><br>
+                    <strong>2. First contact.</strong> You contact the person within 7 days and confirm your meeting. Please write in English and Swedish. It’s the primarily responsibility of the person who is established in Sweden, that you get in touch with each other. If the time we have proposed does not suit you, you must ensure that you find a new time that suits both.<br>
+                    Remember to respect each other, not responding affect the other person who has been looking forward to your meeting. Contact us if you need help to get in touch!<br><br>
 
-                    <strong>3. Mötet.</strong> Ni träffas och går en promenad i närområdet i cirka 1 timme. Försök att inte ha höga förväntningar utan ta det som det kommer. Kom i tid! De tråkiga träffarna är när någon inte dyker upp, så skicka gärna en sms-påminnelse dagen innan ert möte, som den andra personen bekräftar.<br><br>
+                    <strong>3. Meeting.</strong> You meet and go for a walk in the neighborhood for about 1 hour. Try not to have high expectations but take it as it comes. We recommend that you send an SMS reminder the day before your meeting, that the other person confirm. Be in time!<br><br>
 
-                    Om du har några frågor, vänligen skicka ett email till oss :)<br><br>
+                    If you have any questions, please contact us!<br><br>
 
-                    Bästa hälsningar<br>
-                    Vi på Kompisbyrån
+                    Best wishes<br>
+                    The Startkompis-team at Kompisbyrån
                     </p>
                 ]]></target>
             </trans-unit>
@@ -941,9 +941,9 @@ Your friends at Kompisbyrån
                         <h3>Give your support!</h3>
                         <p>
                             Would you as an individual, company, municipality or other organization, cooperate with Kompisbyrån? Today, 
-                            thousands of coffee buddies from over 79 countries have come to know each other over a fika. Many meetings 
-                            have led to job opportunities. Some to an own apartment. And above all, it has led to the friendship that 
-                            unites different countries, cultures, ages, languages and experiences.
+                            thousands of fika friends from over 126 countries have come to know each other over a "fika". Many meetings 
+                            have led to job opportunities. Some to own apartments. And above all, they have led to friendships that 
+                            unites different countries, cultures, gender, ages, languages and experiences.
                         </p>
                         <p>
                             We are only funded through partnerships. It is through them that we can help all the thousands of people who 
@@ -952,18 +952,17 @@ Your friends at Kompisbyrån
 
                         </p>
                         <p>
-                            <strong>Your gift is very valuable to us, no matter how much or little you choose to donate:</strong>
+                            <strong>Your gift is very valuable to us! Every penny we receive goes into creating more opportunities for new and established Swedes to meet.</strong>
                         </p>
                         <p>
-                            <strong>Kompisbyrån's Swish number: 1236 809 602 or BG account 386-3982</strong>
+                            <strong>Please send a "Swish" of 300 SEK to 1236 809 602 or deposit money at BG Account 386-3982.</strong>
                         </p>
                         <p>
-                            We would like to give you a personal gift certificate as a thank you. Please, email kontakt@kompisbyran.se 
-                            and we'll send over it!
+                            We would like to give you a personal gift certificate as a thank you. Please, send an email to kontakt@kompisbyran.se.
                         </p>
                         <p>
                             We are more than happy to speak with you about how you can support Kompisbyrån in several ways. Please don’t 
-                            hesitate to contact: emma@kompisbyran.se or cecilia@kompisbyran.se.
+                            hesitate to contact: emma@kompisbyran.se.
                         </p>
                         <p>
                             Many thanks to you all who are involved and really make a difference! 
@@ -1022,7 +1021,7 @@ Your friends at Kompisbyrån
                         </p>
                         <p>
                             Kompisbyrån operates in 9 cities in Sweden: Göteborg, Jönköping, Linköping, Malmö, Stockholm, 
-                            Umeå, Uppsala, Västerås or Örebro.
+                            Umeå, Uppsala, Västerås and Örebro; and 5 municipalities: Lidingö, Nynäshamn, Solna, Vaxholm and Österåker.
                         </p>
                         <p>
                             "Many Swedes associate a “fika” with something relaxed and fun, and is often perceived as central 
@@ -1063,18 +1062,17 @@ Your friends at Kompisbyrån
                 <target>
                     <![CDATA[
                         <p>
-                            Questions about the matching process?<br>
+                            Questions about the matching process for Fika or Music friend?<br>
                             Göteborg: <a href="mailto:goteborg@kompisbyran.se">goteborg@kompisbyran.se</a><br>
-                            Jönköping: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
-                            Linköping: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
                             Malmö: <a href="mailto:malmo@kompisbyran.se">malmo@kompisbyran.se</a><br>
-                            Stockholm: <a href="mailto:stockholm@kompisbyran.se">stockholm@kompisbyran.se</a><br>
-                            Umeå: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
-                            Uppsala: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
-                            Västerås: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
+                            Stockholm: <a href="mailto:stockholm@kompisbyran.se">stockholm@kompisbyran.se</a><br>                            
                             Örebro: <a href="mailto:orebro@kompisbyran.se">orebro@kompisbyran.se</a><br>
+                            Other cities: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>
+                            
+                            Questions about Start friend (Startkompis)?<br>
+                            <a href="mailto:start@kompisbyran.se">start@kompisbyran.se</a><br>
 
-                            Questions about collaborations, recruitment or press, please contact: <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a> or <a href="mailto:cecilia@kompisbyran.se ">cecilia@kompisbyran.se </a>
+                            Questions about collaborations, recruitment or press, please contact: <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a> or <a href="mailto:kontakt@kompisbyran.se ">kontakt@kompisbyran.se </a>
                         </p>
                     ]]>
                 </target>
@@ -1125,35 +1123,35 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="occupation.employed">
                 <source>occupation.employed</source>
-                <target>Jag jobbar</target>
+                <target>I work</target>
             </trans-unit>
             <trans-unit id="occupation.student">
                 <source>occupation.student</source>
-                <target>Jag studerar</target>
+                <target>I study</target>
             </trans-unit>
             <trans-unit id="occupation.unemployed">
                 <source>occupation.unemployed</source>
-                <target>Jag vill ha jobb</target>
+                <target>I want a job</target>
             </trans-unit>
             <trans-unit id="occupation.other">
                 <source>occupation.other</source>
-                <target>Annat</target>
+                <target>Other</target>
             </trans-unit>
             <trans-unit id="connection_request.created.flash">
                 <source>connection_request.created.flash</source>
-                <target>Din kompisförfrågan är sparad. Vi hör av oss när vi hittat en matchning.</target>
+                <target>Your friend request has been saved. We will contact you when we find a match.</target>
             </trans-unit>
             <trans-unit id="connection_request.validation_failed.flash">
                 <source>connection_request.validation_failed.flash</source>
-                <target>Ett eller flera fält är felaktigt ifylda.</target>
+                <target>One or more fields are improperly answered.</target>
             </trans-unit>
             <trans-unit id="extra_person.friend">
                 <source>extra_person.friend</source>
-                <target>Kompis</target>
+                <target>Friend</target>
             </trans-unit>
             <trans-unit id="extra_person.child">
                 <source>extra_person.child</source>
-                <target>Barn</target>
+                <target>Child</target>
             </trans-unit>
             <trans-unit id="extra_person.partner">
                 <source>extra_person.partner</source>
@@ -1161,15 +1159,15 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="extra_person.family">
                 <source>extra_person.family</source>
-                <target>Annan familjemedlem</target>
+                <target>Other family member</target>
             </trans-unit>
             <trans-unit id="matching_profile_request.same_gender">
                 <source>matching_profile_request.same_gender</source>
-                <target>Endast person av samma kön</target>
+                <target>Only a person of the same gender</target>
             </trans-unit>
             <trans-unit id="matching_profile_request.same_age">
                 <source>matching_profile_request.same_age</source>
-                <target>Endast person nära i ålder</target>
+                <target>Only a person close in age</target>
             </trans-unit>
         </body>
     </file>
