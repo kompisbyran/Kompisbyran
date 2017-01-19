@@ -539,35 +539,35 @@
             </trans-unit>
             <trans-unit id="connection_request.form.municipality">
                 <source>connection_request.form.municipality</source>
-                <target>Vilken kommun vill du träffa din Startkompis i?</target>
+                <target>في أي بلدية تريد لقاء ستارت كومبيس؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.day">
                 <source>connection_request.form.available.day</source>
-                <target>Vilken dag kan du ses?</target>
+                <target>في أي يوم يمكنك اللقاء؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.weekday">
                 <source>connection_request.form.available.weekday</source>
-                <target>Måndag - fredag</target>
+                <target>الاثنين - الجمعة</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.weekend">
                 <source>connection_request.form.available.weekend</source>
-                <target>Lördag - söndag</target>
+                <target>السبت - الأحد</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.time">
                 <source>connection_request.form.available.time</source>
-                <target>Vilken tid kan du ses?</target>
+                <target> في أي وقت يمكنك اللقاء؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.daytime">
                 <source>connection_request.form.available.daytime</source>
-                <target>Dag (innan klockan 17.00)</target>
+                <target>خلال اليوم قبل الساعة الخامسة</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.evening">
                 <source>connection_request.form.available.evening</source>
-                <target>Kväll (efter klockan 17.00)</target>
+                <target>المساء بعد الساعة الخامسة</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person">
                 <source>connection_request.form.extra_person</source>
-                <target>Vill du ta med dig en till person till mötet?</target>
+                <target>هل تريد أن تحضر معك أحدا الى اللقاء؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person_gender">
                 <source>connection_request.form.extra_person_gender</source>
@@ -575,19 +575,19 @@
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person_type">
                 <source>connection_request.form.extra_person_type</source>
-                <target>Vem?</target>
+                <target>من؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.requests">
                 <source>connection_request.form.requests</source>
-                <target>Har du önskemål om vem du vill träffa?</target>
+                <target>هل لديك أي هدف أو تصور تجاه الشخص الذي ستقابله؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.matching_profile_request_type">
                 <source>connection_request.form.matching_profile_request_type</source>
-                <target>Har du önskemål om vem du vill träffa?</target>
+                <target>هل لديك أي هدف أو تصور تجاه الشخص الذي ستقابله؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.matching_profile_request_type.empty_value">
                 <source>connection_request.form.matching_profile_request_type.empty_value</source>
-                <target>Spelar ingen roll</target>
+                <target>أمر غير أساسي</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
@@ -1038,16 +1038,35 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="page.start.header">
                 <source>page.start.header</source>
-                <target>Startkompis</target>
+                <target>أن تكون ستارت كومبيس</target>
             </trans-unit>
             <trans-unit id="page.start.text">
                 <source>page.start.text</source>
                 <target>
                     <![CDATA[
                         <p>
-                            Mer information kommer! Öppen för anmälan från januari 2017.
+                            الان لديك الفرصة للتعرف على صديق جديد من خلال نزهة في منطقتكما.
 
-                            More information will soon be released. Open for registration from January 2017. 
+                            في مشروعنا الجديد ستارت كومبيس يمكنك كشخص قديم في السويد أن تدعو شخص جديد في منطقتك لرؤية الأماكن المفضلة في منطقتكم.
+                               
+                            كستارت كومبيس يجب أن تكون مقيما على اللقاء في أحد البلديات التالية, ليدينغو, لينشوبينغ, نيناسهامن, سولنا, فاكسهولم و أوسترأوكر.
+
+                            هكذا تصبح ستارت كومبيس
+
+                            أجب على بعض الاسئلة
+                            اضغط على زر أصبح ستارت كومبيس و املئ النموذج, ان التسجيل مجاني. سوف يصلك بريد الكتروني لتأكيد تسجيلكز و كذلك الجدد في المنطقة يمكنهم تسجيل أنفسهم من خلال البلديات.
+
+                            المطابقة
+                            سوف نرسل بريد الكتروني يحوي على معلومات الاتصال الخاصة بالشخص الذي سيكون ستارت كومبيس أو سوف نقوم بالاتصال بكز
+
+                            الاتصال الاول
+                            سوف تقوم انت بالاتصال الستارت كومبيس الخاص بك خلال 7 أيام لتقرير تاريخ و مكان النزهة 
+
+                            النزهة
+                            سوف تلتقيان لتذهبا في نزهة سيرا على الاقدام لساعة من الزمن في منطقتكما, لطفا قوما بارسال صورة من نزهتكما و تحدثا عما فعلتماه.
+
+                             ماذا يحدث بعد ذلك ؟
+                            نحن سنقوم بالاتصال بك بعد النزهة من أجل أن نعرف رأيك بما حدث. اذا كان الأمر ممتعا.. رجاء تقابلا مرة أخرى و يمكنك أن تسجل من جديد لتكرار الامر مرة أخرى
                         </p>
                     ]]>
                 </target>
@@ -1060,19 +1079,19 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="occupation.employed">
                 <source>occupation.employed</source>
-                <target>Jag jobbar</target>
+                <target>أنا أعمل</target>
             </trans-unit>
             <trans-unit id="occupation.student">
                 <source>occupation.student</source>
-                <target>Jag studerar</target>
+                <target>أنا أدرس</target>
             </trans-unit>
             <trans-unit id="occupation.unemployed">
                 <source>occupation.unemployed</source>
-                <target>Jag vill ha jobb</target>
+                <target>أنا أريد أن أعمل</target>
             </trans-unit>
             <trans-unit id="occupation.other">
                 <source>occupation.other</source>
-                <target>Annat</target>
+                <target>شيء اخر</target>
             </trans-unit>
             <trans-unit id="connection_request.created.flash">
                 <source>connection_request.created.flash</source>
@@ -1084,27 +1103,27 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="extra_person.friend">
                 <source>extra_person.friend</source>
-                <target>Kompis</target>
+                <target>صديق</target>
             </trans-unit>
             <trans-unit id="extra_person.child">
                 <source>extra_person.child</source>
-                <target>Barn</target>
+                <target>ابن / بنت</target>
             </trans-unit>
             <trans-unit id="extra_person.partner">
                 <source>extra_person.partner</source>
-                <target>Partner</target>
+                <target>شريك </target>
             </trans-unit>
             <trans-unit id="extra_person.family">
                 <source>extra_person.family</source>
-                <target>Annan familjemedlem</target>
+                <target>أحد أفراد العائلة</target>
             </trans-unit>
             <trans-unit id="matching_profile_request.same_gender">
                 <source>matching_profile_request.same_gender</source>
-                <target>Endast person av samma kön</target>
+                <target>فقط شخص من نفس الجنس</target>
             </trans-unit>
             <trans-unit id="matching_profile_request.same_age">
                 <source>matching_profile_request.same_age</source>
-                <target>Endast person nära i ålder</target>
+                <target>فقط شخص من عمر متقارب</target>
             </trans-unit>
         </body>
     </file>
