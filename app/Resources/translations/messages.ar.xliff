@@ -1103,7 +1103,7 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="connection_request.validation_failed.flash">
                 <source>connection_request.validation_failed.flash</source>
-                <target>Ett eller flera fält är felaktigt ifylda.</target>
+                <target>هناك خطأ ما</target>
             </trans-unit>
             <trans-unit id="extra_person.friend">
                 <source>extra_person.friend</source>
