@@ -1,6 +1,6 @@
 Hej {{ user.firstName }}!
 
-Nu har vi hittat en Startkompis till dig att upptäcka {{ connectionRequest.municipality.name }} med! {{ user|pronoun }} heter {{ user.name }}, är {{ user.age }} år och kommer från {{ user.from|country_name }}. {% if connectionRequest.extraPerson %}{{ user.firstName }} kommer ta med sig (en kompis/sin partner/ sitt barn) till mötet.{% endif %}
+Nu har vi hittat en Startkompis till dig att upptäcka {{ connectionRequest.municipality.name }} med! {{ user.gender|pronoun|capitalize }} heter {{ user.name }}, är {{ user.age }} år och kommer från {{ user.from|country_name }}. {% if connectionRequest.extraPerson %}{{ user.firstName }} kommer ta med sig (en kompis/sin partner/ sitt barn) till mötet.{% endif %}
 
 
 Vi föreslår att ni träffas {{ connectionRequest.municipality.meetingPlace }}, {{ preMatch|meeting_time }}. Det är mycket viktigt att du kommer i tid.
