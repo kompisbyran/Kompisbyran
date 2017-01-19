@@ -420,7 +420,7 @@
             </trans-unit>
             <trans-unit id="user.form.education_description">
                 <source>user.form.education_description</source>
-                <target>Vad är du utbildad inom?</target>
+                <target>?ما المجال الذي درسته</target>
             </trans-unit>
             <trans-unit id="user.form.children_age">
                 <source>user.form.children_age</source>
@@ -428,7 +428,7 @@
             </trans-unit>
             <trans-unit id="user.form.time_in_sweden">
                 <source>user.form.time_in_sweden</source>
-                <target>Hur länge har du bott i Sverige?</target>
+                <target>?منذ متى وأنت تعيش في السويد</target>
             </trans-unit>
             <trans-unit id="user.form.about_music">
                 <source>user.form.about_music</source>
@@ -440,7 +440,7 @@
             </trans-unit>
             <trans-unit id="user.form.about_instrument">
                 <source>user.form.about_instrument</source>
-                <target>Vilket eller vilka instrument kan du spela?</target>
+                <target>?ما هي الالة التي تعزف عليها</target>
             </trans-unit>
             <trans-unit id="user.form.can_sing">
                 <source>user.form.can_sing</source>
