@@ -148,7 +148,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.start.header">
                 <source>homepage.cta.start.header</source>
-                <target>Lär känna eller visa närområdet</target>
+                <target>يمكنكما استكشاف المنطقة سويا</target>
             </trans-unit>
             <trans-unit id="homepage.cta.start.header.strong">
                 <source>homepage.cta.start.header.strong</source>
