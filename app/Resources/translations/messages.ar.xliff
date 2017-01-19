@@ -186,7 +186,7 @@
             </trans-unit>
             <trans-unit id="register.form.password_confirmation">
                 <source>register.form.password_confirmation</source>
-                <target>كلمة السر أعد إدخال</target>
+                <target> أعد إدخال كلمة السر </target>
             </trans-unit>
             <trans-unit id="register.form.terms">
                 <source>register.form.terms</source>
@@ -240,7 +240,7 @@
                 <target>
                     <![CDATA[
                             <li>
-                                انضم الينا بتسجيل نفسك. اكتب بريدك الالكتروني و كلمة مرور من اختيارك ثم اضغط عل زر "انضم الينا" هذا التسجيل مجاني . الرجاء الاطلاع على شروط الموقع. <a href="%termsPath%">villkor</a>.
+                                انضم الينا بتسجيل نفسك. اكتب بريدك الالكتروني و كلمة مرور من اختيارك ثم اضغط عل زر "انضم الينا" هذا التسجيل مجاني . الرجاء الاطلاع على شروط الموقع. <a href="%termsPath%">الشروط</a>.
                             </li>
                     ]]>
                 </target>
