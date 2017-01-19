@@ -570,7 +570,7 @@
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person_gender">
                 <source>connection_request.form.extra_person_gender</source>
-                <target>Kön:</target>
+                <target>الجنس</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person_type">
                 <source>connection_request.form.extra_person_type</source>
@@ -590,7 +590,7 @@
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
-                <target>رفيق فيكا</target>
+                <target>ارسال الطلب</target>
             </trans-unit>
             <trans-unit id="terms.header">
                 <source>terms.header</source>
