@@ -48,7 +48,7 @@
             </trans-unit>
             <trans-unit id="global.start_buddy">
                 <source>global.start_buddy</source>
-                <target>Startkompis</target>
+                <target>ستارت كومبيس</target>
             </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>
@@ -64,7 +64,7 @@
             </trans-unit>
             <trans-unit id="menu.startfriend">
                 <source>menu.startfriend</source>
-                <target>Startkompis</target>
+                <target>ستارت كومبيس</target>
             </trans-unit>
             <trans-unit id="menu.support">
                 <source>menu.support</source>
@@ -152,7 +152,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.start.header.strong">
                 <source>homepage.cta.start.header.strong</source>
-                <target>Startkompis</target>
+                <target>ستارت كومبيس</target>
             </trans-unit>
             <trans-unit id="homepage.cta.start.message">
                 <source>homepage.cta.start.message</source>
@@ -302,7 +302,7 @@
             </trans-unit>
             <trans-unit id="user.form.categories.help">
                 <source>user.form.categories.help</source>
-                <target>(Välj minst 2 och max 5 intressen)</target>
+                <target>اختر اثنين على الاقل وخمسة على الاكثر</target>
             </trans-unit>
             <trans-unit id="user.form.music_categories">
                 <source>user.form.music_categories</source>
