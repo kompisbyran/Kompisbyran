@@ -8,10 +8,10 @@ Vi föreslår att ni träffas {{ connectionRequest.municipality.meetingPlace }},
 {{ otherUser.firstName }}s kontaktuppgifter är: {{ otherUser.phoneNumber }} och {{ otherUser.email }}.
 
 Gör såhär:
-Bekräfta ert möte. Du som är etablerad i kommunen har nu huvudansvaret att inom 7 dagar bekräfta att ni ska ses den föreslagna tiden. Om tiden vi har föreslagit inte passar er måste du hitta en ny tid som passar er båda. Inför ert möte, tänker du ut en promenad i närområdet på cirka 1 timme.
-Gå en promenad i 1 timme och lär känna er kommun.
-Om ni vill, ta gärna ett foto under er promenad och skicka till oss tillsammans med några rader om hur det var. Vi delar gärna er hälsning i våra sociala medier för att inspirera fler till att vara med.
+1. Bekräfta ert möte. Du som är etablerad i kommunen har nu huvudansvaret att inom 7 dagar bekräfta att ni ska ses den föreslagna tiden. Om tiden vi har föreslagit inte passar er måste du hitta en ny tid som passar er båda. Inför ert möte, tänker du ut en promenad i närområdet på cirka 1 timme.
 
+2. Gå en promenad i 1 timme och lär känna er kommun.
+Om ni vill, ta gärna ett foto under er promenad och skicka till oss tillsammans med några rader om hur det var. Vi delar gärna er hälsning i våra sociala medier för att inspirera fler till att vara med.
 
 Vi önskar er en trevlig promenad!
 
@@ -19,3 +19,24 @@ Bästa hälsningar
 Startkompis-teamet!
 
 PS. Kom ihåg att respektera varandra, att inte svara påverkar den andra personen som har sett fram emot ert möte. Maila oss om du inte får kontakt med din startkompis inom 7 dagar så hjälper vi till.
+
+-----English-----
+Dear {{ user.firstName }},
+
+We have found a Startkompis (Start friend) for you to discover {{ connectionRequest.municipality.name }} with! The person’s name is {{ user.name }}, is {{ user.age }} years old and comes from {{ user.from|country_name }}. {% if connectionRequest.extraPerson %}{{ user.firstName }} will bring a friend/partner or child to the meeting.{% endif %}
+
+We suggest that you meet {{ connectionRequest.municipality.meetingPlace }}, {{ preMatch|meeting_time }}. It’s very important that you are in time.
+
+{{ otherUser.firstName }}’s contact details are: {{ otherUser.phoneNumber }} and {{ otherUser.email }}.
+
+How it works: 
+1. You contact your Start friend within 7 days to confirm date, time and place of the meeting.
+
+2. You meet and go for a walk in the neighborhood for about 1 hour. If you want, please take a picture from your meeting and send to us :) 
+
+We wish you a nice walk!
+
+Best regard,
+The Startkompis team at Kompisbyrån
+
+PS. Remember to respect each other, not responding affect the other person who has been looking forward to your meeting. Contact us if you need help to get in touch!
