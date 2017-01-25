@@ -244,14 +244,17 @@ class PreMatchController extends Controller
 
         if ($preMatch->getFluentSpeakerConnectionRequest() == $connectionRequest) {
             $otherUser = $preMatch->getLearnerConnectionRequest()->getUser();
+            $otherUserConnectionRequest = $preMatch->getLearnerConnectionRequest();
         } else {
             $otherUser = $preMatch->getFluentSpeakerConnectionRequest()->getUser();
+            $otherUserConnectionRequest = $preMatch->getFluentSpeakerConnectionRequest();
         }
 
         $parameters = [
             'connectionRequest' => $connectionRequest,
             'user' => $connectionRequest->getUser(),
             'otherUser' => $otherUser,
+            'otherUserConnectionRequest' => $otherUserConnectionRequest,
             'preMatch' => $preMatch,
         ];
 
