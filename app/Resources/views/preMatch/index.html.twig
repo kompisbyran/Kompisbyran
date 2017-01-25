@@ -47,6 +47,8 @@
                                 <td>New</td>
                                 <td>
                                     <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#userModal" data-user="{{ preMatch.learnerConnectionRequest.user.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
+                                    <button class="btn btn-default pull-right pending" data-id="{{ preMatch.learnerConnectionRequest.id }}">{% if preMatch.learnerConnectionRequest.pending %}Remove Pending{% else %}Make Pending{% endif %}</button>
+
                                     {% if is_granted('ROLE_ADMIN') %}
                                         <strong><a href="{{ path('admin_user', {'id': preMatch.learnerConnectionRequest.user.id}) }}">{{ preMatch.learnerConnectionRequest.user.name }}</a></strong>,
                                     {% else %}
@@ -200,6 +202,16 @@
                     $button.text('Godkänn förslag');
                 }
             });
+        });
+        $(document).on('click', '.pending', function() {
+            var $button = $(this);
+            $button.html('<i class="fa fa-spinner fa-spin"></i>');
+            var id = $button.attr('data-id');
+            $.get(Routing.generate('admin_ajax_connection_request_mark_pending_or_unpending', {id: id}),
+                function(data) {
+                    $button.html(data.label);
+                }
+            );
         });
     });
     {% include('municipality/modal.js.twig') %}
