@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Tests\Controller\Admin;
+namespace AppBundle\Tests\Controller\Admin2;
 
 use AppBundle\Tests\Phpunit\DatabaseTestCase;
 use AppBundle\Tests\Phpunit\Extension\AuthenticationExtensionTrait;
