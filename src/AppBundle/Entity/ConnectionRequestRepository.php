@@ -290,6 +290,7 @@ class ConnectionRequestRepository extends EntityRepository
             ->andWhere('cr.wantToLearn = true')
             ->andWhere('cr.type = :type')
             ->andWhere('cr.inspected = true')
+            ->andWhere('cr.pending = false')
             ->setParameter('municipality', $municipality)
             ->setParameter('type', FriendTypes::START)
             ->getQuery()

@@ -1,5 +1,7 @@
 <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#userModal" data-user="{{ preMatch.fluentSpeakerConnectionRequest.user.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
-<button class="btn btn-default pull-right pending" data-id="{{ preMatch.fluentSpeakerConnectionRequest.id }}">{% if preMatch.fluentSpeakerConnectionRequest.pending %}Remove Pending{% else %}Make Pending{% endif %}</button>
+{% if is_granted('ROLE_ADMIN') %}
+    <button class="btn btn-default pull-right pending-fluentspeaker" data-id="{{ preMatch.fluentSpeakerConnectionRequest.id }}" data-prematch-id="{{ preMatch.id }}">{% if preMatch.fluentSpeakerConnectionRequest.pending %}Remove Pending{% else %}Make Pending{% endif %}</button>
+{% endif %}
 <strong>
 {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('admin_user', {'id': preMatch.fluentSpeakerConnectionRequest.user.id}) }}">{{ preMatch.fluentSpeakerConnectionRequest.user.name }}</a></strong>,
