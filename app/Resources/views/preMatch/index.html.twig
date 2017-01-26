@@ -47,7 +47,9 @@
                                 <td>New</td>
                                 <td>
                                     <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#userModal" data-user="{{ preMatch.learnerConnectionRequest.user.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
-                                    <button class="btn btn-default pull-right pending" data-id="{{ preMatch.learnerConnectionRequest.id }}">{% if preMatch.learnerConnectionRequest.pending %}Remove Pending{% else %}Make Pending{% endif %}</button>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <button class="btn btn-default pull-right pending-learner" data-id="{{ preMatch.learnerConnectionRequest.id }}" data-prematch-id="{{ preMatch.id }}">{% if preMatch.learnerConnectionRequest.pending %}Remove Pending{% else %}Make Pending{% endif %}</button>
+                                    {% endif %}
 
                                     {% if is_granted('ROLE_ADMIN') %}
                                         <strong><a href="{{ path('admin_user', {'id': preMatch.learnerConnectionRequest.user.id}) }}">{{ preMatch.learnerConnectionRequest.user.name }}</a></strong>,
@@ -203,13 +205,35 @@
                 }
             });
         });
-        $(document).on('click', '.pending', function() {
+        $(document).on('click', '.pending-fluentspeaker', function() {
             var $button = $(this);
+            $button.attr('disabled', 'disabled');
             $button.html('<i class="fa fa-spinner fa-spin"></i>');
-            var id = $button.attr('data-id');
-            $.get(Routing.generate('admin_ajax_connection_request_mark_pending_or_unpending', {id: id}),
+            var connectionRequestId = $button.attr('data-id');
+            var preMatchId = $button.attr('data-prematch-id');
+            $.get(Routing.generate('admin_ajax_connection_request_mark_pending_or_unpending', {id: connectionRequestId}),
                 function(data) {
-                    $button.html(data.label);
+                    $('.re-match[data-pre-match-id="' + preMatchId + '"]').trigger('click');
+                }
+            );
+        });
+        $(document).on('click', '.pending-learner', function() {
+            var $button = $(this);
+            $button.attr('disabled', 'disabled');
+            $button.html('<i class="fa fa-spinner fa-spin"></i>');
+            var connectionRequestId = $button.attr('data-id');
+            var preMatchId = $button.attr('data-prematch-id');
+            $.get(Routing.generate('admin_ajax_connection_request_mark_pending_or_unpending', {id: connectionRequestId}),
+                function(data) {
+                    $.ajax({
+                        url: Routing.generate('delete_pre_match', {
+                            municipalityId: {{ municipality.id }},
+                            preMatchId: preMatchId
+                        }),
+                        method: 'DELETE'
+                    }).done(function () {
+                        $('#row-' + preMatchId + '-1, #row-' + preMatchId + '-2').fadeOut('slow');
+                    });
                 }
             );
         });

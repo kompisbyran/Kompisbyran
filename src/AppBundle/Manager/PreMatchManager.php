@@ -60,7 +60,13 @@ class PreMatchManager
             ->findWantToLearnStartFriendsByMunicipality($municipality);
         foreach ($connectionRequests as $connectionRequest) {
             if (!$connectionRequest->getLearnerPreMatch() && !$connectionRequest->getFluentSpeakerPreMatch()) {
-                $this->createMatchForConnectionRequest($connectionRequest, new PreMatch());
+                $preMatch = new PreMatch();
+                $preMatch->setLearnerConnectionRequest($connectionRequest);
+                $preMatch->setMunicipality($connectionRequest->getMunicipality());
+
+                $this->createMatchForConnectionRequest($connectionRequest, $preMatch);
+                $this->entityManager->persist($preMatch);
+                $this->entityManager->flush(); // Must flush for not finding same fluent speaker connection request again
             }
         }
     }
@@ -106,11 +112,7 @@ class PreMatchManager
                 if ($fluentSpeakerConnectionRequest->getFluentSpeakerPreMatch()) {
                     continue;
                 }
-                $preMatch->setLearnerConnectionRequest($connectionRequest);
                 $preMatch->setFluentSpeakerConnectionRequest($fluentSpeakerConnectionRequest);
-                $preMatch->setMunicipality($connectionRequest->getMunicipality());
-                $this->entityManager->persist($preMatch);
-                $this->entityManager->flush();
                 return;
             }
         }
