@@ -145,6 +145,13 @@ class UserManager implements ManagerInterface
             /** @var User $currentUser */
             $currentUser = $this->getFind($auser['id']);
             $connectionRequest = $currentUser->getConnectionRequests()[0];
+            $extraPerson = null;
+            if ($connectionRequest->isExtraPerson()) {
+                $extraPerson = sprintf('%s, %s',
+                    $this->translator->trans('extra_person.' . $connectionRequest->getExtraPersonType()),
+                    $this->translator->trans('user.form.gender.' . strtolower($connectionRequest->getExtraPersonGender()))
+                );
+            }
             $datas[]        = [
                 'user_id'           => $auser['id'],
                 'score'             => $auser['score'],
@@ -164,6 +171,8 @@ class UserManager implements ManagerInterface
                 'matching_profile_request_type' => $connectionRequest->getMatchingProfileRequestType() ?
                     $this->translator->trans('matching_profile_request.' . $connectionRequest->getMatchingProfileRequestType()) :
                     null,
+                'activities' => $currentUser->getActivities(),
+                'extra_person' => $extraPerson,
             ];
         }
 

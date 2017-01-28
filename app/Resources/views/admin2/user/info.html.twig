@@ -65,17 +65,41 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">{{ 'Interests'|trans }}</label>
+            <label class="col-sm-2 control-label">{{ 'Request'|trans }}</label>
             <div class="col-sm-10">
-                <div class="form-control textarea" id="interests">{{ user_category_name_string(user) }}</div>
+                <div class="form-control">{{ ('matching_profile_request.' ~ connectionRequest.matchingProfileRequestType)|trans }}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ 'Extra person'|trans }}</label>
+            <div class="col-sm-10">
+                <div class="form-control">
+                    {% if connectionRequest.extraPerson %}
+                        Ja, {{ connectionRequest.extraPersonGender|gender }}, {{ ('extra_person.' ~ connectionRequest.extraPersonType)|trans }}
+                    {% else %}
+                        Nej
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-7">
         <div class="form-group">
+            <label class="col-sm-12">{{ 'Interests'|trans }}</label>
+            <div class="col-sm-12">
+                <div class="form-control textarea" id="interests">{{ user_category_name_string(user) }}</div>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-sm-12">{{ 'Description'|trans }}</label>
             <div class="col-sm-12">
-                <div class="form-control textarea" id="about">{{ user.about|raw }}</div>
+                <div class="form-control textarea" id="about">{{ user.about|nl2br }}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-12">{{ 'Activities'|trans }}</label>
+            <div class="col-sm-12">
+                <div class="form-control textarea">{{ user.activities|nl2br }}</div>
             </div>
         </div>
         <div class="form-group">
