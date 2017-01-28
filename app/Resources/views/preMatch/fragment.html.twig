@@ -54,11 +54,11 @@
 {% endif %}
 <br>
 <strong>Önskemål:</strong>
-{% if preMatch.learnerConnectionRequest.matchingProfileRequestType %}
+{% if preMatch.fluentSpeakerConnectionRequest.matchingProfileRequestType %}
     {% if preMatch.fluentSpeakerConnectionRequest.matchingProfileRequestType == preMatch.learnerConnectionRequest.matchingProfileRequestType %}
-        <span class="matches">{{ ('matching_profile_request.' ~ preMatch.learnerConnectionRequest.matchingProfileRequestType)|trans }}</span>
+        <span class="matches">{{ ('matching_profile_request.' ~ preMatch.fluentSpeakerConnectionRequest.matchingProfileRequestType)|trans }}</span>
     {% else %}
-        {{ ('matching_profile_request.' ~ preMatch.learnerConnectionRequest.matchingProfileRequestType)|trans }}
+        {{ ('matching_profile_request.' ~ preMatch.fluentSpeakerConnectionRequest.matchingProfileRequestType)|trans }}
     {% endif %}
 {% endif %}<br>
 
