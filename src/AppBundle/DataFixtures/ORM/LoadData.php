@@ -657,6 +657,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(true);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-learner'));
+        $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(true);
         $connectionRequest->setAvailableEvening(true);
         $connectionRequest->setAvailableWeekday(true);
@@ -667,6 +668,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-fluentspeaker'));
+        $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(true);
         $connectionRequest->setAvailableEvening(true);
         $connectionRequest->setAvailableWeekday(true);
@@ -677,6 +679,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-2'));
         $connectionRequest->setUser($this->getReference('user-glenn'));
+        $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(true);
         $connectionRequest->setAvailableEvening(true);
         $connectionRequest->setAvailableWeekday(true);
@@ -687,6 +690,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-emma'));
+        $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(true);
         $connectionRequest->setAvailableEvening(true);
         $connectionRequest->setAvailableWeekday(true);
@@ -703,6 +707,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setWantToLearn(false);
         $connectionRequest->setMunicipality($this->getReference('municipality-198'));
         $connectionRequest->setUser($this->getReference('user-cecilia'));
+        $connectionRequest->setInspected(true);
         $connectionRequest->setAvailableDay(true);
         $connectionRequest->setAvailableEvening(true);
         $connectionRequest->setAvailableWeekday(true);

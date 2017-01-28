@@ -203,6 +203,7 @@ class ConnectionRequestRepository extends EntityRepository
             ->where('cr.city        = :city')
             ->andWhere('cr.disqualified = false')
             ->andWhere('cr.pending = false')
+            ->andWhere('cr.inspected = true')
             ->andWhere('u.enabled = true')
             ->groupBy('cr.user')
             ->orderBy('cr.sortOrder', 'DESC')
