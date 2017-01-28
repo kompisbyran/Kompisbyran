@@ -118,8 +118,8 @@ class PreMatchController extends Controller
         $this->get('manager.pre_match')->createMatchForConnectionRequest(
             $preMatch->getLearnerConnectionRequest(), $preMatch
         );
-
-        $this->getDoctrine()->getManager()->refresh($preMatch);
+        $this->getDoctrine()->getManager()->persist($preMatch);
+        $this->getDoctrine()->getManager()->flush();
 
         return new JsonResponse($this->get('serializer')->normalize($preMatch));
     }
