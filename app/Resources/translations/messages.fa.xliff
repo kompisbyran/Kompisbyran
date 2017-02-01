@@ -163,7 +163,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.start.button">
                 <source>homepage.cta.start.button</source>
-                <target>Bli Startkompis</target>
+                <target>استارت کومپیس" بشو!</target>
             </trans-unit>
             <trans-unit id="register.create.header">
                 <source>register.create.header</source>
@@ -995,7 +995,7 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="page.work_with_us.header">
                 <source>page.work_with_us.header</source>
-                <target>Stöd oss</target>
+                <target>یاریمان کنید!</target>
             </trans-unit>
             <trans-unit id="page.work_with_us.text">
                 <source>page.work_with_us.text</source>
@@ -1003,10 +1003,10 @@ Your friends at Kompisbyrån
                     <![CDATA[
                         <h3>Stöd oss!</h3>
                         <p>
-                            Vill du som privatperson, företag, kommun eller annan organisation, samarbeta med Kompisbyrån? Idag har
-                            tusentals fikakompisar från 126 länder lärt känna varandra över en kompisfika. Många möten har lett
-                            till etablering på arbetsmarknaden. Andra till en egen bostad. Och framförallt, har det lett till vänskap
-                            som förenar olika länder, kultur, ålder, språk och erfarenheter.
+                            آیا میخواهید به عنوان فرد خصوصی، شرکت، مناطق شهری یا دیگر سازمان ها، با "کومپیس بیرون" همکاری داشته باشید؟
+                            .در حال حاضر هزاران نفر از اعضای ما از ۱۲۶ کشور مختلف از طریق پروژه "کومپیس فیکا" باهم آشنا شده اند
+                            خیلی از قرارهای ملاقات به ایجاد شغل و بازارکار و یا پیدا کردن مسکن موردنیاز منتهی شده است. و از همه مهمتر موجب
+                            دوستی هایی با ایجاد اتحاد بین کشورها، فرهنگ ها، سن ها، زبان ها و تجربیات مختلف شده است
                         </p>
                         <p>
                             Vi är helt finansierade genom samarbeten så det är genom dem som vi kan hjälpa alla tusentals människor
@@ -1014,19 +1014,19 @@ Your friends at Kompisbyrån
                             där alla kan känna sig delaktiga och välkomna.
                         </p>
                         <p>
-                            <strong>Stötta Kompisbyrån – Swisha en Kompisfika</strong>
+                            <strong>از "کومپیس بیرون" حمایت کنید.</strong>
                         </p>
                         <p>
                             <strong>Vill du hjälpa oss att hjälpa fler kompisar att hitta varandra över en kaffe? Kul! Nu har vi nämligen fått Swish! Varenda krona vi får in går till att skapa fler möjligheter för nyanlända och etablerade svenskar att mötas. Swisha 300 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt stöd!</strong>
                         </p>
                         <p>
-                            Vi vill gärna ge dig ett personligt gåvobevis som tack - maila kontakt@kompisbyran.se så skickar vi över det!
+                            ما با کمال میل گواهی هدیه شما را به عنوان تشکر برایتان ارسال خواهیم کرد. فقط کافیست با ایمیل kontakt@kompisbyran.se در تماس باشید.
                         </p>
                         <p>
-                            Vi berättar mer än gärna om hur du kan stötta Kompisbyrån på olika vis - kontakta emma@kompisbyran.se eller kontakt@kompisbyran.se.
+                            در صورت تمایل درباره چگونگی کمک و حمایت از ما به روش های دیگر می‌توانید با ایمیل های emma@kompisbyran.se و یا kontakt@kompisbyran.se در تماس باشید.
                         </p>
                         <p>
-                            Stort tack för att du vill vara med och göra skillnad.
+                            تشکر بسیار بابت همراهیتان!
                         </p>
 
                         <h3>Tack till...</h3>
@@ -1072,25 +1072,21 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="page.about.header">
                 <source>page.about.header</source>
-                <target>Om Kompisbyrån</target>
+                <target>درباره "کومپیس بیرون"</target>
             </trans-unit>
             <trans-unit id="page.about.text">
                 <source>page.about.text</source>
                 <target>
                     <![CDATA[
                         <p>
-                            Kompisbyrån är en ideell organisation som digitalt skapar kontakt mellan nya och etablerade
-                            svenskar med liknande intressen. Kompisbyrån startades 2014 av Emma Hammar och Cecilia Holmgren
-                            med en vision om att öka gemenskapen i samhället genom att förenkla förutsättningar till fler
-                            vardagsmöten mellan människor med olika bakgrund, erfarenhet och kultur. Syftet är att prata
-                            svenska under 1 timmes fika. Det är det vi kallar för en kompisfika.
+                            "کومپیس بیرون" یک نهاد غیرانتفاعی است که بصورت دیجیتال درجهت ارتباط بین تازه واردین و افراد تثبیت شده در جامعه فعالیت میکند.
+                            "کومپیس بیرون" در سال ۲۰۱۴ توسط اِمار همار و سِسیلیا هولمگرن با هدف بالا بردن ایجاد ارتباط بصورت آسانتری بین افراد با فرهنگ ها و تجربیات مختلف شروع به فعالیت کرد.
+                            هدف ما یک ساعت صحبت کردن به زبان سوئدی در حین فیکا کردن است. این همان چیزی است که ما "فیکا کومپیس" می نامیم.
                         </p>
                         <p>
-                            Vi har verksamhet i nio städer i Sverige; Göteborg, Jönköping, Linköping, Malmö, Stockholm,
-                            Umeå, Uppsala, Västerås och Örebro. Möjliggör vi tillräckligt många möten får nya
-                            svenskar bättre svenskkunskaper, breddat socialt nätverk och ökade möjligheter till jobb.
-                            Fler vardagsmöten leder också till en ökad förståelse för varandra och en berikande tillvaro.
-                            För att nämna en bråkdel.
+                            ما در ۹ شهر از سوئد فعالیت داریم: یوتبوری، یونشوپینگ، لینشوپینگ، مالمو، استکهلم، اومئو، اوپسالا،. وستروس و اوربرو.
+                            از طریق این دیدارها برای افراد تازه وارد موجب دید بهتر از جامعه، گسترش ارتباطات و افزایش احتمال پیدا کردن کار خواهیم شد.
+                            ایجاد و فراهم کردن دیدارهای بیشتر نیز باعث درک بهتر از همدیگر و ارتقا سطح زندگی هر دو قشر در جامعه خواهد شد.
                         </p>
                         <p>
                             “En fika är något som av många ses som centralt i svensk kultur och är associerat med något
@@ -1150,17 +1146,18 @@ Your friends at Kompisbyrån
             </trans-unit>
             <trans-unit id="page.start.header">
                 <source>page.start.header</source>
-                <target>Bli Startkompis</target>
+                <target>استارت کومپیس" بشو!</target>
             </trans-unit>
             <trans-unit id="page.start.text">
                 <source>page.start.text</source>
                 <target>
                     <![CDATA[
                         <p>
-                            Nu har du chansen att lära känna en ny kompis över en promenad i ditt närområde. I vårt nya projekt 
-                            Startkompis kan du som etablerad svensk erbjuda 1 timmes promenad med en nyanländ för att visa dina 
-                            smultronställen i er kommun. Du måste bo i någon av dessa kommuner: Lidingö, Nynäshamn, Solna, Vaxholm 
-                            eller Österåker. 
+                            تو حالا شانس این رو داری که با یک دوست جدید در حین یک پیاده روی نزدیک محلت آشنا بشی. در پروژه جدید ما با 
+                            عنوان "استارت کومپیس" تو به عنوان یه فرد تثبیت شده در جامعه سوئد امکان دعوت از یک فرد تازه وارد برای ۱ ساعت 
+                            پیاده روی و نشون دادن مکان های دیدنیه محله زندگیت رو داری
+                            تو باید در یکی از مناطق زیر زندگی کنی:
+                            لیدینگو، نینسهامن، سولنا، وکسهولم یا اوستراوکر.
                         </p>
                         <p>
                             <strong>Så här blir du en Startkompis:</strong>
