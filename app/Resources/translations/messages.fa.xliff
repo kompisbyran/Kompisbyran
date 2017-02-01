@@ -68,7 +68,7 @@
             </trans-unit>
             <trans-unit id="menu.support">
                 <source>menu.support</source>
-                <target>Stöd oss</target>
+                <target>یاریمان کنید!</target>
             </trans-unit>
             <trans-unit id="menu.about">
                 <source>menu.about</source>
@@ -1001,7 +1001,7 @@ Your friends at Kompisbyrån
                 <source>page.work_with_us.text</source>
                 <target>
                     <![CDATA[
-                        <h3>Stöd oss!</h3>
+                        <h3>یاریمان کنید!</h3>
                         <p>
                             آیا میخواهید به عنوان فرد خصوصی، شرکت، مناطق شهری یا دیگر سازمان ها، با "کومپیس بیرون" همکاری داشته باشید؟
                             .در حال حاضر هزاران نفر از اعضای ما از ۱۲۶ کشور مختلف از طریق پروژه "کومپیس فیکا" باهم آشنا شده اند
