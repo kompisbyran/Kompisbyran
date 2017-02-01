@@ -3,7 +3,7 @@
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="error">
-                <source>error</source>
+                <source>Error</source>
                 <target>Hoppsan nu vart det fel!</target>
             </trans-unit>
             <trans-unit id="error.active_request">
@@ -100,18 +100,17 @@
             </trans-unit>
             <trans-unit id="homepage.cta.header">
                 <source>homepage.cta.header</source>
-                <target>I Kompisbyrån övar vi svenska och fikar.</target>
+                <target>ما در "کومپیس بیرون" زبان سوئدی تمرین میکنیم و قهوه مینوشیم</target>
             </trans-unit>
             <trans-unit id="homepage.cta.header.strong">
                 <source>homepage.cta.header.strong</source>
-                <target>Vill du vara med?</target>
+                <target>میخوای با ما باشی؟</target>
             </trans-unit>
             <trans-unit id="homepage.cta.message">
                 <source>homepage.cta.message</source>
                 <target>
                     <![CDATA[
-                    Träffa en ny fikakompis på ett kafé i 1 timme, fika och öva svenska. Ni vet på förhand att ni 
-                    har några liknande intressen att inleda samtalet med. Vi kallar det för Kompisfika.
+                    یک دوست جدید رو در یه کافه به مدت یک ساعت ملاقات کن، سوئدی حرف بزنید و قهوه بنوشید. شما قبل از اینکه همدیگرو ببینید، میدونید که چندتا موضوع و علاقمندی مشترک باهم دارید. ما اسم اینو میزاریم "کومپیس فیکا"!
                     ]]>
                 </target>
             </trans-unit>
@@ -147,7 +146,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.start.header">
                 <source>homepage.cta.start.header</source>
-                <target>Lär känna eller visa närområdet</target>
+                <target>آشنا شو یا نشون بده محله رو."استارت کومپیس"</target>
             </trans-unit>
             <trans-unit id="homepage.cta.start.header.strong">
                 <source>homepage.cta.start.header.strong</source>
@@ -157,8 +156,8 @@
                 <source>homepage.cta.start.message</source>
                 <target>
                     <![CDATA[
-                    Är du ny i kommunen eller kan du kommunen utan och innan? Nyanlända och etablerade kommunbor lär
-                    känna närområdet över en promenad.
+                    آیا فرد تازه واردی هستی تو منطقه یا کامل بلدی محله رو؟ 
+                    تازه واردین و کسانی که قدیمی هستن تو منطقه، میتونن از طریق یه پیاده روی محله رو بیشتر بشناسن!
                     ]]>
                 </target>
             </trans-unit>
