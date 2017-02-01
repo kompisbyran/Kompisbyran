@@ -72,7 +72,7 @@
             </trans-unit>
             <trans-unit id="menu.about">
                 <source>menu.about</source>
-                <target>Om oss</target>
+                <target>درباره ما</target>
             </trans-unit>
             <trans-unit id="menu.signin">
                 <source>menu.signin</source>
@@ -921,73 +921,67 @@ Your friends at Kompisbyrån
             <trans-unit id="footer.text1">
                 <source>footer.text1</source>
                 <target>
-                    Kompisbyrån är en ideell, partipolitiskt och religiöst obunden organisation sedan 2014 som 
-                    syftar till att öka gemenskapen i samhället mellan nya och etablerade svenskar. Kompisbyrån 
-                    matchar nya och etablerade svenskar som träffas som fikakompisar, musikkompisar eller startkompisar. 
-                    Vi erbjuder enkla former av vardagsintegration för att göra det lätt och kul för alla att engagera sig! 
-                    Idag finns Kompisbyrån i nio städer, tjugotal aktiva arbetar ideellt och ungefär 10 000 kontakter från 
-                    över 126 länder har förmedlats.
+                    "کومپیس بیرون" یک تشکیلات غیرانتفاعی، غیرسیاسی و غیر مذهبی است که از سال ۲۰۱۴ در جهت بالا بردن روحیه جمعی بین تازه واردین و سوئدی ها فعالیت میکند.
+                    "کومپیس بیرون" تلاش دارد تا بین تازه واردین و سوئدی ها با عناوین، "فیکا کومپیس"، "موزیک کومپیس" و یا "استارت کومپیس" ارتباط برقرار کند. ما سعی میکنیم همپیوستگی بین این دو قشر را با روشی ساده فراهم کنیم تا همه از این روش استقبال کنند.
+                    در حال حاضر "کومپیس بیرون" در ۹ شهر مشغول به فعالیت است، ۲۰ نفر به صورت مستمر مشغول به کار هستند و تقریبا واسطه ۱۰۰۰۰ ارتباط از ۱۲۶ کشور شده است.
                 </target>
             </trans-unit>
             <trans-unit id="footer.text2">
                 <source>footer.text2</source>
                 <target>
                     <![CDATA[
-                        Läs noga igenom Kompisbyråns <a href="%link%">villkor</a> innan du anmäler dig.
+                        لطفا قبل از ثبت نام با دقت شرایط لازم را بخوانید. <a href="%link%">villkor</a>
                     ]]>
                 </target>
             </trans-unit>
             <trans-unit id="footer.text3">
                 <source>footer.text3</source>
                 <target>
-                    Stöd oss och låt fler få chansen att träffa en ny fikakompis att öva svenska med. Varenda krona vi 
-                    får in går till att skapa fler möjligheter för nyanlända och etablerade svenskar att mötas. Swisha 
-                    300 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt stöd!
+                    ما را در بالابردن شانس افراد برای پیدا کردن "فیکا کومپیس" و تمرین زبان سوئدی کمک کنید، هر کرون اهدایی شما ما را در جهت هدفمان که ملاقات بین تازه واردین و سوئدی ها یاری خواهد کرد. شما می‌توانید ۳۰۰ کرون از طریق "سوئیش" به حساب ۶۰۲ ۸۰۹ ۱۲۳۶ و یا پرداخت به شماره حساب بانک گیرو ۳۹۸۲-۳۸۶ انتقال دهید.
+                    ممنون برای یاریتان! 
                 </target>
             </trans-unit>
             <trans-unit id="page.how_it_works.header">
                 <source>page.how_it_works.header</source>
-                <target>Bli Fikakompis</target>
+                <target>"فیکا کومپیس" بشو!</target>
             </trans-unit>
             <trans-unit id="page.how_it_works.text">
                 <source>page.how_it_works.text</source>
                 <target>
                     <![CDATA[
                         <p>
-                            Träffa en person med liknande intressen på ett kafé i cirka 1 timme, fika och prata svenska. En person är ny i Sverige 
-                            och en person har bott i Sverige länge*. Det är det vi kallar för en Kompisfika. Du måste kunna träffas i Göteborg, 
-                            Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro.
+                            .یه فردی با علاقمندی های مشترک مثل خودت رو تو یه کافه برای تقریبا یک ساعت ملاقات کن، قهوه بنوشید و سوئدی حرف بزنید
+                            ."یکی از افراد تازه وارد به سوئد و دیگری مدت طولانی تری در سوئد زندگی کرده، این چیزیه که ما اسمشو میزاریم "فیکا کومپیس                            
+                            تو میتونی در شهرهای، یوتبوری، یونشوپینگ، لینشوپینگ، مالمو، استکهلم، اومئو، اوپسالا، وستروس و اوربرو ملاقات داشته باشی
                         </p>
                         <p>
-                            <strong>Så här blir du en Fikakompis:</strong>
+                            <strong>:اینجوری تو میتونی یه "فیکا کومپیس" بشی</strong>
                         </p>
                         <p>
-                            <strong>1. Svara på några frågor.</strong> Tryck på "Bli Fikakompis"-knappen och fyll i formuläret. Det är gratis att registrera sig. 
-                               Du får ett bekräftelsemail när vi har tagit emot ditt formulär. 
+                            ۱- باید به چندتا سوال جواب بدی، روی دکمه "فیکا کومپیس بشو" کلیک کن و فرم رو پر کن. ثبت نام کاملا رایگانه. وقتی که ما فرم تقاضای تو رو دریافت کنیم برات یه ایمیل تائیدیه مبنی بر اینکhttp://www.mynewsdesk.com/se/stories/search/contact_people?utf8=%E2%9C%93&current_site=se&type_of_medias=ContactPerson&query=&media=&sites%5B%5D=se&locales%5B%5D=en&subject=&g_region=&date_mode=between&date_start=&date_end=&date_on=ه فرمت به دست ما رسیده میفرستیم
                         </p>
                         <p>
-                            <strong>2. Matchning.</strong> Vi skickar ett email med kontaktuppgifter till din fikakompis.
+                            ۲- پیدا کردن دوست. ما اطلاعات کلی تورو از طریق ایمیل برای دوست جدیدت میفرستیم.
                         </p>
                         <p>
-                            <strong>3. Första kontakten.</strong> Du tar kontakt med din fikakompis inom 7 dagar och bekräftar datum, tid och plats för er fika. 
+                            ۳- اولین ارتباط. تو باید در طول مدت ۷ روز با دوست جدید تماس برقرار کنی و تاریخ، زمان و مکان ملاقاتتون رو باهم هماهنگ کنید. 
                         </p>
                         <p>
-                            <strong>4. Fikan.</strong> Ni träffas på ett kafé i cirka 1 timme och övar på att prata svenska. Skicka gärna ett foto från er fika och berätta vad ni gjorde. 
+                            ۴- فیکا. شما به مدت تقریبا یک ساعت در یک کافه با هم ملاقات و سوئدی با هم حرف میزنید. خیلی خوبه اگه یک عکس از خودتون در موقع فیکا و یه توضیح کوتاه درباره کارهایی که اون روز انجام دادید برای ما بفرستید. 
                         </p>
                         <p>
-                            <strong>5. Vad händer sen?</strong> Vi kontaktar dig efter kompisfikan för att få veta hur du tyckte att det var. Om du tyckte att det var kul får ni gärna 
-                               fortsätta ses. Du kan också logga in och göra en ny anmälan för att träffa en ny person eller helt enkelt vara supernöjd över att ha varit 
-                               någons fikakompis! 
+                            ۵- چه اتفاقی میفته بعدش؟ ما بعد از ملاقات با دوست جدیدت باهات تماس میگیریم تا نظرت رو در مورد ملاقاتتون بپرسیم. اگه تو فکر میکنی که ملاقات خوبی بود، شما میتونید باز همدیگرو ببینید. تو همچنین میتونی به سایت وارد بشی و تقاضای دیدار یه دوست جدید دیگه رو بدی. 
                         </p>
                         <p>
                         </p>
                         <p>
                         </p>
                         <p>
-                            *Vi låter varje person själv bestämma hur han eller hon vill definiera sig, så det är du som bestämmer om du
-                            definierar dig som ny eller etablerad. Som <strong>ny svensk</strong> vill du lära dig prata bättre svenska,
-                            det spelar ingen roll hur lång eller kort tid du har bott i Sverige. Som <strong>etablerad svensk</strong> har du
-                            svenska som modersmål eller motsvarande, har bott i Sverige under lång tid och kan lära ut svenska.
+                            *ما به همه افراد این اجازه رو میدهیم که خودش انتخاب کنه که جز کدوم دسته باشه، تازه واردین یا تثبیت شده ها
+                            به عنوان فرد تازه وارد در سوئد، تو میخواهی که زبان سوئدیت رو تقویت کنی، و هیچ تفاوتی نداره که چه مدت در سوئد 
+                            زندگی کرده باشی.
+                            به عنوان یک فرد تثبیت شده، تو خوب میتونی سوئدی صحبت کنی، و مدت طولانی در سوئد زندگی کردی و میتونی سوئدی
+                            یاد بدی.
                         </p>
                     ]]>
                 </target>
@@ -995,8 +989,8 @@ Your friends at Kompisbyrån
             <trans-unit id="page.how_it_works.well">
                 <source>page.how_it_works.well</source>
                 <target>
-                    Vi förmedlar första kontakten till en fikakompis som du träffar 1 gång (om ni inte kommer överens om
-                    annat). Vill du träffa en ny fikakompis, loggar du in och gör en ny förfrågan.
+                    ما فقط در اولین ارتباط بین تو و دوست جدیدت که ۱ بار ملاقاتش میکنی نقش خواهیم داشت. اگه باز میخوای دوست جدید 
+                    دیگه ای رو ملاقات کنی، به سایت ما لاگین کن و درخواست جدیدی رو ثبت کن.
                 </target>
             </trans-unit>
             <trans-unit id="page.work_with_us.header">
