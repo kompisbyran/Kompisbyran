@@ -92,6 +92,7 @@ class UserRepository extends EntityRepository
                   WHERE u.id != :user
                   AND cr.want_to_learn != :want_to_learn
                   AND cr.pending = false
+                  AND cr.inspected = true
                   AND cr.disqualified = false
                   and u.enabled = true
                   AND $where
