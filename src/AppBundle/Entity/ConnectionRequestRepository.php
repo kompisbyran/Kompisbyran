@@ -304,13 +304,14 @@ class ConnectionRequestRepository extends EntityRepository
      *
      * @return ConnectionRequest[]
      */
-    public function findInspectedStartFriendsByMunicipality(Municipality $municipality)
+    public function findInspectedNotPendingStartFriendsByMunicipality(Municipality $municipality)
     {
         return $qb = $this->createQueryBuilder('cr')
             ->innerJoin('cr.user', 'u')
             ->where('cr.municipality = :municipality')
             ->andWhere('cr.type = :type')
             ->andWhere('cr.inspected = true')
+            ->andWhere('cr.pending = false')
             ->setParameter('municipality', $municipality)
             ->setParameter('type', FriendTypes::START)
             ->orderBy('cr.createdAt', 'DESC')
