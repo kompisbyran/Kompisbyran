@@ -22,7 +22,7 @@ class MunicipalityController extends Controller
     {
         $this->denyAccessUnlessGranted(MunicipalityVoter::ADMIN_VIEW, $municipality);
 
-        $connectionRequests = $this->get('connection_request_repository')->findInspectedStartFriendsByMunicipality(
+        $connectionRequests = $this->get('connection_request_repository')->findInspectedNotPendingStartFriendsByMunicipality(
             $municipality
         );
 
