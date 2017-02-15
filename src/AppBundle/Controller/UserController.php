@@ -42,6 +42,8 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getManager();
             if (false === $this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER')) {
                 $user->addRole('ROLE_COMPLETE_USER');
+                $em->persist($user);
+                $em->flush();
                 $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
                 $this->getSecurityContext()->setToken($token);
                 if (!$user->hasRole('ROLE_MUNICIPALITY')) {
