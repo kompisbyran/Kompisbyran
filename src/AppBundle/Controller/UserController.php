@@ -40,6 +40,7 @@ class UserController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $sendEmail = false;
             if (false === $this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER')) {
                 $user->addRole('ROLE_COMPLETE_USER');
                 $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
@@ -51,7 +52,7 @@ class UserController extends Controller
                          matchning.'
                     );
 
-                    $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
+                    $sendEmail = true;
                 }
             }
             $em->persist($user);
@@ -60,6 +61,10 @@ class UserController extends Controller
                 $em->persist($connectionRequest);
             }
             $em->flush();
+
+            if ($sendEmail) {
+                $this->get('app.user_mailer')->sendRegistrationWelcomeEmailMessage($user);
+            }
 
             return $this->redirect($this->generateUrl('homepage'));
         }
