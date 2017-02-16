@@ -490,107 +490,108 @@
             </trans-unit>
             <trans-unit id="index.header">
                 <source>index.header</source>
-                <target>Välkommen till Kompisbyrån!</target>
+                <target>به «کومپیس بیرون» خوش آمدید.</target>
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här kan du göra en ny anmälan för att träffa en ny Fikakompis, Musikkompis eller Startkompis. 
+                <target>اینجا می توانی یک درخواست جدید برای ملاقات یک «فیکا کومپیس»، «موزیک کومپیس» و یا «استارت کومپیس» بفرستی 
                 
-                    Du ser även dina tidigare möten och nuvarande status om du har gjort en ny anmälan.</target>
+                    تو همچنین می‌ توانی ملاقات های گذشته خود، و وضعیت فعلی خود را اگر درخواست جدیدی فرستاده ای را ببینی</target>
             </trans-unit>
             <trans-unit id="index.previous.header">
                 <source>index.previous.header</source>
-                <target>Tidigare möten</target>
+                <target>ملاقات های قبلی</target>
             </trans-unit>
             <trans-unit id="index.connection_request.header">
                 <source>index.connection_request.header</source>
-                <target>Nuvarande status</target>
+                <target>وضعیت فعلی</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.learn">
                 <source>index.connection_request.want_to_learn.learn</source>
-                <target>Du väntar på en matchning</target>
+                <target>تو منتظر یه دوست جدید هستی‌.</target>
             </trans-unit>
             <trans-unit id="index.connection_request.want_to_learn.teach">
                 <source>index.connection_request.want_to_learn.teach</source>
-                <target>Du väntar på en matchning</target>
+                <target>تو منتظر یه دوست جدید هستی‌.</target>
             </trans-unit>
             <trans-unit id="index.again.header">
                 <source>index.again.header</source>
-                <target>Jag vill träffa en ny person</target>
+                <target>من میخواهم یک فرد جدید را ملاقات کنم.</target>
             </trans-unit>
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Vill du träffa en ny Fikakompis, Musikkompis eller Startkompis? Fyll i formuläret och tryck på “Skicka anmälan”-knappen.
+                    آیا میخواهی یک دوست جدید «فیکا کومپیس»، «موزیک کومپیس» و یا «استارت کومپیس» را ملاقات کنی؟
+                    فرم موردنظر را پر کرده و بر روی دکمه «فرستادن درخواست» کلیک کن.
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
                 <source>connection_request.form.city</source>
-                <target>Vilken stad vill du träffas i?</target>
+                <target>در کدام شهر میخواهی ملاقات داشته باشی؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.municipality">
                 <source>connection_request.form.municipality</source>
-                <target>Vilken kommun vill du träffa din Startkompis i?</target>
+                <target>در کدام کمون میخواهی دوست «استارت کومپیس» خود را ملاقات کنی؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.day">
                 <source>connection_request.form.available.day</source>
-                <target>Vilken dag kan du ses?</target>
+                <target>چه روزهایی میتوانی ملاقات کنی؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.weekday">
                 <source>connection_request.form.available.weekday</source>
-                <target>Måndag - fredag</target>
+                <target>دوشنبه تا جمعه</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.weekend">
                 <source>connection_request.form.available.weekend</source>
-                <target>Lördag - söndag</target>
+                <target>شنبه تا یکشنبه</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.time">
                 <source>connection_request.form.available.time</source>
-                <target>Vilken tid kan du ses?</target>
+                <target>چه زمانی از روز میتوانی ملاقات کنی؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.daytime">
                 <source>connection_request.form.available.daytime</source>
-                <target>Dag (innan klockan 17.00)</target>
+                <target>روز (قبل از ساعت ۱۷:۰۰)</target>
             </trans-unit>
             <trans-unit id="connection_request.form.available.evening">
                 <source>connection_request.form.available.evening</source>
-                <target>Kväll (efter klockan 17.00)</target>
+                <target>عصر (بعد از ساعت ۱۷:۰۰)</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person">
                 <source>connection_request.form.extra_person</source>
-                <target>Vill du ta med dig en till person till mötet?</target>
+                <target>آیا میخواهید فرد دیگری را همراه با خود به سر قرار ملاقات ببری؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person_gender">
                 <source>connection_request.form.extra_person_gender</source>
-                <target>Kön:</target>
+                <target>جنسیت</target>
             </trans-unit>
             <trans-unit id="connection_request.form.extra_person_type">
                 <source>connection_request.form.extra_person_type</source>
-                <target>Vem?</target>
+                <target>چه کسی؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.requests">
                 <source>connection_request.form.requests</source>
-                <target>Har du önskemål om vem du vill träffa?</target>
+                <target>آیا فرد موردنظری که میخواهی ملاقات کنی باید شرایط خاصی داشته باشد؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.matching_profile_request_type">
                 <source>connection_request.form.matching_profile_request_type</source>
-                <target>Har du önskemål om vem du vill träffa?</target>
+                <target>آیا فرد موردنظری که میخواهی ملاقات کنی باید شرایط خاصی داشته باشد؟</target>
             </trans-unit>
             <trans-unit id="connection_request.form.matching_profile_request_type.empty_value">
                 <source>connection_request.form.matching_profile_request_type.empty_value</source>
-                <target>Spelar ingen roll</target>
+                <target>فرقی ندارد.</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
-                <target>Skicka anmälan</target>
+                <target>فرستادن درخواست</target>
             </trans-unit>
             <trans-unit id="terms.header">
                 <source>terms.header</source>
-                <target>Villkor</target>
+                <target>شرایط</target>
             </trans-unit>
             <trans-unit id="terms.ingress">
                 <source>terms.ingress</source>
-                <target>Kompisbyrån förmedlar kontakten mellan personer som är nya i Sverige med personer som har bott i Sverige länge.</target>
+                <target>"کمپیس بیرون" واسطه ای است برای برقراری تماس بین کسانی که تازه به سوئد آمده اند با کسانی که مدت طولانی در سوئد زندگی کرده اند.</target>
             </trans-unit>
             <trans-unit id="terms.list">
                 <source>terms.list</source>
