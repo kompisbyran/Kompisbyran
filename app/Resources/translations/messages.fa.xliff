@@ -96,7 +96,7 @@
             </trans-unit>
             <trans-unit id="footer.contact">
                 <source>footer.contact</source>
-                <target>Kontakta oss</target>
+                <target>تماس با ما</target>
             </trans-unit>
             <trans-unit id="homepage.cta.header">
                 <source>homepage.cta.header</source>
@@ -129,15 +129,14 @@
             <trans-unit id="homepage.cta.musicfriend.message.strong">
                 <source>homepage.cta.musicfriend.message.strong</source>
                 <target>
-                    Dela ditt musikintresse med människor från olika kulturer.
+                    علاقمندی های موسیقی خودت رو با افراد دیگر از فرهنگ های مختلف به اشتراک بزار.
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.message">
                 <source>homepage.cta.musicfriend.message</source>
                 <target>
-                    Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
-                    mobiloperatören 3, för alla som vill mötas genom musik. Det kan vara allt från att spela musik
-                    tillsammans, lyssna eller prata musik över en fika.
+                    .3 ما میدونیم که موزیک نیروی جذب و وحدت فوق‌العاده ای داره، بخاطر همین ما "موزیک کومپیس" رو همراه با ......، راه انداختیم. 
+                    برای تمام کسانی که میخواهند از طریق موزیک باهم ارتباط برقرار کنند. این میتواند شامل نواختن ساز باهمدیگر تا گوش کردن یا حرف زدن درباره موزیک در طول یه وقت قهوه خوری باشه.
                 </target>
             </trans-unit>
             <trans-unit id="homepage.cta.musicfriend.button">
@@ -150,7 +149,7 @@
             </trans-unit>
             <trans-unit id="homepage.cta.start.header.strong">
                 <source>homepage.cta.start.header.strong</source>
-                <target>Startkompis</target>
+                <target>استارت کومپیس</target>
             </trans-unit>
             <trans-unit id="homepage.cta.start.message">
                 <source>homepage.cta.start.message</source>
@@ -177,11 +176,11 @@
             </trans-unit>
             <trans-unit id="register.form.email">
                 <source>register.form.email</source>
-                <target>E-post</target>
+                <target>ایمیل</target>
             </trans-unit>
             <trans-unit id="register.form.password">
                 <source>register.form.password</source>
-                <target>Lösenord</target>
+                <target>رمز عبور</target>
             </trans-unit>
             <trans-unit id="register.form.password_confirmation">
                 <source>register.form.password_confirmation</source>
