@@ -280,47 +280,47 @@
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
-                <target>Vilket alternativ stämmer bäst in på dig?</target>
+                <target>کدام از گزینه ها انتخاب درست در مورد تو است؟</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.learn">
                 <source>user.form.want_to_learn.choice.learn</source>
-                <target>Jag är en ny svensk och vill bli bättre på att prata svenska</target>
+                <target>من فرد تازه وارد به جامعه هستم و میخواهم بهتر به زبان سوئدی حرف بزنم.</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn.choice.teach">
                 <source>user.form.want_to_learn.choice.teach</source>
-                <target>Jag är en etablerad svensk och har svenska som modersmål eller motsvarande </target>
+                <target>من فرد تثبیت شده ای در جامعه هستم و به زبان سوئدی کاملا تسلط دارم</target>
             </trans-unit>
             <trans-unit id="user.form.categories">
                 <source>user.form.categories</source>
-                <target>Vilka är dina intressen?</target>
+                <target>کدام از گزینه ها جز علاقمندی های تو است؟</target>
             </trans-unit>
             <trans-unit id="user.form.categories.help">
                 <source>user.form.categories.help</source>
-                <target>(Välj minst 2 och max 5 intressen)</target>
+                <target>(حداقل ۲ و حداکثر ۵ گزینه را انتخاب کن.)</target>
             </trans-unit>
             <trans-unit id="user.form.music_categories">
                 <source>user.form.music_categories</source>
-                <target>Vad kan du tänka dig att göra med din musikkompis?</target>
+                <target>چه برنامه ای داری تا با دوست «موزیک کومپیس» خود انجام بدهی؟</target>
             </trans-unit>
             <trans-unit id="user.form.music_categories.help">
                 <source>user.form.music_categories.help</source>
-                <target>(Välj minst 1 alternativ)</target>
+                <target>(حداقل ۱ مورد را انتخاب کن.)</target>
             </trans-unit>
             <trans-unit id="user.form.age">
                 <source>user.form.age</source>
-                <target>Ålder</target>
+                <target>سن</target>
             </trans-unit>
             <trans-unit id="user.form.gender">
                 <source>user.form.gender</source>
-                <target>Kön:</target>
+                <target>جنسیت</target>
             </trans-unit>
             <trans-unit id="user.form.gender.m">
                 <source>user.form.gender.m</source>
-                <target>Man</target>
+                <target>مرد</target>
             </trans-unit>
             <trans-unit id="user.form.gender.f">
                 <source>user.form.gender.f</source>
-                <target>Kvinna</target>
+                <target>زن</target>
             </trans-unit>
             <trans-unit id="user.form.gender.x">
                 <source>user.form.gender.x</source>
@@ -328,7 +328,7 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Berätta om dig själv och hur du är som person.</target>
+                <target>در مورد خودت و شخصیتت کمی توضیح بده.</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
@@ -336,15 +336,15 @@
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
-                <target>Vilket land kommer du ifrån?</target>
+                <target>از کدام کشور هستی؟</target>
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
-                <target>Jag kan träffas i (stad):</target>
+                <target>در کدام شهر امکان ملاقات داری؟</target>
             </trans-unit>
             <trans-unit id="user.form.municipality">
                 <source>user.form.municipality</source>
-                <target>Vilken kommun i Sverige bor du i?</target>
+                <target>در کدام منطقه از کشور سوئد زندگی میکنی؟</target>
             </trans-unit>
             <trans-unit id="user.form.district">
                 <source>user.form.district</source>
@@ -352,11 +352,11 @@
             </trans-unit>
             <trans-unit id="user.form.has_children">
                 <source>user.form.has_children</source>
-                <target>Har du barn?</target>
+                <target>آیا بچه داری؟</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype">
                 <source>user.form.fikatype</source>
-                <target>Jag vill registrera mig som:</target>
+                <target>من میخواهم خودم را ثبت نام کنم به عنوان ...</target>
             </trans-unit>
             <trans-unit id="user.form.fikatype.fikafriend">
                 <source>user.form.fikatype.fikafriend</source>
@@ -368,17 +368,17 @@
             </trans-unit>
             <trans-unit id="user.form.type.friend.help">
                 <source>user.form.type.friend.help</source>
-                <target>Du blir matchad med en person som har liknande intressen som du har. Ni träffas på ett kafé för att prata svenska i en timme.</target>
+                <target>ما یک فرد که علاقمندی های مشترکی مثل تو دارد برای تو پیدا کرده ایم. شما می‌توانید در یک کافه برای یک ساعت همدیگر را ملاقات و به زبان سوئدی حرف بزنید.</target>
             </trans-unit>
             <trans-unit id="user.form.type.music.help">
                 <source>user.form.type.music.help</source>
-                <target>Du blir matchad med en person som också gillar musik. Ni träffas på en offentlig plats för att dela ert musikintresse, till exempel för att prata om musik på ett kafé, gå på konsert eller spela instrument ihop.</target>
+                <target>ما یک فرد که مانند تو به موزیک علاقه دارد برای تو پیدا کرده ایم، شما می‌توانید در یک مکان عمومی همدیگر را ملاقات کنید و بطور مثال در یک کافه در مورد موزیک حرف بزنید، یا به همراه هم به یک کنسرت بروید و یا با همدیگر موسیقی بنوازید.</target>
             </trans-unit>
             <trans-unit id="user.form.type.start.help">
                 <source>user.form.type.start.help</source>
                 <target>
-                    Du blir matchad med en person för att gå en promenad ihop och lära känna området där ni båda bor.
-                    Just nu kan du bli Startkompis i Lidingö, Nynäshamn, Solna, Vaxholm och Österåker.
+                    ما یک فرد برای پیاده روی با تو پیدا کرده ایم، شما می‌توانید باهم به پیاده روی بروید  و شناخت بهتری از محله ای که هر دو در آن زندگی میکنید کسب کنید.
+                    در حال حاضر تو می‌توانی در محله های لیدینگو، نینسهامن، سولنا، وکسهولم و اوستراوکر، دوست «استارت کومپیس» بشوی.
                 </target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
@@ -387,59 +387,59 @@
             </trans-unit>
             <trans-unit id="user.form.activities">
                 <source>user.form.activities</source>
-                <target>Berätta om saker du tycker om att göra:</target>
+                <target>درباره کارها و علاقمندی هایی که دوست داری انجام بدهی توضیح بده.</target>
             </trans-unit>
             <trans-unit id="user.form.occupation">
                 <source>user.form.occupation</source>
-                <target>Vad är din sysselsättning?</target>
+                <target>به چه کارهایی مشغولی؟</target>
             </trans-unit>
             <trans-unit id="user.form.occupation_description.employed">
                 <source>user.form.occupation_description.employed</source>
-                <target>Vad jobbar du med?</target>
+                <target>به چه حرفه و شغلی مشغول هستی؟</target>
             </trans-unit>
             <trans-unit id="user.form.occupation_description.student">
                 <source>user.form.occupation_description.student</source>
-                <target>Vad studerar du?</target>
+                <target>در چه زمینه ای مشغول به تحصیل هستی؟</target>
             </trans-unit>
             <trans-unit id="user.form.occupation_description.unemployed">
                 <source>user.form.occupation_description.unemployed</source>
-                <target>Vad söker du jobb inom för område?</target>
+                <target>در پی جستجوی چه شغلی در محله سکونت خود هستی؟</target>
             </trans-unit>
             <trans-unit id="user.form.occupation_description.other">
                 <source>user.form.occupation_description.other</source>
-                <target>Vad?</target>
+                <target>چی؟</target>
             </trans-unit>
             <trans-unit id="user.form.has_education">
                 <source>user.form.has_education</source>
-                <target>Har du en utbildning?</target>
+                <target>تحصیلات و آموزش دیده هستید؟</target>
             </trans-unit>
             <trans-unit id="user.form.education_description">
                 <source>user.form.education_description</source>
-                <target>Vad är du utbildad inom?</target>
+                <target>در چه زمینه ای تحصیلات دارید؟</target>
             </trans-unit>
             <trans-unit id="user.form.children_age">
                 <source>user.form.children_age</source>
-                <target>Ålder på barn</target>
+                <target>سن بچه ها</target>
             </trans-unit>
             <trans-unit id="user.form.time_in_sweden">
                 <source>user.form.time_in_sweden</source>
-                <target>Hur länge har du bott i Sverige?</target>
+                <target>چه مدتی در سوئدی زندگی کرده اید؟</target>
             </trans-unit>
             <trans-unit id="user.form.about_music">
                 <source>user.form.about_music</source>
-                <target>Berätta om ditt musikintresse:</target>
+                <target>درباره علاقمندی های موسیقی خود توضیح دهید.</target>
             </trans-unit>
             <trans-unit id="user.form.can_play_instrument">
                 <source>user.form.can_play_instrument</source>
-                <target>Kan du spela ett instrument?</target>
+                <target>آیا میتوانی ساز بنوازی؟</target>
             </trans-unit>
             <trans-unit id="user.form.about_instrument">
                 <source>user.form.about_instrument</source>
-                <target>Vilket eller vilka instrument kan du spela?</target>
+                <target>کدوم از سازها را قادر به نواختن هستی؟</target>
             </trans-unit>
             <trans-unit id="user.form.can_sing">
                 <source>user.form.can_sing</source>
-                <target>Kan du sjunga?</target>
+                <target>آیا میتوانی آواز بخوانی؟</target>
             </trans-unit>
             <trans-unit id="user.form.professional_musician">
                 <source>user.form.professional_musician</source>
