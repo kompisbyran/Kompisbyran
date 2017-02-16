@@ -196,12 +196,12 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.subheader">
                 <source>register.musicfriend.subheader</source>
-                <target>Dela ditt musikintresse med människor från olika kulturer.</target>
+                <target>علاقمندی های موسیقی خودت رو با افراد دیگر از فرهنگ های مختلف به اشتراک بزار</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.ingress">
                 <source>register.musicfriend.ingress</source>
-                <target>Vi vet att musik är en stark förenande kraft. Därför startar vi nu Musikkompis, tillsammans med
-                    <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, för alla som vill mötas genom musik. Det kan vara allt från att spela musik tillsammans, lyssna eller prata musik över en fika.</target>
+                <target>ما میدونیم که موزیک نیروی جذب و وحدت فوق‌العاده ای داره، بخاطر همین ما "موزیک کومپیس" رو همراه با ......، راه انداختیم. 
+                    <![CDATA[ <a href="//tre.se/musikkompis">mobiloperatören 3</a> ]]>, برای تمام کسانی که میخواهند از طریق موزیک باهم ارتباط برقرار کنند. این میتواند شامل نواختن ساز باهمدیگر تا گوش کردن یا حرف زدن درباره موزیک در طول یه وقت قهوه خوری باشه.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.footer.header">
                 <source>register.musicfriend.footer.header</source>
@@ -209,11 +209,11 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.footer.text">
                 <source>register.musicfriend.footer.text</source>
-                <target>Genom att dela musikupplevelser med varandra kan vi skapa många stunder av gemenskap och samhörighet oavsett var du kommer ifrån eller tror på. Stunder som i slutändan bidrar till större tolerans och ökad förståelse i samhället. Därför har vi startat projektet Musikkompis – ett ideellt samarbete mellan 3 och Kompisbyrån som syftar till att med musikens hjälp stärka integrationen och gemenskapen i samhället. Vi vill ge fler möjlighet att utöva musik tillsammans, människor som på olika nivåer sysslar med musik: artister, källarband, DJ:s, klassiska musiker, konsertbesökare och andra musikintresserade. Bli Musikkompis du också.</target>
+                <target>ما می‌توانیم از طریق به اشتراک گذاری علایق موسیقایی خود با هم، لحظات شاد و مفرحی را تجربه کنیم، بدون توجه به اینکه از کدام کشور آمده ایم و یا به چه چیزهایی اعتقاد داریم. لحظاتی که نتیجه نهائی آن، کمک به بالابردن بردباری و درک بهتر از یکدیگر در سطح جامعه خواهد شد. بخاطر همین ما پروژه «موزیک کومپیس» را راه اندازی کردیم. یک همکاری غیرانتفاعی بین «اپراتور موبایل ۳» و «کومپیس بیرون» در جهت ادغام و بهم پیوستگی بهتر تازه واردین با جامعه از طریق موسیقی. ما میخواهیم فرصت های بیشتری را در زمینه موسیقی فراهم کنیم. افرادی که به انواع و سطوح مختلف به موسیقی مشغولند: هنرمندان، گروههای زیرزمینی، دی جی ها، موسیقیدان های کلاسیک، علاقمندان به کنسرت و بقیه علاقمندان به موسیقی. یکی از «موزیک کومپیس» ها بشو!</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.videoheader">
                 <source>register.musicfriend.videoheader</source>
-                <target>Här kan du se andra musikkompisar och deras musikmöten</target>
+                <target>اینجا امکان دیدن بقیه «موزیک کومپیس» ها و قرار ملاقاتهای موسیقایی آنها را ببینی.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video1">
                 <source>register.musicfriend.video1</source>
@@ -241,42 +241,42 @@
             </trans-unit>
             <trans-unit id="register.login.header">
                 <source>register.login.header</source>
-                <target>Logga in</target>
+                <target>وارد شدن</target>
             </trans-unit>
             <trans-unit id="register.login.intro">
                 <source>register.login.intro</source>
-                <target>Om du har anmält dig till Kompisbyrån tidigare, logga in här:</target>
+                <target>اگر پیش از این در «کومپیس بیرون» ثبت نام کرده اید، از اینجا وارد سایت شوید.</target>
             </trans-unit>
             <trans-unit id="login.form.email">
                 <source>login.form.email</source>
-                <target>Email</target>
+                <target>ایمیل</target>
             </trans-unit>
             <trans-unit id="login.form.password">
                 <source>login.form.password</source>
-                <target>Lösenord</target>
+                <target>رمز عبور</target>
             </trans-unit>
             <trans-unit id="login.form.button">
                 <source>login.form.button</source>
-                <target>Logga in</target>
+                <target>وارد شدن</target>
             </trans-unit>
             <trans-unit id="login.forgot_password">
                 <source>login.forgot_password</source>
-                <target>Glömt lösenordet?</target>
+                <target>رمز عبور خود را فراموش کرده اید؟</target>
             </trans-unit>
             <trans-unit id="login.text">
                 <source>login.text</source>
                 <target>
-                    Är det första gången du anmäler dig hos Kompisbyrån?
-                    %link_start%Klicka här!%link_end%.
+                    برای اولین‌ بار است که در نزد «کومپیس بیرون» ثبت نام می کنید؟
+                    %link_start%اینجا کلیک کن.%link_end%.
                 </target>
             </trans-unit>
             <trans-unit id="user.form.first_name">
                 <source>user.form.first_name</source>
-                <target>Förnamn:</target>
+                <target>اسم</target>
             </trans-unit>
             <trans-unit id="user.form.last_name">
                 <source>user.form.last_name</source>
-                <target>Efternamn:</target>
+                <target>فامیل</target>
             </trans-unit>
             <trans-unit id="user.form.want_to_learn">
                 <source>user.form.want_to_learn</source>
