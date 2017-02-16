@@ -443,52 +443,48 @@
             </trans-unit>
             <trans-unit id="user.form.professional_musician">
                 <source>user.form.professional_musician</source>
-                <target>Är du en professionell musiker eller en amatör?</target>
+                <target>آیا شما در زمینه موسیقی حرفه ای هستید یا تازه کارید؟</target>
             </trans-unit>
             <trans-unit id="user.form.professional_musician.yes">
                 <source>user.form.professional_musician.yes</source>
-                <target>Jag är en professionell musiker</target>
+                <target>من در زمینه موسیقی حرفه ای هستم.</target>
             </trans-unit>
             <trans-unit id="user.form.professional_musician.no">
                 <source>user.form.professional_musician.no</source>
-                <target>Jag är en amatör</target>
+                <target>من یک تازه کار هستم.</target>
             </trans-unit>
             <trans-unit id="user.form.music_genre">
                 <source>user.form.music_genre</source>
-                <target>Vilka musikgenrer gillar du?</target>
+                <target>کدام از سبک های موسیقی مورد علاقه تو است؟</target>
             </trans-unit>
             <trans-unit id="user.form.phone_number">
                 <source>user.form.phone_number</source>
-                <target>Mobilnummer</target>
+                <target>شماره موبایل</target>
             </trans-unit>
             <trans-unit id="user.form.optional">
                 <source>user.form.optional</source>
-                <target>(Frivilligt)</target>
+                <target>(اختیاری)</target>
             </trans-unit>
             <trans-unit id="user.form.languages">
                 <source>user.form.languages</source>
-                <target>Vilka språk pratar du?</target>
+                <target>به کدام زبان ها قادر به حرف زدن هستید؟</target>
             </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
-                <target>Spara</target>
+                <target>ذخیره کردن.</target>
             </trans-unit>
             <trans-unit id="user.settings.header">
                 <source>user.settings.header</source>
-                <target>Min profil</target>
+                <target>پروفایل من.</target>
             </trans-unit>
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target><![CDATA[
-                    <p>Här svarar du på några frågor om dig själv. Ju tydligare du berättar om vem du är som person, 
-                    desto större är chansen att vi hittar en bra matchning.</p><br />
+                    <p>اینجا به تعدادی سوال درباره خودت پاسخ خواهی داد. به صورت واضح و ساده شخصیت خود را معرفی کن، این به ما امکان این را خواهد داد که دوست مناسب تری برای تو پیدا کنیم.</p><br />
 
-                    <p>Som Fikakompis eller Musikkompis träffas ni i 1 av 9 städer där vi har verksamhet: Göteborg, 
-                    Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro. Som Startkompis 
-                    träffas ni i 1 av 5 kommuner i Stockholm: Lidingö, Nynäshamn, Solna, Vaxholm eller Österåker.</p><br />
+                    <p>به عنوان «فیکا کومپیس» و یا «موزیک کومپیس» شما امکان ملاقات در یکی از ۹ شهر زیر که ما فعالیت میکنیم خواهید داشت: یوتبوری، یونشوپینگ، لینشوپینگ، مالمو، استکهلم، اومئو، اوپسالا، وستروس و اوربرو به عنوان «استارت کومپیس» شما امکان ملاقات در یکی از این ۵ کمون استکهلم را خواهید داشت: لیدینگو، نینسهامن، سولنا، وکسهولم و اوستراوکر.</p><br />
 
-                    <p>Tänk på att ju fler önskemål/begränsningar du fyller i, desto längre tid kan det dröja. 
-                    För att öka chanserna till en snabb matchning - gå in med öppet sinne!</p><br /> 
+                    <p>به یاد داشته باشید که‌ اگر درخواست دوست جدید با مشخصات و شروط خاصی داشته باشید، زمان بیشتری برای پیدا کردن فرد موردنظر با مشخصات فردی خاص که شما مایل هستید خواهد برد. برای بالابردن شانس سریعتر پیدا کردن دوست جدید درخواست خود را با کمترین شروط خاص ارسال کنید.</p><br /> 
                     ]]>
                 </target>
             </trans-unit>
