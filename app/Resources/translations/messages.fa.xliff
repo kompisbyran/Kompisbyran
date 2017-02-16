@@ -3,20 +3,20 @@
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="error">
-                <source>Error</source>
-                <target>Hoppsan nu vart det fel!</target>
+                <source>خطا</source>
+                <target>این اشتباه بود!</target>
             </trans-unit>
             <trans-unit id="error.active_request">
                 <source>error.active_request</source>
-                <target>Du har redan en aktiv kompisförfrågan hos Kompisbyrån</target>
+                <target>تو درحال حاضر یک درخواست و سوال فعال در سایت ما «کومپیس بیرون» داری.</target>
             </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
-                <target>Ja</target>
+                <target>بله</target>
             </trans-unit>
             <trans-unit id="no">
                 <source>no</source>
-                <target>Nej</target>
+                <target>خیر</target>
             </trans-unit>
             <trans-unit id="global.he">
                 <source>global.he</source>
@@ -24,47 +24,47 @@
             </trans-unit>
             <trans-unit id="global.and">
                 <source>and</source>
-                <target>och</target>
+                <target>و</target>
             </trans-unit>
             <trans-unit id="global.his">
                 <source>global.his</source>
-                <target>hans</target>
+                <target>مال او</target>
             </trans-unit>
             <trans-unit id="global.her">
                 <source>global.her</source>
-                <target>hennes</target>
+                <target>مال او</target>
             </trans-unit>
             <trans-unit id="global.she">
                 <source>global.she</source>
-                <target>Hon</target>
+                <target>او</target>
             </trans-unit>
             <trans-unit id="global.music_buddy">
                 <source>global.music_buddy</source>
-                <target>Musikkompis</target>
+                <target>«موزیک کومپیس»</target>
             </trans-unit>
             <trans-unit id="global.fika_buddy">
                 <source>global.fika_buddy</source>
-                <target>Fikakompis</target>
+                <target>«فیکا کومپیس»</target>
             </trans-unit>
             <trans-unit id="global.start_buddy">
                 <source>global.start_buddy</source>
-                <target>Startkompis</target>
+                <target>استارت کومپیس</target>
             </trans-unit>
             <trans-unit id="menu.home">
                 <source>menu.home</source>
-                <target>Hem</target>
+                <target>خانه</target>
             </trans-unit>
             <trans-unit id="menu.fikafriend">
                 <source>menu.fikafriend</source>
-                <target>Fikakompis</target>
+                <target>«فیکا کومپیس»</target>
             </trans-unit>
             <trans-unit id="menu.musicfriend">
                 <source>menu.musicfriend</source>
-                <target>Musikkompis</target>
+                <target>«موزیک کومپیس»</target>
             </trans-unit>
             <trans-unit id="menu.startfriend">
                 <source>menu.startfriend</source>
-                <target>Startkompis</target>
+                <target>استارت کومپیس</target>
             </trans-unit>
             <trans-unit id="menu.support">
                 <source>menu.support</source>
@@ -76,7 +76,7 @@
             </trans-unit>
             <trans-unit id="menu.signin">
                 <source>menu.signin</source>
-                <target>Logga in</target>
+                <target>وارد شدن</target>
             </trans-unit>
             <trans-unit id="menu.signin.fb">
                 <source>menu.signin.fb</source>
@@ -84,15 +84,15 @@
             </trans-unit>
             <trans-unit id="menu.signout">
                 <source>menu.signout</source>
-                <target>Logga ut</target>
+                <target>خارج شدن</target>
             </trans-unit>
             <trans-unit id="menu.profile">
                 <source>menu.profile</source>
-                <target>Min Profil</target>
+                <target>پروفایل من.</target>
             </trans-unit>
             <trans-unit id="menu.settings">
                 <source>menu.settings</source>
-                <target>Inställningar</target>
+                <target>تنظیمات</target>
             </trans-unit>
             <trans-unit id="footer.contact">
                 <source>footer.contact</source>
