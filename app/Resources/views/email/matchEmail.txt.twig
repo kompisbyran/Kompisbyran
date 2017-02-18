@@ -1,0 +1,51 @@
+{% set musicFriend = request.type == constant('AppBundle\\Enum\\FriendTypes::MUSIC') %}
+(This message will follow in English)
+
+Hej {{ user.fullName }}!
+
+Nu har vi hittat en {{ musicFriend ? 'global.music_buddy'|trans|capitalize : 'global.fika_buddy'|trans|capitalize }} till dig. {{ matchUser.gender|pronoun|capitalize }} heter {{ matchUser.fullName }} och ni båda gillar {{ user_matched_categories(matchUser, user) }}, så nu vet du några samtalsämnen du kan inleda er första fika med. {{ matchUser.fullName }} är {{ matchUser.age }} år gammal, bor i {{ matchUser.municipality.name }} och kommer från {{ matchUser.countryName }}. {{ matchUser.gender|pronoun|capitalize }} träffas gärna i {{ request.city.name }}.
+
+Din {{ musicFriend ? 'global.music_buddy'|trans|capitalize : 'global.fika_buddy'|trans|capitalize }} email är: {{ matchUser.email }}. Vi har också skickat din email till din {{ musicFriend ? 'global.music_buddy'|trans|capitalize : 'global.fika_buddy'|trans|capitalize }}.
+
+Gör så här:
+
+1. Bestäm ett datum. Du mailar personen inom 7 dagar och bestämmer datum, tid och plats. Skriv gärna på svenska och engelska. Det är bådas ansvar att ni etablerar kontakt med varandra. Kom ihåg att respektera varandra, att inte svara på ett mail påverkar den andra personen som har sett fram emot ett möte. Kontakta oss om du inte får svar.
+
+Vi rekommenderar att ni byter telefonnummer och skickar en sms-påminnelse dagen innan er fika som den andra personen bekräftar.
+
+2. Ni träffas! Ni träffas på ett kafé eller annat offentligt ställe i cirka 1 timme. Försök att inte ha höga förväntningar utan ta det som det kommer. Kom i tid! De tråkiga träffarna är när någon inte dyker upp på utsatt tid.
+
+3. Om ni vill, ta gärna ett foto från ert möte och skriva några rader om vad ni gjorde och hur det var (med bådas samtycke). Maila hälsningen till oss så delar vi den gärna digitalt för att inspirera fler till att vara med. Eller hashtagga själv med #kompisbyrån eller #kompisbyran.
+
+Du är alltid välkommen att höra av dig till oss om något inte blev som du tänkt dig.
+
+Vi önskar er ett trevligt möte!
+
+Bästa hälsningar
+Vännerna på Kompisbyrån
+
+
+--------- English version ---------
+
+Hello {{ user.fullName }}!
+
+We have now found a good match for you. The person you will meet is {{ matchUser.fullName }} and both of you like {{ user_matched_categories(matchUser, user) }}. So now you know what topics you can start the conversation with on your first fika meeting. {{ matchUser.fullName }} is {{ matchUser.age }} years old, lives in {{ matchUser.municipality.name }} and is from {{ matchUser.countryName }}. {{ matchUser.fullName }} would like to meet you in {{ request.city.name }}.
+
+The email adress to {{ matchUser.fullName }} is: {{ matchUser.email }}. We have also sent your email adress to {{ matchUser.fullName }}.
+
+Please follow the steps below:
+
+1. Decide a date. You send an email to {{ matchUser.fullName }} within 7 days, and decide date, time and place. Write in Swedish or English (some find Google Translate as a good tool). It is the responsibility of both that you establish contact. Remember to respect each other, not responding an email will affect the other person who has been looking forward to a meeting. Contact us if you don’t get answer.
+
+We recommend that you exchange telephone numbers and send a text message as a reminder the day before your meeting, that the other person confirm.
+
+2. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high expectations but take it as it comes. Be in time! The boring meetings is when someone doesn’t show up on time.
+
+3. The stories from your meetings are always so inspiring. If you want, take a photo during your meeting and tell us more about what you did and how it was (with approval from both of you). If you send it to us, and we will share it digitally. Or feel free to hashtag #kompisbyrån or #kompisbyran
+
+You are always welcome to contact us if anything was not what you expected.
+
+We wish you a nice meeting!
+
+Best regards,
+Your friends at Kompisbyrån

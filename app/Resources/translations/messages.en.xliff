@@ -782,65 +782,6 @@
                     </p>
                 ]]></target>
             </trans-unit>
-            <trans-unit id="match.email.user">
-                <source>match.email.user</source>
-                <target><![CDATA[(This message will follow in English)
-
-Hej %user_name%!
-
-Nu har vi hittat en %match_music_friend% till dig. %match_gender% heter %match_name% och ni båda gillar %match_categories%, så nu vet du några samtalsämnen du kan inleda er första fika med. %match_name% är %match_age% år gammal, bor i %match_area% och kommer från %match_from%. %match_gender% träffas gärna i %match_city%.
-
-Din %match_music_friend% email är: %match_email% Vi har också skickat din email till din %match_music_friend%.
-
-Gör så här:
-
-1. Bestäm ett datum. Du mailar personen inom 7 dagar och bestämmer datum, tid och plats. Skriv gärna på svenska och engelska. Det är bådas ansvar att ni etablerar kontakt med varandra. Kom ihåg att respektera varandra, att inte svara på ett mail påverkar den andra personen som har sett fram emot ett möte. Kontakta oss om du inte får svar.
-
-Vi rekommenderar att ni byter telefonnummer och skickar en sms-påminnelse dagen innan er fika som den andra personen bekräftar.
-
-2. Ni träffas! Ni träffas på ett kafé eller annat offentligt ställe i cirka 1 timme. Försök att inte ha höga förväntningar utan ta det som det kommer. Kom i tid! De tråkiga träffarna är när någon inte dyker upp på utsatt tid.
-
-3. Om ni vill, ta gärna ett foto från ert möte och skriva några rader om vad ni gjorde och hur det var (med bådas samtycke). Maila hälsningen till oss så delar vi den gärna digitalt för att inspirera fler till att vara med. Eller hashtagga själv med #kompisbyrån eller #kompisbyran. 
-
-Du är alltid välkommen att höra av dig till oss om något inte blev som du tänkt dig. 
-
-Vi önskar er ett trevligt möte!
-
-Bästa hälsningar
-Vännerna på Kompisbyrån
-
-
---------- English version ---------
-
-Hello %user_name%!
-
-We have now found a good match for you. The person you will meet is %match_name% and both of you like %match_categories%. So now you know what topics you can start the conversation with on your first fika meeting. %match_name% is %match_age% years old, lives in %match_area% and is from %match_from%. %match_name% would like to meet you in %match_city%.
-
-The email adress to %match_name% is: %match_email%. We have also sent your email adress to %match_name%.
-
-Please follow the steps below:
-
-1. Decide a date. You send an email to %match_name% within 7 days, and decide date, time and place. Write in Swedish or English (some find Google Translate as a good tool). It is the responsibility of both that you establish contact. Remember to respect each other, not responding an email will affect the other person who has been looking forward to a meeting. Contact us if you don’t get answer.
-
-We recommend that you exchange telephone numbers and send a text message as a reminder the day before your meeting, that the other person confirm.
-
-2. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high expectations but take it as it comes. Be in time! The boring meetings is when someone doesn’t show up on time. 
-
-3. The stories from your meetings are always so inspiring. If you want, take a photo during your meeting and tell us more about what you did and how it was (with approval from both of you). If you send it to us, and we will share it digitally. Or feel free to hashtag #kompisbyrån or #kompisbyran
-
-You are always welcome to contact us if anything was not what you expected.
-
-We wish you a nice meeting!
-
-
-Best regards,
-Your friends at Kompisbyrån
-]]></target>
-            </trans-unit>
-            <trans-unit id="match.email.user.subject">
-                <source>match.email.user.subject</source>
-                <target>%user_name%, here is your %match_music_friend% from Kompisbyrån</target>
-            </trans-unit>
             <trans-unit id="user.form.fikatype">
                 <source>user.form.fikatype</source>
                 <target>I want to be:</target>
