@@ -65,10 +65,11 @@ class UserMailer extends Mailer
      */
     public function sendMatchEmailMessage(User $user, User $matchUser, $body, $fromEmail)
     {
-        $subject    = $this->translator->trans('match.email.user.subject', [
-            '%match_music_friend%'    => ($matchUser->getType() == FriendTypes::MUSIC ?  $this->translator->trans('global.music_buddy'):  $this->translator->trans('global.fika_buddy')),
-            '%user_name%'             => $user->getFullName()
-        ]);
+        $typeText = $matchUser->getType() == FriendTypes::MUSIC
+            ? $this->translator->trans('global.music_buddy')
+            : $this->translator->trans('global.fika_buddy');
+
+        $subject = sprintf('%s, här är din %s från Kompisbyrån', $user->getFullName(), $typeText);
 
         $this->sendEmailMessage(null, $body, $subject, $user->getEmail(), $fromEmail, $fromEmail);
     }

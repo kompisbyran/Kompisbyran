@@ -180,11 +180,11 @@ class MatchController extends Controller
 
         return new JsonResponse([
             'success'               => true,
-            'user_message'          => $this->templating->render('email/match_email.html.twig', [
+            'user_message'          => $this->templating->render('email/matchEmail.txt.twig', [
                 'user'      => $user,
                 'matchUser' => $matchUser,
                 'request'   => $matchUserRequest]),
-            'match_user_message'    => $this->templating->render('email/match_email.html.twig', [
+            'match_user_message'    => $this->templating->render('email/matchEmail.txt.twig', [
                 'user'      => $matchUser,
                 'matchUser' => $user,
                 'request'   => $userRequest])
