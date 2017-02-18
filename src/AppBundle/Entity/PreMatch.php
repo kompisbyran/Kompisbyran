@@ -37,7 +37,7 @@ class PreMatch
     /**
      * @var ConnectionRequest
      *
-     * @ORM\OneToOne(targetEntity="ConnectionRequest", inversedBy="fluentSpeakerPreMatch")
+     * @ORM\OneToOne(targetEntity="ConnectionRequest", inversedBy="learnerPreMatch")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $learnerConnectionRequest;

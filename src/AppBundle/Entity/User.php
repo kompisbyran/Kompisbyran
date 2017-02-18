@@ -367,7 +367,7 @@ class User extends BaseUser
     /**
      * @var ConnectionComment[]
      *
-     * @ORM\OneToMany(targetEntity="ConnectionComment", mappedBy="connection")
+     * @ORM\OneToMany(targetEntity="ConnectionComment", mappedBy="user")
      */
     protected $comments;
 
