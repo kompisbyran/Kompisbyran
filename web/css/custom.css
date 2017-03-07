@@ -24,7 +24,7 @@
     text-align: center;
     font-size: 14px;
     color: #fff;
-    background: #F76753;
+    background: #F16B46;
     text-decoration: none !important;
 }
 
@@ -32,10 +32,10 @@
     font-size: 14px;
     font-weight: bold;
     border-radius: 3px;
-    border: solid 1px #F76753;
+    border: solid 1px #F16B46;
     color: #fff;
     transition: all 0.3s;
-    background: #F76753;
+    background: #F16B46;
 }
 
 .candidate {
@@ -51,7 +51,7 @@
     margin-top: 20px;
     text-align: center;
     font-weight: bold;
-    color: #F76753;
+    color: #F16B46;
 }
 
 .candidate .interests {
@@ -59,7 +59,7 @@
 }
 
 .matches {
-    color: #F76753;
+    color: #F16B46;
 }
 
 .candidate .presentation {
@@ -95,7 +95,7 @@ div.candidate a.google-link {
 }
 
 div.candidate span.matches a.google-link {
-    color: #F76753;
+    color: #F16B46;
     text-decoration: none;
 }
 
