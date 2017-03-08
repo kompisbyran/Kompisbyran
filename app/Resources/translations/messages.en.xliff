@@ -797,11 +797,11 @@
             <trans-unit id="footer.text1">
                 <source>footer.text1</source>
                 <target>
-                    Kompisbyrån is an non-profit organization since 2014. We connect new fika friends with 
+                    Kompisbyrån is a non-profit organization since 2014. We connect new fika friends with 
                     different backgrounds and experiences but with similar interests. A new and an established 
                     Swede meet to practise Swedish over a “fika”. We want to make integration easy and accessible. 
                     Today, Kompisbyrån is active in 9 cities, has a dozen active ambassadours, and nearly 10 000 
-                    contacts from 126 countries has been mediated.
+                    contacts from 126 countries have been mediated.
                 </target>
             </trans-unit>
             <trans-unit id="footer.text2">
