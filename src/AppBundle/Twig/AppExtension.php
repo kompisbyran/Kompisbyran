@@ -176,7 +176,7 @@ class AppExtension extends \Twig_Extension
         foreach ($matchUser->getCategoryNames() as $id => $name) {
             foreach ($user->getCategoryNames() as $userCatId => $userCatName) {
                 if ($id == $userCatId) {
-                    $matches[] = $userCatName;
+                    $matches[] = strtolower($userCatName);
                     break;
                 }
             }
