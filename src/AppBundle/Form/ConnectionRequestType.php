@@ -89,6 +89,7 @@ class ConnectionRequestType extends AbstractType
                 'choices' => [
                     'M' => 'user.form.gender.m',
                     'F' => 'user.form.gender.f',
+                    'X' => 'user.form.gender.x',
                 ]
             ])
             ->add('extraPersonType', 'choice', [
