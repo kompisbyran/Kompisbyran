@@ -82,6 +82,7 @@ class UserType extends AbstractType
                 'choices' => [
                     'M' => 'user.form.gender.m',
                     'F' => 'user.form.gender.f',
+                    'X' => 'user.form.gender.x',
                 ]
             ])
             ->add('about', 'textarea', ['label' => 'user.form.about'])
