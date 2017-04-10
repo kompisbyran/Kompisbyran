@@ -389,7 +389,7 @@
             <trans-unit id="user.form.type.start.help">
                 <source>user.form.type.start.help</source>
                 <target>
-                    You will be connected with a person who you meet and go for a walk with to discover the area where you both live. Right now, you can sign up if you live in Lidingö, Nynäshamn, Solna, Vaxholm or Österåker.
+                    You will be connected with a person who you meet and go for a walk with to discover the area where you both live. Right now, you can sign up if you live in Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm or Österåker.
                 </target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
@@ -500,7 +500,7 @@
                     Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro. 
                     
                     As a Start friend, you meet in 1 of 5 municipalities in Stockholm county: Lidingö, Nynäshamn, 
-                    Solna, Vaxholm or Österåker. 
+                    Solna, Tyresö, Vaxholm or Österåker.
                 </target>
             </trans-unit>
             <trans-unit id="index.header">
@@ -624,7 +624,7 @@
                             in more cities in the future. 
                         </li>
                         <li>
-                            As a Start friend, you must be able to meet in 1 of 5 municipalities: Lidingö, Nynäshamn, Solna, Vaxholm or Österåker. 
+                            As a Start friend, you must be able to meet in 1 of 6 municipalities: Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm or Österåker.
                         </li>
                         <li>
                             Kompisbyrån is only responsible for linking together people who have lived in Sweden for a short time with people 
@@ -962,7 +962,7 @@
                         </p>
                         <p>
                             Kompisbyrån operates in 9 cities in Sweden: Göteborg, Jönköping, Linköping, Malmö, Stockholm, 
-                            Umeå, Uppsala, Västerås and Örebro; and 5 municipalities: Lidingö, Nynäshamn, Solna, Vaxholm and Österåker.
+                            Umeå, Uppsala, Västerås and Örebro; and 6 municipalities: Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm and Österåker.
                         </p>
                         <p>
                             "Many Swedes associate a “fika” with something relaxed and fun, and is often perceived as central 
@@ -1050,7 +1050,7 @@
                         </p>
                         <p>
                             Go for an 1 hour walk together with an established local who has lived in your neighborhood for a long time. You must live in one of these 
-                            municipalities: Lidingö, Nynäshamn, Solna, Vaxholm or Österåker.  
+                            municipalities: Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm or Österåker.
                         </p>
                         <p>
                             <strong>How to sign up for a Start friend:</strong>
