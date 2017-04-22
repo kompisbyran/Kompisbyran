@@ -1154,7 +1154,7 @@
             <trans-unit id="page.start.well">
                 <source>page.start.well</source>
                 <target>
-                    ...
+                    För att bli startkompis måste du bo i någon av dessa kommuner: Nynäshamn, Vaxholm, Österåker, Lidingö, Solna eller Tyresö.
                 </target>
             </trans-unit>
             <trans-unit id="occupation.employed">

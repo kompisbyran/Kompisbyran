@@ -148,11 +148,11 @@
             </trans-unit>
             <trans-unit id="homepage.cta.start.header">
                 <source>homepage.cta.start.header</source>
-                <target>Lär känna eller visa närområdet</target>
+                <target>Get to know or show the neighborhood</target>
             </trans-unit>
             <trans-unit id="homepage.cta.start.header.strong">
                 <source>homepage.cta.start.header.strong</source>
-                <target>Startkompis</target>
+                <target>Start friend</target>
             </trans-unit>
             <trans-unit id="homepage.cta.start.message">
                 <source>homepage.cta.start.message</source>
@@ -867,7 +867,7 @@
             <trans-unit id="page.how_it_works.well">
                 <source>page.how_it_works.well</source>
                 <target>
-                    We mediate the firs contact to a new fika friend that you meet 1 time (if you two don’t decide other). If you want to meet 
+                    We mediate the first contact to a new fika friend that you meet 1 time (if you two don’t decide otherwise). If you want to meet 
                     a new person, you can log in and make a new request. 
                 </target>
             </trans-unit>
@@ -1078,7 +1078,7 @@
             <trans-unit id="page.start.well">
                 <source>page.start.well</source>
                 <target>
-                    ...
+                    To become start friends you need to live in one of these municipalities: Nynäshamn, Vaxholm, Österåker, Lidingö, Solna or Tyresö.
                 </target>
             </trans-unit>
             <trans-unit id="occupation.employed">
