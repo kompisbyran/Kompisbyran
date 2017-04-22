@@ -1078,7 +1078,7 @@
             <trans-unit id="page.start.well">
                 <source>page.start.well</source>
                 <target>
-                    To become start friends you need to live in one of these municipalities: Nynäshamn, Vaxholm, Österåker, Lidingö, Solna eller Tyresö.
+                    To become start friends you need to live in one of these municipalities: Nynäshamn, Vaxholm, Österåker, Lidingö, Solna or Tyresö.
                 </target>
             </trans-unit>
             <trans-unit id="occupation.employed">
