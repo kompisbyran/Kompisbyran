@@ -485,8 +485,8 @@
                     <p>Här svarar du på några frågor om dig själv. Ju tydligare du berättar om vem du är som person, 
                     desto större är chansen att vi hittar en bra matchning.</p><br />
 
-                    <p>Som Fikakompis eller Musikkompis träffas ni i 1 av 9 städer där vi har verksamhet: Göteborg, 
-                    Jönköping, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro. Som Startkompis 
+                    <p>Som Fikakompis eller Musikkompis träffas ni i 1 av 10 städer där vi har verksamhet: Göteborg, 
+                    Jönköping, Kalmar, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro. Som Startkompis 
                     träffas ni i 1 av 6 kommuner i Stockholm: Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm eller Österåker.</p><br />
 
                     <p>Tänk på att ju fler önskemål/begränsningar du fyller i, desto längre tid kan det dröja. 
@@ -611,7 +611,7 @@
                             på liknande musikintressen och nya startkompisar baserat på den kommun ni bor i. 
                         </li>
                         <li>
-                            Som fikakompis eller musikkompis måste kunna träffas i Göteborg, Jönköping, Linköping, Malmö, 
+                            Som fikakompis eller musikkompis måste du kunna träffas i Göteborg, Jönköping, Kalmar, Linköping, Malmö, 
                             Stockholm, Umeå, Uppsala, Västerås eller Örebro. Vi hoppas kunna länka samman nya kompisar i fler 
                             städer i framtiden.
                         </li>
@@ -869,7 +869,7 @@
                     syftar till att öka gemenskapen i samhället mellan nya och etablerade svenskar. Kompisbyrån 
                     matchar nya och etablerade svenskar som träffas som fikakompisar, musikkompisar eller startkompisar. 
                     Vi erbjuder enkla former av vardagsintegration för att göra det lätt och kul för alla att engagera sig! 
-                    Idag finns Kompisbyrån i nio städer, tjugotal aktiva arbetar ideellt och ungefär 10 000 kontakter från 
+                    Idag finns Kompisbyrån i tio städer, tjugotal aktiva arbetar ideellt och ungefär 10 000 kontakter från 
                     över 126 länder har förmedlats.
                 </target>
             </trans-unit>
@@ -1036,7 +1036,7 @@
                             svenska under 1 timmes fika. Det är det vi kallar för en kompisfika.
                         </p>
                         <p>
-                            Vi har verksamhet i nio städer i Sverige; Göteborg, Jönköping, Linköping, Malmö, Stockholm,
+                            Vi har verksamhet i tio städer i Sverige; Göteborg, Jönköping, Kalmar, Linköping, Malmö, Stockholm,
                             Umeå, Uppsala, Västerås och Örebro. Möjliggör vi tillräckligt många möten får nya
                             svenskar bättre svenskkunskaper, breddat socialt nätverk och ökade möjligheter till jobb.
                             Fler vardagsmöten leder också till en ökad förståelse för varandra och en berikande tillvaro.
@@ -1056,23 +1056,24 @@
                     <![CDATA[
                         <h4>Vi som jobbar med Kompisbyrån</h4>
                         <p>
-                            Kansli<br> 
-                            Linda Kaplan, operativ ledare, <a href="mailto:linda@kompisbyran.se ">linda@kompisbyran.se </a><br>
-                            Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se ">clara@kompisbyran.se </a><br>
-                            Emma Hammar, grundare och verksamhetsledare (föräldraledig), <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a><br>
-
-                            IT<br>
+                            <b>Kansli</b><br> 
+                            Linda Kaplan, operativ ledare, <a href="mailto:linda@kompisbyran.se">linda@kompisbyran.se</a><br>
+                            Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se">clara@kompisbyran.se</a><br>
+                            Emma Hammar, grundare och verksamhetsledare (föräldraledig), <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a><br>
+                            <br>
+                            <b>IT</b><br>
                             Jon Gotlin, IT-ansvarig<br>
                             Andreas Lundquist, IT<br>
-
-                            Kompisledare<br> 
+                            <br>
+                            <b>Kompisledare</b><br> 
                             Helena Rewucha, Kompisledare Göteborg<br> 
                             Robert Thörnqvist, Kompisledare Göteborg<br>
                             Jens Östgaard, Kompisledare Göteborg<br>
                             Helena Wannberg, Kompisledare Örebro<br> 
                             Sofia Winroth, Kompisledare Örebro<br>
-                            
-                            Ambassadörer<br>  
+                            Nienke Bakker, Kompisledare Kalmar<br>
+                            <br>
+                            <b>Ambassadörer</b><br>  
                             Hedda Grew, ambassadör Linköping<br> 
                             Gabriella Hernqvist, ambassadör matchning<br> 
                             Cecilia Holmgren, grundare och ambassadör matchning<br> 
@@ -1081,8 +1082,8 @@
                             Heydar Sheykhali, ambassadör matchning<br>  
                             Jennifer Silander, ambassadör matchning<br> 
                             Alexander Unge, ambassadör matchning<br> 
-                       
-                            Eventansvariga<br>
+                            <br>
+                            <b>Eventansvariga</b><br>
                             Mari Multamäki, eventansvarig Stockholm<br> 
                             Elisabeth Rimér-Asplund, eventansvarig Stockholm<br> 
                             Maria Waldekranz, eventansvarig Stockholm<br> 
@@ -1097,15 +1098,16 @@
                     <![CDATA[
                         <p>
                             Frågor?<br> 
-                            Fikakompis/Musikkompis: <a href="mailto:matchning@kompisbyran.se ">matchning@kompisbyran.se </a><br>  
-                            Startkompis: <a href="mailto:start@kompisbyran.se ">start@kompisbyran.se </a><br>   
-                            Göteborg: <a href="mailto:goteborg@kompisbyran.se ">goteborg@kompisbyran.se </a><br> 
-                            Malmö: <a href="mailto:malmo@kompisbyran.se ">malmo@kompisbyran.se </a><br> 
-                            Stockholm: <a href="mailto:stockholm@kompisbyran.se ">stockholm@kompisbyran.se </a><br> 
-                            Örebro: <a href="mailto:orebro@kompisbyran.se ">orebro@kompisbyran.se </a><br>                             
-                            Event: <a href="mailto:event@kompisbyran.se">event@kompisbyran.se </a><br> 
-                            Samarbete, rekrytering eller press: <a href="mailto:emma@kompisbyran.se  ">emma@kompisbyran.se  </a><br>   
-                            Övrigt: <a href="mailto:kontakt@kompisbyran.se ">kontakt@kompisbyran.se </a><br>   
+                            Fikakompis/Musikkompis: <a href="mailto:matchning@kompisbyran.se">matchning@kompisbyran.se</a><br>  
+                            Startkompis: <a href="mailto:start@kompisbyran.se">start@kompisbyran.se</a><br>   
+                            Göteborg: <a href="mailto:goteborg@kompisbyran.se">goteborg@kompisbyran.se</a><br>
+                            Kalmar: <a href="mailto:kalmar@kompisbyran.se">kalmar@kompisbyran.se</a><br>
+                            Malmö: <a href="mailto:malmo@kompisbyran.se">malmo@kompisbyran.se</a><br> 
+                            Stockholm: <a href="mailto:stockholm@kompisbyran.se">stockholm@kompisbyran.se</a><br> 
+                            Örebro: <a href="mailto:orebro@kompisbyran.se">orebro@kompisbyran.se</a><br>                             
+                            Event: <a href="mailto:event@kompisbyran.se">event@kompisbyran.se</a><br> 
+                            Samarbete, rekrytering eller press: <a href="mailto:emma@kompisbyran.se ">emma@kompisbyran.se </a><br>   
+                            Övrigt: <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a><br>   
                         </p>
                     ]]>
                 </target>
