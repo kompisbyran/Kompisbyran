@@ -380,7 +380,7 @@
                 <source>user.form.type.start.help</source>
                 <target>
                     Du blir matchad med en person för att gå en promenad ihop och lära känna området där ni båda bor.
-                    Just nu kan du bli Startkompis i Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm och Österåker.
+                    Just nu kan du bli Startkompis i %municipalities%.
                 </target>
             </trans-unit>
             <trans-unit id="user.form.facebook">
@@ -487,7 +487,7 @@
 
                     <p>Som Fikakompis eller Musikkompis träffas ni i 1 av 10 städer där vi har verksamhet: Göteborg, 
                     Jönköping, Kalmar, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro. Som Startkompis 
-                    träffas ni i 1 av 6 kommuner i Stockholm: Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm eller Österåker.</p><br />
+                    träffas ni i en av följande kommuner: %municipalities%.</p><br />
 
                     <p>Tänk på att ju fler önskemål/begränsningar du fyller i, desto längre tid kan det dröja. 
                     För att öka chanserna till en snabb matchning - gå in med öppet sinne!</p><br /> 
@@ -616,7 +616,7 @@
                             städer i framtiden.
                         </li>
                         <li>
-                            Som Startkompis måste du kunna träffas i kommunerna Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm eller Österåker.
+                            Som Startkompis måste du kunna träffas i kommunerna %municipalities%.
                         </li>
                         <li>
                             Kompisbyrån ansvarar endast för att länka samman personer som har bott i Sverige under kortare tid med 
@@ -1123,8 +1123,7 @@
                         <p>
                             Nu har du chansen att lära känna en ny kompis över en promenad i ditt närområde. I vårt nya projekt 
                             Startkompis kan du som etablerad svensk erbjuda 1 timmes promenad med en nyanländ för att visa dina 
-                            smultronställen i er kommun. Du måste bo i någon av dessa kommuner: Lidingö, Nynäshamn, Solna, Tyresö,
-                            Vaxholm eller Österåker.
+                            smultronställen i er kommun. Du måste bo i någon av dessa kommuner: %municipalities%.
                         </p>
                         <p>
                             <strong>Så här blir du en Startkompis:</strong>
@@ -1156,7 +1155,7 @@
             <trans-unit id="page.start.well">
                 <source>page.start.well</source>
                 <target>
-                    För att bli startkompis måste du bo i någon av dessa kommuner: Nynäshamn, Vaxholm, Österåker, Lidingö, Solna eller Tyresö.
+                    För att bli startkompis måste du bo i någon av dessa kommuner: %municipalities%.
                 </target>
             </trans-unit>
             <trans-unit id="occupation.employed">

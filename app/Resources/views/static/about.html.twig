@@ -7,7 +7,7 @@
             <h2><strong>{{ 'page.about.header'|trans }}</strong></h2>
             <div class="row">
                 <div class="col-md-8 col-sm-8">
-                    {{ 'page.about.text'|trans|raw }}
+                    {{ 'page.about.text'|trans({'%municipalities%': start_friend_municipalities()})|raw }}
                     <img src="/images/Kompis2.JPG" class="img-responsive" alt="Vi som jobbar med Kompisbyrån" />
                 </div>
                 <div class="col-md-4 col-sm-4">
