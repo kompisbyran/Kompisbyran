@@ -24,6 +24,14 @@ services:
         tags:
             - { name: twig.extension }
 
+    twig.municipality_extension:
+        class: AppBundle\Twig\MunicipalityExtension
+        arguments:
+            - '@translator'
+            - '@municipality_repository'
+        tags:
+            - { name: twig.extension }
+
     app.locale_listener:
         class: AppBundle\EventListener\LocaleListener
         arguments: ["%kernel.default_locale%"]
