@@ -48,7 +48,7 @@ class MunicipalityExtension extends \Twig_Extension
     /**
      * @return string
      */
-    public function startFriendMunicipalities()
+    public function startFriendMunicipalities($lastNameSeparatorTranslationKey = 'global.and')
     {
         $municipalityNames = [];
         $municipalities = $this->municipalityRepository->findAllStartMunicipalities();
@@ -65,6 +65,6 @@ class MunicipalityExtension extends \Twig_Extension
 
         $last = array_pop($municipalityNames);
 
-        return implode(', ', $municipalityNames) . ' '.  $this->translator->trans('and') .' '. $last;
+        return implode(', ', $municipalityNames) . ' '.  $this->translator->trans($lastNameSeparatorTranslationKey) .' '. $last;
     }
 }

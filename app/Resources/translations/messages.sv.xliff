@@ -23,8 +23,12 @@
                 <target>han</target>
             </trans-unit>
             <trans-unit id="global.and">
-                <source>and</source>
+                <source>global.and</source>
                 <target>och</target>
+            </trans-unit>
+            <trans-unit id="global.or">
+                <source>global.or</source>
+                <target>eller</target>
             </trans-unit>
             <trans-unit id="global.his">
                 <source>global.his</source>
@@ -616,7 +620,7 @@
                             städer i framtiden.
                         </li>
                         <li>
-                            Som Startkompis måste du kunna träffas i kommunerna %municipalities%.
+                            Som Startkompis måste du kunna träffas i kommunerna Lidingö, Nynäshamn, Solna, Tyresö, Vaxholm eller Österåker.
                         </li>
                         <li>
                             Kompisbyrån ansvarar endast för att länka samman personer som har bott i Sverige under kortare tid med 

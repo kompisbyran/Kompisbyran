@@ -9,7 +9,7 @@
                 <div class="col-md-8 col-sm-12">
                     <h2>{{ 'terms.header'|trans }}</h2>
                     <p> {{ 'terms.ingress'|trans }}</p>
-                    {{ 'terms.list'|trans({'%municipalities%': start_friend_municipalities()}) | raw }}
+                    {{ 'terms.list'|trans({'%municipalities%': start_friend_municipalities('global.or')}) | raw }}
                     <p>{{ 'terms.outro'|trans }}</p>
                 </div>
             </div>

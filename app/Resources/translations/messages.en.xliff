@@ -23,8 +23,12 @@
                 <target>he</target>
             </trans-unit>
             <trans-unit id="global.and">
-                <source>and</source>
+                <source>global.and</source>
                 <target>and</target>
+            </trans-unit>
+            <trans-unit id="global.or">
+                <source>global.or</source>
+                <target>or</target>
             </trans-unit>
             <trans-unit id="global.his">
                 <source>global.his</source>

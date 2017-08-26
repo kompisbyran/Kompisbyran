@@ -237,7 +237,7 @@ class UserManager implements ManagerInterface
 
         if (count($availabilities) > 1) {
             $lastItem = array_pop($availabilities);
-            $string = implode(', ', $availabilities) .' '.  $this->translator->trans('and') .' '. $lastItem;
+            $string = implode(', ', $availabilities) .' '.  $this->translator->trans('global.and') .' '. $lastItem;
         } else {
             $string = implode(', ', $availabilities);
         }
@@ -295,7 +295,7 @@ class UserManager implements ManagerInterface
         $categoryNames  = array_values($user->getCategoryNames());
         if (count($categoryNames) > 1) {
             $lastCategory   = array_pop($categoryNames);
-            $categories = implode(', ', $categoryNames) .' '.  $this->translator->trans('and') .' '. $lastCategory;
+            $categories = implode(', ', $categoryNames) .' '.  $this->translator->trans('global.and') .' '. $lastCategory;
         } else {
             $categories = implode(', ', $categoryNames);
         }
@@ -321,7 +321,7 @@ class UserManager implements ManagerInterface
         }
         if (count($categories) > 1) {
             $lastCategory   = array_pop($categories);
-            $categories     = implode(', ', $categories) .' '.  $this->translator->trans('and') .' '. $lastCategory;
+            $categories     = implode(', ', $categories) .' '.  $this->translator->trans('global.and') .' '. $lastCategory;
         } else {
             $categories     = implode(', ', $categories);
         }

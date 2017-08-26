@@ -193,7 +193,7 @@ class AppExtension extends \Twig_Extension
     {
         if (count($categories) > 1) {
             $lastCategory   = array_pop($categories);
-            $categories = implode(', ', $categories) .' '.  $this->translator->trans('and') .' '. $lastCategory;
+            $categories = implode(', ', $categories) .' '.  $this->translator->trans('global.and') .' '. $lastCategory;
         } else {
             $categories = implode(', ', $categories);
         }
