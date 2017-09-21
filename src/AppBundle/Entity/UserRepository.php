@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Entity;
 
+use AppBundle\Enum\MatchingProfileRequestTypes;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\User;
 use AppBundle\Entity\ConnectionRequest;
@@ -76,6 +77,10 @@ class UserRepository extends EntityRepository
             'user_music_categories' => array_values($user->getMusicCategoryIds())
         ];
 
+        if ($userRequest->getMatchingProfileRequestType()) {
+            $criterias['matchingCriterias'] = $userRequest->getMatchingProfileRequestType();
+        }
+
         $where  = $this->prepareMatchCriterias($criterias);
         $rsm    = new \Doctrine\ORM\Query\ResultSetMapping();
         $sql    = "SELECT *, (COALESCE(SUM(cat_score),0) + SUM(age_score) + SUM(area_score) + SUM(children_score) + SUM(gender_score) + COALESCE(SUM(music_cat_score),0)) AS score
@@ -147,7 +152,7 @@ class UserRepository extends EntityRepository
         $where  = ['u.enabled = true'];
         $fields = array_keys($criterias);
         foreach($fields as $field) {
-            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'type' || $field === 'q' || $field == 'municipality_id' || $field == 'inspected') {
+            if ($field === 'ageFrom' || $field === 'ageTo' || $field === 'category_id' || $field === 'city_id' || $field === 'type' || $field === 'q' || $field == 'municipality_id' || $field == 'inspected' || $field == 'matchingCriterias') {
                 continue;
             }
             $where[] = 'u.'.$field .' = :'.$field;
@@ -172,6 +177,9 @@ class UserRepository extends EntityRepository
         }
         if (isset($criterias['municipality_id'])) {
             $where[] = 'cr.municipality_id = :municipality_id';
+        }
+        if (isset($criterias['matchingCriterias']) && $criterias['matchingCriterias'] == MatchingProfileRequestTypes::SAME_GENDER) {
+            $where[] = 'u.gender = :user_gender';
         }
 
         return implode(' AND ', $where);
