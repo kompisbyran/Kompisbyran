@@ -100,6 +100,7 @@ class UserRepository extends EntityRepository
                   AND cr.inspected = true
                   AND cr.disqualified = false
                   and u.enabled = true
+                  AND (cr.matching_profile_request_type IS NULL OR cr.matching_profile_request_type != 'same_gender' OR u.gender = :user_gender)
                   AND $where
                   GROUP BY u.id
               ) temp
