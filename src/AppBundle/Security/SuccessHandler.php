@@ -44,6 +44,16 @@ class SuccessHandler implements AuthenticationSuccessHandlerInterface
                     $this->router->generate('pre_matches', ['id' => $user->getAdminMunicipalities()[0]->getId()])
                 );
             }
+
+            if ('ROLE_MUNICIPALITY_ADMIN' == $role->getRole()) {
+                /** @var User $user */
+                $user = $token->getUser();
+                if ($user->getAdminMunicipalities()) {
+                    return new RedirectResponse(
+                        $this->router->generate('municipality_waiting', ['id' => $user->getAdminMunicipalities()[0]->getId()])
+                    );
+                }
+            }
         }
 
         return new RedirectResponse($this->router->generate('homepage'));
