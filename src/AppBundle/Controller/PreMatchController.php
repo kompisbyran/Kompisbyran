@@ -36,7 +36,7 @@ class PreMatchController extends Controller
 
         $this->get('manager.pre_match')->createMatches($municipality);
 
-        if ($this->isGranted('ROLE_ADMIN')) {
+        if ($this->isGranted('ROLE_ADMIN') || $this->isGranted('ROLE_MUNICIPALITY_ADMIN')) {
             $this->getDoctrine()->getManager()->refresh($municipality);
             $preMatches = $municipality->getPreMatches();
         } else {
