@@ -22,3 +22,10 @@ parameters:
 
     facebook.client_id: 111111111
     facebook.client_secret: asdfasdf
+
+    amazon_s3.key: xxxxxxx
+    amazon_s3.secret: xxxxx
+    amazon_s3.region: eu-central-1
+    amazon_s3.bucket: kompisbyran
+
+    deadmanssnitch_url: https://nosnch.in/xxxxx
