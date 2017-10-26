@@ -24,6 +24,8 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new Dizda\CloudBackupBundle\DizdaCloudBackupBundle(),
+            new JGI\DeadmanssnitchBundle\JGIDeadmanssnitchBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

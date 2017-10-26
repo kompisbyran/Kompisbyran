@@ -108,3 +108,16 @@ white_october_pagerfanta:
     exceptions_strategy:
         out_of_range_page:        ~
         not_valid_current_page:   ~
+
+dizda_cloud_backup:
+    output_file_prefix: kompisbyran
+    cloud_storages:
+        gaufrette:
+            service_name: [s3.file_system]
+    databases:
+        mysql:
+            all_databases: false
+            database: %database_name%
+
+jgi_deadmanssnitch:
+    url: %deadmanssnitch_url%

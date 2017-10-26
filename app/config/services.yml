@@ -99,3 +99,24 @@ services:
 
     datetime:
         class: DateTime
+
+    s3.client:
+        class: Aws\S3\S3Client
+        factory_class: Aws\S3\S3Client
+        factory_method: 'factory'
+        arguments:
+            -
+                key: %amazon_s3.key%
+                secret: %amazon_s3.secret%
+                region: %amazon_s3.region%
+
+    s3.adapter:
+        class: Gaufrette\Adapter\AwsS3
+        arguments:
+            service: @s3.client
+            bucket_name: %amazon_s3.bucket%
+
+    s3.file_system:
+        class: Gaufrette\Filesystem
+        arguments:
+            adapter: @s3.adapter
