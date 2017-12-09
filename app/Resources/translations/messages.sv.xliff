@@ -954,8 +954,8 @@
                 <source>page.work_with_us.header</source>
                 <target>Stöd oss</target>
             </trans-unit>
-            <trans-unit id="page.work_with_us.text">
-                <source>page.work_with_us.text</source>
+            <trans-unit id="page.work_with_us.text1">
+                <source>page.work_with_us.text1</source>
                 <target>
                     <![CDATA[
                         <h3>Stöd oss!</h3>
@@ -971,11 +971,18 @@
                             där alla kan känna sig delaktiga och välkomna.
                         </p>
                         <p>
-                            <strong>Stötta Kompisbyrån – Swisha en Kompisfika</strong>
+                            <strong>Du kan bidra till ökad gemenskap - ge bort en kompisfika!</strong>
                         </p>
                         <p>
-                            <strong>Vill du hjälpa oss att hjälpa fler kompisar att hitta varandra över en kaffe? Kul! Nu har vi nämligen fått Swish! Varenda krona vi får in går till att skapa fler möjligheter för nyanlända och etablerade svenskar att mötas. Swisha 300 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt stöd!</strong>
+                            <strong>Att framgångsrikt öka gemenskapen mellan nya och etablerade svenskar är en av vår tids viktigaste utmaningar. Vill du se till att fler nya kompisar möts och finner varandra över en kaffe? Ge bort en kompisfika! Swisha 150 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt bidrag!</strong>
                         </p>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="page.work_with_us.text2">
+                <source>page.work_with_us.text2</source>
+                <target>
+                    <![CDATA[
                         <p>
                             Vi vill gärna ge dig ett personligt gåvobevis som tack - maila kontakt@kompisbyran.se så skickar vi över det!
                         </p>
