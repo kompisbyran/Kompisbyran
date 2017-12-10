@@ -214,6 +214,7 @@ class UserType extends AbstractType
             ->add('identityNumber', 'text', [
                 'label' => 'user.form.identity_number',
                 'required' => false,
+            ])
             ->add('termsAccepted', 'checkbox', [
                 'mapped' => false,
                 'constraints' => $constraint,
