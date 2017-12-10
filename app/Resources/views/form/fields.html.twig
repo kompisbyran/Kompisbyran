@@ -7,3 +7,11 @@
 {% block form_group_class -%}
 	col-sm-4
 {%- endblock form_group_class %}
+
+
+{% block _user_termsAccepted_widget %}
+    <input type="checkbox" {{ block('widget_attributes') }} />
+    <label for="fos_user_registration_form_termsAccepted">
+        {{ 'register.form.terms'|trans({'%linkStart%': '<a href="' ~ path('terms') ~ '">', '%linkEnd%': '</a>'})|raw }}
+    </label>
+{% endblock %}
