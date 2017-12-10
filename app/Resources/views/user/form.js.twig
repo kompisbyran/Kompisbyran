@@ -75,4 +75,30 @@ $(document).ready(function() {
         }
     });
     $('input[name="user[connectionRequests][0][extraPerson]"]').eq(0).trigger('change');
+
+
+    $('input[name$="[newlyArrived]"]').change(function() {
+        if ($('input[name$="[newlyArrived]"]:checked').val() == '1') {
+            $('#identityNumber').show();
+            $('#identityNumber').removeClass('hidden');
+        } else {
+            $('#identityNumber').hide();
+            $('#user_identityNumber').val('');
+        }
+    });
+
+    $('input[name$="[wantToLearn]"]').change(function() {
+        $('input[name$="[newlyArrived]"]').eq(0).trigger('change');
+        if ($('input[name$="[wantToLearn]"]:checked').val() == '0') {
+            $('#newlyArrived').show();
+            $('#newlyArrived').removeClass('hidden');
+        } else {
+            $('#newlyArrived').hide();
+            $('#user_newlyArrived').val('');
+            $('#identityNumber').hide();
+            $('#user_identityNumber').val('');
+        }
+    });
+    $('input[name$="[wantToLearn]"]').eq(0).trigger('change');
+
 });

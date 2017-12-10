@@ -40,6 +40,28 @@
     </div>
 </div>
 
+<div class="form-group hidden" id="newlyArrived">
+    <div class="col-lg-4 text-right">
+        <label class="control-label required">{{ 'user.form.newly_arrived'|trans }}</label>
+        <p>{{ 'user.form.newly_arrived.help'|trans }}</p>
+    </div>
+    <div class="col-sm-8 checkableList">
+        {{ form_widget(form.newlyArrived) }}
+        {{ form_errors(form.newlyArrived) }}
+    </div>
+</div>
+
+<div class="form-group hidden" id="identityNumber">
+    <div class="col-lg-4 text-right">
+        <label class="control-label required">{{ 'user.form.identity_number'|trans }}</label>
+        <p>{{ 'user.form.identity_number.help'|trans }}</p>
+    </div>
+    <div class="col-sm-4">
+        {{ form_widget(form.identityNumber) }}
+        {{ form_errors(form.identityNumber) }}
+    </div>
+</div>
+
 <div class="form-group">
     {{ form_label(form.from) }}
     <div class="col-sm-4">

@@ -474,6 +474,30 @@
                 <source>user.form.languages</source>
                 <target>ما هي اللغات التي تتحدث بها؟</target>
             </trans-unit>
+            <trans-unit id="user.form.newly_arrived">
+                <source>user.form.newly_arrived</source>
+                <target>Are you newly arrived?</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.yes">
+                <source>user.form.newly_arrived.yes</source>
+                <target>Yes, I'm newly arrived. I got my residence permit after June 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.no">
+                <source>user.form.newly_arrived.no</source>
+                <target>No, I'm not newly arrived.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.help">
+                <source>user.form.newly_arrived.help</source>
+                <target>You count as newly arrived if you got your residence permit after June 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number">
+                <source>user.form.identity_number</source>
+                <target>Identity number/ Coordination number</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number.help">
+                <source>user.form.identity_number.help</source>
+                <target>We need this to get government fundings.</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>حفظ</target>

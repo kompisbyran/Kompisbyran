@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Dizda\CloudBackupBundle\DizdaCloudBackupBundle(),
             new JGI\DeadmanssnitchBundle\JGIDeadmanssnitchBundle(),
+            new JGI\IdentityNumberValidatorBundle\IdentityNumberValidatorBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

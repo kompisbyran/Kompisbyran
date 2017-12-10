@@ -475,6 +475,30 @@
                 <source>user.form.languages</source>
                 <target>Vilka språk pratar du?</target>
             </trans-unit>
+            <trans-unit id="user.form.newly_arrived">
+                <source>user.form.newly_arrived</source>
+                <target>Är du nyanländ?</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.yes">
+                <source>user.form.newly_arrived.yes</source>
+                <target>Ja, jag är nyanländ. Jag fick mitt uppehållstillstånd efter juni 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.no">
+                <source>user.form.newly_arrived.no</source>
+                <target>Nej, jag är inte nyanländ.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.help">
+                <source>user.form.newly_arrived.help</source>
+                <target>I vår statistik räknas du som nyanländ om du fick ditt uppehållstillstånd efter juni 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number">
+                <source>user.form.identity_number</source>
+                <target>Personnummer/ Samordningsnummer</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number.help">
+                <source>user.form.identity_number.help</source>
+                <target>Vi behöver detta för att få statliga bidrag för vår verksamhet.</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>Spara</target>
