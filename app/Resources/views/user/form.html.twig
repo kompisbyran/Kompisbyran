@@ -344,4 +344,13 @@
     {{ form_widget(connectionRequest) }}
 {% endif %}
 
+{% if form.termsAccepted is defined %}
+<div class="form-group">
+    <div class="col-lg-offset-4 col-lg-8">
+        {{ form_widget(form.termsAccepted) }}
+    </div>
+    {{ form_errors(form.termsAccepted) }}
+</div>
+{% endif %}
+
 {{ form_widget(form) }}

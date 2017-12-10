@@ -13,6 +13,7 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use AppBundle\Enum\Countries;
+use Symfony\Component\Validator\Constraints\IsTrue;
 
 class UserType extends AbstractType
 {
@@ -36,6 +37,8 @@ class UserType extends AbstractType
                 $musicCategories[] = $category;
             }
         };
+        $constraint = new IsTrue();
+        $constraint->message = 'Du måste godkänna Kompisbyråns villkor.';
 
         /** @var User $user */
         $user = $builder->getData();
@@ -211,6 +214,10 @@ class UserType extends AbstractType
             ->add('identityNumber', 'text', [
                 'label' => 'user.form.identity_number',
                 'required' => false,
+            ->add('termsAccepted', 'checkbox', [
+                'mapped' => false,
+                'constraints' => $constraint,
+                'validation_groups' => ['registration', 'Default']
             ])
         ;
 

@@ -21,6 +21,7 @@ class AdminUserType extends UserType
                 'required' => false,
             ])
             ->add('email', 'email')
+            ->remove('termsAccepted')
         ;
     }
 
