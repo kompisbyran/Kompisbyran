@@ -881,8 +881,8 @@
                 <source>page.work_with_us.header</source>
                 <target>Support us</target>
             </trans-unit>
-            <trans-unit id="page.work_with_us.text">
-                <source>page.work_with_us.text</source>
+            <trans-unit id="page.work_with_us.text1">
+                <source>page.work_with_us.text1</source>
                 <target>
                     <![CDATA[
                         <h3>Give your support!</h3>
@@ -899,11 +899,18 @@
 
                         </p>
                         <p>
-                            <strong>Your gift is very valuable to us! Every penny we receive goes into creating more opportunities for new and established Swedes to meet.</strong>
+                            <strong>You can join us in creating a greater sense of community!</strong>
                         </p>
                         <p>
-                            <strong>Please send a "Swish" of 300 SEK to 1236 809 602 or deposit money at BG Account 386-3982.</strong>
+                            <strong>To successfully create a greater sense of community between new and established swedes is one of today's biggest challenges. Do you want to partake in making sure that more new friends meet? Give away a fika meeting! Give 150 SEK by sending a swish to 1236 809 602 or submit your contribution to BG account 386-3982. Thank you for supporting us!</strong>
                         </p>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="page.work_with_us.text2">
+                <source>page.work_with_us.text2</source>
+                <target>
+                    <![CDATA[
                         <p>
                             We would like to give you a personal gift certificate as a thank you. Please, send an email to kontakt@kompisbyran.se.
                         </p>
