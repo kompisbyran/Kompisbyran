@@ -88,6 +88,7 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[canPlayInstrument]' => 0,
             'user[professionalMusician]' => 0,
             'user[languages]' => 'Swedish',
+            'user[phoneNumber]' => '0701111111',
             'user[connectionRequests][0][city]' => $this->getCityRepository()->findAll()[0]->getId(),
             'user[connectionRequests][0][availableWeekday]' => 1,
             'user[connectionRequests][0][availableWeekend]' => 1,
