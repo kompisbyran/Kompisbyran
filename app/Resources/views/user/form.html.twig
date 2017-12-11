@@ -158,11 +158,7 @@
 </div>
 
 <div class="form-group">
-    <div class="col-lg-4 text-right">
-        <label class="control-label required">{{ 'user.form.phone_number'|trans }}</label>
-        <p class="text-right music friend" id="mobileOptional">{{ 'user.form.optional'|trans }}</p>
-    </div>
-
+    {{ form_label(form.phoneNumber) }}
 
     <div class="col-sm-8">
         {{ form_widget(form.phoneNumber) }}
