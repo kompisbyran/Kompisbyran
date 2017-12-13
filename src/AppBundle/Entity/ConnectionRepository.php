@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\MeetingTypes;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\NoResultException;
 use AppBundle\Entity\Connection;
@@ -189,5 +190,39 @@ class ConnectionRepository extends EntityRepository
             ->getQuery()
             ->execute()
             ;
+    }
+
+    /**
+     * @return Connection[]
+     */
+    public function findForMeetingFollowUp($createdAt, $previousMailsCount)
+    {
+        $from = clone $createdAt;
+        $from->setTime(0, 0, 0);
+        $to = clone $from;
+        $to->setTime(23, 59, 59);
+
+        return $this
+            ->createQueryBuilder('c')
+            ->where('c.type != :type')
+            ->andWhere('
+                c.fluentSpeakerMeetingStatus = :statusUnknown or c.fluentSpeakerMeetingStatus = :statusNotYetMet
+                or c.learnerMeetingStatus = :statusUnknown or c.learnerMeetingStatus = :statusNotYetMet
+            ')
+            ->andWhere('c.createdAt between :from and :to')
+            ->andWhere('
+                c.fluentSpeakerMeetingStatusEmailsCount = :previousMailsCount
+                or c.learnerMeetingStatusEmailsCount = :previousMailsCount
+            ')
+            ->setParameter('type', FriendTypes::START)
+            ->setParameter('statusUnknown', MeetingTypes::UNKNOWN)
+            ->setParameter('statusNotYetMet', MeetingTypes::NOT_YET_MET)
+            ->setParameter('from', $from)
+            ->setParameter('to', $to)
+            ->setParameter('previousMailsCount', $previousMailsCount)
+            ->getQuery()
+            ->execute()
+            ;
+
     }
 }

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-0"></div>
+                <div class="col-md-8 col-sm-12">
+                    <h2>{{ 'open.confirm_meeting.header'|trans|raw }}</h2>
+                    {% if alreadyConfirmed %}
+                        {{ 'open.confirm_meeting.already_answered'|trans|nl2br }}
+                    {% else %}
+                        <p> {{ 'open.confirm_meeting.ingress'|trans }}</p>
+
+                        <div id="buttons">
+                            <a href="#" data-status="{{ constant('AppBundle\\Enum\\MeetingTypes::MET') }}" class="btn btn-lg btn-success">
+                                {{ 'open.confirm_meeting.button.met'|trans }}
+                            </a>
+                            &nbsp;
+                            <a href="#" data-status="{{ constant('AppBundle\\Enum\\MeetingTypes::NOT_YET_MET') }}" class="btn btn-lg btn-default">
+                                {{ 'open.confirm_meeting.button.not_yet_met'|trans }}
+                            </a>
+                            &nbsp;
+                            <a href="#" data-status="{{ constant('AppBundle\\Enum\\MeetingTypes::WILL_NOT_MEET') }}" class="btn btn-lg btn-danger">
+                                {{ 'open.confirm_meeting.button.will_not_meet'|trans }}
+                            </a>
+                        </div>
+                        <div id="met" class="hidden">
+                            {{ 'open.confirm_meeting.after.met'|trans|nl2br }}
+                        </div>
+                        <div id="not_yet_met" class="hidden">
+                            {{ 'open.confirm_meeting.after.not_yet_met'|trans|nl2br }}
+                        </div>
+                        <div id="will_not_meet" class="hidden">
+                            {{ 'open.confirm_meeting.after.will_not_meet'|trans|nl2br }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#buttons .btn').on('click', function (e) {
+                e.preventDefault();
+                $('#buttons .btn').attr('disabled', true);
+
+                var status = $(this).data('status');
+                var data = {status: status};
+
+                $.post('{{ path('public_connection', {'uuid': uuid, 'id': connection.id}) }}', data, function(resp) {
+                    $('#buttons').hide();
+                    $('#' + status).removeClass('hidden');
+                });
+            });
+        });
+    </script>
+{% endblock %}

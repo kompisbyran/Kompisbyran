@@ -1172,6 +1172,51 @@
                 <source>matching_profile_request.same_age</source>
                 <target>Only a person close in age</target>
             </trans-unit>
+            <trans-unit id="open.confirm_meeting.header">
+                <source>open.confirm_meeting.header</source>
+                <target>Om mötet</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.ingress">
+                <source>open.confirm_meeting.ingress</source>
+                <target>Vad roligt att vi på Kompisbyrån har fått matcha dig med en ny vän. Har ni träffats?</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.met">
+                <source>open.confirm_meeting.button.met</source>
+                <target>Ja, vi har träffats</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.not_yet_met">
+                <source>open.confirm_meeting.button.not_yet_met</source>
+                <target>Nej, inte än</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.will_not_meet">
+                <source>open.confirm_meeting.button.will_not_meet</source>
+                <target>Nej, vi kommer inte att träffas</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.met">
+                <source>open.confirm_meeting.after.met</source>
+                <target>Tack för ditt svar och vad roligt att ni har träffats!
+
+Om du inte redan har gjort det, skicka gärna ett foto från ert möte tillsammans med några meningar om vad ni gjorde och hur det var (med bådas samtycke). Maila hälsningen till oss på matchning@kompisbyran.se så delar vi den gärna digitalt. Eller hashtagga själv med #kompisbyrån. På så sätt kan du inspirera fler till att träffa nya vänner med Kompisbyrån.
+
+Om du vill träffa en ny kompis behöver du bara logga in på din profil och skicka in en ny förfrågan.
+
+Tack för att du är med och ökar gemenskapen i samhället!</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.not_yet_met">
+                <source>open.confirm_meeting.after.not_yet_met</source>
+                <target>Tack för ditt svar! Du kommer att få ett nytt mail från oss om några veckor där vi ställer samma fråga.</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.will_not_meet">
+                <source>open.confirm_meeting.after.will_not_meet</source>
+                <target>Tack för ditt svar!
+
+Om du vill, maila gärna oss på matchning@kompisbyran.se och berätta varför mötet inte blev av. Det är värdefullt för oss att få reda på detta eftersom vi alltid strävar efter att göra Kompisbyrån bättre.
+                </target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.already_answered">
+                <source>open.confirm_meeting.already_answered</source>
+                <target>Du har redan besvarat denna fråga. Om du har fyllt i fel eller vill ändra ditt svar, vänligen maila oss på matchning@kompisbyran.se så hjälper vi till.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

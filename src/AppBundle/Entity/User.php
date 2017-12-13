@@ -6,6 +6,7 @@ use AppBundle\Enum\FriendTypes;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use AppBundle\Enum\Countries;
@@ -397,6 +398,13 @@ class User extends BaseUser
     protected $identityNumber;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $uuid;
+
+    /**
      * @var Municipality
      *
      * @Assert\NotBlank(groups={"settings"})
@@ -430,6 +438,7 @@ class User extends BaseUser
         $this->cities                   = new ArrayCollection();
         $this->type = FriendTypes::FRIEND;
         $this->adminMunicipalities = new ArrayCollection();
+        $this->uuid = Uuid::uuid4();
 
         parent::__construct();
     }
@@ -1229,5 +1238,13 @@ class User extends BaseUser
     public function setNewlyArrived($newlyArrived)
     {
         $this->newlyArrived = $newlyArrived;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->uuid;
     }
 }

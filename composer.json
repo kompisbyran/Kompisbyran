@@ -30,7 +30,8 @@
         "jongotlin/deadmanssnitch-bundle": "^1.0",
         "aws/aws-sdk-php": "~2.7",
         "knplabs/knp-gaufrette-bundle": "^0.4.0",
-        "jongotlin/identity-number-bundle": "^1.0"
+        "jongotlin/identity-number-bundle": "^1.0",
+        "ramsey/uuid": "^3.7"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

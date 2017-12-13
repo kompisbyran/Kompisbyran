@@ -3,8 +3,10 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\MeetingTypes;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Validator\Constraints as KompisbyranAssert;
 
 /**
  * @ORM\Entity(repositoryClass="ConnectionRepository")
@@ -74,6 +76,38 @@ class Connection
     protected $fluentSpeakerComment;
 
     /**
+     * @var string
+     *
+     * @KompisbyranAssert\ValidMeetingStatus
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $learnerMeetingStatus;
+
+    /**
+     * @var string
+     *
+     * @KompisbyranAssert\ValidMeetingStatus
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $fluentSpeakerMeetingStatus;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $learnerMeetingStatusEmailsCount = 0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $fluentSpeakerMeetingStatusEmailsCount = 0;
+
+    /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="createdConnections")
@@ -123,6 +157,8 @@ class Connection
         $this->createdBy = $user;
         $this->comments = new ArrayCollection();
         $this->type = FriendTypes::FRIEND;
+        $this->fluentSpeakerMeetingStatus = MeetingTypes::UNKNOWN;
+        $this->learnerMeetingStatus = MeetingTypes::UNKNOWN;
     }
 
     /**
@@ -326,5 +362,69 @@ class Connection
     public function setNewlyArrived($newlyArrived)
     {
         $this->newlyArrived = $newlyArrived;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLearnerMeetingStatus()
+    {
+        return $this->learnerMeetingStatus;
+    }
+
+    /**
+     * @param string $learnerMeetingStatus
+     */
+    public function setLearnerMeetingStatus($learnerMeetingStatus)
+    {
+        $this->learnerMeetingStatus = $learnerMeetingStatus;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFluentSpeakerMeetingStatus()
+    {
+        return $this->fluentSpeakerMeetingStatus;
+    }
+
+    /**
+     * @param string $fluentSpeakerMeetingStatus
+     */
+    public function setFluentSpeakerMeetingStatus($fluentSpeakerMeetingStatus)
+    {
+        $this->fluentSpeakerMeetingStatus = $fluentSpeakerMeetingStatus;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLearnerMeetingStatusEmailsCount()
+    {
+        return $this->learnerMeetingStatusEmailsCount;
+    }
+
+    /**
+     * @param int $learnerMeetingStatusEmailsCount
+     */
+    public function setLearnerMeetingStatusEmailsCount($learnerMeetingStatusEmailsCount)
+    {
+        $this->learnerMeetingStatusEmailsCount = $learnerMeetingStatusEmailsCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFluentSpeakerMeetingStatusEmailsCount()
+    {
+        return $this->fluentSpeakerMeetingStatusEmailsCount;
+    }
+
+    /**
+     * @param int $fluentSpeakerMeetingStatusEmailsCount
+     */
+    public function setFluentSpeakerMeetingStatusEmailsCount($fluentSpeakerMeetingStatusEmailsCount)
+    {
+        $this->fluentSpeakerMeetingStatusEmailsCount = $fluentSpeakerMeetingStatusEmailsCount;
     }
 }
