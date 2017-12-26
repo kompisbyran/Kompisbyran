@@ -47,6 +47,13 @@ Install required components
 $ php composer.phar install
 ```
 
+Setup cron jobs
+
+```
+php app/console kompisbyran:send-confirm-meeting-emails 21 0 #days since created and number of mails sent
+php app/console kompisbyran:send-confirm-meeting-emails 35 1
+```
+
 ### Config
 
 Set default or specify values for connection string (later found in app/config/parameters.yml)
