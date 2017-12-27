@@ -54,11 +54,11 @@
 <div class="form-group hidden" id="identityNumber">
     <div class="col-lg-4 text-right">
         <label class="control-label required">{{ 'user.form.identity_number'|trans }}</label>
-        <p>{{ 'user.form.identity_number.help'|trans }}</p>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-8">
         {{ form_widget(form.identityNumber) }}
         {{ form_errors(form.identityNumber) }}
+        <p>{{ 'user.form.identity_number.help'|trans({'%linkStart%': '<a href="' ~ path('terms') ~ '">', '%linkEnd%': '</a>'})|raw }}</p>
     </div>
 </div>
 
