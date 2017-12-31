@@ -637,9 +637,6 @@
                             نحن ننصح باللقاء في مكان عام لحوالي الساعة من الوقت في مركز المدينة الأقرب للطرفين.
                         </li>
                         <li>
-                            عند تسجيلك الدخول فإن طلبك يجب أن يضمن صحة المعلومات التي تقدمها و يضمن موافقتك على استخدام هذه المعلومات كي نجد لك رفيقا مناسبا ثم نرسل معلوماتك و بريدك الالكتروني أو رقم هاتفك الى رفيقك الجديد. أيضا سوف نقوم بدعوتك لمشاركتنا المشاطات الخاصة بنا. إذا كنت تريد تغيير أو تصحيح المعلومات الخاصة بك يمكنك فعل ذلك بتسجيل الدخول ببريدك الالكتروني و كلمة السر.
-                        </li>
-                        <li>
                             طموحنا هو إيجاد رفيق جديد لك خلال 30 يوم من تقديمك للطلب. هذا يعني انه عليك الانتظار.
                         </li>
                         <li>
@@ -663,10 +660,17 @@
                         <li>
                             نحن نريد دوما أن نكون أفضل فيما نفعله لذلك سوف نرسل لك بريدا الكترونياأو نتصل بك لنسألك كيف جرت الأمور و كيف كان اللقاء.
                         </li>
-                        
-                        شاكرين لكم قراءتكم لشروطنا وموافقتكم عليها.
-                        
-                    </ul>]]></target>
+                        <li>
+                            Kompisbyrån collects the personal information that you have provided in your profile. We use this information to help you get in contact with other participants in our organization. We might also use your contact details to invite you to Kompisbyrån’s activities and other types of offers. The information you leave at Kompisbyrån is also being used to answer questions, operate and improve our homepage and programmes. If you would like to change the information you have provided, please log on to your profile to make the changes in question. Controller of personal data is Kompisbyrån’s Board.
+                        </li>
+                        <li>
+                            Information on you might be transferred to partners that help us provide our services and to authorities that give us Government Grants to run Kompisbyrån. Our partners do not have the rights to use this information for other purposes. We do not transfer your personal information to partner organizations for promotional purposes without your consent.
+                        </li>
+                        <li>
+                            When you register at our homepage and when you apply for friend matches, you agree to Kompisbyrån processing your personal data for the purposes stated.
+                        </li>
+                    </ul>
+                    ]]></target>
             </trans-unit>
             <trans-unit id="terms.outro">
                 <source>terms.outro</source>
