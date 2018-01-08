@@ -476,27 +476,27 @@
             </trans-unit>
             <trans-unit id="user.form.newly_arrived">
                 <source>user.form.newly_arrived</source>
-                <target>Are you newly arrived?</target>
+                <target>هل وصلت حديثا؟</target>
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.yes">
                 <source>user.form.newly_arrived.yes</source>
-                <target>Yes, I'm newly arrived. I got my residence permit after June 2014.</target>
+                <target>نعم, لقد وصلت حديثا. و حصلت على الإقامة بعد حزيران 2014</target>
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.no">
                 <source>user.form.newly_arrived.no</source>
-                <target>No, I'm not newly arrived.</target>
+                <target>لا, لست من الواصلين حديثا.</target>
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.help">
                 <source>user.form.newly_arrived.help</source>
-                <target>You count as newly arrived if you got your residence permit after June 2014.</target>
+                <target>أنت تعتبر من الواصلين حديثا. و حصلت على الإقامة بعد حزيران 2014.</target>
             </trans-unit>
             <trans-unit id="user.form.identity_number">
                 <source>user.form.identity_number</source>
-                <target>Identity number/ Coordination number</target>
+                <target>الرقم الشخصي</target>
             </trans-unit>
             <trans-unit id="user.form.identity_number.help">
                 <source>user.form.identity_number.help</source>
-                <target>We need this to get government fundings and doesn't use or share it in other purposes. Read more in Kompisbyrån's %linkStart%terms%linkEnd%.</target>
+                <target>نحن نحتاج الى هذا الرقم للحصول على التمويل الحكومي فقط و ليس لاستعماله لأي أغراض أخرى. يمكنك القراءة عن ذلك في شروط Kompisbyrån %linkStart%الشروط%linkEnd%.</target>
             </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
