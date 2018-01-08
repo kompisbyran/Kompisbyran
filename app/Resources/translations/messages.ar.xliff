@@ -1138,50 +1138,51 @@
             </trans-unit>
             <trans-unit id="open.confirm_meeting.header">
                 <source>open.confirm_meeting.header</source>
-                <target>About the meeting</target>
+                <target>معلومات عن الاجتماع</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.ingress">
                 <source>open.confirm_meeting.ingress</source>
-                <target>We at Kompisbyrån are happy that you wanted to take the chance and be matched up with a new friend.
-                    Now we would like to know if you have met with your new friend?</target>
+                <target>نحن سعداء في كومبيسبيرون أن كنت من الراغبين في اغتنام الفرصة إيجاد مطابقة مع صديق جديد.
+                    الآن نود أن نعرف إذا كنت قد اجتمعت مع صديقك الجديد؟</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.button.met">
                 <source>open.confirm_meeting.button.met</source>
-                <target>Yes, we have met</target>
+                <target>نعم، لقد التقينا</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.button.not_yet_met">
                 <source>open.confirm_meeting.button.not_yet_met</source>
-                <target>No, not yet</target>
+                <target>لا ليس بعد</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.button.will_not_meet">
                 <source>open.confirm_meeting.button.will_not_meet</source>
-                <target>No, and we will not meet</target>
+                <target>لا، ونحن لن نجتمع</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.after.met">
                 <source>open.confirm_meeting.after.met</source>
-                <target>Thank you for your answer and we are so happy to hear that you have met with your new friend!
+                <target>شكرا لكم على إجابتكم، ونحن سعداء جدا لسماع أنك قد اجتمعت مع صديقك الجديد!
 
-If you have not already done this, please send us a photo greeting from your meeting along with a couple of sentences about what you did and how it was (with approval from both of you). E-mail us the greeting at matchning@kompisbyran.se and we will share it digitally - this way you are able to inspire more people to take part in meeting new friends through Kompisbyrån.
+إذا لم تكن قد فعلت ذلك من قبل، يرجى أن ترسل لنا صورة تحية من اجتماعكم جنبا إلى جنب مع بضع جمل حول ما فعلتم وكيف كان اللقاء (مع موافقة من الطرفين). أرسلها لنا على بريدنا الالكتروني حتى نقوم يمشاركتها رقميا - بهذه الطريقة تكون قادرا على إلهام المزيد من الناس للمشاركة في لقاء أصدقاء جدد من خلال كومبيسبيرون.
+ هو بريدنا الالكتروني  matchning@kompisbyran.se
 
-If you want to get a new friend match, just log on to your profile and send in a new request.
+إذا كنت ترغب في الحصول على مطابقة صديق جديد،  كل ما عليك فعله مجرد تسجيل الدخول إلى ملفك الشخصي وإرسال طلب جديد.
 
-Thank you for taking part in Kompisbyrån!</target>
+!شكرا لك على المشاركة في كومبيسبيرون</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.after.not_yet_met">
                 <source>open.confirm_meeting.after.not_yet_met</source>
-                <target>Thank you for your reply! You will recieve a new e-mail from us in a couple of weeks were we will ask you the same question.</target>
+                <target>شكرا لك على الرد! سوف تتلقى رسالة بريد إلكتروني جديدة منا في غضون بضعة أسابيع كنا سوف نطلب منكم نفس السؤال</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.after.will_not_meet">
                 <source>open.confirm_meeting.after.will_not_meet</source>
-                <target>Thank you for your reply!
+                <target>!شكرا لك على الرد
 
-If you want to, send us an e-mail at matchning@kompisbyran.se and tell us why you didn't meet the person we matched you up with. This information is very valuable to us since we always strive to make Kompisbyrån better.
+إذا كنت ترغب في ذلك، الرجاء مراسلتنا على البريد الإلكتروني في matchning@kompisbyran.se و تخبرنا لماذا لم تلتق الشخص الذي أجرينا مطابقة لك معه. هذه المعلومات هي قيمة جدا بالنسبة لنا لأننا نسعى دائما لجعل كومبيسبيرون أفضل.
 
                 </target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.already_answered">
                 <source>open.confirm_meeting.already_answered</source>
-                <target> You have already answered this question. If you clicked the wrong button or want to change your reply, please e-mail us at matchning@kompisbyran.se and we will help you out.</target>
+                <target>لقد سبق أن أجبت على هذا السؤال. إذا قمت بالنقر فوق الزر الخطأ أو ترغب في تغيير ردك، يرجى مراسلتنا عبر البريد الإلكتروني في matchning@kompisbyran.se ونحن سوف نقوم بمساعدتك</target>
             </trans-unit>
         </body>
     </file>
