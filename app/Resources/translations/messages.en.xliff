@@ -1205,7 +1205,7 @@ Thank you for taking part in Kompisbyrån!</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.after.not_yet_met">
                 <source>open.confirm_meeting.after.not_yet_met</source>
-                <target>Thank you for your reply! You will recieve a new e-mail from us in a couple of weeks were we will ask you the same question.</target>
+                <target>Thank you for your reply! You will receive a new e-mail from us in a couple of weeks where we will ask you the same question.</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.after.will_not_meet">
                 <source>open.confirm_meeting.after.will_not_meet</source>
