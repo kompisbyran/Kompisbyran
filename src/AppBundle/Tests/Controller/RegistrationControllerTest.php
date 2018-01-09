@@ -2,7 +2,6 @@
 
 namespace AppBundle\Tests\Controller;
 
-use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\OccupationTypes;
 use AppBundle\Tests\Phpunit\DatabaseTestCase;
@@ -40,7 +39,6 @@ class RegistrationControllerTest extends DatabaseTestCase
             'fos_user_registration_form[email][second]' => 'test@example.com',
             'fos_user_registration_form[plainPassword][first]' => 'foobar',
             'fos_user_registration_form[plainPassword][second]' => 'foobar',
-            'fos_user_registration_form[termsAccepted]' => true,
         ]);
 
         $client->submit($form);
@@ -95,6 +93,7 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[connectionRequests][0][availableDay]' => 1,
             'user[connectionRequests][0][availableEvening]' => 1,
             'user[connectionRequests][0][extraPerson]' => 'false',
+            'user[termsAccepted]' => true,
         ]);
 
         $crawler = $client->submit($form);

@@ -194,7 +194,7 @@
             </trans-unit>
             <trans-unit id="register.form.terms">
                 <source>register.form.terms</source>
-                <target>Jag godkänner %linkStart%villkoren%linkEnd%</target>
+                <target>Jag godkänner %linkStart%villkoren%linkEnd% (Uppdaterade 2018-01-09)</target>
             </trans-unit>
             <trans-unit id="register.form.button">
                 <source>register.form.button</source>

@@ -4,7 +4,6 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\IsTrue;
 
 class RegistrationType extends AbstractType
 {
@@ -14,9 +13,6 @@ class RegistrationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $constraint = new IsTrue();
-        $constraint->message = 'Du måste godkänna Kompisbyråns villkor.';
-
         $builder
             ->remove('username')
             ->remove('email')
@@ -27,10 +23,6 @@ class RegistrationType extends AbstractType
                 'second_options' => array('label' => 'register.form.email_confirmation'),
                 'invalid_message' => 'fos_user.email.mismatch',
             ))
-            ->add('termsAccepted', 'checkbox', [
-                'mapped' => false,
-                'constraints' => $constraint,
-            ])
         ;
     }
 
