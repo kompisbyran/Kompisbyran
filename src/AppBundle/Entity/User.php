@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use AppBundle\Enum\Countries;
+use JGI\IdentityNumberValidatorBundle\Validator\Constraints as IdentityNumberAssert;
 
 /**
  * @ORM\Entity(repositoryClass="UserRepository")
@@ -373,6 +374,27 @@ class User extends BaseUser
      * @ORM\Column(type="string")
      */
     protected $type;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $newlyArrived = false;
+
+    /**
+     * @var string
+     *
+     * @IdentityNumberAssert\IdentityNumber(allowCoordinationNumber=true, groups={"settings"})
+     * @Assert\Expression(
+     *     "!this.isNewlyArrived() || this.getIdentityNumber() != ''",
+     *     message="Du måste fylla i ditt personnummer",
+     *     groups={"settings"}
+     * )
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $identityNumber;
 
     /**
      * @var Municipality
@@ -1175,5 +1197,37 @@ class User extends BaseUser
     public function setLanguages($languages)
     {
         $this->languages = $languages;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdentityNumber()
+    {
+        return $this->identityNumber;
+    }
+
+    /**
+     * @param string $identityNumber
+     */
+    public function setIdentityNumber($identityNumber)
+    {
+        $this->identityNumber = $identityNumber;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isNewlyArrived()
+    {
+        return $this->newlyArrived;
+    }
+
+    /**
+     * @param bool $newlyArrived
+     */
+    public function setNewlyArrived($newlyArrived)
+    {
+        $this->newlyArrived = $newlyArrived;
     }
 }

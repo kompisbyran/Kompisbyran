@@ -474,6 +474,30 @@
                 <source>user.form.languages</source>
                 <target>ما هي اللغات التي تتحدث بها؟</target>
             </trans-unit>
+            <trans-unit id="user.form.newly_arrived">
+                <source>user.form.newly_arrived</source>
+                <target>هل وصلت حديثا؟</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.yes">
+                <source>user.form.newly_arrived.yes</source>
+                <target>نعم, لقد وصلت حديثا. و حصلت على الإقامة بعد حزيران 2014</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.no">
+                <source>user.form.newly_arrived.no</source>
+                <target>لا, لست من الواصلين حديثا.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.help">
+                <source>user.form.newly_arrived.help</source>
+                <target>أنت تعتبر من الواصلين حديثا. و حصلت على الإقامة بعد حزيران 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number">
+                <source>user.form.identity_number</source>
+                <target>الرقم الشخصي</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number.help">
+                <source>user.form.identity_number.help</source>
+                <target>نحن نحتاج الى هذا الرقم للحصول على التمويل الحكومي فقط و ليس لاستعماله لأي أغراض أخرى. يمكنك القراءة عن ذلك في شروط Kompisbyrån %linkStart%الشروط%linkEnd%.</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>حفظ</target>
@@ -968,9 +992,9 @@
                         <h4>نحن كعاملين في كومبيس بيرون</h4>
                         <p>
                             Office<br> 
+                            Emma Hammar, grundare och verksamhetsledare, <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a><br>
                             Linda Kaplan, operativ ledare, <a href="mailto:linda@kompisbyran.se ">linda@kompisbyran.se </a><br>
                             Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se ">clara@kompisbyran.se </a><br>
-                            Emma Hammar, grundare och verksamhetsledare (föräldraledig), <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a><br>
 
                             IT<br>
                             Jon Gotlin, IT-ansvarig<br>
