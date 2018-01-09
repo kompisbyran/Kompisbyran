@@ -206,6 +206,7 @@ class UserType extends AbstractType
                 'mapped' => false,
                 'constraints' => $constraint,
                 'validation_groups' => ['registration', 'Default']
+            ])
             ->add('newlyArrived',  'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.newly_arrived',
