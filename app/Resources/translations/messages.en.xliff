@@ -194,7 +194,7 @@
             </trans-unit>
             <trans-unit id="register.form.terms">
                 <source>register.form.terms</source>
-                <target>I agree to Kompisbyrån's %linkStart%terms%linkEnd%</target>
+                <target>I agree to Kompisbyrån's %linkStart%terms%linkEnd% (Updated 2018-01-09)</target>
             </trans-unit>
             <trans-unit id="register.form.button">
                 <source>register.form.button</source>
