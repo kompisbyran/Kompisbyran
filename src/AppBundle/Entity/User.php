@@ -335,11 +335,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @Assert\Expression(
-     *     "this.getType() != 'start' || this.getPhoneNumber() != ''",
-     *     message="Du måste fylla i ditt telefonnummer",
-     *     groups={"settings"}
-     * )
+     * @Assert\NotBlank(groups={"settings"})
      *
      * @ORM\Column(type="text", nullable=true)
      */
