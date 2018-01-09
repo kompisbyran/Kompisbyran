@@ -8,14 +8,24 @@
             <div class="col-md-1 col-sm-0"></div>
             <div class="col-md-7 col-sm-12">
                 <h2><strong>{{ 'page.work_with_us.header'|trans }}</strong></h2>
+                {% if app.request.locale != 'ar' %}
+                {{ 'page.work_with_us.text1'|trans|raw }}
+                <img src="{{ asset('images/julkampanj.jpg') }}" alt="Julkampanj" class="img-responsive center-block">
+                <br>
+                {{ 'page.work_with_us.text2'|trans|raw }}
+                {% else %}
                 {{ 'page.work_with_us.text'|trans|raw }}
+                {% endif %}
             </div>
 
             <div class="col-md-4 col-sm-12">
                 <div class="partner-wrapper">
+                    <img src="{{ asset('images/oppna-dorren.jpg') }}" alt="Öppna dörren" class="partner-logo"><br>
                     <img src="{{ asset('images/delicato.png') }}" alt="Delicato" class="partner-logo"><br>
-                    <img src="{{ asset('images/postkodstiftelsen.jpg') }}" alt="Postkodstiftelsen" class="partner-logo"><br>
-                    <img src="{{ asset('images/sigtuna.png') }}" alt="Sigtunastiftelsen" class="partner-logo">
+                    <img src="{{ asset('images/nacka.jpg') }}" alt="Nacka" class="partner-logo"><br>
+                    <img src="{{ asset('images/solna.gif') }}" alt="Solna" class="partner-logo"><br>
+                    <img src="{{ asset('images/tyreso.gif') }}" alt="Tyresö" class="partner-logo"><br>
+                    <img src="{{ asset('images/vaxholm.jpg') }}" alt="Vaxholm" class="partner-logo"><br>
                 </div>
             </div>
 

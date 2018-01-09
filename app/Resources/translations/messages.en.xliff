@@ -484,6 +484,30 @@
                 <source>user.form.languages</source>
                 <target>Which languages do you speak?</target>
             </trans-unit>
+            <trans-unit id="user.form.newly_arrived">
+                <source>user.form.newly_arrived</source>
+                <target>Are you newly arrived?</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.yes">
+                <source>user.form.newly_arrived.yes</source>
+                <target>Yes, I'm newly arrived. I got my residence permit after June 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.no">
+                <source>user.form.newly_arrived.no</source>
+                <target>No, I'm not newly arrived.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.help">
+                <source>user.form.newly_arrived.help</source>
+                <target>You count as newly arrived if you got your residence permit after June 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number">
+                <source>user.form.identity_number</source>
+                <target>Identity number/ Coordination number</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number.help">
+                <source>user.form.identity_number.help</source>
+                <target>We need this to get government fundings and doesn't use or share it in other purposes. Read more in Kompisbyrån's %linkStart%terms%linkEnd%.</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>Send application</target>
@@ -650,13 +674,6 @@
                             Kompisbyrån recommends that you meet for about 1 hour at a public place in the central part of that city that you have chosen. 
                         </li>
                         <li>
-                            When you have registered your application, you warrant that your information is correct and agree that the information: 
-                            may be treated according to PUL and is saved in Kompisbyrån's register so that we can find new friends for you, that 
-                            your information, e-mail and telephone number are sent to your new friend, and that we will invite you to Kompisbyrån's activities or 
-                            offerings. If you want to adjust your submitted information that is registered, please log in with your e-mail and 
-                            password and update your profile. Controller of personal data is Kompisbyrån’s Board.
-                        </li>
-                        <li>
                             Our ambition is to find a new friend for you within 30 days. That means that you may have to wait.
                         </li>
                         <li>
@@ -686,6 +703,15 @@
                         </li>
                         <li>
                             We wish to constantly improve our work. Therefore, we will contact you after your meeting to follow up.
+                        </li>
+                        <li>
+                            Kompisbyrån collects the personal information that you have provided in your profile. We use this information to help you get in contact with other participants in our organization. We might also use your contact details to invite you to Kompisbyrån’s activities and other types of offers. The information you leave at Kompisbyrån is also being used to answer questions, operate and improve our homepage and programmes. If you would like to change the information you have provided, please log on to your profile to make the changes in question. The controller of personal data is Kompisbyrån’s Board.
+                        </li>
+                        <li>
+                            Information about you might be transferred to partners that help us provide our services and to authorities that give us governmental grants to run Kompisbyrån. Our partners do not have the rights to use this information for other purposes. We do not transfer your personal information to partner organizations for promotional purposes without your consent.
+                        </li>
+                        <li>
+                            When you register at our homepage and when you apply for friend matches, you agree to Kompisbyrån processing your personal data for the purposes stated.
                         </li>
                     </ul>]]></target>
             </trans-unit>
@@ -881,8 +907,8 @@
                 <source>page.work_with_us.header</source>
                 <target>Support us</target>
             </trans-unit>
-            <trans-unit id="page.work_with_us.text">
-                <source>page.work_with_us.text</source>
+            <trans-unit id="page.work_with_us.text1">
+                <source>page.work_with_us.text1</source>
                 <target>
                     <![CDATA[
                         <h3>Give your support!</h3>
@@ -899,11 +925,18 @@
 
                         </p>
                         <p>
-                            <strong>Your gift is very valuable to us! Every penny we receive goes into creating more opportunities for new and established Swedes to meet.</strong>
+                            <strong>You can join us in creating a greater sense of community!</strong>
                         </p>
                         <p>
-                            <strong>Please send a "Swish" of 300 SEK to 1236 809 602 or deposit money at BG Account 386-3982.</strong>
+                            <strong>To successfully create a greater sense of community between new and established swedes is one of today's biggest challenges. Do you want to partake in making sure that more new friends meet? Give away a fika meeting! Give 150 SEK by sending a swish to 1236 809 602 or submit your contribution to BG account 386-3982. Thank you for supporting us!</strong>
                         </p>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="page.work_with_us.text2">
+                <source>page.work_with_us.text2</source>
+                <target>
+                    <![CDATA[
                         <p>
                             We would like to give you a personal gift certificate as a thank you. Please, send an email to kontakt@kompisbyran.se.
                         </p>
@@ -912,21 +945,25 @@
                             hesitate to contact: emma@kompisbyran.se or kontakt@kompisbyran.se.
                         </p>
                         <p>
-                            Many thanks to you all who are involved and really make a difference! 
+                            Many thanks to all of you that are involved and really make a difference! 
                         </p>
 
                         <h3>Thanks to...</h3>
+
                         <p>
-                            <strong>Delicato</strong>, our main partner for ”Fikakompis”. Together we want to increase the integration in the Swedish society by connecting new friends over a ”fika”.  
+                            <strong>Axfoundation</strong> our main partner through the initiative ÖppnaDörren. The purpose of this 
+                             collaboration is to get even more new and established Swedes to meet in easy and fun ways as part of everyday 
+                             life. The work of Kompisbyrån is very well aligned with the rest of the organizations that are part of ÖppnaDörren, 
+                             we all work to create those first meetings between potential new friends.
+                        </p>
+                        <p>
+                            <strong>Delicato</strong>, our main sponsor for ”Fikakompis”. Together we want to increase the integration in the Swedish society 
+                             by connecting new friends over a ”fika”.  
                         </p>   
                         <p>
-                            <strong>Svenska Postkodstiftelsen</strong> 
-                        </p>
-                        <p>
-                            <strong>Sigtunastiftelsen</strong> which awarded Kompisbyrån with "Abrahams barns pris" 
-                        </p>
-                        <p>
-                            <strong>Lernia</strong> 
+                            <strong>The municipalities</strong> Nacka, Solna, Tyresö and Vaxholm which we are working with in our program Startkompis 
+                                    (Start Friend). Together we want to provide e greater sense of community by making local friend matches within
+                                    the municipalities. 
                         </p>
                         
                         <h3>A special thanks to...</h3>
@@ -985,9 +1022,9 @@
                         <h4>We are Kompisbyrån</h4>
                         <p>
                             <b>Office</b><br> 
+                            Emma Hammar, grundare och verksamhetsledare, <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a><br>
                             Linda Kaplan, operativ ledare, <a href="mailto:linda@kompisbyran.se">linda@kompisbyran.se</a><br>
                             Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se">clara@kompisbyran.se</a><br>
-                            Emma Hammar, grundare och verksamhetsledare (föräldraledig), <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a><br>
                             <br>
                             <b>IT</b><br>
                             Jon Gotlin, IT-ansvarig<br>

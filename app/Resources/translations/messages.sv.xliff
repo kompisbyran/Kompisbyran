@@ -475,6 +475,30 @@
                 <source>user.form.languages</source>
                 <target>Vilka språk pratar du?</target>
             </trans-unit>
+            <trans-unit id="user.form.newly_arrived">
+                <source>user.form.newly_arrived</source>
+                <target>Är du nyanländ?</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.yes">
+                <source>user.form.newly_arrived.yes</source>
+                <target>Ja, jag är nyanländ. Jag fick mitt uppehållstillstånd efter juni 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.no">
+                <source>user.form.newly_arrived.no</source>
+                <target>Nej, jag är inte nyanländ.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.help">
+                <source>user.form.newly_arrived.help</source>
+                <target>I vår statistik räknas du som nyanländ om du fick ditt uppehållstillstånd efter juni 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number">
+                <source>user.form.identity_number</source>
+                <target>Personnummer/ Samordningsnummer</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number.help">
+                <source>user.form.identity_number.help</source>
+                <target>Vi behöver detta för att få statliga bidrag och använder eller delar det inte i något annat syfte. Läs mer om detta i Kompisbyråns %linkStart%villkor%linkEnd%.</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>Spara</target>
@@ -645,13 +669,6 @@
                             Kompisbyrån rekommenderar att ni träffas ungefär 1 timme på ett offentligt ställe i stadens centrala del.
                         </li>
                         <li>
-                            När du har registrerat din ansökan garanterar du att din information är korrekt och godkänner att informationen; 
-                            kan komma att behandlas enligt PUL och hamnar i Kompisbyråns register så att vi kan hitta nya kompisar till dig, 
-                            att din information, email och telefonnummer skickas till din nya kompis, och att vi bjuder in dig till Kompisbyråns 
-                            aktiviteter eller erbjudanden. Om du vill korrigera dina lämnade uppgifter som finns registrerade hos oss, vänligen 
-                            logga in med din email och ditt lösenord och uppdatera din profil. Personuppgiftsansvarig är Kompisbyråns styrelse.
-                        </li>
-                        <li>
                             Vår ambition är att hitta en ny kompis till dig inom 30 dagar. Det innebär att du kan få vänta.
                         </li>
                         <li>
@@ -683,6 +700,15 @@
                         </li>
                         <li>
                             Vi vill hela tiden bli bättre på vårt arbete. Därför kontaktar vi dig efter ert möte för att fråga hur det var.
+                        </li>
+                        <li>
+                            Kompisbyrån samlar in personuppgifter om dig som du lämnar i samband med din registrering. Vi använder informationen i syfte att hjälpa dig att komma i kontakt med deltagare inom vår verksamhet. Vi kan också komma att bjuda in dig till Kompisbyråns aktiviteter eller erbjudanden. Informationen används också för att kunna besvara frågor, driva och förbättra vår webbplats och program. Om du vill korrigera dina lämnade uppgifter som finns registrerade hos oss, vänligen logga in med din email och ditt lösenord och uppdatera din profil. Personuppgiftsansvarig är Kompisbyråns styrelse.
+                        </li>
+                        <li>
+                            Uppgifter om dig kan komma att överföras till samarbetspartners som hjälper oss att erbjuda dig våra tjänster samt till myndigheter som ger oss statliga bidrag. Våra samarbetspartners har inte rätt att använda uppgifter om dig i annat syfte. Vi överför inte uppgifter till samarbetspartners för marknadsföringssyfte utan ditt medgivande.
+                        </li>
+                        <li>
+                            När du registrerar dig på vår webbplats och när du gör förfrågningar om att bli matchad med nya vänner samtycker du till att Kompisbyrån behandlar dina personuppgifter för de ändamål som anges.
                         </li>
                     </ul>]]></target>
             </trans-unit>
@@ -954,8 +980,8 @@
                 <source>page.work_with_us.header</source>
                 <target>Stöd oss</target>
             </trans-unit>
-            <trans-unit id="page.work_with_us.text">
-                <source>page.work_with_us.text</source>
+            <trans-unit id="page.work_with_us.text1">
+                <source>page.work_with_us.text1</source>
                 <target>
                     <![CDATA[
                         <h3>Stöd oss!</h3>
@@ -971,11 +997,18 @@
                             där alla kan känna sig delaktiga och välkomna.
                         </p>
                         <p>
-                            <strong>Stötta Kompisbyrån – Swisha en Kompisfika</strong>
+                            <strong>Du kan bidra till ökad gemenskap - ge bort en kompisfika!</strong>
                         </p>
                         <p>
-                            <strong>Vill du hjälpa oss att hjälpa fler kompisar att hitta varandra över en kaffe? Kul! Nu har vi nämligen fått Swish! Varenda krona vi får in går till att skapa fler möjligheter för nyanlända och etablerade svenskar att mötas. Swisha 300 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt stöd!</strong>
+                            <strong>Att framgångsrikt öka gemenskapen mellan nya och etablerade svenskar är en av vår tids viktigaste utmaningar. Vill du se till att fler nya kompisar möts och finner varandra över en kaffe? Ge bort en kompisfika! Swisha 150 kr till 1236 809 602 eller sätt in pengar på BG-konto 386-3982. Tack för ditt bidrag!</strong>
                         </p>
+                    ]]>
+                </target>
+            </trans-unit>
+            <trans-unit id="page.work_with_us.text2">
+                <source>page.work_with_us.text2</source>
+                <target>
+                    <![CDATA[
                         <p>
                             Vi vill gärna ge dig ett personligt gåvobevis som tack - maila kontakt@kompisbyran.se så skickar vi över det!
                         </p>
@@ -987,28 +1020,20 @@
                         </p>
 
                         <h3>Tack till...</h3>
+                        
+                        <p>
+                            <strong>Axfoundation</strong> som via initiativet ÖppnaDörren är vår huvudpartner. Syftet med samarbetet 
+                            är att med gemensam kraft få ännu fler nya och etablerade svenskar att mötas under enkla, roliga och 
+                            vardagliga möten. Kompisbyråns verksamhet går helt i linje med ÖppnaDörrens övriga initiativ, där alla 
+                            arbetar med att länka samma nya och etablerade svenskar i ett möte på ungefär en timme.
+                        </p>
                         <p>
                             <strong>Delicato</strong> som är vår huvudsponsor till Fikakompis! Tillsammans vill vi verka för ökad 
-                            integration i det svenska samhället genom att fika. 
+                            gemenskap i det svenska samhället genom fika. 
                         </p>
                         <p>
-                            <strong>Svenska Postkodstiftelsen</strong> som stöttar Kompisbyrån. Tack vare detta
-                            bidrag har vi fått möjlighet att effektivisera vårt arbete genom att bl.a. utveckling av datasystem och hemsida.
-                        </p>
-                        <p>
-                            <strong>Sigtunastiftelsen</strong> som belönat Kompisbyrån med <a
-                                href="http://www.sigtunastiftelsen.se/kompisbyran-far-abrahams-barns-pris-2015/"
-                                target="_blank"
-                            >Abrahams Barns pris</a>, med motiveringen att Kompisbyrån skapar förutsättningar
-                            för mötesplatser i vardagen där ett kulturellt utbyte kan ske mellan personer som
-                            annars inte skulle ha träffats. “Vi vill därför uppmuntra initiativ som Kompisbyrån eftersom de,
-                            liksom Abrahams Barn, önskar delta i byggandet av ett inkluderande samhälle”, säger Elisabet
-                            Mattizon Armgard, programsekreterare för Abrahams Barn.
-                        </p>
-                        <p>
-                            <strong>Lernia</strong> som stöttar Kompisbyråns arbete med att göra det enklare för människor med liknande intressen att
-                            mötas och träffa nya vänner i vardagen. I och med detta har vi möjlighet att nå ut till fler som
-                            vill träffa nya kompisar.
+                            <strong>Startkompis-kommunerna</strong> Nacka, Solna, Tyresö och Vaxholm som valt att samarbeta med oss
+                            för att öka gemenskapen lokalt i kommunerna genom vårt program Startkompis.
                         </p>
                         
                         <h3>Ett särskilt tack till...</h3>
@@ -1064,9 +1089,9 @@
                         <h4>Vi som jobbar med Kompisbyrån</h4>
                         <p>
                             <b>Kansli</b><br> 
+                            Emma Hammar, grundare och verksamhetsledare, <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a><br>
                             Linda Kaplan, operativ ledare, <a href="mailto:linda@kompisbyran.se">linda@kompisbyran.se</a><br>
                             Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se">clara@kompisbyran.se</a><br>
-                            Emma Hammar, grundare och verksamhetsledare (föräldraledig), <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a><br>
                             <br>
                             <b>IT</b><br>
                             Jon Gotlin, IT-ansvarig<br>

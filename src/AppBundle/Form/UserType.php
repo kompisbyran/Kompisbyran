@@ -206,6 +206,18 @@ class UserType extends AbstractType
                 'mapped' => false,
                 'constraints' => $constraint,
                 'validation_groups' => ['registration', 'Default']
+            ->add('newlyArrived',  'boolean_choice', [
+                'expanded' => true,
+                'label' => 'user.form.newly_arrived',
+                'choices' => [
+                    'user.form.newly_arrived.no',
+                    'user.form.newly_arrived.yes',
+                ],
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isNewlyArrived() : null,
+            ])
+            ->add('identityNumber', 'text', [
+                'label' => 'user.form.identity_number',
+                'required' => false,
             ])
         ;
 

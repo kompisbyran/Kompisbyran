@@ -474,6 +474,30 @@
                 <source>user.form.languages</source>
                 <target>ما هي اللغات التي تتحدث بها؟</target>
             </trans-unit>
+            <trans-unit id="user.form.newly_arrived">
+                <source>user.form.newly_arrived</source>
+                <target>هل وصلت حديثا؟</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.yes">
+                <source>user.form.newly_arrived.yes</source>
+                <target>نعم, لقد وصلت حديثا. و حصلت على الإقامة بعد حزيران 2014</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.no">
+                <source>user.form.newly_arrived.no</source>
+                <target>لا, لست من الواصلين حديثا.</target>
+            </trans-unit>
+            <trans-unit id="user.form.newly_arrived.help">
+                <source>user.form.newly_arrived.help</source>
+                <target>أنت تعتبر من الواصلين حديثا. و حصلت على الإقامة بعد حزيران 2014.</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number">
+                <source>user.form.identity_number</source>
+                <target>الرقم الشخصي</target>
+            </trans-unit>
+            <trans-unit id="user.form.identity_number.help">
+                <source>user.form.identity_number.help</source>
+                <target>نحن نحتاج الى هذا الرقم للحصول على التمويل الحكومي فقط و ليس لاستعماله لأي أغراض أخرى. يمكنك القراءة عن ذلك في شروط Kompisbyrån %linkStart%الشروط%linkEnd%.</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>حفظ</target>
@@ -637,9 +661,6 @@
                             نحن ننصح باللقاء في مكان عام لحوالي الساعة من الوقت في مركز المدينة الأقرب للطرفين.
                         </li>
                         <li>
-                            عند تسجيلك الدخول فإن طلبك يجب أن يضمن صحة المعلومات التي تقدمها و يضمن موافقتك على استخدام هذه المعلومات كي نجد لك رفيقا مناسبا ثم نرسل معلوماتك و بريدك الالكتروني أو رقم هاتفك الى رفيقك الجديد. أيضا سوف نقوم بدعوتك لمشاركتنا المشاطات الخاصة بنا. إذا كنت تريد تغيير أو تصحيح المعلومات الخاصة بك يمكنك فعل ذلك بتسجيل الدخول ببريدك الالكتروني و كلمة السر.
-                        </li>
-                        <li>
                             طموحنا هو إيجاد رفيق جديد لك خلال 30 يوم من تقديمك للطلب. هذا يعني انه عليك الانتظار.
                         </li>
                         <li>
@@ -663,10 +684,17 @@
                         <li>
                             نحن نريد دوما أن نكون أفضل فيما نفعله لذلك سوف نرسل لك بريدا الكترونياأو نتصل بك لنسألك كيف جرت الأمور و كيف كان اللقاء.
                         </li>
-                        
-                        شاكرين لكم قراءتكم لشروطنا وموافقتكم عليها.
-                        
-                    </ul>]]></target>
+                        <li>
+                            كومبيسبيرون يجمع المعلومات الشخصية التي قمت بتقديمها في ملفك الشخصي. نستخدم هذه المعلومات لمساعدتك في التواصل مع المشاركين الآخرين في مؤسستنا. قد نستخدم أيضا تفاصيل الاتصال الخاصة بك لدعوتك لأنشطة كومبيسبيرون وغيرها من أنواع العروض. كما يتم استخدام المعلومات التي تتركها في كومبيسبيرون للإجابة على الأسئلة وتشغيل وتحسين الصفحة الرئيسية والبرامج. إذا كنت ترغب في تغيير المعلومات التي قدمتها، يرجى تسجيل الدخول إلى ملفك الشخصي لإجراء التغييرات المعنية. مراقب البيانات الشخصية هو مجلس إدارة كومبيسبيرون. 
+                        </li>
+                        <li>
+                            قد يتم نقل المعلومات الخاصة بك إلى الشركاء التي تساعدنا على تقديم خدماتنا وإلى السلطات التي تعطينا المنح الحكومية لتشغيل كومبيسبيرون. ليس لدى شركائنا الحق في استخدام هذه المعلومات لأغراض أخرى. نحن لا ننقل المعلومات الشخصية الخاصة بك إلى المنظمات الشريكة لأغراض ترويجية دون موافقتك.
+                        </li>
+                        <li>
+                            عند التسجيل في صفحتنا الرئيسية وعند التقدم بطلب للحصول على مطابقة صديق، فإنك توافق على معالجة كومبيسبيرون للبيانات الشخصية الخاصة بك للأغراض المذكورة.
+                        </li>
+                    </ul>
+                    ]]></target>
             </trans-unit>
             <trans-unit id="terms.outro">
                 <source>terms.outro</source>
@@ -920,16 +948,13 @@
 
                         <h3>شكرا ل</h3>
                         <p>
-                            <strong>Delicato</strong> 
+                            <strong>Axfoundation/ÖppnaDörren</strong> 
                         </p>
                         <p>
-                            <strong>Svenska Postkodstiftelsen</strong>
+                            <strong>Delicato</strong>
                         </p>
                         <p>
-                            <strong>Sigtunastiftelsen</strong> 
-                        </p>
-                        <p>
-                            <strong>Lernia</strong> 
+                            <strong>The Start Friend municipalities:</strong> Nacka, Solna, Tyresö and Vaxholm. 
                         </p>
                         <p>
                             شكر خاص ل
@@ -967,9 +992,9 @@
                         <h4>نحن كعاملين في كومبيس بيرون</h4>
                         <p>
                             Office<br> 
+                            Emma Hammar, grundare och verksamhetsledare, <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a><br>
                             Linda Kaplan, operativ ledare, <a href="mailto:linda@kompisbyran.se ">linda@kompisbyran.se </a><br>
                             Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se ">clara@kompisbyran.se </a><br>
-                            Emma Hammar, grundare och verksamhetsledare (föräldraledig), <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a><br>
 
                             IT<br>
                             Jon Gotlin, IT-ansvarig<br>
