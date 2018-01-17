@@ -43,7 +43,7 @@
 <div class="form-group hidden" id="newlyArrived">
     <div class="col-lg-4 text-right">
         <label class="control-label required">{{ 'user.form.newly_arrived'|trans }}</label>
-        <p>{{ 'user.form.newly_arrived.help'|trans }}</p>
+        <p>{{ 'user.form.newly_arrived.help'|trans({'%year%': newly_arrived_year(), '%month%': newly_arrived_month_name()}) }}</p>
     </div>
     <div class="col-sm-8 checkableList">
         {{ form_widget(form.newlyArrived) }}
