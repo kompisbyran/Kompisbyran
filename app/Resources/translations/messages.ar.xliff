@@ -488,7 +488,7 @@
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.help">
                 <source>user.form.newly_arrived.help</source>
-                <target>أنت تعتبر من الواصلين حديثا. و حصلت على الإقامة بعد حزيران 2014.</target>
+                <target>في إحصائیاتنا أنت تعتبر جديدا في السويد  إذا تلقیت تصریح الإقامة قبل 3 سنوات أو أقل.</target>
             </trans-unit>
             <trans-unit id="user.form.identity_number">
                 <source>user.form.identity_number</source>
