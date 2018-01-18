@@ -481,7 +481,7 @@
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.yes">
                 <source>user.form.newly_arrived.yes</source>
-                <target>Ja, jag är nyanländ. Jag fick mitt uppehållstillstånd efter december 2014.</target>
+                <target>Ja, jag är nyanländ. Jag fick mitt uppehållstillstånd efter %month% %year%.</target>
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.no">
                 <source>user.form.newly_arrived.no</source>
@@ -489,7 +489,7 @@
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.help">
                 <source>user.form.newly_arrived.help</source>
-                <target>I vår statistik räknas du som nyanländ om du fick ditt uppehållstillstånd efter december 2014.</target>
+                <target>I vår statistik räknas du som nyanländ om du fick ditt uppehållstillstånd efter %month% %year%.</target>
             </trans-unit>
             <trans-unit id="user.form.identity_number">
                 <source>user.form.identity_number</source>

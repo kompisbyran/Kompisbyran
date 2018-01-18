@@ -212,7 +212,10 @@ class UserType extends AbstractType
                 'label' => 'user.form.newly_arrived',
                 'choices' => [
                     'user.form.newly_arrived.no',
-                    'user.form.newly_arrived.yes',
+                    $options['translator']->trans('user.form.newly_arrived.yes', [
+                        '%month%' => $options['translator']->trans('month.' . $options['newly_arrived_date']->getDate()->format('n'), [], 'months'),
+                        '%year%' => $options['newly_arrived_date']->getDate()->format('Y'),
+                    ]),
                 ],
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isNewlyArrived() : null,
             ])
@@ -266,7 +269,9 @@ class UserType extends AbstractType
         ]);
         $resolver->setRequired([
             'manager',
-            'locale'
+            'locale',
+            'translator',
+            'newly_arrived_date',
         ]);
     }
 

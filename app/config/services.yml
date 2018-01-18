@@ -21,6 +21,7 @@ services:
             - '@translator'
             - '@user_manager'
             - '@manager.pre_match'
+            - '@newly_arrived_date'
         tags:
             - { name: twig.extension }
 
@@ -120,3 +121,6 @@ services:
         class: Gaufrette\Filesystem
         arguments:
             adapter: @s3.adapter
+
+    newly_arrived_date:
+        class: AppBundle\Service\NewlyArrivedDate

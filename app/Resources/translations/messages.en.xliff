@@ -490,7 +490,7 @@
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.yes">
                 <source>user.form.newly_arrived.yes</source>
-                <target>Yes, I'm newly arrived. I got my residence permit after December 2014.</target>
+                <target>Yes, I'm newly arrived. I got my residence permit after %month% %year%.</target>
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.no">
                 <source>user.form.newly_arrived.no</source>
@@ -498,7 +498,7 @@
             </trans-unit>
             <trans-unit id="user.form.newly_arrived.help">
                 <source>user.form.newly_arrived.help</source>
-                <target>You count as newly arrived if you got your residence permit after December 2014.</target>
+                <target>You count as newly arrived if you got your residence permit after %month% %year%.</target>
             </trans-unit>
             <trans-unit id="user.form.identity_number">
                 <source>user.form.identity_number</source>

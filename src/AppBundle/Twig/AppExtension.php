@@ -7,6 +7,7 @@ use AppBundle\Enum\Countries;
 use AppBundle\Enum\OccupationTypes;
 use AppBundle\Manager\PreMatchManager;
 use AppBundle\Manager\UserManager;
+use AppBundle\Service\NewlyArrivedDate;
 use Symfony\Component\Translation\TranslatorInterface;
 use AppBundle\Entity\User;
 use AppBundle\Util\Util;
@@ -33,18 +34,27 @@ class AppExtension extends \Twig_Extension
     private $preMatchManager;
 
     /**
+     * @var NewlyArrivedDate
+     */
+    private $newlyArrivedDate;
+
+    /**
      * @param TranslatorInterface $translator
      * @param UserManager $userManager
+     * @param PreMatchManager $preMatchManager
+     * @param NewlyArrivedDate $newlyArrivedDate
      */
     public function __construct(
         TranslatorInterface $translator,
         UserManager $userManager,
-        PreMatchManager $preMatchManager
+        PreMatchManager $preMatchManager,
+        NewlyArrivedDate $newlyArrivedDate
     )
     {
         $this->translator = $translator;
         $this->userManager = $userManager;
         $this->preMatchManager = $preMatchManager;
+        $this->newlyArrivedDate = $newlyArrivedDate;
     }
 
     /**
@@ -77,6 +87,8 @@ class AppExtension extends \Twig_Extension
             'mark_matched_categories' => new \Twig_Function_Method($this, 'markMatchedCategories', [
                 'is_safe' => ['html']
             ]),
+            'newly_arrived_month_name' => new \Twig_Function_Method($this, 'newlyArrivedMonthName'),
+            'newly_arrived_year' => new \Twig_Function_Method($this, 'newlyArrivedYear'),
         );
     }
 
@@ -245,5 +257,21 @@ class AppExtension extends \Twig_Extension
     public function meetingTime(PreMatch $preMatch)
     {
         return $this->preMatchManager->getMeetingTime($preMatch);
+    }
+
+    /**
+     * @return string
+     */
+    public function newlyArrivedMonthName()
+    {
+        return $this->translator->trans('month.'. $this->newlyArrivedDate->getDate()->format('n'), [], 'months');
+    }
+
+    /**
+     * @return string
+     */
+    public function newlyArrivedYear()
+    {
+        return $this->newlyArrivedDate->getDate()->format('Y');
     }
 }

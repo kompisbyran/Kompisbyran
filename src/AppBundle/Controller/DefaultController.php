@@ -30,6 +30,8 @@ class DefaultController extends Controller
                     'manager' => $this->getDoctrine()->getManager(),
                     'locale' => $request->getLocale(),
                     'add_connection_request' => true,
+                    'translator' => $this->get('translator'),
+                    'newly_arrived_date' => $this->get('newly_arrived_date'),
                 ]
             );
 
