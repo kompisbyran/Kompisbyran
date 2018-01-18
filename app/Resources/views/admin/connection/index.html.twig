@@ -16,6 +16,9 @@
         href="{{ path('admin_user', {'id': user.id}) }}"
         >{{ user.name }}</a></strong>
     - {{ user.email }}<br>
+    {% if wantToLearn and connection.newlyArrived%}
+        <span class="label label-info">Nyanländ</span><br>
+    {% endif %}
     <em>{{ comment }}</em><br>
     <a
         href="#"

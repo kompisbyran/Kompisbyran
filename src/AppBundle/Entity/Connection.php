@@ -110,6 +110,13 @@ class Connection
      */
     protected $fluentSpeakerConnectionRequestCreatedAt;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $newlyArrived = false;
+
     public function __construct(User $user = null)
     {
         $this->createdAt = new \DateTime();
@@ -303,5 +310,21 @@ class Connection
     public function setMunicipality($municipality)
     {
         $this->municipality = $municipality;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isNewlyArrived()
+    {
+        return $this->newlyArrived;
+    }
+
+    /**
+     * @param bool $newlyArrived
+     */
+    public function setNewlyArrived($newlyArrived)
+    {
+        $this->newlyArrived = $newlyArrived;
     }
 }
