@@ -86,18 +86,19 @@ class ConnectionManager implements ManagerInterface
      */
     public function saveByConnectionRequest(ConnectionRequest $userRequest, ConnectionRequest $matchUserRequest, User $loggedUser)
     {
-        $connection                 = $this->createNew();
+        $connection = $this->createNew();
         /** @var $learner ConnectionRequest */
         /** @var $speaker ConnectionRequest */
-        list($learner, $speaker)    = $this->getLearnerSpeaker($userRequest, $matchUserRequest);
+        list($learner, $speaker) = $this->getLearnerSpeaker($userRequest, $matchUserRequest);
 
-        $connection->setCreatedBy           ( $loggedUser               );
-        $connection->setLearner             ( $learner->getUser()       );
-        $connection->setFluentSpeaker       ( $speaker->getUser()       );
-        $connection->setCity                ( $learner->getCity()       );
+        $connection->setCreatedBy($loggedUser);
+        $connection->setLearner($learner->getUser());
+        $connection->setFluentSpeaker($speaker->getUser());
+        $connection->setCity($learner->getCity());
         $connection->setType($learner->getType());
         $connection->setFluentSpeakerConnectionRequestCreatedAt($speaker->getCreatedAt());
         $connection->setLearnerConnectionRequestCreatedAt($learner->getCreatedAt());
+        $connection->setNewlyArrived($learner->getUser()->isNewlyArrived());
 
         $this->save($connection);
 

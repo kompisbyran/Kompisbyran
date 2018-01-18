@@ -173,6 +173,7 @@ class UserManager implements ManagerInterface
                     null,
                 'activities' => $currentUser->getActivities(),
                 'extra_person' => $extraPerson,
+                'newly_arrived' => $auser['newly_arrived'] ? $this->translator->trans('yes') : $this->translator->trans('no'),
             ];
         }
 
