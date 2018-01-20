@@ -4,6 +4,7 @@ namespace AppBundle\Twig;
 
 use AppBundle\Entity\PreMatch;
 use AppBundle\Enum\Countries;
+use AppBundle\Enum\MeetingTypes;
 use AppBundle\Enum\OccupationTypes;
 use AppBundle\Manager\PreMatchManager;
 use AppBundle\Manager\UserManager;
@@ -68,6 +69,8 @@ class AppExtension extends \Twig_Extension
             new \Twig_SimpleFilter('gender', [$this, 'gender']),
             new \Twig_SimpleFilter('occupation', [$this, 'occupation']),
             new \Twig_SimpleFilter('meeting_time', [$this, 'meetingTime']),
+            new \Twig_SimpleFilter('meeting_status_icon', [$this, 'meetingStatusIcon']),
+            new \Twig_SimpleFilter('meeting_status_color', [$this, 'meetingStatusColor']),
         ];
     }
 
@@ -273,5 +276,41 @@ class AppExtension extends \Twig_Extension
     public function newlyArrivedYear()
     {
         return $this->newlyArrivedDate->getDate()->format('Y');
+    }
+
+    /**
+     * @param $meetingStatus
+     *
+     * @return string
+     */
+    public function meetingStatusIcon($meetingStatus)
+    {
+        if ($meetingStatus == MeetingTypes::MET) {
+            return 'calendar-check-o';
+        } elseif ($meetingStatus == MeetingTypes::NOT_YET_MET) {
+            return 'calendar-plus-o';
+        } elseif ($meetingStatus == MeetingTypes::WILL_NOT_MEET) {
+            return 'calendar-times-o';
+        }
+
+        return 'calendar-o';
+    }
+
+    /**
+     * @param $meetingStatus
+     *
+     * @return string
+     */
+    public function meetingStatusColor($meetingStatus)
+    {
+        if ($meetingStatus == MeetingTypes::MET) {
+            return 'success';
+        } elseif ($meetingStatus == MeetingTypes::NOT_YET_MET) {
+            return 'primary';
+        } elseif ($meetingStatus == MeetingTypes::WILL_NOT_MEET) {
+            return 'danger';
+        }
+
+        return 'info';
     }
 }

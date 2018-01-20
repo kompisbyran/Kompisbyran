@@ -1281,6 +1281,22 @@ Om du vill, maila gärna oss på matchning@kompisbyran.se och berätta varför m
                 <source>open.confirm_meeting.already_answered</source>
                 <target>Du har redan besvarat denna fråga. Om du har fyllt i fel eller vill ändra ditt svar, vänligen maila oss på matchning@kompisbyran.se så hjälper vi till.</target>
             </trans-unit>
+            <trans-unit id="meeting_type.unknown">
+                <source>meeting_type.unknown</source>
+                <target>Ej svar</target>
+            </trans-unit>
+            <trans-unit id="meeting_type.not_yet_met">
+                <source>meeting_type.not_yet_met</source>
+                <target>Inte än</target>
+            </trans-unit>
+            <trans-unit id="meeting_type.met">
+                <source>meeting_type.met</source>
+                <target>Har träffats</target>
+            </trans-unit>
+            <trans-unit id="meeting_type.will_not_meet">
+                <source>meeting_type.will_not_meet</source>
+                <target>Kommer inte att träffas</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

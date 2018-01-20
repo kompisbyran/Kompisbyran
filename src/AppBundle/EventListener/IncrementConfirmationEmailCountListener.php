@@ -2,7 +2,6 @@
 
 namespace AppBundle\EventListener;
 
-use AppBundle\Enum\MeetingTypes;
 use AppBundle\Event\MeetingStatusUpdatedEvent;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -30,16 +29,12 @@ class IncrementConfirmationEmailCountListener
         $connection = $event->getConnection();
 
         if ($connection->getFluentSpeaker() == $user) {
-            $connection->setFluentSpeakerMeetingStatusEmailsCount(
-                $connection->getFluentSpeakerMeetingStatusEmailsCount() + 1
-            );
+            $connection->addFluentSpeakerMeetingStatusEmailSentAtDate(new \DateTime());
             $this->entityManager->persist($connection);
             $this->entityManager->flush();
         }
         if ($connection->getLearner() == $user) {
-            $connection->setLearnerMeetingStatusEmailsCount(
-                $connection->getLearnerMeetingStatusEmailsCount() + 1
-            );
+            $connection->addLearnerMeetingStatusEmailSentAtDate(new \DateTime());
             $this->entityManager->persist($connection);
             $this->entityManager->flush();
         }

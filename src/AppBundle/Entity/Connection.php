@@ -107,6 +107,49 @@ class Connection
      */
     protected $fluentSpeakerMeetingStatusEmailsCount = 0;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $learnerFollowUpEmail2Count = 0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $fluentSpeakerFollowUpEmail2Count = 0;
+
+    /**
+     * @var \DateTime[]
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $learnerMeetingStatusEmailSentAtDates = [];
+
+    /**
+     * @var \DateTime[]
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $fluentSpeakerMeetingStatusEmailSentAtDates = [];
+
+    /**
+     * @var \DateTime[]
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $learnerFollowUpEmail2SentAtDates = [];
+
+    /**
+     * @var \DateTime[]
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $fluentSpeakerFollowUpEmail2SentAtDates = [];
+
     /**
      * @var User
      *
@@ -405,14 +448,6 @@ class Connection
     }
 
     /**
-     * @param int $learnerMeetingStatusEmailsCount
-     */
-    public function setLearnerMeetingStatusEmailsCount($learnerMeetingStatusEmailsCount)
-    {
-        $this->learnerMeetingStatusEmailsCount = $learnerMeetingStatusEmailsCount;
-    }
-
-    /**
      * @return int
      */
     public function getFluentSpeakerMeetingStatusEmailsCount()
@@ -421,10 +456,86 @@ class Connection
     }
 
     /**
-     * @param int $fluentSpeakerMeetingStatusEmailsCount
+     * @return int
      */
-    public function setFluentSpeakerMeetingStatusEmailsCount($fluentSpeakerMeetingStatusEmailsCount)
+    public function getLearnerUpEmail2Count()
     {
-        $this->fluentSpeakerMeetingStatusEmailsCount = $fluentSpeakerMeetingStatusEmailsCount;
+        return $this->learnerFollowUpEmail2Count;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFluentSpeakerFollowUpEmail2Count()
+    {
+        return $this->fluentSpeakerFollowUpEmail2Count;
+    }
+
+    /**
+     * @return \DateTime[]
+     */
+    public function getLearnerMeetingStatusEmailSentAtDates()
+    {
+        return $this->learnerMeetingStatusEmailSentAtDates;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function addLearnerMeetingStatusEmailSentAtDate(\DateTime $date)
+    {
+        $this->learnerMeetingStatusEmailSentAtDates[] = $date;
+        $this->learnerMeetingStatusEmailsCount = count($this->learnerMeetingStatusEmailSentAtDates);
+    }
+
+    /**
+     * @return \DateTime[]
+     */
+    public function getFluentSpeakerMeetingStatusEmailSentAtDates()
+    {
+        return $this->fluentSpeakerMeetingStatusEmailSentAtDates;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function addFluentSpeakerMeetingStatusEmailSentAtDate(\DateTime $date)
+    {
+        $this->fluentSpeakerMeetingStatusEmailSentAtDates[] = $date;
+        $this->fluentSpeakerMeetingStatusEmailsCount = count($this->fluentSpeakerMeetingStatusEmailSentAtDates);
+    }
+
+    /**
+     * @return \DateTime[]
+     */
+    public function getLearnerFollowUpEmail2SentAtDates()
+    {
+        return $this->learnerFollowUpEmail2SentAtDates;
+    }
+
+    /**
+     * @param \DateTime $learnerFollowUpEmail2SentAtDate
+     */
+    public function addLearnerFollowUpEmail2SentAtDate(\DateTime $learnerFollowUpEmail2SentAtDate)
+    {
+        $this->learnerFollowUpEmail2SentAtDates[] = $learnerFollowUpEmail2SentAtDate;
+        $this->learnerFollowUpEmail2Count = count($this->learnerFollowUpEmail2SentAtDates);
+    }
+
+    /**
+     * @return \DateTime[]
+     */
+    public function getFluentSpeakerFollowUpEmail2SentAtDates()
+    {
+        return $this->fluentSpeakerFollowUpEmail2SentAtDates;
+    }
+
+    /**
+     * @param \DateTime $fluentSpeakerFollowUpEmail2SentAtDate
+     */
+    public function addFluentSpeakerFollowUpEmail2SentAtDate(\DateTime $fluentSpeakerFollowUpEmail2SentAtDate)
+    {
+        $this->fluentSpeakerFollowUpEmail2SentAtDates[] = $fluentSpeakerFollowUpEmail2SentAtDate;
+        $this->fluentSpeakerFollowUpEmail2Count = count($this->fluentSpeakerFollowUpEmail2SentAtDates);
     }
 }
