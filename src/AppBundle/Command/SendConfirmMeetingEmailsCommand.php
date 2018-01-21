@@ -15,7 +15,7 @@ class SendConfirmMeetingEmailsCommand extends ContainerAwareCommand
     {
         $this
             ->setName('kompisbyran:send-confirm-meeting-emails')
-            ->setDescription('Send follow up emails to users related to a connection.')
+            ->setDescription('Send meeting status emails to users related to a connection.')
             ->addArgument('daysSinceCreated', InputArgument::REQUIRED, 'Number of days since the connection was created.')
             ->addArgument('previousMailsCount', InputArgument::REQUIRED, 'Number of previous sent emails.')
         ;
@@ -44,7 +44,7 @@ class SendConfirmMeetingEmailsCommand extends ContainerAwareCommand
         ));
 
         /** @var Connection[] $connections */
-        $connections = $this->getContainer()->get('connection_repository')->findForMeetingFollowUp($createdAt, $previousMailsCount);
+        $connections = $this->getContainer()->get('connection_repository')->findForMeetingConfirmation($createdAt, $previousMailsCount);
         foreach ($connections as $connection) {
             $output->writeln(sprintf('Sending for connection created %s', $connection->getCreatedAt()->format('Y-m-d H:i:s')));
             if (in_array($connection->getFluentSpeakerMeetingStatus(), $statuses)) {

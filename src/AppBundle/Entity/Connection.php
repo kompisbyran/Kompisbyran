@@ -188,6 +188,20 @@ class Connection
     protected $fluentSpeakerConnectionRequestCreatedAt;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $learnerMarkedAsMetCreatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $fluentSpeakerMarkedAsMetCreatedAt;
+
+    /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
@@ -421,6 +435,9 @@ class Connection
     public function setLearnerMeetingStatus($learnerMeetingStatus)
     {
         $this->learnerMeetingStatus = $learnerMeetingStatus;
+        if ($learnerMeetingStatus == MeetingTypes::MET) {
+            $this->learnerMarkedAsMetCreatedAt = new \DateTime();
+        }
     }
 
     /**
@@ -437,6 +454,9 @@ class Connection
     public function setFluentSpeakerMeetingStatus($fluentSpeakerMeetingStatus)
     {
         $this->fluentSpeakerMeetingStatus = $fluentSpeakerMeetingStatus;
+        if ($fluentSpeakerMeetingStatus == MeetingTypes::MET) {
+            $this->fluentSpeakerMarkedAsMetCreatedAt = new \DateTime();
+        }
     }
 
     /**
@@ -458,7 +478,7 @@ class Connection
     /**
      * @return int
      */
-    public function getLearnerUpEmail2Count()
+    public function getLearnerFollowUpEmail2Count()
     {
         return $this->learnerFollowUpEmail2Count;
     }
@@ -537,5 +557,21 @@ class Connection
     {
         $this->fluentSpeakerFollowUpEmail2SentAtDates[] = $fluentSpeakerFollowUpEmail2SentAtDate;
         $this->fluentSpeakerFollowUpEmail2Count = count($this->fluentSpeakerFollowUpEmail2SentAtDates);
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLearnerMarkedAsMetCreatedAt()
+    {
+        return $this->learnerMarkedAsMetCreatedAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFluentSpeakerMarkedAsMetCreatedAt()
+    {
+        return $this->fluentSpeakerMarkedAsMetCreatedAt;
     }
 }

@@ -136,5 +136,12 @@ services:
         arguments:
             - '@doctrine.orm.entity_manager'
         tags:
-            - { name: kernel.event_listener, event: meeting_status_updated, method: whenEmailIsSent }
+            - { name: kernel.event_listener, event: meeting_confirmation_email_sent, method: whenEmailIsSent }
+
+    listener.increment_follow_up_email2_count:
+        class: AppBundle\EventListener\IncrementFollowUpEmail2CountListener
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: kernel.event_listener, event: follow_up_email2_sent, method: whenEmailIsSent }
 

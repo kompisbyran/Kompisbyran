@@ -193,9 +193,12 @@ class ConnectionRepository extends EntityRepository
     }
 
     /**
+     * @param \DateTime $createdAt
+     * @param int $previousMailsCount
+     *
      * @return Connection[]
      */
-    public function findForMeetingFollowUp($createdAt, $previousMailsCount)
+    public function findForMeetingConfirmation(\DateTime $createdAt, $previousMailsCount)
     {
         $from = clone $createdAt;
         $from->setTime(0, 0, 0);
@@ -204,7 +207,6 @@ class ConnectionRepository extends EntityRepository
 
         return $this
             ->createQueryBuilder('c')
-            ->where('c.type != :type')
             ->andWhere('
                 c.fluentSpeakerMeetingStatus = :statusUnknown or c.fluentSpeakerMeetingStatus = :statusNotYetMet
                 or c.learnerMeetingStatus = :statusUnknown or c.learnerMeetingStatus = :statusNotYetMet
@@ -214,12 +216,45 @@ class ConnectionRepository extends EntityRepository
                 c.fluentSpeakerMeetingStatusEmailsCount = :previousMailsCount
                 or c.learnerMeetingStatusEmailsCount = :previousMailsCount
             ')
-            ->setParameter('type', FriendTypes::START)
             ->setParameter('statusUnknown', MeetingTypes::UNKNOWN)
             ->setParameter('statusNotYetMet', MeetingTypes::NOT_YET_MET)
             ->setParameter('from', $from)
             ->setParameter('to', $to)
             ->setParameter('previousMailsCount', $previousMailsCount)
+            ->getQuery()
+            ->execute()
+            ;
+    }
+
+    /**
+     * @param \DateTime $markedAsMetAt
+     *
+     * @return Connection[]
+     */
+    public function findForMeetingFollowUp(\DateTime $markedAsMetAt)
+    {
+        $from = clone $markedAsMetAt;
+        $from->setTime(0, 0, 0);
+        $to = clone $from;
+        $to->setTime(23, 59, 59);
+
+        return $this
+            ->createQueryBuilder('c')
+            ->andWhere('
+                c.fluentSpeakerMeetingStatus = :status
+                or c.learnerMeetingStatus = :status
+            ')
+            ->andWhere('
+                c.fluentSpeakerMarkedAsMetCreatedAt between :from and :to
+                or c.learnerMarkedAsMetCreatedAt between :from and :to
+            ')
+            ->andWhere('
+                c.fluentSpeakerFollowUpEmail2Count = 0
+                or c.learnerFollowUpEmail2Count = 0
+            ')
+            ->setParameter('status', MeetingTypes::MET)
+            ->setParameter('from', $from)
+            ->setParameter('to', $to)
             ->getQuery()
             ->execute()
             ;

@@ -5,7 +5,7 @@ namespace AppBundle\Mailer;
 use AppBundle\Entity\Connection;
 use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
-use AppBundle\Event\MeetingStatusUpdatedEvent;
+use AppBundle\Event\FollowUpEmailSentEvent;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Routing\RouterInterface;
@@ -109,8 +109,41 @@ class UserMailer extends Mailer
         $this->sendEmailMessage($html, null, $subject, $user->getEmail());
 
         $this->eventDispatcher->dispatch(
-            MeetingStatusUpdatedEvent::NAME,
-            new MeetingStatusUpdatedEvent($user, $connection)
+            FollowUpEmailSentEvent::MEETING_CONFIRMATION_EMAIL_SENT,
+            new FollowUpEmailSentEvent($user, $connection)
+        );
+    }
+
+    /**
+     * @param User $user
+     * @param Connection $connection
+     */
+    public function sendFollowUpEmail2Message(User $user, Connection $connection)
+    {
+        $template = 'followUp';
+        $subject = 'Fråga från Kompisbyrån';
+
+
+        if ($connection->getType() == FriendTypes::START) {
+            if ($connection->getFluentSpeaker() == $user) {
+                $template = 'followUpStartFriendFluentSpeaker';
+                $subject = 'Vi efterfrågar din upplevelse av att träffa en startkompis';
+            } else {
+                $template = 'followUpStartFriendLearner';
+                $subject = 'Fråga från Kompisbyrån / Request from Kompisbyrån';
+            }
+        }
+
+        $html = $this->templating->render(sprintf('email/%s.html.twig', $template), [
+            'user' => $user,
+            'connection' => $connection,
+        ]);
+
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
+
+        $this->eventDispatcher->dispatch(
+            FollowUpEmailSentEvent::FOLLOW_UP_EMAIL2_SENT,
+            new FollowUpEmailSentEvent($user, $connection)
         );
     }
 }

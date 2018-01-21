@@ -52,6 +52,7 @@ Setup cron jobs
 ```
 php app/console kompisbyran:send-confirm-meeting-emails 21 0 #days since created and number of mails sent
 php app/console kompisbyran:send-confirm-meeting-emails 35 1
+php app/console kompisbyran:send-follow-up-email2 14 #days since user marked meeting as held
 ```
 
 ### Config

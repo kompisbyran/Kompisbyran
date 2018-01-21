@@ -5,7 +5,7 @@ namespace AppBundle\EventListener;
 use AppBundle\Event\FollowUpEmailSentEvent;
 use Doctrine\ORM\EntityManagerInterface;
 
-class IncrementConfirmationEmailCountListener
+class IncrementFollowUpEmail2CountListener
 {
     /**
      * @var EntityManagerInterface
@@ -29,12 +29,12 @@ class IncrementConfirmationEmailCountListener
         $connection = $event->getConnection();
 
         if ($connection->getFluentSpeaker() == $user) {
-            $connection->addFluentSpeakerMeetingStatusEmailSentAtDate(new \DateTime());
+            $connection->addFluentSpeakerFollowUpEmail2SentAtDate(new \DateTime());
             $this->entityManager->persist($connection);
             $this->entityManager->flush();
         }
         if ($connection->getLearner() == $user) {
-            $connection->addLearnerMeetingStatusEmailSentAtDate(new \DateTime());
+            $connection->addLearnerFollowUpEmail2SentAtDate(new \DateTime());
             $this->entityManager->persist($connection);
             $this->entityManager->flush();
         }

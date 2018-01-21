@@ -24,6 +24,7 @@ class Version20180120074749 extends AbstractMigration
             ['a:0:{}', 'a:0:{}', 'a:0:{}', 'a:0:{}']
         );
         $this->addSql('ALTER TABLE connection ADD learner_follow_up_email2count INT NOT NULL, ADD fluent_speaker_follow_up_email2count INT NOT NULL');
+        $this->addSql('ALTER TABLE connection ADD learner_marked_as_met_created_at DATETIME DEFAULT NULL, ADD fluent_speaker_marked_as_met_created_at DATETIME DEFAULT NULL');
     }
 
     /**
@@ -36,5 +37,6 @@ class Version20180120074749 extends AbstractMigration
 
         $this->addSql('ALTER TABLE connection DROP learner_meeting_status_email_sent_at_dates, DROP fluent_speaker_meeting_status_email_sent_at_dates, DROP learner_follow_up_email2sent_at_dates, DROP fluent_speaker_follow_up_email2sent_at_dates');
         $this->addSql('ALTER TABLE connection DROP learner_follow_up_email2count, DROP fluent_speaker_follow_up_email2count');
+        $this->addSql('ALTER TABLE connection DROP learner_marked_as_met_created_at, DROP fluent_speaker_marked_as_met_created_at');
     }
 }
