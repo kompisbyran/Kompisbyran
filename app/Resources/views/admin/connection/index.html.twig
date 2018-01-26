@@ -38,7 +38,7 @@
     {% if meetingStatus == constant('AppBundle\\Enum\\MeetingTypes::MET') %}
          {{ markedAsMetCreatedAt|date('Y-m-d H:i') }}
     {% endif %}<br>
-    
+
     <strong>Skickade uppföljningsmejl:</strong>
     {% if meetingStatusEmailSentDates|length == 0 %}
         -

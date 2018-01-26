@@ -7,13 +7,13 @@
             <div class="row">
                 <div class="col-md-2 col-sm-0"></div>
                 <div class="col-md-8 col-sm-12">
-                    <h2>{{ 'open.confirm_meeting.header'|trans|raw }}</h2>
+                    <h2>{{ 'open.confirm_meeting.header'|trans }}</h2>
                     {% if alreadyConfirmed %}
                         {{ 'open.confirm_meeting.already_answered'|trans|nl2br }}
                     {% else %}
-                        <p id="intro"> {{ 'open.confirm_meeting.ingress'|trans }}</p>
+                        <p id="intro"> {{ 'open.confirm_meeting.ingress'|trans|nl2br }}</p>
 
-                        <div id="buttons">
+                        <div id="buttons" style="padding-top: 1em;">
                             <a href="#" data-status="{{ constant('AppBundle\\Enum\\MeetingTypes::MET') }}" class="btn btn-success">
                                 {{ 'open.confirm_meeting.button.met'|trans }}
                             </a>

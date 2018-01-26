@@ -1242,7 +1242,8 @@
             </trans-unit>
             <trans-unit id="open.confirm_meeting.ingress">
                 <source>open.confirm_meeting.ingress</source>
-                <target>Vad roligt att vi på Kompisbyrån har fått matcha dig med en ny vän. Har ni träffats?</target>
+                <target>Vad roligt att vi på Kompisbyrån har fått matcha dig med en ny vän.
+                Har ni träffats?</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.button.met">
                 <source>open.confirm_meeting.button.met</source>
@@ -1268,7 +1269,9 @@ Tack för att du är med och ökar gemenskapen i samhället!</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.after.not_yet_met">
                 <source>open.confirm_meeting.after.not_yet_met</source>
-                <target>Tack för ditt svar! Du kommer att få ett nytt mail från oss om några veckor där vi ställer samma fråga.</target>
+                <target>Tack för ditt svar!
+
+                Du kommer att få ett nytt mail från oss om några veckor där vi ställer samma fråga.</target>
             </trans-unit>
             <trans-unit id="open.confirm_meeting.after.will_not_meet">
                 <source>open.confirm_meeting.after.will_not_meet</source>
