@@ -29,3 +29,5 @@ parameters:
     amazon_s3.bucket: kompisbyran
 
     deadmanssnitch_url: https://nosnch.in/xxxxx
+
+    router.request_context.host: www.kompisbyran.se

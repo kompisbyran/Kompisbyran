@@ -7,18 +7,59 @@
         {% set user = connection.learner %}
         {% set comment = connection.learnerComment %}
         {% set date = connection.learnerConnectionRequestCreatedAt %}
+        {% set meetingStatus = connection.learnerMeetingStatus %}
+        {% set meetingStatusEmailSentDates = connection.learnerMeetingStatusEmailSentAtDates %}
+        {% set followUpEmailSentDates = connection.learnerFollowUpEmail2SentAtDates %}
+        {% set markedAsMetCreatedAt = connection.learnerMarkedAsMetCreatedAt %}
     {% else %}
         {% set user = connection.fluentSpeaker %}
         {% set comment = connection.fluentSpeakerComment %}
         {% set date = connection.fluentSpeakerConnectionRequestCreatedAt %}
+        {% set meetingStatus = connection.fluentSpeakerMeetingStatus %}
+        {% set meetingStatusEmailSentDates = connection.fluentSpeakerMeetingStatusEmailSentAtDates %}
+        {% set followUpEmailSentDates = connection.fluentSpeakerFollowUpEmail2SentAtDates %}
+        {% set markedAsMetCreatedAt = connection.fluentSpeakerMarkedAsMetCreatedAt %}
     {% endif %}
     <strong><a
         href="{{ path('admin_user', {'id': user.id}) }}"
         >{{ user.name }}</a></strong>
     - {{ user.email }}<br>
-    {% if wantToLearn and connection.newlyArrived%}
+    {% if wantToLearn and connection.newlyArrived %}
         <span class="label label-info">Nyanländ</span><br>
     {% endif %}
+    <strong>Mötesstatus:</strong>
+
+    <span class="label label-{{ meetingStatus|meeting_status_color }}">
+        <i class="fa fa-{{ meetingStatus|meeting_status_icon }}"></i>
+        {{ ('meeting_type.' ~ meetingStatus)|trans }}
+    </span><br>
+
+    <strong>Mötet bekräftat:</strong>
+    {% if meetingStatus == constant('AppBundle\\Enum\\MeetingTypes::MET') %}
+         {{ markedAsMetCreatedAt|date('Y-m-d H:i') }}
+    {% endif %}<br>
+
+    <strong>Skickade uppföljningsmejl:</strong>
+    {% if meetingStatusEmailSentDates|length == 0 %}
+        -
+    {% else %}
+        {% for date in meetingStatusEmailSentDates %}
+            {{ date|date('Y-m-d H:i') }}
+            {% if not loop.last %}, {% endif %}
+        {% endfor %}
+    {% endif %}<br>
+
+    <strong>Skickat avslutande enkätmejl:</strong>
+    {% if followUpEmailSentDates|length == 0 %}
+        -
+    {% else %}
+        {% for date in followUpEmailSentDates %}
+            {{ date|date('Y-m-d H:i') }}
+            {% if not loop.last %}, {% endif %}
+        {% endfor %}
+    {% endif %}<br>
+
+
     <em>{{ comment }}</em><br>
     <a
         href="#"

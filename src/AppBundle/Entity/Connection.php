@@ -3,8 +3,10 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\MeetingTypes;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Validator\Constraints as KompisbyranAssert;
 
 /**
  * @ORM\Entity(repositoryClass="ConnectionRepository")
@@ -74,6 +76,81 @@ class Connection
     protected $fluentSpeakerComment;
 
     /**
+     * @var string
+     *
+     * @KompisbyranAssert\ValidMeetingStatus
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $learnerMeetingStatus;
+
+    /**
+     * @var string
+     *
+     * @KompisbyranAssert\ValidMeetingStatus
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $fluentSpeakerMeetingStatus;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $learnerMeetingStatusEmailsCount = 0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $fluentSpeakerMeetingStatusEmailsCount = 0;
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $learnerFollowUpEmail2Count = 0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $fluentSpeakerFollowUpEmail2Count = 0;
+
+    /**
+     * @var \DateTime[]
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $learnerMeetingStatusEmailSentAtDates = [];
+
+    /**
+     * @var \DateTime[]
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $fluentSpeakerMeetingStatusEmailSentAtDates = [];
+
+    /**
+     * @var \DateTime[]
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $learnerFollowUpEmail2SentAtDates = [];
+
+    /**
+     * @var \DateTime[]
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $fluentSpeakerFollowUpEmail2SentAtDates = [];
+
+    /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="createdConnections")
@@ -111,6 +188,20 @@ class Connection
     protected $fluentSpeakerConnectionRequestCreatedAt;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $learnerMarkedAsMetCreatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $fluentSpeakerMarkedAsMetCreatedAt;
+
+    /**
      * @var bool
      *
      * @ORM\Column(type="boolean")
@@ -123,6 +214,8 @@ class Connection
         $this->createdBy = $user;
         $this->comments = new ArrayCollection();
         $this->type = FriendTypes::FRIEND;
+        $this->fluentSpeakerMeetingStatus = MeetingTypes::UNKNOWN;
+        $this->learnerMeetingStatus = MeetingTypes::UNKNOWN;
     }
 
     /**
@@ -326,5 +419,159 @@ class Connection
     public function setNewlyArrived($newlyArrived)
     {
         $this->newlyArrived = $newlyArrived;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLearnerMeetingStatus()
+    {
+        return $this->learnerMeetingStatus;
+    }
+
+    /**
+     * @param string $learnerMeetingStatus
+     */
+    public function setLearnerMeetingStatus($learnerMeetingStatus)
+    {
+        $this->learnerMeetingStatus = $learnerMeetingStatus;
+        if ($learnerMeetingStatus == MeetingTypes::MET) {
+            $this->learnerMarkedAsMetCreatedAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function getFluentSpeakerMeetingStatus()
+    {
+        return $this->fluentSpeakerMeetingStatus;
+    }
+
+    /**
+     * @param string $fluentSpeakerMeetingStatus
+     */
+    public function setFluentSpeakerMeetingStatus($fluentSpeakerMeetingStatus)
+    {
+        $this->fluentSpeakerMeetingStatus = $fluentSpeakerMeetingStatus;
+        if ($fluentSpeakerMeetingStatus == MeetingTypes::MET) {
+            $this->fluentSpeakerMarkedAsMetCreatedAt = new \DateTime();
+        }
+    }
+
+    /**
+     * @return int
+     */
+    public function getLearnerMeetingStatusEmailsCount()
+    {
+        return $this->learnerMeetingStatusEmailsCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFluentSpeakerMeetingStatusEmailsCount()
+    {
+        return $this->fluentSpeakerMeetingStatusEmailsCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLearnerFollowUpEmail2Count()
+    {
+        return $this->learnerFollowUpEmail2Count;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFluentSpeakerFollowUpEmail2Count()
+    {
+        return $this->fluentSpeakerFollowUpEmail2Count;
+    }
+
+    /**
+     * @return \DateTime[]
+     */
+    public function getLearnerMeetingStatusEmailSentAtDates()
+    {
+        return $this->learnerMeetingStatusEmailSentAtDates;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function addLearnerMeetingStatusEmailSentAtDate(\DateTime $date)
+    {
+        $this->learnerMeetingStatusEmailSentAtDates[] = $date;
+        $this->learnerMeetingStatusEmailsCount = count($this->learnerMeetingStatusEmailSentAtDates);
+    }
+
+    /**
+     * @return \DateTime[]
+     */
+    public function getFluentSpeakerMeetingStatusEmailSentAtDates()
+    {
+        return $this->fluentSpeakerMeetingStatusEmailSentAtDates;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function addFluentSpeakerMeetingStatusEmailSentAtDate(\DateTime $date)
+    {
+        $this->fluentSpeakerMeetingStatusEmailSentAtDates[] = $date;
+        $this->fluentSpeakerMeetingStatusEmailsCount = count($this->fluentSpeakerMeetingStatusEmailSentAtDates);
+    }
+
+    /**
+     * @return \DateTime[]
+     */
+    public function getLearnerFollowUpEmail2SentAtDates()
+    {
+        return $this->learnerFollowUpEmail2SentAtDates;
+    }
+
+    /**
+     * @param \DateTime $learnerFollowUpEmail2SentAtDate
+     */
+    public function addLearnerFollowUpEmail2SentAtDate(\DateTime $learnerFollowUpEmail2SentAtDate)
+    {
+        $this->learnerFollowUpEmail2SentAtDates[] = $learnerFollowUpEmail2SentAtDate;
+        $this->learnerFollowUpEmail2Count = count($this->learnerFollowUpEmail2SentAtDates);
+    }
+
+    /**
+     * @return \DateTime[]
+     */
+    public function getFluentSpeakerFollowUpEmail2SentAtDates()
+    {
+        return $this->fluentSpeakerFollowUpEmail2SentAtDates;
+    }
+
+    /**
+     * @param \DateTime $fluentSpeakerFollowUpEmail2SentAtDate
+     */
+    public function addFluentSpeakerFollowUpEmail2SentAtDate(\DateTime $fluentSpeakerFollowUpEmail2SentAtDate)
+    {
+        $this->fluentSpeakerFollowUpEmail2SentAtDates[] = $fluentSpeakerFollowUpEmail2SentAtDate;
+        $this->fluentSpeakerFollowUpEmail2Count = count($this->fluentSpeakerFollowUpEmail2SentAtDates);
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLearnerMarkedAsMetCreatedAt()
+    {
+        return $this->learnerMarkedAsMetCreatedAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFluentSpeakerMarkedAsMetCreatedAt()
+    {
+        return $this->fluentSpeakerMarkedAsMetCreatedAt;
     }
 }

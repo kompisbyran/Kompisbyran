@@ -1136,6 +1136,54 @@
                 <source>matching_profile_request.same_age</source>
                 <target>فقط شخص من عمر متقارب</target>
             </trans-unit>
+            <trans-unit id="open.confirm_meeting.header">
+                <source>open.confirm_meeting.header</source>
+                <target>معلومات عن الاجتماع</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.ingress">
+                <source>open.confirm_meeting.ingress</source>
+                <target>نحن سعداء في كومبيسبيرون أن كنت من الراغبين في اغتنام الفرصة إيجاد مطابقة مع صديق جديد.
+                    الآن نود أن نعرف إذا كنت قد اجتمعت مع صديقك الجديد؟</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.met">
+                <source>open.confirm_meeting.button.met</source>
+                <target>نعم، لقد التقينا</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.not_yet_met">
+                <source>open.confirm_meeting.button.not_yet_met</source>
+                <target>لا ليس بعد</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.will_not_meet">
+                <source>open.confirm_meeting.button.will_not_meet</source>
+                <target>لا، ونحن لن نجتمع</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.met">
+                <source>open.confirm_meeting.after.met</source>
+                <target>شكرا لكم على إجابتكم، ونحن سعداء جدا لسماع أنك قد اجتمعت مع صديقك الجديد!
+
+إذا لم تكن قد فعلت ذلك من قبل، يرجى أن ترسل لنا صورة تحية من اجتماعكم جنبا إلى جنب مع بضع جمل حول ما فعلتم وكيف كان اللقاء (مع موافقة من الطرفين). أرسلها لنا على بريدنا الالكتروني حتى نقوم يمشاركتها رقميا - بهذه الطريقة تكون قادرا على إلهام المزيد من الناس للمشاركة في لقاء أصدقاء جدد من خلال كومبيسبيرون.
+ هو بريدنا الالكتروني  matchning@kompisbyran.se
+
+إذا كنت ترغب في الحصول على مطابقة صديق جديد،  كل ما عليك فعله مجرد تسجيل الدخول إلى ملفك الشخصي وإرسال طلب جديد.
+
+!شكرا لك على المشاركة في كومبيسبيرون</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.not_yet_met">
+                <source>open.confirm_meeting.after.not_yet_met</source>
+                <target>شكرا لك على الرد! سوف تتلقى رسالة بريد إلكتروني جديدة منا في غضون بضعة أسابيع كنا سوف نطلب منكم نفس السؤال</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.will_not_meet">
+                <source>open.confirm_meeting.after.will_not_meet</source>
+                <target>!شكرا لك على الرد
+
+إذا كنت ترغب في ذلك، الرجاء مراسلتنا على البريد الإلكتروني في matchning@kompisbyran.se و تخبرنا لماذا لم تلتق الشخص الذي أجرينا مطابقة لك معه. هذه المعلومات هي قيمة جدا بالنسبة لنا لأننا نسعى دائما لجعل كومبيسبيرون أفضل.
+
+                </target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.already_answered">
+                <source>open.confirm_meeting.already_answered</source>
+                <target>لقد سبق أن أجبت على هذا السؤال. إذا قمت بالنقر فوق الزر الخطأ أو ترغب في تغيير ردك، يرجى مراسلتنا عبر البريد الإلكتروني في matchning@kompisbyran.se ونحن سوف نقوم بمساعدتك</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

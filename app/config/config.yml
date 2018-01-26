@@ -89,6 +89,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    delivery_address: "%delivery_address%"
 
 fos_user:
     db_driver: orm

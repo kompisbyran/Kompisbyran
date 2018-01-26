@@ -55,6 +55,7 @@ services:
             - @router
             - @templating
             - @translator
+            - @event_dispatcher
 
     app.mailer:
         class: AppBundle\Mailer\Mailer
@@ -72,6 +73,11 @@ services:
         class: AppBundle\Validator\Constraints\UserHasMusicCategoriesValidator
         tags:
             - { name: validator.constraint_validator, alias: user_has_music_categories }
+
+    validator.valid_meeting_status:
+        class: AppBundle\Validator\Constraints\ValidMeetingStatusValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_meeting_status }
 
     voter.municipality:
         class: AppBundle\Security\Authorization\Voter\MunicipalityVoter
@@ -124,3 +130,18 @@ services:
 
     newly_arrived_date:
         class: AppBundle\Service\NewlyArrivedDate
+
+    listener.increment_confirmation_email_count:
+        class: AppBundle\EventListener\IncrementConfirmationEmailCountListener
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: kernel.event_listener, event: meeting_confirmation_email_sent, method: whenEmailIsSent }
+
+    listener.increment_follow_up_email2_count:
+        class: AppBundle\EventListener\IncrementFollowUpEmail2CountListener
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: kernel.event_listener, event: follow_up_email2_sent, method: whenEmailIsSent }
+

@@ -1050,7 +1050,7 @@
                             <br>
                             <b>Eventansvariga</b><br> 
                             Elisabeth Rimér-Asplund, eventansvarig Stockholm<br> 
-                            Olivia Wideroth, teamledare eventansvariga Stockholm<br>                             
+                            Olivia Wideroth, teamledare eventansvariga Stockholm<br>
                         </p>
                     ]]>
                 </target>
@@ -1171,6 +1171,55 @@
             <trans-unit id="matching_profile_request.same_age">
                 <source>matching_profile_request.same_age</source>
                 <target>Only a person close in age</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.header">
+                <source>open.confirm_meeting.header</source>
+                <target>About the meeting</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.ingress">
+                <source>open.confirm_meeting.ingress</source>
+                <target>We at Kompisbyrån are happy that you wanted to take the chance and be matched up with a new friend.
+                    Now we would like to know if you have met with your new friend?</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.met">
+                <source>open.confirm_meeting.button.met</source>
+                <target>Yes, we have met</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.not_yet_met">
+                <source>open.confirm_meeting.button.not_yet_met</source>
+                <target>No, not yet</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.button.will_not_meet">
+                <source>open.confirm_meeting.button.will_not_meet</source>
+                <target>No, and we will not meet</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.met">
+                <source>open.confirm_meeting.after.met</source>
+                <target>Thank you for your answer and we are so happy to hear that you have met with your new friend!
+
+If you have not already done this, please send us a photo greeting from your meeting along with a couple of sentences about what you did and how it was (with approval from both of you). E-mail us the greeting at matchning@kompisbyran.se and we will share it digitally - this way you are able to inspire more people to take part in meeting new friends through Kompisbyrån.
+
+If you want to get a new friend match, just log on to your profile and send in a new request. 
+
+Thank you for taking part in Kompisbyrån!</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.not_yet_met">
+                <source>open.confirm_meeting.after.not_yet_met</source>
+                <target>Thank you for your reply!
+
+                You will receive a new e-mail from us in a couple of weeks where we will ask you the same question.</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.after.will_not_meet">
+                <source>open.confirm_meeting.after.will_not_meet</source>
+                <target>Thank you for your reply!
+
+If you want to, send us an e-mail at matchning@kompisbyran.se and tell us why you didn't meet the person we matched you up with. This information is very valuable to us since we always strive to make Kompisbyrån better.
+
+                </target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.already_answered">
+                <source>open.confirm_meeting.already_answered</source>
+                <target> You have already answered this question. If you clicked the wrong button or want to change your reply, please e-mail us at matchning@kompisbyran.se and we will help you out.</target>
             </trans-unit>
         </body>
     </file>

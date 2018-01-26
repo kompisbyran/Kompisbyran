@@ -1,0 +1,45 @@
+{% extends 'baseEmail.html.twig' %}
+
+{% block body %}
+    <p>
+        Hej!<br>
+        Du får det här mailet eftersom du har blivit matchad med en ny kompis via Kompisbyrån. Nu har det gått några
+        veckor sedan vi matchade er och vi undrar om ni har träffats. Klicka på följande länk eller kopiera länken och
+        klistra in i din webbläsare.
+    </p>
+    <p>
+        <a href="{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}">{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}</a>
+    </p>
+
+    <p>Det går enkelt och snabbt att lämna ditt svar, men är mycket värdefullt för oss att få reda på.</p>
+
+    <p>Stort tack för att du vill vara med och engagera dig för ökad gemenskap!</p>
+
+    <p>
+        Bästa hälsningar,<br>
+        Vännerna på Kompisbyrån
+    </p>
+
+    <p><strong>-- English --</strong></p>
+
+    <p>
+        Hi!<br>
+        You receive this email because you have recently been matched with a new friend through Kompisbyrån. Since it
+        has been a couple of weeks since we matched you we would now like to know if you have met with your new friend
+        or not. Please visit the following link or copy and paste it in your browser.
+    </p>
+    <p>
+        <a href="{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}?_locale=en">{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}?_locale=en</a>
+    </p>
+
+    <p>
+        It’s simple and only takes a couple of seconds, but it’s very valuable information for us at Kompisbyrån.
+    </p>
+    <p>
+        Thank you for taking part in working towards a greater sense of community in our society!
+    </p>
+    <p>
+        Best regards,<br>
+        Your friends at Kompisbyrån
+    </p>
+{% endblock %}
