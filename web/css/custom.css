@@ -103,7 +103,7 @@ div.candidate span.matches a.google-link {
     margin-right: 20px;
 }
 
-.checkableList label > input[type="radio"], label > input[type="checkbox"] {
+.checkableList label > input[type="radio"], .checkableList label > input[type="checkbox"] {
     margin-right: -20px;
 }
 .nav-head .navbar-default .logo img{
