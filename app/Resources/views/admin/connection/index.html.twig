@@ -124,6 +124,9 @@
                                         {% endif %}
                                     ><i class="fa fa-comment{% if connection.comments|length == 0 %}-o{% endif %}"></i></a>
 
+                                <br>
+                                <a href="{{ path('admin_connection', {'id': connection.id}) }}">Ändra</a>
+
                             </td>
                             <td>
                                 {{ macro.userCell(connection, false) }}

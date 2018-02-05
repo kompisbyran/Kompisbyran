@@ -568,10 +568,26 @@ class Connection
     }
 
     /**
+     * @param \DateTime $learnerMarkedAsMetCreatedAt
+     */
+    public function setLearnerMarkedAsMetCreatedAt($learnerMarkedAsMetCreatedAt)
+    {
+        $this->learnerMarkedAsMetCreatedAt = $learnerMarkedAsMetCreatedAt;
+    }
+
+    /**
      * @return \DateTime
      */
     public function getFluentSpeakerMarkedAsMetCreatedAt()
     {
         return $this->fluentSpeakerMarkedAsMetCreatedAt;
+    }
+
+    /**
+     * @param \DateTime $fluentSpeakerMarkedAsMetCreatedAt
+     */
+    public function setFluentSpeakerMarkedAsMetCreatedAt($fluentSpeakerMarkedAsMetCreatedAt)
+    {
+        $this->fluentSpeakerMarkedAsMetCreatedAt = $fluentSpeakerMarkedAsMetCreatedAt;
     }
 }

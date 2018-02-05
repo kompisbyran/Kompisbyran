@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'form/fields.html.twig' %}
+
+{% block body %}
+
+    <div class="inner-page">
+        <div class="container">
+            <div class="row">
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.fluentSpeakerMeetingStatus) }}
+                    <div class="col-sm-4">
+                        {{ form_widget(form.fluentSpeakerMeetingStatus) }}
+                        {{ form_errors(form.fluentSpeakerMeetingStatus) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.fluentSpeakerMarkedAsMetCreatedAt) }}
+                    <div class="col-sm-4">
+                        {{ form_widget(form.fluentSpeakerMarkedAsMetCreatedAt) }}
+                        {{ form_errors(form.fluentSpeakerMarkedAsMetCreatedAt) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.learnerMeetingStatus) }}
+                    <div class="col-sm-4">
+                        {{ form_widget(form.learnerMeetingStatus) }}
+                        {{ form_errors(form.learnerMeetingStatus) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.learnerMarkedAsMetCreatedAt) }}
+                    <div class="col-sm-4">
+                        {{ form_widget(form.learnerMarkedAsMetCreatedAt) }}
+                        {{ form_errors(form.learnerMarkedAsMetCreatedAt) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-4">
+                        <button type="submit" class="btn btn-default">Spara</button>
+                    </div>
+                </div>
+
+            {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
