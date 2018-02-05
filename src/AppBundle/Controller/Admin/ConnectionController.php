@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\Entity\Connection;
+use AppBundle\Form\EditConnectionType;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -33,6 +35,27 @@ class ConnectionController extends Controller
         ];
 
         return $this->render('admin/connection/index.html.twig', $parameters);
+    }
+
+    /**
+     * @Route("/{id}", name="admin_connection")
+     */
+    public function viewAction(Connection $connection, Request $request)
+    {
+        $form = $this->createForm(new EditConnectionType(), $connection);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($connection);
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_connection', ['id' => $connection->getId()]);
+        }
+
+        $parameters = [
+            'form' => $form->createView(),
+        ];
+
+        return $this->render('admin/connection/view.html.twig', $parameters);
     }
 
     protected function getConnectionRepository()
