@@ -4,9 +4,8 @@ namespace AppBundle\Entity;
 
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\MeetingTypes;
+use AppBundle\Form\Model\SearchConnection;
 use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\NoResultException;
-use AppBundle\Entity\Connection;
 
 /**
  * Class ConnectionRepository
@@ -86,9 +85,12 @@ class ConnectionRepository extends EntityRepository
     }
 
     /**
-     * @return \Doctrine\ORM\Query
+     * @param SearchConnection $searchConnection
+     * @param User $user
+     *
+     * @return \Doctrine\ORM\QueryBuilder
      */
-    public function getFindAllQueryBuilderForUser($searchString, User $user)
+    public function getFindAllQueryBuilderForUser(SearchConnection $searchConnection, User $user)
     {
         $cities = $this->getEntityManager()->getRepository('AppBundle\Entity\City')
             ->createQueryBuilder('c')
@@ -101,6 +103,9 @@ class ConnectionRepository extends EntityRepository
         $cityIds = [];
         foreach ($cities as $city) {
             $cityIds[] = $city->getId();
+        }
+        if ($searchConnection->getCity()) {
+            $cityIds[] = $searchConnection->getCity()->getId();
         }
 
         $qb = $this
@@ -116,7 +121,7 @@ class ConnectionRepository extends EntityRepository
             ->setParameter('cityIds', $cityIds)
         ;
 
-        if ($searchString) {
+        if ($searchConnection->getQ()) {
             $qb
                 ->andwhere("
                     f.email LIKE :searchString
@@ -124,8 +129,17 @@ class ConnectionRepository extends EntityRepository
                     OR CONCAT(CONCAT(f.firstName, ' '), f.lastName) LIKE :searchString
                     OR CONCAT(CONCAT(l.firstName, ' '), l.lastName) LIKE :searchString
                 ")
-                ->setParameter('searchString', '%'.trim($searchString).'%')
+                ->setParameter('searchString', '%'.$searchConnection->getQ().'%')
             ;
+        }
+        if ($searchConnection->getFrom()) {
+            $qb->andWhere('c.createdAt >= :from')->setParameter('from', $searchConnection->getFrom());
+        }
+        if ($searchConnection->getTo()) {
+            $qb->andWhere('c.createdAt <= :to')->setParameter('to', $searchConnection->getTo());
+        }
+        if ($searchConnection->isOnlyNewlyArrived()) {
+            $qb->andWhere('c.newlyArrived = true');
         }
 
         return $qb

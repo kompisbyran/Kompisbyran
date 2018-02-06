@@ -4,6 +4,8 @@ namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Connection;
 use AppBundle\Form\EditConnectionType;
+use AppBundle\Form\Model\SearchConnection;
+use AppBundle\Form\SearchConnectionType;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -20,18 +22,22 @@ class ConnectionController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $searchString   = $request->query->get('q');
-        $queryBuilder   = $this->getConnectionRepository()
-            ->getFindAllQueryBuilderForUser($searchString, $this->getUser());
+        $searchConnection = new SearchConnection();
+        $form = $this->createForm(new SearchConnectionType(), $searchConnection);
+        $form->handleRequest($request);
 
-        $adapter        = new DoctrineORMAdapter($queryBuilder);
-        $pagerfanta     = new Pagerfanta($adapter);
+        $queryBuilder = $this->getConnectionRepository()
+            ->getFindAllQueryBuilderForUser($searchConnection, $this->getUser());
+
+        $adapter = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
 
         $pagerfanta->setMaxPerPage(10);
         $pagerfanta->setCurrentPage($request->query->getInt('page', 1));
 
         $parameters = [
-            'pagerfanta' => $pagerfanta
+            'pagerfanta' => $pagerfanta,
+            'form' => $form->createView(),
         ];
 
         return $this->render('admin/connection/index.html.twig', $parameters);
