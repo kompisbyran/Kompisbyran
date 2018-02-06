@@ -104,9 +104,6 @@ class ConnectionRepository extends EntityRepository
         foreach ($cities as $city) {
             $cityIds[] = $city->getId();
         }
-        if ($searchConnection->getCity()) {
-            $cityIds[] = $searchConnection->getCity()->getId();
-        }
 
         $qb = $this
             ->createQueryBuilder('c')
@@ -120,6 +117,12 @@ class ConnectionRepository extends EntityRepository
             ->andWhere('city.id IN (:cityIds)')
             ->setParameter('cityIds', $cityIds)
         ;
+
+        if ($searchConnection->getCity()) {
+            $qb
+                ->andWhere('c.city = :city')
+                ->setParameter('city', $searchConnection->getCity());
+        }
 
         if ($searchConnection->getQ()) {
             $qb
