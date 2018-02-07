@@ -211,6 +211,20 @@ class ConnectionRequest
      */
     protected $matchingProfileRequestType;
 
+    /**
+     * @var Connection|null
+     *
+     * @ORM\OneToOne(targetEntity="Connection", mappedBy="fluentSpeakerConnectionRequest")
+     */
+    protected $fluentSpeakerConnection;
+
+    /**
+     * @var Connection|null
+     *
+     * @ORM\OneToOne(targetEntity="Connection", mappedBy="learnerConnectionRequest")
+     */
+    protected $learnerConnection;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -625,6 +639,30 @@ class ConnectionRequest
             $context->buildViolation('Du måste välja minst ett alternativ')
                 ->atPath('availableWeekday')
                 ->addViolation();
+        }
+    }
+
+    /**
+     * @return Connection|null
+     */
+    public function getConnection()
+    {
+        if ($this->wantToLearn) {
+            return $this->learnerConnection;
+        } else {
+            return $this->fluentSpeakerConnection;
+        }
+    }
+
+    /**
+     * @param Connection|null $connection
+     */
+    public function setConnection($connection)
+    {
+        if ($this->wantToLearn) {
+            $this->learnerConnection = $connection;
+        } else {
+            $this->fluentSpeakerConnection = $connection;
         }
     }
 }

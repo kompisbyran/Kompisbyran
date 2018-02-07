@@ -226,29 +226,21 @@ class UserType extends AbstractType
         ;
 
         if (!$user->hasRole('ROLE_COMPLETE_USER') || $options['add_connection_request']) {
-            $builder->add('connectionRequests',
-                'collection',
-                [
-                    'type' => 'connection_request',
-                    'allow_add' => true,
-                    'by_reference' => false,
-                    'options' => [
-                        'remove_type' => true,
-                        'remove_want_to_learn' => true,
-                    ],
-                ]
-            );
+            $builder->add('newConnectionRequest', 'connection_request', [
+                'remove_type' => true,
+                'remove_want_to_learn' => true,
+            ]);
 
             $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
                 /** @var User $user */
                 $user = $event->getData();
-                $user->addConnectionRequest(new ConnectionRequest());
+                $user->setNewConnectionRequest(new ConnectionRequest());
             });
 
             $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
                 /** @var User $user */
                 $user = $event->getForm()->getNormData();
-                $connectionRequest = $user->getConnectionRequests()->last();
+                $connectionRequest = $user->getNewConnectionRequest();
                 $connectionRequest->setType($user->getType());
                 $connectionRequest->setWantToLearn($user->getWantToLearn());
 

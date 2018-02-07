@@ -65,17 +65,16 @@ $(document).ready(function() {
     });
     $('input[name$="[canPlayInstrument]"]').eq(0).trigger('change');
 
-    $('input[name="user[connectionRequests][0][extraPerson]"]').change(function() {
-        if ($('input[name="user[connectionRequests][0][extraPerson]"]:checked').val() == 'true') {
+    $('input[name="user[newConnectionRequest][extraPerson]"]').change(function() {
+        if ($('input[name="user[newConnectionRequest][extraPerson]"]:checked').val() == 'true') {
             $('#extraPerson').show();
         } else {
             $('#extraPerson').hide();
-            $('#user_connectionRequests_0_extraPersonGender').val('');
-            $('#user_connectionRequests_0_extraPersonType').val('');
+            $('#user_newConnectionRequest_extraPersonGender').val('');
+            $('#user_newConnectionRequests_extraPersonType').val('');
         }
     });
-    $('input[name="user[connectionRequests][0][extraPerson]"]').eq(0).trigger('change');
-
+    $('input[name="user[newConnectionRequest][extraPerson]"]').eq(0).trigger('change');
 
     $('input[name$="[newlyArrived]"]').change(function() {
         if ($('input[name$="[newlyArrived]"]:checked').val() == '1') {
@@ -100,5 +99,4 @@ $(document).ready(function() {
         }
     });
     $('input[name$="[wantToLearn]"]').eq(0).trigger('change');
-
 });

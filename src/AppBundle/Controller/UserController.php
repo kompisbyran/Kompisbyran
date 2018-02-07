@@ -58,8 +58,8 @@ class UserController extends Controller
                 }
             }
             $em->persist($user);
-            if ($form->has('connectionRequests')) {
-                $connectionRequest = $user->getConnectionRequests()->last();
+            if ($form->has('newConnectionRequest')) {
+                $connectionRequest = $user->getNewConnectionRequest();
                 $em->persist($connectionRequest);
             }
             $em->flush();

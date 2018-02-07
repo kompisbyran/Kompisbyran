@@ -98,6 +98,9 @@ class PreMatchManager
             $fluentSpeakerConnectionRequest = null;
 
             foreach ($user->getConnectionRequests() as $loopedConnectionRequest) {
+                if ($loopedConnectionRequest->getConnection()) {
+                    continue;
+                }
                 if (
                     $loopedConnectionRequest->getType() == $connectionRequest->getType()
                     && $loopedConnectionRequest->getWantToLearn() == false

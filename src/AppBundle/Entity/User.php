@@ -90,6 +90,13 @@ class User extends BaseUser
     protected $connectionRequests;
 
     /**
+     * @var ConnectionRequest
+     *
+     * @Assert\Valid
+     */
+    protected $newConnectionRequest;
+
+    /**
      * @var bool
      *
      * @Assert\NotNull(groups={"settings"})
@@ -563,6 +570,28 @@ class User extends BaseUser
     }
 
     /**
+     * @return ConnectionRequest|null
+     */
+    public function getOpenConnectionRequest()
+    {
+        foreach ($this->connectionRequests as $connectionRequest) {
+            if (!$connectionRequest->getConnection()) {
+                return $connectionRequest;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasOpenConnectionRequest()
+    {
+        return !is_null($this->getOpenConnectionRequest());
+    }
+
+    /**
      * @param ConnectionRequest $connectionRequest
      */
     public function addConnectionRequest(ConnectionRequest $connectionRequest)
@@ -851,14 +880,6 @@ class User extends BaseUser
         }
 
         return $ids;
-    }
-
-    /**
-     * @return ConnectionRequest
-     */
-    public function getFirstConnectionRequest()
-    {
-        return $this->connectionRequests->first();
     }
 
     /**
@@ -1246,5 +1267,22 @@ class User extends BaseUser
     public function getUuid()
     {
         return $this->uuid;
+    }
+
+    /**
+     * @return ConnectionRequest
+     */
+    public function getNewConnectionRequest()
+    {
+        return $this->newConnectionRequest;
+    }
+
+    /**
+     * @param ConnectionRequest $newConnectionRequest
+     */
+    public function setNewConnectionRequest($newConnectionRequest)
+    {
+        $this->newConnectionRequest = $newConnectionRequest;
+        $newConnectionRequest->setUser($this);
     }
 }

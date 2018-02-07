@@ -95,8 +95,8 @@ class ConnectionRequestController extends Controller
      */
     public function createAction(Request $request)
     {
-        $user           = $this->userManager->getFind($request->request->getInt('userId'));
-        $activeRequest  = $this->connectionRequestManager->userHasActiveRequest($user);
+        $user = $this->userManager->getFind($request->request->getInt('userId'));
+        $activeRequest = $user->hasOpenConnectionRequest();
 
         if ($activeRequest) {
             return new JsonResponse([

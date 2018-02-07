@@ -84,7 +84,7 @@ class UserManager implements ManagerInterface
 
     /**
      * @param $id
-     * @return null|object
+     * @return null|User
      */
     public function getFind($id)
     {
@@ -144,7 +144,7 @@ class UserManager implements ManagerInterface
         foreach ($users as $auser) {
             /** @var User $currentUser */
             $currentUser = $this->getFind($auser['id']);
-            $connectionRequest = $currentUser->getConnectionRequests()[0];
+            $connectionRequest = $currentUser->getOpenConnectionRequest();
             $extraPerson = null;
             if ($connectionRequest->isExtraPerson()) {
                 $extraPerson = sprintf('%s, %s',
@@ -188,8 +188,8 @@ class UserManager implements ManagerInterface
      */
     private function getAvailabilityByUser($user, $currentUser)
     {
-        $userConnectionRequest = $user->getConnectionRequests()[0];
-        $currentUserConnectionRequest = $currentUser->getConnectionRequests()[0];
+        $userConnectionRequest = $user->getOpenConnectionRequest();
+        $currentUserConnectionRequest = $currentUser->getOpenConnectionRequest();
 
         $userAvailabilities = [];
         $currentUserAvailabilities = [];

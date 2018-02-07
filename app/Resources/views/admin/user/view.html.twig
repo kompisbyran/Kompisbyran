@@ -59,6 +59,50 @@
                         <button class="btn btn-danger" id="delete-connection-request" data-connection-request-id="{{ connectionRequestForm.vars.value.id }}">Ta bort</button>
                         {{ form_end(connectionRequestForm) }}
                     {% endif %}
+
+                    <h2>Kompisförfrågningar</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Skapad</th>
+                                <th>Status</th>
+                                <th>Pending</th>
+                                <th>Inspected</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for connectionRequest in user.connectionRequests %}
+                                <tr>
+                                    <td>{{ connectionRequest.createdAt|date('Y-m-d H:i') }}</td>
+                                    <td>{{ connectionRequest.connection ? '' : 'Öppen' }}</td>
+                                    <td>{{ connectionRequest.pending ? 'Nej' : 'Ja' }}</td>
+                                    <td>{{ connectionRequest.inspected ? 'Nej' : 'Ja' }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <h2>Kopplingar</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Skapad</th>
+                                <th>Typ</th>
+                                <th>Lärare</th>
+                                <th>Övare</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for connection in user.connections %}
+                                <tr>
+                                    <td>{{ connection.createdAt|date('Y-m-d H:i') }}</td>
+                                    <td>{{ connection.type }}</td>
+                                    <td>{{ connection.fluentSpeaker.name }}</td>
+                                    <td>{{ connection.learner.name }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

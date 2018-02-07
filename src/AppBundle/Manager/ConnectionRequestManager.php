@@ -123,18 +123,9 @@ class ConnectionRequestManager implements ManagerInterface
      * @param User $user
      * @return null|object
      */
-    public function getFindOneByUser(User $user)
+    public function getFindOneOpenByUser(User $user)
     {
-        return $this->connectionRequestRepository->findOneByUser($user);
-    }
-
-    /**
-     * @param User $user
-     * @return bool
-     */
-    public function userHasActiveRequest(User $user)
-    {
-        return $this->connectionRequestRepository->countUserActiveRequests($user)? true: false;
+        return $this->connectionRequestRepository->findOneOpenByUser($user);
     }
 
     /**
@@ -176,7 +167,7 @@ class ConnectionRequestManager implements ManagerInterface
             'newMusicFriendUsers'           => $this->getCountNewMusicFriendWithinCity($city),
             'establishedUsers'              => $this->getCountEstablishedWithinCity($city),
             'establishedMusicFriendUsers'   => $this->getCountEstablishedMusicFriendWithinCity($city),
-            'results'                       => $this->getCityResults($this->connectionRequestRepository->findByCity($city, FriendTypes::START)),
+            'results'                       => $this->getCityResults($this->connectionRequestRepository->findOpenByCity($city, FriendTypes::START)),
             'next'                          => false
         ];
     }

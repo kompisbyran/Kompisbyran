@@ -60,6 +60,8 @@ class RegistrationControllerTest extends DatabaseTestCase
             'ROLE_USER'
         );
 
+        $connectionRequestCount = count($this->getConnectionRequestRepository()->findAll());
+
         $client = static::$client;
         $crawler = $client->request('GET', '/user/');
 
@@ -87,17 +89,19 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[professionalMusician]' => 0,
             'user[languages]' => 'Swedish',
             'user[phoneNumber]' => '0701111111',
-            'user[connectionRequests][0][city]' => $this->getCityRepository()->findAll()[0]->getId(),
-            'user[connectionRequests][0][availableWeekday]' => 1,
-            'user[connectionRequests][0][availableWeekend]' => 1,
-            'user[connectionRequests][0][availableDay]' => 1,
-            'user[connectionRequests][0][availableEvening]' => 1,
-            'user[connectionRequests][0][extraPerson]' => 'false',
+            'user[newConnectionRequest][city]' => $this->getCityRepository()->findAll()[0]->getId(),
+            'user[newConnectionRequest][availableWeekday]' => 1,
+            'user[newConnectionRequest][availableWeekend]' => 1,
+            'user[newConnectionRequest][availableDay]' => 1,
+            'user[newConnectionRequest][availableEvening]' => 1,
+            'user[newConnectionRequest][extraPerson]' => 'false',
             'user[termsAccepted]' => true,
+            'user[newlyArrived]' => 0,
         ]);
 
         $crawler = $client->submit($form);
         $this->assertEquals(0, $crawler->filter('.has-error')->count());
         $this->assertEquals(302, $client->getResponse()->getStatusCode());
+        $this->assertEquals($connectionRequestCount + 1, count($this->getConnectionRequestRepository()->findAll()));
     }
 }
