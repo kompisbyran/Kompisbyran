@@ -14,6 +14,7 @@ class SearchConnectionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->setMethod('GET')
             ->add('q', 'text', [
                 'label' => 'Fritext',
                 'required' => false,
