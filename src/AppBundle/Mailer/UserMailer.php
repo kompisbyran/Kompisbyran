@@ -101,9 +101,15 @@ class UserMailer extends Mailer
     {
         $subject = 'Fråga från Kompisbyrån';
 
+        $friend = $connection->getFluentSpeaker();
+        if ($friend == $user) {
+            $friend = $connection->getLearner();
+        }
+
         $html = $this->templating->render('email/confirmMeeting.html.twig', [
             'user' => $user,
             'connection' => $connection,
+            'friend' => $friend,
         ]);
 
         $this->sendEmailMessage($html, null, $subject, $user->getEmail());

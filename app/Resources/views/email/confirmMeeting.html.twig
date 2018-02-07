@@ -2,8 +2,8 @@
 
 {% block body %}
     <p>
-        Hej!<br>
-        Du får det här mailet eftersom du har blivit matchad med en ny kompis via Kompisbyrån. Nu har det gått några
+        Hej {{ user.name }}!<br>
+        Du får det här mailet eftersom du har blivit matchad med {{ friend.name }} via Kompisbyrån. Nu har det gått några
         veckor sedan vi matchade er och vi undrar om ni har träffats. Klicka på följande länk eller kopiera länken och
         klistra in i din webbläsare.
     </p>
@@ -23,8 +23,8 @@
     <p><strong>-- English --</strong></p>
 
     <p>
-        Hi!<br>
-        You receive this email because you have recently been matched with a new friend through Kompisbyrån. Since it
+        Hi {{ user.name }}!<br>
+        You receive this email because you have recently been matched with {{ friend.name }} through Kompisbyrån. Since it
         has been a couple of weeks since we matched you we would now like to know if you have met with your new friend
         or not. Please visit the following link or copy and paste it in your browser.
     </p>
