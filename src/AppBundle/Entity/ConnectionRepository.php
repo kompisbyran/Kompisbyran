@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Enum\ConnectionMeetingVariantTypes;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\MeetingTypes;
 use AppBundle\Form\Model\SearchConnection;
@@ -143,6 +144,19 @@ class ConnectionRepository extends EntityRepository
         }
         if ($searchConnection->isOnlyNewlyArrived()) {
             $qb->andWhere('c.newlyArrived = true');
+        }
+        if ($searchConnection->getMeetingStatus() == ConnectionMeetingVariantTypes::ONE_MARKED_AS_MET) {
+            $qb->andWhere('
+                (c.fluentSpeakerMeetingStatus = :status and c.learnerMeetingStatus != :status)
+                or
+                (c.fluentSpeakerMeetingStatus != :status and c.learnerMeetingStatus = :status)
+            ')->setParameter('status', MeetingTypes::MET);
+        }
+        if ($searchConnection->getMeetingStatus() == ConnectionMeetingVariantTypes::BOTH_MARKED_AS_MET) {
+            $qb
+                ->andWhere('c.fluentSpeakerMeetingStatus = :status and c.learnerMeetingStatus = :status')
+                ->setParameter('status', MeetingTypes::MET)
+            ;
         }
 
         return $qb

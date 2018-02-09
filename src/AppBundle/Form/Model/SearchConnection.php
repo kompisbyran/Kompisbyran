@@ -32,6 +32,11 @@ class SearchConnection
     private $onlyNewlyArrived = false;
 
     /**
+     * @var string|null
+     */
+    private $meetingStatus;
+
+    /**
      * @return null|string
      */
     public function getQ()
@@ -109,5 +114,21 @@ class SearchConnection
     public function setOnlyNewlyArrived($onlyNewlyArrived)
     {
         $this->onlyNewlyArrived = $onlyNewlyArrived;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getMeetingStatus()
+    {
+        return $this->meetingStatus;
+    }
+
+    /**
+     * @param null|string $meetingStatus
+     */
+    public function setMeetingStatus($meetingStatus)
+    {
+        $this->meetingStatus = $meetingStatus;
     }
 }

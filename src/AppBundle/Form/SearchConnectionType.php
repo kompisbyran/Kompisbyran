@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\City;
+use AppBundle\Enum\ConnectionMeetingVariantTypes;
 use AppBundle\Form\Model\SearchConnection;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
@@ -42,6 +43,14 @@ class SearchConnectionType extends AbstractType
             ->add('onlyNewlyArrived', 'checkbox', [
                 'label' => 'Endast nyanlända',
                 'required' => false,
+            ])
+            ->add('meetingStatus', 'choice', [
+                'required' => false,
+                'label' => 'Mötesstatus',
+                'choices' => [
+                    ConnectionMeetingVariantTypes::ONE_MARKED_AS_MET => 'Endast en har markerat som träffats',
+                    ConnectionMeetingVariantTypes::BOTH_MARKED_AS_MET => 'Båda har markerat som träffats',
+                ]
             ])
         ;
     }
