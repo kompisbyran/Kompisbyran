@@ -65,8 +65,8 @@ class UserController extends Controller
 
 
         $connectionRequestForm = null;
-        if (count($user->getConnectionRequests()) > 0) {
-            $connectionRequest = $user->getConnectionRequests()->first();
+        if ($user->hasOpenConnectionRequest()) {
+            $connectionRequest = $user->getOpenConnectionRequest();
             $connectionRequestForm = $this->createForm(new ConnectionRequestType(), $connectionRequest);
             $connectionRequestForm->handleRequest($request);
 

@@ -34,4 +34,12 @@ trait RepositoryExtensionTrait
     {
         return $this->getEntityManager()->getRepository('AppBundle:Connection');
     }
+
+    /**
+     * @return \Doctrine\ORM\EntityRepository
+     */
+    protected function getConnectionRequestRepository()
+    {
+        return $this->getEntityManager()->getRepository('AppBundle:ConnectionRequest');
+    }
 }

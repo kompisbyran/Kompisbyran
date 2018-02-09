@@ -94,6 +94,8 @@ class UserRepository extends EntityRepository
                   ON c.user_id = u.id
                   LEFT JOIN users_music_categories mc
                   ON mc.user_id = u.id
+                  LEFT JOIN connection fsc ON fsc.fluent_speaker_connection_request_id = cr.id
+                  LEFT JOIN connection lc ON lc.learner_connection_request_id = cr.id
                   WHERE u.id != :user
                   AND cr.want_to_learn != :want_to_learn
                   AND cr.pending = false
@@ -101,6 +103,8 @@ class UserRepository extends EntityRepository
                   AND cr.disqualified = false
                   and u.enabled = true
                   AND (cr.matching_profile_request_type IS NULL OR cr.matching_profile_request_type != 'same_gender' OR u.gender = :user_gender)
+                  AND fsc.id IS NULL
+                  AND lc.id IS NULL
                   AND $where
                   GROUP BY u.id
               ) temp

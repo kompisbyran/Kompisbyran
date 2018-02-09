@@ -38,20 +38,42 @@ class ConnectionRequestRepository extends EntityRepository
 
     /**
      * @param User $user
-     * @return null|object
+     * @return null|ConnectionRequest
      */
-    public function findOneByUser(User $user)
+    public function findOneOpenByUser(User $user)
     {
-        return $this->findOneBy(array('user' => $user, 'disqualified' => false));
+        return $this->createQueryBuilder('cr')
+            ->leftJoin('cr.fluentSpeakerConnection', 'fsc')
+            ->leftJoin('cr.learnerConnection', 'lc')
+            ->where('cr.user = :user')
+            ->setParameter('user', $user)
+            ->andWhere('cr.disqualified = false')
+            ->andWhere('fsc.id IS NULL')
+            ->andWhere('lc.id IS NULL')
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
     }
 
     /**
      * @param $userId
-     * @return null|object
+     * @return null|ConnectionRequest
      */
     public function findOneUnpendingByUserId($userId)
     {
-        return $this->findOneBy(array('user' => $userId, 'pending' => false));
+        return $this->createQueryBuilder('cr')
+            ->leftJoin('cr.fluentSpeakerConnection', 'fsc')
+            ->leftJoin('cr.learnerConnection', 'lc')
+            ->innerJoin('cr.user', 'u')
+            ->where('u.id = :userId')
+            ->setParameter('userId', $userId)
+            ->andWhere('cr.pending = false')
+            ->andWhere('fsc.id IS NULL')
+            ->andWhere('lc.id IS NULL')
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+
     }
 
     /**
@@ -89,11 +111,15 @@ class ConnectionRequestRepository extends EntityRepository
             ->createQueryBuilder('cr')
             ->select('COUNT(cr.id)')
             ->join('cr.user', 'u')
-            ->where('u.wantToLearn         = :wantToLearn')
-            ->andWhere('cr.city            = :city')
-            ->andWhere('cr.disqualified    = false')
-            ->andWhere('cr.pending         = false')
+            ->leftJoin('cr.fluentSpeakerConnection', 'fsc')
+            ->leftJoin('cr.learnerConnection', 'lc')
+            ->where('u.wantToLearn = :wantToLearn')
+            ->andWhere('cr.city = :city')
+            ->andWhere('cr.disqualified = false')
+            ->andWhere('cr.pending = false')
             ->andWhere('u.type = :type')
+            ->andWhere('fsc.id IS NULL')
+            ->andWhere('lc.id IS NULL')
             ->setParameters([
                 'city'          => $city,
                 'wantToLearn'   => $wantToLearn,
@@ -157,24 +183,6 @@ class ConnectionRequestRepository extends EntityRepository
     }
 
     /**
-     * @param User $user
-     * @return int
-     */
-    public function countUserActiveRequests(User $user)
-    {
-        $qb = $this->createQueryBuilder('cr');
-
-        $qb
-            ->select('COUNT(cr.id)')
-            ->where('cr.user = :user')
-            ->andWhere('cr.disqualified = false')
-            ->setParameter('user', $user)
-        ;
-
-        return $qb->getQuery()->getSingleScalarResult();
-    }
-
-    /**
      * @param City $city
      * @param $excludeType
      *
@@ -184,6 +192,29 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $this
             ->findByCityQueryBuilder($city, $excludeType)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+    /**
+     * @param City $city
+     * @param $excludeType
+     *
+     * @return ConnectionRequest[]
+     */
+    public function findOpenByCity(City $city, $excludeType = null)
+    {
+        $qb = $this->findByCityQueryBuilder($city, $excludeType);
+        $qb
+            ->leftJoin('cr.fluentSpeakerConnection', 'fsc')
+            ->leftJoin('cr.learnerConnection', 'lc')
+            ->andWhere('fsc.id IS NULL')
+            ->andWhere('lc.id IS NULL')
+            ;
+
+        return $qb
             ->getQuery()
             ->getResult()
         ;

@@ -39,7 +39,7 @@ class DefaultController extends Controller
 
             if ($form->isSubmitted()) {
                 if ($form->isValid()) {
-                    $connectionRequest = $user->getConnectionRequests()->last();
+                    $connectionRequest = $user->getNewConnectionRequest();
                     $em->persist($user);
                     $em->persist($connectionRequest);
                     $em->flush();
@@ -55,7 +55,7 @@ class DefaultController extends Controller
 
             $parameters = [
                 'form' => $form->createView(),
-                'connectionRequests' => $this->get('connection_request_repository')->findByUser($user),
+                'connectionRequest' =>  $this->get('connection_request_repository')->findOneOpenByUser($user),
             ];
         } else {
             $parameters = [];

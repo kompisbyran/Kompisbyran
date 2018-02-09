@@ -50,7 +50,7 @@ class UserVoter extends AbstractVoter
                 }
                 foreach ($loggedInUser->getAdminMunicipalities() as $adminMunicipality) {
                     /** @var ConnectionRequest $connectionRequest */
-                    $connectionRequest = $user->getConnectionRequests()->first();
+                    $connectionRequest = $user->getOpenConnectionRequest();
                     if ($connectionRequest) {
                         if ($adminMunicipality == $connectionRequest->getMunicipality()) {
                             return true;

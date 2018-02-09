@@ -142,14 +142,12 @@ class MatchController extends Controller
 
             } else {
 
-                $userRequest        = $this->connectionRequestManager->getFindOneByUser($user);
-                $matchUserRequest   = $this->connectionRequestManager->getFindOneByUser($matchUser);
+                $userRequest = $this->connectionRequestManager->getFindOneOpenByUser($user);
+                $matchUserRequest = $this->connectionRequestManager->getFindOneOpenByUser($matchUser);
 
                 if ($userRequest instanceof ConnectionRequest && $matchUserRequest instanceof ConnectionRequest) {
 
                     $connection = $this->connectionManager->saveByConnectionRequest($userRequest, $matchUserRequest, $this->getUser());
-                    $this->connectionRequestManager->remove($userRequest);
-                    $this->connectionRequestManager->remove($matchUserRequest);
 
                     $this->userMailer->sendMatchEmailMessage($user, $matchUser, $match['email_to_user'], $connection->getCity()->getSenderEmail());
                     $this->userMailer->sendMatchEmailMessage($matchUser, $user, $match['email_to_match_user'], $connection->getCity()->getSenderEmail());
@@ -175,8 +173,8 @@ class MatchController extends Controller
     public function ajaxEmailMessageAction(Request $request, User $user)
     {
         $matchUser          = $this->userManager->getFind($request->get('match_user_id'));
-        $userRequest        = $this->connectionRequestManager->getFindOneByUser($user);
-        $matchUserRequest   = $this->connectionRequestManager->getFindOneByUser($matchUser);
+        $userRequest        = $this->connectionRequestManager->getFindOneOpenByUser($user);
+        $matchUserRequest   = $this->connectionRequestManager->getFindOneOpenByUser($matchUser);
 
         return new JsonResponse([
             'success'               => true,

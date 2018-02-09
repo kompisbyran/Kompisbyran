@@ -62,6 +62,22 @@ class Connection
     protected $municipality;
 
     /**
+     * @var ConnectionRequest|null
+     *
+     * @ORM\OneToOne(targetEntity="ConnectionRequest", inversedBy="fluentSpeakerConnection")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $fluentSpeakerConnectionRequest;
+
+    /**
+     * @var ConnectionRequest|null
+     *
+     * @ORM\OneToOne(targetEntity="ConnectionRequest", inversedBy="learnerConnection")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $learnerConnectionRequest;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", nullable=true)
@@ -589,5 +605,37 @@ class Connection
     public function setFluentSpeakerMarkedAsMetCreatedAt($fluentSpeakerMarkedAsMetCreatedAt)
     {
         $this->fluentSpeakerMarkedAsMetCreatedAt = $fluentSpeakerMarkedAsMetCreatedAt;
+    }
+
+    /**
+     * @return ConnectionRequest
+     */
+    public function getFluentSpeakerConnectionRequest()
+    {
+        return $this->fluentSpeakerConnectionRequest;
+    }
+
+    /**
+     * @param ConnectionRequest $fluentSpeakerConnectionRequest
+     */
+    public function setFluentSpeakerConnectionRequest($fluentSpeakerConnectionRequest)
+    {
+        $this->fluentSpeakerConnectionRequest = $fluentSpeakerConnectionRequest;
+    }
+
+    /**
+     * @return ConnectionRequest
+     */
+    public function getLearnerConnectionRequest()
+    {
+        return $this->learnerConnectionRequest;
+    }
+
+    /**
+     * @param ConnectionRequest $learnerConnectionRequest
+     */
+    public function setLearnerConnectionRequest($learnerConnectionRequest)
+    {
+        $this->learnerConnectionRequest = $learnerConnectionRequest;
     }
 }

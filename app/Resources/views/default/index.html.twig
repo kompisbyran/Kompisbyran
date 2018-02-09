@@ -45,9 +45,8 @@
                         {% endif %}
 
                         <h2>{{ 'index.connection_request.header'|trans }}</h2>
-                        {% if app.user.connectionRequests|length %}
+                        {% if connectionRequest %}
                             <ul>
-                                {% for connectionRequest in connectionRequests %}
                                     <li>
                                         {{ connectionRequest.createdAt|date('Y-m-d H:i') }},
                                         {% if connectionRequest.city %}
@@ -62,14 +61,13 @@
                                             {{ 'index.connection_request.want_to_learn.teach'|trans }}
                                         {% endif %}
                                     </li>
-                                {% endfor %}
                             </ul>
                         {% endif %}
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <h2>{{ 'index.again.header'|trans }}</h2>
                         <p>{{ 'index.again.intro'|trans }}</p>
-                        {% if connectionRequests|length > 0 %}
+                        {% if connectionRequest %}
                             <div class="alert alert-info" role="alert">
                                 {{ 'error.active_request'|trans }}
                             </div>
