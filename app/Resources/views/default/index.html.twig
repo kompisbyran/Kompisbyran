@@ -69,7 +69,11 @@
                         <p>{{ 'index.again.intro'|trans }}</p>
                         {% if connectionRequest %}
                             <div class="alert alert-info" role="alert">
-                                {{ 'error.active_request'|trans }}
+                                {% if connectionRequest.pending %}
+                                    {{ 'error.pending_request'|trans }}
+                                {% else %}
+                                    {{ 'error.active_request'|trans }}
+                                {% endif %}
                             </div>
                         {% else %}
                             {{ include(':user:form.html.twig') }}

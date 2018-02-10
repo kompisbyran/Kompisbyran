@@ -10,6 +10,10 @@
                 <source>error.active_request</source>
                 <target>Du har redan en aktiv kompisförfrågan hos Kompisbyrån</target>
             </trans-unit>
+            <trans-unit id="error.pending_request">
+                <source>error.pending_request</source>
+                <target>Din anmälan är inaktiv, Kompisbyrån väntar på  mailsvar från dig.</target>
+            </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
                 <target>Ja</target>

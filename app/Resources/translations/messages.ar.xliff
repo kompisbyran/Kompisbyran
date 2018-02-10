@@ -10,6 +10,10 @@
                 <source>error.active_request</source>
                 <target>لديك مسقا طلب فعال على موقعنا</target>
             </trans-unit>
+            <trans-unit id="error.pending_request">
+                <source>error.pending_request</source>
+                <target>Your application is pending. Kompisbyrån is awaiting an email reply from you.</target>
+            </trans-unit>
             <trans-unit id="yes">
                 <source>yes</source>
                 <target>نعم</target>
