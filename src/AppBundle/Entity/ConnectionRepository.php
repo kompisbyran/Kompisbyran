@@ -93,18 +93,21 @@ class ConnectionRepository extends EntityRepository
      */
     public function getFindAllQueryBuilderForUser(SearchConnection $searchConnection, User $user)
     {
-        $cities = $this->getEntityManager()->getRepository('AppBundle\Entity\City')
+        $cities = $this->getEntityManager()->getRepository(City::class)
             ->createQueryBuilder('c')
             ->innerJoin('c.users', 'u')
-            ->where('u.id = :userId')
-            ->setParameter('userId', $user->getId())
+            ->where('u = :user')
+            ->setParameter('user', $user)
             ->getQuery()
             ->execute();
 
-        $cityIds = [];
-        foreach ($cities as $city) {
-            $cityIds[] = $city->getId();
-        }
+        $municipalities = $this->getEntityManager()->getRepository(Municipality::class)
+            ->createQueryBuilder('m')
+            ->innerJoin('m.adminUsers', 'u')
+            ->where('u = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->execute();
 
         $qb = $this
             ->createQueryBuilder('c')
@@ -112,11 +115,14 @@ class ConnectionRepository extends EntityRepository
             ->innerJoin('c.fluentSpeaker', 'f')
             ->innerJoin('c.learner', 'l')
             ->innerJoin('c.createdBy', 'cb')
-            ->innerJoin('c.city', 'city')
+            ->leftJoin('c.city', 'city')
+            ->leftJoin('c.municipality', 'm')
             ->leftJoin('c.comments', 'c2')
             ->leftJoin('c2.user', 'u')
-            ->andWhere('city.id IN (:cityIds)')
-            ->setParameter('cityIds', $cityIds)
+            ->andWhere('c.city IS NULL OR city.id IN (:cities)')
+            ->andWhere('c.municipality IS NULL OR m.id IN (:municipalities)')
+            ->setParameter('cities', $cities)
+            ->setParameter('municipalities', $municipalities)
         ;
 
         if ($searchConnection->getCity()) {
@@ -124,7 +130,11 @@ class ConnectionRepository extends EntityRepository
                 ->andWhere('c.city = :city')
                 ->setParameter('city', $searchConnection->getCity());
         }
-
+        if ($searchConnection->getMunicipality()) {
+            $qb
+                ->andWhere('c.municipality = :municipality')
+                ->setParameter('municipality', $searchConnection->getMunicipality());
+        }
         if ($searchConnection->getQ()) {
             $qb
                 ->andwhere("

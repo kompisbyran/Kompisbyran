@@ -3,6 +3,7 @@
 namespace AppBundle\Form\Model;
 
 use AppBundle\Entity\City;
+use AppBundle\Entity\Municipality;
 
 class SearchConnection
 {
@@ -15,6 +16,11 @@ class SearchConnection
      * @var City|null
      */
     private $city;
+
+    /**
+     * @var Municipality|null
+     */
+    private $municipality;
 
     /**
      * @var \DateTime|null
@@ -66,6 +72,22 @@ class SearchConnection
     public function setCity($city)
     {
         $this->city = $city;
+    }
+
+    /**
+     * @return Municipality|null
+     */
+    public function getMunicipality()
+    {
+        return $this->municipality;
+    }
+
+    /**
+     * @param Municipality|null $municipality
+     */
+    public function setMunicipality($municipality)
+    {
+        $this->municipality = $municipality;
     }
 
     /**
