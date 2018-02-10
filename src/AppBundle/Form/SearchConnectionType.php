@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\City;
+use AppBundle\Entity\Municipality;
 use AppBundle\Enum\ConnectionMeetingVariantTypes;
 use AppBundle\Form\Model\SearchConnection;
 use Doctrine\ORM\EntityRepository;
@@ -25,6 +26,16 @@ class SearchConnectionType extends AbstractType
                 'class' => City::class,
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
+                },
+                'property' => 'name',
+                'empty_value' => '',
+                'required' => false,
+            ])
+            ->add('municipality', 'entity', [
+                'label' => 'Kommun',
+                'class' => Municipality::class,
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('m')->where('m.startMunicipality = true')->orderBy('m.name', 'ASC');
                 },
                 'property' => 'name',
                 'empty_value' => '',
