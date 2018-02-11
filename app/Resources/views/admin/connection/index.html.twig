@@ -11,6 +11,7 @@
         {% set meetingStatusEmailSentDates = connection.learnerMeetingStatusEmailSentAtDates %}
         {% set followUpEmailSentDates = connection.learnerFollowUpEmail2SentAtDates %}
         {% set markedAsMetCreatedAt = connection.learnerMarkedAsMetCreatedAt %}
+        {% set connectionRequest = connection.learnerConnectionRequest %}
     {% else %}
         {% set user = connection.fluentSpeaker %}
         {% set comment = connection.fluentSpeakerComment %}
@@ -19,6 +20,7 @@
         {% set meetingStatusEmailSentDates = connection.fluentSpeakerMeetingStatusEmailSentAtDates %}
         {% set followUpEmailSentDates = connection.fluentSpeakerFollowUpEmail2SentAtDates %}
         {% set markedAsMetCreatedAt = connection.fluentSpeakerMarkedAsMetCreatedAt %}
+        {% set connectionRequest = connection.fluentSpeakerConnectionRequest %}
     {% endif %}
     <strong><a
         href="{{ path('admin_user', {'id': user.id}) }}"
@@ -62,16 +64,23 @@
 
     <em>{{ comment }}</em><br>
     {% if connection.city %}
-    <a
-        href="#"
-        class="create-connection-request btn btn-default btn-sm"
-        data-user-id="{{ user.id }}"
-        data-comment="{{ comment }}"
-        data-want-to-learn="{{ wantToLearn ? 1 : 0 }}"
-        data-type="{{ connection.type }}"
-        data-city-id="{{ connection.city.id }}"
-        data-date="{{ date|date('Y-m-d H:i:s') }}"
-    >Kompisfika igen</a>
+        <select name="same-date">
+            <option value="1">Samma datum ({{ (connectionRequest ? connectionRequest.createdAt : date)|date('Y-m-d') }})</option>
+            <option value="0">Dagens datum</option>
+        </select>
+        <a
+            href="#"
+            class="create-connection-request btn btn-default btn-sm"
+            data-user-id="{{ user.id }}"
+            data-comment="{{ comment }}"
+            data-want-to-learn="{{ wantToLearn ? 1 : 0 }}"
+            data-type="{{ connection.type }}"
+            data-city-id="{{ connection.city.id }}"
+            data-date="{{ date|date('Y-m-d H:i:s') }}"
+            {% if connectionRequest %}
+                data-connection-request-id="{{ connectionRequest.id }}"
+            {% endif %}
+        >Kompisfika igen {% if not connectionRequest %}(ej fullständiga uppgifter){% endif %}</a>
     {% endif %}
 
     <div class="color: red" style="display: none">
@@ -195,7 +204,9 @@
                             cityId: $(this).data('city-id'),
                             sortOrder: 1,
                             type: $(this).data('type'),
-                            date: $(this).data('date')
+                            date: $(this).data('date'),
+                            connectionRequestId: $(this).data('connectionRequestId'),
+                            sameDate: $this.siblings('select').find(':selected').val()
                         },
                         success: function (resp) {
                             if (resp.success) {
