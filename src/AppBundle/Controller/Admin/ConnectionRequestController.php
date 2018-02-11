@@ -104,17 +104,35 @@ class ConnectionRequestController extends Controller
             ]);
         }
 
-        $city               = $this->cityManager->getFind($request->request->getInt('cityId'));
-        $connectionRequest  = $this->connectionRequestManager->createNew();
+        $connectionRequest = null;
+        if ($request->request->has('connectionRequestId')) {
+            /** @var ConnectionRequest $oldConnectionRequest */
+            $oldConnectionRequest = $this->get('connection_request_repository')->find($request->request->getInt('connectionRequestId'));
+            if ($oldConnectionRequest) {
+                $connectionRequest = clone $oldConnectionRequest;
+                $connectionRequest->setSortOrder(1);
+                if (!$request->request->getBoolean('sameDate')) {
+                    $connectionRequest->setCreatedAt(new \DateTime());
+                }
+            }
+        }
 
-        $connectionRequest->setUser         ( $user                                         );
-        $connectionRequest->setWantToLearn  ( $request->request->getBoolean('wantToLearn')  );
-        $connectionRequest->setCity         ( $city                                         );
-        $connectionRequest->setSortOrder    ( $request->request->getInt('sortOrder')        );
-        $connectionRequest->setType($request->request->get('type'));
-        try {
-            $connectionRequest->setCreatedAt(new \DateTime($request->request->get('date')));
-        } catch (\Exception $e) {}
+        if (!$connectionRequest) {
+            $city = $this->cityManager->getFind($request->request->getInt('cityId'));
+            $connectionRequest = $this->connectionRequestManager->createNew();
+
+            $connectionRequest->setUser($user);
+            $connectionRequest->setWantToLearn($request->request->getBoolean('wantToLearn'));
+            $connectionRequest->setCity($city);
+            $connectionRequest->setSortOrder($request->request->getInt('sortOrder'));
+            $connectionRequest->setType($request->request->get('type'));
+            if ($request->request->getBoolean('sameDate')) {
+                try {
+                    $connectionRequest->setCreatedAt(new \DateTime($request->request->get('date')));
+                } catch (\Exception $e) {
+                }
+            }
+        }
 
         $this->connectionRequestManager->save($connectionRequest);
 
