@@ -74,4 +74,25 @@ class ConnectionControllerTest extends DatabaseTestCase
         $this->getEntityManager()->refresh($connection);
         $this->assertEquals($status, $connection->getFluentSpeakerMeetingStatus());
     }
+
+    /**
+     * @test
+     */
+    public function shouldCloneConnectionRequest()
+    {
+        $client = static::createClient();
+        /** @var Connection $connection */
+        $connection = $this->getConnectionRepository()->findAll()[1];
+        $user = $connection->getLearner();
+
+        $connectionRequestCount = count($this->getConnectionRequestRepository()->findAll());
+
+        $client->request(
+            'POST',
+            sprintf('/public/meetings/%s/%s/clone', $user->getUuid(), $connection->getId())
+        );
+
+        $this->assertEquals(201, $client->getResponse()->getStatusCode());
+        $this->assertNotEquals($connectionRequestCount, count($this->getConnectionRequestRepository()->findAll()));
+    }
 }

@@ -1304,6 +1304,18 @@ Om du vill, maila gärna oss på matchning@kompisbyran.se och berätta varför m
                 <source>meeting_type.will_not_meet</source>
                 <target>Kommer inte att träffas</target>
             </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.button">
+                <source>open.confirm_meeting.clone.button</source>
+                <target>Matcha om mig</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.confirm_message">
+                <source>open.confirm_meeting.clone.confirm_message</source>
+                <target>Tack. Vi hör av oss när vi matchat dig med en ny person.</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.text">
+                <source>open.confirm_meeting.clone.text</source>
+                <target>Om du vill få en ny matchning men vill ändra någon i din anmälan från förra gången loggar du in på %linkStart%din profil%linkEnd% och skickar in en ny förfrågan med de uppdaterade uppgifterna under rubriken "Jag vill träffa en ny person".</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
