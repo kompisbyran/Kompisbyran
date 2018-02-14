@@ -43,6 +43,11 @@ class SearchConnection
     private $meetingStatus;
 
     /**
+     * @var string|null
+     */
+    private $type;
+
+    /**
      * @return null|string
      */
     public function getQ()
@@ -152,5 +157,21 @@ class SearchConnection
     public function setMeetingStatus($meetingStatus)
     {
         $this->meetingStatus = $meetingStatus;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param null|string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }
