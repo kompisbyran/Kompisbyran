@@ -27,8 +27,8 @@
         >{{ user.name }}</a></strong>
     - {{ user.email }}<br>
     {% if wantToLearn and connection.newlyArrived %}
-        <span class="label label-info">Nyanländ</span><br>
-    {% endif %}
+        <span class="label label-info">Nyanländ</span>
+    {% endif %}<br>
     <strong>Mötesstatus:</strong>
 
     <span class="label label-{{ meetingStatus|meeting_status_color }}">
@@ -114,6 +114,7 @@
                 {{ form_label(form.to) }}
                 {{ form_widget(form.to) }}
                 </div>
+                <br><br>
                 <div class="form-group">
                 {{ form_label(form.meetingStatus) }}
                 {{ form_widget(form.meetingStatus) }}
