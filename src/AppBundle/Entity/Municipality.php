@@ -75,6 +75,13 @@ class Municipality
      */
     protected $startMunicipality = false;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $activeStartMunicipality = false;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -209,5 +216,21 @@ class Municipality
     public function setMeetingPlace($meetingPlace)
     {
         $this->meetingPlace = $meetingPlace;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActiveStartMunicipality()
+    {
+        return $this->activeStartMunicipality;
+    }
+
+    /**
+     * @param bool $activeStartMunicipality
+     */
+    public function setActiveStartMunicipality($activeStartMunicipality)
+    {
+        $this->activeStartMunicipality = $activeStartMunicipality;
     }
 }

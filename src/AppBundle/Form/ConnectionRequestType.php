@@ -38,7 +38,7 @@ class ConnectionRequestType extends AbstractType
                     'class' => 'AppBundle:Municipality',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('m')
-                            ->where('m.startMunicipality = true')
+                            ->where('m.activeStartMunicipality = true')
                             ->orderBy('m.name', 'ASC');
                     },
                     'property' => 'name',
