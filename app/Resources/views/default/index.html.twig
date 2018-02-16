@@ -6,7 +6,11 @@
 
 {% macro connectionRow(connection) %}
     <li>
-        <strong>{{ connection.createdAt|date('Y-m-d H:i') }}, {{ connection.city.name }}</strong><br>
+        <strong>
+            {{ connection.createdAt|date('Y-m-d H:i') }},
+            {{ connection.city ? connection.city.name }}
+            {{ connection.municipality ? connection.municipality.name }}
+        </strong><br>
         Kompis: {% if connection.learner != app.user %}
             {{ connection.learner.name }}
         {% else %}
