@@ -1200,6 +1200,10 @@
                 <source>meeting_type.will_not_meet</source>
                 <target>Will not meet</target>
             </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.intro">
+                <source>open.confirm_meeting.clone.intro</source>
+                <target>Vill du att vi letar efter en ny matchning till dig? Tryck på knappen.</target>
+            </trans-unit>
             <trans-unit id="open.confirm_meeting.clone.button">
                 <source>open.confirm_meeting.clone.button</source>
                 <target>Matcha om mig</target>

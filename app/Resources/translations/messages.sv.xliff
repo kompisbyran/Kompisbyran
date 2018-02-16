@@ -1304,6 +1304,10 @@ Om du vill, maila gärna oss på matchning@kompisbyran.se och berätta varför m
                 <source>meeting_type.will_not_meet</source>
                 <target>Kommer inte att träffas</target>
             </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.intro">
+                <source>open.confirm_meeting.clone.intro</source>
+                <target>Vill du att vi letar efter en ny matchning till dig? Tryck på knappen.</target>
+            </trans-unit>
             <trans-unit id="open.confirm_meeting.clone.button">
                 <source>open.confirm_meeting.clone.button</source>
                 <target>Matcha om mig</target>
