@@ -82,6 +82,18 @@
             {% endif %}
         >Kompisfika igen {% if not connectionRequest %}(ej fullständiga uppgifter){% endif %}</a>
     {% endif %}
+    {% if connection.municipality and connectionRequest %}
+        <select name="same-date">
+            <option value="1">Samma datum ({{ connectionRequest.createdAt|date('Y-m-d') }})</option>
+            <option value="0">Dagens datum</option>
+        </select>
+        <a
+            href="#"
+            class="create-connection-request btn btn-default btn-sm"
+            data-user-id="{{ user.id }}"
+            data-connection-request-id="{{ connectionRequest.id }}"
+        >Kompisfika igen</a>
+    {% endif %}
 
     <div class="color: red" style="display: none">
         {{ 'error.active_request'|trans }}
