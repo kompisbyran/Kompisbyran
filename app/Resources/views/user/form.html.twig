@@ -16,6 +16,16 @@
     </div>
 </div>
 
+{% if form.roles is defined %}
+    <div class="form-group">
+        {{ form_label(form.roles) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.roles) }}
+            {{ form_errors(form.roles) }}
+        </div>
+    </div>
+{% endif %}
+
 <div class="form-group">
     {{ form_label(form.age) }}
     <div class="col-sm-2">

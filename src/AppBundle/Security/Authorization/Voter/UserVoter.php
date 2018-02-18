@@ -4,12 +4,14 @@ namespace AppBundle\Security\Authorization\Voter;
 
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
+use AppBundle\Enum\RoleTypes;
 use Symfony\Component\Security\Core\Authorization\Voter\AbstractVoter;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserVoter extends AbstractVoter
 {
     const VIEW = 'user.view';
+    const CHANGE_ROLES = 'user.change_roles';
 
     /**
      * @return array
@@ -18,6 +20,7 @@ class UserVoter extends AbstractVoter
     {
         return [
             self::VIEW,
+            self::CHANGE_ROLES,
         ];
     }
 
@@ -68,6 +71,12 @@ class UserVoter extends AbstractVoter
                     }
                 }
                 break;
+
+            case self::CHANGE_ROLES:
+                if ($loggedInUser == $user) {
+                    return false;
+                }
+                return $loggedInUser->hasRole(RoleTypes::SUPER_ADMIN);
         }
 
         return false;

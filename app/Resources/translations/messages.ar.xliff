@@ -1185,6 +1185,22 @@
                 <source>open.confirm_meeting.already_answered</source>
                 <target>لقد سبق أن أجبت على هذا السؤال. إذا قمت بالنقر فوق الزر الخطأ أو ترغب في تغيير ردك، يرجى مراسلتنا عبر البريد الإلكتروني في matchning@kompisbyran.se ونحن سوف نقوم بمساعدتك</target>
             </trans-unit>
+            <trans-unit id="role.user">
+                <source>role.user</source>
+                <target>Användare</target>
+            </trans-unit>
+            <trans-unit id="role.municipality_admin">
+                <source>role.municipality_admin</source>
+                <target>Kommunadministratör</target>
+            </trans-unit>
+            <trans-unit id="role.admin">
+                <source>role.admin</source>
+                <target>Administratör</target>
+            </trans-unit>
+            <trans-unit id="role.super_admin">
+                <source>role.super_admin</source>
+                <target>Superadministratör</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
