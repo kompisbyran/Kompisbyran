@@ -1226,6 +1226,22 @@ If you want to, send us an e-mail at matchning@kompisbyran.se and tell us why yo
                 <source>open.confirm_meeting.already_answered</source>
                 <target> You have already answered this question. If you clicked the wrong button or want to change your reply, please e-mail us at matchning@kompisbyran.se and we will help you out.</target>
             </trans-unit>
+            <trans-unit id="role.user">
+                <source>role.user</source>
+                <target>Användare</target>
+            </trans-unit>
+            <trans-unit id="role.municipality_admin">
+                <source>role.municipality_admin</source>
+                <target>Kommunadministratör</target>
+            </trans-unit>
+            <trans-unit id="role.admin">
+                <source>role.admin</source>
+                <target>Administratör</target>
+            </trans-unit>
+            <trans-unit id="role.super_admin">
+                <source>role.super_admin</source>
+                <target>Superadministratör</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
