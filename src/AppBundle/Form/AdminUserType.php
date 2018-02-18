@@ -34,6 +34,7 @@ class AdminUserType extends UserType
                 'label' => 'Roller',
                 'required' => false,
                 'multiple' => true,
+                'expanded' => true,
                 'choices' => RoleTypes::listTypesWithTranslationKeys(),
             ]);
         }
