@@ -9,10 +9,10 @@ class MunicipalityRepository extends EntityRepository
     /**
      * @return Municipality[]
      */
-    public function findAllStartMunicipalities()
+    public function findAllActiveStartMunicipalities()
     {
         return $this->createQueryBuilder('m')
-            ->where('m.startMunicipality = true')
+            ->where('m.activeStartMunicipality = true')
             ->orderBy('m.name')
             ->getQuery()
             ->getResult()

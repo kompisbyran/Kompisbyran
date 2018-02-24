@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use AppBundle\Entity\City;
 use AppBundle\Entity\Municipality;
 use AppBundle\Enum\ConnectionMeetingVariantTypes;
+use AppBundle\Enum\FriendTypes;
 use AppBundle\Form\Model\SearchConnection;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
@@ -62,6 +63,11 @@ class SearchConnectionType extends AbstractType
                     ConnectionMeetingVariantTypes::ONE_MARKED_AS_MET => 'Endast en har markerat som träffats',
                     ConnectionMeetingVariantTypes::BOTH_MARKED_AS_MET => 'Båda har markerat som träffats',
                 ]
+            ])
+            ->add('type', 'choice', [
+                'required' => false,
+                'label' => 'Typ',
+                'choices' => FriendTypes::listTypesWithTranslationKeys(),
             ])
         ;
     }

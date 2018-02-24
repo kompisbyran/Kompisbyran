@@ -27,8 +27,8 @@
         >{{ user.name }}</a></strong>
     - {{ user.email }}<br>
     {% if wantToLearn and connection.newlyArrived %}
-        <span class="label label-info">Nyanländ</span><br>
-    {% endif %}
+        <span class="label label-info">Nyanländ</span>
+    {% endif %}<br>
     <strong>Mötesstatus:</strong>
 
     <span class="label label-{{ meetingStatus|meeting_status_color }}">
@@ -82,6 +82,18 @@
             {% endif %}
         >Kompisfika igen {% if not connectionRequest %}(ej fullständiga uppgifter){% endif %}</a>
     {% endif %}
+    {% if connection.municipality and connectionRequest %}
+        <select name="same-date">
+            <option value="1">Samma datum ({{ connectionRequest.createdAt|date('Y-m-d') }})</option>
+            <option value="0">Dagens datum</option>
+        </select>
+        <a
+            href="#"
+            class="create-connection-request btn btn-default btn-sm"
+            data-user-id="{{ user.id }}"
+            data-connection-request-id="{{ connectionRequest.id }}"
+        >Kompisfika igen</a>
+    {% endif %}
 
     <div class="color: red" style="display: none">
         {{ 'error.active_request'|trans }}
@@ -114,9 +126,14 @@
                 {{ form_label(form.to) }}
                 {{ form_widget(form.to) }}
                 </div>
+                <br><br>
                 <div class="form-group">
                 {{ form_label(form.meetingStatus) }}
                 {{ form_widget(form.meetingStatus) }}
+                </div>
+                <div class="form-group">
+                {{ form_label(form.type) }}
+                {{ form_widget(form.type) }}
                 </div>
                 {{ form_label(form.onlyNewlyArrived) }}
                 {{ form_widget(form.onlyNewlyArrived) }}

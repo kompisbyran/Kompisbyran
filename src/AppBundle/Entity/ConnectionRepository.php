@@ -168,6 +168,12 @@ class ConnectionRepository extends EntityRepository
                 ->setParameter('status', MeetingTypes::MET)
             ;
         }
+        if ($searchConnection->getType()) {
+            $qb
+                ->andWhere('c.type = :type')
+                ->setParameter('type', $searchConnection->getType())
+            ;
+        }
 
         return $qb
             ->orderBy('c.id', 'desc')

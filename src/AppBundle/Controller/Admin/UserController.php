@@ -50,6 +50,7 @@ class UserController extends Controller
                 'locale' => $request->getLocale(),
                 'translator' => $this->get('translator'),
                 'newly_arrived_date' => $this->get('newly_arrived_date'),
+                'authorization_checker' => $this->get('security.authorization_checker'),
             ]
         );
 

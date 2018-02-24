@@ -51,7 +51,7 @@ class MunicipalityExtension extends \Twig_Extension
     public function startFriendMunicipalities($lastNameSeparatorTranslationKey = 'global.and')
     {
         $municipalityNames = [];
-        $municipalities = $this->municipalityRepository->findAllStartMunicipalities();
+        $municipalities = $this->municipalityRepository->findAllActiveStartMunicipalities();
         foreach ($municipalities as $municipality) {
             $name = str_replace(' kommun', '', $municipality->getName());
             $municipalityNames[] = trim($name, 's');

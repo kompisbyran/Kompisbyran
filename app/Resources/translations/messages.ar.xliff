@@ -992,10 +992,11 @@
                     <![CDATA[
                         <h4>نحن كعاملين في كومبيس بيرون</h4>
                         <p>
-                            Office<br> 
-                            Emma Hammar, grundare och verksamhetsledare, <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se </a><br>
-                            Linda Kaplan, operativ ledare och verksamhetsutvecklare, <a href="mailto:linda@kompisbyran.se ">linda@kompisbyran.se </a><br>
-                            Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se ">clara@kompisbyran.se </a><br>
+                            Office (in alphabetical order) <br> 
+                            Clara Wäppling, projektledare, <a href="mailto:clara@kompisbyran.se">clara@kompisbyran.se</a><br>
+                            Emma Hammar, grundare och verksamhetsledare, <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a><br>
+                            Linda Kaplan, operativ ledare och verksamhetsutvecklare, <a href="mailto:linda@kompisbyran.se">linda@kompisbyran.se</a><br>
+                            Miriam Ghebressilasie, matchningsansvarig, <a href="mailto:miriam@kompisbyran.se">miriam@kompisbyran.se</a><br> 
 
                             IT<br>
                             Jon Gotlin, IT-ansvarig<br>
@@ -1215,6 +1216,22 @@
             <trans-unit id="open.confirm_meeting.clone.text">
                 <source>open.confirm_meeting.clone.text</source>
                 <target>Om du vill få en ny matchning men vill ändra någon i din anmälan från förra gången loggar du in på %linkStart%din profil%linkEnd% och skickar in en ny förfrågan med de uppdaterade uppgifterna under rubriken "Jag vill träffa en ny person".</target>
+            </trans-unit>
+            <trans-unit id="role.user">
+                <source>role.user</source>
+                <target>Användare</target>
+            </trans-unit>
+            <trans-unit id="role.municipality_admin">
+                <source>role.municipality_admin</source>
+                <target>Kommunadministratör</target>
+            </trans-unit>
+            <trans-unit id="role.admin">
+                <source>role.admin</source>
+                <target>Administratör</target>
+            </trans-unit>
+            <trans-unit id="role.super_admin">
+                <source>role.super_admin</source>
+                <target>Superadministratör</target>
             </trans-unit>
         </body>
     </file>

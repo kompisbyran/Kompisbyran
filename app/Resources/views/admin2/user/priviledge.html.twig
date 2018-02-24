@@ -20,7 +20,7 @@
             <tbody class="persons-list-body">
             {% for user in administrators %}
                 <tr>
-                    <td>{{ user.fullName }}</td>
+                    <td><a href="{{ path('admin_user', {'id': user.id}) }}">{{ user.fullName }}</a></td>
                     <td>{{ user.email }}</td>
                     <td>
                         <select class="regions form-control" multiple="multiple">
@@ -46,7 +46,7 @@
             <tbody class="persons-list-body">
             {% for user in municipalityAdministrators %}
                 <tr>
-                    <td>{{ user.fullName }}</td>
+                    <td><a href="{{ path('admin_user', {'id': user.id}) }}">{{ user.fullName }}</a></td>
                     <td>{{ user.email }}</td>
                     <td>
                         <select class="municipalities form-control" multiple="multiple">
