@@ -646,6 +646,28 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
         $manager->persist($user);
         $this->addReference('user-magdalena', $user);
+
+
+        $user = new User();
+        $user->setType(FriendTypes::START);
+        $user->setEmail('anna@example.com');
+        $user->setFirstName('Anna');
+        $user->setLastName('Andersson');
+        $user->setEnabled(true);
+        $user->setRoles(['ROLE_COMPLETE_USER']);
+        $user->setWantToLearn(false);
+        $user->setAge(20);
+        $user->setAbout('-');
+        $user->setCategories([$this->getReference('category-1'), $this->getReference('category-2')]);
+        $user->setFrom('SE');
+        $user->setGender('F');
+        $user->setProfilePicture('http://api.randomuser.me/portraits/thumb/women/6.jpg');
+        $user->setMunicipality($this->getReference('municipality-198'));
+        $user->setOccupation(OccupationTypes::EMPLOYED);
+        $encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
+        $user->setPassword($encoder->encodePassword('asdf123', $user->getSalt()));
+        $manager->persist($user);
+        $this->addReference('user-anna', $user);
     }
 
     /**
@@ -761,6 +783,19 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setAvailableWeekday(true);
         $connectionRequest->setAvailableWeekend(false);
         $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setType(FriendTypes::START);
+        $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setMunicipality($this->getReference('municipality-198'));
+        $connectionRequest->setUser($this->getReference('user-anna'));
+        $connectionRequest->setInspected(true);
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(false);
+        $this->setReference('connection-request-anna', $connectionRequest);
+        $manager->persist($connectionRequest);
     }
 
     /**
@@ -774,6 +809,15 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connection->setLearner($this->getReference('user-learner'));
         $connection->setFluentSpeakerConnectionRequestCreatedAt(new \DateTime());
         $connection->setLearnerConnectionRequestCreatedAt(new \DateTime());
+        $manager->persist($connection);
+
+        $connection = new Connection($this->getReference('user-fluentspeaker'));
+        $connection->setCity($this->getReference('city-1'));
+        $connection->setFluentSpeaker($this->getReference('user-fluentspeaker'));
+        $connection->setLearner($this->getReference('user-anna'));
+        $connection->setFluentSpeakerConnectionRequestCreatedAt(new \DateTime());
+        $connection->setLearnerConnectionRequestCreatedAt(new \DateTime());
+        $connection->setLearnerConnectionRequest($this->getReference('connection-request-anna'));
         $manager->persist($connection);
     }
 }

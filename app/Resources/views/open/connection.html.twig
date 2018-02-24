@@ -33,7 +33,24 @@
                             {{ 'open.confirm_meeting.after.not_yet_met'|trans|nl2br }}
                         </div>
                         <div id="will_not_meet" class="hidden">
-                            {{ 'open.confirm_meeting.after.will_not_meet'|trans|nl2br }}
+                            <p>{{ 'open.confirm_meeting.after.will_not_meet'|trans|nl2br }}</p>
+
+                            {% if clone %}
+                                <p>
+                                    {{ 'open.confirm_meeting.clone.intro'|trans }}
+                                </p>
+                                <p>
+                                    <a href="#" id="re-match" class="btn btn-success">{{ 'open.confirm_meeting.clone.button'|trans }}</a>
+                                    <div id="re-match-text" class="hidden">
+                                        <strong>{{ 'open.confirm_meeting.clone.confirm_message'|trans }}</strong>
+                                    </div>
+                                </p>
+
+                                <p>
+                                    {{ 'open.confirm_meeting.clone.text'|trans({'%linkStart%': '<a href="' ~ path('login') ~ '">' ,'%linkEnd%': '</a>'})|raw }}
+                                </p>
+                            {% endif %}
+
                         </div>
                     {% endif %}
                 </div>
@@ -57,6 +74,16 @@
                     $('#buttons').hide();
                     $('#intro').hide();
                     $('#' + status).removeClass('hidden');
+                });
+            });
+
+            $('#re-match').on('click', function (e) {
+                e.preventDefault();
+                $(this).attr('disabled', true);
+
+                $.post('{{ path('public_clone_connection_request', {'uuid': uuid, 'id': connection.id}) }}', null, function(resp) {
+                    $('#re-match').hide();
+                    $('#re-match-text').removeClass('hidden');
                 });
             });
         });

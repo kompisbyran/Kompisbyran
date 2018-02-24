@@ -1185,6 +1185,38 @@
                 <source>open.confirm_meeting.already_answered</source>
                 <target>لقد سبق أن أجبت على هذا السؤال. إذا قمت بالنقر فوق الزر الخطأ أو ترغب في تغيير ردك، يرجى مراسلتنا عبر البريد الإلكتروني في matchning@kompisbyran.se ونحن سوف نقوم بمساعدتك</target>
             </trans-unit>
+            <trans-unit id="meeting_type.unknown">
+                <source>meeting_type.unknown</source>
+                <target>No answer</target>
+            </trans-unit>
+            <trans-unit id="meeting_type.not_yet_met">
+                <source>meeting_type.not_yet_met</source>
+                <target>Not yet</target>
+            </trans-unit>
+            <trans-unit id="meeting_type.met">
+                <source>meeting_type.met</source>
+                <target>Have met</target>
+            </trans-unit>
+            <trans-unit id="meeting_type.will_not_meet">
+                <source>meeting_type.will_not_meet</source>
+                <target>Will not meet</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.intro">
+                <source>open.confirm_meeting.clone.intro</source>
+                <target>Vill du att vi letar efter en ny matchning till dig? Tryck på knappen.</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.button">
+                <source>open.confirm_meeting.clone.button</source>
+                <target>Matcha om mig</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.confirm_message">
+                <source>open.confirm_meeting.clone.confirm_message</source>
+                <target>Tack. Vi hör av oss när vi matchat dig med en ny person.</target>
+            </trans-unit>
+            <trans-unit id="open.confirm_meeting.clone.text">
+                <source>open.confirm_meeting.clone.text</source>
+                <target>Om du vill få en ny matchning men vill ändra någon i din anmälan från förra gången loggar du in på %linkStart%din profil%linkEnd% och skickar in en ny förfrågan med de uppdaterade uppgifterna under rubriken "Jag vill träffa en ny person".</target>
+            </trans-unit>
             <trans-unit id="role.user">
                 <source>role.user</source>
                 <target>Användare</target>
