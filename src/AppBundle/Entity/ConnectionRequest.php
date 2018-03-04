@@ -87,6 +87,12 @@ class ConnectionRequest
      *     groups={"Default"}
      * )
      *
+     * @Assert\Expression(
+     *     "this.getUser().getType() != 'start' || this.getMunicipality() == this.getUser().getMunicipality()",
+     *     message="Du måste välja den kommun du bor i.",
+     *     groups={"newConnectionRequest", "registration"}
+     * )
+     *
      * @ORM\ManyToOne(targetEntity="Municipality", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=true)
      */
