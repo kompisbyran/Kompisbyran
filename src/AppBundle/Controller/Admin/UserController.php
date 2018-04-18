@@ -25,6 +25,8 @@ class UserController extends Controller
      */
     public function indexAction()
     {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
         $users = $this->getUserRepository()->findAllWithCategoryJoinAssoc();
         $categories = $this->getCategoryRepository()->findAll();
 

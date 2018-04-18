@@ -30,7 +30,7 @@ class UserControllerTest extends DatabaseTestCase
     {
         $this->authenticateUser(
             $this->getUserRepository()->findOneBy(['email' => 'learner@example.com']),
-            ['ROLE_ADMIN']
+            ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
         );
 
         $client = static::$client;
