@@ -99,4 +99,36 @@ $(document).ready(function() {
         }
     });
     $('input[name$="[wantToLearn]"]').eq(0).trigger('change');
+
+    $('select[name$="[municipality]"]').change(function() {
+        var selectedMunicipality = $(this).val();
+        var ok = false;
+        var startMunicipalities = [];
+        {% for startMunicipality in startMunicipalities %}
+            startMunicipalities.push({{ startMunicipality.id }});
+        {% endfor %}
+        $.each(startMunicipalities, function(index, value) {
+            if (value == selectedMunicipality) {
+                ok = true;
+                if ($('select[name="user[newConnectionRequest][municipality]"]').length > 0) {
+                    $('select[name="user[newConnectionRequest][municipality]"]').val(value);
+                }
+            }
+        });
+
+        if (ok) {
+            $('#user_type_2').removeAttr('disabled');
+            $('#user_type_2').parent().removeClass('text-muted');
+            $('#user_type_2').parent().parent().next().removeClass('text-muted');
+        } else {
+            $('#user_type_2').attr('disabled', 'disabled');
+            $('#user_type_2').parent().addClass('text-muted');
+            $('#user_type_2').parent().parent().next().addClass('text-muted');
+            if ($('#user_type_2').prop('checked') == true) {
+                $('#user_type_0').prop('checked', true);
+                $('input[name$="[type]"]').eq(0).trigger('change');
+            }
+        }
+    });
+
 });

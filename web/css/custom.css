@@ -111,3 +111,6 @@ div.candidate span.matches a.google-link {
     display: inline;
     margin: 0 10px 0 0;
 }
+.text-muted {
+    color: #9a9a9a;
+}
