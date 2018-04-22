@@ -84,6 +84,7 @@ class UserController extends Controller
             'form' => $form->createView(),
             'user' => $user,
             'connectionRequestForm' => $connectionRequestForm,
+            'startMunicipalities' => $this->get('municipality_repository')->findAllActiveStartMunicipalities(),
         ];
 
         return $this->render('admin/user/view.html.twig', $parameters);
