@@ -352,19 +352,6 @@ class User extends BaseUser
 
     /**
      * @var string
-     *
-     * @Assert\Expression(
-     *     "this.getType() != 'start' || this.getLanguages() != ''",
-     *     message="Du måste fylla i vilka språk du pratar",
-     *     groups={"settings"}
-     * )
-     *
-     * @ORM\Column(type="text", nullable=true)
-     */
-    protected $languages;
-
-    /**
-     * @var string
      * @Assert\Email
      */
     protected $email;
@@ -1211,22 +1198,6 @@ class User extends BaseUser
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLanguages()
-    {
-        return $this->languages;
-    }
-
-    /**
-     * @param string $languages
-     */
-    public function setLanguages($languages)
-    {
-        $this->languages = $languages;
     }
 
     /**

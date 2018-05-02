@@ -475,10 +475,6 @@
                 <source>user.form.optional</source>
                 <target>(Frivilligt)</target>
             </trans-unit>
-            <trans-unit id="user.form.languages">
-                <source>user.form.languages</source>
-                <target>Vilka språk pratar du?</target>
-            </trans-unit>
             <trans-unit id="user.form.newly_arrived">
                 <source>user.form.newly_arrived</source>
                 <target>Är du nyanländ?</target>

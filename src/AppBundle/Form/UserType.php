@@ -198,10 +198,6 @@ class UserType extends AbstractType
                 'required' => false,
                 'attr' => ['placeholder' => '0701234567'],
             ])
-            ->add('languages', 'text', [
-                'label' => 'user.form.languages',
-                'required' => false,
-            ])
             ->add('termsAccepted', 'checkbox', [
                 'mapped' => false,
                 'constraints' => $constraint,
