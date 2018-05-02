@@ -265,14 +265,6 @@
     </div>
 </div>
 
-<div class="form-group start hidden">
-    {{ form_label(form.languages) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.languages) }}
-        {{ form_errors(form.languages) }}
-    </div>
-</div>
-
 {% if form.newConnectionRequest is defined %}
     {% set connectionRequest = form.newConnectionRequest %}
     <h3>Om mötet</h3>

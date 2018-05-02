@@ -474,10 +474,6 @@
                 <source>user.form.optional</source>
                 <target>غير الزامي</target>
             </trans-unit>
-            <trans-unit id="user.form.languages">
-                <source>user.form.languages</source>
-                <target>ما هي اللغات التي تتحدث بها؟</target>
-            </trans-unit>
             <trans-unit id="user.form.newly_arrived">
                 <source>user.form.newly_arrived</source>
                 <target>هل وصلت حديثا؟</target>
