@@ -620,7 +620,7 @@
             </trans-unit>
             <trans-unit id="terms.header">
                 <source>terms.header</source>
-                <target>Villkor</target>
+                <target>Allmänna villkor</target>
             </trans-unit>
             <trans-unit id="terms.ingress">
                 <source>terms.ingress</source>
@@ -690,23 +690,68 @@
                             trosuppfattning, funktionsnedsättning, sexuell läggning och ålder.
                         </li>
                         <li>
-                            Om du vill avregistrera dig, skicka ett e-mail till kontakt@kompisbyran.se.
-                        </li>
-                        <li>
                             Kompisbyrån kan inte garantera att vi hittar en ny kompis till dig men vi gör alltid vårt bästa.
                         </li>
                         <li>
                             Vi vill hela tiden bli bättre på vårt arbete. Därför kontaktar vi dig efter ert möte för att fråga hur det var.
                         </li>
+                          <p>
+                            <strong>Integritetspolicy</strong>
+                        </p>
+                        <p>
+                            Kompisbyrån (Organisationsnummer 802492-6050) är personuppgiftsansvarig för uppgifterna du lämnar till oss.
+                        </p>
+                        <p>
+                            Kompisbyrån använder dina personuppgifter i följande syften:
+                        </p>
+                        
+                            1. Kompisbyrån använder de personuppgifter som du har lämnat om dig själv för att matcha ihop dig med 
+                               en annan av våra användare. Exempelvis för en fikakompis eller startkompis. I detta ingår att vi 
+                               presenterar deltagare som vi har matchat ihop för varandra med namn.
+                       <br/>
+                            2. Vi kan också komma att bjuda in dig till Kompisbyråns aktiviteter eller erbjudanden.
+                       <br/>
+                            3. Informationen används för att kunna besvara frågor, driva och förbättra vår webbplats och program. 
+                       <br/>
+                            4. Dina personuppgifter kan delas med andra aktörer om det krävs för att Kompisbyrån ska kvalificera sig
+                               för stöd eller bidrag. Detta kan gälla offentliga organ eller privata företag som sponsrar Kompisbyråns 
+                               verksamhet. Dessa andra aktörer har inte tillåtelse att använda dina personuppgifter till marknadsföring
+                               eller till något annat än för att undersöka att vår verksamhet når upp till deras krav.
+                       <br/>
+                            5. Utöver detta så måste Kompisbyrån lämna vidare dina uppgifter om det framgår av lag att vi måste det.
+                       <li>
+                            Kompisbyråns personuppgiftshantering grundar sig på samtycke. När du registrerar dina personuppgifter 
+                            hos Kompisbyrån ger du oss ditt samtycke till att använda dina personuppgifter. Du kan närsomhelst dra 
+                            tillbaka ditt samtycke och då tar vi bort de uppgifter vi har sparade om dig. Du kan välja om du vill 
+                            att vi ska ta bort alla eller bara vissa av uppgifterna.
+                       </li>
                         <li>
-                            Kompisbyrån samlar in personuppgifter om dig som du lämnar i samband med din registrering. Vi använder informationen i syfte att hjälpa dig att komma i kontakt med deltagare inom vår verksamhet. Vi kan också komma att bjuda in dig till Kompisbyråns aktiviteter eller erbjudanden. Informationen används också för att kunna besvara frågor, driva och förbättra vår webbplats och program. Om du vill korrigera dina lämnade uppgifter som finns registrerade hos oss, vänligen logga in med din email och ditt lösenord och uppdatera din profil. Personuppgiftsansvarig är Kompisbyråns styrelse.
+                            Dina personuppgifter förs inte över till tredje land (det vill säga land utanför EU/ESS).
                         </li>
                         <li>
-                            Uppgifter om dig kan komma att överföras till samarbetspartners som hjälper oss att erbjuda dig våra tjänster samt till myndigheter som ger oss statliga bidrag. Våra samarbetspartners har inte rätt att använda uppgifter om dig i annat syfte. Vi överför inte uppgifter till samarbetspartners för marknadsföringssyfte utan ditt medgivande.
+                            Om du vill avregistrera dig, skicka ett e-mail till kontakt@kompisbyran.se
                         </li>
                         <li>
-                            När du registrerar dig på vår webbplats och när du gör förfrågningar om att bli matchad med nya vänner samtycker du till att Kompisbyrån behandlar dina personuppgifter för de ändamål som anges.
-                        </li>
+                            Utöver att få dina personuppgifter raderade har du även rätt få dina personuppgifter rättade, begära att 
+                            behandlingen av dina personuppgifter begränsas samt få ett utdrag av av de uppgifter som Kompisbyrån har 
+                            om dig. Du kan även göra en invändning mot en särskild behandling.Om du vill något av detta kontakta: 
+                            kontakt@kompisbyran.se
+                         </li>
+                         <li>
+                             Kompisbyrån bistår dig om du vill få dina personuppgifter hos oss flyttade till en annan tjänst (så 
+                             kallad dataportabilitet) en sådan begäran skickas till kontakt@kompisbyran.se
+                          </li>
+                          <li>
+                            Datainspektionen är tillsynsmyndighet för dessa personuppgiftsbehandlingar och om du anser att de behandlas
+                            felaktigt så har du rätt att lämna klagomål hos dem. Mer information om detta hittar du här: 
+                            https://www.datainspektionen.se/vagledningar/for-dig-som-privatperson/klagomal-och-tips/?_t_id=1B2M2Y8AsgTpgAmY7PhCfg%3d%3d&_t_q=anm%C3%A4la&_t_tags=language%3asv%2csiteid%3a994ba21f-261a-4557-a79f-e3dd826642d2&_t_ip=10.109.50.20&_t_hit.id=Datainspektionen_Web_Features_StandardPage_StandardPageType/_f2206461-c0d3-4dfc-8eca-caada2c4d500_sv&_t_hit.pos=11
+                          </li>
+                          <li>
+                             Kompisbyrån lagrar dina personuppgifter tills det att du väljer att ta bort dem eller att ditt konto 
+                             varit inaktivt i 36 månader.
+                           </li>
+                             
+                            
                     </ul>]]></target>
             </trans-unit>
             <trans-unit id="terms.outro">
