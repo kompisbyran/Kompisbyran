@@ -98,16 +98,7 @@ class UserController extends Controller
      */
     public function deleteAction(User $user)
     {
-        $user->setFirstName('x');
-        $user->setLastName('x');
-        $user->setEnabled(false);
-        $user->setEmail('x' . $user->getId());
-        $user->setUsername('x' . $user->getId());
-        $user->setUsernameCanonical('x' . $user->getId());
-        $user->setPassword('xxxxxxx');
-
-        $this->getDoctrine()->getManager()->persist($user);
-        $this->getDoctrine()->getManager()->flush();
+        $this->get('user_manager')->softDelete($user);
 
         return new Response();
     }

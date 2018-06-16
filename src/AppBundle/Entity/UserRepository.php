@@ -33,6 +33,23 @@ class UserRepository extends EntityRepository
     }
 
     /**
+     * @param User $user
+     */
+    public function softDelete(User $user)
+    {
+        $user->setFirstName('x');
+        $user->setLastName('x');
+        $user->setEnabled(false);
+        $user->setEmail('x' . $user->getId());
+        $user->setUsername('x' . $user->getId());
+        $user->setUsernameCanonical('x' . $user->getId());
+        $user->setPassword('xxxxxxx');
+
+        $this->getEntityManager()->persist($user);
+        $this->getEntityManager()->flush();
+    }
+
+    /**
      * @return array
      */
     public function findAllWithCategoryJoinAssoc()

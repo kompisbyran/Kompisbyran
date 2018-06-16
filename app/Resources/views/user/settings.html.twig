@@ -12,6 +12,11 @@
                     <div class="well br-white border-orange black">
                         {{ 'user.settings.intro'|trans({'%municipalities%': start_friend_municipalities('global.or')})|raw}}
                     </div>
+                    <div class="well br-white border-orange black">
+                        <p>{{ 'user.settings.delete'|trans }}</p>
+
+                        <button id="delete" class="btn btn-danger"><i class="fa fa-warning"></i> {{ 'user.settings.delete.button'|trans }}</button>
+                    </div>
                 </div>
 
                 <div class="col-md-8 col-md-pull-4 col-sm-6 col-sm-pull-6">
@@ -41,5 +46,20 @@
 {% block javascripts %}
 <script type="text/javascript">
     {{ include(':user:form.js.twig') }}
+
+    $(document).ready(function() {
+        $('#delete').click(function() {
+            if (confirm('{{ 'user.settings.delete.confirm'|trans }}')) {
+                $(this).attr('disabled', 'disabled');
+                $.ajax({
+                    url: Routing.generate('delete'),
+                    type: 'DELETE',
+                    success: function() {
+                        location.href='/logout';
+                    }
+                });
+            }
+        });
+    });
 </script>
 {% endblock %}
