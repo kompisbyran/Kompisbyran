@@ -530,6 +530,18 @@
                     As a Start friend, you meet in one of the following municipalities: %municipalities%.
                 </target>
             </trans-unit>
+            <trans-unit id="user.settings.delete">
+                <source>user.settings.delete</source>
+                <target>Do you want to remove your account with Kompisbyrån?</target>
+            </trans-unit>
+            <trans-unit id="user.settings.delete.button">
+                <source>user.settings.delete.button</source>
+                <target>Remove account</target>
+            </trans-unit>
+            <trans-unit id="user.settings.delete.confirm">
+                <source>user.settings.delete.confirm</source>
+                <target>Are you sure you want to delete your account with Kompisbyrån? You can’t undo this action. If you keep your account with us, you can easily send in new requests to meet friends.</target>
+            </trans-unit>
             <trans-unit id="index.header">
                 <source>index.header</source>
                 <target>Welcome to Kompisbyrån!</target>

@@ -519,6 +519,18 @@
                     ]]>
                 </target>
             </trans-unit>
+            <trans-unit id="user.settings.delete">
+                <source>user.settings.delete</source>
+                <target>هل تريد محو حسابك مع كومبيبران؟</target>
+            </trans-unit>
+            <trans-unit id="user.settings.delete.button">
+                <source>user.settings.delete.button</source>
+                <target>محو الحساب</target>
+            </trans-unit>
+            <trans-unit id="user.settings.delete.confirm">
+                <source>user.settings.delete.confirm</source>
+                <target>هل انت متأكد من محو حسابك مع كومبيبران؟ لا يمكنك إسترجاع هذه الخطوة. إذا حافظت علا حسابك معنا يمكنك بطريقة سهلة إرسال طلبات جديدة للقاء أصدقاء جدد.</target>
+            </trans-unit>
             <trans-unit id="index.header">
                 <source>index.header</source>
                 <target>أهلا بكم معنا</target>
