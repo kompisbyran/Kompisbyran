@@ -108,6 +108,14 @@ class UserManager implements ManagerInterface
     }
 
     /**
+     * @param $entity
+     */
+    public function softDelete($entity)
+    {
+        $this->userRepository->softDelete($entity);
+    }
+
+    /**
      * @param User $user
      * @param ConnectionRequest $userRequest
      * @param int $page

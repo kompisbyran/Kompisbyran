@@ -522,6 +522,18 @@
                     ]]>
                 </target>
             </trans-unit>
+            <trans-unit id="user.settings.delete">
+                <source>user.settings.delete</source>
+                <target>Vill du ta bort ditt konto hos Kompisbyrån?</target>
+            </trans-unit>
+            <trans-unit id="user.settings.delete.button">
+                <source>user.settings.delete.button</source>
+                <target>Ta bort konto</target>
+            </trans-unit>
+            <trans-unit id="user.settings.delete.confirm">
+                <source>user.settings.delete.confirm</source>
+                <target>Är du säker på att du vill ta bort ditt konto hos Kompisbyrån? Du kan inte ångra dig. Om du har kvar ditt konto hos oss kan du enkelt skicka in en förfrågan om att träffa en ny kompis.</target>
+            </trans-unit>
             <trans-unit id="index.header">
                 <source>index.header</source>
                 <target>Välkommen till Kompisbyrån!</target>
