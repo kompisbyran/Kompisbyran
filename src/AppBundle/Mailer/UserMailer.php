@@ -3,8 +3,10 @@
 namespace AppBundle\Mailer;
 
 use AppBundle\Entity\Connection;
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\MeetingTypes;
 use AppBundle\Event\FollowUpEmailSentEvent;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -151,5 +153,35 @@ class UserMailer extends Mailer
             FollowUpEmailSentEvent::FOLLOW_UP_EMAIL2_SENT,
             new FollowUpEmailSentEvent($user, $connection)
         );
+    }
+
+    /**
+     * @param Connection $connection
+     */
+    public function sendMeetAgainMessage(Connection $connection)
+    {
+        if (!$connection->getFluentSpeakerConnectionRequest()) {
+            return;
+        }
+
+        $user = $connection->getFluentSpeaker();
+
+        if ($connection->getFluentSpeakerMeetingStatus() == MeetingTypes::MET) {
+            $subject = 'Vill du träffa en ny kompis?';
+        } elseif ($connection->getFluentSpeakerMeetingStatus() == MeetingTypes::WILL_NOT_MEET) {
+            $subject = 'Vill du bli matchad med en ny kompis?';
+        } else {
+            throw new \LogicException(sprintf(
+                'No meet again email template for "%s".',
+                $connection->getFluentSpeakerMeetingStatus())
+            );
+        }
+
+        $html = $this->templating->render('email/meetAgain.html.twig', [
+            'user' => $user,
+            'connection' => $connection,
+        ]);
+
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
     }
 }

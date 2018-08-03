@@ -557,6 +557,21 @@ class User extends BaseUser
     }
 
     /**
+     * @return ConnectionRequest|mixed|null
+     */
+    public function getMostRecentConnectionRequest()
+    {
+        $connectionRequest = null;
+        foreach ($this->connectionRequests as $loopedConnectionRequest) {
+            if ($connectionRequest == null || $loopedConnectionRequest->getCreatedAt() > $loopedConnectionRequest->getCreatedAt()) {
+                $connectionRequest = $loopedConnectionRequest;
+            }
+        }
+
+        return $connectionRequest;
+    }
+
+    /**
      * @return ConnectionRequest|null
      */
     public function getOpenConnectionRequest()

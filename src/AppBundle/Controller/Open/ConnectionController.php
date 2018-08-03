@@ -3,7 +3,6 @@
 namespace AppBundle\Controller\Open;
 
 use AppBundle\Entity\Connection;
-use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Enum\MeetingTypes;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -62,7 +61,7 @@ class ConnectionController extends Controller
             'alreadyConfirmed' => $alreadyConfirmed,
             'uuid' => $uuid,
             'connection' => $connection,
-            'clone' => $this->clonable($connectionRequest)
+            'clone' => $connectionRequest && $connectionRequest->isClonable(),
         ];
 
         return $this->render('open/connection.html.twig', $parameters);
@@ -72,7 +71,7 @@ class ConnectionController extends Controller
      * @Route("/public/meetings/{uuid}/{id}/clone", name="public_clone_connection_request")
      * @Method("POST")
      */
-    public function cloneConnectionRequestAction($uuid, Connection $connection, Request $request)
+    public function cloneConnectionRequestAction($uuid, Connection $connection)
     {
         $user = $this->get('user_repository')->findOneBy(['uuid' => $uuid]);
         if (!$user) {
@@ -93,7 +92,7 @@ class ConnectionController extends Controller
             $connectionRequest = $connection->getLearnerConnectionRequest();
         }
 
-        if ($this->clonable($connectionRequest)) {
+        if ($connectionRequest && $connectionRequest->isClonable()) {
             $newConnectionRequest = clone $connectionRequest;
             $newConnectionRequest->setCreatedAt(new \DateTime());
 
@@ -105,24 +104,30 @@ class ConnectionController extends Controller
     }
 
     /**
-     * @param ConnectionRequest $connectionRequest
-     * @return bool
+     * @Route("/public/meet-again/{uuid}/{id}", name="public_meet_again")
+     * @Method("GET")
      */
-    public function clonable(ConnectionRequest $connectionRequest = null)
+    public function meetAgainAction($uuid, Connection $connection)
     {
-        if (!$connectionRequest) {
-            return false;
+        $user = $this->get('user_repository')->findOneBy(['uuid' => $uuid]);
+        if (!$user) {
+            throw $this->createNotFoundException(
+                sprintf('Connection %s not found for user %s.', $connection->getId(), $uuid)
+            );
         }
 
-        if ($connectionRequest->getConnection()) {
-            return false;
+        if ($connection->getFluentSpeaker() != $user && $connection->getLearner() != $user) {
+            throw $this->createNotFoundException(
+                sprintf('Connection %s not found for user %s.', $connection->getId(), $uuid)
+            );
         }
 
-        if (!$connectionRequest->getUser()->hasOpenConnectionRequest()) {
-            return false;
-        }
+        $parameters = [
+            'uuid' => $uuid,
+            'connection' => $connection,
+        ];
 
-        return true;
+        return $this->render('open/meetAgain.html.twig', $parameters);
     }
 
     /**

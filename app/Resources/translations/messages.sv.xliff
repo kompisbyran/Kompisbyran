@@ -1408,6 +1408,26 @@ Om du vill, maila gärna oss på matchning@kompisbyran.se och berätta varför m
                 <source>role.user</source>
                 <target>Användare</target>
             </trans-unit>
+            <trans-unit id="open.meet_again.header">
+                <source>open.meet_again.header</source>
+                <target>Ny kompismatchning</target>
+            </trans-unit>
+            <trans-unit id="open.meet_again.ingress">
+                <source>open.meet_again.ingress</source>
+                <target>Vad roligt att du vill få en ny kompismatchning. För att bli matchad med en ny fikakompis, tryck här:</target>
+            </trans-unit>
+            <trans-unit id="open.meet_again.button">
+                <source>open.meet_again.button</source>
+                <target>Matcha om mig</target>
+            </trans-unit>
+            <trans-unit id="open.meet_again.text">
+                <source>open.meet_again.text</source>
+                <target>Om du vill göra några ändringar i din profil sedan sist kan du logga in på din %linkStart%din profil%linkEnd% och göra dessa ändringar, samt skicka in din nya förfrågan därifrån istället.</target>
+            </trans-unit>
+            <trans-unit id="open.meet_again.after">
+                <source>open.meet_again.after</source>
+                <target>Tack. Vi hör av oss när vi matchat dig med en ny person.</target>
+            </trans-unit>
             <trans-unit id="role.municipality_admin">
                 <source>role.municipality_admin</source>
                 <target>Kommunadministratör</target>
