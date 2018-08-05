@@ -9,13 +9,13 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class SendFollowUpEmail2Command extends ContainerAwareCommand
+class SendFollowUpEmail3Command extends ContainerAwareCommand
 {
     protected function configure()
     {
         $this
-            ->setName('kompisbyran:send-follow-up-email2')
-            ->setDescription('Send follow up email2 with link to survey to users related to a connection.')
+            ->setName('kompisbyran:send-follow-up-email3')
+            ->setDescription('Send follow up email3 with message to tell Kompisbyrån about the period after the meeting.')
             ->addArgument('daysSinceMarkedAsMet', InputArgument::REQUIRED, 'Number of days since the meeting was marked as held.')
         ;
     }
@@ -39,26 +39,22 @@ class SendFollowUpEmail2Command extends ContainerAwareCommand
         ));
 
         /** @var Connection[] $connections */
-        $connections = $this->getContainer()->get('connection_repository')->findForMeetingFollowUpEmail2($createdAt);
+        $connections = $this->getContainer()->get('connection_repository')->findForMeetingFollowUpEmail3($createdAt);
         foreach ($connections as $connection) {
             $output->writeln(sprintf('Sending for connection created %s', $connection->getCreatedAt()->format('Y-m-d H:i:s')));
             if ($connection->getFluentSpeakerMeetingStatus() == MeetingTypes::MET) {
-                if ($connection->getFluentSpeakerFollowUpEmail2Count() == 0) {
-                    $output->writeln(sprintf(' - %s', $connection->getFluentSpeaker()->getEmail()));
-                    $this->getContainer()->get('app.user_mailer')->sendFollowUpEmail2Message(
-                        $connection->getFluentSpeaker(),
-                        $connection
-                    );
-                }
+                $output->writeln(sprintf(' - %s', $connection->getFluentSpeaker()->getEmail()));
+                $this->getContainer()->get('app.user_mailer')->sendFollowUpEmail3Message(
+                    $connection->getFluentSpeaker(),
+                    $connection
+                );
             }
             if ($connection->getLearnerMeetingStatus() == MeetingTypes::MET) {
-                if ($connection->getLearnerFollowUpEmail2Count() == 0) {
-                    $output->writeln(sprintf(' - %s', $connection->getLearner()->getEmail()));
-                    $this->getContainer()->get('app.user_mailer')->sendFollowUpEmail2Message(
-                        $connection->getLearner(),
-                        $connection
-                    );
-                }
+                $output->writeln(sprintf(' - %s', $connection->getLearner()->getEmail()));
+                $this->getContainer()->get('app.user_mailer')->sendFollowUpEmail3Message(
+                    $connection->getLearner(),
+                    $connection
+                );
             }
         }
 

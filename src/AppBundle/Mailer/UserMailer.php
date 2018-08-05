@@ -152,4 +152,25 @@ class UserMailer extends Mailer
             new FollowUpEmailSentEvent($user, $connection)
         );
     }
+
+    /**
+     * @param User $user
+     * @param Connection $connection
+     */
+    public function sendFollowUpEmail3Message(User $user, Connection $connection)
+    {
+        $subject = 'Fråga från Kompisbyrån';
+
+        $friend = $connection->getFluentSpeaker();
+        if ($friend == $user) {
+            $friend = $connection->getLearner();
+        }
+
+        $html = $this->templating->render('email/followUp3.html.twig', [
+            'user' => $user,
+            'friend' => $friend,
+        ]);
+
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
+    }
 }
