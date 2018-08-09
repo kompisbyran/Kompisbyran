@@ -11,13 +11,12 @@ class EditConnectionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fluentSpeakerMeetingStatus', 'choice', [
-                'expanded' => true,
-                'label' => 'Etablerads mötesstatus',
-                'choices' => MeetingTypes::listTypesWithTranslationKeys(),
-            ])
             ->add('fluentSpeakerMarkedAsMetCreatedAt', 'datetime', [
                 'label' => 'Tid mötet bekräftat av etablerad',
+                'required' => false,
+            ])
+            ->add('learnerMarkedAsMetCreatedAt', 'datetime', [
+                'label' => 'Tid mötet bekräftat av nyanländ',
                 'required' => false,
             ])
             ->add('learnerMeetingStatus', 'choice', [
@@ -25,9 +24,10 @@ class EditConnectionType extends AbstractType
                 'label' => 'Nyanländ mötesstatus',
                 'choices' => MeetingTypes::listTypesWithTranslationKeys(),
             ])
-            ->add('learnerMarkedAsMetCreatedAt', 'datetime', [
-                'label' => 'Tid mötet bekräftat av nyanländ',
-                'required' => false,
+            ->add('fluentSpeakerMeetingStatus', 'choice', [
+                'expanded' => true,
+                'label' => 'Etablerads mötesstatus',
+                'choices' => MeetingTypes::listTypesWithTranslationKeys(),
             ])
         ;
     }
