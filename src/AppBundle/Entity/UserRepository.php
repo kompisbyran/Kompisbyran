@@ -237,4 +237,28 @@ class UserRepository extends EntityRepository
             ->getResult()
             ;
     }
+
+    /**
+     * @param \DateTime $date
+     * @return User[]
+     */
+    public function findIncompleteByCreatedDate(\DateTime $date)
+    {
+        $from = clone $date;
+        $from->setTime(0, 0, 0);
+        $to = clone $from;
+        $to->setTime(23, 59, 59);
+
+        return $this
+            ->createQueryBuilder('u')
+            ->where('u.roles = :role')
+            ->andWhere('u.createdAt between :from and :to')
+            ->andWhere('u.enabled = true')
+            ->setParameter('role', serialize([]))
+            ->setParameter('from', $from)
+            ->setParameter('to', $to)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
