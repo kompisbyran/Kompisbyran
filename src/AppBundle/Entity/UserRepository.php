@@ -253,6 +253,7 @@ class UserRepository extends EntityRepository
             ->createQueryBuilder('u')
             ->where('u.roles = :role')
             ->andWhere('u.createdAt between :from and :to')
+            ->andWhere('u.enabled = true')
             ->setParameter('role', serialize([]))
             ->setParameter('from', $from)
             ->setParameter('to', $to)
