@@ -1,0 +1,28 @@
+{% extends 'baseEmail.html.twig' %}
+
+{% block body %}
+<p>
+    Hej!<br>
+    Du får det här mailet eftersom du har påbörjat en anmälan till Kompisbyrån. Vad kul att du vill vara med och träffa
+    en ny vän! Klicka på länken för att logga in och slutföra anmälan: <a href="{{ url('login') }}">{{ url('login') }}</a>.
+</p>
+<p>
+    Bästa hälsningar,<br>
+    Vännerna på Kompisbyrån
+</p>
+
+<p>
+    --
+</p>
+
+<p>
+    Hi!<br>
+    You receive this mail since you have started an application to meet a friend through Kompisbyrån. We are so happy
+    that you want to join. To finish your application and sign up to meet a new friend, please click here:
+    <a href="{{ url('login') }}">{{ url('login') }}</a>.
+</p>
+<p>
+    Best regards,<br>
+    Your friends at Kompisbyrån
+</p>
+{% endblock %}
