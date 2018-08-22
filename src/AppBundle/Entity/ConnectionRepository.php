@@ -278,7 +278,7 @@ class ConnectionRepository extends EntityRepository
      *
      * @return Connection[]
      */
-    public function findForMeetingFollowUp(\DateTime $markedAsMetAt)
+    public function findForMeetingFollowUpEmail2(\DateTime $markedAsMetAt)
     {
         $from = clone $markedAsMetAt;
         $from->setTime(0, 0, 0);
@@ -332,5 +332,36 @@ class ConnectionRepository extends EntityRepository
             ->getQuery()
             ->execute()
             ;
+    }
+
+    /**
+     * @param \DateTime $markedAsMetAt
+     *
+     * @return Connection[]
+     */
+    public function findForMeetingFollowUpEmail3(\DateTime $markedAsMetAt)
+    {
+        $from = clone $markedAsMetAt;
+        $from->setTime(0, 0, 0);
+        $to = clone $from;
+        $to->setTime(23, 59, 59);
+
+        return $this
+            ->createQueryBuilder('c')
+            ->andWhere('
+                c.fluentSpeakerMeetingStatus = :status
+                or c.learnerMeetingStatus = :status
+            ')
+            ->andWhere('
+                c.fluentSpeakerMarkedAsMetCreatedAt between :from and :to
+                or c.learnerMarkedAsMetCreatedAt between :from and :to
+            ')
+            ->setParameter('status', MeetingTypes::MET)
+            ->setParameter('from', $from)
+            ->setParameter('to', $to)
+            ->getQuery()
+            ->execute()
+            ;
+
     }
 }

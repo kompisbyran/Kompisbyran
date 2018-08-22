@@ -451,7 +451,7 @@ class Connection
     public function setLearnerMeetingStatus($learnerMeetingStatus)
     {
         $this->learnerMeetingStatus = $learnerMeetingStatus;
-        if ($learnerMeetingStatus == MeetingTypes::MET) {
+        if ($this->learnerMarkedAsMetCreatedAt == null && $learnerMeetingStatus == MeetingTypes::MET) {
             $this->learnerMarkedAsMetCreatedAt = new \DateTime();
         }
     }
@@ -470,7 +470,7 @@ class Connection
     public function setFluentSpeakerMeetingStatus($fluentSpeakerMeetingStatus)
     {
         $this->fluentSpeakerMeetingStatus = $fluentSpeakerMeetingStatus;
-        if ($fluentSpeakerMeetingStatus == MeetingTypes::MET) {
+        if ($this->fluentSpeakerMarkedAsMetCreatedAt == null && $fluentSpeakerMeetingStatus == MeetingTypes::MET) {
             $this->fluentSpeakerMarkedAsMetCreatedAt = new \DateTime();
         }
     }

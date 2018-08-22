@@ -97,6 +97,20 @@ class UserMailer extends Mailer
 
     /**
      * @param User $user
+     */
+    public function sendIncompleteUserEmailMessage(User $user)
+    {
+        $subject = 'Gör färdigt din anmälan till Kompisyrån';
+
+        $html = $this->templating->render('email/incomplete.html.twig', [
+            'user' => $user,
+        ]);
+
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
+    }
+
+    /**
+     * @param User $user
      * @param Connection $connection
      */
     public function sendConfirmMeetingMessage(User $user, Connection $connection)
@@ -180,6 +194,27 @@ class UserMailer extends Mailer
         $html = $this->templating->render('email/meetAgain.html.twig', [
             'user' => $user,
             'connection' => $connection,
+        ]);
+
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
+    }
+  
+    /*
+     * @param User $user
+     * @param Connection $connection
+     */
+    public function sendFollowUpEmail3Message(User $user, Connection $connection)
+    {
+        $subject = 'Fråga från Kompisbyrån';
+
+        $friend = $connection->getFluentSpeaker();
+        if ($friend == $user) {
+            $friend = $connection->getLearner();
+        }
+
+        $html = $this->templating->render('email/followUp3.html.twig', [
+            'user' => $user,
+            'friend' => $friend,
         ]);
 
         $this->sendEmailMessage($html, null, $subject, $user->getEmail());
