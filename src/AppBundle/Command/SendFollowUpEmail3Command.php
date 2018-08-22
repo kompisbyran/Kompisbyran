@@ -43,18 +43,22 @@ class SendFollowUpEmail3Command extends ContainerAwareCommand
         foreach ($connections as $connection) {
             $output->writeln(sprintf('Sending for connection created %s', $connection->getCreatedAt()->format('Y-m-d H:i:s')));
             if ($connection->getFluentSpeakerMeetingStatus() == MeetingTypes::MET) {
-                $output->writeln(sprintf(' - %s', $connection->getFluentSpeaker()->getEmail()));
-                $this->getContainer()->get('app.user_mailer')->sendFollowUpEmail3Message(
-                    $connection->getFluentSpeaker(),
-                    $connection
-                );
+                if ($connection->getFluentSpeaker()->isEnabled()) {
+                    $output->writeln(sprintf(' - %s', $connection->getFluentSpeaker()->getEmail()));
+                    $this->getContainer()->get('app.user_mailer')->sendFollowUpEmail3Message(
+                        $connection->getFluentSpeaker(),
+                        $connection
+                    );
+                }
             }
             if ($connection->getLearnerMeetingStatus() == MeetingTypes::MET) {
-                $output->writeln(sprintf(' - %s', $connection->getLearner()->getEmail()));
-                $this->getContainer()->get('app.user_mailer')->sendFollowUpEmail3Message(
-                    $connection->getLearner(),
-                    $connection
-                );
+                if ($connection->getLearner()->isEnabled()) {
+                    $output->writeln(sprintf(' - %s', $connection->getLearner()->getEmail()));
+                    $this->getContainer()->get('app.user_mailer')->sendFollowUpEmail3Message(
+                        $connection->getLearner(),
+                        $connection
+                    );
+                }
             }
         }
 
