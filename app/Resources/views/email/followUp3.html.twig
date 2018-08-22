@@ -1,0 +1,42 @@
+{% extends 'baseEmail.html.twig' %}
+
+{% block body %}
+<p>
+    Hej {{ user.firstName }}!<br>
+    Nu har det gått några månader sedan du och {{ friend.name }} träffades och vi är så glada över att du ville vara
+    med och träffa en ny vän med Kompisbyrån. När man anmäler sig till att träffa en kompis via
+    Kompisbyrån skriver man upp sig på att träffas en gång i en timme, men många fortsätter förstås att
+    hålla kontakten och ses och det vi tycker vi är så roligt.
+</p>
+<p>
+    Har du och din nya kompis fortsatt träffas? I så fall är vi jättenyfikna på att höra vad ni hittar på när ni
+    ses och vad du får ut av din nya vänskap. Om ni beskriver detta och/eller skickar bilder från era
+    fortsatta möten kan vi dessutom dela det i Kompisbyråns sociala medier, på så sätt kan ni inspirera
+    fler människor till att delta och träffa nya vänner.
+</p>
+<p>
+    Bästa hälsningar,<br>
+    Vännerna på Kompisbyrån
+</p>
+<p>
+    --
+</p>
+<p>
+    Hi {{ user.firstName }}!<br>
+    It has now been a couple of months since you and {{ friend.name }} met through Kompisbyrån and we are so
+    happy that you wanted to meet a new friend through us. When you sign up to meet a new friend
+    with Kompisbyrån you agree to meet one time and for one hour. Many new friends however stay in
+    contact and continue the friendship after that first meeting and we are so happy about this.
+</p>
+<p>
+    Have you maintained contact with {{ friend.firstName }}? If so, we are curious to know how your friendship has
+    evolved, what sort of things you do when you meet and what you have gained from the friendship. If
+    you write a couple of sentences about this and/or send us pictures from your continued meetings we
+    can share this in Kompisbyrån’s social media. This way you can take part in inspiring more people to
+    meet new friends with Kompisbyrån.
+</p>
+<p>
+    Best regards,<br>
+    Your friends at Kompisbyrån
+</p>
+{% endblock %}
