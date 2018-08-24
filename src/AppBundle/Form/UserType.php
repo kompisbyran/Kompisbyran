@@ -111,7 +111,7 @@ class UserType extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
                 'label' => 'user.form.fikatype',
-                'choices' => FriendTypes::listTypesWithTranslationKeys(),
+                'choices' => FriendTypes::listActiveTypesWithTranslationKeys(),
             ])
             ->add('municipality', 'entity', [
                     'class' => 'AppBundle:Municipality',

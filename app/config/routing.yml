@@ -52,8 +52,9 @@ work_with_us:
 musicfriend:
     path: /musikkompis
     defaults:
-        _controller: FrameworkBundle:Template:template
-        template:    static/musicfriend.html.twig
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /
+        permanent: true
 
 startfriend:
     path: /startkompis

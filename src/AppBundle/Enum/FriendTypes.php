@@ -25,6 +25,17 @@ final class FriendTypes
     }
 
     /**
+     * @return array
+     */
+    public static function listActiveTypesWithTranslationKeys()
+    {
+        return [
+            self::FRIEND => 'global.fika_buddy',
+            self::START => 'global.start_buddy',
+        ];
+    }
+
+    /**
      * @param string $type
      *
      * @return string
