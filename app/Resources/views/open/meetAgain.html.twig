@@ -18,7 +18,7 @@
                     <div id="after" class="hidden">
                         {{ 'open.meet_again.after'|trans }}
                     </div>
-                    <p style="padding-top: 1em;">
+                    <p style="padding-top: 1em;" id="bottom-text">
                         {{ 'open.meet_again.text'|trans({'%linkStart%': '<a href="' ~ path('login') ~ '">' ,'%linkEnd%': '</a>'})|raw }}
                     </p>
                 </div>
@@ -38,6 +38,7 @@
                 $.post('{{ path('public_clone_connection_request', {'uuid': uuid, 'id': connection.id}) }}', null, function(resp) {
                     $('#button').hide();
                     $('#intro').hide();
+                    $('#bottom-text').hide();
                     $('#after').removeClass('hidden');
                 });
             });

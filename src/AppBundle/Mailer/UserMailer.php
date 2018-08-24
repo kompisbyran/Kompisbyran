@@ -179,17 +179,7 @@ class UserMailer extends Mailer
         }
 
         $user = $connection->getFluentSpeaker();
-
-        if ($connection->getFluentSpeakerMeetingStatus() == MeetingTypes::MET) {
-            $subject = 'Vill du träffa en ny kompis?';
-        } elseif ($connection->getFluentSpeakerMeetingStatus() == MeetingTypes::WILL_NOT_MEET) {
-            $subject = 'Vill du bli matchad med en ny kompis?';
-        } else {
-            throw new \LogicException(sprintf(
-                'No meet again email template for "%s".',
-                $connection->getFluentSpeakerMeetingStatus())
-            );
-        }
+        $subject = 'Vill du träffa en ny kompis?';
 
         $html = $this->templating->render('email/meetAgain.html.twig', [
             'user' => $user,

@@ -1384,10 +1384,6 @@ Om du vill, maila gärna oss på matchning@kompisbyran.se och berätta varför m
                 <source>open.confirm_meeting.clone.text</source>
                 <target>Om du vill få en ny matchning men vill ändra någon i din anmälan från förra gången loggar du in på %linkStart%din profil%linkEnd% och skickar in en ny förfrågan med de uppdaterade uppgifterna under rubriken "Jag vill träffa en ny person".</target>
             </trans-unit>
-            <trans-unit id="role.user">
-                <source>role.user</source>
-                <target>Användare</target>
-            </trans-unit>
             <trans-unit id="open.meet_again.header">
                 <source>open.meet_again.header</source>
                 <target>Ny kompismatchning</target>
@@ -1406,7 +1402,11 @@ Om du vill, maila gärna oss på matchning@kompisbyran.se och berätta varför m
             </trans-unit>
             <trans-unit id="open.meet_again.after">
                 <source>open.meet_again.after</source>
-                <target>Tack. Vi hör av oss när vi matchat dig med en ny person.</target>
+                <target>Klart! Vi hör av oss så snart vi har hittat en fikakompis till dig.</target>
+            </trans-unit>
+            <trans-unit id="role.user">
+                <source>role.user</source>
+                <target>Användare</target>
             </trans-unit>
             <trans-unit id="role.municipality_admin">
                 <source>role.municipality_admin</source>
