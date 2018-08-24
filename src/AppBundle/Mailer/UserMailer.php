@@ -3,8 +3,10 @@
 namespace AppBundle\Mailer;
 
 use AppBundle\Entity\Connection;
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Enum\MeetingTypes;
 use AppBundle\Event\FollowUpEmailSentEvent;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -168,6 +170,26 @@ class UserMailer extends Mailer
     }
 
     /**
+     * @param Connection $connection
+     */
+    public function sendMeetAgainMessage(Connection $connection)
+    {
+        if (!$connection->getFluentSpeakerConnectionRequest()) {
+            return;
+        }
+
+        $user = $connection->getFluentSpeaker();
+        $subject = 'Vill du träffa en ny kompis?';
+
+        $html = $this->templating->render('email/meetAgain.html.twig', [
+            'user' => $user,
+            'connection' => $connection,
+        ]);
+
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
+    }
+  
+    /*
      * @param User $user
      * @param Connection $connection
      */

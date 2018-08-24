@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-0"></div>
+                <div class="col-md-8 col-sm-12">
+                    <h2>{{ 'open.meet_again.header'|trans }}</h2>
+                    <p id="intro"> {{ 'open.meet_again.ingress'|trans|nl2br }}</p>
+
+                    <div id="button" style="padding-top: 1em;">
+                        <a href="#" class="btn btn-success">
+                            {{ 'open.meet_again.button'|trans }}
+                        </a>
+                    </div>
+                    <div id="after" class="hidden">
+                        {{ 'open.meet_again.after'|trans }}
+                    </div>
+                    <p style="padding-top: 1em;" id="bottom-text">
+                        {{ 'open.meet_again.text'|trans({'%linkStart%': '<a href="' ~ path('login') ~ '">' ,'%linkEnd%': '</a>'})|raw }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#button .btn').on('click', function (e) {
+                e.preventDefault();
+                $('#button .btn').attr('disabled', true);
+
+                $.post('{{ path('public_clone_connection_request', {'uuid': uuid, 'id': connection.id}) }}', null, function(resp) {
+                    $('#button').hide();
+                    $('#intro').hide();
+                    $('#bottom-text').hide();
+                    $('#after').removeClass('hidden');
+                });
+            });
+        });
+    </script>
+{% endblock %}

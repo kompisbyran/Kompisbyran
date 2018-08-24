@@ -305,7 +305,32 @@ class ConnectionRepository extends EntityRepository
             ->getQuery()
             ->execute()
             ;
+    }
 
+    /**
+     * @param \DateTime $markedAsMetAt
+     *
+     * @return Connection[]
+     */
+    public function findForMeetAgain(\DateTime $markedAsMetAt)
+    {
+        $from = clone $markedAsMetAt;
+        $from->setTime(0, 0, 0);
+        $to = clone $from;
+        $to->setTime(23, 59, 59);
+
+        return $this
+            ->createQueryBuilder('c')
+            ->innerJoin('c.fluentSpeaker', 'u')
+            ->andWhere('c.fluentSpeakerMeetingStatus = :metStatus')
+            ->andWhere('c.createdAt between :from and :to')
+            ->andWhere('u.enabled = true')
+            ->setParameter('metStatus', MeetingTypes::MET)
+            ->setParameter('from', $from)
+            ->setParameter('to', $to)
+            ->getQuery()
+            ->execute()
+            ;
     }
 
     /**

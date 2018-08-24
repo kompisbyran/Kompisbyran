@@ -785,8 +785,32 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $manager->persist($connectionRequest);
 
         $connectionRequest = new ConnectionRequest();
-        $connectionRequest->setType(FriendTypes::START);
+        $connectionRequest->setWantToLearn(true);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-learner'));
+        $connectionRequest->setInspected(true);
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
+        $this->setReference('connection-request-learner', $connectionRequest);
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
         $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-fluentspeaker'));
+        $connectionRequest->setInspected(true);
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
+        $this->setReference('connection-request-fluentspeaker', $connectionRequest);
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setType(FriendTypes::START);
+        $connectionRequest->setWantToLearn(true);
         $connectionRequest->setMunicipality($this->getReference('municipality-198'));
         $connectionRequest->setUser($this->getReference('user-anna'));
         $connectionRequest->setInspected(true);
@@ -795,6 +819,18 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setAvailableWeekday(true);
         $connectionRequest->setAvailableWeekend(false);
         $this->setReference('connection-request-anna', $connectionRequest);
+        $manager->persist($connectionRequest);
+
+        $connectionRequest = new ConnectionRequest();
+        $connectionRequest->setWantToLearn(false);
+        $connectionRequest->setCity($this->getReference('city-1'));
+        $connectionRequest->setUser($this->getReference('user-fluentspeaker'));
+        $connectionRequest->setInspected(true);
+        $connectionRequest->setAvailableDay(true);
+        $connectionRequest->setAvailableEvening(true);
+        $connectionRequest->setAvailableWeekday(true);
+        $connectionRequest->setAvailableWeekend(true);
+        $this->setReference('connection-request-fluentspeaker2', $connectionRequest);
         $manager->persist($connectionRequest);
     }
 
@@ -809,6 +845,8 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connection->setLearner($this->getReference('user-learner'));
         $connection->setFluentSpeakerConnectionRequestCreatedAt(new \DateTime());
         $connection->setLearnerConnectionRequestCreatedAt(new \DateTime());
+        $connection->setFluentSpeakerConnectionRequest($this->getReference('connection-request-fluentspeaker'));
+        $connection->setLearnerConnectionRequest($this->getReference('connection-request-learner'));
         $manager->persist($connection);
 
         $connection = new Connection($this->getReference('user-fluentspeaker'));
@@ -817,6 +855,7 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connection->setLearner($this->getReference('user-anna'));
         $connection->setFluentSpeakerConnectionRequestCreatedAt(new \DateTime());
         $connection->setLearnerConnectionRequestCreatedAt(new \DateTime());
+        $connection->setFluentSpeakerConnectionRequest($this->getReference('connection-request-fluentspeaker2'));
         $connection->setLearnerConnectionRequest($this->getReference('connection-request-anna'));
         $manager->persist($connection);
     }

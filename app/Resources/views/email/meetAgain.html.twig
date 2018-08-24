@@ -1,0 +1,22 @@
+{% extends 'baseEmail.html.twig' %}
+
+{% block body %}
+<p>
+    Hej {{ user.firstName }}!
+</p>
+<p>
+    Vi skriver till dig eftersom du tidigare har träffat en kompis via Kompisbyrån. Just nu är det många nya svenskar
+    som önskar träffa etablerade svenskar. <strong>Därför undrar vi om du skulle vilja vara med igen och bli matchad
+    med en ny kompis?</strong>. Om du vill få en ny matchning behöver du bara klicka på knappen
+    <a href="{{ url('public_meet_again', {'uuid': user.uuid, 'id': connection.id}) }}">på den här sidan</a>.
+</p>
+<p>
+    Om du vill göra några ändringar i din profil sedan sist kan du logga in på din profil på
+    <a href="{{ url('login') }}">{{ url('login') }}</a> och göra dessa ändringar, samt skicka in din nya förfrågan
+    därifrån.
+</p>
+<p>
+    Bästa hälsningar och stort tack för ditt engagemang,<br>
+    Vännerna på Kompisbyrån
+</p>
+{% endblock %}

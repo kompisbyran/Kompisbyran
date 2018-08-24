@@ -95,4 +95,22 @@ class ConnectionControllerTest extends DatabaseTestCase
         $this->assertEquals(201, $client->getResponse()->getStatusCode());
         $this->assertNotEquals($connectionRequestCount, count($this->getConnectionRequestRepository()->findAll()));
     }
+
+    /**
+     * @test
+     */
+    public function shouldLoadMeetAgainPage()
+    {
+        $client = static::createClient();
+        /** @var Connection $connection */
+        $connection = $this->getConnectionRepository()->findAll()[0];
+        $user = $connection->getFluentSpeaker();
+
+        $client->request(
+            'GET',
+            sprintf('/public/meet-again/%s/%s', $user->getUuid(), $connection->getId())
+        );
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
 }

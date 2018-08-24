@@ -608,7 +608,7 @@ class Connection
     }
 
     /**
-     * @return ConnectionRequest
+     * @return ConnectionRequest|null
      */
     public function getFluentSpeakerConnectionRequest()
     {
@@ -616,7 +616,7 @@ class Connection
     }
 
     /**
-     * @param ConnectionRequest $fluentSpeakerConnectionRequest
+     * @param ConnectionRequest|null $fluentSpeakerConnectionRequest
      */
     public function setFluentSpeakerConnectionRequest($fluentSpeakerConnectionRequest)
     {
@@ -624,7 +624,7 @@ class Connection
     }
 
     /**
-     * @return ConnectionRequest
+     * @return ConnectionRequest|null
      */
     public function getLearnerConnectionRequest()
     {
@@ -632,7 +632,7 @@ class Connection
     }
 
     /**
-     * @param ConnectionRequest $learnerConnectionRequest
+     * @param ConnectionRequest|null $learnerConnectionRequest
      */
     public function setLearnerConnectionRequest($learnerConnectionRequest)
     {

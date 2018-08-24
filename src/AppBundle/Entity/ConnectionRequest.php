@@ -671,4 +671,20 @@ class ConnectionRequest
             $this->fluentSpeakerConnection = $connection;
         }
     }
+
+    /**
+     * @return bool
+     */
+    public function isClonable()
+    {
+        if (!$this->getConnection()) {
+            return false;
+        }
+
+        if ($this->getUser()->hasOpenConnectionRequest()) {
+            return false;
+        }
+
+        return true;
+    }
 }
