@@ -181,7 +181,7 @@
             <trans-unit id="register.create.intro">
                 <source>register.create.intro</source>
                 <target>
-                    Skriv din email och ett lösenord du bestämmer själv. I nästa steg väljer du Fikakompis, Musikkompis eller Startkompis. 
+                    Skriv din email och ett lösenord du bestämmer själv. I nästa steg väljer du Fikakompis eller Startkompis. 
                 </target>
             </trans-unit>
             <trans-unit id="register.form.email">
@@ -513,7 +513,7 @@
                     <p>Här svarar du på några frågor om dig själv. Ju tydligare du berättar om vem du är som person, 
                     desto större är chansen att vi hittar en bra matchning.</p><br />
 
-                    <p>Som Fikakompis eller Musikkompis träffas ni i 1 av 10 städer där vi har verksamhet: Göteborg, 
+                    <p>Som Fikakompis träffas ni i 1 av 10 städer där vi har verksamhet: Göteborg, 
                     Jönköping, Kalmar, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro. Som Startkompis 
                     träffas ni i en av följande kommuner: %municipalities%.</p><br />
 
@@ -647,23 +647,22 @@
                             för att kunna utöka ditt sociala nätverk.
                         </li>
                         <li>
-                            Kompisbyrån matchar ihop nya fikakompisar baserat på liknande intressen, nya musikkompisar baserat 
-                            på liknande musikintressen och nya startkompisar baserat på den kommun ni bor i. 
+                            Kompisbyrån matchar ihop nya fikakompisar baserat på liknande intressen och nya startkompisar baserat på den kommun ni bor i. 
                         </li>
                         <li>
-                            Som fikakompis eller musikkompis måste du kunna träffas i Göteborg, Jönköping, Kalmar, Linköping, Malmö, 
+                            Som fikakompis måste du kunna träffas i Göteborg, Jönköping, Kalmar, Linköping, Malmö, 
                             Stockholm, Umeå, Uppsala, Västerås eller Örebro. Vi hoppas kunna länka samman nya kompisar i fler 
                             städer i framtiden.
                         </li>
                         <li>
-                            Som Startkompis måste du kunna träffas i kommunerna %municipalities%.
+                            Som Startkompis måste du bo i någon av följande kommuner och kunna träffas där: %municipalities%.
                         </li>
                         <li>
                             Kompisbyrån ansvarar endast för att länka samman personer som har bott i Sverige under kortare tid med 
                             personer som har bott i Sverige länge. 
                         </li>
                         <li>
-                            Utgångspunkten är att en kompisfika eller ett musikmöte med samma person sker en gång. Kommer ni 
+                            Utgångspunkten är att en kompisfika eller startkompisträff med samma person sker en gång. Kommer ni 
                             bra överens får ni gärna träffas igen själva. Vill du träffa en ny person, loggar du in och gör 
                             en ny förfrågan. 
                         </li>
@@ -746,7 +745,7 @@
                         <li>
                             Utöver att få dina personuppgifter raderade har du även rätt få dina personuppgifter rättade, begära att 
                             behandlingen av dina personuppgifter begränsas samt få ett utdrag av av de uppgifter som Kompisbyrån har 
-                            om dig. Du kan även göra en invändning mot en särskild behandling.Om du vill något av detta kontakta: 
+                            om dig. Du kan även göra en invändning mot en särskild behandling. Om du vill något av detta kontakta: 
                             kontakt@kompisbyran.se
                         </li>
                         <li>
@@ -955,7 +954,7 @@
                 <target>
                     Kompisbyrån är en ideell, partipolitiskt och religiöst obunden organisation sedan 2014 som 
                     syftar till att öka gemenskapen i samhället mellan nya och etablerade svenskar. Kompisbyrån 
-                    matchar nya och etablerade svenskar som träffas som fikakompisar, musikkompisar eller startkompisar. 
+                    matchar nya och etablerade svenskar som träffas som fikakompisar eller startkompisar. 
                     Vi erbjuder enkla former av vardagsintegration för att göra det lätt och kul för alla att engagera sig! 
                     Idag finns Kompisbyrån i tio städer, tjugotal aktiva arbetar ideellt och ungefär 10 000 kontakter från 
                     över 126 länder har förmedlats.
