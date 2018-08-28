@@ -519,15 +519,16 @@
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
                 <target>
-                    Please, answer some questions about yourself. The clearer you describe who you are as a person, 
+            <p>     Please, answer some questions about yourself. The clearer you describe who you are as a person, 
                     the greater is the chance that we find a good match for you. Please have in mind that if you have 
                     special demands, it can be more difficult for us to find a good match. Try not to have high expectations 
                     but take it as it comes!
-                    
-                    As a Fika friend or Music friend, you meet in 1 of 10 cities where we operate: Göteborg, Jönköping, Kalmar
+	    </p> <p>
+                    As a Fika friend you meet in 1 of 10 cities where we operate: Göteborg, Jönköping, Kalmar
                     Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro. 
-                    
-                    As a Start friend, you meet in one of the following municipalities: %municipalities%.
+            </p> <p>  
+                    As a Start friend you meet in one of the following municipalities: %municipalities%.
+	    </p>
                 </target>
             </trans-unit>
             <trans-unit id="user.settings.delete">
@@ -654,16 +655,15 @@
                             for you to broaden your social network.
                         </li>
                         <li>
-                            Kompisbyrån connects two new fika friends, mainly based on similar interests; new music friends based on similar 
-                            music interests and new start friends based on the municipality they both live in. 
+                            Kompisbyrån connects two new fika friends, mainly based on similar interests and new start friends based on the municipality they both live in. 
                         </li>
                         <li>
-                            As a Fika friend or Music friend, you must be able to meet your new Fika or Music friend in 1 of 10 cities: Göteborg, 
+                            As a Fika friend, you must be able to meet your new friend in 1 of 10 cities: Göteborg, 
                             Jönköping, Kalmar, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro. We hope that we can connect new people 
                             in more cities in the future. 
                         </li>
                         <li>
-                            As a Start friend, you must be able to meet in one of the following municipalities: %municipalities%.
+                            As a Start friend, you must live in and be able to meet in one of the following municipalities: %municipalities%.
                         </li>
                         <li>
                             Kompisbyrån is only responsible for linking together people who have lived in Sweden for a short time with people 
@@ -968,13 +968,13 @@
                     <![CDATA[
                         <h3>Give your support!</h3>
                         <p>
-                            Would you as an individual, company, municipality or other organization, cooperate with Kompisbyrån? Today, 
+                            Would you as an individual, company, municipality or other organization, like to cooperate with Kompisbyrån? Today, 
                             thousands of fika friends from over 126 countries have come to know each other over a "fika". Many meetings 
                             have led to job opportunities. Some to own apartments. And above all, they have led to friendships that 
-                            unites different countries, cultures, gender, ages, languages and experiences.
+                            unite different countries, cultures, genders, ages, languages and experiences.
                         </p>
                         <p>
-                            We are only funded through partnerships. It is through them that we can help all the thousands of people who 
+                            We are funded only through partnerships. It is through them that we can help all the thousands of people who 
                             want to create a social context in society. Join us on our journey to a more open society in which everyone 
                             can feel included and welcome.
 
@@ -1138,11 +1138,11 @@
                             Questions about Start friend (Startkompis)?<br>
                             <a href="mailto:start@kompisbyran.se">start@kompisbyran.se</a><br>
 
-                            Questions about collaborations, recruitment or press, please contact: <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a> or <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a>
+                            Questions about collaborations, recruitment or press, please contact: <a href="mailto:emma@kompisbyran.se">emma@kompisbyran.se</a> or <a href="mailto:kontakt@kompisbyran.se">kontakt@kompisbyran.se</a> <br>
 
-                            Questions about events: event@kompisbyran.se
+                            Questions about events: <a href="mailto:event@kompisbyran.se">event@kompisbyran.se</a> <br>
 
-                            Other questions: kontakt@kompisbyran.se
+                            Other questions: <a href="kontakt@kompisbyran.se">kontakt@kompisbyran.se</a>
                         </p>
                     ]]>
                 </target>
