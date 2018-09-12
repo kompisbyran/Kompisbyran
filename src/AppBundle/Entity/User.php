@@ -382,7 +382,7 @@ class User extends BaseUser
      *
      * @IdentityNumberAssert\IdentityNumber(allowCoordinationNumber=true, groups={"settings"})
      * @Assert\Expression(
-     *     "!this.isNewlyArrived() || this.getIdentityNumber() != ''",
+     *     "!this.getWantToLearn() || !this.isNewlyArrived() || this.getIdentityNumber() != ''",
      *     message="Du måste fylla i ditt personnummer",
      *     groups={"settings"}
      * )
