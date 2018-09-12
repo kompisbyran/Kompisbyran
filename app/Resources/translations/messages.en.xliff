@@ -518,17 +518,17 @@
             </trans-unit>
             <trans-unit id="user.settings.intro">
                 <source>user.settings.intro</source>
-                <target>
-            <p>     Please, answer some questions about yourself. The clearer you describe who you are as a person, 
+                <target><![CDATA[
+                    <p>Please, answer some questions about yourself. The clearer you describe who you are as a person,
                     the greater is the chance that we find a good match for you. Please have in mind that if you have 
                     special demands, it can be more difficult for us to find a good match. Try not to have high expectations 
                     but take it as it comes!
-	    </p> <p>
+                    </p><p>
                     As a Fika friend you meet in 1 of 10 cities where we operate: Göteborg, Jönköping, Kalmar
                     Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro. 
-            </p> <p>  
+                    </p><p>
                     As a Start friend you meet in one of the following municipalities: %municipalities%.
-	    </p>
+	            </p>]]>
                 </target>
             </trans-unit>
             <trans-unit id="user.settings.delete">
