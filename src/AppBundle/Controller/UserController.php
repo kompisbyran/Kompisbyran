@@ -43,7 +43,9 @@ class UserController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('error', 'Ett eller flera fält är felaktigt ifyllda.');
+        } elseif ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $sendEmail = false;
             if (false === $this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER')) {
@@ -61,6 +63,19 @@ class UserController extends Controller
                 }
                 $this->addFlash('data', 'newUser');
             }
+            if (is_null($user->isCanPlayInstrument())) {
+                $user->setCanPlayInstrument(false);
+            }
+            if (is_null($user->isCanSing())) {
+                $user->setCanSing(false);
+            }
+            if (is_null($user->isProfessionalMusician())) {
+                $user->setProfessionalMusician(false);
+            }
+            if (is_null($user->isNewlyArrived())) {
+                $user->setNewlyArrived(false);
+            }
+
             $em->persist($user);
             if ($form->has('newConnectionRequest')) {
                 $connectionRequest = $user->getNewConnectionRequest();
