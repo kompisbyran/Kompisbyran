@@ -101,7 +101,15 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ path('homepage') }}">{{'menu.home'|trans}}</a></li>
                     <li><a href="{{ path('how_it_works') }}">{{'menu.fikafriend'|trans}}</a></li>
-                    <li><a href="{{ path('startfriend') }}">{{'menu.startfriend'|trans}}</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            {{'menu.municipality'|trans}}<span class="fa fa-angle-down"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ path('startfriend') }}">{{'menu.startfriend'|trans}}</a></li>
+                            <li><a href="{{ path('danderyd') }}">{{'menu.danderyd'|trans}}</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ path('work_with_us') }}">{{'menu.support'|trans}}</a></li>
                     <li><a href="{{ path('about') }}">{{'menu.about'|trans}}</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}

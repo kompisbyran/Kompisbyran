@@ -70,9 +70,17 @@
                 <source>menu.musicfriend</source>
                 <target>Musikkompis</target>
             </trans-unit>
+            <trans-unit id="menu.municipality">
+                <source>menu.municipality</source>
+                <target>Kommunsamarbeten</target>
+            </trans-unit>
             <trans-unit id="menu.startfriend">
                 <source>menu.startfriend</source>
                 <target>Startkompis</target>
+            </trans-unit>
+            <trans-unit id="menu.danderyd">
+                <source>menu.danderyd</source>
+                <target>Kompisbyrån Danderyd</target>
             </trans-unit>
             <trans-unit id="menu.support">
                 <source>menu.support</source>
