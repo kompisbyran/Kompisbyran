@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="header">
+                <source>header</source>
+                <target>Kompisbyrån Danderyd</target>
+            </trans-unit>
+            <trans-unit id="sub_header">
+                <source>sub_header</source>
+                <target>lär känna ditt Danderyd tillsammans med nya vänner</target>
+            </trans-unit>
+            <trans-unit id="intro">
+                <source>intro</source>
+                <target>Snart får du som bor eller är verksam i Danderyd chansen att lära känna nya vänner i ditt närområde. Vi matchar ihop nya och etablerade svenskar för ett möte på cirka 1 timme där man fikar eller går en promenad tillsammans. Du kommer kunna anmäla dig antingen som individ för att bli matchad med en ny kompis - eller som barnfamilj för att bli matchad med en annan barnfamilj.</target>
+            </trans-unit>
+            <trans-unit id="cta.header">
+                <source>cta.header</source>
+                <target>Anmäl ditt intresse</target>
+            </trans-unit>
+            <trans-unit id="cta.intro">
+                <source>cta.intro</source>
+                <target>Lämna din intresseanmälan redan nu! Då kan vi kontakta dig så snart vi öppnar anmälan och du kan bli en av de allra första som får en matchning i Danderyd.</target>
+            </trans-unit>
+            <trans-unit id="cta.label">
+                <source>cta.label</source>
+                <target>Min mailadress:</target>
+            </trans-unit>
+            <trans-unit id="cta.button">
+                <source>cta.button</source>
+                <target>Skicka</target>
+            </trans-unit>
+            <trans-unit id="cta.disclaimer">
+                <source>cta.disclaimer</source>
+                <target>*Vi sparar din e-mail endast tills dess att anmälan till Kompisbyrån Danderyd har öppnat och vi har kontaktat dig. Din e-mail kommer inte att användas i något annan syfte.</target>
+            </trans-unit>
+            <trans-unit id="header2">
+                <source>header2</source>
+                <target>Såhär kommer det att gå till:</target>
+            </trans-unit>
+            <trans-unit id="text">
+                <source>text</source>
+                <target><![CDATA[
+                    <ol>
+                        <li><strong>Anmälan</strong><br>Svara på några frågor om dig själv genom att fylla i ett enkelt formulär. Det är gratis att registrera sig. Du får ett bekräftelsemail när vi tagit emot din anmälan. Den som vill kan få hjälp att anmäla sig via Välkomstcentret för nyanlända i biblioteket i Mörby centrum (plan 5).</li>
+                        <li><strong>Matchning</strong><br>Vi letar efter en person eller familj som passar din profil. När vi har hittat någon som passar skickar vi ett mail med kontaktuppgifter till din matchning.</li>
+                        <li><strong>Första kontakten</strong><br>Du tar kontakt med din matchning inom 3 dagar och bekräftar datum, tid och plats för mötet.</li>
+                        <li><strong>Mötet</strong><br>Ni träffas i ca 1 timme för att promenera, fika eller hitta på någon annan aktivitet i kommunen.</li>
+                        <li><strong>Vad händer sen?</strong><br>Vi kontaktar er efteråt för att fråga hur ni haft det. Om ni tyckte att mötet var roligt får ni gärna fortsätta ses, det bestämmer ni tillsammans. Man kan också anmäla sig för att få en ny matchning från Kompisbyrån. Eller helt enkelt bara vara supernöjd över det möte man genomfört.</li>
+                    </ol>
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="footer">
+                <source>footer</source>
+                <target>Kompisbyrån Danderyd drivs i samarbete med Danderyds kommun och den ideella organisationen "Alla tillsammans i Danderyd".</target>
+            </trans-unit>
+            <trans-unit id="notice">
+                <source>notice</source>
+                <target>Vi kontaktar dig när vi öppnar anmälan för Danderyd</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
