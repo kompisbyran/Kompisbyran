@@ -6,6 +6,8 @@ use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class DefaultController extends Controller
 {
@@ -71,5 +73,33 @@ class DefaultController extends Controller
         }
 
         return $this->render('default/index.html.twig', $parameters);
+    }
+
+    /**
+     * @Route("/danderyd", name="danderyd")
+     */
+    public function danderydAction(Request $request)
+    {
+        $email = null;
+        if ($request->isMethod('POST')) {
+            $email = $request->request->get('email');
+            $validator = $this->get('validator')->validate($email, [new Email(), new NotBlank()]);
+            if ($validator->count() > 0) {
+                $this->addFlash('error', $validator->get(0)->getMessage());
+            } else {
+                $body = sprintf('Epostadressen "%s" vill bli kontaktad när Kompisbyråns samarbete med Daneryd kommun startar.', $email);
+                $this->get('app.user_mailer')->sendEmailMessage(null, $body, 'Danderyd', 'clara@kompisbyran.se');
+                $this->addFlash('info', $this->get('translator')->trans('notice', [], 'danderyd'));
+
+                return $this->redirectToRoute('danderyd');
+            }
+        }
+
+        $parameters = [
+            'email' => $email,
+        ];
+
+        return $this->render('default/danderyd.html.twig', $parameters);
+
     }
 }

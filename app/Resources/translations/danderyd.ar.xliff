@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="header">
+                <source>header</source>
+                <target>Kompisbyrån Danderyd</target>
+            </trans-unit>
+            <trans-unit id="sub_header">
+                <source>sub_header</source>
+                <target>get to know new friends in Danderyd</target>
+            </trans-unit>
+            <trans-unit id="intro">
+                <source>intro</source>
+                <target>Coming soon! We’re so happy to announce our new project in Danderyd where we’ll be able to match up new friends living or working in Danderyd. We’ll be matching up new and established swedes for a 1 hour meeting where you go for a coffee or a walk in the neighborhood. You will be able to sign up individually to meet a new friend – or as a family with children and get matched up with another family with children.</target>
+            </trans-unit>
+            <trans-unit id="cta.header">
+                <source>cta.header</source>
+                <target>Interested?</target>
+            </trans-unit>
+            <trans-unit id="cta.intro">
+                <source>cta.intro</source>
+                <target>Leave us your contact information – that way we can contact you as soon the registration opens and you might be one of the first people to get matched up in Danderyd.</target>
+            </trans-unit>
+            <trans-unit id="cta.label">
+                <source>cta.label</source>
+                <target>Email address:</target>
+            </trans-unit>
+            <trans-unit id="cta.button">
+                <source>cta.button</source>
+                <target>Send</target>
+            </trans-unit>
+            <trans-unit id="cta.disclaimer">
+                <source>cta.disclaimer</source>
+                <target>*We will save your e-mail only until the registration opens and we have contacted you for this purpose. Your e-mail will not be used in any other way.</target>
+            </trans-unit>
+            <trans-unit id="header2">
+                <source>header2</source>
+                <target>How it will work:</target>
+            </trans-unit>
+            <trans-unit id="text">
+                <source>text</source>
+                <target><![CDATA[
+                    <ol>
+                        <li><strong>Registration</strong><br>Register by answering a few simple questions about yourself. It is free to sign up. You will receive a confirmation email when we have received your application.</li>
+                        <li><strong>Match</strong><br>We will send you an email with the contact details to your new friend.</li>
+                        <li><strong>Confirm the meeting</strong><br>You contact your new friend within 3 days to confirm date, time and place for the meeting.</li>
+                        <li><strong>Meeting</strong><br>You meet for about 1 hour to go for a walk, have coffee or some other activity within Danderyd.</li>
+                        <li><strong>What happens after the meeting?</strong><br>We will contact you after the meeting to ask about your experience. If you both thought it was fun, you are welcome to continue to see each other on your own. You can also sign in and make a new application to meet a new person, or simply be super happy with the meeting you have been to.</li>
+                    </ol>
+                ]]></target>
+            </trans-unit>
+            <trans-unit id="footer">
+                <source>footer</source>
+                <target>Kompisbyrån Danderyd drivs i samarbete med Danderyds kommun och den ideella organisationen "Alla tillsammans i Danderyd".</target>
+            </trans-unit>
+            <trans-unit id="notice">
+                <source>notice</source>
+                <target>Vi kontaktar dig när vi öppnar anmälan för Danderyd</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
