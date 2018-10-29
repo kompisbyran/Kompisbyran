@@ -68,7 +68,7 @@
             </trans-unit>
             <trans-unit id="menu.municipality">
                 <source>menu.municipality</source>
-                <target>Kommunsamarbeten</target>
+                <target>Municipalities</target>
             </trans-unit>
             <trans-unit id="menu.startfriend">
                 <source>menu.startfriend</source>
