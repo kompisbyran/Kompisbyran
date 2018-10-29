@@ -123,3 +123,6 @@ div.candidate span.matches a.google-link {
     background: none !important;
     color: #555;
 }
+h2 span {
+    line-height: 2em;
+}
