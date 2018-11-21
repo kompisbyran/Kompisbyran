@@ -56,12 +56,6 @@ musicfriend:
         path: /
         permanent: true
 
-startfriend:
-    path: /startkompis
-    defaults:
-        _controller: FrameworkBundle:Template:template
-        template:    static/start.html.twig
-
 fos_user_profile_show:
     path: /
 
