@@ -77,7 +77,6 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[about]' => 'About me asdf asdf asdf asdf ',
             'user[from]' => 'SE',
             'user[hasChildren]' => 0,
-            'user[type]' => FriendTypes::FRIEND,
             'user[municipality]' => $this->getMunicipalityRepository()->findAll()[0]->getId(),
             'user[activities]' => 'asdf asdf asfd asdf',
             'user[occupation]' => OccupationTypes::EMPLOYED,

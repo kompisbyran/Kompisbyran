@@ -293,16 +293,18 @@ class ConnectionRequestRepository extends EntityRepository
             ->setParameter('inspected', $inspected)
         ;
 
-        if ($user->getCities()) {
+        if (count($user->getCities()) > 0) {
             $qb
-                ->andWhere('cr.city IS NULL OR cr.city IN (:cities)')
+                ->andWhere('cr.type = :starttype OR cr.city IN (:cities)')
                 ->setParameter('cities', $user->getCities())
+                ->setParameter('starttype', FriendTypes::START)
             ;
         }
-        if ($user->getAdminMunicipalities()) {
+        if (count($user->getAdminMunicipalities()) > 0) {
             $qb
-                ->andWhere('cr.municipality IS NULL OR cr.municipality IN (:municipalities)')
+                ->andWhere('cr.type = :friendtype OR cr.municipality IN (:municipalities)')
                 ->setParameter('municipalities', $user->getAdminMunicipalities())
+                ->setParameter('friendtype', FriendTypes::FRIEND)
             ;
         }
 

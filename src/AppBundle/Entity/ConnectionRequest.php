@@ -54,12 +54,6 @@ class ConnectionRequest
      *     groups={"Default"}
      * )
      *
-     * @Assert\Expression(
-     *     "this.getType() != 'start' || this.getCity() == null",
-     *     message="Du kan inte välja stad",
-     *     groups={"Default"}
-     * )
-     *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=true)
      */
@@ -78,12 +72,6 @@ class ConnectionRequest
      * @Assert\Expression(
      *     "this.getType() != 'start' || this.getMunicipality() != null",
      *     message="Du måste välja kommun",
-     *     groups={"Default"}
-     * )
-     *
-     * @Assert\Expression(
-     *     "this.getType() == 'start' || this.getMunicipality() == null",
-     *     message="Du kan inte välja kommun",
      *     groups={"Default"}
      * )
      *
