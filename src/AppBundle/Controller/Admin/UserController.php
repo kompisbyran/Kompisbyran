@@ -87,6 +87,7 @@ class UserController extends Controller
             'user' => $user,
             'connectionRequestForm' => $connectionRequestForm,
             'startMunicipalities' => $this->get('municipality_repository')->findAllActiveStartMunicipalities(),
+            'matchFamilyMunicipalities' => $this->get('municipality_repository')->findAllMatchFamilyMunicipalities(),
         ];
 
         return $this->render('admin/user/view.html.twig', $parameters);

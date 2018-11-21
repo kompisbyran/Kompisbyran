@@ -52,6 +52,21 @@
     {%  endif %}
 {% endif %}
 <br>
+<strong>Matcha familj:</strong>
+{% if preMatch.fluentSpeakerConnectionRequest.matchFamily %}
+    {% if preMatch.fluentSpeakerConnectionRequest.matchFamily == preMatch.learnerConnectionRequest.matchFamily %}
+        <span class="matches">Ja</span>
+    {% else %}
+        Ja
+    {%  endif %}
+{% else %}
+    {% if preMatch.fluentSpeakerConnectionRequest.matchFamily == preMatch.learnerConnectionRequest.matchFamily %}
+        <span class="matches">Nej</span>
+    {% else %}
+        Nej
+    {%  endif %}
+{% endif %}
+<br>
 <strong>Önskemål:</strong>
 {% if preMatch.fluentSpeakerConnectionRequest.matchingProfileRequestType %}
     {% if preMatch.fluentSpeakerConnectionRequest.matchingProfileRequestType == preMatch.learnerConnectionRequest.matchingProfileRequestType %}

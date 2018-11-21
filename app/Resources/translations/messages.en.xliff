@@ -642,11 +642,15 @@
                 <source>connection_request.form.matching_profile_request_type.empty_value</source>
                 <target>It doesn't matter</target>
             </trans-unit>
+            <trans-unit id="connection_request.form.match.family">
+                <source>connection_request.form.match.family</source>
+                <target>Vill du bli matchad med en annan familj?</target>
+            </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
                 <target>New request</target>
             </trans-unit>
-                        <trans-unit id="terms.header">
+            <trans-unit id="terms.header">
                 <source>terms.header</source>
                 <target>General terms</target>
             </trans-unit>

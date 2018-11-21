@@ -219,6 +219,13 @@ class ConnectionRequest
      */
     protected $learnerConnection;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $matchFamily = false;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -674,5 +681,21 @@ class ConnectionRequest
         }
 
         return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMatchFamily()
+    {
+        return $this->matchFamily;
+    }
+
+    /**
+     * @param bool $matchFamily
+     */
+    public function setMatchFamily($matchFamily)
+    {
+        $this->matchFamily = $matchFamily;
     }
 }
