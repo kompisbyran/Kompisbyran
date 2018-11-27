@@ -791,25 +791,24 @@
             <trans-unit id="email.welcome.friend.body">
                 <source>email.welcome.friend.body</source>
                 <target><![CDATA[
-                    <p>Thank you for making a Fika friend request through Kompisbyrån!</p>
-                    <p>
-  
+                    <p>Thank you for making a friend request through Kompisbyrån!<br /><br />              
+
                         This is how it works:<br><br>
                         
-                        1. Match. We will send you an email (often within 1-30 days) when we have found a new Fika friend who has similar interests as 
-			you. (If you need to complete your application, we will let you know)<br><br>
+                        1. Match. We will send you an email (often within 1-30 days) when we have found a person who we think matches
+                        your profile. (If you need to complete your application, we will let you know)<br><br>
                         
-                        2. Decide a date. You send an email to the person within 7 days, and decide date, time and place. 
-                        Write in Swedish or English (some find Google Translate to be a good tool). It is the responsibility 
-                        of both that you establish contact. Remember to respect each other, not responding to an email will 
-                        affect the other person who has been looking forward to a meeting. Contact us if you don’t get an answer.<br><br> 
+                        2. Decide a date. You send an email to the person within 3 days, and decide date, time and place for the meeting.
+                        Write in Swedish or English (some find Google Translate to be a good tool). It is the responsibility of both that 
+                        you establish contact. Remember to respect each other, not responding to an email will affect the other 
+                        person who has been looking forward to a meeting. Contact us if you don’t get an answer.<br><br>
                         
-                        3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high 
-                        expectations but take it as it comes. Be on time! The dull meetings are when someone doesn’t 
-                        show up, so please exchange telephone numbers and send a text message reminder the day before 
-                        your meeting, that the other person confirm.<br><br> 
-                                                
-                        If you have any questions, please send us an e-mail :)<br><br>
+                        3. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high expectations 
+                        but take it as it comes. Be on time! The dull meetings are when someone doesn’t show up, so please 
+                        exchange telephone numbers and send a text message reminder the day before your meeting, that the other 
+                        person confirm.<br><br> 
+                        
+                        If you have any questions, please send us an email :)<br /><br />
                     </p>
                     <p>
                         Best regards,<br />
