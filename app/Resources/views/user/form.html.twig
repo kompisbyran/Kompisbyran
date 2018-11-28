@@ -43,31 +43,6 @@
     </div>
 
     <div class="form-group">
-        {{ form_label(connectionRequest.extraPerson) }}
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.extraPerson) }}
-            {{ form_errors(connectionRequest.extraPerson) }}
-        </div>
-    </div>
-
-    <div class="col-sm-offset-4" id="extraPerson">
-        <div class="form-group">
-            {{ form_label(connectionRequest.extraPersonGender) }}
-            <div class="col-sm-8">
-                {{ form_widget(connectionRequest.extraPersonGender) }}
-                {{ form_errors(connectionRequest.extraPersonGender) }}
-            </div>
-        </div>
-        <div class="form-group">
-            {{ form_label(connectionRequest.extraPersonType) }}
-            <div class="col-sm-8">
-                {{ form_widget(connectionRequest.extraPersonType) }}
-                {{ form_errors(connectionRequest.extraPersonType) }}
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
         {{ form_label(connectionRequest.matchingProfileRequestType) }}
         <div class="col-sm-8">
             {{ form_widget(connectionRequest.matchingProfileRequestType) }}

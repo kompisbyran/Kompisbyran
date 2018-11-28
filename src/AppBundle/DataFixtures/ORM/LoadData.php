@@ -8,7 +8,6 @@ use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Municipality;
 use AppBundle\Entity\User;
-use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\MatchingProfileRequestTypes;
 use AppBundle\Enum\OccupationTypes;
@@ -674,9 +673,6 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
         $connectionRequest->setCity($this->getReference('city-1'));
         $connectionRequest->setUser($this->getReference('user-emma'));
         $connectionRequest->setInspected(true);
-        $connectionRequest->setExtraPerson(true);
-        $connectionRequest->setExtraPersonGender(User::GENDER_MALE);
-        $connectionRequest->setExtraPersonType(ExtraPersonTypes::FAMILY);
         $connectionRequest->setMatchingProfileRequestType(MatchingProfileRequestTypes::SAME_AGE);
 
         $manager->persist($connectionRequest);

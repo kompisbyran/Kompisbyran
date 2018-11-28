@@ -28,13 +28,6 @@
 {% else %}
     {{ preMatch.fluentSpeakerConnectionRequest.user.occupation|occupation }}<br>
 {% endif %}
-<strong>Vill du ta med dig någon:</strong>
-{% if preMatch.fluentSpeakerConnectionRequest.extraPerson %}
-    Ja, {{ preMatch.fluentSpeakerConnectionRequest.extraPersonGender|gender }}, {{ ('extra_person.' ~ preMatch.learnerConnectionRequest.extraPersonType)|trans }}
-{% else %}
-    Nej
-{% endif %}
-<br>
 <strong>Barn:</strong>
 {% if preMatch.fluentSpeakerConnectionRequest.user.hasChildren %}
     {% if preMatch.fluentSpeakerConnectionRequest.user.hasChildren == preMatch.learnerConnectionRequest.user.hasChildren %}

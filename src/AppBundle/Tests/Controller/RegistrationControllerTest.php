@@ -84,7 +84,6 @@ class RegistrationControllerTest extends DatabaseTestCase
             'user[timeInSweden]' => 'From day one',
             'user[phoneNumber]' => '0701111111',
             'user[city]' => $this->getCityRepository()->findAll()[0]->getId(),
-            'user[newConnectionRequest][extraPerson]' => 'false',
             'user[termsAccepted]' => true,
             'user[newlyArrived]' => 0,
         ]);
