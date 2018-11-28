@@ -6,10 +6,8 @@ use AppBundle\Enum\FriendTypes;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use AppBundle\Validator\Constraints as KompisbyranAssert;
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
- * @KompisbyranAssert\UserHasMusicCategories(groups="newConnectionRequest")
  * @ORM\Entity(repositoryClass="ConnectionRequestRepository")
  */
 class ConnectionRequest
@@ -148,34 +146,6 @@ class ConnectionRequest
      * @ORM\Column(type="boolean")
      */
     protected $inspected = false;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    protected $availableWeekday = true;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    protected $availableWeekend = true;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    protected $availableDay = true;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    protected $availableEvening = true;
 
     /**
      * @var bool
@@ -452,70 +422,6 @@ class ConnectionRequest
     /**
      * @return boolean
      */
-    public function isAvailableWeekday()
-    {
-        return $this->availableWeekday;
-    }
-
-    /**
-     * @param boolean $availableWeekday
-     */
-    public function setAvailableWeekday($availableWeekday)
-    {
-        $this->availableWeekday = $availableWeekday;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isAvailableWeekend()
-    {
-        return $this->availableWeekend;
-    }
-
-    /**
-     * @param boolean $availableWeekend
-     */
-    public function setAvailableWeekend($availableWeekend)
-    {
-        $this->availableWeekend = $availableWeekend;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isAvailableDay()
-    {
-        return $this->availableDay;
-    }
-
-    /**
-     * @param boolean $availableDay
-     */
-    public function setAvailableDay($availableDay)
-    {
-        $this->availableDay = $availableDay;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isAvailableEvening()
-    {
-        return $this->availableEvening;
-    }
-
-    /**
-     * @param boolean $availableEvening
-     */
-    public function setAvailableEvening($availableEvening)
-    {
-        $this->availableEvening = $availableEvening;
-    }
-
-    /**
-     * @return boolean
-     */
     public function isExtraPerson()
     {
         return $this->extraPerson;
@@ -623,24 +529,6 @@ class ConnectionRequest
     public function setMatchingProfileRequestType($matchingProfileRequestType)
     {
         $this->matchingProfileRequestType = $matchingProfileRequestType;
-    }
-
-    /**
-     * @Assert\Callback(groups={"newConnectionRequest", "registration", "Default"})
-     */
-    public function validate(ExecutionContextInterface $context)
-    {
-        if (!$this->availableDay && !$this->availableEvening) {
-            $context->buildViolation('Du måste välja minst ett alternativ')
-                ->atPath('availableDay')
-                ->addViolation();
-        }
-
-        if (!$this->availableWeekday && !$this->availableWeekend) {
-            $context->buildViolation('Du måste välja minst ett alternativ')
-                ->atPath('availableWeekday')
-                ->addViolation();
-        }
     }
 
     /**

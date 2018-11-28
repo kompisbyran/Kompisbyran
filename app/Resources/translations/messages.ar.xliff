@@ -402,10 +402,6 @@
                 <source>user.form.facebook</source>
                 <target>Hämta din profilbild från Facebook</target>
             </trans-unit>
-            <trans-unit id="user.form.activities">
-                <source>user.form.activities</source>
-                <target>تحدث عن اشياء تستمتع بفعلها  </target>
-            </trans-unit>
             <trans-unit id="user.form.occupation">
                 <source>user.form.occupation</source>
                 <target>ما هو اختصاصك</target>

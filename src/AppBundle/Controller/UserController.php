@@ -63,15 +63,6 @@ class UserController extends Controller
                 }
                 $this->addFlash('data', 'newUser');
             }
-            if (is_null($user->isCanPlayInstrument())) {
-                $user->setCanPlayInstrument(false);
-            }
-            if (is_null($user->isCanSing())) {
-                $user->setCanSing(false);
-            }
-            if (is_null($user->isProfessionalMusician())) {
-                $user->setProfessionalMusician(false);
-            }
             if (is_null($user->isNewlyArrived())) {
                 $user->setNewlyArrived(false);
             }

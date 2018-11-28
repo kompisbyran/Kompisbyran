@@ -175,11 +175,9 @@ class UserManager implements ManagerInterface
                 'gender'            => ($currentUser->getGender() == $user->getGender()? 1: 0),
                 'age_diff'          => $currentUser->getAge()-$user->getAge(),
                 'internal_comments' => $currentUser->getInternalComment(),
-                'availability' => $this->getAvailabilityByUser($user, $currentUser),
                 'matching_profile_request_type' => $connectionRequest->getMatchingProfileRequestType() ?
                     $this->translator->trans('matching_profile_request.' . $connectionRequest->getMatchingProfileRequestType()) :
                     null,
-                'activities' => $currentUser->getActivities(),
                 'extra_person' => $extraPerson,
                 'newly_arrived' => $auser['newly_arrived'] ? $this->translator->trans('yes') : $this->translator->trans('no'),
                 'match_family' => $connectionRequest->isMatchFamily() ? $this->translator->trans('yes') : $this->translator->trans('no'),
@@ -187,72 +185,6 @@ class UserManager implements ManagerInterface
         }
 
         return $datas;
-    }
-
-    /**
-     * @param User $user
-     * @param User $currentUser
-     *
-     * @return string
-     */
-    private function getAvailabilityByUser($user, $currentUser)
-    {
-        $userConnectionRequest = $user->getOpenConnectionRequest();
-        $currentUserConnectionRequest = $currentUser->getOpenConnectionRequest();
-
-        $userAvailabilities = [];
-        $currentUserAvailabilities = [];
-
-        if ($userConnectionRequest->isAvailableDay()) {
-            $userAvailabilities[] = $this->translator->trans('connection_request.form.available.daytime');
-        }
-        if ($userConnectionRequest->isAvailableEvening()) {
-            $userAvailabilities[] = $this->translator->trans('connection_request.form.available.evening');
-        }
-        if ($userConnectionRequest->isAvailableWeekday()) {
-            $userAvailabilities[] = $this->translator->trans('connection_request.form.available.weekday');
-        }
-        if ($userConnectionRequest->isAvailableWeekend()) {
-            $userAvailabilities[] = $this->translator->trans('connection_request.form.available.weekend');
-        }
-
-        if ($currentUserConnectionRequest->isAvailableDay()) {
-            $currentUserAvailabilities[] = $this->translator->trans('connection_request.form.available.daytime');
-        }
-        if ($currentUserConnectionRequest->isAvailableEvening()) {
-            $currentUserAvailabilities[] = $this->translator->trans('connection_request.form.available.evening');
-        }
-        if ($currentUserConnectionRequest->isAvailableWeekday()) {
-            $currentUserAvailabilities[] = $this->translator->trans('connection_request.form.available.weekday');
-        }
-        if ($currentUserConnectionRequest->isAvailableWeekend()) {
-            $currentUserAvailabilities[] = $this->translator->trans('connection_request.form.available.weekend');
-        }
-
-        $availabilities = [];
-        foreach ($currentUserAvailabilities as $currentUserAvailability) {
-            $found = false;
-            foreach ($userAvailabilities as $userAvailability) {
-                if ($currentUserAvailability == $userAvailability) {
-                    $found = true;
-                    break;
-                }
-            }
-            if ($found) {
-                $availabilities[] = $this->wrapSpanString($currentUserAvailability);
-            } else {
-                $availabilities[] = $currentUserAvailability;
-            }
-        }
-
-        if (count($availabilities) > 1) {
-            $lastItem = array_pop($availabilities);
-            $string = implode(', ', $availabilities) .' '.  $this->translator->trans('global.and') .' '. $lastItem;
-        } else {
-            $string = implode(', ', $availabilities);
-        }
-
-        return $string;
     }
 
     /**

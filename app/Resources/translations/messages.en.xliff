@@ -412,10 +412,6 @@
                 <source>user.form.facebook</source>
                 <target>Fetch profile picture from Facebook</target>
             </trans-unit>
-            <trans-unit id="user.form.activities">
-                <source>user.form.activities</source>
-                <target>Write about the things that you like to do:</target>
-            </trans-unit>
             <trans-unit id="user.form.occupation">
                 <source>user.form.occupation</source>
                 <target>What is your occupation?</target>

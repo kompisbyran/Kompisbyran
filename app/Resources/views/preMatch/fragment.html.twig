@@ -22,7 +22,6 @@
 
 {{ preMatch.fluentSpeakerConnectionRequest.user.from }}<br>
 <strong>Berätta om dig själv:</strong> {{ preMatch.fluentSpeakerConnectionRequest.user.about }}<br>
-<strong>Saker du typer om:</strong> {{ preMatch.fluentSpeakerConnectionRequest.user.activities }}<br>
 <strong>Sysselsättning:</strong>
 {% if preMatch.fluentSpeakerConnectionRequest.user.occupation == preMatch.learnerConnectionRequest.user.occupation %}
     <span class="matches">{{ preMatch.fluentSpeakerConnectionRequest.user.occupation|occupation }}</span><br>
@@ -76,28 +75,6 @@
     {% endif %}
 {% endif %}<br>
 
-<strong>Tillgänglig:</strong>
-{% if preMatch.fluentSpeakerConnectionRequest.availableWeekday and preMatch.learnerConnectionRequest.availableWeekday %}
-    <span class="matches">{{ 'connection_request.form.available.weekday'|trans }}</span>,
-{% elseif preMatch.fluentSpeakerConnectionRequest.availableWeekday %}
-    {{ 'connection_request.form.available.weekday'|trans }}
-{% endif %}
-{% if preMatch.fluentSpeakerConnectionRequest.availableWeekend and preMatch.learnerConnectionRequest.availableWeekend %}
-    <span class="matches">{{ 'connection_request.form.available.weekend'|trans }}</span>,
-{% elseif preMatch.fluentSpeakerConnectionRequest.availableWeekend %}
-    {{ 'connection_request.form.available.weekend'|trans }},
-{% endif %}
-{% if preMatch.fluentSpeakerConnectionRequest.availableDay and preMatch.learnerConnectionRequest.availableDay %}
-    <span class="matches">{{ 'connection_request.form.available.daytime'|trans }}</span>,
-{% elseif preMatch.fluentSpeakerConnectionRequest.availableDay %}
-    {{ 'connection_request.form.available.daytime'|trans }},
-{% endif %}
-{% if preMatch.fluentSpeakerConnectionRequest.availableEvening and preMatch.learnerConnectionRequest.availableEvening %}
-    <span class="matches">{{ 'connection_request.form.available.evening'|trans }}</span>
-{% elseif preMatch.fluentSpeakerConnectionRequest.availableEvening %}
-    {{ 'connection_request.form.available.evening'|trans }}
-{% endif %}
-<br>
 <strong>Kategorier:</strong> {{ mark_matched_categories(preMatch.learnerConnectionRequest.user, preMatch.fluentSpeakerConnectionRequest.user) }}<br>
 {% if is_granted('ROLE_ADMIN') %}
     <strong>Intern kommentar:</strong> {{ preMatch.fluentSpeakerConnectionRequest.user.internalComment }}<br>
