@@ -59,6 +59,9 @@ class UserType extends AbstractType
                     'choice_list' => new ArrayChoiceList($categories),
                     'property' => 'name',
                     'label' => 'user.form.categories',
+                    'label_attr' => [
+                        'class' => 'checkbox-inline',
+                    ]
                 ]
             )
             ->add('age', 'choice', [

@@ -358,7 +358,7 @@
             </trans-unit>
             <trans-unit id="user.form.city">
                 <source>user.form.city</source>
-                <target>Jag kan träffas i (stad):</target>
+                <target>Vilken stad vill du träffas i?</target>
             </trans-unit>
             <trans-unit id="user.form.municipality">
                 <source>user.form.municipality</source>
