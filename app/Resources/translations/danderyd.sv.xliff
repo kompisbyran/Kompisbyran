@@ -39,7 +39,7 @@
             </trans-unit>
             <trans-unit id="header2">
                 <source>header2</source>
-                <target>Såhär kommer det att gå till:</target>
+                <target>Såhär går det till:</target>
             </trans-unit>
             <trans-unit id="text">
                 <source>text</source>
@@ -55,7 +55,7 @@
             </trans-unit>
             <trans-unit id="footer">
                 <source>footer</source>
-                <target>Kompisbyrån Danderyd drivs i samarbete med Danderyds kommun och den ideella organisationen "Alla tillsammans i Danderyd".</target>
+                <target>Kompisbyrån Danderyd drivs i samarbete med Danderyds kommun och den ideella organisationen "Alla Tillsammans i Danderyd".</target>
             </trans-unit>
             <trans-unit id="notice">
                 <source>notice</source>
