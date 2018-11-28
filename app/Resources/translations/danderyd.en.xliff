@@ -33,9 +33,6 @@
                 <source>cta.button</source>
                 <target>Send</target>
             </trans-unit>
-            <trans-unit id="cta.disclaimer">
-                <source>cta.disclaimer</source>
-            </trans-unit>
             <trans-unit id="header2">
                 <source>header2</source>
                 <target>How it works:</target>
