@@ -93,6 +93,7 @@ class UserController extends Controller
         $parameters = [
             'form' => $form->createView(),
             'startMunicipalities' => $this->get('municipality_repository')->findAllActiveStartMunicipalities(),
+            'matchFamilyMunicipalities' => $this->get('municipality_repository')->findAllMatchFamilyMunicipalities(),
         ];
 
         return $this->render('user/settings.html.twig', $parameters);

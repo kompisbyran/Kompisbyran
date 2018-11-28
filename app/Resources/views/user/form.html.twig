@@ -1,46 +1,108 @@
 {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
-<div class="form-group">
-    {{ form_label(form.firstName) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.firstName) }}
-        {{ form_errors(form.firstName) }}
-    </div>
-</div>
-
-<div class="form-group">
-    {{ form_label(form.lastName) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.lastName) }}
-        {{ form_errors(form.lastName) }}
-    </div>
-</div>
-
-{% if form.roles is defined %}
-    <div class="form-group">
-        {{ form_label(form.roles) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.roles) }}
-            {{ form_errors(form.roles) }}
-        </div>
-    </div>
+{% if form.newConnectionRequest is defined %}
+    {% set connectionRequest = form.newConnectionRequest %}
+    <h3>Om mötet</h3>
 {% endif %}
 
 <div class="form-group">
-    {{ form_label(form.age) }}
-    <div class="col-sm-2">
-        {{ form_widget(form.age) }}
-        {{ form_errors(form.age) }}
+    {{ form_label(form.municipality) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.municipality) }}
+        {{ form_errors(form.municipality) }}
     </div>
 </div>
 
 <div class="form-group">
-    {{ form_label(form.gender) }}
-    <div class="col-sm-2 checkableList">
-        {{ form_widget(form.gender) }}
-        {{ form_errors(form.gender) }}
+    {{ form_label(form.city) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.city) }}
+        {{ form_errors(form.city) }}
     </div>
 </div>
+
+{% if form.type is defined %}
+<div class="form-group">
+    {{ form_label(form.type) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.type) }}
+        {{ form_errors(form.type) }}
+    </div>
+</div>
+{% endif %}
+
+
+{% if form.newConnectionRequest is defined %}
+    <div class="form-group">
+        <label class="col-lg-4 control-label">{{ 'connection_request.form.available.day'|trans }}</label>
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.availableWeekday) }}
+            {{ form_widget(connectionRequest.availableWeekend) }}
+
+            {{ form_errors(connectionRequest.availableWeekday) }}
+            {{ form_errors(connectionRequest.availableWeekend) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-4 control-label">{{ 'connection_request.form.available.time'|trans }}</label>
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.availableDay) }}
+            {{ form_widget(connectionRequest.availableEvening) }}
+
+            {{ form_errors(connectionRequest.availableDay) }}
+            {{ form_errors(connectionRequest.availableEvening) }}
+        </div>
+    </div>
+
+    <div class="form-group hidden" id="match-family">
+        {{ form_label(connectionRequest.matchFamily) }}
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.matchFamily) }}
+            {{ form_errors(connectionRequest.matchFamily) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(connectionRequest.extraPerson) }}
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.extraPerson) }}
+            {{ form_errors(connectionRequest.extraPerson) }}
+        </div>
+    </div>
+
+    <div class="col-sm-offset-4" id="extraPerson">
+        <div class="form-group">
+            {{ form_label(connectionRequest.extraPersonGender) }}
+            <div class="col-sm-8">
+                {{ form_widget(connectionRequest.extraPersonGender) }}
+                {{ form_errors(connectionRequest.extraPersonGender) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(connectionRequest.extraPersonType) }}
+            <div class="col-sm-8">
+                {{ form_widget(connectionRequest.extraPersonType) }}
+                {{ form_errors(connectionRequest.extraPersonType) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(connectionRequest.matchingProfileRequestType) }}
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.matchingProfileRequestType) }}
+            {{ form_errors(connectionRequest.matchingProfileRequestType) }}
+        </div>
+    </div>
+
+    {{ form_widget(connectionRequest) }}
+{% endif %}
+
+{% if form.newConnectionRequest is defined %}
+<h3>Om dig</h3>
+{% endif %}
+
 
 <div class="form-group">
     {{ form_label(form.wantToLearn) }}
@@ -77,25 +139,6 @@
     <div class="col-sm-4">
         {{ form_widget(form.from) }}
         {{ form_errors(form.from) }}
-    </div>
-</div>
-
-<div class="form-group">
-    {{ form_label(form.municipality) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.municipality) }}
-        {{ form_errors(form.municipality) }}
-    </div>
-</div>
-
-<div class="form-group">
-    {{ form_label(form.type) }}
-    <div class="col-sm-8 checkableList">
-        {% for type in form.type %}
-            {{ form_widget(type, {'label_attr': {'class': 'lead'}}) }}
-            <p>{{ ('user.form.type.' ~ type.vars.value ~ '.help')|trans({'%municipalities%': start_friend_municipalities()}) }}</p>
-        {% endfor %}
-        {{ form_errors(form.type) }}
     </div>
 </div>
 
@@ -190,6 +233,39 @@
 </div>
 
 <div class="form-group">
+    {{ form_label(form.firstName) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.firstName) }}
+        {{ form_errors(form.firstName) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.lastName) }}
+    <div class="col-sm-4">
+        {{ form_widget(form.lastName) }}
+        {{ form_errors(form.lastName) }}
+    </div>
+</div>
+
+
+<div class="form-group">
+    {{ form_label(form.age) }}
+    <div class="col-sm-2">
+        {{ form_widget(form.age) }}
+        {{ form_errors(form.age) }}
+    </div>
+</div>
+
+<div class="form-group">
+    {{ form_label(form.gender) }}
+    <div class="col-sm-2 checkableList">
+        {{ form_widget(form.gender) }}
+        {{ form_errors(form.gender) }}
+    </div>
+</div>
+
+<div class="form-group">
     {{ form_label(form.phoneNumber) }}
 
     <div class="col-sm-8">
@@ -198,148 +274,15 @@
     </div>
 </div>
 
-
-<h3 class="music hidden">Om ditt musikintresse</h3>
-
-<div class="form-group music hidden">
-    <div class="col-lg-4">
-        <label class="control-label required">{{ 'user.form.music_categories'|trans }}</label>
-        <p class="text-right">{{ 'user.form.music_categories.help'|trans }}</p>
-    </div>
-
-    <div class="col-sm-4 checkableList">
-        {{ form_widget(form.musicCategories) }}
-        {{ form_errors(form.musicCategories) }}
-    </div>
-</div>
-
-<div class="form-group music hidden">
-    {{ form_label(form.aboutMusic) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.aboutMusic) }}
-        {{ form_errors(form.aboutMusic) }}
-    </div>
-</div>
-
-<div class="form-group music hidden">
-    {{ form_label(form.canPlayInstrument) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.canPlayInstrument) }}
-        {{ form_errors(form.canPlayInstrument) }}
-    </div>
-</div>
-
-<div class="music hidden">
-    <div class="col-sm-offset-4" id="aboutInstrument">
-        <div class="form-group">
-            {{ form_label(form.aboutInstrument) }}
-            <div class="col-sm-8">
-                {{ form_widget(form.aboutInstrument) }}
-                {{ form_errors(form.aboutInstrument) }}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="form-group music hidden">
-    {{ form_label(form.canSing) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.canSing) }}
-        {{ form_errors(form.canSing) }}
-    </div>
-</div>
-
-<div class="form-group music hidden">
-    {{ form_label(form.professionalMusician) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.professionalMusician) }}
-        {{ form_errors(form.professionalMusician) }}
-    </div>
-</div>
-
-<div class="form-group music hidden">
-    {{ form_label(form.musicGenre) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.musicGenre) }}
-        {{ form_errors(form.musicGenre) }}
-    </div>
-</div>
-
-{% if form.newConnectionRequest is defined %}
-    {% set connectionRequest = form.newConnectionRequest %}
-    <h3>Om mötet</h3>
-    <div class="form-group hidden music friend">
-        {{ form_label(connectionRequest.city) }}
+{% if form.roles is defined %}
+    <h3>Administration</h3>
+    <div class="form-group">
+        {{ form_label(form.roles) }}
         <div class="col-sm-4">
-            {{ form_widget(connectionRequest.city) }}
-            {{ form_errors(connectionRequest.city) }}
+            {{ form_widget(form.roles) }}
+            {{ form_errors(form.roles) }}
         </div>
     </div>
-
-    <div class="form-group hidden">
-        {{ form_label(connectionRequest.municipality) }}
-        <div class="col-sm-4">
-            {{ form_widget(connectionRequest.municipality) }}
-            {{ form_errors(connectionRequest.municipality) }}
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-lg-4 control-label">{{ 'connection_request.form.available.day'|trans }}</label>
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.availableWeekday) }}
-            {{ form_widget(connectionRequest.availableWeekend) }}
-
-            {{ form_errors(connectionRequest.availableWeekday) }}
-            {{ form_errors(connectionRequest.availableWeekend) }}
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-lg-4 control-label">{{ 'connection_request.form.available.time'|trans }}</label>
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.availableDay) }}
-            {{ form_widget(connectionRequest.availableEvening) }}
-
-            {{ form_errors(connectionRequest.availableDay) }}
-            {{ form_errors(connectionRequest.availableEvening) }}
-        </div>
-    </div>
-
-    <div class="form-group">
-        {{ form_label(connectionRequest.extraPerson) }}
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.extraPerson) }}
-            {{ form_errors(connectionRequest.extraPerson) }}
-        </div>
-    </div>
-
-    <div class="col-sm-offset-4" id="extraPerson">
-        <div class="form-group">
-            {{ form_label(connectionRequest.extraPersonGender) }}
-            <div class="col-sm-8">
-                {{ form_widget(connectionRequest.extraPersonGender) }}
-                {{ form_errors(connectionRequest.extraPersonGender) }}
-            </div>
-        </div>
-        <div class="form-group">
-            {{ form_label(connectionRequest.extraPersonType) }}
-            <div class="col-sm-8">
-                {{ form_widget(connectionRequest.extraPersonType) }}
-                {{ form_errors(connectionRequest.extraPersonType) }}
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        {{ form_label(connectionRequest.matchingProfileRequestType) }}
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.matchingProfileRequestType) }}
-            {{ form_errors(connectionRequest.matchingProfileRequestType) }}
-        </div>
-    </div>
-
-    {{ form_widget(connectionRequest) }}
 {% endif %}
 
 {% if form.termsAccepted is defined %}

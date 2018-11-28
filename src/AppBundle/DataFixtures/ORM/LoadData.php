@@ -426,6 +426,8 @@ class LoadData extends AbstractFixture implements ContainerAwareInterface
             $municipality->setName($value);
             if ($i == 198) {
                 $municipality->setStartMunicipality(true);
+                $municipality->setActiveStartMunicipality(true);
+                $municipality->setMatchFamily(true);
                 $municipality->setMeetingPlace('på Slottet');
             }
             $manager->persist($municipality);

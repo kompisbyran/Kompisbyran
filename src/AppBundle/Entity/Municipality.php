@@ -82,6 +82,13 @@ class Municipality
      */
     protected $activeStartMunicipality = false;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $matchFamily = false;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -232,5 +239,21 @@ class Municipality
     public function setActiveStartMunicipality($activeStartMunicipality)
     {
         $this->activeStartMunicipality = $activeStartMunicipality;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMatchFamily()
+    {
+        return $this->matchFamily;
+    }
+
+    /**
+     * @param bool $matchFamily
+     */
+    public function setMatchFamily($matchFamily)
+    {
+        $this->matchFamily = $matchFamily;
     }
 }

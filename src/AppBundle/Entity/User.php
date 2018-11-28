@@ -407,6 +407,14 @@ class User extends BaseUser
     protected $municipality;
 
     /**
+     * @var City
+     *
+     * @Assert\NotBlank(groups={"settings"})
+     * @ORM\ManyToOne(targetEntity="City")
+     */
+    private $city;
+
+    /**
      * @ORM\ManyToMany(targetEntity="City", inversedBy="users")
      * @ORM\JoinTable(name="users_cities")
      */
@@ -1270,5 +1278,21 @@ class User extends BaseUser
     {
         $this->newConnectionRequest = $newConnectionRequest;
         $newConnectionRequest->setUser($this);
+    }
+
+    /**
+     * @return City
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param City $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
     }
 }

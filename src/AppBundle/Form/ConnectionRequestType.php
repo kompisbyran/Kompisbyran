@@ -50,7 +50,6 @@ class ConnectionRequestType extends AbstractType
                 'label' => 'Typ',
                 'choices' => [
                     'user.form.fikatype.fikafriend' => FriendTypes::FRIEND,
-                    'user.form.fikatype.musicfriend' => FriendTypes::MUSIC,
                     'Startkompis' => FriendTypes::START,
                 ],
                 'choices_as_values' => true,
@@ -114,6 +113,15 @@ class ConnectionRequestType extends AbstractType
                 ],
                 'choices_as_values' => true,
             ])
+            ->add('matchFamily', 'boolean_choice', [
+                'expanded' => true,
+                'label' => 'connection_request.form.match.family',
+                'choices' => [
+                    'no',
+                    'yes',
+                ],
+            ])
+
         ;
 
         if ($options['remove_type']) {
@@ -126,6 +134,16 @@ class ConnectionRequestType extends AbstractType
                 $event->getForm()->remove('wantToLearn');
             });
         }
+        if ($options['remove_municipality']) {
+            $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                $event->getForm()->remove('municipality');
+            });
+        }
+        if ($options['remove_city']) {
+            $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+                $event->getForm()->remove('city');
+            });
+        }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -134,6 +152,8 @@ class ConnectionRequestType extends AbstractType
             'data_class' => 'AppBundle\Entity\ConnectionRequest',
             'remove_type' => false,
             'remove_want_to_learn' => false,
+            'remove_municipality' => false,
+            'remove_city' => false,
         ]);
     }
 

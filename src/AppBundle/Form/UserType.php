@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\City;
 use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
@@ -65,14 +66,6 @@ class UserType extends AbstractType
                     'label' => 'user.form.categories',
                 ]
             )
-            ->add('musicCategories', 'entity', [
-                    'class' => 'AppBundle:MusicCategory',
-                    'multiple' => true,
-                    'expanded' => true,
-                    'choice_list' => new ArrayChoiceList($musicCategories),
-                    'property' => 'name',
-                ]
-            )
             ->add('age', 'choice', [
                 'label' => 'user.form.age',
                 'empty_data'  => null,
@@ -107,18 +100,20 @@ class UserType extends AbstractType
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->hasChildren() : null,
             ])
             ->add('profilePicture', 'hidden')
-            ->add('type', 'choice', [
-                'expanded' => true,
-                'multiple' => false,
-                'label' => 'user.form.fikatype',
-                'choices' => FriendTypes::listActiveTypesWithTranslationKeys(),
-            ])
             ->add('municipality', 'entity', [
                     'class' => 'AppBundle:Municipality',
                     'property' => 'name',
                     'empty_data'  => null,
                     'required' => false,
                     'label' => 'user.form.municipality',
+                ]
+            )
+            ->add('city', 'entity', [
+                    'class' => City::class,
+                    'property' => 'name',
+                    'empty_data'  => null,
+                    'required' => false,
+                    'label' => 'user.form.city',
                 ]
             )
             ->add('activities', 'textarea', [
@@ -154,45 +149,6 @@ class UserType extends AbstractType
                 'label' => 'user.form.children_age',
                 'required' => false,
             ])
-            ->add('aboutMusic', 'textarea', [
-                'label' => 'user.form.about_music',
-                'required' => false,
-            ])
-            ->add('canSing', 'boolean_choice', [
-                'expanded' => true,
-                'label' => 'user.form.can_sing',
-                'choices' => [
-                    'no',
-                    'yes'
-                ],
-                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isCanSing() : null,
-            ])
-            ->add('canPlayInstrument', 'boolean_choice', [
-                'expanded' => true,
-                'label' => 'user.form.can_play_instrument',
-                'choices' => [
-                    'no',
-                    'yes'
-                ],
-                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isCanPlayInstrument() : null,
-            ])
-            ->add('aboutInstrument', 'textarea', [
-                'label' => 'user.form.about_instrument',
-                'required' => false,
-            ])
-            ->add('professionalMusician', 'boolean_choice', [
-                'expanded' => true,
-                'label' => 'user.form.professional_musician',
-                'choices' => [
-                    'user.form.professional_musician.no',
-                    'user.form.professional_musician.yes',
-                ],
-                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isProfessionalMusician() : null,
-            ])
-            ->add('musicGenre', 'textarea', [
-                'label' => 'user.form.music_genre',
-                'required' => false,
-            ])
             ->add('phoneNumber', 'text', [
                 'label' => 'user.form.phone_number',
                 'required' => false,
@@ -225,6 +181,8 @@ class UserType extends AbstractType
             $builder->add('newConnectionRequest', 'connection_request', [
                 'remove_type' => true,
                 'remove_want_to_learn' => true,
+                'remove_municipality' => true,
+                'remove_city' => true,
             ]);
 
             $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
@@ -239,13 +197,9 @@ class UserType extends AbstractType
                 $connectionRequest = $user->getNewConnectionRequest();
                 $connectionRequest->setType($user->getType());
                 $connectionRequest->setWantToLearn($user->getWantToLearn());
-
-                if ($connectionRequest->getType() == FriendTypes::START) {
-                    $connectionRequest->setCity(null);
-                } else {
-                    $connectionRequest->setMunicipality(null);
-                }
-            });
+                $connectionRequest->setCity($user->getCity());
+                $connectionRequest->setMunicipality($user->getMunicipality());
+            }, 1);
         }
     }
 

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\RoleTypes;
 use AppBundle\Security\Authorization\Voter\UserVoter;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,6 +25,10 @@ class AdminUserType extends UserType
                 'required' => false,
             ])
             ->add('email', 'email')
+            ->add('type', 'choice', [
+                'label' => 'user.form.fikatype',
+                'choices' => FriendTypes::listActiveTypesWithTranslationKeys(),
+            ])
             ->remove('termsAccepted')
         ;
 

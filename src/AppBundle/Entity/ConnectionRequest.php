@@ -54,12 +54,6 @@ class ConnectionRequest
      *     groups={"Default"}
      * )
      *
-     * @Assert\Expression(
-     *     "this.getType() != 'start' || this.getCity() == null",
-     *     message="Du kan inte välja stad",
-     *     groups={"Default"}
-     * )
-     *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=true)
      */
@@ -78,12 +72,6 @@ class ConnectionRequest
      * @Assert\Expression(
      *     "this.getType() != 'start' || this.getMunicipality() != null",
      *     message="Du måste välja kommun",
-     *     groups={"Default"}
-     * )
-     *
-     * @Assert\Expression(
-     *     "this.getType() == 'start' || this.getMunicipality() == null",
-     *     message="Du kan inte välja kommun",
      *     groups={"Default"}
      * )
      *
@@ -230,6 +218,13 @@ class ConnectionRequest
      * @ORM\OneToOne(targetEntity="Connection", mappedBy="learnerConnectionRequest")
      */
     protected $learnerConnection;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $matchFamily = false;
 
     public function __construct()
     {
@@ -686,5 +681,21 @@ class ConnectionRequest
         }
 
         return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMatchFamily()
+    {
+        return $this->matchFamily;
+    }
+
+    /**
+     * @param bool $matchFamily
+     */
+    public function setMatchFamily($matchFamily)
+    {
+        $this->matchFamily = $matchFamily;
     }
 }

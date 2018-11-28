@@ -634,6 +634,10 @@
                 <source>connection_request.form.matching_profile_request_type.empty_value</source>
                 <target>Spelar ingen roll</target>
             </trans-unit>
+            <trans-unit id="connection_request.form.match.family">
+                <source>connection_request.form.match.family</source>
+                <target>Vill du bli matchad med en annan familj?</target>
+            </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
                 <target>Skicka anmälan</target>

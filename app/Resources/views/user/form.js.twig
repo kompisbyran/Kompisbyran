@@ -1,18 +1,5 @@
 $(document).ready(function() {
 
-    $('input[name$="[type]"]').change(function() {
-        var type = $('input[name$="[type]"]:checked').val();
-        $('.friend').hide();
-        $('.music').hide();
-        $('.start').hide();
-        $('.friend').removeClass('hidden');
-        $('.music').removeClass('hidden');
-        $('.start').removeClass('hidden');
-
-        $('.' + type).show();
-    });
-    $('input[name$="[type]"]').eq(0).trigger('change');
-
     $('select[name$="[occupation]"]').change(function() {
         if ($(this).val() == '{{ constant('AppBundle\\Enum\\OccupationTypes::EMPLOYED') }}') {
             $('#occupationDescriptionLabel').text('{{ 'user.form.occupation_description.employed'|trans }}');
@@ -95,31 +82,34 @@ $(document).ready(function() {
         var selectedMunicipality = $(this).val();
         var ok = false;
         var startMunicipalities = [];
+        var matchFamilyMunicipalities = [];
         {% for startMunicipality in startMunicipalities %}
             startMunicipalities.push({{ startMunicipality.id }});
         {% endfor %}
+        {% for matchFamilyMunicipality in matchFamilyMunicipalities %}
+            matchFamilyMunicipalities.push({{ matchFamilyMunicipality.id }});
+        {% endfor %}
+
         $.each(startMunicipalities, function(index, value) {
             if (value == selectedMunicipality) {
-                ok = true;
                 if ($('select[name="user[newConnectionRequest][municipality]"]').length > 0) {
                     $('select[name="user[newConnectionRequest][municipality]"]').val(value);
                 }
             }
         });
+        $.each(matchFamilyMunicipalities, function(index, value) {
+            if (value == selectedMunicipality) {
+                ok = true;
+            }
+        });
 
         if (ok) {
-            $('#user_type_2').removeAttr('disabled');
-            $('#user_type_2').parent().removeClass('text-muted');
-            $('#user_type_2').parent().parent().next().removeClass('text-muted');
+            $('#match-family').removeClass('hidden');
+            $('#match-family').show();
         } else {
-            $('#user_type_2').attr('disabled', 'disabled');
-            $('#user_type_2').parent().addClass('text-muted');
-            $('#user_type_2').parent().parent().next().addClass('text-muted');
-            if ($('#user_type_2').prop('checked') == true) {
-                $('#user_type_0').prop('checked', true);
-                $('input[name$="[type]"]').eq(0).trigger('change');
-            }
+            $('#match-family').hide();
         }
     });
+    $('select[name$="[municipality]"]').eq(0).trigger('change');
 
 });
