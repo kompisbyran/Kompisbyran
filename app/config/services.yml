@@ -69,11 +69,6 @@ services:
         tags:
             - { name: form.type, alias: boolean_choice }
 
-    validator.user_has_music_categories:
-        class: AppBundle\Validator\Constraints\UserHasMusicCategoriesValidator
-        tags:
-            - { name: validator.constraint_validator, alias: user_has_music_categories }
-
     validator.valid_meeting_status:
         class: AppBundle\Validator\Constraints\ValidMeetingStatusValidator
         tags:

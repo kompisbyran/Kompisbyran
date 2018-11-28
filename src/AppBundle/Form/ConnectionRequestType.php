@@ -54,22 +54,6 @@ class ConnectionRequestType extends AbstractType
                 ],
                 'choices_as_values' => true,
             ])
-            ->add('availableWeekday', 'checkbox', [
-                'required' => false,
-                'label' => 'connection_request.form.available.weekday',
-            ])
-            ->add('availableWeekend', 'checkbox', [
-                'required' => false,
-                'label' => 'connection_request.form.available.weekend',
-            ])
-            ->add('availableDay', 'checkbox', [
-                'required' => false,
-                'label' => 'connection_request.form.available.daytime',
-            ])
-            ->add('availableEvening', 'checkbox', [
-                'required' => false,
-                'label' => 'connection_request.form.available.evening',
-            ])
             ->add('extraPerson', 'choice', [
                 'expanded' => true,
                 'label' => 'connection_request.form.extra_person',

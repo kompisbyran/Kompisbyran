@@ -91,7 +91,6 @@ class UserRepository extends EntityRepository
             'want_to_learn'         => $userRequest->getWantToLearn(),
             'user'                  => $user->getId(),
             'user_categories'       => array_values($user->getCategoryIds()),
-            'user_music_categories' => array_values($user->getMusicCategoryIds())
         ];
 
         if ($userRequest->getMatchingProfileRequestType()) {
@@ -100,17 +99,15 @@ class UserRepository extends EntityRepository
 
         $where  = $this->prepareMatchCriterias($criterias);
         $rsm    = new \Doctrine\ORM\Query\ResultSetMapping();
-        $sql    = "SELECT *, (COALESCE(SUM(cat_score),0) + SUM(age_score) + SUM(area_score) + SUM(children_score) + SUM(gender_score) + COALESCE(SUM(music_cat_score),0)) AS score
+        $sql    = "SELECT *, (COALESCE(SUM(cat_score),0) + SUM(age_score) + SUM(area_score) + SUM(children_score) + SUM(gender_score)) AS score
               FROM
               (
-                  SELECT u.id, cr.created_at AS connection_request_created_at, cr.pending, cr.id AS connection_request_id, (CASE WHEN(u.municipality_id=:user_municipality) THEN 2 ELSE 0 END) AS area_score, (CASE WHEN(u.has_children=true AND true=:user_children) THEN 2 ELSE 0 END) AS children_score, (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END) AS gender_score, (CASE WHEN((u.age-:user_age) BETWEEN -5 AND 5) THEN 2 ELSE 0 END) AS age_score, ((SELECT COUNT(users_categories.category_id) FROM users_categories WHERE users_categories.user_id = u.id AND users_categories.category_id IN (:user_categories) GROUP BY users_categories.user_id)*3) cat_score, ((SELECT COUNT(users_music_categories.category_id) FROM users_music_categories WHERE users_music_categories.user_id = u.id AND users_music_categories.category_id IN (:user_music_categories) GROUP BY users_music_categories.user_id)*3) AS music_cat_score, u.newly_arrived
+                  SELECT u.id, cr.created_at AS connection_request_created_at, cr.pending, cr.id AS connection_request_id, (CASE WHEN(u.municipality_id=:user_municipality) THEN 2 ELSE 0 END) AS area_score, (CASE WHEN(u.has_children=true AND true=:user_children) THEN 2 ELSE 0 END) AS children_score, (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END) AS gender_score, (CASE WHEN((u.age-:user_age) BETWEEN -5 AND 5) THEN 2 ELSE 0 END) AS age_score, ((SELECT COUNT(users_categories.category_id) FROM users_categories WHERE users_categories.user_id = u.id AND users_categories.category_id IN (:user_categories) GROUP BY users_categories.user_id)*3) cat_score, u.newly_arrived
                   FROM fos_user u
                   JOIN connection_request cr
                   ON cr.user_id = u.id
                   LEFT JOIN users_categories c
                   ON c.user_id = u.id
-                  LEFT JOIN users_music_categories mc
-                  ON mc.user_id = u.id
                   LEFT JOIN connection fsc ON fsc.fluent_speaker_connection_request_id = cr.id
                   LEFT JOIN connection lc ON lc.learner_connection_request_id = cr.id
                   WHERE u.id != :user
@@ -137,7 +134,6 @@ class UserRepository extends EntityRepository
         $rsm->addScalarResult('gender_score'            , 'gender_score');
         $rsm->addScalarResult('age_score'               , 'age_score');
         $rsm->addScalarResult('cat_score'               , 'cat_score');
-        $rsm->addScalarResult('music_cat_score'         , 'music_cat_score');
         $rsm->addScalarResult('score'                   , 'score');
         $rsm->addScalarResult('pending'                 , 'pending');
         $rsm->addScalarResult('connection_request_id'   , 'connection_request_id');
@@ -184,7 +180,7 @@ class UserRepository extends EntityRepository
             $where[] = 'u.age BETWEEN :ageFrom AND :ageTo';
         }
         if (isset($criterias['category_id'])) {
-            $where[] = '(c.category_id = :category_id OR mc.category_id = :category_id)';
+            $where[] = 'c.category_id = :category_id';
         }
         if (isset($criterias['city_id'])) {
             $where[] = 'cr.city_id = :city_id';

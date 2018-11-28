@@ -60,7 +60,6 @@
                                     {{ preMatch.learnerConnectionRequest.user.age }},
                                     {{ preMatch.learnerConnectionRequest.user.from }}<br>
                                     <strong>Berätta om dig själv:</strong> {{ preMatch.learnerConnectionRequest.user.about }}<br>
-                                    <strong>Saker du typer om:</strong> {{ preMatch.learnerConnectionRequest.user.activities }}<br>
                                     <strong>Sysselsättning:</strong> {{ preMatch.learnerConnectionRequest.user.occupation|occupation }}<br>
                                     <strong>Vill du ta med dig någon:</strong>
                                         {% if preMatch.learnerConnectionRequest.extraPerson %}
@@ -88,20 +87,6 @@
                                         {{ ('matching_profile_request.' ~ preMatch.learnerConnectionRequest.matchingProfileRequestType)|trans }}
                                     {% endif %}<br>
 
-                                    <strong>Tillgänglig:</strong>
-                                    {% if preMatch.learnerConnectionRequest.availableWeekday %}
-                                        {{ 'connection_request.form.available.weekday'|trans }}
-                                    {% endif %}
-                                    {% if preMatch.learnerConnectionRequest.availableWeekend %}
-                                        {{ 'connection_request.form.available.weekend'|trans }},
-                                    {% endif %}
-                                    {% if preMatch.learnerConnectionRequest.availableDay %}
-                                        {{ 'connection_request.form.available.daytime'|trans }},
-                                    {% endif %}
-                                    {% if preMatch.learnerConnectionRequest.availableEvening %}
-                                        {{ 'connection_request.form.available.evening'|trans }}
-                                    {% endif %}
-                                    <br>
                                     <strong>Kategorier:</strong> {{ user_category_name_string(preMatch.learnerConnectionRequest.user) }}<br>
                                     {% if is_granted('ROLE_ADMIN') %}
                                         <strong>Intern kommentar:</strong> {{ preMatch.learnerConnectionRequest.user.internalComment }}<br>

@@ -68,24 +68,6 @@ class CategoryManager implements ManagerInterface
     }
 
     /**
-     * @param string $locale
-     * @return array
-     */
-    public function getFindAllMusicByLocale($locale)
-    {
-        return $this->categoryRepository->findAllMusicByLocale($locale);
-    }
-
-    /**
-     * @param $locale
-     * @return array
-     */
-    public function getFindAllGeneralByLocale($locale)
-    {
-        return $this->categoryRepository->findAllGeneralByLocale($locale);
-    }
-
-    /**
      * @param $locale
      * @return array
      */

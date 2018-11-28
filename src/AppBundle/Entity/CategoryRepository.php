@@ -5,7 +5,6 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\NonUniqueResultException;
-use AppBundle\Entity\Category;
 
 /**
  * Class CategoryRepository
@@ -31,44 +30,6 @@ class CategoryRepository extends EntityRepository
     {
         $this->getEntityManager()->remove($category);
         $this->getEntityManager()->flush();
-    }
-
-    /**
-     * @param $locale
-     * @return array
-     */
-    public function findAllMusicByLocale($locale)
-    {
-        $qb = $this->createQueryBuilder('c');
-        $qb
-            ->where('c INSTANCE OF AppBundle:MusicCategory')
-            ->orderBy('c.name', 'ASC')
-        ;
-
-        $query = $qb->getQuery();
-
-        $this->setTranslationWalker($query, $locale);
-
-        return $query->getResult();
-    }
-
-    /**
-     * @param $locale
-     * @return array
-     */
-    public function findAllGeneralByLocale($locale)
-    {
-        $qb = $this->createQueryBuilder('c');
-        $qb
-            ->where('c INSTANCE OF AppBundle:GeneralCategory')
-            ->orderBy('c.name', 'ASC')
-        ;
-
-        $query = $qb->getQuery();
-
-        $this->setTranslationWalker($query, $locale);
-
-        return $query->getResult();
     }
 
     /**

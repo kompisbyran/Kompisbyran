@@ -106,7 +106,7 @@ class User extends BaseUser
     protected $wantToLearn = false;
 
     /**
-     * @var GeneralCategory[]
+     * @var Category[]
      *
      * @Assert\Count(
      *     min=2,
@@ -115,7 +115,7 @@ class User extends BaseUser
      *     maxMessage="Du kan inte välja fler än 5 intressen",
      *     groups={"settings"}
      * )
-     * @ORM\ManyToMany(targetEntity="GeneralCategory", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="Category", inversedBy="users")
      * @ORM\JoinTable(
      *     name="users_categories",
      *     inverseJoinColumns={
@@ -124,25 +124,6 @@ class User extends BaseUser
      * )
      */
     protected $categories;
-
-    /**
-     * @var MusicCategory[]
-     *
-     * @Assert\Expression(
-     *     "this.getType() != 'music' || value.count() > 0",
-     *     message="Du måste välja minst ett alternativ",
-     *     groups={"settings"}
-     * )
-     *
-     * @ORM\ManyToMany(targetEntity="MusicCategory", inversedBy="users")
-     * @ORM\JoinTable(
-     *     name="users_music_categories",
-     *     inverseJoinColumns={
-     *         @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     *     }
-     * )
-     */
-    protected $musicCategories;
 
     /**
      * @var int
@@ -181,16 +162,6 @@ class User extends BaseUser
      * @ORM\Column(type="text", nullable=true)
      */
     protected $about;
-
-    /**
-     * @var string
-     *
-     * @Assert\NotBlank(groups={"settings"})
-     * @Assert\Length(min=10, max=300, groups={"settings"})
-     *
-     * @ORM\Column(type="text", nullable=true)
-     */
-    protected $activities;
 
     /**
      * @var string
@@ -249,16 +220,6 @@ class User extends BaseUser
     protected $internalComment;
 
     /**
-     * @var string
-     *
-     * Might be removed after music friend campaign
-     * //Assert\NotBlank(groups={"settings"})
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $district;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
@@ -286,60 +247,6 @@ class User extends BaseUser
      * @ORM\Column(type="text", nullable=true)
      */
     protected $childrenAge;
-
-    /**
-     * @var string
-     *
-     * @Assert\Expression(
-     *     "this.getType() != 'music' || this.getAboutMusic() != ''",
-     *     message="Du måste berätta om ditt musikintresse",
-     *     groups={"settings"}
-     * )
-     *
-     * @ORM\Column(type="text", nullable=true)
-     */
-    protected $aboutMusic;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    protected $canPlayInstrument = false;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    protected $canSing = false;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="text", nullable=true)
-     */
-    protected $aboutInstrument;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    protected $professionalMusician = false;
-
-    /**
-     * @var string
-     *
-     * @Assert\Expression(
-     *     "this.getType() != 'music' || this.getMusicGenre() != ''",
-     *     message="Du måste skriva vilken musikgenre du gillar",
-     *     groups={"settings"}
-     * )
-     *
-     * @ORM\Column(type="text", nullable=true)
-     */
-    protected $musicGenre;
 
     /**
      * @var string
@@ -434,7 +341,6 @@ class User extends BaseUser
         $this->connectionRequests       = new ArrayCollection();
         $this->createdConnections       = new ArrayCollection();
         $this->categories               = new ArrayCollection();
-        $this->musicCategories          = new ArrayCollection();
         $this->createdAt                = new \DateTime();
         $this->comments                 = new ArrayCollection();
         $this->cities                   = new ArrayCollection();
@@ -741,22 +647,6 @@ class User extends BaseUser
     }
 
     /**
-     * @return string
-     */
-    public function getDistrict()
-    {
-        return $this->district;
-    }
-
-    /**
-     * @param string $district
-     */
-    public function setDistrict($district)
-    {
-        $this->district = $district;
-    }
-
-    /**
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -778,22 +668,6 @@ class User extends BaseUser
     public function setHasChildren($hasChildren)
     {
         $this->hasChildren = $hasChildren;
-    }
-
-    /**
-     * @return MusicCategory[]
-     */
-    public function getMusicCategories()
-    {
-        return $this->musicCategories;
-    }
-
-    /**
-     * @param MusicCategory[] $musicCategories
-     */
-    public function setMusicCategories($musicCategories)
-    {
-        $this->musicCategories = $musicCategories;
     }
 
     /**
@@ -843,10 +717,6 @@ class User extends BaseUser
             $categories[$category->getId()] = $category->getName();
         }
 
-        foreach($this->getMusicCategories() as $category) {
-            $categories[$category->getId()] = $category->getName();
-        }
-
         asort($categories);
 
         return $categories;
@@ -879,20 +749,6 @@ class User extends BaseUser
     }
 
     /**
-     * @return array
-     */
-    public function getMusicCategoryIds()
-    {
-        $ids = [];
-
-        foreach ($this->musicCategories as $category) {
-            $ids[] = $category->getId();
-        }
-
-        return $ids;
-    }
-
-    /**
      * @return string
      */
     public function getGenderName()
@@ -903,33 +759,23 @@ class User extends BaseUser
     }
 
     /**
-     * Add city
-     *
-     * @param \AppBundle\Entity\City $city
-     *
-     * @return User
+     * @param City $city
      */
-    public function addCity(\AppBundle\Entity\City $city)
+    public function addCity(City $city)
     {
         $this->cities[] = $city;
-
-        return $this;
     }
 
     /**
-     * Remove city
-     *
-     * @param \AppBundle\Entity\City $city
+     * @param City $city
      */
-    public function removeCity(\AppBundle\Entity\City $city)
+    public function removeCity(City $city)
     {
         $this->cities->removeElement($city);
     }
 
     /**
-     * Get cities
-     *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return ArrayCollection|City[]
      */
     public function getCities()
     {
@@ -997,22 +843,6 @@ class User extends BaseUser
     public function removeAdminMunicipality(Municipality $municipality)
     {
         $this->adminMunicipalities->removeElement($municipality);
-    }
-
-    /**
-     * @return string
-     */
-    public function getActivities()
-    {
-        return $this->activities;
-    }
-
-    /**
-     * @param string $activities
-     */
-    public function setActivities($activities)
-    {
-        $this->activities = $activities;
     }
 
     /**
@@ -1109,102 +939,6 @@ class User extends BaseUser
     public function setChildrenAge($childrenAge)
     {
         $this->childrenAge = $childrenAge;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAboutMusic()
-    {
-        return $this->aboutMusic;
-    }
-
-    /**
-     * @param string $aboutMusic
-     */
-    public function setAboutMusic($aboutMusic)
-    {
-        $this->aboutMusic = $aboutMusic;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isCanPlayInstrument()
-    {
-        return $this->canPlayInstrument;
-    }
-
-    /**
-     * @param boolean $canPlayInstrument
-     */
-    public function setCanPlayInstrument($canPlayInstrument)
-    {
-        $this->canPlayInstrument = $canPlayInstrument;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAboutInstrument()
-    {
-        return $this->aboutInstrument;
-    }
-
-    /**
-     * @param string $aboutInstrument
-     */
-    public function setAboutInstrument($aboutInstrument)
-    {
-        $this->aboutInstrument = $aboutInstrument;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isProfessionalMusician()
-    {
-        return $this->professionalMusician;
-    }
-
-    /**
-     * @param boolean $professionalMusician
-     */
-    public function setProfessionalMusician($professionalMusician)
-    {
-        $this->professionalMusician = $professionalMusician;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMusicGenre()
-    {
-        return $this->musicGenre;
-    }
-
-    /**
-     * @param string $musicGenre
-     */
-    public function setMusicGenre($musicGenre)
-    {
-        $this->musicGenre = $musicGenre;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isCanSing()
-    {
-        return $this->canSing;
-    }
-
-    /**
-     * @param boolean $canSing
-     */
-    public function setCanSing($canSing)
-    {
-        $this->canSing = $canSing;
     }
 
     /**

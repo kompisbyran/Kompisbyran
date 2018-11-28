@@ -68,7 +68,6 @@ class AppExtension extends \Twig_Extension
             new \Twig_SimpleFilter('pronoun', [$this, 'pronoun']),
             new \Twig_SimpleFilter('gender', [$this, 'gender']),
             new \Twig_SimpleFilter('occupation', [$this, 'occupation']),
-            new \Twig_SimpleFilter('meeting_time', [$this, 'meetingTime']),
             new \Twig_SimpleFilter('meeting_status_icon', [$this, 'meetingStatusIcon']),
             new \Twig_SimpleFilter('meeting_status_color', [$this, 'meetingStatusColor']),
         ];
@@ -250,16 +249,6 @@ class AppExtension extends \Twig_Extension
     public function markMatchedCategories($matchedUser, $user)
     {
         return $this->userManager->getCategoriesExactMatchByUser($matchedUser, $user);
-    }
-
-    /**
-     * @param PreMatch $preMatch
-     *
-     * @return string
-     */
-    public function meetingTime(PreMatch $preMatch)
-    {
-        return $this->preMatchManager->getMeetingTime($preMatch);
     }
 
     /**

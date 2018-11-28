@@ -33,27 +33,6 @@
 
 
 {% if form.newConnectionRequest is defined %}
-    <div class="form-group">
-        <label class="col-lg-4 control-label">{{ 'connection_request.form.available.day'|trans }}</label>
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.availableWeekday) }}
-            {{ form_widget(connectionRequest.availableWeekend) }}
-
-            {{ form_errors(connectionRequest.availableWeekday) }}
-            {{ form_errors(connectionRequest.availableWeekend) }}
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-lg-4 control-label">{{ 'connection_request.form.available.time'|trans }}</label>
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.availableDay) }}
-            {{ form_widget(connectionRequest.availableEvening) }}
-
-            {{ form_errors(connectionRequest.availableDay) }}
-            {{ form_errors(connectionRequest.availableEvening) }}
-        </div>
-    </div>
 
     <div class="form-group hidden" id="match-family">
         {{ form_label(connectionRequest.matchFamily) }}
@@ -159,14 +138,6 @@
     <div class="col-sm-8">
         {{ form_widget(form.about) }}
         {{ form_errors(form.about) }}
-    </div>
-</div>
-
-<div class="form-group">
-    {{ form_label(form.activities) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.activities) }}
-        {{ form_errors(form.activities) }}
     </div>
 </div>
 

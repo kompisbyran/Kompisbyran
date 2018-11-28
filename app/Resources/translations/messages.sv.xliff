@@ -403,10 +403,6 @@
                 <source>user.form.facebook</source>
                 <target>Hämta din profilbild från Facebook</target>
             </trans-unit>
-            <trans-unit id="user.form.activities">
-                <source>user.form.activities</source>
-                <target>Berätta om saker du tycker om att göra:</target>
-            </trans-unit>
             <trans-unit id="user.form.occupation">
                 <source>user.form.occupation</source>
                 <target>Vad är din sysselsättning?</target>

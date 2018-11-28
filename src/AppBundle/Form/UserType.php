@@ -30,13 +30,8 @@ class UserType extends AbstractType
         $query->setHint(\Gedmo\Translatable\TranslatableListener::HINT_TRANSLATABLE_LOCALE, $options['locale']);
 
         $categories = [];
-        $musicCategories = [];
         foreach ($query->getResult() as $category) {
-            if (get_class($category) == 'AppBundle\Entity\GeneralCategory') {
-                $categories[] = $category;
-            } elseif (get_class($category) == 'AppBundle\Entity\MusicCategory') {
-                $musicCategories[] = $category;
-            }
+            $categories[] = $category;
         };
         $constraint = new IsTrue();
         $constraint->message = 'Du måste godkänna Kompisbyråns villkor.';
@@ -58,7 +53,7 @@ class UserType extends AbstractType
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->getWantToLearn() : null,
             ])
             ->add('categories', 'entity', [
-                    'class' => 'AppBundle:GeneralCategory',
+                    'class' => 'AppBundle:Category',
                     'multiple' => true,
                     'expanded' => true,
                     'choice_list' => new ArrayChoiceList($categories),
@@ -88,8 +83,6 @@ class UserType extends AbstractType
                 'empty_data' => null,
                 'empty_value' => ''
             ])
-            // Might be removed after music friend campaign
-            // ->add('district', 'text', ['label' => 'user.form.district'])
             ->add('hasChildren', 'boolean_choice', [
                 'expanded' => true,
                 'label' => 'user.form.has_children',
@@ -116,9 +109,6 @@ class UserType extends AbstractType
                     'label' => 'user.form.city',
                 ]
             )
-            ->add('activities', 'textarea', [
-                'label' => 'user.form.activities',
-            ])
             ->add('occupation', 'choice', [
                 'label' => 'user.form.occupation',
                 'choices' => OccupationTypes::listTypesWithTranslationKeys(),
