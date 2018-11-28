@@ -528,11 +528,9 @@
                     special demands, it can be more difficult for us to find a good match. Try not to have high expectations 
                     but take it as it comes!
                     </p><p>
-                    As a Fika friend you meet in 1 of 10 cities where we operate: Göteborg, Jönköping, Kalmar
+                    You meet your new friend in 1 of 10 cities where we operate: Göteborg, Jönköping, Kalmar
                     Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås or Örebro. 
-                    </p><p>
-                    As a Start friend you meet in one of the following municipalities: %municipalities%.
-	            </p>]]>
+                    </p>]]>
                 </target>
             </trans-unit>
             <trans-unit id="user.settings.delete">
@@ -894,7 +892,7 @@
             <trans-unit id="footer.text1">
                 <source>footer.text1</source>
                 <target>
-                    Kompisbyrån is a non-profit organization since 2014. We connect new fika friends with 
+                    Kompisbyrån is a non-profit organization since 2014. We connect new friends with 
                     different backgrounds and experiences but with similar interests. A new and an established 
                     Swede meet to practise Swedish over a “fika”. We want to make integration easy and accessible. 
                     Today, Kompisbyrån is active in 10 cities, has a dozen active ambassadours, and nearly 14 000 
