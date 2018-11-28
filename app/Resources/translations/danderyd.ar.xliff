@@ -12,15 +12,18 @@
             </trans-unit>
             <trans-unit id="intro">
                 <source>intro</source>
-                <target>Coming soon! We’re so happy to announce our new project in Danderyd where we’ll be able to match up new friends living or working in Danderyd. We’ll be matching up new and established swedes for a 1 hour meeting where you go for a coffee or a walk in the neighborhood. You will be able to sign up individually to meet a new friend – or as a family with children and get matched up with another family with children.</target>
+           <target> Do you live or work in Danderyd? We’re matching up new and established swedes for a 1 hour meeting 
+                    where you go for a coffee or a walk in Danderyd. You can sign up individually to meet a 
+                    new friend – or as a family with children and get matched up with another family with children.</target>
             </trans-unit>
             <trans-unit id="cta.header">
                 <source>cta.header</source>
-                <target>Interested?</target>
+                <target>Sign up here!</target>
             </trans-unit>
             <trans-unit id="cta.intro">
                 <source>cta.intro</source>
-                <target>Leave us your contact information – that way we can contact you as soon the registration opens and you might be one of the first people to get matched up in Danderyd.</target>
+                <target>Are you newly arrived in the municipality, or do you know your neighbourhood by heart? We match up new and established
+                Swedes in Danderyd for a fun and simple 1 hour meeting. </target>
             </trans-unit>
             <trans-unit id="cta.label">
                 <source>cta.label</source>
@@ -32,11 +35,10 @@
             </trans-unit>
             <trans-unit id="cta.disclaimer">
                 <source>cta.disclaimer</source>
-                <target>*We will save your e-mail only until the registration opens and we have contacted you for this purpose. Your e-mail will not be used in any other way.</target>
             </trans-unit>
             <trans-unit id="header2">
                 <source>header2</source>
-                <target>How it will work:</target>
+                <target>How it works:</target>
             </trans-unit>
             <trans-unit id="text">
                 <source>text</source>
