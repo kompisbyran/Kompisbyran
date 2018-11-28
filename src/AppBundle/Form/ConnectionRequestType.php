@@ -2,8 +2,6 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\ConnectionRequest;
-use AppBundle\Enum\ExtraPersonTypes;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\MatchingProfileRequestTypes;
 use Doctrine\ORM\EntityRepository;
@@ -53,33 +51,6 @@ class ConnectionRequestType extends AbstractType
                     'Startkompis' => FriendTypes::START,
                 ],
                 'choices_as_values' => true,
-            ])
-            ->add('extraPerson', 'choice', [
-                'expanded' => true,
-                'label' => 'connection_request.form.extra_person',
-                'choices' => [
-                    false => 'no',
-                    true => 'yes',
-                ],
-                'choice_value' => function ($currentChoiceKey) {
-                    return $currentChoiceKey ? 'true' : 'false';
-                },
-            ])
-            ->add('extraPersonGender', 'choice', [
-                'label' => 'connection_request.form.extra_person_gender',
-                'empty_data' => null,
-                'required' => false,
-                'choices' => [
-                    'M' => 'user.form.gender.m',
-                    'F' => 'user.form.gender.f',
-                    'X' => 'user.form.gender.x',
-                ]
-            ])
-            ->add('extraPersonType', 'choice', [
-                'label' => 'connection_request.form.extra_person_type',
-                'empty_data' => null,
-                'required' => false,
-                'choices' => ExtraPersonTypes::listTypesWithTranslationKeys(),
             ])
             ->add('matchingProfileRequestType', 'choice', [
                 'label' => 'connection_request.form.matching_profile_request_type',

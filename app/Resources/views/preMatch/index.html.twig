@@ -61,13 +61,6 @@
                                     {{ preMatch.learnerConnectionRequest.user.from }}<br>
                                     <strong>Berätta om dig själv:</strong> {{ preMatch.learnerConnectionRequest.user.about }}<br>
                                     <strong>Sysselsättning:</strong> {{ preMatch.learnerConnectionRequest.user.occupation|occupation }}<br>
-                                    <strong>Vill du ta med dig någon:</strong>
-                                        {% if preMatch.learnerConnectionRequest.extraPerson %}
-                                            Ja, {{ preMatch.learnerConnectionRequest.extraPersonGender|gender }}, {{ ('extra_person.' ~ preMatch.learnerConnectionRequest.extraPersonType)|trans }}
-                                        {% else %}
-                                            Nej
-                                        {% endif %}
-                                    <br>
                                     <strong>Barn:</strong>
                                         {% if preMatch.learnerConnectionRequest.user.hasChildren %}
                                             Ja, {{ preMatch.learnerConnectionRequest.user.childrenAge }}
