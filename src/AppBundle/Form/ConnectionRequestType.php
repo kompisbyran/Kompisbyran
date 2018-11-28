@@ -113,6 +113,15 @@ class ConnectionRequestType extends AbstractType
                 ],
                 'choices_as_values' => true,
             ])
+            ->add('matchFamily', 'boolean_choice', [
+                'expanded' => true,
+                'label' => 'connection_request.form.match.family',
+                'choices' => [
+                    'no',
+                    'yes',
+                ],
+            ])
+
         ;
 
         if ($options['remove_type']) {

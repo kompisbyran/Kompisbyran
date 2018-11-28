@@ -91,17 +91,34 @@ $(document).ready(function() {
         var selectedMunicipality = $(this).val();
         var ok = false;
         var startMunicipalities = [];
+        var matchFamilyMunicipalities = [];
         {% for startMunicipality in startMunicipalities %}
             startMunicipalities.push({{ startMunicipality.id }});
         {% endfor %}
+        {% for matchFamilyMunicipality in matchFamilyMunicipalities %}
+            matchFamilyMunicipalities.push({{ matchFamilyMunicipality.id }});
+        {% endfor %}
+
         $.each(startMunicipalities, function(index, value) {
             if (value == selectedMunicipality) {
-                ok = true;
                 if ($('select[name="user[newConnectionRequest][municipality]"]').length > 0) {
                     $('select[name="user[newConnectionRequest][municipality]"]').val(value);
                 }
             }
         });
+        $.each(matchFamilyMunicipalities, function(index, value) {
+            if (value == selectedMunicipality) {
+                ok = true;
+            }
+        });
+
+        if (ok) {
+            $('#match-family').removeClass('hidden');
+            $('#match-family').show();
+        } else {
+            $('#match-family').hide();
+        }
     });
+    $('select[name$="[municipality]"]').eq(0).trigger('change');
 
 });

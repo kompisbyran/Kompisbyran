@@ -19,4 +19,17 @@ class MunicipalityRepository extends EntityRepository
             ;
     }
 
+    /**
+     * @return Municipality[]
+     */
+    public function findAllMatchFamilyMunicipalities()
+    {
+        return $this->createQueryBuilder('m')
+            ->where('m.matchFamily = true')
+            ->orderBy('m.name')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

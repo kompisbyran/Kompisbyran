@@ -55,6 +55,14 @@
         </div>
     </div>
 
+    <div class="form-group hidden" id="match-family">
+        {{ form_label(connectionRequest.matchFamily) }}
+        <div class="col-sm-8">
+            {{ form_widget(connectionRequest.matchFamily) }}
+            {{ form_errors(connectionRequest.matchFamily) }}
+        </div>
+    </div>
+
     <div class="form-group">
         {{ form_label(connectionRequest.extraPerson) }}
         <div class="col-sm-8">

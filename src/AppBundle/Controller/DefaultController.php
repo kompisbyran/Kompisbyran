@@ -66,6 +66,7 @@ class DefaultController extends Controller
                 'form' => $form->createView(),
                 'connectionRequest' =>  $this->get('connection_request_repository')->findOneOpenByUser($user),
                 'startMunicipalities' => $this->get('municipality_repository')->findAllActiveStartMunicipalities(),
+                'matchFamilyMunicipalities' => $this->get('municipality_repository')->findAllMatchFamilyMunicipalities(),
                 'newUser' => $newUser,
             ];
         } else {

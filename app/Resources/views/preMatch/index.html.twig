@@ -76,6 +76,13 @@
                                             Nej
                                         {% endif %}
                                     <br>
+                                    <strong>Matcha familj:</strong>
+                                    {% if preMatch.learnerConnectionRequest.matchFamily %}
+                                        Ja, {{ preMatch.learnerConnectionRequest.matchFamily }}
+                                    {% else %}
+                                        Nej
+                                    {% endif %}
+                                    <br>
                                     <strong>Önskemål:</strong>
                                     {% if preMatch.learnerConnectionRequest.matchingProfileRequestType %}
                                         {{ ('matching_profile_request.' ~ preMatch.learnerConnectionRequest.matchingProfileRequestType)|trans }}
