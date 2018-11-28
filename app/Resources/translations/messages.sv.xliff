@@ -189,7 +189,7 @@
             <trans-unit id="register.create.intro">
                 <source>register.create.intro</source>
                 <target>
-                    Skriv din email och ett lösenord du bestämmer själv. I nästa steg väljer du Fikakompis eller Startkompis. 
+                    Skriv din email och ett lösenord du bestämmer själv.
                 </target>
             </trans-unit>
             <trans-unit id="register.form.email">
@@ -517,9 +517,8 @@
                     <p>Här svarar du på några frågor om dig själv. Ju tydligare du berättar om vem du är som person, 
                     desto större är chansen att vi hittar en bra matchning.</p><br />
 
-                    <p>Som Fikakompis träffas ni i 1 av 10 städer där vi har verksamhet: Göteborg, 
-                    Jönköping, Kalmar, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro. Som Startkompis 
-                    träffas ni i en av följande kommuner: %municipalities%.</p><br />
+                    <p>Ni träffas i 1 av de 10 städer där vi har verksamhet: Göteborg, 
+                    Jönköping, Kalmar, Linköping, Malmö, Stockholm, Umeå, Uppsala, Västerås eller Örebro. </p><br />
 
                     <p>Tänk på att ju fler önskemål/begränsningar du fyller i, desto längre tid kan det dröja. 
                     För att öka chanserna till en snabb matchning - gå in med öppet sinne!</p><br /> 
@@ -965,7 +964,7 @@
                 <target>
                     Kompisbyrån är en ideell, partipolitiskt och religiöst obunden organisation sedan 2014 som 
                     syftar till att öka gemenskapen i samhället mellan nya och etablerade svenskar. Kompisbyrån 
-                    matchar nya och etablerade svenskar som träffas som fikakompisar eller startkompisar. 
+                    matchar nya och etablerade svenskar som träffas för enkla och roliga möten på ca 1 timme. 
                     Vi erbjuder enkla former av vardagsintegration för att göra det lätt och kul för alla att engagera sig! 
                     Idag finns Kompisbyrån i tio städer, tjugotal aktiva arbetar ideellt och ungefär 14 000 kontakter från 
                     över 126 länder har förmedlats.
