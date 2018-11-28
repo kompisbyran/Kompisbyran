@@ -53,9 +53,9 @@
                 <source>footer</source>
                 <target>Kompisbyrån Danderyd is being run in collaboration with Danderyd's municipality and the non-profit organization "Alla Tillsammans i Danderyd".</target>
             </trans-unit>
-            <trans-unit id="notice">
-                <source>notice</source>
-                <target>Vi kontaktar dig när vi öppnar anmälan för Danderyd</target>
+            <trans-unit id="button">
+                <source>button</source>
+                <target>Sign up</target>
             </trans-unit>
         </body>
     </file>

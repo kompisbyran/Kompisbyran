@@ -54,9 +54,9 @@
                 <source>footer</source>
                 <target>Kompisbyrån Danderyd drivs i samarbete med Danderyds kommun och den ideella organisationen "Alla Tillsammans i Danderyd".</target>
             </trans-unit>
-            <trans-unit id="notice">
-                <source>notice</source>
-                <target>Vi kontaktar dig när vi öppnar anmälan för Danderyd</target>
+            <trans-unit id="button">
+                <source>button</source>
+                <target>Anmäl dig</target>
             </trans-unit>
         </body>
     </file>
