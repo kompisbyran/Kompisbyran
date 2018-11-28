@@ -81,26 +81,7 @@ class DefaultController extends Controller
      */
     public function danderydAction(Request $request)
     {
-        $email = null;
-        if ($request->isMethod('POST')) {
-            $email = $request->request->get('email');
-            $validator = $this->get('validator')->validate($email, [new Email(), new NotBlank()]);
-            if ($validator->count() > 0) {
-                $this->addFlash('error', $validator->get(0)->getMessage());
-            } else {
-                $body = sprintf('Epostadressen "%s" vill bli kontaktad när Kompisbyråns samarbete med Daneryd kommun startar.', $email);
-                $this->get('app.user_mailer')->sendEmailMessage(null, $body, 'Danderyd', 'clara@kompisbyran.se');
-                $this->addFlash('info', $this->get('translator')->trans('notice', [], 'danderyd'));
-
-                return $this->redirectToRoute('danderyd');
-            }
-        }
-
-        $parameters = [
-            'email' => $email,
-        ];
-
-        return $this->render('default/danderyd.html.twig', $parameters);
+        return $this->render('default/danderyd.html.twig');
 
     }
 }
