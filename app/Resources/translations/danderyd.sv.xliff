@@ -8,19 +8,23 @@
             </trans-unit>
             <trans-unit id="sub_header">
                 <source>sub_header</source>
-                <target>lär känna ditt Danderyd tillsammans med nya vänner</target>
+                <target>- lär känna ditt Danderyd tillsammans med nya vänner</target>
             </trans-unit>
             <trans-unit id="intro">
                 <source>intro</source>
-                <target>Snart får du som bor eller är verksam i Danderyd chansen att lära känna nya vänner i ditt närområde. Vi matchar ihop nya och etablerade svenskar för ett möte på cirka 1 timme där man fikar eller går en promenad tillsammans. Du kommer kunna anmäla dig antingen som individ för att bli matchad med en ny kompis - eller som barnfamilj för att bli matchad med en annan barnfamilj.</target>
+                <target>Nu har du som bor eller är verksam i Danderyd chansen att lära känna nya vänner i ditt närområde. 
+                    Vi matchar ihop nya och etablerade svenskar för ett möte på cirka 1 timme där man t ex fikar eller går en promenad 
+                    tillsammans. Du kan anmäla dig antingen som individ för att bli matchad med en ny kompis - eller som 
+                    barnfamilj för att bli matchad med en annan barnfamilj.</target>
             </trans-unit>
             <trans-unit id="cta.header">
                 <source>cta.header</source>
-                <target>Anmäl ditt intresse</target>
+                <target>Anmäl dig här</target>
             </trans-unit>
             <trans-unit id="cta.intro">
                 <source>cta.intro</source>
-                <target>Lämna din intresseanmälan redan nu! Då kan vi kontakta dig så snart vi öppnar anmälan och du kan bli en av de allra första som får en matchning i Danderyd.</target>
+                <target>Är du ny i Danderyd eller känner du kommunen utan och innan? Vi matchar ihop nya och etablerade svenskar 
+                    för ett roligt möte på ca 1 timme.</target>
             </trans-unit>
             <trans-unit id="cta.label">
                 <source>cta.label</source>
@@ -32,7 +36,6 @@
             </trans-unit>
             <trans-unit id="cta.disclaimer">
                 <source>cta.disclaimer</source>
-                <target>*Vi sparar din e-mail endast tills dess att anmälan till Kompisbyrån Danderyd har öppnat och vi har kontaktat dig. Din e-mail kommer inte att användas i något annan syfte.</target>
             </trans-unit>
             <trans-unit id="header2">
                 <source>header2</source>
