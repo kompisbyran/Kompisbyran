@@ -4,26 +4,23 @@
         <body>
             <trans-unit id="header">
                 <source>header</source>
-                <target>Kompisbyrån Danderyd</target>
+                <target>كومبس بيرون دانديريد</target>
             </trans-unit>
             <trans-unit id="sub_header">
                 <source>sub_header</source>
-                <target>get to know new friends in Danderyd</target>
+                <target>تعرف على أصدقاء جدد في دانديريد</target>
             </trans-unit>
             <trans-unit id="intro">
                 <source>intro</source>
-           <target> Do you live or work in Danderyd? We’re matching up new and established swedes for a 1 hour meeting 
-                    where you go for a coffee or a walk in Danderyd. You can sign up individually to meet a 
-                    new friend – or as a family with children and get matched up with another family with children.</target>
+           <target> هل تعيش أو تعمل في دانديريد ? نحن نقوم بجمع القادمين حديثاً إلى السويد مع مواطنين سويديين القدامى لمدة ساعة من الوقت , حيث تقومون بإحتساء القهوة أو القيام بجولة في دانديريد سوياً .يمكنك تسجيل نفسك للتعرف بصديق جديد بشكل فكردي أو كعائلة مع الاطفال حيث يتم اللقاء مع عائلة أخرى</target>
             </trans-unit>
             <trans-unit id="cta.header">
                 <source>cta.header</source>
-                <target>Sign up here!</target>
+                <target>للتسجيل هنا</target>
             </trans-unit>
             <trans-unit id="cta.intro">
                 <source>cta.intro</source>
-                <target>Are you newly arrived in the municipality, or do you know your neighbourhood by heart? We match up new and established
-                Swedes in Danderyd for a fun and simple 1 hour meeting. </target>
+                <target>هل إنتقلت حديثاً إلى بلدية دانديريد , أو أنت واحد من الذين يعرفون المنطقة عن ظهر قلب ?نحن نقوم بتسهيل اللقاء بين القادمين حديثاً إلى السويد و المواطنين السويدين القدامى في منطقة دانديريد , لقضاء ساعة من المتعة سوياً. </target>
             </trans-unit>
             <trans-unit id="cta.label">
                 <source>cta.label</source>
@@ -35,23 +32,24 @@
             </trans-unit>
             <trans-unit id="header2">
                 <source>header2</source>
-                <target>How it works:</target>
+                <target>طريقة عملنا</target>
             </trans-unit>
             <trans-unit id="text">
                 <source>text</source>
                 <target><![CDATA[
                     <ol>
-                        <li><strong>Registration</strong><br>Register by answering a few simple questions about yourself. It is free to sign up. You will receive a confirmation email when we have received your application.</li>
-                        <li><strong>Match</strong><br>We will send you an email with the contact details to your new friend.</li>
-                        <li><strong>Confirm the meeting</strong><br>You contact your new friend within 3 days to confirm date, time and place for the meeting.</li>
-                        <li><strong>Meeting</strong><br>You meet for about 1 hour to go for a walk, have coffee or some other activity within Danderyd.</li>
-                        <li><strong>What happens after the meeting?</strong><br>We will contact you after the meeting to ask about your experience. If you both thought it was fun, you are welcome to continue to see each other on your own. You can also sign in and make a new application to meet a new person, or simply be super happy with the meeting you have been to.</li>
+                        <li><strong>التسجيل</strong><br>التسجيل يتم عن طريق الاجابة عن بعض الأسئلة البسيطة عن نفسك . التسجيل مجاني و سوف تتلقى بريد إلكتروني يؤكد تمام العملية و ذلك يتم عند تلقينا طلبك بنجاح.</li>
+                        <li><strong>المطابقة</strong><br>سوف نرسل لك بريدًا إلكترونيًا يتضمن تفاصيل الاتصال بصديقك الجديد.</li>
+                        <li><strong>تأكيد المقابلة</strong><br>يتم إتاحة الفرصة لك للتواصل مع صديقك الجديد خلال ثلاثة أيام لتأكيد تاريخ و وقت و مكان للإلتقاء</li>
+                        <li><strong>اللقاء</strong><br>يتم الالتقاء مع صديقك الجديد لمدة ساعة من الوقت حيث تستطيعون القيام بجولة قصيرة , احتساء القهوة سوياً أو القيام بنوع أخر من النشاطات في بلدية دانديريد.</li>
+                        <li><strong>ماذا يحدث بعد اللقاء?</strong><br>بعد اللقاء , سوف نقوم بالتواصل معك لسؤالك عن التجربة , إذا كان رأيك أنت و الطرف الآخر أنها كانت ممتعة , فسوف نكون سعيدين جداً إذا استمريتم باللقاء بشكل شخصي , يمكنك أيضاً التسجيل مرةً جديدة حتى تلتقي بشخص آخر.</li>
                     </ol>
                 ]]></target>
             </trans-unit>
             <trans-unit id="footer">
                 <source>footer</source>
-                <target>Kompisbyrån Danderyd is being run in collaboration with Danderyd's municipality and the non-profit organization "Alla Tillsammans i Danderyd".</target>
+                <target>كومبس بيرون دانديريد هو مشروع يتم إدارته بالتعاون مع بلدية دانديريد و المنظمة الغير ربحية "جميع معاً في دانديريد" .
+</target>
             </trans-unit>
             <trans-unit id="button">
                 <source>button</source>
