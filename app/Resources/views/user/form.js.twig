@@ -91,4 +91,7 @@ $(document).ready(function() {
     });
     $('select[name$="[municipality]"]').eq(0).trigger('change');
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
 });
