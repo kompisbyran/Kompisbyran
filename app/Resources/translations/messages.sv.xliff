@@ -346,11 +346,19 @@
             </trans-unit>
             <trans-unit id="user.form.about">
                 <source>user.form.about</source>
-                <target>Berätta om dig själv och hur du är som person.</target>
+                <target>Berätta om dig själv.</target>
+            </trans-unit>
+            <trans-unit id="user.form.about.family">
+                <source>user.form.about.family</source>
+                <target>Berätta om dig och din familj.</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
-                <target>T.ex. saker du tycker om att göra eller vem du är som person.</target>
+                <target>Berätta hur du är som person och saker du tycker om att göra.</target>
+            </trans-unit>
+            <trans-unit id="user.form.about.family.help">
+                <source>user.form.about.family.help</source>
+                <target>Du anmäler dig som representant för din familj. Vi matchar er främst efter att barnen ska vara i nära åldrar, men vi tittar även på sådant som dina intressen, sysselsättning etc.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
@@ -435,6 +443,10 @@
                 <source>user.form.children_age</source>
                 <target>Ålder på barn</target>
             </trans-unit>
+            <trans-unit id="user.form.children_age.help">
+                <source>user.form.children_age.help</source>
+                <target>Om du har flera barn, skriv tydligt vilket/vilka som ska följa med till mötet.</target>
+            </trans-unit>
             <trans-unit id="user.form.time_in_sweden">
                 <source>user.form.time_in_sweden</source>
                 <target>Hur länge har du bott i Sverige?</target>
@@ -506,6 +518,10 @@
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>Spara</target>
+            </trans-unit>
+            <trans-unit id="user.form.register.button">
+                <source>user.form.register.button</source>
+                <target>Klart - skicka min anmälan!</target>
             </trans-unit>
             <trans-unit id="user.settings.header">
                 <source>user.settings.header</source>
@@ -632,6 +648,14 @@
             <trans-unit id="connection_request.form.match.family">
                 <source>connection_request.form.match.family</source>
                 <target>Vill du bli matchad tillsammans med din familj för att träffa en annan barnfamilj?</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.match.family.yes">
+                <source>connection_request.form.match.family.yes</source>
+                <target>Vi är en barnfamilj som vill träffa en annan barnfamilj</target>
+            </trans-unit>
+            <trans-unit id="connection_request.form.match.family.no">
+                <source>connection_request.form.match.family.no</source>
+                <target>Jag vill anmäla mig själv för att träffa en kompis</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>

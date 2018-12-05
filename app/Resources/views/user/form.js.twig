@@ -91,6 +91,28 @@ $(document).ready(function() {
     });
     $('select[name$="[municipality]"]').eq(0).trigger('change');
 
+    var aboutLabel = $('label[for="user_about"]').text();
+    var aboutWithChildrenLabel = '{{ 'user.form.about.family'|trans }}';
+
+    $('input[name$="[matchFamily]"]').change(function() {
+        if ($('input[name$="[matchFamily]"]:checked').val() == '1') {
+            $('label[for="user_about"]').text(aboutWithChildrenLabel)
+            $('#about-with-family-tooltip').removeClass('hidden');
+            $('#about-with-family-tooltip').show();
+            $('#about-tooltip').hide();
+            $('input[name$="[hasChildren]"]').eq(1).attr('checked', 'checked');
+            $('#children-age-help').removeClass('hidden');
+            $('#children-age-help').show();
+        } else {
+            $('label[for="user_about"]').text(aboutLabel)
+            $('#about-tooltip').removeClass('hidden');
+            $('#about-tooltip').show();
+            $('#about-with-family-tooltip').hide();
+            $('#children-age-help').hide();
+        }
+    });
+    $('input[name$="[matchFamily]"]').eq(0).trigger('change');
+
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
