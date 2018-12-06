@@ -543,7 +543,7 @@
             </trans-unit>
             <trans-unit id="index.intro">
                 <source>index.intro</source>
-                <target>Här kan du göra en ny anmälan för att träffa en ny Fikakompis eller Startkompis.
+                <target>Här kan du göra en ny anmälan för att träffa en kompis.
                 
                     Du ser även dina tidigare möten och nuvarande status om du har gjort en ny anmälan.</target>
             </trans-unit>
@@ -570,7 +570,7 @@
             <trans-unit id="index.again.intro">
                 <source>index.again.intro</source>
                 <target>
-                    Vill du träffa en ny Fikakompis eller Startkompis? Fyll i formuläret och tryck på “Skicka anmälan”-knappen.
+                    Vill du träffa en ny kompis? Fyll i formuläret och tryck på “Skicka anmälan”-knappen.
                 </target>
             </trans-unit>
             <trans-unit id="connection_request.form.city">
