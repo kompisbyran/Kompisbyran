@@ -1,5 +1,19 @@
 <div class="inner-page">
-    {% include 'ctaBox.html.twig' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <img src="/images/Kompis3.JPG" class="img-responsive" alt="Emma och Cecilia" />
+                <h1>{{ 'homepage.cta.header'|trans }}<br /><strong>{{ 'homepage.cta.header.strong'|trans }}</strong></h1>
+                <p>
+                    {{ 'homepage.cta.message'|trans|raw }}
+                </p>
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg btn-orange btn-super-lg">
+                    <i class="fa fa-users"></i> {{ 'homepage.cta.button'|trans }}
+                </a>
+                <br><br>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Inner Page Heading -->

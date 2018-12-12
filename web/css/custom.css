@@ -123,6 +123,30 @@ div.candidate span.matches a.google-link {
     background: none !important;
     color: #555;
 }
+
+.btn-orange{
+    margin-top: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+    border: solid 1px #F16B46;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.btn-orange:hover {
+    background-color: #fff;
+    color: #F16B46;
+}
+
+.btn-orange a i{
+    display: inline-block;
+    margin-right: 5px;
+}
 h2 span {
     line-height: 2em;
+}
+.btn-super-lg {
+    padding: 0.7em 1.3em;
+    font-size: 1.5em;
 }
