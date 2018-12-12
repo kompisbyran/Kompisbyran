@@ -159,9 +159,9 @@ class PreMatchController extends Controller
             $connection->setLearner($preMatch->getLearnerConnectionRequest()->getUser());
             $connection->setLearnerConnectionRequestCreatedAt($preMatch->getLearnerConnectionRequest()->getCreatedAt());
             $connection->setMunicipality($preMatch->getMunicipality());
+            $connection->setFluentSpeakerConnectionRequest($preMatch->getFluentSpeakerConnectionRequest());
+            $connection->setLearnerConnectionRequest($preMatch->getLearnerConnectionRequest());
             $this->getDoctrine()->getManager()->persist($connection);
-            $this->getDoctrine()->getManager()->remove($preMatch->getLearnerConnectionRequest());
-            $this->getDoctrine()->getManager()->remove($preMatch->getFluentSpeakerConnectionRequest());
             $this->getDoctrine()->getManager()->remove($preMatch);
             $this->getDoctrine()->getManager()->flush();
 
