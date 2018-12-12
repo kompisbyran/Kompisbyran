@@ -5,39 +5,36 @@
 
     <div class="inner-page">
         <div class="container">
-            <h2><strong>{{ 'user.settings.header'|trans }}</strong></h2>
 
             <div class="row">
-                <div class="col-md-4 col-md-push-8 col-sm-6 col-sm-push-6">
-                    <div class="well br-white border-orange black">
-                        {{ 'user.settings.intro'|trans({'%municipalities%': start_friend_municipalities('global.or')})|raw}}
+                <div class="col-md-offset-3 col-md-6">
+                    {{ include(':user:form.html.twig') }}
+                    <div class="form-group">
+                        <button
+                            type="submit"
+                            class="btn btn-default btn-orange btn-lg
+                                {% if form.connectionRequests is not defined or is_granted('ROLE_COMPLETE_USER') == false %}btn-super-lg{% endif %}
+                            ">
+                            {% if form.connectionRequests is defined %}
+                                {{ 'connection_request.form.button'|trans }}
+                            {% elseif is_granted('ROLE_COMPLETE_USER') %}
+                                {{ 'user.form.button'|trans }}
+                            {% else %}
+                                {{ 'user.form.register.button'|trans }}
+                            {% endif %}
+                        </button>
                     </div>
-                    <div class="well br-white border-orange black">
-                        <p>{{ 'user.settings.delete'|trans }}</p>
+                    {{ form_end(form) }}
 
-                        <button id="delete" class="btn btn-danger"><i class="fa fa-warning"></i> {{ 'user.settings.delete.button'|trans }}</button>
-                    </div>
-                </div>
+                    {% if is_granted('ROLE_COMPLETE_USER') %}
+                    <br>
+                    <p>{{ 'user.settings.delete'|trans }}</p>
 
-                <div class="col-md-8 col-md-pull-4 col-sm-6 col-sm-pull-6">
-                    <div class="row">
-                        {{ include(':user:form.html.twig') }}
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-4">
-                                <button type="submit" class="btn btn-default">
-                                    {% if form.connectionRequests is defined %}
-                                        {{ 'connection_request.form.button'|trans }}
-                                    {% else %}
-                                        {{ 'user.form.button'|trans }}
-                                    {% endif %}
-                                </button>
-                            </div>
-                        </div>
-                        {{ form_end(form) }}
-                    </div>
+                    <button id="delete" class="btn btn-danger"><i class="fa fa-warning"></i> {{ 'user.settings.delete.button'|trans }}</button>
+                    {% endif %}
                 </div>
             </div>
+
         </div>
     </div>
 

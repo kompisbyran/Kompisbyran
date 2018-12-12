@@ -146,6 +146,10 @@ div.candidate span.matches a.google-link {
 h2 span {
     line-height: 2em;
 }
+h3 {
+    color: #F16B46;
+    margin-top: 1.7em;
+}
 .btn-super-lg {
     padding: 0.7em 1.3em;
     font-size: 1.5em;

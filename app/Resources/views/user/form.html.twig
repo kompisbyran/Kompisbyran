@@ -7,48 +7,67 @@
 
 <div class="form-group">
     {{ form_label(form.municipality) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.municipality) }}
-        {{ form_errors(form.municipality) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_widget(form.municipality) }}
+        </div>
     </div>
+    {{ form_errors(form.municipality) }}
 </div>
 
 <div class="form-group">
     {{ form_label(form.city) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.city) }}
-        {{ form_errors(form.city) }}
+    <i class="fa fa-info-circle"
+       data-toggle="tooltip"
+       data-placement="right"
+       title="För att vara med i Kompisbyrån måste du kunna träffas i någon av de städer där vi finns. I rullistan ser du vilka städer som finns tillgängliga.">
+    </i>
+
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_widget(form.city) }}
+        </div>
     </div>
+    {{ form_errors(form.city) }}
 </div>
 
 {% if form.type is defined %}
 <div class="form-group">
     {{ form_label(form.type) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.type) }}
-        {{ form_errors(form.type) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_widget(form.type) }}
+        </div>
     </div>
+    {{ form_errors(form.type) }}
 </div>
 {% endif %}
 
 
 {% if form.newConnectionRequest is defined %}
 
-    <div class="form-group hidden" id="match-family">
-        {{ form_label(connectionRequest.matchFamily) }}
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.matchFamily) }}
-            {{ form_errors(connectionRequest.matchFamily) }}
-        </div>
-    </div>
-
     <div class="form-group">
         {{ form_label(connectionRequest.matchingProfileRequestType) }}
-        <div class="col-sm-8">
-            {{ form_widget(connectionRequest.matchingProfileRequestType) }}
-            {{ form_errors(connectionRequest.matchingProfileRequestType) }}
+        <i class="fa fa-info-circle"
+           data-toggle="tooltip"
+           data-placement="right"
+           title="Tänk på att ju fler önskemål du har, desto längre tid kan det dröja innan vi hittar en matchning till dig. För att öka chanserna till en snabb matchning - gå in med ett öppet sinne!">
+        </i>
+
+        <div class="row">
+            <div class="col-sm-8">
+                {{ form_widget(connectionRequest.matchingProfileRequestType) }}
+            </div>
         </div>
+        {{ form_errors(connectionRequest.matchingProfileRequestType) }}
     </div>
+
+    <div class="form-group hidden" id="match-family">
+        {{ form_label(connectionRequest.matchFamily) }}
+        {{ form_widget(connectionRequest.matchFamily) }}
+        {{ form_errors(connectionRequest.matchFamily) }}
+    </div>
+
 
     {{ form_widget(connectionRequest) }}
 {% endif %}
@@ -60,182 +79,190 @@
 
 <div class="form-group">
     {{ form_label(form.wantToLearn) }}
-    <div class="col-sm-8 checkableList">
-        {{ form_widget(form.wantToLearn) }}
-        {{ form_errors(form.wantToLearn) }}
-    </div>
+    {{ form_widget(form.wantToLearn) }}
+    {{ form_errors(form.wantToLearn) }}
 </div>
 
 <div class="form-group hidden" id="newlyArrived">
-    <div class="col-lg-4 text-right">
-        <label class="control-label required">{{ 'user.form.newly_arrived'|trans }}</label>
-        <p>{{ 'user.form.newly_arrived.help'|trans({'%year%': newly_arrived_year(), '%month%': newly_arrived_month_name()}) }}</p>
-    </div>
-    <div class="col-sm-8 checkableList">
-        {{ form_widget(form.newlyArrived) }}
-        {{ form_errors(form.newlyArrived) }}
-    </div>
+    {{ form_label(form.newlyArrived) }}
+    <i class="fa fa-info-circle"
+       data-toggle="tooltip"
+       data-placement="right"
+       title="{{ 'user.form.newly_arrived.help'|trans({'%year%': newly_arrived_year(), '%month%': newly_arrived_month_name()}) }}">
+    </i>
+    {{ form_widget(form.newlyArrived) }}
+    {{ form_errors(form.newlyArrived) }}
 </div>
 
 <div class="form-group hidden" id="identityNumber">
-    <div class="col-lg-4 text-right">
-        <label class="control-label required">{{ 'user.form.identity_number'|trans }}</label>
+    <label class="control-label required">{{ 'user.form.identity_number'|trans }}</label>
+    <div class="row">
+        <div class="col-sm-8">
+            {{ form_widget(form.identityNumber) }}
+        </div>
     </div>
-    <div class="col-sm-8">
-        {{ form_widget(form.identityNumber) }}
-        {{ form_errors(form.identityNumber) }}
-        <p>{{ 'user.form.identity_number.help'|trans({'%linkStart%': '<a href="' ~ path('terms') ~ '">', '%linkEnd%': '</a>'})|raw }}</p>
-    </div>
+    {{ form_errors(form.identityNumber) }}
+    <p>{{ 'user.form.identity_number.help'|trans({'%linkStart%': '<a href="' ~ path('terms') ~ '">', '%linkEnd%': '</a>'})|raw }}</p>
 </div>
 
 <div class="form-group">
     {{ form_label(form.from) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.from) }}
-        {{ form_errors(form.from) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_widget(form.from) }}
+        </div>
     </div>
+    {{ form_errors(form.from) }}
 </div>
 
 <div class="form-group">
-    <div class="col-lg-4 text-right">
-        <label class="control-label required">{{ 'user.form.categories'|trans }}</label>
-        <p>{{ 'user.form.categories.help'|trans }}</p>
-    </div>
-
-    <div class="col-sm-4 checkableList">
-        {{ form_widget(form.categories) }}
-        {{ form_errors(form.categories) }}
-    </div>
+    {{ form_label(form.timeInSweden) }}
+    {{ form_widget(form.timeInSweden) }}
+    {{ form_errors(form.timeInSweden) }}
 </div>
 
 <div class="form-group">
     {{ form_label(form.about) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.about) }}
-        {{ form_errors(form.about) }}
-    </div>
+    <i class="fa fa-info-circle hidden"
+       id="about-tooltip"
+       data-toggle="tooltip"
+       data-placement="right"
+       title="{{ 'user.form.about.help'|trans }}">
+    </i>
+    <i class="fa fa-info-circle hidden"
+       id="about-with-family-tooltip"
+       data-toggle="tooltip"
+       data-placement="right"
+       title="{{ 'user.form.about.family.help'|trans }}">
+    </i>
+    {{ form_widget(form.about, {'attr': {'rows': '4'}}) }}
+    {{ form_errors(form.about) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.categories) }}
+    <i class="fa fa-info-circle"
+       data-toggle="tooltip"
+       data-placement="right"
+       title="{{ 'user.form.categories.help'|trans }}">
+    </i>
+    {{ form_widget(form.categories) }}
+    {{ form_errors(form.categories) }}
 </div>
 
 <div class="form-group">
     {{ form_label(form.occupation) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.occupation) }}
-        {{ form_errors(form.occupation) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_widget(form.occupation) }}
+        </div>
     </div>
+    {{ form_errors(form.occupation) }}
 </div>
 
-<div class="col-sm-offset-4" id="occupationDescription">
+<div id="occupationDescription">
     <div class="form-group">
         {{ form_label(form.occupationDescription) }}
-        <div class="col-sm-8">
-            {{ form_widget(form.occupationDescription) }}
-            {{ form_errors(form.occupationDescription) }}
-        </div>
+        {{ form_widget(form.occupationDescription) }}
+        {{ form_errors(form.occupationDescription) }}
     </div>
 </div>
 
 <div class="form-group">
     {{ form_label(form.education) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.education) }}
-        {{ form_errors(form.education) }}
-    </div>
+    {{ form_widget(form.education) }}
+    {{ form_errors(form.education) }}
 </div>
 
-<div class="col-sm-offset-4" id="educationDescription">
-    <div class="form-group">
-        {{ form_label(form.educationDescription) }}
-        <div class="col-sm-8">
-            {{ form_widget(form.educationDescription) }}
-            {{ form_errors(form.educationDescription) }}
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    {{ form_label(form.timeInSweden) }}
-    <div class="col-sm-8">
-        {{ form_widget(form.timeInSweden) }}
-        {{ form_errors(form.timeInSweden) }}
-    </div>
+<div class="form-group" id="educationDescription">
+    {{ form_label(form.educationDescription) }}
+    {{ form_widget(form.educationDescription) }}
+    {{ form_errors(form.educationDescription) }}
 </div>
 
 <div class="form-group ">
     {{ form_label(form.hasChildren) }}
-    <div class="col-sm-4 checkableList">
-        {{ form_widget(form.hasChildren) }}
-        {{ form_errors(form.hasChildren) }}
+    {{ form_widget(form.hasChildren) }}
+    {{ form_errors(form.hasChildren) }}
+</div>
+
+<div class="form-group" id="childrenAge">
+    {{ form_label(form.childrenAge) }}
+    {{ form_widget(form.childrenAge) }}
+    {{ form_errors(form.childrenAge) }}
+    <div id="children-age-help">
+        <p>{{ 'user.form.children_age.help'|trans }}</p>
     </div>
 </div>
 
-<div class="col-sm-offset-4" id="childrenAge">
-    <div class="form-group">
-        {{ form_label(form.childrenAge) }}
-        <div class="col-sm-8">
-            {{ form_widget(form.childrenAge) }}
-            {{ form_errors(form.childrenAge) }}
-        </div>
-    </div>
-</div>
+{% if form.newConnectionRequest is defined %}
+<h3>Dina uppgifter</h3>
+{% endif %}
 
 <div class="form-group">
     {{ form_label(form.firstName) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.firstName) }}
-        {{ form_errors(form.firstName) }}
+    <div class="row">
+        <div class="col-sm-8">
+            {{ form_widget(form.firstName) }}
+        </div>
     </div>
+    {{ form_errors(form.firstName) }}
 </div>
 
 <div class="form-group">
     {{ form_label(form.lastName) }}
-    <div class="col-sm-4">
-        {{ form_widget(form.lastName) }}
-        {{ form_errors(form.lastName) }}
+    <div class="row">
+        <div class="col-sm-8">
+            {{ form_widget(form.lastName) }}
+        </div>
     </div>
+    {{ form_errors(form.lastName) }}
 </div>
 
 
 <div class="form-group">
     {{ form_label(form.age) }}
-    <div class="col-sm-2">
-        {{ form_widget(form.age) }}
-        {{ form_errors(form.age) }}
+    <div class="row">
+        <div class="col-sm-2">
+            {{ form_widget(form.age) }}
+        </div>
     </div>
+    {{ form_errors(form.age) }}
 </div>
 
 <div class="form-group">
     {{ form_label(form.gender) }}
-    <div class="col-sm-2 checkableList">
-        {{ form_widget(form.gender) }}
-        {{ form_errors(form.gender) }}
-    </div>
+    {{ form_widget(form.gender) }}
+    {{ form_errors(form.gender) }}
 </div>
 
 <div class="form-group">
     {{ form_label(form.phoneNumber) }}
-
-    <div class="col-sm-8">
-        {{ form_widget(form.phoneNumber) }}
-        {{ form_errors(form.phoneNumber) }}
+    <div class="row">
+        <div class="col-sm-8">
+            {{ form_widget(form.phoneNumber) }}
+        </div>
     </div>
+    {{ form_errors(form.phoneNumber) }}
 </div>
 
 {% if form.roles is defined %}
     <h3>Administration</h3>
     <div class="form-group">
         {{ form_label(form.roles) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.roles) }}
-            {{ form_errors(form.roles) }}
+        <div class="row">
+            <div class="col-sm-8">
+                {{ form_widget(form.roles) }}
+            </div>
         </div>
+        {{ form_errors(form.roles) }}
     </div>
 {% endif %}
 
 {% if form.termsAccepted is defined %}
+<br><br>
 <div class="form-group">
-    <div class="col-lg-offset-4 col-lg-8">
-        {{ form_widget(form.termsAccepted) }}
-    </div>
+    {{ form_widget(form.termsAccepted) }}
     {{ form_errors(form.termsAccepted) }}
 </div>
 {% endif %}
