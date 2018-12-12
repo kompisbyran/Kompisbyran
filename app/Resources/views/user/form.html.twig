@@ -24,7 +24,7 @@
     </i>
 
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-6">
             {{ form_widget(form.city) }}
         </div>
     </div>
@@ -34,7 +34,11 @@
 {% if form.type is defined %}
 <div class="form-group">
     {{ form_label(form.type) }}
-    {{ form_widget(form.type) }}
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_widget(form.type) }}
+        </div>
+    </div>
     {{ form_errors(form.type) }}
 </div>
 {% endif %}
@@ -104,7 +108,7 @@
 <div class="form-group">
     {{ form_label(form.from) }}
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-6">
             {{ form_widget(form.from) }}
         </div>
     </div>
@@ -149,7 +153,7 @@
 <div class="form-group">
     {{ form_label(form.occupation) }}
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-6">
             {{ form_widget(form.occupation) }}
         </div>
     </div>

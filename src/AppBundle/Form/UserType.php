@@ -135,7 +135,7 @@ class UserType extends AbstractType
                 'label' => 'user.form.education_description',
                 'required' => false,
             ])
-            ->add('timeInSweden', 'textarea', [
+            ->add('timeInSweden', 'text', [
                 'label' => 'user.form.time_in_sweden',
             ])
             ->add('childrenAge', 'textarea', [

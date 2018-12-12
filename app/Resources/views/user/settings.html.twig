@@ -22,11 +22,12 @@
                     </div>
                     {{ form_end(form) }}
 
+                    {% if is_granted('ROLE_COMPLETE_USER') %}
                     <br>
                     <p>{{ 'user.settings.delete'|trans }}</p>
 
                     <button id="delete" class="btn btn-danger"><i class="fa fa-warning"></i> {{ 'user.settings.delete.button'|trans }}</button>
-
+                    {% endif %}
                 </div>
             </div>
 
