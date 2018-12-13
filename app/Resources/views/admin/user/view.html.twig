@@ -16,7 +16,7 @@
                                 {% if not user.enabled %}disabled="disabled"{% endif %}
                         >Spara</button>
                         {% if user.enabled %}
-                            <a href="#" id="delete">Ta bort</a>
+                            <a href="#" id="delete" class="btn btn-danger">Ta bort</a>
                         {% endif %}
                     </div>
                     {{ form_end(form) }}
