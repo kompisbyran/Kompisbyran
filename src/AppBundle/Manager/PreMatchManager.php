@@ -59,7 +59,7 @@ class PreMatchManager
         $connectionRequests = $this->connectionRequestRepository
             ->findWantToLearnStartFriendsByMunicipality($municipality);
         foreach ($connectionRequests as $connectionRequest) {
-            if (!$connectionRequest->getLearnerPreMatch() && !$connectionRequest->getFluentSpeakerPreMatch()) {
+            if (!$connectionRequest->getConnection() && !$connectionRequest->getLearnerPreMatch() && !$connectionRequest->getFluentSpeakerPreMatch()) {
                 $preMatch = new PreMatch();
                 $preMatch->setLearnerConnectionRequest($connectionRequest);
                 $preMatch->setMunicipality($connectionRequest->getMunicipality());
