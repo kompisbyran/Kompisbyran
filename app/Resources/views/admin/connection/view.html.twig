@@ -9,39 +9,29 @@
             {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.fluentSpeakerMeetingStatus) }}
-                    <div class="col-sm-4">
-                        {{ form_widget(form.fluentSpeakerMeetingStatus) }}
-                        {{ form_errors(form.fluentSpeakerMeetingStatus) }}
-                    </div>
+                    {{ form_widget(form.fluentSpeakerMeetingStatus) }}
+                    {{ form_errors(form.fluentSpeakerMeetingStatus) }}
                 </div>
 
                 <div class="form-group">
                     {{ form_label(form.fluentSpeakerMarkedAsMetCreatedAt) }}
-                    <div class="col-sm-4">
-                        {{ form_widget(form.fluentSpeakerMarkedAsMetCreatedAt) }}
-                        {{ form_errors(form.fluentSpeakerMarkedAsMetCreatedAt) }}
-                    </div>
+                    {{ form_widget(form.fluentSpeakerMarkedAsMetCreatedAt) }}
+                    {{ form_errors(form.fluentSpeakerMarkedAsMetCreatedAt) }}
                 </div>
 
                 <div class="form-group">
                     {{ form_label(form.learnerMeetingStatus) }}
-                    <div class="col-sm-4">
-                        {{ form_widget(form.learnerMeetingStatus) }}
-                        {{ form_errors(form.learnerMeetingStatus) }}
-                    </div>
+                    {{ form_widget(form.learnerMeetingStatus) }}
+                    {{ form_errors(form.learnerMeetingStatus) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.learnerMarkedAsMetCreatedAt) }}
-                    <div class="col-sm-4">
-                        {{ form_widget(form.learnerMarkedAsMetCreatedAt) }}
-                        {{ form_errors(form.learnerMarkedAsMetCreatedAt) }}
-                    </div>
+                    {{ form_widget(form.learnerMarkedAsMetCreatedAt) }}
+                    {{ form_errors(form.learnerMarkedAsMetCreatedAt) }}
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-4">
-                        <button type="submit" class="btn btn-default">Spara</button>
-                    </div>
+                    <button type="submit" class="btn btn-default btn-orange">Spara</button>
                 </div>
 
             {{ form_end(form) }}

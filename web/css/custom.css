@@ -125,13 +125,17 @@ div.candidate span.matches a.google-link {
 }
 
 .btn-orange{
-    margin-top: 25px;
     font-size: 14px;
     font-weight: bold;
     border-radius: 3px;
     border: solid 1px #F16B46;
     color: #fff;
     transition: all 0.3s;
+}
+.btn {
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .btn-orange:hover {
