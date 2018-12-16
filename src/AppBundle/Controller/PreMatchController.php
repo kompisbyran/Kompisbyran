@@ -169,14 +169,18 @@ class PreMatchController extends Controller
                 null,
                 $request->request->get('fluentSpeakerEmail'),
                 sprintf('%s, här är din matchning från Kompisbyrån', $preMatch->getFluentSpeakerConnectionRequest()->getUser()->getFirstName()),
-                $preMatch->getFluentSpeakerConnectionRequest()->getUser()->getEmail()
+                $preMatch->getFluentSpeakerConnectionRequest()->getUser()->getEmail(),
+                $connection->getMunicipality()->getSenderEmail(),
+                $connection->getMunicipality()->getSenderEmail()
             );
 
             $this->get('app.mailer')->sendEmailMessage(
                 null,
                 $request->request->get('learnerEmail'),
                 sprintf('%s, här är din matchning från Kompisbyrån', $preMatch->getLearnerConnectionRequest()->getUser()->getFirstName()),
-                $preMatch->getLearnerConnectionRequest()->getUser()->getEmail()
+                $preMatch->getLearnerConnectionRequest()->getUser()->getEmail(),
+                $connection->getMunicipality()->getSenderEmail(),
+                $connection->getMunicipality()->getSenderEmail()
             );
         }
 

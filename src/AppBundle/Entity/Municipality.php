@@ -89,6 +89,13 @@ class Municipality
      */
     protected $matchFamily = false;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $senderEmail;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -255,5 +262,21 @@ class Municipality
     public function setMatchFamily($matchFamily)
     {
         $this->matchFamily = $matchFamily;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSenderEmail()
+    {
+        return $this->senderEmail;
+    }
+
+    /**
+     * @param string $senderEmail
+     */
+    public function setSenderEmail($senderEmail)
+    {
+        $this->senderEmail = $senderEmail;
     }
 }
