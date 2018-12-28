@@ -285,7 +285,11 @@ class ConnectionRequestRepository extends EntityRepository
      */
     public function findAllByInspected(User $user, $inspected)
     {
-        $qb     =  $this
+        if (count($user->getCities()) == 0 && count($user->getAdminMunicipalities()) == 0) {
+            return [];
+        }
+
+        $qb = $this
             ->createQueryBuilder('cr')
             ->where('cr.inspected  = :inspected')
             ->groupBy('cr.user')
