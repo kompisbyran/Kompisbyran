@@ -96,6 +96,13 @@ class Municipality
      */
     protected $senderEmail;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $followUpEmailTemplate;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -278,5 +285,21 @@ class Municipality
     public function setSenderEmail($senderEmail)
     {
         $this->senderEmail = $senderEmail;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFollowUpEmailTemplate()
+    {
+        return $this->followUpEmailTemplate;
+    }
+
+    /**
+     * @param string $followUpEmailTemplate
+     */
+    public function setFollowUpEmailTemplate($followUpEmailTemplate)
+    {
+        $this->followUpEmailTemplate = $followUpEmailTemplate;
     }
 }

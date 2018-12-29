@@ -145,23 +145,21 @@ class UserMailer extends Mailer
         $template = 'followUp';
         $subject = 'Fråga från Kompisbyrån';
 
-
-        if ($connection->getType() == FriendTypes::START) {
-            if ($connection->getFluentSpeaker() == $user) {
-                $template = 'followUpStartFriendFluentSpeaker';
-                $subject = 'Vi efterfrågar din upplevelse av att träffa en startkompis';
-            } else {
-                $template = 'followUpStartFriendLearner';
-                $subject = 'Fråga från Kompisbyrån / Request from Kompisbyrån';
+        $fromEmail = null;
+        if ($connection->getMunicipality()) {
+            if ($connection->getMunicipality()->getFollowUpEmailTemplate()) {
+                $template = 'followUp/' . $connection->getMunicipality()->getFollowUpEmailTemplate();
+            }
+            if ($connection->getMunicipality()->getSenderEmail()) {
+                $fromEmail = $connection->getMunicipality()->getSenderEmail();
             }
         }
-
         $html = $this->templating->render(sprintf('email/%s.html.twig', $template), [
             'user' => $user,
             'connection' => $connection,
         ]);
 
-        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail(), $fromEmail);
 
         $this->eventDispatcher->dispatch(
             FollowUpEmailSentEvent::FOLLOW_UP_EMAIL2_SENT,

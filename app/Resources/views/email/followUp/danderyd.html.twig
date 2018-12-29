@@ -1,0 +1,45 @@
+{% extends 'baseEmail.html.twig' %}
+
+{% block body %}
+    <p>
+        Hej!
+    </p>
+    <p>
+        Vi hoppas att du hade ett trevligt möte med din kompis- eller familjematchning från Kompisbyrån Danderyd. Nu har det gått en tid sedan ert första möte och vi skulle bli väldigt tacksamma om du tog dig tid att svara på några frågor om din upplevelse. Det är en kort undersökning som inte tar många minuter, men där dina svar är otroligt viktiga för vårt fortsatta arbete. Tryck här för att komma till enkäten: <a href="https://goo.gl/forms/GhGgrGrcqXxz6mtV2">https://goo.gl/forms/GhGgrGrcqXxz6mtV2</a>.
+    </p>
+    <p>
+        Ni inspirerar! Om ni inte redan har gjort det, skicka gärna ett foto från ert möte tillsammans med några meningar om vad ni gjorde och hur det var. Maila hälsningen till oss så delar vi den gärna digitalt. Eller hashtagga själv med #kompisbyrån eller #kompisbyran.
+    </p>
+    <p>
+        Om ni tycker det är roligt är det bara att ni fortsätter hålla kontakten, om inte så hoppas vi att ni hade ett minnesvärt möte. Du är alltid varmt välkommen att anmäla dig till en ny matchning genom att logga in på vår hemsida med din email och ditt lösenord här: <a href="{{ url('login') }}">{{ url('login') }}</a>.
+    </p>
+    <p>
+        Stort tack för din hjälp!
+    </p>
+    <p>
+        Bästa hälsningar,<br>
+        Vännerna på Kompisbyrån Danderyd
+    </p>
+    <p>
+        -----------English-----------
+    </p>
+    <p>
+        Hello!
+    </p>
+    <p>
+        We hope you had a nice meeting with your new friend or family match from Kompisbyrån Danderyd. It has now been some time since your first meeting and we would be so happy if you could answer a few questions so that we can improve our work. It's quick and you respond anonymously: <a href="https://goo.gl/forms/GhGgrGrcqXxz6mtV2">https://goo.gl/forms/GhGgrGrcqXxz6mtV2</a>.
+    </p>
+    <p>
+        The stories from your meetings inspire people. If you haven't already done this, please send us a photo from your meeting along with a couple of sentences about what you did and how it was (with approval from both of you). If you send it to us, we will share it digitally. Or feel free to hashtag #kompisbyrån or #kompisbyran.
+    </p>
+    <p>
+        If you want to you can just continue to meet each other. If not, we hope that you had a memorable time. You are always welcome to sign up for a new match by logging on to our website with your email and password: <a href="{{ url('login') }}">{{ url('login') }}</a>.
+    </p>
+    <p>
+        Thank you for helping us!
+    </p>
+    <p>
+        Best regards,<br>
+        Your friends at Kompisbyrån Danderyd
+    </p>
+{% endblock %}
