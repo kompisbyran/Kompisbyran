@@ -32,3 +32,6 @@ parameters:
     deadmanssnitch_url: https://nosnch.in/xxxxx
 
     router.request_context.host: www.kompisbyran.se
+
+    instagram.userid: 111
+    instagram.access_token: xxx

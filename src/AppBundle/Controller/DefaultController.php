@@ -70,7 +70,9 @@ class DefaultController extends Controller
                 'newUser' => $newUser,
             ];
         } else {
-            $parameters = [];
+            $parameters = [
+                'instagramImages' => $this->get('instagram_image_repository')->findBy([], ['createdAt' => 'DESC'], 3),
+            ];
         }
 
         return $this->render('default/index.html.twig', $parameters);

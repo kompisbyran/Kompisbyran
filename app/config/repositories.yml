@@ -47,3 +47,10 @@ services:
         factory_method: getRepository
         arguments:
             - AppBundle:Municipality
+
+    instagram_image_repository:
+        class: AppBundle\Entity\InstagramImageRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - AppBundle:InstagramImage
