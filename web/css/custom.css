@@ -158,3 +158,25 @@ h3 {
     padding: 0.7em 1.3em;
     font-size: 1.5em;
 }
+
+.line-behind {
+    margin: 20px 0 10px 0;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.line-behind:before {
+    border-top: 1px solid black;
+    content:"";
+    margin: 0 auto; /* this centers the line to the full width specified */
+    position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+    top: 12px; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+}
+
+.line-behind span {
+    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+    background: #fff;
+    padding: 0 15px;
+}
