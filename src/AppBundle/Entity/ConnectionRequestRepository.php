@@ -345,10 +345,13 @@ class ConnectionRequestRepository extends EntityRepository
     {
         return $qb = $this->createQueryBuilder('cr')
             ->innerJoin('cr.user', 'u')
+            ->leftJoin('cr.fluentSpeakerConnection', 'fsc')
+            ->leftJoin('cr.learnerConnection', 'lc')
             ->where('cr.municipality = :municipality')
             ->andWhere('cr.type = :type')
             ->andWhere('cr.inspected = true')
             ->andWhere('cr.pending = false')
+            ->andWhere('fsc.id IS NULL AND lc.id IS NULL')
             ->setParameter('municipality', $municipality)
             ->setParameter('type', FriendTypes::START)
             ->orderBy('cr.createdAt', 'DESC')
