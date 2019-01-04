@@ -20,14 +20,20 @@
     <h2 class="text-center">Kompisbyran på Instagram</h2>
     <div class="row" style="margin-top: 3em;">
         {% for instagramImage in instagramImages %}
-        <div class="col-md-4 col-sm-4" >
+        <div class="col-md-3 col-sm-3" >
             <img src="{{ instagramImage.profilePicture }}" alt="{{ instagramImage.username }}" class="img-circle{% if instagramImage.location %} pull-left{% endif %}" style="width: 50px; margin-right: 1em;">
             <strong>{{ instagramImage.username }}</strong> <a href="https://www.instagram.com/{{ instagramImage.username }}">Följ</a>
             {% if instagramImage.location %}
                 <br>{{ instagramImage.location }}
             {% endif %}
-            <img src="{{ instagramImage.imageUrl }}" class="img-responsive" style="margin-top:1em;">
-            <strong>{{ instagramImage.username }}</strong> {{ instagramImage.caption }}
+            <a href="{{ instagramImage.link }}"><img src="{{ instagramImage.imageUrl }}" class="img-responsive" style="margin-top:1em;"></a>
+            <strong>{{ instagramImage.username }}</strong>
+            {% if instagramImage.caption|length > 75 %}
+                <span class="instagram-short-caption">{{ instagramImage.caption|slice(0, 75) }}... <a href="#" class="instagram-readmore">Läs mer</a></span>
+                <span class="instagram-caption hidden">{{ instagramImage.caption }}</span>
+            {% else %}
+                {{ instagramImage.caption }}
+            {% endif %}
         </div>
         {% endfor %}
     </div>

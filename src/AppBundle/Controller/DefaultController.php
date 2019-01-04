@@ -71,7 +71,7 @@ class DefaultController extends Controller
             ];
         } else {
             $parameters = [
-                'instagramImages' => $this->get('instagram_image_repository')->findBy([], ['createdAt' => 'DESC'], 3),
+                'instagramImages' => $this->get('instagram_image_repository')->findBy([], ['createdAt' => 'DESC'], 4),
             ];
         }
 
