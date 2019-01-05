@@ -7,17 +7,16 @@
                 <p>
                     {{ 'homepage.cta.message'|trans|raw }}
                 </p>
-                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg btn-orange btn-super-lg">
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg btn-orange btn-super-lg" style="margin:1.5em;">
                     {{ 'homepage.cta.button'|trans }}
                 </a>
-                <br><br>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container" style="margin-top: 3em;">
-    <h2 class="text-center">Kompisbyran på Instagram</h2>
+<div class="container" style="margin-top: 1em; border-top: solid 1px #ccc; padding-top:1em;">
+    <h2 class="text-center">Kompisbyrån på Instagram</h2>
     <div class="row" style="margin-top: 3em;">
         {% for instagramImage in instagramImages %}
         <div class="col-md-3 col-sm-3" >
