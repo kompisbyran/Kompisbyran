@@ -100,9 +100,17 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script type="text/javascript">
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-<script type="text/javascript">
-    {{ include(':user:form.js.twig') }}
-</script>
+        {{ include(':user:form.js.twig') }}
+    {% else %}
+    $(document).ready(function() {
+        $('.instagram-readmore').on('click', function (e) {
+            e.preventDefault();
+            $(this).parent().next().removeClass('hidden');
+            $(this).parent().remove();
+        });
+    });
     {% endif %}
+    </script>
 {% endblock %}

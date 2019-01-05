@@ -7,63 +7,34 @@
                 <p>
                     {{ 'homepage.cta.message'|trans|raw }}
                 </p>
-                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg btn-orange btn-super-lg">
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-lg btn-orange btn-super-lg" style="margin:1.5em;">
                     {{ 'homepage.cta.button'|trans }}
                 </a>
-                <br><br>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Inner Page Heading -->
-<div class="testimonial">
-    <div class="container">
-        <div class="inner-testimonial">
-            <div class="row">
-                <div class="col-md-4 col-sm-4">
-                    <!-- testimonial content -->
-                    <div class="testimonial-content t-one">
-                        <!-- User's image , name and designation -->
-                        <h4><img src="/images/testimonials/dorry-mahlin.jpg" alt="" class="img-responsive img-circle"/>Dorry och Mahin</h4>
-                        <!-- User's comment -->
-                        <blockquote class="br-orange">
-                            <p>
-                                Hej!<br>
-                                Här kommer en hälsning från Mahin och mig! Vi hade en mycket trevlig fikastund idag och har bestämt att vi ska ses snart igen! Bra matchning vad gäller våra intressen!
-                            </p>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <!-- testimonial content -->
-                    <div class="testimonial-content t-two">
-                        <!-- User's image , name and designation -->
-                        <h4><img src="/images/testimonials/amanda-gurbet.jpg" alt="" class="img-responsive img-circle"/>Amanda och Gurbet</h4>
-                        <!-- User's comment -->
-                        <blockquote class="br-orange">
-                            <p>
-                                Idag fikade jag med Gurbet genom Kompisbyrån. Hon har varit här i 5 månader och är redan en fena på svenska. Vi pratade om allt möjligt, situationen för kurder i Turkiet, familj, tårtor och att vi ska träffas snart igen!<br>
-                                Tack för bra initiativ! 
-                            </p>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4">
-                    <!-- testimonial content -->
-                    <div class="testimonial-content t-three">
-                        <!-- User's image , name and designation -->
-                        <h4><img src="/images/testimonials/johannes-massod.jpg" alt="" class="img-responsive img-circle"/>Johannes och Massod</h4>
-                        <!-- User's comment -->
-                        <blockquote class="br-orange">
-                            <p>
-                                Nu har jag och Massod fikat, vi sågs på Kulturhuset och drack kaffe. Vi pratade om matlagning, religion och våra båda hemländer. Mycket trevligt!
-                            </p>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
+<div class="container" style="margin-top: 1em; border-top: solid 1px #ccc; padding-top:1em;">
+    <h2 class="text-center">Kompisbyrån på Instagram</h2>
+    <div class="row" style="margin-top: 3em;">
+        {% for instagramImage in instagramImages %}
+        <div class="col-md-3 col-sm-3" >
+            <img src="{{ instagramImage.profilePicture }}" alt="{{ instagramImage.username }}" class="img-circle{% if instagramImage.location %} pull-left{% endif %}" style="width: 50px; margin-right: 1em;">
+            <strong>{{ instagramImage.username }}</strong> <a href="https://www.instagram.com/{{ instagramImage.username }}">Följ</a>
+            {% if instagramImage.location %}
+                <br>{{ instagramImage.location }}
+            {% endif %}
+            <a href="{{ instagramImage.link }}"><img src="{{ instagramImage.imageUrl }}" class="img-responsive" style="margin-top:1em;"></a>
+            <strong>{{ instagramImage.username }}</strong>
+            {% if instagramImage.caption|length > 75 %}
+                <span class="instagram-short-caption">{{ instagramImage.caption|slice(0, 75) }}... <a href="#" class="instagram-readmore">Läs mer</a></span>
+                <span class="instagram-caption hidden">{{ instagramImage.caption }}</span>
+            {% else %}
+                {{ instagramImage.caption }}
+            {% endif %}
         </div>
+        {% endfor %}
     </div>
 </div>
 
