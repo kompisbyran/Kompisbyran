@@ -25,7 +25,7 @@ class MunicipalityExtensionTest extends \PHPUnit_Framework_TestCase
             $municipalityMock->method('getName')->willReturn($name);
             $municipalityMocks->add($municipalityMock);
         }
-        $municipalityRepostoryMock->method('findAllStartMunicipalities')->willReturn($municipalityMocks);
+        $municipalityRepostoryMock->method('findAllActiveStartMunicipalities')->willReturn($municipalityMocks);
 
         $municipalityExtension = new MunicipalityExtension($translatorMock, $municipalityRepostoryMock);
         $this->assertEquals($expected, $municipalityExtension->startFriendMunicipalities());
