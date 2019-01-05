@@ -34,9 +34,8 @@ class RegistrationControllerTest extends DatabaseTestCase
         $crawler = $client->request('GET', '/register/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
-        $form = $crawler->filter('.fos_user_registration_register')->form([
-            'fos_user_registration_form[email][first]' => 'test@example.com',
-            'fos_user_registration_form[email][second]' => 'test@example.com',
+        $form = $crawler->filter('form')->form([
+            'fos_user_registration_form[email]' => 'test@example.com',
             'fos_user_registration_form[plainPassword][first]' => 'foobar',
             'fos_user_registration_form[plainPassword][second]' => 'foobar',
         ]);
