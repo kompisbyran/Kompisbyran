@@ -180,3 +180,9 @@ h3 {
     background: #fff;
     padding: 0 15px;
 }
+.box {
+    border: solid 1px #ccc;
+}
+.box h3 {
+    margin-top: 1em;
+}
