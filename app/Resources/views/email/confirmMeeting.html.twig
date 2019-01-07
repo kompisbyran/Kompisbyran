@@ -4,8 +4,7 @@
     <p>
         Hej {{ user.name }}!<br>
         Du får det här mailet eftersom du har blivit matchad med {{ friend.name }} via Kompisbyrån. Nu har det gått några
-        veckor sedan vi matchade er och vi undrar om ni har träffats. Klicka på följande länk eller kopiera länken och
-        klistra in i din webbläsare.
+        veckor sedan vi matchade er och vi undrar om ni har träffats. Klicka på följande länk för att lämna ditt svar:
     </p>
     <p>
         <a href="{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}">{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}</a>
@@ -13,7 +12,7 @@
 
     <p>Det går enkelt och snabbt att lämna ditt svar, men är mycket värdefullt för oss att få reda på.</p>
 
-    <p>Stort tack för att du vill vara med och engagera dig för ökad gemenskap!</p>
+    <p>Stort tack för att du vill vara med och engagera dig i Kompisbyråns arbete för ökad gemenskap!</p>
 
     <p>
         Bästa hälsningar,<br>
@@ -24,9 +23,9 @@
 
     <p>
         Hi {{ user.name }}!<br>
-        You receive this email because you have recently been matched with {{ friend.name }} through Kompisbyrån. Since it
-        has been a couple of weeks since we matched you we would now like to know if you have met with your new friend
-        or not. Please visit the following link or copy and paste it in your browser.
+        You receive this email because you have recently been matched with {{ friend.name }} through Kompisbyrån. It
+        has now been a couple of weeks since we matched you and we would now like to know if you have met with your new friend
+        or not. Please leave your answer by visiting the following link:
     </p>
     <p>
         <a href="{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}?_locale=en">{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}?_locale=en</a>
