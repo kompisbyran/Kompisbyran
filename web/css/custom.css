@@ -186,3 +186,7 @@ h3 {
 .box h3 {
     margin-top: 1em;
 }
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
