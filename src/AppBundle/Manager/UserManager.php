@@ -364,4 +364,20 @@ class UserManager implements ManagerInterface
 
         return true;
     }
+
+    /**
+     * @param \DateTime $date
+     *
+     * @return User
+     */
+    public function deleteInactiveSince(\DateTime $date)
+    {
+        $users = $this->userRepository->findInactiveSince($date);
+
+        foreach ($users as $user) {
+            $this->userRepository->softDelete($user);
+        }
+
+        return $users;
+    }
 }

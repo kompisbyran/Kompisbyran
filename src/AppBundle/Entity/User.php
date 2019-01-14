@@ -306,6 +306,13 @@ class User extends BaseUser
     protected $uuid;
 
     /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $confirmedKeepDataAt;
+
+    /**
      * @var Municipality
      *
      * @Assert\NotBlank(groups={"settings"})
@@ -1028,5 +1035,21 @@ class User extends BaseUser
     public function setCity($city)
     {
         $this->city = $city;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getConfirmedKeepDataAt()
+    {
+        return $this->confirmedKeepDataAt;
+    }
+
+    /**
+     * @param \DateTime|null $confirmedKeepDataAt
+     */
+    public function setConfirmedKeepDataAt($confirmedKeepDataAt)
+    {
+        $this->confirmedKeepDataAt = $confirmedKeepDataAt;
     }
 }

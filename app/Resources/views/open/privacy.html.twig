@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-0"></div>
+                <div class="col-md-8 col-sm-12">
+                    <h2>{{ 'Rubrik'|trans }}</h2>
+                    <p id="intro"> {{ 'Text...'|trans|nl2br }}</p>
+
+                    <div id="buttons" style="padding-top: 1em;">
+                        <a href="#" class="btn btn-success">
+                            {{ 'Spara mina uppgifter'|trans }}
+                        </a>
+                    </div>
+                    <div id="confirmed" class="hidden">
+                        {{ 'Ok...'|trans|nl2br }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#buttons .btn').on('click', function (e) {
+                e.preventDefault();
+                $('#buttons .btn').attr('disabled', true);
+
+                $.post('{{ path('public_privacy', {'uuid': uuid}) }}', {}, function(resp) {
+                    $('#buttons').hide();
+                    $('#intro').hide();
+                    $('#confirmed').removeClass('hidden');
+                });
+            });
+        });
+    </script>
+{% endblock %}

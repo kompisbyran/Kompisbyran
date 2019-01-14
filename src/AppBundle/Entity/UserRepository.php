@@ -257,4 +257,23 @@ class UserRepository extends EntityRepository
             ->getResult()
             ;
     }
+
+    /**
+     * @param \DateTime $date
+     *
+     * @return User
+     */
+    public function findInactiveSince(\DateTime $date)
+    {
+        return $this
+            ->createQueryBuilder('u')
+            ->where('u.enabled = true')
+            ->andWhere('u.createdAt < :date')
+            ->andWhere('u.lastLogin IS NULL OR u.lastLogin < :date')
+            ->andWhere('u.confirmedKeepDataAt IS NULL OR u.confirmedKeepDataAt < :date')
+            ->setParameter('date', $date)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
