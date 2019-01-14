@@ -99,10 +99,10 @@ class UserRepository extends EntityRepository
 
         $where  = $this->prepareMatchCriterias($criterias);
         $rsm    = new \Doctrine\ORM\Query\ResultSetMapping();
-        $sql    = "SELECT *, (COALESCE(SUM(cat_score),0) + SUM(age_score) + SUM(area_score) + SUM(children_score) + SUM(gender_score)) AS score
+        $sql    = "SELECT *, (COALESCE(SUM(cat_score),0) + SUM(age_score) + SUM(area_score) + SUM(children_score) + SUM(gender_score) + SUM(newly_arrived_score)) AS score
               FROM
               (
-                  SELECT u.id, cr.created_at AS connection_request_created_at, cr.pending, cr.id AS connection_request_id, (CASE WHEN(u.municipality_id=:user_municipality) THEN 2 ELSE 0 END) AS area_score, (CASE WHEN(u.has_children=true AND true=:user_children) THEN 2 ELSE 0 END) AS children_score, (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END) AS gender_score, (CASE WHEN((u.age-:user_age) BETWEEN -5 AND 5) THEN 2 ELSE 0 END) AS age_score, ((SELECT COUNT(users_categories.category_id) FROM users_categories WHERE users_categories.user_id = u.id AND users_categories.category_id IN (:user_categories) GROUP BY users_categories.user_id)*3) cat_score, u.newly_arrived
+                  SELECT u.id, cr.created_at AS connection_request_created_at, cr.pending, cr.id AS connection_request_id, (CASE WHEN(u.municipality_id=:user_municipality) THEN 2 ELSE 0 END) AS area_score, (CASE WHEN(u.has_children=true AND true=:user_children) THEN 2 ELSE 0 END) AS children_score, (CASE WHEN(u.newly_arrived=true) THEN 2 ELSE 0 END) AS newly_arrived_score, (CASE WHEN(u.gender=:user_gender) THEN 1 ELSE 0 END) AS gender_score, (CASE WHEN((u.age-:user_age) BETWEEN -5 AND 5) THEN 2 ELSE 0 END) AS age_score, ((SELECT COUNT(users_categories.category_id) FROM users_categories WHERE users_categories.user_id = u.id AND users_categories.category_id IN (:user_categories) GROUP BY users_categories.user_id)*3) cat_score, u.newly_arrived
                   FROM fos_user u
                   JOIN connection_request cr
                   ON cr.user_id = u.id

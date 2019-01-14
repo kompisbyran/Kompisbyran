@@ -194,7 +194,7 @@ class ConnectionRequestManager implements ManagerInterface
                 'email'         => $user->getEmail(),
                 'category'      => $wantToLearnText,
                 'action'        => $connectionRequest->getUser()->getId().'|'.$connectionRequest->getId().'|'.$pending, //user_id|request_id|pending
-                'type_text' => $this->translator->trans(FriendTypes::tranlsationKey($connectionRequest->getType())),
+                'extra' => $user->isNewlyArrived() ? 'Nyanländ' : '',
             ];
         }
 
