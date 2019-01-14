@@ -4,7 +4,6 @@
     <div class="row" style="margin-top: 40px;">
         <div class="col-md-12">
             <p>Fika friend: <strong class="learners-num">0 new</strong> &amp; <strong class="fika-established-num">0 established</strong></p>
-            <p>Music friend: <strong class="speakers-num">0 new</strong> &amp; <strong class="music-established-num">0 established</strong></p>
         </div>
     </div>
     <div class="row" style="margin-top: 40px;">
@@ -17,7 +16,7 @@
                 <th id="name">{{ 'Name'|trans }}</th>
                 <th id="email">{{ 'Email'|trans }}</th>
                 <th id="category">{{ 'Category'|trans }}</th>
-                <th id="type">{{ 'Type'|trans }}</th>
+                <th id="type">{{ 'Extra'|trans }}</th>
                 <th id="action">{{ 'Action'|trans }}</th>
             </tr>
             </thead>
@@ -57,7 +56,7 @@
                     {data: "name"},
                     {data: "email"},
                     {data: "category"},
-                    {data: "type_text"},
+                    {data: "extra"},
                     {data: "action", width: '20%'}
                 ],
                 "createdRow": function ( row, data, index ) {
