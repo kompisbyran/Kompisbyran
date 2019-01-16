@@ -1462,6 +1462,33 @@ Om du vill, maila gärna oss på matchning@kompisbyran.se och berätta varför m
                 <source>role.super_admin</source>
                 <target>Superadministratör</target>
             </trans-unit>
+            <trans-unit id="delete_inactive.header">
+                <source>delete_inactive.header</source>
+                <target>Vill du behålla ditt användarkonto hos Kompisbyrån?</target>
+            </trans-unit>
+            <trans-unit id="delete_inactive.text">
+                <source>delete_inactive.text</source>
+                <target>Nu var det länge sedan ditt konto hos oss var aktivt och vi undrar om du vill behålla det. Om vi sparar ditt konto kan du enkelt logga in och skicka in förfrågningar om att träffa nya vänner. Om du vill att vi ska behålla ditt användarkonto trycker du på knappen nedan för att bekräfta detta.</target>
+            </trans-unit>
+            <trans-unit id="delete_inactive.button">
+                <source>delete_inactive.button</source>
+                <target>Jag vill behålla mitt konto hos Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="delete_inactive.confirmed">
+                <source>delete_inactive.confirmed</source>
+                <target>
+                    <![CDATA[
+                        <p>
+                            Tack för din bekräftelse – vad roligt att du vill behålla ditt konto hos oss och fortsätta
+                            engagera dig för ökad gemenskap i samhället!
+                        </p>
+                        <p>
+                            Vill du få en ny kompismatchning? För att bli matchad med en ny kompis
+                            %linkStart%loggar du in%linkEnd% och skickar in en ny förfrågan.
+                        </p>
+                    ]]>
+                </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

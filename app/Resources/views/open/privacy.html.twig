@@ -7,16 +7,16 @@
             <div class="row">
                 <div class="col-md-2 col-sm-0"></div>
                 <div class="col-md-8 col-sm-12">
-                    <h2>{{ 'Rubrik'|trans }}</h2>
-                    <p id="intro"> {{ 'Text...'|trans|nl2br }}</p>
+                    <h2>{{ 'delete_inactive.header'|trans }}</h2>
+                    <p id="intro"> {{ 'delete_inactive.text'|trans|nl2br }}</p>
 
                     <div id="buttons" style="padding-top: 1em;">
                         <a href="#" class="btn btn-success">
-                            {{ 'Spara mina uppgifter'|trans }}
+                            {{ 'delete_inactive.button'|trans }}
                         </a>
                     </div>
                     <div id="confirmed" class="hidden">
-                        {{ 'Ok...'|trans|nl2br }}
+                        {{ 'delete_inactive.confirmed'|trans({'%linkStart%': '<a href="' ~ path('login') ~ '">' ,'%linkEnd%': '</a>'})|raw }}
                     </div>
                 </div>
             </div>
