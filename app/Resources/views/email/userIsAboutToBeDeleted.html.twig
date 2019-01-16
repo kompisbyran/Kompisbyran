@@ -1,0 +1,51 @@
+{% extends 'baseEmail.html.twig' %}
+
+{% block body %}
+
+    <p>
+        Hej {{ user.name }}!<br>
+        Du får det här mailet eftersom du tidigare har engagerat dig hos oss på Kompisbyrån. Nu var det länge sedan vi
+        matchade dig med en ny kompis. Om du tror att du kommer vilja träffa en ny kompis i framtiden och därmed vill
+        behålla ditt användarkonto hos oss, gå in här för att bekräfta detta:
+        <a href="{{ url('public_privacy', {'uuid': user.uuid}) }}">{{ url('public_privacy', {'uuid': user.uuid}) }}</a>.
+    </p>
+
+    <p>
+        Om du inte gör någonting kommer ditt konto hos oss automatiskt att tas bort den {{ deleteDate|date('Y-m-d') }}.
+    </p>
+
+    <p>
+        Vi hoppas såklart att vi får möjlighet att länka samman dig med nya kompisar!
+    </p>
+
+    <p>
+        Bästa hälsningar,<br>
+        Vännerna på Kompisbyrån
+    </p>
+
+    <p><strong>-- English --</strong></p>
+
+    <p>
+        Hi {{ user.name }}!<br>
+        You receive this e-mail since you have been active in meeting new friends with Kompisbyrån. It has now been a
+        long time since we matched you up with a friend. If you believe that you will want to meet more friends with us
+        in the future and therefore want to keep your user account with us, please visit the following page and confirm
+        this: <a href="{{ url('public_privacy', {'uuid': user.uuid, '_locale': 'en'}) }}"
+        >{{ url('public_privacy', {'uuid': user.uuid, '_locale': 'en'}) }}</a>.
+    </p>
+
+    <p>
+        If you don't take any action your account with us will be automatically deleted at {{ deleteDate|date('Y-m-d') }}.
+    </p>
+
+    <p>
+        We hope that you want to stay with Kompisbyrån and that we will have the opportunity to connect you with new
+        friends!
+    </p>
+
+    <p>
+        Best regards,<br>
+        Your friends at Kompisbyrån
+    </p>
+
+{% endblock %}

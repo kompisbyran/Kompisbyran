@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20190114210958 extends AbstractMigration
+class Version20190116134109 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -18,7 +18,7 @@ class Version20190114210958 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE fos_user ADD confirmed_keep_data_at DATETIME DEFAULT NULL');
+        $this->addSql('ALTER TABLE fos_user ADD inactive_email_sent_at DATETIME DEFAULT NULL');
     }
 
     /**
@@ -29,6 +29,6 @@ class Version20190114210958 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE fos_user DROP confirmed_keep_data_at');
+        $this->addSql('ALTER TABLE fos_user DROP inactive_email_sent_at');
     }
 }
