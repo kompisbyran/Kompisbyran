@@ -56,6 +56,8 @@ php app/console kompisbyran:send-follow-up-email2 14 #days since user marked mee
 php app/console kompisbyran:send-follow-up-email3 150 #days since user marked meeting as held
 php app/console kompisbyran:send-meet-again-emails 60 #days since connection was created
 php app/console kompisbyran:send-emails-to-incomplete-users 2 #days since user was created
+php app/console kompisbyran:send-about-to-be-deleted-emails #once a day
+php app/console kompisbyran:delete-users #once a day
 ```
 
 ### Config

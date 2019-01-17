@@ -12,7 +12,7 @@ class DeleteUsersCommand extends ContainerAwareCommand
     {
         $this
             ->setName('kompisbyran:delete-users')
-            ->setDescription('Delete inactive users')
+            ->setDescription('Delete inactive users. Should be run once a day.')
         ;
     }
 

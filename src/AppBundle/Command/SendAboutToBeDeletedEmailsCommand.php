@@ -13,7 +13,7 @@ class SendAboutToBeDeletedEmailsCommand extends ContainerAwareCommand
     {
         $this
             ->setName('kompisbyran:send-about-to-be-deleted-emails')
-            ->setDescription('Send emails to inactive user telling them their account will be deleted in a few days.')
+            ->setDescription('Send emails to inactive user telling them their account will be deleted in a few days. Should be run once a day.')
         ;
     }
 
@@ -44,6 +44,7 @@ class SendAboutToBeDeletedEmailsCommand extends ContainerAwareCommand
         );
 
         foreach ($filteredUsers as $user) {
+            $output->writeln(sprintf('Sending email to %s.', $user->getEmail()));
             $this->getContainer()->get('app.user_mailer')->sendUserIsAboutToBeDeletedMessage($user);
             $user->setInactiveEmailSentAt(new \DateTime());
             $this->getContainer()->get('doctrine.orm.entity_manager')->persist($user);

@@ -265,7 +265,8 @@ class UserRepository extends EntityRepository
      */
     public function findInactiveSince(\DateTime $date)
     {
-        return $this
+        /** @var User[] $users */
+        $users = $this
             ->createQueryBuilder('u')
             ->where('u.enabled = true')
             ->andWhere('u.createdAt < :date')
@@ -275,5 +276,16 @@ class UserRepository extends EntityRepository
             ->getQuery()
             ->getResult()
             ;
+
+        $filteredUsers = [];
+        foreach ($users as $user) {
+            if ($user->hasOpenConnectionRequest() && $user->getOpenConnectionRequest()->getPending()) {
+                continue;
+            }
+
+            $filteredUsers[] = $user;
+        }
+
+        return $filteredUsers;
     }
 }
