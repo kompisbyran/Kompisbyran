@@ -1396,6 +1396,34 @@ If you want to, send us an e-mail at matchning@kompisbyran.se and tell us why yo
                 <source>role.super_admin</source>
                 <target>Superadministratör</target>
             </trans-unit>
+            <trans-unit id="delete_inactive.header">
+                <source>delete_inactive.header</source>
+                <target>Do you want to keep your user account with Kompisbyrån?</target>
+            </trans-unit>
+            <trans-unit id="delete_inactive.text">
+                <source>delete_inactive.text</source>
+                <target>It has been a long time since your account with us was active and we are wondering if you wish to keep it. If we keep your account, you can easily just log in and submit new friend requests. If you wish to keep you user account, please click the button below to confirm this.</target>
+            </trans-unit>
+            <trans-unit id="delete_inactive.button">
+                <source>delete_inactive.button</source>
+                <target>I want to keep my user account with Kompisbyrån</target>
+            </trans-unit>
+            <trans-unit id="delete_inactive.confirmed">
+                <source>delete_inactive.confirmed</source>
+                <target>
+                    <![CDATA[
+                        <p>
+                            Thank you for your confirmation – we are so happy that you want to keep your user account
+                            with us and continue your participation in achieving a greater sense of community in our
+                            society!
+                        </p>
+                        <p>
+                            Would you like to be matched with a new friend? To be matched with a new friend, please
+                            %linkStart%log in%linkEnd% and submit a new friend request.
+                        </p>
+                    ]]>
+                </target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

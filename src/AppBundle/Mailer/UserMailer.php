@@ -3,10 +3,8 @@
 namespace AppBundle\Mailer;
 
 use AppBundle\Entity\Connection;
-use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
-use AppBundle\Enum\MeetingTypes;
 use AppBundle\Event\FollowUpEmailSentEvent;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -30,22 +28,30 @@ class UserMailer extends Mailer
     protected $eventDispatcher;
 
     /**
+     * @var int
+     */
+    protected $daysToAcceptKeepInactiveUserBeforeDeletion;
+
+    /**
      * @param \Swift_Mailer $mailer
      * @param RouterInterface $router
      * @param EngineInterface $templating
      * @param TranslatorInterface $translator
      * @param EventDispatcherInterface $eventDispatcher
+     * @param int $daysToAcceptKeepInactiveUserBeforeDeletion
      */
     public function __construct(
         \Swift_Mailer $mailer,
         RouterInterface $router,
         EngineInterface $templating,
         TranslatorInterface $translator,
-        EventDispatcherInterface $eventDispatcher
+        EventDispatcherInterface $eventDispatcher,
+        $daysToAcceptKeepInactiveUserBeforeDeletion
     )
     {
         $this->translator = $translator;
         $this->eventDispatcher = $eventDispatcher;
+        $this->daysToAcceptKeepInactiveUserBeforeDeletion = $daysToAcceptKeepInactiveUserBeforeDeletion;
 
         parent::__construct($mailer, $router, $templating);
     }
@@ -187,7 +193,7 @@ class UserMailer extends Mailer
         $this->sendEmailMessage($html, null, $subject, $user->getEmail());
     }
   
-    /*
+    /**
      * @param User $user
      * @param Connection $connection
      */
@@ -203,6 +209,24 @@ class UserMailer extends Mailer
         $html = $this->templating->render('email/followUp3.html.twig', [
             'user' => $user,
             'friend' => $friend,
+        ]);
+
+        $this->sendEmailMessage($html, null, $subject, $user->getEmail());
+    }
+
+    /**
+     * @param User $user
+     */
+    public function sendUserIsAboutToBeDeletedMessage(User $user)
+    {
+        $deleteDate = new \DateTime();
+        $deleteDate->modify(sprintf('+%s days', $this->daysToAcceptKeepInactiveUserBeforeDeletion));
+
+        $subject = 'Vill du fortsätta träffa nya vänner med Kompisbyrån?';
+
+        $html = $this->templating->render('email/userIsAboutToBeDeleted.html.twig', [
+            'user' => $user,
+            'deleteDate' => $deleteDate,
         ]);
 
         $this->sendEmailMessage($html, null, $subject, $user->getEmail());

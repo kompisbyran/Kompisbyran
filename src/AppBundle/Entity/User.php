@@ -306,6 +306,20 @@ class User extends BaseUser
     protected $uuid;
 
     /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $confirmedKeepDataAt;
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $inactiveEmailSentAt;
+
+    /**
      * @var Municipality
      *
      * @Assert\NotBlank(groups={"settings"})
@@ -1028,5 +1042,37 @@ class User extends BaseUser
     public function setCity($city)
     {
         $this->city = $city;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getConfirmedKeepDataAt()
+    {
+        return $this->confirmedKeepDataAt;
+    }
+
+    /**
+     * @param \DateTime|null $confirmedKeepDataAt
+     */
+    public function setConfirmedKeepDataAt($confirmedKeepDataAt)
+    {
+        $this->confirmedKeepDataAt = $confirmedKeepDataAt;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getInactiveEmailSentAt()
+    {
+        return $this->inactiveEmailSentAt;
+    }
+
+    /**
+     * @param \DateTime|null $inactiveEmailSentAt
+     */
+    public function setInactiveEmailSentAt($inactiveEmailSentAt)
+    {
+        $this->inactiveEmailSentAt = $inactiveEmailSentAt;
     }
 }

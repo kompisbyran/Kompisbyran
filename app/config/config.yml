@@ -4,6 +4,10 @@ imports:
     - { resource: services.yml }
     - { resource: repositories.yml }
 
+parameters:
+    years_of_inactivity_before_deletion: 3
+    days_to_accept_keep_inactive_user_before_deletion: 21
+
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
