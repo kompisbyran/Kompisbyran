@@ -3,14 +3,18 @@
 {% block body %}
     <p>
         Hej {{ user.name }}!<br>
-        Du får det här mailet eftersom du har blivit matchad med {{ friend.name }} via Kompisbyrån. Nu har det gått några
-        veckor sedan vi matchade er och vi undrar om ni har träffats. Klicka på följande länk för att lämna ditt svar:
+        Du får det här mailet eftersom du har blivit matchad med {{ friend.name }} via Kompisbyrån. Nu har det gått en
+        tid sedan vi matchade er och vi undrar om ni har träffats. Klicka på följande länk för att lämna ditt svar – det
+        tar max 1 minut:
     </p>
     <p>
         <a href="{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}">{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}</a>
     </p>
 
-    <p>Det går enkelt och snabbt att lämna ditt svar, men är mycket värdefullt för oss att få reda på.</p>
+    <p>
+        Ditt svar är mycket viktigt för oss då informationen ligger till grund för vårt finansiella stöd som ideell
+        organisation. Vi hoppas höra från dig, i annat fall kan vi komma att ringa dig istället för att få återkoppling.
+    </p>
 
     <p>Stort tack för att du vill vara med och engagera dig i Kompisbyråns arbete för ökad gemenskap!</p>
 
@@ -24,15 +28,17 @@
     <p>
         Hi {{ user.name }}!<br>
         You receive this email because you have recently been matched with {{ friend.name }} through Kompisbyrån. It
-        has now been a couple of weeks since we matched you and we would love to know if you have met with your new friend
-        or not. Please leave your answer by visiting the following link:
+        has now been some time since we matched you and we would love to know if you have met with your new friend or
+        not. Please leave your answer by visiting the following link – it’s quick and takes no more than 1 min:
     </p>
     <p>
         <a href="{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}?_locale=en">{{ url('public_connection', {'uuid': user.uuid, 'id': connection.id}) }}?_locale=en</a>
     </p>
 
     <p>
-        It’s simple and only takes a couple of seconds, but it’s very valuable information for us at Kompisbyrån.
+        Your answer is very important to us since this information is the basis of our financial support as a non-profit
+        organization. We hope to hear from you, otherwise we might call you by phone instead to confirm if you have met
+        or not.
     </p>
     <p>
         Thank you for taking part in working towards a greater sense of community in our society!
