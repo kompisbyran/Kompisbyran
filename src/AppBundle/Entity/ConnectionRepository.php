@@ -363,4 +363,40 @@ class ConnectionRepository extends EntityRepository
             ;
 
     }
+
+    /**
+     * @param \DateTimeInterface $from
+     * @param \DateTimeInterface $to
+     *
+     * @return Connection[]
+     */
+    public function findConfirmedBetweenDates(\DateTimeInterface $from, \DateTimeInterface $to)
+    {
+        $qb = $this->createQueryBuilder('c');
+
+        $orX = $qb->expr()->orX();
+        $andX1 = $qb->expr()->andX();
+        $andX2 = $qb->expr()->andX();
+
+        $andX1->add('c.learnerMarkedAsMetCreatedAt > c.fluentSpeakerMarkedAsMetCreatedAt');
+        $andX1->add('c.learnerMarkedAsMetCreatedAt between :from and :to');
+        $andX2->add('c.fluentSpeakerMarkedAsMetCreatedAt > c.learnerMarkedAsMetCreatedAt');
+        $andX2->add('c.fluentSpeakerMarkedAsMetCreatedAt between :from and :to');
+        $orX->add($andX1);
+        $orX->add($andX2);
+
+        $qb
+            ->innerJoin('c.learner', 'l')
+            ->innerJoin('c.fluentSpeaker', 'f')
+            ->leftJoin('c.city', 'city')
+            ->leftJoin('c.municipality', 'm')
+            ->where('c.learnerMarkedAsMetCreatedAt IS NOT NULL')
+            ->andWhere('c.fluentSpeakerMarkedAsMetCreatedAt IS NOT NULL')
+            ->andWhere($orX)
+            ->setParameter('from', $from)
+            ->setParameter('to', $to)
+            ;
+
+        return $qb->getQuery()->execute();
+    }
 }
