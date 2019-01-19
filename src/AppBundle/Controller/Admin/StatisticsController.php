@@ -56,6 +56,53 @@ class StatisticsController extends Controller
         return $this->render('admin/statistics/index.html.twig', $parameters);
     }
 
+    /**
+     * @Route("/confirmed-meetings", name="admin_statistics_confirmed_meetings")
+     */
+    public function confirmedMeetingsAction(Request $request)
+    {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
+        $from = null;
+        if ($request->query->get('from')) {
+            try {
+                $from = new \DateTime($request->query->get('from'));
+            } catch (\Exception $e) {}
+        }
+        $to = null;
+        if ($request->query->get('to')) {
+            try {
+                $to = new \DateTime($request->query->get('to'));
+            } catch (\Exception $e) {}
+        }
+
+        if (!$from) {
+            $from = new \DateTime();
+            $from->modify('-1 month');
+            $from->setDate($from->format('Y'), $from->format('n'), 1);
+            $from->setTime(0, 0, 0);
+        }
+
+        if (!$to) {
+            $to = clone $from;
+            $to->modify('+1 month');
+            $to->setTime(0, 0, 0);
+        }
+
+        $connections = $this->getConnectionRepository()->findConfirmedBetweenDates($from, $to);
+
+        $parameters = [
+            'from' => $from,
+            'to' => $to,
+            'connections' => $connections,
+            'years' => $this->getConnectionRepository()->getYearSpan(),
+            'months' => $this->months,
+        ];
+
+        return $this->render('admin/statistics/confirmed-meetings.html.twig', $parameters);
+    }
+
+
     protected function structuredMatches($matches)
     {
         $structuredMatches = [];
