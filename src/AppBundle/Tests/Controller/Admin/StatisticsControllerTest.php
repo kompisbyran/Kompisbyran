@@ -15,7 +15,7 @@ class StatisticsControllerTest extends DatabaseTestCase
     {
         $this->authenticateUser(
             $this->getUserRepository()->findOneBy(['email' => 'learner@example.com']),
-            ['ROLE_SUPER_ADMIN']
+            ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
         );
 
         $client = static::$client;
