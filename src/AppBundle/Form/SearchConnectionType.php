@@ -42,6 +42,16 @@ class SearchConnectionType extends AbstractType
                 'empty_value' => '',
                 'required' => false,
             ])
+            ->add('learnerHomeMunicipality', 'entity', [
+                'label' => 'Övares hemkommun',
+                'class' => Municipality::class,
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('m')->where('m.startMunicipality = true')->orderBy('m.name', 'ASC');
+                },
+                'property' => 'name',
+                'empty_value' => '',
+                'required' => false,
+            ])
             ->add('from', 'date', [
                 'label' => 'Från',
                 'widget' => 'single_text',
