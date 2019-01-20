@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Admin;
 
+use AppBundle\Entity\ConnectionRequest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -63,45 +64,48 @@ class StatisticsController extends Controller
     {
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
-        $from = null;
-        if ($request->query->get('from')) {
-            try {
-                $from = new \DateTime($request->query->get('from'));
-            } catch (\Exception $e) {}
-        }
-        $to = null;
-        if ($request->query->get('to')) {
-            try {
-                $to = new \DateTime($request->query->get('to'));
-            } catch (\Exception $e) {}
-        }
-
-        if (!$from) {
-            $from = new \DateTime();
-            $from->modify('-1 month');
-            $from->setDate($from->format('Y'), $from->format('n'), 1);
-            $from->setTime(0, 0, 0);
-        }
-
-        if (!$to) {
-            $to = clone $from;
-            $to->modify('+1 month');
-            $to->setTime(0, 0, 0);
-        }
-
+        $from = $this->getFromFromRequest($request);
+        $to = $this->getToFromRequest($request);
         $connections = $this->getConnectionRepository()->findConfirmedBetweenDates($from, $to);
 
         $parameters = [
             'from' => $from,
             'to' => $to,
             'connections' => $connections,
-            'years' => $this->getConnectionRepository()->getYearSpan(),
-            'months' => $this->months,
         ];
 
         return $this->render('admin/statistics/confirmed-meetings.html.twig', $parameters);
     }
 
+    /**
+     * @Route("/connection-request-count", name="admin_statistics_connection_request_count")
+     */
+    public function connectionRequestCountAction(Request $request)
+    {
+        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
+
+        $from = $this->getFromFromRequest($request);
+        $to = $this->getToFromRequest($request);
+
+        $parameters = [
+            'from' => $from,
+            'to' => $to,
+            'data' => $this->getConnectionRequestRepository()->findConnectionRequestCountPerCity($from, $to),
+        ];
+
+        return $this->render('admin/statistics/connection-request-count.html.twig', $parameters);
+    }
+
+    public function yearMonthNavAction($route)
+    {
+        $parameters = [
+            'years' => $this->getConnectionRepository()->getYearSpan(),
+            'months' => $this->months,
+            'route' => $route,
+        ];
+
+        return $this->render('admin/statistics/year-month-nav.html.twig', $parameters);
+    }
 
     protected function structuredMatches($matches)
     {
@@ -127,8 +131,51 @@ class StatisticsController extends Controller
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Connection');
     }
 
+    protected function getConnectionRequestRepository()
+    {
+        return $this->getDoctrine()->getManager()->getRepository(ConnectionRequest::class);
+    }
+
     protected function getCityRepository()
     {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:City');
+    }
+
+    protected function getFromFromRequest(Request $request)
+    {
+        $from = null;
+        if ($request->query->get('from')) {
+            try {
+                $from = new \DateTime($request->query->get('from'));
+            } catch (\Exception $e) {}
+        }
+
+        if (!$from) {
+            $from = new \DateTime();
+            $from->modify('-1 month');
+            $from->setDate($from->format('Y'), $from->format('n'), 1);
+            $from->setTime(0, 0, 0);
+        }
+
+        return $from;
+    }
+
+    protected function getToFromRequest(Request $request)
+    {
+        $to = null;
+        if ($request->query->get('to')) {
+            try {
+                $to = new \DateTime($request->query->get('to'));
+            } catch (\Exception $e) {}
+        }
+
+
+        if (!$to) {
+            $to = clone $this->getFromFromRequest($request);
+            $to->modify('+1 month');
+            $to->setTime(0, 0, 0);
+        }
+
+        return $to;
     }
 }

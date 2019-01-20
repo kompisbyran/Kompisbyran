@@ -362,4 +362,25 @@ class ConnectionRequestRepository extends EntityRepository
             ->execute()
             ;
     }
+
+    /**
+     * @param \DateTimeInterface $from
+     * @param \DateTimeInterface $to
+     *
+     * @return array
+     */
+    public function findConnectionRequestCountPerCity(\DateTimeInterface $from, \DateTimeInterface $to)
+    {
+        return $qb = $this->createQueryBuilder('cr')
+            ->select('c.name as cityName, SUM(CASE WHEN (cr.wantToLearn = 0) THEN 0 ELSE 1 END) AS leanerCount, SUM(CASE WHEN (cr.wantToLearn = 1) THEN 0 ELSE 1 END) AS fluentSpeakerCount')
+            ->leftJoin('cr.city' , 'c')
+            ->where('cr.createdAt between :from and :to')
+            ->setParameter('from', $from)
+            ->setParameter('to', $to)
+            ->groupBy('c.name')
+            ->orderBy('c.name')
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
 }

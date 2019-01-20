@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="inner-page">
+        <div class="container">
+            <h1>Skapade förfrågningar {{ from|date('Y-m-d') ~ ' – ' ~ to|date_modify("-1 day")|date('Y-m-d') }}</h1><br>
+
+            {{ render(controller('AppBundle:Admin/Statistics:yearMonthNav', {'route': 'admin_statistics_connection_request_count'})) }}
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Stad</th>
+                    <th>Ny svensk</th>
+                    <th>Etablerad</th>
+                    <th>Totalt</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in data %}
+                    <tr>
+                        <td>{{ row.cityName }}</td>
+                        <td>{{ row.leanerCount }}</td>
+                        <td>{{ row.fluentSpeakerCount }}</td>
+                        <td>{{ row.leanerCount + row.fluentSpeakerCount }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

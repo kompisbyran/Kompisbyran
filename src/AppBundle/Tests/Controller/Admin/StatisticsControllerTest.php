@@ -11,7 +11,7 @@ class StatisticsControllerTest extends DatabaseTestCase
     use AuthenticationExtensionTrait;
     use RepositoryExtensionTrait;
 
-    public function testShouldConfirmedMeetingsPage()
+    public function testShouldLoadConfirmedMeetingsPage()
     {
         $this->authenticateUser(
             $this->getUserRepository()->findOneBy(['email' => 'learner@example.com']),
@@ -20,6 +20,19 @@ class StatisticsControllerTest extends DatabaseTestCase
 
         $client = static::$client;
         $client->request('GET', '/admin/statistics/confirmed-meetings');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+    public function testShouldLoadConnectionRequestCountPage()
+    {
+        $this->authenticateUser(
+            $this->getUserRepository()->findOneBy(['email' => 'learner@example.com']),
+            ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN']
+        );
+
+        $client = static::$client;
+        $client->request('GET', '/admin/statistics/connection-request-count');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

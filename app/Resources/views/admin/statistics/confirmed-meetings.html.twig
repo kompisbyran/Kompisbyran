@@ -5,22 +5,7 @@
     <div class="container">
         <h1>Personuppgifter deltagare {{ from|date('Y-m-d') ~ ' – ' ~ to|date_modify("-1 day")|date('Y-m-d') }} ({{ connections|length }} stycken)</h1><br>
 
-        <ul class="nav nav-tabs">
-            {% for year in years %}
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    {{ year }} <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    {% for month in range(1, 12) %}
-                        {% set fromString = year ~ '-' ~ month ~ '-01' %}
-
-                    <li><a href="{{ path('admin_statistics_confirmed_meetings', {'from': fromString }) }}">{{ months[month] }}</a></li>
-                    {% endfor %}
-                </ul>
-            </li>
-            {% endfor %}
-        </ul>
+        {{ render(controller('AppBundle:Admin/Statistics:yearMonthNav', {'route': 'admin_statistics_confirmed_meetings'})) }}
 
         <table class="table table-bordered">
             <thead>
