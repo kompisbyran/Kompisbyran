@@ -23,6 +23,11 @@ class SearchConnection
     private $municipality;
 
     /**
+     * @var Municipality|null
+     */
+    private $learnerHomeMunicipality;
+
+    /**
      * @var \DateTime|null
      */
     private $from;
@@ -93,6 +98,22 @@ class SearchConnection
     public function setMunicipality($municipality)
     {
         $this->municipality = $municipality;
+    }
+
+    /**
+     * @return Municipality|null
+     */
+    public function getLearnerHomeMunicipality()
+    {
+        return $this->learnerHomeMunicipality;
+    }
+
+    /**
+     * @param Municipality|null $learnerHomeMunicipality
+     */
+    public function setLearnerHomeMunicipality($learnerHomeMunicipality)
+    {
+        $this->learnerHomeMunicipality = $learnerHomeMunicipality;
     }
 
     /**

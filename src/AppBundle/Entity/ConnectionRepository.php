@@ -135,6 +135,11 @@ class ConnectionRepository extends EntityRepository
                 ->andWhere('c.municipality = :municipality')
                 ->setParameter('municipality', $searchConnection->getMunicipality());
         }
+        if ($searchConnection->getLearnerHomeMunicipality()) {
+            $qb
+                ->andWhere('l.municipality = :learnerMunicipality')
+                ->setParameter('learnerMunicipality', $searchConnection->getLearnerHomeMunicipality());
+        }
         if ($searchConnection->getQ()) {
             $qb
                 ->andwhere("
