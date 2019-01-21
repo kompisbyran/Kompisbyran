@@ -22,7 +22,7 @@
             </div>
             <form class="form-horizontal" id="filter-form" action="{{ path('admin_match_results', {id: user.id}) }}" novalidate="novalidate" method="post">
             <div class="row match-filter-container" data-filters="">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
                         <div class="col-sm-3">
                             {{ form_label(form.category_id) }}
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
                         <div class="col-sm-3">
                             {{ form_label(form.has_children) }}
@@ -65,11 +65,11 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-3">
-                            {{ form_label(form.from) }}
+                            {{ form_label(form.from_country) }}
                         </div>
                         <div class="col-sm-9">
 
-                            {{ form_widget(form.from) }}
+                            {{ form_widget(form.from_country) }}
                         </div>
                     </div>
                     <div class="form-group">
@@ -78,16 +78,6 @@
                         </div>
                         <div class="col-sm-9">
                             {{ form_widget(form.municipality_id) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <div class="col-sm-3">
-                            {{ form_label(form.type) }}
-                        </div>
-                        <div class="col-sm-9">
-                            {{ form_widget(form.type) }}
                         </div>
                     </div>
                 </div>
