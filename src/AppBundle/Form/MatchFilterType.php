@@ -84,7 +84,7 @@ class MatchFilterType extends AbstractType
                     'yes'           => '1'
                 ]
             ])
-            ->add('from', 'choice', [
+            ->add('from_country', 'choice', [
                 'label'         => 'Country',
                 'choices'       => Countries::getList(),
                 'empty_data'    => '',
@@ -96,15 +96,6 @@ class MatchFilterType extends AbstractType
                 'label'         => 'Area',
                 'empty_data'    => '',
                 'empty_value'   => 'All'
-            ])
-            ->add('type', 'choice', [
-                'label' => 'Type',
-                'empty_value' => 'All',
-                'data' => $options['type'],
-                'choices' => [
-                    FriendTypes::FRIEND => 'user.form.fikatype.fikafriend',
-                    FriendTypes::MUSIC => 'user.form.fikatype.musicfriend',
-                ],
             ])
             ->add('q', 'text', [
                 'label' => 'Search'
