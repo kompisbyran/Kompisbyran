@@ -383,9 +383,9 @@ class ConnectionRepository extends EntityRepository
         $andX1 = $qb->expr()->andX();
         $andX2 = $qb->expr()->andX();
 
-        $andX1->add('c.learnerMarkedAsMetCreatedAt > c.fluentSpeakerMarkedAsMetCreatedAt');
+        $andX1->add('c.learnerMarkedAsMetCreatedAt >= c.fluentSpeakerMarkedAsMetCreatedAt');
         $andX1->add('c.learnerMarkedAsMetCreatedAt between :from and :to');
-        $andX2->add('c.fluentSpeakerMarkedAsMetCreatedAt > c.learnerMarkedAsMetCreatedAt');
+        $andX2->add('c.fluentSpeakerMarkedAsMetCreatedAt >= c.learnerMarkedAsMetCreatedAt');
         $andX2->add('c.fluentSpeakerMarkedAsMetCreatedAt between :from and :to');
         $orX->add($andX1);
         $orX->add($andX2);
