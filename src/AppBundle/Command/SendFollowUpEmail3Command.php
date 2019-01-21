@@ -49,6 +49,7 @@ class SendFollowUpEmail3Command extends ContainerAwareCommand
                         $connection->getFluentSpeaker(),
                         $connection
                     );
+                    sleep(2);
                 }
             }
             if ($connection->getLearnerMeetingStatus() == MeetingTypes::MET) {
@@ -58,6 +59,7 @@ class SendFollowUpEmail3Command extends ContainerAwareCommand
                         $connection->getLearner(),
                         $connection
                     );
+                    sleep(2);
                 }
             }
         }

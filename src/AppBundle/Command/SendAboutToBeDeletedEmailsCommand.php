@@ -43,12 +43,13 @@ class SendAboutToBeDeletedEmailsCommand extends ContainerAwareCommand
             sprintf('Sending emails to %s user(s) inactive since %s.', count($filteredUsers), $date->format('Y-m-d'))
         );
 
-        foreach ($filteredUsers as $user) {
-            $output->writeln(sprintf('Sending email to %s.', $user->getEmail()));
+        foreach ($filteredUsers as $i => $user) {
+            $output->writeln(sprintf('%s. Sending email to %s.', $i+1, $user->getEmail()));
             $this->getContainer()->get('app.user_mailer')->sendUserIsAboutToBeDeletedMessage($user);
             $user->setInactiveEmailSentAt(new \DateTime());
             $this->getContainer()->get('doctrine.orm.entity_manager')->persist($user);
             $this->getContainer()->get('doctrine.orm.entity_manager')->flush();
+            sleep(2);
         }
 
         return 0;

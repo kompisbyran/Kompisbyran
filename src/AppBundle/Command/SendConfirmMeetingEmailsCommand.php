@@ -54,6 +54,7 @@ class SendConfirmMeetingEmailsCommand extends ContainerAwareCommand
                         $connection->getFluentSpeaker(),
                         $connection
                     );
+                    sleep(2);
                 }
             }
             if (in_array($connection->getLearnerMeetingStatus(), $statuses)) {
@@ -63,6 +64,7 @@ class SendConfirmMeetingEmailsCommand extends ContainerAwareCommand
                         $connection->getLearner(),
                         $connection
                     );
+                    sleep(2);
                 }
             }
         }
