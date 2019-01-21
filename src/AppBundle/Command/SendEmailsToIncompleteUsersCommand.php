@@ -41,6 +41,7 @@ class SendEmailsToIncompleteUsersCommand extends ContainerAwareCommand
         foreach ($users as $user) {
             $output->writeln(sprintf('Sending email to %s', $user->getEmail()));
             $this->getContainer()->get('app.user_mailer')->sendIncompleteUserEmailMessage($user);
+            sleep(2);
         }
 
         return 0;

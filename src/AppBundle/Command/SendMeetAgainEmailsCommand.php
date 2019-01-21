@@ -44,6 +44,7 @@ class SendMeetAgainEmailsCommand extends ContainerAwareCommand
             if ($mostRecentConnectionRequest && $mostRecentConnectionRequest->getCreatedAt() < $createdAt) {
                 $output->writeln(sprintf('Sending email to %s.', $connection->getFluentSpeaker()->getEmail()));
                 $this->getContainer()->get('app.user_mailer')->sendMeetAgainMessage($connection);
+                sleep(2);
             }
         }
 
