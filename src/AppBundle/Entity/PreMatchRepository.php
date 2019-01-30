@@ -45,4 +45,20 @@ class PreMatchRepository extends EntityRepository
             ->execute()
             ;
     }
+
+    /**
+     * @param Municipality $municipality
+     *
+     * @return PreMatch[]
+     */
+    public function findByMunicipality(Municipality $municipality)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.municipality = :municipality')
+            ->setParameter('municipality', $municipality)
+            ->orderBy('p.id')
+            ->getQuery()
+            ->execute()
+            ;
+    }
 }

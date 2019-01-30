@@ -88,14 +88,6 @@
                                 <td>
                                 </td>
                                 <td rowspan="2" style="vertical-align: middle">
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                    <a
-                                        href="#"
-                                        class="btn btn-info verify-match"
-                                        data-pre-match-id="{{ preMatch.id }}"
-                                        data-verify="{{ preMatch.verified ? 'true' : 'false' }}"
-                                    >{{ preMatch.verified ? 'Godkänn inte förslag' : 'Godkänn förslag' }}</a><br><br>
-                                    {% endif %}
                                     <a
                                         href="{{ path('pre_match_confirm', {'municipalityId': municipality.id, 'preMatchId': preMatch.id}) }}"
                                         class="btn btn-primary confirm-match"
