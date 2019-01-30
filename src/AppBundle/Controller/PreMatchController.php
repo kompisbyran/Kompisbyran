@@ -34,6 +34,10 @@ class PreMatchController extends Controller
 
         $municipalities = $this->getUser()->getAdminMunicipalities();
 
+        foreach ($this->get('pre_match_repository')->findByMunicipality($municipality) as $preMatch) {
+            $this->getDoctrine()->getManager()->remove($preMatch);
+            $this->getDoctrine()->getManager()->flush();
+        };
         $this->get('manager.pre_match')->createMatches($municipality);
 
         if ($this->isGranted('ROLE_ADMIN') || $this->isGranted('ROLE_MUNICIPALITY_ADMIN')) {
