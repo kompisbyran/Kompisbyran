@@ -11,6 +11,7 @@
                         <th>Created at</th>
                         <th>Learner</th>
                         <th>Fluent speaker</th>
+                        <th>Familj</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,6 +25,15 @@
                             <td>
                                 {{ connection.fluentSpeaker.name }}
                                 <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#userModal" data-user="{{ connection.fluentSpeaker.id }}"><i class="fa fa-user fa-fw"></i>View user</button>
+                            </td>
+                            <td>
+                                {% if connection.learnerConnectionRequest and connection.fluentSpeakerConnectionRequest %}
+                                    {% if connection.learnerConnectionRequest.matchFamily and connection.fluentSpeakerConnectionRequest.matchFamily %}
+                                        Ja
+                                    {% else %}
+                                        Nej
+                                    {% endif %}
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}
