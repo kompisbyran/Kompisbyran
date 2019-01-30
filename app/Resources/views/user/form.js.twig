@@ -103,6 +103,7 @@ $(document).ready(function() {
             $('input[name$="[hasChildren]"]').eq(1).attr('checked', 'checked');
             $('#children-age-help').removeClass('hidden');
             $('#children-age-help').show();
+            $('input[name$="[hasChildren]"]').eq(0).trigger('change');
         } else {
             $('label[for="user_about"]').text(aboutLabel)
             $('#about-tooltip').removeClass('hidden');
