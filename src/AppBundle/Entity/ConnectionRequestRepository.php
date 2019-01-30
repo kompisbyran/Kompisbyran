@@ -4,10 +4,7 @@ namespace AppBundle\Entity;
 
 use AppBundle\Enum\FriendTypes;
 use Doctrine\ORM\EntityRepository;
-use AppBundle\Entity\User;
-use AppBundle\Entity\City;
-use AppBundle\Entity\ConnectionRequest;
-use Doctrine\ORM\NoResultException;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * Class ConnectionRequestRepository
@@ -262,18 +259,7 @@ class ConnectionRequestRepository extends EntityRepository
             ->addOrderBy('cr.createdAt', 'ASC')
         ;
 
-        if ($user->getCities()) {
-            $qb
-                ->andWhere('cr.city IS NULL OR cr.city IN (:cities)')
-                ->setParameter('cities', $user->getCities())
-            ;
-        }
-        if ($user->getAdminMunicipalities()) {
-            $qb
-                ->andWhere('cr.municipality IS NULL OR cr.municipality IN (:municipalities)')
-                ->setParameter('municipalities', $user->getAdminMunicipalities())
-            ;
-        }
+        $qb->andWhere($this->createCityAndMunicipalityOrExpr($qb, $user));
 
         return $qb->getQuery()->getResult();
     }
@@ -297,6 +283,13 @@ class ConnectionRequestRepository extends EntityRepository
             ->setParameter('inspected', $inspected)
         ;
 
+        $qb->andWhere($this->createCityAndMunicipalityOrExpr($qb, $user));
+
+        return $qb->getQuery()->getResult();
+    }
+
+    private function createCityAndMunicipalityOrExpr(QueryBuilder $qb, User $user)
+    {
         $orX = $qb->expr()->orX();
 
         if (count($user->getCities()) > 0) {
@@ -313,9 +306,8 @@ class ConnectionRequestRepository extends EntityRepository
                 ->setParameter('starttype', FriendTypes::START)
             ;
         }
-        $qb->andWhere($orX);
 
-        return $qb->getQuery()->getResult();
+        return $orX;
     }
 
     /**
