@@ -153,6 +153,7 @@
                         <th>Övare</th>
                         <th>Ort/kommun</th>
                         <th>Typ</th>
+                        <th>Familj</th>
                         <th>Skapad av</th>
                     </tr>
                 </thead>
@@ -194,6 +195,15 @@
                                 {{ connection.municipality ? connection.municipality.name : '' }}
                             </td>
                             <td>{{ connection.type }}</td>
+                            <td>
+                                {% if connection.learnerConnectionRequest and connection.fluentSpeakerConnectionRequest %}
+                                    {% if connection.learnerConnectionRequest.matchFamily and connection.fluentSpeakerConnectionRequest.matchFamily %}
+                                        Ja
+                                    {% else %}
+                                        Nej
+                                    {% endif %}
+                                {% endif %}
+                            </td>
                             <td>{{ connection.createdBy.name }}</td>
                         </tr>
                     </tbody>
