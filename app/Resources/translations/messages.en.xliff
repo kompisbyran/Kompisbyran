@@ -367,7 +367,7 @@
             </trans-unit>
             <trans-unit id="user.form.about.family">
                 <source>user.form.about.family</source>
-                <target>Berätta om dig och din familj.</target>
+                <target>Tell us about yourself and your family.</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
@@ -376,7 +376,9 @@
             </trans-unit>
             <trans-unit id="user.form.about.family.help">
                 <source>user.form.about.family.help</source>
-                <target>Du anmäler dig som representant för din familj. Vi matchar er främst efter att barnen ska vara i nära åldrar, men vi tittar även på sådant som dina intressen, sysselsättning etc.</target>
+                <target>You sign up as a representative for your family. We match you mainly based on your children being in similar 
+			ages, but we also have the availability to check for other things to connect you, such as your interests, 
+			occupation, etc.</target>
             </trans-unit>
             <trans-unit id="user.form.from">
                 <source>user.form.from</source>
@@ -454,7 +456,7 @@
             </trans-unit>
             <trans-unit id="user.form.children_age.help">
                 <source>user.form.children_age.help</source>
-                <target>Om du har flera barn, skriv tydligt vilket/vilka som ska följa med till mötet.</target>
+                <target>If you have more than one child, please state clearly which (one or more) of the children you are bringing along to the meeting. </target>
             </trans-unit>
             <trans-unit id="user.form.time_in_sweden">
                 <source>user.form.time_in_sweden</source>
@@ -654,15 +656,15 @@
             </trans-unit>
             <trans-unit id="connection_request.form.match.family">
                 <source>connection_request.form.match.family</source>
-                <target>Vill du bli matchad tillsammans med din familj för att träffa en annan barnfamilj?</target>
+                <target>Do you want to be matched along with your family to meet another family with young children?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.match.family.yes">
                 <source>connection_request.form.match.family.yes</source>
-                <target>Vi är en barnfamilj som vill träffa en annan barnfamilj</target>
+                <target>We are a family with children who would like to meet another family with children</target>
             </trans-unit>
             <trans-unit id="connection_request.form.match.family.no">
                 <source>connection_request.form.match.family.no</source>
-                <target>Jag vill anmäla mig själv för att träffa en kompis</target>
+                <target>I want to sign up by myself to meet a new friend</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
