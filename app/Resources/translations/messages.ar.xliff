@@ -231,7 +231,7 @@
             </trans-unit>
             <trans-unit id="register.musicfriend.video1">
                 <source>register.musicfriend.video1</source>
-                <target>Naim Kassis, 45-årig pianist från Aleppo i Syrien, kom till Sverige för ett drygt år sedan och hamnade på ett asylboende i norra Sverige, där han under året har gett ett flertal konserter. En kall vinterdag träffades han och Sabina Ddumba, och tillsammans spelade de en version av Sabinas ”Not too young”, vilket lockade hela förläggningen att ta del av mötet.</target>
+			<target>Naim Kassis, 45-årig pianist från Aleppo i Syrien, kom till Sverige för ett drygt år sedan och hamnade på ett asylboende i norra Sverige, där han under året har gett ett flertal konserter. En kall vinterdag träffades han och Sabina Ddumba, och tillsammans spelade de en version av Sabinas ”Not too young”, vilket lockade hela förläggningen att ta del av mötet.</target>
             </trans-unit>
             <trans-unit id="register.musicfriend.video2">
                 <source>register.musicfriend.video2</source>
@@ -350,7 +350,7 @@
             </trans-unit>
             <trans-unit id="user.form.about.family">
                 <source>user.form.about.family</source>
-                <target>Berätta om dig och din familj.</target>
+                <target>الرجاء إخبارنا عنك و عن عائلتك</target>
             </trans-unit>
             <trans-unit id="user.form.about.help">
                 <source>user.form.about.help</source>
@@ -444,7 +444,7 @@
             </trans-unit>
             <trans-unit id="user.form.children_age.help">
                 <source>user.form.children_age.help</source>
-                <target>Om du har flera barn, skriv tydligt vilket/vilka som ska följa med till mötet.</target>
+                <target>إذا كان لديك أكثر من طفل , الرجاء ذكر أي طفل أو الأطفال الذين سوف يتواجدون في اللقاء.</target>
             </trans-unit>
             <trans-unit id="user.form.time_in_sweden">
                 <source>user.form.time_in_sweden</source>
@@ -646,15 +646,15 @@
             </trans-unit>
             <trans-unit id="connection_request.form.match.family">
                 <source>connection_request.form.match.family</source>
-                <target>Vill du bli matchad tillsammans med din familj för att träffa en annan barnfamilj?</target>
+                <target>هل تريد أن يتم جمعك سوياً مع عائلتك لمقابلة عائلة أخرى مع أطفالها?</target>
             </trans-unit>
             <trans-unit id="connection_request.form.match.family.yes">
                 <source>connection_request.form.match.family.yes</source>
-                <target>Vi är en barnfamilj som vill träffa en annan barnfamilj</target>
+                <target>نحن عائلة تريد التعرف على عائلة أخرى</target>
             </trans-unit>
             <trans-unit id="connection_request.form.match.family.no">
                 <source>connection_request.form.match.family.no</source>
-                <target>Jag vill anmäla mig själv för att träffa en kompis</target>
+                <target>أنا أريد التسجيل فرديا للتعرف صديق جديد</target>
             </trans-unit>
             <trans-unit id="connection_request.form.button">
                 <source>connection_request.form.button</source>
@@ -735,7 +735,9 @@
                             عند التسجيل في صفحتنا الرئيسية وعند التقدم بطلب للحصول على مطابقة صديق، فإنك توافق على معالجة كومبيسبيرون للبيانات الشخصية الخاصة بك للأغراض المذكورة.
                         </li>
                         <li>
-                            Additional terms if you apply to meet new friends with Kompisbyrån in Danderyd: Kompisbyrån Danderyd is being realized in cooperation with the municipality of Danderyd and the non-profit organization “Alla Tillsammans i Danderyd”. By accepting the terms and conditions for Kompisbyrån you also confirm that personnel from the municipality of Danderyd and members from “Alla Tillsammans i Danderyd” are allowed to contact you through e-mail or by phone with information related to your application.
+                         شروط إضافية إذا قمت بتقديم طلب لمقابلة صديق جديد عن طريق كومبس بيرون في دانديريد:
+كومبس بيرون دانديريد هو مشروع تعاون مع بلدية دانديريد و المنظمة الغير ربحية ”كلنا سوياً في دانديريد”.   من خلال الموافقة على شروط كومبس بيرون , أنت أيضاً تقوم بالموافقتة على أن الأشخاص الموكلين من بلدية دانديريد و منظمة ”كلنا معاً في دانديريد” يسمح لهم بالتواصل معك عن طريق الإيميل الإلتكروني أو عن طريق الإتصال الهاتفي فيما يتعلق بالطلب الخاص بك.
+
                         </li>
                         <p>
                             <strong>Privacy policy</strong>
