@@ -117,6 +117,7 @@ class ConnectionRequestRepository extends EntityRepository
             ->andWhere('u.type = :type')
             ->andWhere('fsc.id IS NULL')
             ->andWhere('lc.id IS NULL')
+            ->andWhere('u.enabled = true')
             ->setParameters([
                 'city'          => $city,
                 'wantToLearn'   => $wantToLearn,
