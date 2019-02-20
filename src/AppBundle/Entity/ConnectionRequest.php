@@ -39,19 +39,6 @@ class ConnectionRequest
     /**
      * @var City
      *
-     * Expression uses user type since type is not copied to connection request on time of validation
-     * @Assert\Expression(
-     *     "this.getUser().getType() == 'start' || this.getCity() != null",
-     *     message="Du måste välja stad",
-     *     groups={"newConnectionRequest", "registration"}
-     * )
-     *
-     * @Assert\Expression(
-     *     "this.getType() == 'start' || this.getCity() != null",
-     *     message="Du måste välja stad",
-     *     groups={"Default"}
-     * )
-     *
      * @ORM\ManyToOne(targetEntity="City", inversedBy="connectionRequests")
      * @ORM\JoinColumn(nullable=true)
      */
@@ -59,19 +46,6 @@ class ConnectionRequest
 
     /**
      * @var Municipality
-     *
-     * Expression uses user type since type is not copied to connection request on time of validation
-     * @Assert\Expression(
-     *     "this.getUser().getType() != 'start' || this.getMunicipality() != null",
-     *     message="Du måste välja kommun",
-     *     groups={"newConnectionRequest", "registration"}
-     * )
-     *
-     * @Assert\Expression(
-     *     "this.getType() != 'start' || this.getMunicipality() != null",
-     *     message="Du måste välja kommun",
-     *     groups={"Default"}
-     * )
      *
      * @Assert\Expression(
      *     "this.getUser().getType() != 'start' || this.getMunicipality() == this.getUser().getMunicipality()",
