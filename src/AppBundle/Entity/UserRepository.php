@@ -279,7 +279,7 @@ class UserRepository extends EntityRepository
 
         $filteredUsers = [];
         foreach ($users as $user) {
-            if ($user->hasOpenConnectionRequest() && $user->getOpenConnectionRequest()->getPending()) {
+            if ($user->hasOpenConnectionRequest() && !$user->getOpenConnectionRequest()->getInspected()) {
                 continue;
             }
 
