@@ -47,6 +47,7 @@ class ConnectionRequestRepository extends EntityRepository
             ->andWhere('cr.disqualified = false')
             ->andWhere('fsc.id IS NULL')
             ->andWhere('lc.id IS NULL')
+            ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult()
             ;
