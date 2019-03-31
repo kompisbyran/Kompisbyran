@@ -35,3 +35,6 @@ parameters:
 
     instagram.userid: 111
     instagram.access_token: xxx
+
+    google.tag_manager.id: ~
+    google.tag_manager.conversion: ~
