@@ -42,6 +42,8 @@ twig:
     globals:
         facebook_client_id: %facebook.client_id%
         facebook_pixel_id: %facebook.pixel_id%
+        google_tag_manager_id: %google.tag_manager.id%
+        google_tag_manager_conversion: %google.tag_manager.conversion%
 
 # Assetic Configuration
 assetic:

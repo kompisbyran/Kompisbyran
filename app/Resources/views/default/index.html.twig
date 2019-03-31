@@ -25,6 +25,16 @@
     {% endif %}
 {% endblock %}
 
+{% block googleTrack %}
+    {% if newUser is defined and newUser%}
+        function gtag_report_conversion(url) {
+            var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+            gtag('event', 'conversion', { 'send_to': '{{ google_tag_manager_id }}/{{ google_tag_manager_conversion }}', 'event_callback': callback });
+            return false;
+        }
+    {% endif %}
+{% endblock %}
+
 {% block body %}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div class="inner-page">
