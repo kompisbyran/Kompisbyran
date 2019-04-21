@@ -285,6 +285,13 @@ class User extends BaseUser
     protected $newlyArrived = false;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean")
+     */
+    protected $atArbetsformedlingen = false;
+
+    /**
      * @var string
      *
      * @IdentityNumberAssert\IdentityNumber(allowCoordinationNumber=true, groups={"settings"})
@@ -1074,5 +1081,21 @@ class User extends BaseUser
     public function setInactiveEmailSentAt($inactiveEmailSentAt)
     {
         $this->inactiveEmailSentAt = $inactiveEmailSentAt;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAtArbetsformedlingen()
+    {
+        return $this->atArbetsformedlingen;
+    }
+
+    /**
+     * @param bool $atArbetsformedlingen
+     */
+    public function setAtArbetsformedlingen($atArbetsformedlingen)
+    {
+        $this->atArbetsformedlingen = $atArbetsformedlingen;
     }
 }

@@ -164,6 +164,15 @@ class UserType extends AbstractType
                 ],
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isNewlyArrived() : null,
             ])
+            ->add('atArbetsformedlingen',  'boolean_choice', [
+                'expanded' => true,
+                'label' => 'user.form.at_arbetsformedlingen',
+                'choices' => [
+                    'no',
+                    'yes',
+                ],
+                'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isAtArbetsformedlingen() : null,
+            ])
             ->add('identityNumber', 'text', [
                 'label' => 'user.form.identity_number',
                 'required' => false,

@@ -514,6 +514,10 @@
                 <source>user.form.identity_number.help</source>
                 <target>نحن نحتاج الى هذا الرقم للحصول على التمويل الحكومي فقط و ليس لاستعماله لأي أغراض أخرى. يمكنك القراءة عن ذلك في شروط Kompisbyrån %linkStart%الشروط%linkEnd%.</target>
             </trans-unit>
+            <trans-unit id="user.form.at_arbetsformedlingen">
+                <source>user.form.at_arbetsformedlingen</source>
+                <target>Är du, eller har du varit, inskriven på Arbetsförmedlingen senaste året?</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>حفظ</target>

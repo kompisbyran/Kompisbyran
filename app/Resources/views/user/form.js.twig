@@ -48,11 +48,15 @@ $(document).ready(function() {
             $('#newlyArrived').removeClass('hidden');
             $('#identityNumber').show();
             $('#identityNumber').removeClass('hidden');
+            $('#atArbetsformedlingen').show();
+            $('#atArbetsformedlingen').removeClass('hidden');
         } else {
             $('#newlyArrived').hide();
             $('#user_newlyArrived').val('');
             $('#identityNumber').hide();
             $('#user_identityNumber').val('');
+            $('#atArbetsformedlingen').hide();
+            $('#user_atArbetsformedlingen').val('');
         }
     });
     $('input[name$="[wantToLearn]"]').eq(0).trigger('change');
