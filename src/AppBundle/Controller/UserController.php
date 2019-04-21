@@ -66,6 +66,9 @@ class UserController extends Controller
             if (is_null($user->isNewlyArrived())) {
                 $user->setNewlyArrived(false);
             }
+            if (is_null($user->isAtArbetsformedlingen())) {
+                $user->setAtArbetsformedlingen(false);
+            }
 
             $em->persist($user);
             if ($form->has('newConnectionRequest')) {

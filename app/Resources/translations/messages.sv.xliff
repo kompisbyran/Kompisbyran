@@ -515,6 +515,10 @@
                 <source>user.form.identity_number.help</source>
                 <target>Vi behöver detta för att få statliga bidrag och använder eller delar det inte i något annat syfte. Läs mer om detta i Kompisbyråns %linkStart%villkor%linkEnd%.</target>
             </trans-unit>
+            <trans-unit id="user.form.at_arbetsformedlingen">
+                <source>user.form.at_arbetsformedlingen</source>
+                <target>Är du, eller har du varit, inskriven på Arbetsförmedlingen senaste året?</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>Spara</target>

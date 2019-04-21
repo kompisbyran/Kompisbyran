@@ -105,6 +105,12 @@
     <p>{{ 'user.form.identity_number.help'|trans({'%linkStart%': '<a href="' ~ path('terms') ~ '">', '%linkEnd%': '</a>'})|raw }}</p>
 </div>
 
+<div class="form-group" id="atArbetsformedlingen">
+    {{ form_label(form.atArbetsformedlingen) }}
+    {{ form_widget(form.atArbetsformedlingen) }}
+    {{ form_errors(form.atArbetsformedlingen) }}
+</div>
+
 <div class="form-group">
     {{ form_label(form.from) }}
     <div class="row">

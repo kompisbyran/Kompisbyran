@@ -526,6 +526,10 @@
                 <source>user.form.identity_number.help</source>
                 <target>We need this to get government fundings and doesn't use or share it in other purposes. Read more in Kompisbyrån's %linkStart%terms%linkEnd%.</target>
             </trans-unit>
+            <trans-unit id="user.form.at_arbetsformedlingen">
+                <source>user.form.at_arbetsformedlingen</source>
+                <target>Är du, eller har du varit, inskriven på Arbetsförmedlingen senaste året?</target>
+            </trans-unit>
             <trans-unit id="user.form.button">
                 <source>user.form.button</source>
                 <target>Send application</target>
