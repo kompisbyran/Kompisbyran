@@ -7,8 +7,7 @@
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
     "require": {
-        "php": "7.0.* || 7.1.*",
-        "symfony/symfony": "~2.7",
+        "symfony/symfony": "2.7.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
@@ -31,7 +30,9 @@
         "aws/aws-sdk-php": "~2.7",
         "knplabs/knp-gaufrette-bundle": "^0.4.0",
         "jongotlin/identity-number-bundle": "^1.0",
-        "ramsey/uuid": "^3.7"
+        "ramsey/uuid": "^3.7",
+        "twig/twig": "1.*",
+        "ocramius/package-versions": "1.4.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

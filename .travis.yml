@@ -1,8 +1,8 @@
 language: php
-
+services:
+  - mysql
 php:
-  - 7.0
-  - 7.1
+  - 7.2
 
 sudo: false
 
@@ -16,6 +16,10 @@ before_script:
 
 script:
   - vendor/phpunit/phpunit/phpunit -c app
+
+before_install:
+  - sudo cp $TRAVIS_BUILD_DIR/_travis/my.cnf /etc/mysql/conf.d/
+  - sudo service mysql restart
 
 notifications:
   email:
