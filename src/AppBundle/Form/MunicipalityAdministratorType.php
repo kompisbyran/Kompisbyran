@@ -2,7 +2,11 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -12,14 +16,14 @@ class MunicipalityAdministratorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'email', ['label' => 'E-postadress'])
-            ->add('plainPassword', 'password', ['label' => 'Lösenord'])
-            ->add('firstName', 'text', ['label' => 'Förnamn'])
-            ->add('lastName', 'text', ['label' => 'Efternamn'])
-            ->add('adminMunicipalities', 'entity', [
+            ->add('email', EmailType::class, ['label' => 'E-postadress'])
+            ->add('plainPassword', PasswordType::class, ['label' => 'Lösenord'])
+            ->add('firstName', TextType::class, ['label' => 'Förnamn'])
+            ->add('lastName', TextType::class, ['label' => 'Efternamn'])
+            ->add('adminMunicipalities', EntityType::class, [
                     'multiple' => true,
                     'class' => 'AppBundle:Municipality',
-                    'property' => 'name',
+                    'choice_label' => 'name',
                     'label' => 'Kommun',
                 ]
             )

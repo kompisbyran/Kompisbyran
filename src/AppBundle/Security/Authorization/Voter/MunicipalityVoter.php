@@ -2,43 +2,28 @@
 
 namespace AppBundle\Security\Authorization\Voter;
 
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\Municipality;
-use AppBundle\Entity\User;
-use Symfony\Component\Security\Core\Authorization\Voter\AbstractVoter;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class MunicipalityVoter extends AbstractVoter
+class MunicipalityVoter extends Voter
 {
     const ADMIN_VIEW = 'municipality.admin_view';
 
-    /**
-     * @return array
-     */
-    protected function getSupportedAttributes()
+    protected function supports($attribute, $subject)
     {
-        return [
-            self::ADMIN_VIEW,
-        ];
+        return $subject instanceof Municipality && in_array($attribute, [
+                self::ADMIN_VIEW,
+            ]);
     }
 
-    /**
-     * @return array
-     */
-    protected function getSupportedClasses()
+    protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
     {
-        return [
-            Municipality::class
-        ];
-    }
+        $user = $token->getUser();
+        $municipality = $subject;
 
-    /**
-     * @param string $attribute
-     * @param object $municipality
-     * @param User $user
-     * @return bool
-     */
-    protected function isGranted($attribute, $municipality, $user = null)
-    {
         if (!$user instanceof UserInterface) {
             return false;
         }

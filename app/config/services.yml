@@ -1,6 +1,6 @@
 services:
 
-    form.type.registration:
+    app.form.registration:
         class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
@@ -13,7 +13,7 @@ services:
     success_handler:
         class: AppBundle\Security\SuccessHandler
         arguments:
-            - @router
+            - '@router'
 
     twig.app_extension:
         class: AppBundle\Twig\AppExtension
@@ -44,26 +44,26 @@ services:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
-            - [ setAnnotationReader, [ @annotation_reader ] ]
-            - [ setDefaultLocale, [ %locale% ] ]
+            - [ setAnnotationReader, [ '@annotation_reader' ] ]
+            - [ setDefaultLocale, [ '%locale%' ] ]
             - [ setTranslationFallback, [ true ] ]
 
     app.user_mailer:
         class: AppBundle\Mailer\UserMailer
         arguments:
-            - @mailer
-            - @router
-            - @templating
-            - @translator
-            - @event_dispatcher
+            - '@mailer'
+            - '@router'
+            - '@templating'
+            - '@translator'
+            - '@event_dispatcher'
             - '%days_to_accept_keep_inactive_user_before_deletion%'
 
     app.mailer:
         class: AppBundle\Mailer\Mailer
         arguments:
-            - @mailer
-            - @router
-            - @templating
+            - '@mailer'
+            - '@router'
+            - '@templating'
 
     app.form.boolean_choice:
         class: AppBundle\Form\ChoiceTypeBoolean
@@ -105,24 +105,22 @@ services:
 
     s3.client:
         class: Aws\S3\S3Client
-        factory_class: Aws\S3\S3Client
-        factory_method: 'factory'
+        factory: [Aws\S3\S3Client, factory]
         arguments:
             -
-                key: %amazon_s3.key%
-                secret: %amazon_s3.secret%
-                region: %amazon_s3.region%
+                credentials: { key: '%amazon_s3.key%', secret: '%amazon_s3.secret%' }
+                region: '%amazon_s3.region%'
 
     s3.adapter:
         class: Gaufrette\Adapter\AwsS3
         arguments:
-            service: @s3.client
-            bucket_name: %amazon_s3.bucket%
+            - '@s3.client'
+            - '%amazon_s3.bucket%'
 
     s3.file_system:
         class: Gaufrette\Filesystem
         arguments:
-            adapter: @s3.adapter
+            - '@s3.adapter'
 
     newly_arrived_date:
         class: AppBundle\Service\NewlyArrivedDate
@@ -141,3 +139,8 @@ services:
         tags:
             - { name: kernel.event_listener, event: follow_up_email2_sent, method: whenEmailIsSent }
 
+    AppBundle\DataFixtures\ORM\LoadData:
+        class: AppBundle\DataFixtures\ORM\LoadData
+        autowire: true
+        tags:
+            - { name: doctrine.fixture.orm }

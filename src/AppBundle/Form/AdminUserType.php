@@ -5,8 +5,11 @@ namespace AppBundle\Form;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\RoleTypes;
 use AppBundle\Security\Authorization\Voter\UserVoter;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use JMS\DiExtraBundle\Annotation\FormType;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
@@ -20,12 +23,12 @@ class AdminUserType extends UserType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('internalComment', 'textarea', [
+            ->add('internalComment', TextareaType::class, [
                 'label' => 'Intern kommentar',
                 'required' => false,
             ])
-            ->add('email', 'email')
-            ->add('type', 'choice', [
+            ->add('email', EmailType::class)
+            ->add('type', ChoiceType::class, [
                 'label' => 'user.form.fikatype',
                 'choices' => FriendTypes::listActiveTypesWithTranslationKeys(),
             ])
@@ -35,7 +38,7 @@ class AdminUserType extends UserType
         /** @var AuthorizationCheckerInterface $authorizationChecker */
         $authorizationChecker = $options['authorization_checker'];
         if ($authorizationChecker->isGranted(UserVoter::CHANGE_ROLES, $builder->getData())) {
-            $builder->add('roles', 'choice', [
+            $builder->add('roles', ChoiceType::class, [
                 'label' => 'Roller',
                 'required' => false,
                 'multiple' => true,
@@ -44,14 +47,18 @@ class AdminUserType extends UserType
             ]);
         }
     }
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setRequired([
             'authorization_checker',
+            'manager',
+            'locale',
+            'translator',
+            'newly_arrived_date',
+            'authorization_checker',
         ]);
 
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
     }
 
 

@@ -4,48 +4,32 @@ namespace AppBundle\Security\Authorization\Voter;
 
 use JMS\DiExtraBundle\Annotation\Service;
 use JMS\DiExtraBundle\Annotation\Tag;
-use Symfony\Component\Security\Core\Authorization\Voter\AbstractVoter;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use AppBundle\Entity\ConnectionRequest;
+use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 /**
  * @Service("connection_request_voter", public=false)
  * @Tag("security.voter")
  */
-class ConnectionRequestVoter extends AbstractVoter
+class ConnectionRequestVoter extends Voter
 {
     const VIEW = 'view';
     const EDIT = 'edit';
 
-    /**
-     * @return array
-     */
-    protected function getSupportedAttributes()
+    protected function supports($attribute, $subject)
     {
-        return [
-            self::VIEW,
-            self::EDIT
-        ];
+        return $subject instanceof ConnectionRequest && in_array($attribute, [
+                self::VIEW,
+                self::EDIT
+            ]);
     }
 
-    /**
-     * @return array
-     */
-    protected function getSupportedClasses()
+    protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
     {
-        return [
-            'AppBundle\Entity\ConnectionRequest'
-        ];
-    }
-
-    /**
-     * @param string $attribute
-     * @param object $connectionRequest
-     * @param null $user
-     * @return bool
-     */
-    protected function isGranted($attribute, $connectionRequest, $user = null)
-    {
+        $user = $token->getUser();
+        $connectionRequest = $subject;
         if (!$user instanceof UserInterface) {
             return false;
         }
@@ -58,12 +42,12 @@ class ConnectionRequestVoter extends AbstractVoter
                 if ($user->hasAccessToCity($connectionRequest->getCity()) && !$connectionRequest->getPending()) {
                     return true;
                 }
-            break;
+                break;
             case self::EDIT:
                 if ($user->hasAccessToCity($connectionRequest->getCity())) {
                     return true;
                 }
-            break;
+                break;
         }
 
         return false;

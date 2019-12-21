@@ -5,8 +5,13 @@ namespace AppBundle\Form;
 use AppBundle\Enum\FriendTypes;
 use JMS\DiExtraBundle\Annotation\FormType;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\AbstractType;
 use AppBundle\Enum\Countries;
@@ -50,66 +55,63 @@ class MatchFilterType extends AbstractType
     {
         $age = range(18, 100);
         $builder
-            ->add('category_id', 'entity', [
+            ->add('category_id', EntityType::class, [
                 'class'         => 'AppBundle:Category',
-                'property'      => 'name',
+                'choice_label'      => 'name',
                 'label'         => 'Interests',
                 'empty_data'    => '',
-                'empty_value'   => 'All',
+                'placeholder'   => 'All',
                 'choices'       => $this->categoryManager->getFindAllByLocale($this->requestStack->getCurrentRequest()->getLocale())
             ])
-            ->add('ageFrom', 'choice', [
+            ->add('ageFrom', ChoiceType::class, [
                 'label'         => 'Age',
                 'data'          => 18,
                 'choices'       => array_combine($age, $age)
             ])
-            ->add('ageTo', 'choice', [
+            ->add('ageTo', ChoiceType::class, [
                 'label'         => 'Age to',
                 'data'          => 100,
                 'choices'       => array_combine($age, $age)
             ])
-            ->add('gender', 'choice', [
+            ->add('gender', ChoiceType::class, [
                 'label'         => 'Gender',
                 'choices'       => User::getGenders(),
                 'empty_data'    => '',
-                'empty_value'   => 'All'
+                'placeholder'   => 'All'
             ])
-            ->add('has_children', 'boolean_choice', [
+            ->add('has_children', ChoiceTypeBoolean::class, [
                 'label'             => 'Children',
                 'choices_as_values' => true,
                 'empty_data'        => '',
-                'empty_value'       => 'Doesn\'t matter',
+                'placeholder'       => 'Doesn\'t matter',
                 'choices'           => [
                     'no'            => '0',
                     'yes'           => '1'
                 ]
             ])
-            ->add('from_country', 'choice', [
+            ->add('from_country', ChoiceType::class, [
                 'label'         => 'Country',
                 'choices'       => Countries::getList(),
                 'empty_data'    => '',
-                'empty_value'   => 'All'
+                'placeholder'   => 'All'
             ])
-            ->add('municipality_id', 'entity', [
+            ->add('municipality_id', EntityType::class, [
                 'class'         => 'AppBundle:Municipality',
-                'property'      => 'name',
+                'choice_label'      => 'name',
                 'label'         => 'Area',
                 'empty_data'    => '',
-                'empty_value'   => 'All'
+                'placeholder'   => 'All'
             ])
-            ->add('q', 'text', [
+            ->add('q', TextType::class, [
                 'label' => 'Search'
             ])
-            ->add('city_id', 'hidden', [
+            ->add('city_id', HiddenType::class, [
                 'data' => $options['city_id']
             ])
         ;
     }
 
-    /**
-     * @param OptionsResolverInterface $resolver
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'mapped' => false

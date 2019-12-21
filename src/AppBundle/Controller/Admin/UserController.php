@@ -45,7 +45,7 @@ class UserController extends Controller
     public function viewAction(Request $request, User $user)
     {
         $form = $this->createForm(
-            new AdminUserType(),
+            AdminUserType::class,
             $user,
             [
                 'manager' => $this->getDoctrine()->getManager(),
@@ -70,7 +70,7 @@ class UserController extends Controller
         $connectionRequestForm = null;
         if ($user->hasOpenConnectionRequest()) {
             $connectionRequest = $user->getOpenConnectionRequest();
-            $connectionRequestForm = $this->createForm(new ConnectionRequestType(), $connectionRequest);
+            $connectionRequestForm = $this->createForm(ConnectionRequestType::class, $connectionRequest);
             $connectionRequestForm->handleRequest($request);
 
             if ($connectionRequestForm->isSubmitted() && $connectionRequestForm->isValid()) {
@@ -112,7 +112,7 @@ class UserController extends Controller
     {
         $user = new User();
         $user->setType(FriendTypes::START);
-        $form = $this->createForm(new MunicipalityAdministratorType(), $user);
+        $form = $this->createForm(MunicipalityAdministratorType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

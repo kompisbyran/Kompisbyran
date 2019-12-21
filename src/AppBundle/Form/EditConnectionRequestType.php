@@ -2,8 +2,9 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EditConnectionRequestType extends ConnectionRequestType
 {
@@ -12,12 +13,12 @@ class EditConnectionRequestType extends ConnectionRequestType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('wantToLearn', 'choice', [
+            ->add('wantToLearn', ChoiceType::class, [
                 'expanded' => true,
                 'label' => 'user.form.want_to_learn',
                 'choices' => [
-                    true => 'user.form.want_to_learn.choice.learn',
-                    false => 'user.form.want_to_learn.choice.teach',
+                    'user.form.want_to_learn.choice.learn' => true,
+                    'user.form.want_to_learn.choice.teach' => false,
                 ],
                 'choice_value' => function ($currentChoiceKey) {
                     return $currentChoiceKey ? 'true' : 'false';
@@ -26,9 +27,10 @@ class EditConnectionRequestType extends ConnectionRequestType
         ;
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
     }
 
     public function getName()
