@@ -49,6 +49,10 @@ class SendConfirmMeetingEmailsCommand extends ContainerAwareCommand
             $output->writeln(sprintf('Sending for connection created %s', $connection->getCreatedAt()->format('Y-m-d H:i:s')));
             if (in_array($connection->getFluentSpeakerMeetingStatus(), $statuses)) {
                 if ($connection->getFluentSpeakerMeetingStatusEmailsCount() == $previousMailsCount) {
+                    if (!$connection->getFluentSpeaker()->isEnabled()) {
+                        $output->writeln(sprintf('<error> - %s is not enabled</error>', $connection->getFluentSpeaker()->getEmail()));
+                        continue;
+                    }
                     $output->writeln(sprintf(' - %s', $connection->getFluentSpeaker()->getEmail()));
                     $this->getContainer()->get('app.user_mailer')->sendConfirmMeetingMessage(
                         $connection->getFluentSpeaker(),
@@ -59,6 +63,10 @@ class SendConfirmMeetingEmailsCommand extends ContainerAwareCommand
             }
             if (in_array($connection->getLearnerMeetingStatus(), $statuses)) {
                 if ($connection->getLearnerMeetingStatusEmailsCount() == $previousMailsCount) {
+                    if (!$connection->getLearner()->isEnabled()) {
+                        $output->writeln(sprintf('<error> - %s is not enabled</error>', $connection->getLearner()->getEmail()));
+                        continue;
+                    }
                     $output->writeln(sprintf(' - %s', $connection->getLearner()->getEmail()));
                     $this->getContainer()->get('app.user_mailer')->sendConfirmMeetingMessage(
                         $connection->getLearner(),
