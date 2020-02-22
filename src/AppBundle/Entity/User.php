@@ -498,12 +498,27 @@ class User extends BaseUser
     {
         $connectionRequest = null;
         foreach ($this->connectionRequests as $loopedConnectionRequest) {
-            if ($connectionRequest == null || $loopedConnectionRequest->getCreatedAt() > $loopedConnectionRequest->getCreatedAt()) {
+            if ($connectionRequest == null || $loopedConnectionRequest->getCreatedAt() > $connectionRequest->getCreatedAt()) {
                 $connectionRequest = $loopedConnectionRequest;
             }
         }
 
         return $connectionRequest;
+    }
+
+    /**
+     * @return Connection|null
+     */
+    public function getMostRecentConnection()
+    {
+        $connection = null;
+        foreach ($this->getConnections() as $loopedConnection) {
+            if ($connection == null || $loopedConnection->getCreatedAt() > $connection->getCreatedAt()) {
+                $connection = $loopedConnection;
+            }
+        }
+
+        return $connection;
     }
 
     /**
