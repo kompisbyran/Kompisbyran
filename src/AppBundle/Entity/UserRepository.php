@@ -282,6 +282,9 @@ class UserRepository extends EntityRepository
             if ($user->hasOpenConnectionRequest() && !$user->getOpenConnectionRequest()->getInspected()) {
                 continue;
             }
+            if ($user->getMostRecentConnection() && $user->getMostRecentConnection() > $date) {
+                continue;
+            }
 
             $filteredUsers[] = $user;
         }
