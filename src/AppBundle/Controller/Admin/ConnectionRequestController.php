@@ -58,7 +58,7 @@ class ConnectionRequestController extends Controller
      */
     public function viewAction(Request $request, ConnectionRequest $connectionRequest)
     {
-        $form = $this->createForm(new EditConnectionRequestType(), $connectionRequest);
+        $form = $this->createForm(EditConnectionRequestType::class, $connectionRequest);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -43,7 +43,7 @@ $(document).ready(function() {
     $('input[name$="[hasChildren]"]').eq(0).trigger('change');
 
     $('input[name$="[wantToLearn]"]').change(function() {
-        if ($('input[name$="[wantToLearn]"]:checked').val() == '0') {
+        if ($('input[name$="[wantToLearn]"]:checked').val() == '1') {
             $('#newlyArrived').show();
             $('#newlyArrived').removeClass('hidden');
             $('#identityNumber').show();

@@ -23,7 +23,7 @@ class ConnectionController extends Controller
     public function indexAction(Request $request)
     {
         $searchConnection = new SearchConnection();
-        $form = $this->createForm(new SearchConnectionType(), $searchConnection);
+        $form = $this->createForm(SearchConnectionType::class, $searchConnection);
         $form->handleRequest($request);
 
         $queryBuilder = $this->getConnectionRepository()
@@ -48,7 +48,7 @@ class ConnectionController extends Controller
      */
     public function viewAction(Connection $connection, Request $request)
     {
-        $form = $this->createForm(new EditConnectionType(), $connection);
+        $form = $this->createForm(EditConnectionType::class, $connection);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->persist($connection);

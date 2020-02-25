@@ -3,6 +3,8 @@
 namespace AppBundle\Controller\Admin2;
 
 use AppBundle\Enum\FriendTypes;
+use AppBundle\Form\MatchFilterType;
+use AppBundle\Form\MatchType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use JMS\DiExtraBundle\Annotation\Inject;
@@ -91,12 +93,12 @@ class MatchController extends Controller
             throw $this->createNotFoundException();
         }
 
-        $form = $this->formFactory->create('match_filter', null, [
+        $form = $this->formFactory->create(MatchFilterType::class, null, [
             'type' => $userRequest->getType(),
             'city_id' => $userRequest->getCity()->getId(),
         ]);
 
-        $matchForm  = $this->formFactory->create('match', null, [
+        $matchForm  = $this->formFactory->create(MatchType::class, null, [
             'user' => $user
         ]);
 

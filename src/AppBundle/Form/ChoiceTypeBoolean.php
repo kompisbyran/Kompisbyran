@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use AppBundle\Form\DataTransformer\BooleanModelTransformer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -34,6 +35,6 @@ class ChoiceTypeBoolean extends AbstractType
      */
     public function getParent()
     {
-        return 'choice';
+        return ChoiceType::class;
     }
 }

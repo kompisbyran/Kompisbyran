@@ -36,9 +36,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    form:
-        resources: ['bootstrap_3_layout.html.twig']
-        # resources: ['bootstrap_3_horizontal_layout.html.twig']
+    form_themes:
+        - 'bootstrap_3_layout.html.twig'
     globals:
         facebook_client_id: %facebook.client_id%
         facebook_pixel_id: %facebook.pixel_id%
@@ -92,11 +91,15 @@ swiftmailer:
 
 fos_user:
     db_driver: orm
-    firewall_name: secure_area
+    firewall_name: main
     user_class: AppBundle\Entity\User
+    from_email:
+        address: 'info@kompisbyran.se'
+        sender_name: 'Kompisbyrån'
+
     registration:
         form:
-            type: app_user_registration
+            type: AppBundle\Form\RegistrationType
 
 jms_di_extra:
     locations:
@@ -120,4 +123,4 @@ dizda_cloud_backup:
             database: %database_name%
 
 jgi_deadmanssnitch:
-    url: %deadmanssnitch_url%
+    url: '%deadmanssnitch_url%'

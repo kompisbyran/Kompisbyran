@@ -22,7 +22,6 @@ class UserControllerTest extends DatabaseTestCase
         $client = static::$client;
         $users = $this->getUserRepository()->findAll();
         $client->request('GET', '/admin/users/' . $users[0]->getId());
-
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 

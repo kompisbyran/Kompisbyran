@@ -7,12 +7,19 @@ use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Entity\User;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\OccupationTypes;
+use Entity\Category;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\ArrayChoiceList;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Enum\Countries;
 use Symfony\Component\Validator\Constraints\IsTrue;
 
@@ -40,9 +47,9 @@ class UserType extends AbstractType
         $user = $builder->getData();
 
         $builder
-            ->add('firstName', 'text', ['label' => 'user.form.first_name'])
-            ->add('lastName', 'text', ['label' => 'user.form.last_name'])
-            ->add('wantToLearn', 'boolean_choice', [
+            ->add('firstName', TextType::class, ['label' => 'user.form.first_name'])
+            ->add('lastName', TextType::class, ['label' => 'user.form.last_name'])
+            ->add('wantToLearn', ChoiceTypeBoolean::class, [
                 'expanded' => true,
                 'label' => 'user.form.want_to_learn',
                 'choices' => [
@@ -52,135 +59,133 @@ class UserType extends AbstractType
                 'choices_as_values' => true,
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->getWantToLearn() : null,
             ])
-            ->add('categories', 'entity', [
+            ->add('categories', EntityType::class, [
                     'class' => 'AppBundle:Category',
                     'multiple' => true,
                     'expanded' => true,
-                    'choice_list' => new ArrayChoiceList($categories),
-                    'property' => 'name',
+                    'choices' => $categories,
+                    'choice_label' => 'name',
                     'label' => 'user.form.categories',
                     'label_attr' => [
                         'class' => 'checkbox-inline',
                     ]
                 ]
             )
-            ->add('age', 'choice', [
+            ->add('age', ChoiceType::class, [
                 'label' => 'user.form.age',
                 'empty_data'  => null,
                 'required'    => false,
                 'choices' => array_combine(range(18, 100), range(18, 100)),
             ])
-            ->add('gender', 'choice', [
+            ->add('gender', ChoiceType::class, [
                 'expanded' => true,
                 'label' => 'user.form.gender',
                 'choices' => [
-                    'M' => 'user.form.gender.m',
-                    'F' => 'user.form.gender.f',
-                    'X' => 'user.form.gender.x',
+                    'user.form.gender.m' => 'M',
+                    'user.form.gender.f' => 'F',
+                    'user.form.gender.x' => 'X',
                 ]
             ])
-            ->add('about', 'textarea', ['label' => 'user.form.about'])
-            ->add('from', 'choice', [
+            ->add('about', TextareaType::class, ['label' => 'user.form.about'])
+            ->add('from', ChoiceType::class, [
                 'label' => 'user.form.from',
-                'choices' => Countries::getList(),
+                'choices' => array_flip(Countries::getList()),
                 'empty_data' => null,
-                'empty_value' => ''
             ])
-            ->add('hasChildren', 'boolean_choice', [
+            ->add('hasChildren', ChoiceTypeBoolean::class, [
                 'expanded' => true,
                 'label' => 'user.form.has_children',
                 'choices' => [
-                    'no',
-                    'yes',
+                    'no' => 0,
+                    'yes' => 1,
                 ],
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->hasChildren() : null,
             ])
-            ->add('profilePicture', 'hidden')
-            ->add('municipality', 'entity', [
+            ->add('profilePicture', HiddenType::class)
+            ->add('municipality', EntityType::class, [
                     'class' => 'AppBundle:Municipality',
-                    'property' => 'name',
+                    'choice_label' => 'name',
                     'empty_data'  => null,
                     'required' => false,
                     'label' => 'user.form.municipality',
                 ]
             )
-            ->add('city', 'entity', [
+            ->add('city', EntityType::class, [
                     'class' => City::class,
-                    'property' => 'name',
-                    'empty_data'  => null,
+                    'choice_label' => 'name',
                     'required' => false,
                     'label' => 'user.form.city',
                 ]
             )
-            ->add('occupation', 'choice', [
+            ->add('occupation', ChoiceType::class, [
                 'label' => 'user.form.occupation',
-                'choices' => OccupationTypes::listTypesWithTranslationKeys(),
+                'choices' => array_flip(OccupationTypes::listTypesWithTranslationKeys()),
                 'empty_data' => null,
                 'required' => false
             ])
-            ->add('occupationDescription', 'textarea', [
+            ->add('occupationDescription', TextareaType::class, [
                 'label_attr' => ['id' => 'occupationDescriptionLabel'],
                 'required' => false,
             ])
-            ->add('education', 'boolean_choice', [
+            ->add('education', ChoiceTypeBoolean::class, [
                 'expanded' => true,
                 'label' => 'user.form.has_education',
                 'choices' => [
-                    'no',
-                    'yes'
+                    'no' => 0,
+                    'yes' => 1,
                 ],
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->hasEducation() : null,
             ])
-            ->add('educationDescription', 'textarea', [
+            ->add('educationDescription', TextareaType::class, [
                 'label' => 'user.form.education_description',
                 'required' => false,
             ])
-            ->add('timeInSweden', 'text', [
+            ->add('timeInSweden', TextType::class, [
                 'label' => 'user.form.time_in_sweden',
             ])
-            ->add('childrenAge', 'textarea', [
+            ->add('childrenAge', TextareaType::class, [
                 'label' => 'user.form.children_age',
                 'required' => false,
             ])
-            ->add('phoneNumber', 'text', [
+            ->add('phoneNumber', TextType::class, [
                 'label' => 'user.form.phone_number',
                 'required' => false,
                 'attr' => ['placeholder' => '0701234567'],
             ])
-            ->add('termsAccepted', 'checkbox', [
+            ->add('termsAccepted', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => $constraint,
                 'validation_groups' => ['registration', 'Default']
             ])
-            ->add('newlyArrived',  'boolean_choice', [
+            ->add('newlyArrived',  ChoiceTypeBoolean::class, [
                 'expanded' => true,
                 'label' => 'user.form.newly_arrived',
                 'choices' => [
-                    'user.form.newly_arrived.no',
+                    'user.form.newly_arrived.no' => 0,
                     $options['translator']->trans('user.form.newly_arrived.yes', [
                         '%month%' => $options['translator']->trans('month.' . $options['newly_arrived_date']->getDate()->format('n'), [], 'months'),
                         '%year%' => $options['newly_arrived_date']->getDate()->format('Y'),
-                    ]),
+                    ]) => 1,
                 ],
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isNewlyArrived() : null,
             ])
-            ->add('atArbetsformedlingen',  'boolean_choice', [
+            ->add('atArbetsformedlingen',  ChoiceTypeBoolean::class, [
                 'expanded' => true,
                 'label' => 'user.form.at_arbetsformedlingen',
                 'choices' => [
-                    'no',
-                    'yes',
+                    'no' => 0,
+                    'yes' => 1,
                 ],
                 'data' => $user->hasRole('ROLE_COMPLETE_USER') ? $user->isAtArbetsformedlingen() : null,
             ])
-            ->add('identityNumber', 'text', [
+            ->add('identityNumber', TextType::class, [
                 'label' => 'user.form.identity_number',
                 'required' => false,
             ])
         ;
 
         if (!$user->hasRole('ROLE_COMPLETE_USER') || $options['add_connection_request']) {
-            $builder->add('newConnectionRequest', 'connection_request', [
+            $builder->add('newConnectionRequest', ConnectionRequestType::class, [
                 'remove_type' => true,
                 'remove_want_to_learn' => true,
                 'remove_municipality' => true,
@@ -205,7 +210,7 @@ class UserType extends AbstractType
         }
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\User',

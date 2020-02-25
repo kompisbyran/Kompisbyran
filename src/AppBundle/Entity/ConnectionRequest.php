@@ -457,6 +457,6 @@ class ConnectionRequest
      */
     public function setMatchFamily($matchFamily)
     {
-        $this->matchFamily = $matchFamily;
+        $this->matchFamily = (bool)$matchFamily;
     }
 }

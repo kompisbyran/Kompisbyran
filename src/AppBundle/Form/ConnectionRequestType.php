@@ -2,15 +2,18 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\ConnectionRequest;
 use AppBundle\Enum\FriendTypes;
 use AppBundle\Enum\MatchingProfileRequestTypes;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use JMS\DiExtraBundle\Annotation\FormType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @FormType
@@ -20,18 +23,17 @@ class ConnectionRequestType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('city', 'entity', [
+            ->add('city', EntityType::class, [
                     'label' => 'connection_request.form.city',
                     'class' => 'AppBundle:City',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('c')->orderBy('c.name', 'ASC');
                     },
-                    'property' => 'name',
-                    'empty_value' => '',
+                    'choice_label' => 'name',
                     'required' => false,
                 ]
             )
-            ->add('municipality', 'entity', [
+            ->add('municipality', EntityType::class, [
                     'label' => 'connection_request.form.municipality',
                     'class' => 'AppBundle:Municipality',
                     'query_builder' => function(EntityRepository $er) {
@@ -39,12 +41,11 @@ class ConnectionRequestType extends AbstractType
                             ->where('m.activeStartMunicipality = true')
                             ->orderBy('m.name', 'ASC');
                     },
-                    'property' => 'name',
-                    'empty_value' => '',
+                    'choice_label' => 'name',
                     'required' => false,
                 ]
             )
-            ->add('type', 'choice', [
+            ->add('type', ChoiceType::class, [
                 'label' => 'Typ',
                 'choices' => [
                     'user.form.fikatype.fikafriend' => FriendTypes::FRIEND,
@@ -52,14 +53,14 @@ class ConnectionRequestType extends AbstractType
                 ],
                 'choices_as_values' => true,
             ])
-            ->add('matchingProfileRequestType', 'choice', [
+            ->add('matchingProfileRequestType', ChoiceType::class, [
                 'label' => 'connection_request.form.matching_profile_request_type',
-                'empty_data' => null,
-                'empty_value' => 'connection_request.form.matching_profile_request_type.empty_value',
+                //'empty_data' => null,
+                'placeholder' => 'connection_request.form.matching_profile_request_type.empty_value',
                 'required' => false,
-                'choices' => MatchingProfileRequestTypes::listTypesWithTranslationKeys(),
+                'choices' => array_flip(MatchingProfileRequestTypes::listTypesWithTranslationKeys()),
             ])
-            ->add('wantToLearn', 'boolean_choice', [
+            ->add('wantToLearn', ChoiceTypeBoolean::class, [
                 'expanded' => true,
                 'label' => 'user.form.want_to_learn',
                 'choices' => [
@@ -68,7 +69,7 @@ class ConnectionRequestType extends AbstractType
                 ],
                 'choices_as_values' => true,
             ])
-            ->add('matchFamily', 'boolean_choice', [
+            ->add('matchFamily', ChoiceTypeBoolean::class, [
                 'expanded' => true,
                 'label' => 'connection_request.form.match.family',
                 'choices' => [
@@ -101,10 +102,10 @@ class ConnectionRequestType extends AbstractType
         }
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\ConnectionRequest',
+            'data_class' => ConnectionRequest::class,
             'remove_type' => false,
             'remove_want_to_learn' => false,
             'remove_municipality' => false,
@@ -112,7 +113,7 @@ class ConnectionRequestType extends AbstractType
         ]);
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'connection_request';
     }

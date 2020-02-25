@@ -1,56 +1,48 @@
 services:
     connection_repository:
         class: AppBundle\Entity\ConnectionRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle:Connection
 
     connection_request_repository:
         class: AppBundle\Entity\ConnectionRequestRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle:ConnectionRequest
 
     user_repository:
         class: AppBundle\Entity\UserRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle:User
 
     category_repository:
         class: AppBundle\Entity\CategoryRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle:Category
 
     city_repository:
         class: AppBundle\Entity\CityRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle:City
 
     pre_match_repository:
         class: AppBundle\Entity\PreMatchRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle:PreMatch
 
     municipality_repository:
         class: AppBundle\Entity\MunicipalityRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle:Municipality
 
     instagram_image_repository:
         class: AppBundle\Entity\InstagramImageRepository
-        factory_service: doctrine.orm.default_entity_manager
-        factory_method: getRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle:InstagramImage

@@ -30,7 +30,7 @@ class UserController extends Controller
         }
 
         $form = $this->createForm(
-            new UserType(),
+            UserType::class,
             $user,
             [
                 'validation_groups' => $validationGroups,
@@ -51,7 +51,7 @@ class UserController extends Controller
             if (false === $this->get('security.authorization_checker')->isGranted('ROLE_COMPLETE_USER')) {
                 $user->addRole('ROLE_COMPLETE_USER');
                 $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
-                $this->getSecurityContext()->setToken($token);
+                $this->get('security.token_storage')->setToken($token);
                 if (!$user->hasRole('ROLE_MUNICIPALITY')) {
                     $this->addFlash(
                         'info',
@@ -107,11 +107,4 @@ class UserController extends Controller
         return new Response();
     }
 
-        /**
-     * @return \Symfony\Component\Security\Core\SecurityContext
-     */
-    protected function getSecurityContext()
-    {
-        return $this->get('security.context');
-    }
 }

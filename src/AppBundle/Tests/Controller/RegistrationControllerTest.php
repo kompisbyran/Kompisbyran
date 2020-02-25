@@ -69,8 +69,8 @@ class RegistrationControllerTest extends DatabaseTestCase
         $form = $crawler->filter('form[name=user]')->form([
             'user[firstName]' => 'John',
             'user[lastName]' => 'Doe',
-            'user[wantToLearn]' => 1,
-            'user[categories]' => [0,1,2],
+            'user[wantToLearn]' => 0,
+            'user[categories]' => [1, 2, 3],
             'user[age]' => '35',
             'user[gender]' => 'M',
             'user[about]' => 'About me asdf asdf asdf asdf ',

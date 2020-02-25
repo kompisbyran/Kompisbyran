@@ -25,7 +25,7 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             $form = $this->createForm(
-                new UserType(),
+                UserType::class,
                 $user,
                 [
                     'validation_groups' => ['settings', 'newConnectionRequest'],
