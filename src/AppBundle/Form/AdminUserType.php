@@ -43,7 +43,7 @@ class AdminUserType extends UserType
                 'required' => false,
                 'multiple' => true,
                 'expanded' => true,
-                'choices' => RoleTypes::listTypesWithTranslationKeys(),
+                'choices' => array_flip(RoleTypes::listTypesWithTranslationKeys()),
             ]);
         }
     }
