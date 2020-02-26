@@ -40,7 +40,7 @@ final class FriendTypes
      *
      * @return string
      */
-    public static function tranlsationKey($type)
+    public static function translationKey($type)
     {
         return self::listTypesWithTranslationKeys()[$type];
     }
