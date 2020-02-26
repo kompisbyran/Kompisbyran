@@ -73,8 +73,8 @@ class ConnectionRequestType extends AbstractType
                 'expanded' => true,
                 'label' => 'connection_request.form.match.family',
                 'choices' => [
-                    'connection_request.form.match.family.no',
-                    'connection_request.form.match.family.yes',
+                    'connection_request.form.match.family.no' => '0',
+                    'connection_request.form.match.family.yes' => '1',
                 ],
             ])
 
