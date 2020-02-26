@@ -155,7 +155,7 @@ class AppExtension extends \Twig_Extension
      */
     public function occupation($occupationType)
     {
-        return $this->translator->trans(OccupationTypes::tranlsationKey($occupationType));
+        return $this->translator->trans(OccupationTypes::translationKey($occupationType));
     }
 
     /**

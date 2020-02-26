@@ -24,12 +24,12 @@ class EditConnectionType extends AbstractType
             ->add('learnerMeetingStatus', ChoiceType::class, [
                 'expanded' => true,
                 'label' => 'Nyanländ mötesstatus',
-                'choices' => array_keys(MeetingTypes::listTypesWithTranslationKeys()),
+                'choices' => array_flip(MeetingTypes::listTypesWithTranslationKeys()),
             ])
             ->add('fluentSpeakerMeetingStatus', ChoiceType::class, [
                 'expanded' => true,
                 'label' => 'Etablerads mötesstatus',
-                'choices' => array_keys(MeetingTypes::listTypesWithTranslationKeys()),
+                'choices' => array_flip(MeetingTypes::listTypesWithTranslationKeys()),
             ])
         ;
     }
