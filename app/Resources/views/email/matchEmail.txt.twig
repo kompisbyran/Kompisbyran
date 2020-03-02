@@ -1,5 +1,4 @@
 {% set musicFriend = request.type == constant('AppBundle\\Enum\\FriendTypes::MUSIC') %}
-(This message will follow in English)
 
 Hej {{ user.fullName }}!
 
@@ -15,41 +14,11 @@ Vi rekommenderar att ni byter telefonnummer och skickar en sms-påminnelse dagen
 
 2. Ni träffas! Ni träffas på ett kafé eller annat offentligt ställe i cirka 1 timme. Försök att inte ha höga förväntningar utan ta det som det kommer. Kom i tid! De tråkiga träffarna är när någon inte dyker upp på utsatt tid.
 
-Ladda gärna ner vår mobilapp "Kompisbyrån", en samtalsguide framtagen för er som kompisfikar. Appen kan ni använda för att komma igång med samtalet, eller helt enkelt för att det är roligt. 
-
-3. Om ni vill, ta gärna ett foto från ert möte och skriv några rader om vad ni gjorde och hur det var (med bådas samtycke). Maila hälsningen till oss så delar vi den gärna digitalt för att inspirera fler till att vara med. Eller hashtagga själv med #kompisbyrån eller #kompisbyran. Ni kan även använda Kompisbyrån-appen för att skicka er fikahälsning till oss.
+3. Om ni vill, ta gärna ett foto eller video från ert möte och skriv några rader om vad ni gjorde och hur det var (med bådas samtycke). Maila hälsningen till oss så delar vi den gärna digitalt för att inspirera fler till att vara med. Eller hashtagga själv med #nyakompisbyrån eller #nyakompisbyran.
 
 Du är alltid välkommen att höra av dig till oss om något inte blev som du tänkt dig.
 
 Vi önskar er ett trevligt möte!
 
 Bästa hälsningar
-Vännerna på Kompisbyrån
-
-
---------- English version ---------
-
-Hello {{ user.fullName }}!
-
-We have now found a good match for you. The person you will meet is {{ matchUser.fullName }} and both of you like {{ user_matched_categories(matchUser, user) }}. So now you know what topics you can start the conversation with on your first fika meeting. {{ matchUser.fullName }} is {{ matchUser.age }} years old, lives in {{ matchUser.municipality.name }} and is from {{ matchUser.countryName }}. {{ matchUser.fullName }} would like to meet you in {{ request.city.name }}.
-
-The email adress to {{ matchUser.fullName }} is: {{ matchUser.email }}. We have also sent your email adress to {{ matchUser.fullName }}.
-
-Please follow the steps below:
-
-1. Decide a date. You send an email to {{ matchUser.fullName }} within 3 days, and decide date, time and place. Write in Swedish or English (some find Google Translate to be a good tool). It is the responsibility of both that you establish contact. Remember to respect each other, not responding an email will affect the other person who has been looking forward to a meeting. Contact us if you don’t get answer.
-
-We recommend that you exchange telephone numbers and send a text message as a reminder the day before your meeting, that the other person confirm.
-
-2. Meeting. You meet at a café or other public place for about 1 hour. Try not to have high expectations but take it as it comes. Be on time! The dull meetings are when someone doesn’t show up on time.
-
-If you like to, download our app "Kompisbyrån", a conversation guide for your fika meetings. You can use the app to start off the conversation, or simply because it's fun. 
-
-3. The stories from your meetings are always so inspiring. If you want, take a photo during your meeting and tell us more about what you did and how it was (with approval from both of you). If you send it to us we will share it digitally. Or feel free to hashtag #kompisbyrån or #kompisbyran. You can also send us your pictures and stories through the app "Kompisbyrån".
-
-You are always welcome to contact us if anything was not what you expected.
-
-We wish you a nice meeting!
-
-Best regards,
-Your friends at Kompisbyrån
+Vännerna på Nya Kompisbyrån
