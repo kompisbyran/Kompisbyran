@@ -72,14 +72,14 @@ class SearchConnectionType extends AbstractType
                 'required' => false,
                 'label' => 'Mötesstatus',
                 'choices' => [
-                    ConnectionMeetingVariantTypes::ONE_MARKED_AS_MET => 'Endast en har markerat som träffats',
-                    ConnectionMeetingVariantTypes::BOTH_MARKED_AS_MET => 'Båda har markerat som träffats',
+                    'Endast en har markerat som träffats' => ConnectionMeetingVariantTypes::ONE_MARKED_AS_MET,
+                    'Båda har markerat som träffats' => ConnectionMeetingVariantTypes::BOTH_MARKED_AS_MET,
                 ]
             ])
             ->add('type', ChoiceType::class, [
                 'required' => false,
                 'label' => 'Typ',
-                'choices' => FriendTypes::listTypesWithTranslationKeys(),
+                'choices' => array_flip(FriendTypes::listTypesWithTranslationKeys()),
             ])
         ;
     }
