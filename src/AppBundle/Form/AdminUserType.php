@@ -30,7 +30,7 @@ class AdminUserType extends UserType
             ->add('email', EmailType::class)
             ->add('type', ChoiceType::class, [
                 'label' => 'user.form.fikatype',
-                'choices' => FriendTypes::listActiveTypesWithTranslationKeys(),
+                'choices' => array_flip(FriendTypes::listActiveTypesWithTranslationKeys()),
             ])
             ->remove('termsAccepted')
         ;
